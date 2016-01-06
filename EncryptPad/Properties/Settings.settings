@@ -1,0 +1,57 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="EncryptPad.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TopPosition" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="LeftPosition" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="RichTextFont" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Consolas</Value>
+    </Setting>
+    <Setting Name="RichForeColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">228, 228, 228</Value>
+    </Setting>
+    <Setting Name="FormWidth" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">687</Value>
+    </Setting>
+    <Setting Name="FormHeight" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">428</Value>
+    </Setting>
+    <Setting Name="RichBackColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">56, 56, 56</Value>
+    </Setting>
+    <Setting Name="MenuWrap" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="RichWrap" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="RichTextSize" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">11</Value>
+    </Setting>
+    <Setting Name="HighlightsColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">101, 51, 6</Value>
+    </Setting>
+    <Setting Name="AssociateCheck" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="HashAlgorithm" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SHA1</Value>
+    </Setting>
+    <Setting Name="KeySize" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">192</Value>
+    </Setting>
+    <Setting Name="TheSalt" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="PasswordIterations" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="FirstLaunch" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
