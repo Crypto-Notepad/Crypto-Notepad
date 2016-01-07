@@ -108,6 +108,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutFrom.Designer.cs">
+      <DependentUpon>AboutFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="AES.cs" />
     <Compile Include="CustomRichTextBox.cs">
       <SubType>Component</SubType>
@@ -137,6 +143,9 @@
     <Compile Include="SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AboutFrom.resx">
+      <DependentUpon>AboutFrom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
