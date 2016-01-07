@@ -47,10 +47,10 @@
     <Setting Name="TheSalt" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="PasswordIterations" Type="System.Int32" Scope="User">
+    <Setting Name="PasswordIterations" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2</Value>
     </Setting>
-    <Setting Name="FirstLaunch" Type="System.Boolean" Scope="User">
+    <Setting Name="FirstLaunch" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
