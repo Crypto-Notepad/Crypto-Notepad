@@ -541,9 +541,8 @@ namespace EncryptPad
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBoxCenter.PrepToCenterMessageBoxOnForm(this);
-            MessageBox.Show("EncryptPad v0.1 \nBuilt on MVSC 2015\nDeveloped by Sigmanor", "",
-                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            AboutFrom a = new AboutFrom();
+            a.ShowDialog(this);
         }
 
         private void выделитьВсеToolStripMenuItem1_Click(object sender, EventArgs e)
