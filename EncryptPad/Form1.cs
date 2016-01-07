@@ -553,7 +553,8 @@ namespace EncryptPad
 
         private void changeKeyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+            ChangeKeyForm c = new ChangeKeyForm();
+            c.ShowDialog(this);
         }
 
         public int FindMyTextNext(string text, int start)
@@ -660,6 +661,19 @@ namespace EncryptPad
         private void documentationToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void сервисToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
+        {
+            if(filename == "Unnamed.enp")
+            {
+                changeKeyToolStripMenuItem.Enabled = false;
+            }
+
+            if (filename != "Unnamed.enp")
+            {
+                changeKeyToolStripMenuItem.Enabled = true;
+            }
         }
     }
 }
