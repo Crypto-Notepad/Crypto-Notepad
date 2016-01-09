@@ -5,7 +5,7 @@ namespace EncryptPad
 {
     public partial class Form2 : Form
     {
-        public static bool formClosing = false;
+        public static bool OkPressed = false;
         public Form2()
         {
             InitializeComponent();
@@ -16,6 +16,7 @@ namespace EncryptPad
             MainWindow.key = textBox1.Text;
             textBox1.Focus();
             textBox1.Text = "";
+            OkPressed = true;
             this.Hide();
         }
 
@@ -48,6 +49,22 @@ namespace EncryptPad
                 textBox1.UseSystemPasswordChar = true;
                 return;
             }
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+
+        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            textBox1.Focus();
+            textBox1.Text = "";
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

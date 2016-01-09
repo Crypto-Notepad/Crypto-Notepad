@@ -17,6 +17,8 @@ namespace EncryptPad
         static extern int SendMessage(IntPtr hWnd, uint wMsg, UIntPtr wParam, IntPtr lParam);
         public static string filename = "Unnamed.enp";
         public static string key = "";
+        public static bool keyChanged = false;
+        public static bool settingsChanged = false;
         public static int textSave = 0;
         public static string[] args = Environment.GetCommandLineArgs();
         Properties.Settings ps = Properties.Settings.Default;
@@ -38,9 +40,11 @@ namespace EncryptPad
                     if (ps.FirstLaunch == false)
                     {
                         DialogResult res = new DialogResult();
-                        MessageBoxCenter.PrepToCenterMessageBoxOnForm(this);
-                        res = MessageBox.Show("Get The Salt from mac address? (You can edit it by himself in Settings)", "The Salt",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        using (new CenterWinDialog(this))
+                        {
+                            res = MessageBox.Show("Get The Salt from mac address? (You can edit it by himself in Settings)", "The Salt",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        }
 
                         if (res == DialogResult.Yes)
                         {
@@ -57,18 +61,19 @@ namespace EncryptPad
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {          
             int Cikil = 0;
+            Form2 f2 = new Form2();
             try
             {
                 if (OpenFile.ShowDialog() != DialogResult.OK) return;
                 {
                     string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-                    string opnfile = File.ReadAllText(OpenFile.FileName);
-                    Form2 f2 = new Form2();
+                    string opnfile = File.ReadAllText(OpenFile.FileName);                
                     f2.ShowDialog();
-                    if (Form2.formClosing == true)
+                    if (Form2.OkPressed == false)
                     {
                         return;
                     }
+                    Form2.OkPressed = false;
 
                     string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
 
@@ -89,31 +94,39 @@ namespace EncryptPad
                 {
                     Cikil = 0;
 
-                    MessageBoxCenter.PrepToCenterMessageBoxOnForm(this);
-                    DialogResult dialogResult = MessageBox.Show("Wrong key!", "", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                    if (dialogResult == DialogResult.Retry)
+                    using (new CenterWinDialog(this))
                     {
-                        Form2 Form2 = new Form2();
-                        Form2.ShowDialog();
-                        try
+                        DialogResult dialogResult = MessageBox.Show("Wrong key!", "", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                        if (dialogResult == DialogResult.Retry)
                         {
-                            string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+                            f2.ShowDialog();
+                            if (Form2.OkPressed == false)
+                            {
+                                return;
+                            }
+                            Form2.OkPressed = false;
 
-                            customRTB.Text = de;
-                            toolStripStatusLabel1.Text = NameWithotPath;
-                            toolStripStatusLabel1.ToolTipText = (OpenFile.FileName);
+                            try
+                            {
+                                string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+
+                                customRTB.Text = de;
+                                toolStripStatusLabel1.Text = NameWithotPath;
+                                toolStripStatusLabel1.ToolTipText = (OpenFile.FileName);
+                            }
+                            catch
+                            {
+                                Cikil = 1;
+                            }
+
+
                         }
-                        catch
+
+                        if (dialogResult == DialogResult.Cancel)
                         {
-                            Cikil = 1;
+                            toolStripStatusLabel1.Text = "Ready";
                         }
                     }
-
-                    if (dialogResult == DialogResult.Cancel)
-                    {
-                        toolStripStatusLabel1.Text = "Ready";
-                    }
-
                 } while (Cikil == 1);
 
                 filename = OpenFile.FileName;
@@ -139,10 +152,11 @@ namespace EncryptPad
                 string NameWithotPath = Path.GetFileName(args[1]);
                 string opnfile = File.ReadAllText(args[1]);
                 Form2.ShowDialog();
-                if (Form2.formClosing == true)
+                if (Form2.OkPressed == false)
                 {
                     return;
                 }
+                Form2.OkPressed = false;
                 string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
 
                 customRTB.Text = de;
@@ -160,7 +174,14 @@ namespace EncryptPad
                 DialogResult dialogResult = MessageBox.Show("Wrong key!", "", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 if (dialogResult == DialogResult.Retry)
                 {
+                    Form2.OkPressed = false;
                     Form2.ShowDialog();
+                    if (Form2.OkPressed == false)
+                    {
+                        return;
+                    }
+                    Form2.OkPressed = false;
+
                     try
                     {
                         string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
@@ -190,16 +211,29 @@ namespace EncryptPad
 
         private void новыйToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            customRTB.Clear();
-            Form2 Form2 = new Form2();
-            Form2.ShowDialog();
-            if (SaveFile.ShowDialog() != DialogResult.OK) return;
-            StreamWriter sw = new StreamWriter(SaveFile.FileName);
-            string NameWithotPath = Path.GetFileName(SaveFile.FileName);
-            toolStripStatusLabel1.Text =  NameWithotPath;
-            toolStripStatusLabel1.ToolTipText = (SaveFile.FileName);
-            filename = SaveFile.FileName;
-            sw.Close();
+            Form2 f2 = new Form2();
+            f2.ShowDialog();
+
+            if (Form2.OkPressed == false)
+            {
+                return;
+            }
+
+            if (Form2.OkPressed == true)
+            {
+                Form2.OkPressed = false;
+                if (SaveFile.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                customRTB.Clear();
+                StreamWriter sw = new StreamWriter(SaveFile.FileName);
+                string NameWithotPath = Path.GetFileName(SaveFile.FileName);
+                toolStripStatusLabel1.Text = NameWithotPath;
+                toolStripStatusLabel1.ToolTipText = (SaveFile.FileName);
+                filename = SaveFile.FileName;
+                sw.Close();
+            }
         }
 
         private async void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -252,8 +286,9 @@ namespace EncryptPad
                 if (customRTB.Text != "")
                 {
                     DialogResult res = new DialogResult();
-                    MessageBoxCenter.PrepToCenterMessageBoxOnForm(this);
-                    res = MessageBox.Show("Save changes in:\n" + filename + " ?",
+                    using (new CenterWinDialog(this))
+                    {
+                        res = MessageBox.Show("Save changes in:\n" + filename + " ?",
                                                      "",
                                                      MessageBoxButtons.YesNoCancel,
                                                      MessageBoxIcon.Question);
@@ -273,25 +308,25 @@ namespace EncryptPad
                     }
 
                     try
-                    {        
-                    if (res == DialogResult.No)
                     {
+                        if (res == DialogResult.No)
+                        {
 
-                        Environment.Exit(0);
-                    }
+                            Environment.Exit(0);
+                        }
 
-                    if (res == DialogResult.Cancel)
-                    {
+                        if (res == DialogResult.Cancel)
+                        {
 
-                        e.Cancel = true;
-                    }
+                            e.Cancel = true;
+                        }
 
                     }
                     catch (Exception)
                     {
 
                     }
-
+                }
                 }
             }
         }
@@ -426,18 +461,22 @@ namespace EncryptPad
         {
             if (filename != "Unnamed.enp")
             {
-                MessageBoxCenter.PrepToCenterMessageBoxOnForm(this);
-                if (MessageBox.Show("Delete file: " + filename + " ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                using (new CenterWinDialog(this))
                 {
-                    File.Delete(filename);
-                    toolStripStatusLabel1.Text =  filename + " deleted";
-                    customRTB.Clear();
+                    if (MessageBox.Show("Delete file: " + filename + " ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        File.Delete(filename);
+                        toolStripStatusLabel1.Text = filename + " deleted";
+                        customRTB.Clear();
+                    }
                 }
             }
             if (filename == "Unnamed.enp")
             {
-                MessageBoxCenter.PrepToCenterMessageBoxOnForm(this);
-                MessageBox.Show("No open files", "", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                using (new CenterWinDialog(this))
+                {
+                    MessageBox.Show("No open files", "", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
             }
         }
 
@@ -449,10 +488,11 @@ namespace EncryptPad
             }
             if (filename == "Unnamed.enp")
             {
-                MessageBoxCenter.PrepToCenterMessageBoxOnForm(this);
-                MessageBox.Show("No open files", "", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                using (new CenterWinDialog(this))
+                {
+                    MessageBox.Show("No open files", "", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
             }
-
         }
 
         private void переносПоСловамToolStripMenuItem_Click(object sender, EventArgs e)
@@ -609,11 +649,21 @@ namespace EncryptPad
             sf.ShowDialog(this);
         }
 
-        private void MainWindow_Activated(object sender, EventArgs e)
+        private async void MainWindow_Activated(object sender, EventArgs e)
         {
-            customRTB.Font = new Font(ps.RichTextFont, ps.RichTextSize);
-            customRTB.ForeColor = ps.RichForeColor;
-            customRTB.BackColor = ps.RichBackColor;
+            if (settingsChanged == true)
+            {
+                customRTB.Font = new Font(ps.RichTextFont, ps.RichTextSize);
+                customRTB.ForeColor = ps.RichForeColor;
+                customRTB.BackColor = ps.RichBackColor;
+            }
+
+            if (keyChanged == true)
+            {
+                toolStripStatusLabel1.Text = "Key was changed";
+                await Task.Delay(4000);
+                toolStripStatusLabel1.Text = "Ready";
+            }
         }
 
         private void chkMatchCase_CheckedChanged(object sender, EventArgs e)
