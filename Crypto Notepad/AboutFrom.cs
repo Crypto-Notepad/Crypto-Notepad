@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace EncryptPad
+namespace Crypto_Notepad
 {
     public partial class AboutFrom : Form
     {
@@ -40,7 +40,7 @@ namespace EncryptPad
         private void AboutWindow_Load(object sender, EventArgs e)
         {
             Version vrs = new Version(Application.ProductVersion);
-            label1.Text = string.Format("EncryptPad "+ "{0}.{1}.{2}", vrs.Major, vrs.Minor, vrs.Build);
+            label1.Text = string.Format("Crypto Notepad " + "{0}.{1}.{2}", vrs.Major, vrs.Minor, vrs.Build);
         }
 
         private void label4_Click(object sender, EventArgs e)

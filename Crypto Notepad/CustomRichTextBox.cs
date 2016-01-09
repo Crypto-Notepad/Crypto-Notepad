@@ -21,7 +21,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System;
 
-namespace EncryptPad
+namespace Crypto_Notepad
 {
     /// <summary>
     ///  Custom RichTextBox control

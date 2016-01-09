@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace EncryptPad
+namespace Crypto_Notepad
 {
     public partial class Form2 : Form
     {

@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace EncryptPad
+namespace Crypto_Notepad
 {
     class AES
     {

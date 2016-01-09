@@ -1,4 +1,4 @@
-﻿namespace EncryptPad
+﻿namespace Crypto_Notepad
 {
     partial class SettingsForm
     {

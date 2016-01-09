@@ -7,8 +7,8 @@
     <ProjectGuid>{06D6F36C-FAFA-4B88-BE04-3F73EB28C21E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EncryptPad</RootNamespace>
-    <AssemblyName>EncryptPad</AssemblyName>
+    <RootNamespace>Crypto_Notepad</RootNamespace>
+    <AssemblyName>Crypto Notepad</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>

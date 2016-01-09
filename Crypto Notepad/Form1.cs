@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EncryptPad
+namespace Crypto_Notepad
 {
     public partial class MainWindow : Form
     {

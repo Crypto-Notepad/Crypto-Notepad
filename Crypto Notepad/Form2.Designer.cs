@@ -1,4 +1,4 @@
-﻿namespace EncryptPad
+﻿namespace Crypto_Notepad
 {
     partial class Form2
     {
@@ -61,7 +61,7 @@
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::EncryptPad.Properties.Resources.eye_icon;
+            this.pictureBox1.Image = global::Crypto_Notepad.Properties.Resources.eye_icon;
             this.pictureBox1.Location = new System.Drawing.Point(127, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 20);

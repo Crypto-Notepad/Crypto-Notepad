@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptPad", "EncryptPad\EncryptPad.csproj", "{06D6F36C-FAFA-4B88-BE04-3F73EB28C21E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crypto Notepad", "Crypto Notepad\Crypto Notepad.csproj", "{06D6F36C-FAFA-4B88-BE04-3F73EB28C21E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
