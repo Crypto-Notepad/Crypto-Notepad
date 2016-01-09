@@ -40,7 +40,7 @@ namespace EncryptPad
         private void AboutWindow_Load(object sender, EventArgs e)
         {
             Version vrs = new Version(Application.ProductVersion);
-            label1.Text = string.Format("EncryptPad "+"{0}.{1}", vrs.Major, vrs.Minor);
+            label1.Text = string.Format("EncryptPad "+ "{0}.{1}.{2}", vrs.Major, vrs.Minor, vrs.Build);
         }
 
         private void label4_Click(object sender, EventArgs e)
