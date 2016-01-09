@@ -60,8 +60,9 @@ namespace EncryptPad
             ps.KeySize = Convert.ToInt32(comboBox3.Text.ToString());
             ps.TheSalt = textBox1.Text;
             ps.PasswordIterations = Convert.ToInt32(textBox2.Text.ToString());
-
             ps.Save();
+
+            MainWindow.settingsChanged = true;
 
             this.Hide();
         }
@@ -89,24 +90,30 @@ namespace EncryptPad
         private void panel1_Click_1(object sender, EventArgs e)
         {
             colorDialog1.Color = panel1.BackColor;
-            MessageBoxCenter.PrepToCenterMessageBoxOnForm(this);
-            colorDialog1.ShowDialog();
+            using (new CenterWinDialog(this))
+            {
+                colorDialog1.ShowDialog();
+            }
             panel1.BackColor = colorDialog1.Color;
         }
 
         private void panel2_Click(object sender, EventArgs e)
         {
             colorDialog1.Color = panel2.BackColor;
-            MessageBoxCenter.PrepToCenterMessageBoxOnForm(this);
-            colorDialog1.ShowDialog();
+            using (new CenterWinDialog(this))
+            {
+                colorDialog1.ShowDialog();
+            }
             panel2.BackColor = colorDialog1.Color;
         }
 
         private void panel3_Click(object sender, EventArgs e)
         {
             colorDialog1.Color = panel3.BackColor;
-            MessageBoxCenter.PrepToCenterMessageBoxOnForm(this);
-            colorDialog1.ShowDialog();
+            using (new CenterWinDialog(this))
+            {
+                colorDialog1.ShowDialog();
+            }
             panel3.BackColor = colorDialog1.Color;
         }
     }

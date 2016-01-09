@@ -22,12 +22,16 @@ namespace EncryptPad
             if (textBox1.Text == MainWindow.key)
             {
                 MainWindow.key = textBox2.Text;
+                MainWindow.keyChanged = true;
                 this.Close();
             }
 
-           else if (textBox1.Text != MainWindow.key)
+            else if (textBox1.Text != MainWindow.key)
             {
-                MessageBox.Show("Wrong old key!");
+                using (new CenterWinDialog(this))
+                {
+                    MessageBox.Show("Wrong old key!");
+                }
             }
         }
 
