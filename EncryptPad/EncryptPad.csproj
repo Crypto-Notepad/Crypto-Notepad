@@ -139,7 +139,7 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="MessageBoxCenter.cs" />
+    <Compile Include="MsgBoxCenterParent.cs" />
     <Compile Include="PortableSettingsProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
