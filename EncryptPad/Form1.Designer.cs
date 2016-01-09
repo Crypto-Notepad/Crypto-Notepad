@@ -332,14 +332,14 @@
             // changeKeyToolStripMenuItem
             // 
             this.changeKeyToolStripMenuItem.Name = "changeKeyToolStripMenuItem";
-            this.changeKeyToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.changeKeyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.changeKeyToolStripMenuItem.Text = "Change Key";
             this.changeKeyToolStripMenuItem.Click += new System.EventHandler(this.changeKeyToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -355,6 +355,7 @@
             // 
             // documentationToolStripMenuItem
             // 
+            this.documentationToolStripMenuItem.Enabled = false;
             this.documentationToolStripMenuItem.Name = "documentationToolStripMenuItem";
             this.documentationToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.documentationToolStripMenuItem.Text = "Documentation";
