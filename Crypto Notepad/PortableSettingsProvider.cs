@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Text;
 using System.Configuration;
-using System.Configuration.Provider;
 using System.Windows.Forms;
 using System.Collections.Specialized;
-using Microsoft.Win32;
 using System.Xml;
 using System.IO;
 
