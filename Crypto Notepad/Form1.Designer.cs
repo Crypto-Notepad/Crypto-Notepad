@@ -634,6 +634,7 @@
             this.MainMenuStrip = this.MainMenu;
             this.MinimumSize = new System.Drawing.Size(500, 300);
             this.Name = "MainWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crypto Notepad";
             this.Activated += new System.EventHandler(this.MainWindow_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -19,7 +20,7 @@ namespace Crypto_Notepad
         public static string key = "";
         public static bool keyChanged = false;
         public static bool settingsChanged = false;
-        public static int textSave = 0;
+        public static bool textSave = false;
         public static string[] args = Environment.GetCommandLineArgs();
         Properties.Settings ps = Properties.Settings.Default;
 
@@ -40,11 +41,11 @@ namespace Crypto_Notepad
                     if (ps.FirstLaunch == false)
                     {
                         DialogResult res = new DialogResult();
-                        using (new CenterWinDialog(this))
-                        {
+                        //using (new CenterWinDialog(this))
+                        //{
                             res = MessageBox.Show("Get The Salt from mac address? (You can edit it by himself in Settings)", "The Salt",
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        }
+                        //}
 
                         if (res == DialogResult.Yes)
                         {
@@ -118,8 +119,6 @@ namespace Crypto_Notepad
                             {
                                 Cikil = 1;
                             }
-
-
                         }
 
                         if (dialogResult == DialogResult.Cancel)
@@ -130,16 +129,17 @@ namespace Crypto_Notepad
                 } while (Cikil == 1);
 
                 filename = OpenFile.FileName;
-                textSave = 0;
-                customRTB.Select(0, 0);
-
+                textSave = false;
+                string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+                customRTB.Select(Convert.ToInt32(cc), 0);
                 return;
 
             }
 
             filename = OpenFile.FileName;
-            textSave = 0;
-            customRTB.Select(0, 0);
+            textSave = false;
+            string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+            customRTB.Select(Convert.ToInt32(cc2), 0);
         }
 
         private void openAsotiations()
@@ -204,8 +204,9 @@ namespace Crypto_Notepad
             }
 
             filename = args[1];
-            textSave = 0;
-            customRTB.Select(0, 0);
+            textSave = false;
+            string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+            customRTB.Select(Convert.ToInt32(cc), 0);
         }
 
 
@@ -264,7 +265,9 @@ namespace Crypto_Notepad
             sw.Close();
             customRTB.Text = noenc;
             toolStripStatusLabel1.Text = "Saved in: " + filename;
-            textSave = 0;
+            string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+            customRTB.Select(Convert.ToInt32(cc), 0);
+            textSave = false;
             await Task.Delay(4000);
             toolStripStatusLabel1.Text = "Ready";
 
@@ -280,7 +283,7 @@ namespace Crypto_Notepad
             ps.RichWrap = customRTB.WordWrap;
             ps.Save();
 
-            if (textSave == 1)
+            if (textSave == true)
             {
                 string f = "Unnamed.enp";
                 if (customRTB.Text != "")
@@ -399,10 +402,12 @@ namespace Crypto_Notepad
 
             sw.Close();
             customRTB.Text = noenc;
+            string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+            customRTB.Select(Convert.ToInt32(cc), 0);
+            textSave = false;
             toolStripStatusLabel1.Text = "Saved in: " + filename;
             await Task.Delay(4000);
             toolStripStatusLabel1.Text = "Ready";
-            textSave = 0;
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
@@ -636,7 +641,7 @@ namespace Crypto_Notepad
 
         private void customRTB_TextChanged(object sender, EventArgs e)
         {
-            textSave = 1;
+            textSave = true;
             LineAndColumn();
         }
 
