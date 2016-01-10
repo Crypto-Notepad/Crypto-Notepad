@@ -121,4 +121,7 @@
   <data name="eye_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\123456.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Warning-icon-hi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Warning-icon-hi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
