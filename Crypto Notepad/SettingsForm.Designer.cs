@@ -54,6 +54,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -79,7 +80,7 @@
             this.saveSettingsButton.Location = new System.Drawing.Point(183, 225);
             this.saveSettingsButton.Name = "saveSettingsButton";
             this.saveSettingsButton.Size = new System.Drawing.Size(75, 23);
-            this.saveSettingsButton.TabIndex = 2;
+            this.saveSettingsButton.TabIndex = 4;
             this.saveSettingsButton.Text = "Save";
             this.saveSettingsButton.UseVisualStyleBackColor = true;
             this.saveSettingsButton.Click += new System.EventHandler(this.saveSettingsButton_Click);
@@ -103,6 +104,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(260, 218);
             this.tabControl1.TabIndex = 4;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -326,9 +328,9 @@
             this.checkBox2.Enabled = false;
             this.checkBox2.Location = new System.Drawing.Point(7, 47);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(120, 17);
+            this.checkBox2.Size = new System.Drawing.Size(117, 17);
             this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Auto Check Update";
+            this.checkBox2.Text = "Auto check update";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // checkBox1
@@ -336,16 +338,27 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(7, 18);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(166, 17);
+            this.checkBox1.Size = new System.Drawing.Size(179, 17);
             this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Associate with .enp extension";
+            this.checkBox1.Text = "Associate with enp file extension";
             this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 225);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Reset to defaults";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(263, 254);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.saveSettingsButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -395,5 +408,6 @@
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button1;
     }
 }
