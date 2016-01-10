@@ -14,12 +14,12 @@ namespace Crypto_Notepad
 
         private void label3_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/Sigmanor/EncryptPad/blob/master/LICENSE");
+            Process.Start("https://github.com/Sigmanor/Crypto-Notepad/blob/master/LICENSE");
         }
 
         private void label7_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/Sigmanor/EncryptPad");
+            Process.Start("https://github.com/Sigmanor/Crypto-Notepad");
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -45,27 +45,28 @@ namespace Crypto_Notepad
 
         private void label4_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/Sigmanor/EncryptPad/wiki/Release-Notes");
+            Process.Start("https://github.com/Sigmanor/Crypto-Notepad/wiki/Release-Notes");
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void label14_Click(object sender, EventArgs e)
         {
-            if (this.BackColor == Color.FromArgb(64, 64, 64))
-            {
-                this.BackColor = Color.FromArgb(36, 67, 92);
-            }
+            Process.Start("http://stackoverflow.com/a/2576220/4430027");
 
-            else if (this.BackColor == Color.FromArgb(36, 67, 92))
-            {
-                this.BackColor = Color.FromArgb(90, 36, 119);
-            }
+        }
 
-            else if (this.BackColor == Color.FromArgb(90, 36, 119))
-            {
-                this.BackColor = Color.FromArgb(64, 64, 64);
-            }
+        private void label6_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/Sigmanor/Crypto-Notepad");
+        }
 
-            
+        private void customRichTextBox1_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            Process.Start(e.LinkText);
+        }
+
+        private void AboutFrom_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Focus();
         }
     }
 }
