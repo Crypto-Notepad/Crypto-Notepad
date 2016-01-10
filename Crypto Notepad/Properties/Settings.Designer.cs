@@ -78,7 +78,7 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("687")]
+        [global::System.Configuration.DefaultSettingValueAttribute("690")]
         public int FormWidth {
             get {
                 return ((int)(this["FormWidth"]));
@@ -91,7 +91,7 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("428")]
+        [global::System.Configuration.DefaultSettingValueAttribute("430")]
         public int FormHeight {
             get {
                 return ((int)(this["FormHeight"]));
@@ -241,6 +241,19 @@ namespace Crypto_Notepad.Properties {
             }
             set {
                 this["FirstLaunch"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool WarningMsg {
+            get {
+                return ((bool)(this["WarningMsg"]));
+            }
+            set {
+                this["WarningMsg"] = value;
             }
         }
     }

@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="EncryptPad.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Crypto_Notepad.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="TopPosition" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
@@ -15,10 +15,10 @@
       <Value Profile="(Default)">228, 228, 228</Value>
     </Setting>
     <Setting Name="FormWidth" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">687</Value>
+      <Value Profile="(Default)">690</Value>
     </Setting>
     <Setting Name="FormHeight" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">428</Value>
+      <Value Profile="(Default)">430</Value>
     </Setting>
     <Setting Name="RichBackColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">56, 56, 56</Value>
@@ -51,6 +51,9 @@
       <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="FirstLaunch" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="WarningMsg" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
