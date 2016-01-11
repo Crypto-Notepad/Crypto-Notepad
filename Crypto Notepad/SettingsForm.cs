@@ -32,7 +32,7 @@ namespace Crypto_Notepad
             textBox1.Text = ps.TheSalt;
             textBox2.Text = ps.PasswordIterations.ToString();
             checkBox1.Checked = ps.AssociateCheck;
-
+            checkBox3.Checked = ps.ShowToolbar;
             panel1.BackColor = ps.RichForeColor;
             panel2.BackColor = ps.RichBackColor;
             panel3.BackColor = ps.HighlightsColor;
@@ -155,6 +155,7 @@ namespace Crypto_Notepad
                 ps.KeySize = Convert.ToInt32(comboBox3.Text.ToString());
                 ps.TheSalt = textBox1.Text;
                 ps.PasswordIterations = Convert.ToInt32(textBox2.Text.ToString());
+                ps.ShowToolbar = checkBox3.Checked;
                 ps.Save();
 
                 MainWindow.settingsChanged = true;
@@ -174,6 +175,8 @@ namespace Crypto_Notepad
                 comboBox4.Text = "SHA1";
                 comboBox3.Text = 192.ToString();
                 textBox2.Text = 2.ToString();
+                checkBox3.Checked = true;
+                ps.ShowToolbar = true;
             }
         }
     }
