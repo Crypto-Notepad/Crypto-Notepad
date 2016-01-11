@@ -256,5 +256,18 @@ namespace Crypto_Notepad.Properties {
                 this["WarningMsg"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowToolbar {
+            get {
+                return ((bool)(this["ShowToolbar"]));
+            }
+            set {
+                this["ShowToolbar"] = value;
+            }
+        }
     }
 }
