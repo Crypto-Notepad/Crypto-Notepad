@@ -33,12 +33,14 @@ namespace Crypto_Notepad
             if (textBox1.UseSystemPasswordChar == true)
             {
                 textBox1.UseSystemPasswordChar = false;
+                pictureBox1.Image = Properties.Resources.eye_half;
                 return;
             }
 
             if (textBox1.UseSystemPasswordChar == false)
             {
                 textBox1.UseSystemPasswordChar = true;
+                pictureBox1.Image = Properties.Resources.eye;
                 return;
             }
         }
@@ -48,12 +50,14 @@ namespace Crypto_Notepad
             if (textBox2.UseSystemPasswordChar == true)
             {
                 textBox2.UseSystemPasswordChar = false;
+                pictureBox2.Image = Properties.Resources.eye_half;
                 return;
             }
 
             if (textBox2.UseSystemPasswordChar == false)
             {
                 textBox2.UseSystemPasswordChar = true;
+                pictureBox2.Image = Properties.Resources.eye;
                 return;
             }
         }
