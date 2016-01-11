@@ -176,6 +176,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="locked.ico" />
+    <None Include="Resources\close_b.png" />
+    <None Include="Resources\close_g.png" />
+    <None Include="Resources\eye_half.png" />
+    <None Include="Resources\eye.png" />
+    <None Include="Resources\setting_tools.png" />
+    <None Include="Resources\page_white_key.png" />
+    <None Include="Resources\diskette.png" />
+    <None Include="Resources\paste_plain.png" />
+    <None Include="Resources\page_white_copy.png" />
+    <None Include="Resources\cut_red.png" />
+    <None Include="Resources\page_white_delete.png" />
+    <None Include="Resources\folder_stand.png" />
+    <None Include="Resources\disk_multiple.png" />
+    <None Include="Resources\folder_vertical_document.png" />
+    <None Include="Resources\page_white_add.png" />
     <None Include="Resources\Warning-icon-hi.png" />
   </ItemGroup>
   <ItemGroup>
