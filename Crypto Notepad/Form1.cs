@@ -696,7 +696,7 @@ namespace Crypto_Notepad
                 customRTB.ForeColor = ps.RichForeColor;
                 customRTB.BackColor = ps.RichBackColor;
 
-                if (ps.ShowToolbar == false)
+                if (ps.ShowToolbar == false && panel2.Visible == true)
                 {
                     panel2.Visible = false;
                     int h = customRTB.Height;
@@ -705,7 +705,7 @@ namespace Crypto_Notepad
                     customRTB.Location = new Point(0, 25);
                 }
 
-                if (ps.ShowToolbar == true)
+                if (ps.ShowToolbar == true && panel2.Visible == false)
                 {
                     panel2.Visible = true;
                     int h = customRTB.Height;
