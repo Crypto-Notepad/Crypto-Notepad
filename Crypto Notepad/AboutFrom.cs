@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Crypto_Notepad
@@ -43,11 +42,6 @@ namespace Crypto_Notepad
             label1.Text = string.Format("Crypto Notepad " + "{0}.{1}.{2}", vrs.Major, vrs.Minor, vrs.Build);
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://github.com/Sigmanor/Crypto-Notepad/wiki/Release-Notes");
-        }
-
         private void label14_Click(object sender, EventArgs e)
         {
             Process.Start("http://stackoverflow.com/a/2576220/4430027");
@@ -67,6 +61,16 @@ namespace Crypto_Notepad
         private void AboutFrom_Click(object sender, EventArgs e)
         {
             pictureBox1.Focus();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/Sigmanor/Crypto-Notepad/wiki/Release-Notes");
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://sigmanor.pp.ua/");
         }
     }
 }
