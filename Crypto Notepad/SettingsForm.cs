@@ -1,7 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Drawing;
-using System.IO;
 using System.Media;
 using System.Reflection;
 using System.Windows.Forms;
@@ -11,7 +10,6 @@ namespace Crypto_Notepad
     public partial class SettingsForm : Form
     {
         Properties.Settings ps = Properties.Settings.Default;
-
         public SettingsForm()
         {
             InitializeComponent();
@@ -78,14 +76,11 @@ namespace Crypto_Notepad
 
             if (value == "Default")
             {
-                textBox2.Text = 2.ToString();
                 panel1.BackColor = Color.FromArgb(228, 228, 228);
                 panel2.BackColor = Color.FromArgb(56, 56, 56);
                 panel3.BackColor = Color.FromArgb(101, 51, 6);
                 comboBox1.Text = "Consolas";
                 comboBox2.Text = 11.ToString();
-                comboBox3.Text = 192.ToString();
-                comboBox4.Text = "SHA1";
                 checkBox1.Checked = false;
                 checkBox2.Checked = true;
                 checkBox3.Checked = true;
@@ -171,7 +166,7 @@ namespace Crypto_Notepad
         {
             using (new CenterWinDialog(this))
             {
-                DialogResult result = MessageBox.Show("Reset to defaults?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Reset to defaults?", "Settings", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
