@@ -1,12 +1,16 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.NetworkInformation;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -70,7 +74,16 @@ namespace Crypto_Notepad
                 if (OpenFile.ShowDialog() != DialogResult.OK) return;
                 {
                     string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-                    string opnfile = File.ReadAllText(OpenFile.FileName);                
+                    string opnfile = File.ReadAllText(OpenFile.FileName);
+
+                    if (OpenFile.FileName.Contains(".txt"))
+                    {
+                        customRTB.Text = opnfile;
+                        toolStripStatusLabel1.Text = NameWithotPath;
+                        toolStripStatusLabel1.ToolTipText = (OpenFile.FileName);
+                        return;
+                    }
+
                     f2.ShowDialog();
                     if (Form2.OkPressed == false)
                     {
@@ -383,20 +396,47 @@ namespace Crypto_Notepad
             if (ps.ShowToolbar == true)
             {
                 panel2.Visible = true;
-                //int h = customRTB.Height;
-                //h -= 23;
-                //customRTB.Height = h;
-                //customRTB.Location = new Point(0, 48);
+            }
+
+            if (ps.AutoCheckUpdate == true)
+            {
+                Thread up = new Thread(() => сheckForUpdates(false));
+                up.Start();
             }
 
             LineAndColumn();
 
+            SaltMAC();
+
+            DeleteUpdateFiles();
+
             if (args.Length > 1)
             {
-              openAsotiations();
+                openAsotiations();
+            }
+        }
+
+        public void DeleteUpdateFiles()
+        {
+            string exePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\";
+            string UpdaterExe = exePath + "Updater.exe";
+            string UpdateZip = exePath + "Crypto-Notepad-Update.zip";
+            string ZipDll = exePath + "Ionic.Zip.dll";
+
+            if (File.Exists(UpdaterExe))
+            {
+                File.Delete(UpdaterExe);
             }
 
-            SaltMAC();
+            if (File.Exists(UpdateZip))
+            {
+                File.Delete(UpdateZip);
+            }
+
+            if (File.Exists(ZipDll))
+            {
+                File.Delete(ZipDll);
+            }
         }
 
         private void очиститьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -418,6 +458,7 @@ namespace Crypto_Notepad
                 {
                     return;
                 }
+
                 Form2.OkPressed = false;
             }
 
@@ -486,7 +527,7 @@ namespace Crypto_Notepad
      
         }
 
-        private void УдалитьФайлToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private async void УдалитьФайлToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             if (filename != "Unnamed.enp")
             {
@@ -497,6 +538,12 @@ namespace Crypto_Notepad
                         File.Delete(filename);
                         toolStripStatusLabel1.Text = filename + " deleted";
                         customRTB.Clear();
+                        key = "";
+                        pictureBox11.Enabled = false;
+                        filename = "Unnamed.enp";
+                        await Task.Delay(4000);
+                        toolStripStatusLabel1.Text =  "Ready";
+                        return;
                     }
                 }
             }
@@ -513,7 +560,7 @@ namespace Crypto_Notepad
         {
             if (filename != "Unnamed.enp")
             {
-                System.Diagnostics.Process.Start("explorer.exe", @"/select, " + filename);
+                Process.Start("explorer.exe", @"/select, " + filename);
             }
             if (filename == "Unnamed.enp")
             {
@@ -722,7 +769,6 @@ namespace Crypto_Notepad
                 toolStripStatusLabel1.Text = "Ready";
             }
 
-
             if (key == "")
             {
                 pictureBox11.Enabled = false;
@@ -891,6 +937,58 @@ namespace Crypto_Notepad
             }
         }
 
+        private void сheckForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Thread up = new Thread(() => сheckForUpdates(true));
+            up.Start();
+        }
 
+        public void сheckForUpdates(bool autoCheck)
+        {
+            WebClient client = new WebClient();
+            Stream stream = client.OpenRead("https://raw.githubusercontent.com/Sigmanor/Crypto-Notepad/master/version.txt");
+            StreamReader reader = new StreamReader(stream);
+            string content = reader.ReadToEnd();
+            string version = Application.ProductVersion;
+            string exePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\";
+
+            int ver = Convert.ToInt32(version.Replace(".", "")), con = Convert.ToInt32(content.Replace(".", ""));
+
+            if (con != ver)
+            {
+                MainMenu.Invoke((Action)delegate
+                {
+                    using (new CenterWinDialog(this))
+                    {
+                        DialogResult res = new DialogResult();
+
+                        res = MessageBox.Show("New version is avaliable. Install it now?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (res == DialogResult.Yes)
+                        {
+                            File.WriteAllBytes(exePath + "Ionic.Zip.dll", Properties.Resources.Ionic_Zip);
+                            File.WriteAllBytes(exePath + "Updater.exe", Properties.Resources.Updater);
+
+                            var pr = new Process();
+                            pr.StartInfo.FileName = exePath + "Updater.exe";
+                            pr.StartInfo.Arguments = "/u";
+                            pr.Start();
+                            Application.Exit();
+                        }
+                    }
+                });
+            }
+
+            if (con == ver && autoCheck == true)
+            {
+                MainMenu.Invoke((Action)delegate
+                {
+                    using (new CenterWinDialog(this))
+                    {
+                        MessageBox.Show("No update avaliable.", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                });
+            }
+        }
     }
 }

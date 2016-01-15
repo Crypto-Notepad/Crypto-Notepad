@@ -357,14 +357,14 @@
             // changeKeyToolStripMenuItem
             // 
             this.changeKeyToolStripMenuItem.Name = "changeKeyToolStripMenuItem";
-            this.changeKeyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.changeKeyToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.changeKeyToolStripMenuItem.Text = "Change Key";
             this.changeKeyToolStripMenuItem.Click += new System.EventHandler(this.changeKeyToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -388,10 +388,10 @@
             // 
             // сheckForUpdatesToolStripMenuItem
             // 
-            this.сheckForUpdatesToolStripMenuItem.Enabled = false;
             this.сheckForUpdatesToolStripMenuItem.Name = "сheckForUpdatesToolStripMenuItem";
             this.сheckForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.сheckForUpdatesToolStripMenuItem.Text = "Сheck for Updates...";
+            this.сheckForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.сheckForUpdatesToolStripMenuItem_Click);
             // 
             // оПрограммеToolStripMenuItem
             // 
@@ -493,11 +493,11 @@
             // 
             // OpenFile
             // 
-            this.OpenFile.Filter = "Encryption files (*.enp)|*.enp";
+            this.OpenFile.Filter = "Crypto Notepad (*.enp)|*.enp|All files (*.*)|*.*";
             // 
             // SaveFile
             // 
-            this.SaveFile.Filter = "Encryption files (*.enp)|*.enp";
+            this.SaveFile.Filter = "Crypto Notepad (*.enp)|*.enp";
             // 
             // button1
             // 
