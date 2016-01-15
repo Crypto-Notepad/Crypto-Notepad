@@ -48,7 +48,7 @@ namespace Crypto_Notepad
                         DialogResult res = new DialogResult();
                         //using (new CenterWinDialog(this))
                         //{
-                            res = MessageBox.Show("Get The Salt from mac address? (You can edit it by himself in Settings)", "The Salt",
+                            res = MessageBox.Show("Get The Salt from mac address? (You can edit it by himself in Settings)", "Crypto Notepad",
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         //}
 
@@ -112,7 +112,7 @@ namespace Crypto_Notepad
 
                     using (new CenterWinDialog(this))
                     {
-                        DialogResult dialogResult = MessageBox.Show("Wrong key!", "", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                        DialogResult dialogResult = MessageBox.Show("Wrong key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                         if (dialogResult == DialogResult.Retry)
                         {
                             f2.ShowDialog();
@@ -186,7 +186,7 @@ namespace Crypto_Notepad
                 toolStripStatusLabel1.Text = NameWithotPath;
                 toolStripStatusLabel1.ToolTipText = (args[1]);
             ComeHere:
-                DialogResult dialogResult = MessageBox.Show("Wrong key!", "", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                DialogResult dialogResult = MessageBox.Show("Wrong key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 if (dialogResult == DialogResult.Retry)
                 {
                     Form2.OkPressed = false;
@@ -316,7 +316,7 @@ namespace Crypto_Notepad
                     using (new CenterWinDialog(this))
                     {
                         res = MessageBox.Show("Save changes in:\n" + filename + " ?",
-                                                     "",
+                                                     "Crypto Notepad",
                                                      MessageBoxButtons.YesNoCancel,
                                                      MessageBoxIcon.Question);
                     if (res == DialogResult.Yes)
@@ -533,7 +533,7 @@ namespace Crypto_Notepad
             {
                 using (new CenterWinDialog(this))
                 {
-                    if (MessageBox.Show("Delete file: " + filename + " ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Delete file: " + filename + " ?", "Crypto Notepad", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         File.Delete(filename);
                         toolStripStatusLabel1.Text = filename + " deleted";
@@ -551,7 +551,7 @@ namespace Crypto_Notepad
             {
                 using (new CenterWinDialog(this))
                 {
-                    MessageBox.Show("No open files", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No open files", "Crypto Notepad", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -566,7 +566,7 @@ namespace Crypto_Notepad
             {
                 using (new CenterWinDialog(this))
                 {
-                    MessageBox.Show("No open files", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No open files", "Crypto Notepad", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -962,7 +962,7 @@ namespace Crypto_Notepad
                     {
                         DialogResult res = new DialogResult();
 
-                        res = MessageBox.Show("New version is avaliable. Install it now?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        res = MessageBox.Show("New version is available. Install it now?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                         if (res == DialogResult.Yes)
                         {
@@ -985,7 +985,7 @@ namespace Crypto_Notepad
                 {
                     using (new CenterWinDialog(this))
                     {
-                        MessageBox.Show("No update avaliable.", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Crypto Notepad is up to date.", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 });
             }
