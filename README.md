@@ -21,6 +21,6 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 App was created in Visual Studio Community 2015, you can run the .sln file and simply build a project (The code is very bad. There are no comments, no following the OOP rules. Learn this code at your own risk. )
 
 ## License
-App distributed under [MIT](https://github.com/Sigmanor/Crypto-Notepad/blob/master/LICENSE) license
+Distributed under [MIT](https://github.com/Sigmanor/Crypto-Notepad/blob/master/LICENSE) license
 
 
