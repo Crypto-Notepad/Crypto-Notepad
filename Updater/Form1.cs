@@ -35,6 +35,7 @@ namespace Updater
             if (e.Error != null)
             {
                 System.Media.SystemSounds.Beep.Play();
+                //linkLabel1.Visible = false;
                 okButton = true;
                 button1.Enabled = true;
                 label1.Text = "There was some errors during the update, please try again later.";
@@ -83,6 +84,9 @@ namespace Updater
             }
         }
 
-
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/Sigmanor/Crypto-Notepad/wiki/Release-Notes");
+        }
     }
 }
