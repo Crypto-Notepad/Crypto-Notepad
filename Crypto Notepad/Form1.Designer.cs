@@ -159,7 +159,7 @@
             this.создатьToolStripMenuItem.Name = "создатьToolStripMenuItem";
             this.создатьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.создатьToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.создатьToolStripMenuItem.Text = "New File";
+            this.создатьToolStripMenuItem.Text = "New";
             this.создатьToolStripMenuItem.Click += new System.EventHandler(this.новыйToolStripMenuItem_Click_1);
             // 
             // открытьToolStripMenuItem
@@ -167,7 +167,7 @@
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
             this.открытьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.открытьToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.открытьToolStripMenuItem.Text = "Open File";
+            this.открытьToolStripMenuItem.Text = "Open...";
             this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // toolStripSeparator11
@@ -357,14 +357,14 @@
             // changeKeyToolStripMenuItem
             // 
             this.changeKeyToolStripMenuItem.Name = "changeKeyToolStripMenuItem";
-            this.changeKeyToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.changeKeyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.changeKeyToolStripMenuItem.Text = "Change Key";
             this.changeKeyToolStripMenuItem.Click += new System.EventHandler(this.changeKeyToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -493,11 +493,11 @@
             // 
             // OpenFile
             // 
-            this.OpenFile.Filter = "Crypto Notepad (*.enp)|*.enp|All files (*.*)|*.*";
+            this.OpenFile.Filter = "Crypto Notepad (*.cnp)|*.cnp|All files (*.*)|*.*";
             // 
             // SaveFile
             // 
-            this.SaveFile.Filter = "Crypto Notepad (*.enp)|*.enp";
+            this.SaveFile.Filter = "Crypto Notepad (*.cnp)|*.cnp";
             // 
             // button1
             // 

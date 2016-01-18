@@ -9,7 +9,7 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Text;
+using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,7 +20,7 @@ namespace Crypto_Notepad
     {
         [DllImport("user32.dll")]
         static extern int SendMessage(IntPtr hWnd, uint wMsg, UIntPtr wParam, IntPtr lParam);
-        public static string filename = "Unnamed.enp";
+        public static string filename = "Unnamed.cnp";
         public static string key = "";
         public static bool keyChanged = false;
         public static bool settingsChanged = false;
@@ -65,96 +65,64 @@ namespace Crypto_Notepad
         }
         #endregion
 
-        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
-        {          
-            int Cikil = 0;
+
+        void DecryptAES()
+        {
             Form2 f2 = new Form2();
+
+            f2.ShowDialog();
+            if (Form2.OkPressed == false)
+            {
+                return;
+            }
+            Form2.OkPressed = false;
+
             try
             {
-                if (OpenFile.ShowDialog() != DialogResult.OK) return;
-                {
-                    string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-                    string opnfile = File.ReadAllText(OpenFile.FileName);
-
-                    if (OpenFile.FileName.Contains(".txt"))
-                    {
-                        customRTB.Text = opnfile;
-                        toolStripStatusLabel1.Text = NameWithotPath;
-                        toolStripStatusLabel1.ToolTipText = (OpenFile.FileName);
-                        return;
-                    }
-
-                    f2.ShowDialog();
-                    if (Form2.OkPressed == false)
-                    {
-                        return;
-                    }
-                    Form2.OkPressed = false;
-
-                    string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
-
-                    customRTB.Text = de;
-                    toolStripStatusLabel1.Text = NameWithotPath;
-                    toolStripStatusLabel1.ToolTipText = (OpenFile.FileName);
-
-                }
-            }
-            catch
-            {
+                string opnfile = File.ReadAllText(OpenFile.FileName);
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-                string opnfile = File.ReadAllText(OpenFile.FileName, Encoding.Default);
+                string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+                customRTB.Text = de;
                 toolStripStatusLabel1.Text = NameWithotPath;
                 toolStripStatusLabel1.ToolTipText = (OpenFile.FileName);
 
-                do
-                {
-                    Cikil = 0;
-
-                    using (new CenterWinDialog(this))
-                    {
-                        DialogResult dialogResult = MessageBox.Show("Wrong key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                        if (dialogResult == DialogResult.Retry)
-                        {
-                            f2.ShowDialog();
-                            if (Form2.OkPressed == false)
-                            {
-                                return;
-                            }
-                            Form2.OkPressed = false;
-
-                            try
-                            {
-                                string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
-
-                                customRTB.Text = de;
-                                toolStripStatusLabel1.Text = NameWithotPath;
-                                toolStripStatusLabel1.ToolTipText = (OpenFile.FileName);
-                            }
-                            catch
-                            {
-                                Cikil = 1;
-                            }
-                        }
-
-                        if (dialogResult == DialogResult.Cancel)
-                        {
-                            toolStripStatusLabel1.Text = "Ready";
-                        }
-                    }
-                } while (Cikil == 1);
-
                 filename = OpenFile.FileName;
                 textSave = false;
-                string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-                customRTB.Select(Convert.ToInt32(cc), 0);
-                return;
-
+                string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+                customRTB.Select(Convert.ToInt32(cc2), 0);
+            }
+            catch (CryptographicException)
+            {
+                using (new CenterWinDialog(this))
+                {
+                    DialogResult dialogResult = MessageBox.Show("Wrong key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    if (dialogResult == DialogResult.Retry)
+                    {
+                        DecryptAES();
+                    }
+                }
             }
 
-            filename = OpenFile.FileName;
-            textSave = false;
-            string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-            customRTB.Select(Convert.ToInt32(cc2), 0);
+        }
+
+        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (OpenFile.ShowDialog() != DialogResult.OK) return;
+            {
+                if (OpenFile.FileName.Contains(".txt"))
+                {
+                    string opnfile = File.ReadAllText(OpenFile.FileName);
+                    string NameWithotPath = Path.GetFileName(OpenFile.FileName);
+                    customRTB.Text = opnfile;
+                    toolStripStatusLabel1.Text = NameWithotPath;
+                    toolStripStatusLabel1.ToolTipText = (OpenFile.FileName);
+                    string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+                    customRTB.Select(Convert.ToInt32(cc2), 0);
+                    return;
+                }
+
+                DecryptAES();
+            }
         }
 
         private void openAsotiations()
@@ -166,14 +134,15 @@ namespace Crypto_Notepad
             {
                 string NameWithotPath = Path.GetFileName(args[1]);
                 string opnfile = File.ReadAllText(args[1]);
+
                 Form2.ShowDialog();
                 if (Form2.OkPressed == false)
                 {
                     return;
                 }
                 Form2.OkPressed = false;
-                string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
 
+                string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
                 customRTB.Text = de;
                 toolStripStatusLabel1.Text = NameWithotPath;
                 toolStripStatusLabel1.ToolTipText = (args[1]);
@@ -181,41 +150,11 @@ namespace Crypto_Notepad
 
             catch
             {
-                string NameWithotPath = Path.GetFileName(args[1]);
-                string opnfile = File.ReadAllText(args[1]);
-                toolStripStatusLabel1.Text = NameWithotPath;
-                toolStripStatusLabel1.ToolTipText = (args[1]);
-            ComeHere:
                 DialogResult dialogResult = MessageBox.Show("Wrong key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 if (dialogResult == DialogResult.Retry)
                 {
-                    Form2.OkPressed = false;
-                    Form2.ShowDialog();
-                    if (Form2.OkPressed == false)
-                    {
-                        return;
-                    }
-                    Form2.OkPressed = false;
-
-                    try
-                    {
-                        string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
-
-                        customRTB.Text = de;
-                        toolStripStatusLabel1.Text = NameWithotPath;
-                        toolStripStatusLabel1.ToolTipText = (args[1]);
-                    }
-                    catch
-                    {
-                        goto ComeHere;
-                    }
+                    openAsotiations();
                 }
-
-                if (dialogResult == DialogResult.Cancel)
-                {
-                    Application.Exit();
-                }
-
             }
 
             filename = args[1];
@@ -309,7 +248,7 @@ namespace Crypto_Notepad
 
             if (textSave == true)
             {
-                string f = "Unnamed.enp";
+                string f = "Unnamed.cnp";
                 if (customRTB.Text != "")
                 {
                     DialogResult res = new DialogResult();
@@ -319,41 +258,41 @@ namespace Crypto_Notepad
                                                      "Crypto Notepad",
                                                      MessageBoxButtons.YesNoCancel,
                                                      MessageBoxIcon.Question);
-                    if (res == DialogResult.Yes)
-                    {
-                        if (filename == f)
+                        if (res == DialogResult.Yes)
                         {
-                            SaveFile.FileName = f;
-                            сохранитьToolStripMenuItem_Click(this, new EventArgs());
-                        }
+                            if (filename == f)
+                            {
+                                SaveFile.FileName = f;
+                                сохранитьToolStripMenuItem_Click(this, new EventArgs());
+                            }
 
-                        if (filename != f)
-                        {
-                            сохранитьToolStripMenuItem1_Click_1(this, new EventArgs());
-                        }
-                        Environment.Exit(0);
-                    }
-
-                    try
-                    {
-                        if (res == DialogResult.No)
-                        {
-
+                            if (filename != f)
+                            {
+                                сохранитьToolStripMenuItem1_Click_1(this, new EventArgs());
+                            }
                             Environment.Exit(0);
                         }
 
-                        if (res == DialogResult.Cancel)
+                        try
+                        {
+                            if (res == DialogResult.No)
+                            {
+
+                                Environment.Exit(0);
+                            }
+
+                            if (res == DialogResult.Cancel)
+                            {
+
+                                e.Cancel = true;
+                            }
+
+                        }
+                        catch
                         {
 
-                            e.Cancel = true;
                         }
-
                     }
-                    catch (Exception)
-                    {
-
-                    }
-                }
                 }
             }
         }
@@ -446,7 +385,7 @@ namespace Crypto_Notepad
 
         private async void сохранитьToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            string f = "Unnamed.enp";
+            string f = "Unnamed.cnp";
             string NameWithotPath = Path.GetFileName(OpenFile.FileName);
 
             if (filename == f)
@@ -529,7 +468,7 @@ namespace Crypto_Notepad
 
         private async void УдалитьФайлToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            if (filename != "Unnamed.enp")
+            if (filename != "Unnamed.cnp")
             {
                 using (new CenterWinDialog(this))
                 {
@@ -540,14 +479,14 @@ namespace Crypto_Notepad
                         customRTB.Clear();
                         key = "";
                         pictureBox11.Enabled = false;
-                        filename = "Unnamed.enp";
+                        filename = "Unnamed.cnp";
                         await Task.Delay(4000);
                         toolStripStatusLabel1.Text =  "Ready";
                         return;
                     }
                 }
             }
-            if (filename == "Unnamed.enp")
+            if (filename == "Unnamed.cnp")
             {
                 using (new CenterWinDialog(this))
                 {
@@ -558,11 +497,11 @@ namespace Crypto_Notepad
 
         private void открытьРасположениеФайлаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (filename != "Unnamed.enp")
+            if (filename != "Unnamed.cnp")
             {
                 Process.Start("explorer.exe", @"/select, " + filename);
             }
-            if (filename == "Unnamed.enp")
+            if (filename == "Unnamed.cnp")
             {
                 using (new CenterWinDialog(this))
                 {
