@@ -68,9 +68,9 @@
             this.BackgroundColorLabel.AutoSize = true;
             this.BackgroundColorLabel.Location = new System.Drawing.Point(7, 86);
             this.BackgroundColorLabel.Name = "BackgroundColorLabel";
-            this.BackgroundColorLabel.Size = new System.Drawing.Size(58, 13);
+            this.BackgroundColorLabel.Size = new System.Drawing.Size(57, 13);
             this.BackgroundColorLabel.TabIndex = 0;
-            this.BackgroundColorLabel.Text = "Font Color:";
+            this.BackgroundColorLabel.Text = "Font color:";
             // 
             // colorDialog1
             // 
@@ -79,11 +79,11 @@
             // 
             // saveSettingsButton
             // 
-            this.saveSettingsButton.Location = new System.Drawing.Point(183, 225);
+            this.saveSettingsButton.Location = new System.Drawing.Point(179, 225);
             this.saveSettingsButton.Name = "saveSettingsButton";
-            this.saveSettingsButton.Size = new System.Drawing.Size(75, 23);
+            this.saveSettingsButton.Size = new System.Drawing.Size(79, 23);
             this.saveSettingsButton.TabIndex = 4;
-            this.saveSettingsButton.Text = "Save";
+            this.saveSettingsButton.Text = "Save && Close";
             this.saveSettingsButton.UseVisualStyleBackColor = true;
             this.saveSettingsButton.Click += new System.EventHandler(this.saveSettingsButton_Click);
             // 
@@ -92,9 +92,9 @@
             this.fontLabel.AutoSize = true;
             this.fontLabel.Location = new System.Drawing.Point(7, 18);
             this.fontLabel.Name = "fontLabel";
-            this.fontLabel.Size = new System.Drawing.Size(62, 13);
+            this.fontLabel.Size = new System.Drawing.Size(60, 13);
             this.fontLabel.TabIndex = 1;
-            this.fontLabel.Text = "Font Name:";
+            this.fontLabel.Text = "Font name:";
             // 
             // tabControl1
             // 
@@ -143,9 +143,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(7, 154);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 13);
+            this.label3.Size = new System.Drawing.Size(82, 13);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Highlights Color:";
+            this.label3.Text = "Highlights color:";
             // 
             // comboBox2
             // 
@@ -177,18 +177,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(7, 120);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.Size = new System.Drawing.Size(94, 13);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Background Color:";
+            this.label2.Text = "Background color:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(7, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
+            this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Font Size:";
+            this.label1.Text = "Font size:";
             // 
             // panel2
             // 
@@ -248,9 +248,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(7, 120);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 13);
+            this.label7.Size = new System.Drawing.Size(101, 13);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Password Iterations:";
+            this.label7.Text = "Password iterations:";
             // 
             // comboBox4
             // 
@@ -290,27 +290,27 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(7, 86);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 13);
+            this.label6.Size = new System.Drawing.Size(48, 13);
             this.label6.TabIndex = 2;
-            this.label6.Text = "The Salt:";
+            this.label6.Text = "The salt:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(7, 52);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 13);
+            this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Key Size:";
+            this.label5.Text = "Key size:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(7, 18);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 13);
+            this.label4.Size = new System.Drawing.Size(83, 13);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Hash Algorithm: ";
+            this.label4.Text = "Hash algorithm: ";
             // 
             // tabPage3
             // 
@@ -330,9 +330,9 @@
             this.checkBox3.AutoSize = true;
             this.checkBox3.Location = new System.Drawing.Point(7, 41);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(92, 17);
+            this.checkBox3.Size = new System.Drawing.Size(88, 17);
             this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "Show Toolbar";
+            this.checkBox3.Text = "Show toolbar";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // checkBox2
@@ -340,9 +340,9 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(7, 64);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(117, 17);
+            this.checkBox2.Size = new System.Drawing.Size(119, 17);
             this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Auto check update";
+            this.checkBox2.Text = "Enable auto-update";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // checkBox1
@@ -350,9 +350,9 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(7, 18);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(179, 17);
+            this.checkBox1.Size = new System.Drawing.Size(143, 17);
             this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Associate with enp file extension";
+            this.checkBox1.Text = "Associate with *.cnp files";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // button1
@@ -361,7 +361,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 23);
             this.button1.TabIndex = 5;
-            this.button1.Text = "Reset to defaults";
+            this.button1.Text = "Reset to Defaults";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

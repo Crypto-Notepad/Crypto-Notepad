@@ -19,7 +19,7 @@ namespace Crypto_Notepad
         {
             foreach (FontFamily fonts in FontFamily.Families)
             {
-                comboBox1.Items.Add(fonts.Name);
+                comboBox1.Items.Add(fonts.Name); 
             }
 
             comboBox1.Text = ps.RichTextFont;
@@ -47,12 +47,12 @@ namespace Crypto_Notepad
             {
                 if (checkBox1.Checked == true)
                 {
-                    AssociateExtension(Assembly.GetEntryAssembly().Location, "enp");
+                    AssociateExtension(Assembly.GetEntryAssembly().Location, "cnp");
                 }
 
                 if (checkBox1.Checked == false)
                 {
-                    DissociateExtension(Assembly.GetEntryAssembly().Location, "enp");
+                    DissociateExtension(Assembly.GetEntryAssembly().Location, "cnp");
                 }
 
                 ps.RichForeColor = panel1.BackColor;
