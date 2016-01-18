@@ -59,7 +59,7 @@
     <Setting Name="ShowToolbar" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="AutoCheckUpdate" Type="System.Boolean" Scope="User">
+    <Setting Name="AutoCheckUpdate" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
