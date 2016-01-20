@@ -53,20 +53,11 @@ namespace Crypto_Notepad
             }
         }
 
-        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
-
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
             textBox1.Focus();
             textBox1.Text = "";
         }
 
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
