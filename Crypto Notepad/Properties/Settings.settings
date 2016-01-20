@@ -2,23 +2,11 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Crypto_Notepad.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="TopPosition" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="LeftPosition" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
     <Setting Name="RichTextFont" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">Consolas</Value>
     </Setting>
     <Setting Name="RichForeColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">228, 228, 228</Value>
-    </Setting>
-    <Setting Name="FormWidth" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">690</Value>
-    </Setting>
-    <Setting Name="FormHeight" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">430</Value>
     </Setting>
     <Setting Name="RichBackColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">56, 56, 56</Value>
@@ -61,6 +49,15 @@
     </Setting>
     <Setting Name="AutoCheckUpdate" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AutoLock" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="WindowLocation" Provider="PortableSettingsProvider" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="WindowSize" Provider="PortableSettingsProvider" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">645, 460</Value>
     </Setting>
   </Settings>
 </SettingsFile>
