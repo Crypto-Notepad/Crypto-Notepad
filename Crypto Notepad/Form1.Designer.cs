@@ -796,7 +796,7 @@
             // pictureBox13
             // 
             this.pictureBox13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox13.Image = global::Crypto_Notepad.Properties.Resources._lock;
+            this.pictureBox13.Image = global::Crypto_Notepad.Properties.Resources.lock_icon;
             this.pictureBox13.Location = new System.Drawing.Point(260, 3);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(16, 16);
