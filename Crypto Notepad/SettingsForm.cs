@@ -28,12 +28,13 @@ namespace Crypto_Notepad
             comboBox3.Text = ps.KeySize.ToString();
             textBox1.Text = ps.TheSalt;
             textBox2.Text = ps.PasswordIterations.ToString();
-            checkBox1.Checked = ps.AssociateCheck;
-            checkBox3.Checked = ps.ShowToolbar;
             panel1.BackColor = ps.RichForeColor;
             panel2.BackColor = ps.RichBackColor;
             panel3.BackColor = ps.HighlightsColor;
+            checkBox1.Checked = ps.AssociateCheck;
             checkBox2.Checked = ps.AutoCheckUpdate;
+            checkBox3.Checked = ps.ShowToolbar;
+            checkBox4.Checked = ps.AutoLock;
         }
 
         private void saveSettingsButton_Click(object sender, EventArgs e)
@@ -67,6 +68,7 @@ namespace Crypto_Notepad
                 ps.PasswordIterations = Convert.ToInt32(textBox2.Text.ToString());
                 ps.ShowToolbar = checkBox3.Checked;
                 ps.AutoCheckUpdate = checkBox2.Checked;
+                ps.AutoLock = checkBox4.Checked;
                 ps.Save();
 
                 MainWindow.settingsChanged = true;
@@ -84,6 +86,7 @@ namespace Crypto_Notepad
                 checkBox1.Checked = false;
                 checkBox2.Checked = true;
                 checkBox3.Checked = true;
+                checkBox4.Checked = false;
             }
         }
 
