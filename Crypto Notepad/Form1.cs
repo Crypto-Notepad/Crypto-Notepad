@@ -28,7 +28,7 @@ namespace Crypto_Notepad
         public static string[] args = Environment.GetCommandLineArgs();
         Properties.Settings ps = Properties.Settings.Default;
 
-        public MainWindow() 
+        public MainWindow()
         {
             InitializeComponent();
         }
@@ -36,40 +36,44 @@ namespace Crypto_Notepad
         #region SaltMac
         void SaltMAC()
         {
+            var address = "";
             var networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
+
             foreach (var networkInterface in networkInterfaces)
             {
                 if (networkInterface.NetworkInterfaceType == NetworkInterfaceType.Ethernet)
                 {
-                    var address = networkInterface.GetPhysicalAddress().ToString();
-
-                    if (ps.FirstLaunch == false)
-                    {
-                        DialogResult res = new DialogResult();
-                        //using (new CenterWinDialog(this))
-                        //{
-                            res = MessageBox.Show("Get The Salt from mac address? (You can edit it by himself in Settings)", "Crypto Notepad",
-                            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        //}
-
-                        if (res == DialogResult.Yes)
-                        {
-                            ps.TheSalt = address;
-                            ps.FirstLaunch = true;
-                            ps.Save();
-                        }
-
-                    }
+                    address = networkInterface.GetPhysicalAddress().ToString();
                 }
+            }
+
+            if (ps.FirstLaunch == false)
+            {
+                DialogResult res = new DialogResult();
+                using (new CenterWinDialog(this))
+                {
+                    res = MessageBox.Show("Get The Salt from mac address? (You can edit it by himself in Settings)", "Crypto Notepad",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                }
+
+                if (res == DialogResult.Yes)
+                {
+                    ps.TheSalt = address;
+                    ps.FirstLaunch = true;
+                }
+
+                if (res == DialogResult.No)
+                {
+                    ps.FirstLaunch = true;
+                }
+                ps.Save();
             }
         }
         #endregion
 
-
         void DecryptAES()
         {
             Form2 f2 = new Form2();
-
             f2.ShowDialog();
             if (Form2.OkPressed == false)
             {
@@ -83,10 +87,11 @@ namespace Crypto_Notepad
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
                 string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
                 customRTB.Text = de;
+
                 toolStripStatusLabel1.Text = NameWithotPath;
                 toolStripStatusLabel1.ToolTipText = (OpenFile.FileName);
-
                 filename = OpenFile.FileName;
+
                 textSave = false;
                 string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                 customRTB.Select(Convert.ToInt32(cc2), 0);
@@ -102,10 +107,9 @@ namespace Crypto_Notepad
                     }
                 }
             }
-
         }
 
-        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (OpenFile.ShowDialog() != DialogResult.OK) return;
             {
@@ -144,8 +148,14 @@ namespace Crypto_Notepad
 
                 string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
                 customRTB.Text = de;
+
                 toolStripStatusLabel1.Text = NameWithotPath;
                 toolStripStatusLabel1.ToolTipText = (args[1]);
+
+                filename = args[1];
+                textSave = false;
+                string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+                customRTB.Select(Convert.ToInt32(cc), 0);
             }
 
             catch
@@ -156,15 +166,10 @@ namespace Crypto_Notepad
                     openAsotiations();
                 }
             }
-
-            filename = args[1];
-            textSave = false;
-            string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-            customRTB.Select(Convert.ToInt32(cc), 0);
         }
 
 
-        private void новыйToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void newToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
             f2.ShowDialog();
@@ -191,7 +196,7 @@ namespace Crypto_Notepad
             }
         }
 
-        private async void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string NameWithotPath = Path.GetFileName(OpenFile.FileName);
 
@@ -238,12 +243,14 @@ namespace Crypto_Notepad
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ps.TopPosition = this.Top;
-            ps.LeftPosition = this.Left;
-            ps.FormWidth = this.Width;
-            ps.FormHeight = this.Height;
+            ps.WindowLocation = this.Location;
             ps.MenuWrap = переносПоСловамToolStripMenuItem.Checked;
             ps.RichWrap = customRTB.WordWrap;
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                ps.WindowSize = this.Size;
+            }
+
             ps.Save();
 
             if (textSave == true)
@@ -263,21 +270,20 @@ namespace Crypto_Notepad
                             if (filename == f)
                             {
                                 SaveFile.FileName = f;
-                                сохранитьToolStripMenuItem_Click(this, new EventArgs());
+                                saveAsToolStripMenuItem_Click(this, new EventArgs());
                             }
 
                             if (filename != f)
                             {
-                                сохранитьToolStripMenuItem1_Click_1(this, new EventArgs());
+                                saveToolStripMenuItem1_Click_1(this, new EventArgs());
                             }
-                            Environment.Exit(0);
+                            Application.Exit();
                         }
 
                         try
                         {
                             if (res == DialogResult.No)
                             {
-
                                 Environment.Exit(0);
                             }
 
@@ -310,10 +316,15 @@ namespace Crypto_Notepad
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            this.Top = ps.TopPosition;
-            this.Left = ps.LeftPosition;
-            this.Width = ps.FormWidth;
-            this.Height = ps.FormHeight;
+            string pos = ps.WindowLocation.ToString();
+
+            if (pos != "{X=0,Y=0}")
+            {
+                this.Location = ps.WindowLocation;
+            }
+
+            this.Size = ps.WindowSize;
+
             customRTB.Font = new Font(ps.RichTextFont, ps.RichTextSize);
             customRTB.ForeColor = ps.RichForeColor;
             customRTB.BackColor = ps.RichBackColor;
@@ -383,7 +394,7 @@ namespace Crypto_Notepad
             customRTB.Clear();
         }
 
-        private async void сохранитьToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        private async void saveToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
             string f = "Unnamed.cnp";
             string NameWithotPath = Path.GetFileName(OpenFile.FileName);
@@ -391,7 +402,7 @@ namespace Crypto_Notepad
             if (filename == f)
             {
                 SaveFile.FileName = f;
-                сохранитьToolStripMenuItem_Click(this, new EventArgs());
+                saveAsToolStripMenuItem_Click(this, new EventArgs());
 
                 if (Form2.OkPressed == false)
                 {
@@ -425,7 +436,7 @@ namespace Crypto_Notepad
             toolStripStatusLabel1.Text = "Ready";
         }
 
-        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -433,40 +444,52 @@ namespace Crypto_Notepad
         private void выделитьВсеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (customRTB.Focused == true)
-            customRTB.SelectAll();
-            else searchTextBox.SelectAll();
+            {
+                customRTB.SelectAll();
+            }
+            else
+            {
+                searchTextBox.SelectAll();
+            }
         }
 
         private void вырезатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (customRTB.Focused == true)
+            {
                 customRTB.Cut();
+            }
             else
-                searchTextBox.Cut();         
+            {
+                searchTextBox.Cut();
+            }
         }
 
         private void копироватьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (customRTB.Focused == true)
+            {
                 customRTB.Copy();
+            }
             else
+            {
                 searchTextBox.Copy();
+            }
         }
 
         private void вставитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (customRTB.Focused == true)
+            {
                 customRTB.Paste(DataFormats.GetFormat(DataFormats.Text));
+            }
             else
+            {
                 searchTextBox.Paste();
+            }
         }
 
-        private void правкаToolStripMenuItem_MouseDown(object sender, MouseEventArgs e)
-        {
-     
-        }
-
-        private async void УдалитьФайлToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private async void deleteFileToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             if (filename != "Unnamed.cnp")
             {
@@ -481,7 +504,7 @@ namespace Crypto_Notepad
                         pictureBox11.Enabled = false;
                         filename = "Unnamed.cnp";
                         await Task.Delay(4000);
-                        toolStripStatusLabel1.Text =  "Ready";
+                        toolStripStatusLabel1.Text = "Ready";
                         return;
                     }
                 }
@@ -495,7 +518,7 @@ namespace Crypto_Notepad
             }
         }
 
-        private void открытьРасположениеФайлаToolStripMenuItem_Click(object sender, EventArgs e)
+        private void openFileLocationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (filename != "Unnamed.cnp")
             {
@@ -586,7 +609,7 @@ namespace Crypto_Notepad
             if (порядокЧтенияСправаНалевоToolStripMenuItem.Checked == false)
             {
                 customRTB.RightToLeft = RightToLeft.No;
-            }           
+            }
         }
 
         private void очиститьToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -594,7 +617,7 @@ namespace Crypto_Notepad
             customRTB.Clear();
         }
 
-        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutFrom a = new AboutFrom();
             a.ShowDialog(this);
@@ -603,8 +626,7 @@ namespace Crypto_Notepad
         private void выделитьВсеToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             customRTB.SelectAll();
-        }      
-       
+        }
 
         private void changeKeyToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -711,11 +733,13 @@ namespace Crypto_Notepad
             if (key == "")
             {
                 pictureBox11.Enabled = false;
+                pictureBox13.Enabled = false;
             }
 
             if (key != "")
             {
                 pictureBox11.Enabled = true;
+                pictureBox13.Enabled = true;
             }
         }
 
@@ -731,12 +755,7 @@ namespace Crypto_Notepad
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            searchTextBox.Text = "";
-            panel1.Visible = false;
-            customRTB.Height = customRTB.Height += 27;
-            customRTB.Focus();
-            SendMessage(customRTB.Handle, (uint)0x00B6, (UIntPtr)0, (IntPtr)(1));
-            customRTB.DeselectAll();
+            findToolStripMenuItem2_Click(this, new EventArgs());
         }
 
         private void findToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -759,16 +778,18 @@ namespace Crypto_Notepad
                 SendMessage(customRTB.Handle, (uint)0x00B6, (UIntPtr)0, (IntPtr)(1));
                 customRTB.DeselectAll();
             }
+            string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+            customRTB.Select(Convert.ToInt32(cc2), 0);
         }
 
         private void documentationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            Process.Start("https://github.com/Sigmanor/Crypto-Notepad/wiki/Documentation-%28ENG%29");
         }
 
         private void сервисToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
         {
-            if(key == "")
+            if (key == "")
             {
                 changeKeyToolStripMenuItem.Enabled = false;
             }
@@ -781,27 +802,27 @@ namespace Crypto_Notepad
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            новыйToolStripMenuItem_Click_1(this, new EventArgs());
+            newToolStripMenuItem_Click_1(this, new EventArgs());
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            открытьToolStripMenuItem_Click(this, new EventArgs());
+            openToolStripMenuItem_Click(this, new EventArgs());
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            сохранитьToolStripMenuItem1_Click_1(this, new EventArgs());
+            saveToolStripMenuItem1_Click_1(this, new EventArgs());
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            открытьРасположениеФайлаToolStripMenuItem_Click(this, new EventArgs());
+            openFileLocationToolStripMenuItem_Click(this, new EventArgs());
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            УдалитьФайлToolStripMenuItem_Click_1(this, new EventArgs());
+            deleteFileToolStripMenuItem_Click_1(this, new EventArgs());
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
@@ -929,5 +950,86 @@ namespace Crypto_Notepad
                 });
             }
         }
+
+        void AutoLock(bool minimize)
+        {
+            string saveText = customRTB.Text;
+            Form2 f2 = new Form2();
+            key = "";
+            this.Hide();
+
+            if (minimize == true)
+            {
+                f2.WindowState = FormWindowState.Minimized;
+            }
+            f2.ShowDialog();
+
+            if (Form2.OkPressed == false)
+            {
+                customRTB.Clear();
+                toolStripStatusLabel1.Text = "Ready";
+                this.Show();
+                return;
+            }
+            Form2.OkPressed = false;
+
+            try
+            {
+                OpenFile.FileName = toolStripStatusLabel1.ToolTipText;
+                string opnfile = File.ReadAllText(OpenFile.FileName);
+                string NameWithotPath = Path.GetFileName(OpenFile.FileName);
+                string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+                customRTB.Text = saveText;
+
+                toolStripStatusLabel1.Text = NameWithotPath;
+                toolStripStatusLabel1.ToolTipText = (OpenFile.FileName);
+                filename = OpenFile.FileName;
+
+                textSave = false;
+                string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+                customRTB.Select(Convert.ToInt32(cc2), 0);
+                textSave = true;
+                this.Show();
+            }
+            catch (CryptographicException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Wrong key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                if (dialogResult == DialogResult.Retry)
+                {
+                    AutoLock(false);
+                }
+                if (dialogResult == DialogResult.Cancel)
+                {
+                    key = "";
+                    customRTB.Clear();
+                    toolStripStatusLabel1.Text = "Ready";
+                    this.Show();
+                    return;
+                }
+            }
+
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_SYSCOMMAND = '\x112';
+            const int SC_MINIMIZE = '\xF020';
+            if (m.Msg == WM_SYSCOMMAND && m.WParam.ToInt32() == SC_MINIMIZE && ps.AutoLock == true && key != "")
+            {
+                AutoLock(true);
+                return;
+            }
+
+            base.WndProc(ref m);
+        }
+
+        private void pictureBox13_Click(object sender, EventArgs e)
+        {
+            if (key != "")
+            {
+                AutoLock(false);
+            }
+        }
+
     }
 }
