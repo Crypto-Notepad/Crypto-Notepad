@@ -100,7 +100,7 @@ namespace Crypto_Notepad
             {
                 using (new CenterWinDialog(this))
                 {
-                    DialogResult dialogResult = MessageBox.Show("Wrong key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    DialogResult dialogResult = MessageBox.Show("Invalid key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                     if (dialogResult == DialogResult.Retry)
                     {
                         DecryptAES();
@@ -160,7 +160,7 @@ namespace Crypto_Notepad
 
             catch
             {
-                DialogResult dialogResult = MessageBox.Show("Wrong key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                DialogResult dialogResult = MessageBox.Show("Invalid key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 if (dialogResult == DialogResult.Retry)
                 {
                     openAsotiations();
@@ -950,14 +950,13 @@ namespace Crypto_Notepad
                 });
             }
         }
-
+        
         void AutoLock(bool minimize)
         {
             string saveText = customRTB.Text;
             Form2 f2 = new Form2();
             key = "";
             this.Hide();
-
             if (minimize == true)
             {
                 f2.WindowState = FormWindowState.Minimized;
@@ -993,7 +992,7 @@ namespace Crypto_Notepad
             }
             catch (CryptographicException)
             {
-                DialogResult dialogResult = MessageBox.Show("Wrong key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                DialogResult dialogResult = MessageBox.Show("Invalid key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 if (dialogResult == DialogResult.Retry)
                 {
                     AutoLock(false);

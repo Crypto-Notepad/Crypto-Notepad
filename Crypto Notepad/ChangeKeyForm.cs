@@ -12,19 +12,33 @@ namespace Crypto_Notepad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == MainWindow.key)
+            if (textBox1.Text == MainWindow.key & textBox1.Text != textBox2.Text)
             {
                 MainWindow.key = textBox2.Text;
                 MainWindow.keyChanged = true;
                 this.Close();
             }
 
-            else if (textBox1.Text != MainWindow.key)
+            if (textBox1.Text != MainWindow.key)
             {
                 using (new CenterWinDialog(this))
                 {
-                    MessageBox.Show("Wrong old key!");
+                    MessageBox.Show("Invalid old key!", "Change Key", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                textBox1.Text = "";
+                textBox2.Text = "";
+                return;
+            }
+
+            if (textBox1.Text == textBox2.Text)
+            {
+                using (new CenterWinDialog(this))
+                {
+                    MessageBox.Show("New key the same as old!", "Change Key", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                textBox1.Text = "";
+                textBox2.Text = "";
+                return;
             }
         }
 
