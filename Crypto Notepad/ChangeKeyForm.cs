@@ -17,6 +17,7 @@ namespace Crypto_Notepad
                 MainWindow.key = textBox2.Text;
                 MainWindow.keyChanged = true;
                 this.Close();
+                return;
             }
 
             if (textBox1.Text != MainWindow.key)
@@ -34,7 +35,7 @@ namespace Crypto_Notepad
             {
                 using (new CenterWinDialog(this))
                 {
-                    MessageBox.Show("New key the same as old!", "Change Key", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("New key is the same as old!", "Change Key", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 textBox1.Text = "";
                 textBox2.Text = "";
