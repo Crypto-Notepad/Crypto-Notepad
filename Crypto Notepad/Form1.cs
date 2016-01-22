@@ -77,6 +77,7 @@ namespace Crypto_Notepad
             f2.ShowDialog();
             if (Form2.OkPressed == false)
             {
+                OpenFile.FileName = "";
                 return;
             }
             Form2.OkPressed = false;
@@ -142,6 +143,7 @@ namespace Crypto_Notepad
                 Form2.ShowDialog();
                 if (Form2.OkPressed == false)
                 {
+                    OpenFile.FileName = "";
                     return;
                 }
                 Form2.OkPressed = false;
@@ -778,11 +780,13 @@ namespace Crypto_Notepad
             if (key == "")
             {
                 changeKeyToolStripMenuItem.Enabled = false;
+                lockToolStripMenuItem.Enabled = false;
             }
 
-            if (key != "")
+            if (key != "") 
             {
                 changeKeyToolStripMenuItem.Enabled = true;
+                lockToolStripMenuItem.Enabled = true;
             }
         }
 
@@ -951,8 +955,10 @@ namespace Crypto_Notepad
 
             if (Form2.OkPressed == false)
             {
+                key = "";
                 customRTB.Clear();
                 toolStripStatusLabel1.Text = "Ready";
+                OpenFile.FileName = "";
                 this.Show();
                 return;
             }
@@ -988,6 +994,7 @@ namespace Crypto_Notepad
                     key = "";
                     customRTB.Clear();
                     toolStripStatusLabel1.Text = "Ready";
+                    OpenFile.FileName = "";
                     this.Show();
                     return;
                 }
@@ -1010,11 +1017,27 @@ namespace Crypto_Notepad
 
         private void pictureBox13_Click(object sender, EventArgs e)
         {
-            if (key != "")
-            {
-                AutoLock(false);
-            }
+            AutoLock(false);
         }
 
+        private void lockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AutoLock(false);
+        }
+
+        private void файлToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
+        {
+            if (OpenFile.FileName == "")
+            {
+                openFileLocationToolStripMenuItem.Enabled = false;
+                deleteFileToolStripMenuItem.Enabled = false;
+            }
+
+            if (OpenFile.FileName != "")
+            {
+                openFileLocationToolStripMenuItem.Enabled = true;
+                deleteFileToolStripMenuItem.Enabled = true;
+            }
+        }
     }
 }
