@@ -509,13 +509,6 @@ namespace Crypto_Notepad
                     }
                 }
             }
-            if (filename == "Unnamed.cnp")
-            {
-                using (new CenterWinDialog(this))
-                {
-                    MessageBox.Show("No open files", "Crypto Notepad", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
         }
 
         private void openFileLocationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -523,13 +516,6 @@ namespace Crypto_Notepad
             if (filename != "Unnamed.cnp")
             {
                 Process.Start("explorer.exe", @"/select, " + filename);
-            }
-            if (filename == "Unnamed.cnp")
-            {
-                using (new CenterWinDialog(this))
-                {
-                    MessageBox.Show("No open files", "Crypto Notepad", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
             }
         }
 
