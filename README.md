@@ -1,7 +1,5 @@
 # Crypto Notepad
 
-**`This app is not yet complete, and not recommended to encrypt important files.`**
-
 Notepad-like simple text editor for Windows, where files are saved and loaded encrypted with AES algorithms.
 
 ![](http://i.imgur.com/84yBETc.png)
