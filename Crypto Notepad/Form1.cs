@@ -27,6 +27,7 @@ namespace Crypto_Notepad
         public static bool textSave = false;
         public static string[] args = Environment.GetCommandLineArgs();
         Properties.Settings ps = Properties.Settings.Default;
+        int caretPos = 0;
 
         public MainWindow()
         {
@@ -650,6 +651,7 @@ namespace Crypto_Notepad
                 customRTB.Height = customRTB.Height += 27;
                 customRTB.Focus();
                 customRTB.DeselectAll();
+                customRTB.SelectionStart = caretPos;
                 e.Handled = e.SuppressKeyPress = true;
             }
         }
@@ -752,7 +754,7 @@ namespace Crypto_Notepad
             {
                 panel1.Visible = true;
                 searchTextBox.Focus();
-                SendMessage(customRTB.Handle, (uint)0x00B6, (UIntPtr)0, (IntPtr)(-1));
+                //SendMessage(customRTB.Handle, (uint)0x00B6, (UIntPtr)0, (IntPtr)(-1));
                 customRTB.Height = customRTB.Height - 27;
                 return;
             }
@@ -763,11 +765,11 @@ namespace Crypto_Notepad
                 panel1.Visible = false;
                 customRTB.Height = customRTB.Height += 27;
                 customRTB.Focus();
-                SendMessage(customRTB.Handle, (uint)0x00B6, (UIntPtr)0, (IntPtr)(1));
+                //SendMessage(customRTB.Handle, (uint)0x00B6, (UIntPtr)0, (IntPtr)(1));
                 customRTB.DeselectAll();
+                customRTB.SelectionStart = caretPos;
+                return;
             }
-            string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-            customRTB.Select(Convert.ToInt32(cc2), 0);
         }
 
         private void documentationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -946,6 +948,7 @@ namespace Crypto_Notepad
             string saveText = customRTB.Text;
             Form2 f2 = new Form2();
             key = "";
+            caretPos = customRTB.SelectionStart;
             this.Hide();
             if (minimize == true)
             {
@@ -978,7 +981,7 @@ namespace Crypto_Notepad
 
                 textSave = false;
                 string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-                customRTB.Select(Convert.ToInt32(cc2), 0);
+                customRTB.SelectionStart = caretPos;
                 textSave = true;
                 this.Show();
             }
@@ -1038,6 +1041,16 @@ namespace Crypto_Notepad
                 openFileLocationToolStripMenuItem.Enabled = true;
                 deleteFileToolStripMenuItem.Enabled = true;
             }
+        }
+
+        private void customRTB_Click(object sender, EventArgs e)
+        {
+           caretPos = customRTB.SelectionStart;
+        }
+
+        private void customRTB_KeyDown(object sender, KeyEventArgs e)
+        {
+            caretPos = customRTB.SelectionStart;
         }
     }
 }
