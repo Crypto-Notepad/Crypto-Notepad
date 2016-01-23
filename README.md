@@ -15,6 +15,9 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 * Association with the application extension
 * Easily search through the content
 
+## Contribution
+Feel free :octocat:
+
 ## Build
 App was created in Visual Studio Community 2015, you can run the .sln file and simply build a project (The code is very bad. There are no comments, no following the OOP rules. Learn this code at your own risk. )
 
