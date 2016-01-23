@@ -351,6 +351,8 @@ namespace Crypto_Notepad
                 panel2.Visible = true;
             }
 
+            SaltMAC();
+
             if (ps.AutoCheckUpdate == true)
             {
                 Thread up = new Thread(() => сheckForUpdates(false));
@@ -358,8 +360,6 @@ namespace Crypto_Notepad
             }
 
             LineAndColumn();
-
-            SaltMAC();
 
             DeleteUpdateFiles();
 
