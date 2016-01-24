@@ -673,10 +673,6 @@ namespace Crypto_Notepad
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SettingsForm sf = new SettingsForm();
-
-            sf.StartPosition = FormStartPosition.Manual;
-            sf.Location = new Point(this.Location.X + (this.Width - sf.Width) / 2, this.Location.Y + (this.Height - sf.Height) / 2);
-            sf.ShowDialog(this);
         }
 
         private async void MainWindow_Activated(object sender, EventArgs e)
@@ -938,7 +934,6 @@ namespace Crypto_Notepad
         
         void AutoLock(bool minimize)
         {
-            string saveText = customRTB.Text;
             Form2 f2 = new Form2();
             key = "";
             caretPos = customRTB.SelectionStart;
@@ -966,7 +961,6 @@ namespace Crypto_Notepad
                 string opnfile = File.ReadAllText(OpenFile.FileName);
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
                 string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
-                customRTB.Text = saveText;
 
                 toolStripStatusLabel1.Text = NameWithotPath;
                 toolStripStatusLabel1.ToolTipText = (OpenFile.FileName);
@@ -1044,5 +1038,6 @@ namespace Crypto_Notepad
         {
             caretPos = customRTB.SelectionStart;
         }
+
     }
 }
