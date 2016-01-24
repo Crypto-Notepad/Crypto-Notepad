@@ -26,7 +26,7 @@ namespace Crypto_Notepad
         public static bool settingsChanged = false;
         string[] args = Environment.GetCommandLineArgs();
         Properties.Settings ps = Properties.Settings.Default;
-        int caretPos = 0; 
+        int caretPos = 0;
 
         public MainWindow()
         {
@@ -394,7 +394,7 @@ namespace Crypto_Notepad
             }
         }
 
-        private void очиститьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void clearToolStripMenuItem_Click(object sender, EventArgs e)
         {
             customRTB.Clear();
         }
@@ -445,7 +445,7 @@ namespace Crypto_Notepad
             Application.Exit();
         }
 
-        private void выделитьВсеToolStripMenuItem_Click(object sender, EventArgs e)
+        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (customRTB.Focused == true)
             {
@@ -457,7 +457,7 @@ namespace Crypto_Notepad
             }
         }
 
-        private void вырезатьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (customRTB.Focused == true)
             {
@@ -469,7 +469,7 @@ namespace Crypto_Notepad
             }
         }
 
-        private void копироватьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (customRTB.Focused == true)
             {
@@ -481,7 +481,7 @@ namespace Crypto_Notepad
             }
         }
 
-        private void вставитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (customRTB.Focused == true)
             {
@@ -523,7 +523,7 @@ namespace Crypto_Notepad
             }
         }
 
-        private void переносПоСловамToolStripMenuItem_Click(object sender, EventArgs e)
+        private void wordWrapToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (wordWrapToolStripMenuItem.Checked == true)
             {
@@ -538,12 +538,12 @@ namespace Crypto_Notepad
             ps.Save();
         }
 
-        private void отменитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void undoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            отменаToolStripMenuItem_Click(this, new EventArgs());
+            undoToolStripMenuItem_Click(this, new EventArgs());
         }
 
-        public void отменаToolStripMenuItem_Click(object sender, EventArgs e)
+        public void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (customRTB.CanUndo == true)
             {
@@ -552,17 +552,17 @@ namespace Crypto_Notepad
             else customRTB.Redo();
         }
 
-        private void вырезатьToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void cutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             customRTB.Cut();
         }
 
-        private void копироватьToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void copyToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             customRTB.Copy();
         }
 
-        private void вставитьToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void pasteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             customRTB.Paste(DataFormats.GetFormat(DataFormats.Text));
         }
@@ -571,41 +571,41 @@ namespace Crypto_Notepad
         {
             if (customRTB.SelectionLength != 0)
             {
-                вырезатьToolStripMenuItem1.Enabled = true;
-                копироватьToolStripMenuItem1.Enabled = true;
-                удалитьToolStripMenuItem1.Enabled = true;
+                cutToolStripMenuItem1.Enabled = true;
+                copyToolStripMenuItem1.Enabled = true;
+                deleteToolStripMenuItem1.Enabled = true;
             }
             if (customRTB.SelectionLength == 0)
             {
-                вырезатьToolStripMenuItem1.Enabled = false;
-                копироватьToolStripMenuItem1.Enabled = false;
-                удалитьToolStripMenuItem1.Enabled = false;
+                cutToolStripMenuItem1.Enabled = false;
+                copyToolStripMenuItem1.Enabled = false;
+                deleteToolStripMenuItem1.Enabled = false;
             }
         }
 
-        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             customRTB.SelectedText = "";
         }
 
-        private void удалитьToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             customRTB.SelectedText = "";
         }
 
-        private void порядокЧтенияСправаНалевоToolStripMenuItem_Click(object sender, EventArgs e)
+        private void rightToLeftToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (порядокЧтенияСправаНалевоToolStripMenuItem.Checked == true)
+            if (rightToLeftToolStripMenuItem.Checked == true)
             {
                 customRTB.RightToLeft = RightToLeft.Yes;
             }
-            if (порядокЧтенияСправаНалевоToolStripMenuItem.Checked == false)
+            if (rightToLeftToolStripMenuItem.Checked == false)
             {
                 customRTB.RightToLeft = RightToLeft.No;
             }
         }
 
-        private void очиститьToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void clearToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             customRTB.Clear();
         }
@@ -616,7 +616,7 @@ namespace Crypto_Notepad
             a.ShowDialog(this);
         }
 
-        private void выделитьВсеToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void selectAllToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             customRTB.SelectAll();
         }
@@ -819,17 +819,17 @@ namespace Crypto_Notepad
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            вырезатьToolStripMenuItem_Click(this, new EventArgs());
+            cutToolStripMenuItem_Click(this, new EventArgs());
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
-            копироватьToolStripMenuItem_Click(this, new EventArgs());
+            copyToolStripMenuItem_Click(this, new EventArgs());
         }
 
         private void pictureBox10_Click(object sender, EventArgs e)
         {
-            вставитьToolStripMenuItem_Click(this, new EventArgs());
+            pasteToolStripMenuItem_Click(this, new EventArgs());
         }
 
         private void pictureBox11_Click(object sender, EventArgs e)
@@ -877,15 +877,15 @@ namespace Crypto_Notepad
         {
             if (customRTB.SelectionLength != 0)
             {
-                вырезатьToolStripMenuItem.Enabled = true;
-                копироватьToolStripMenuItem.Enabled = true;
-                удалитьToolStripMenuItem.Enabled = true;
+                cutToolStripMenuItem.Enabled = true;
+                copyToolStripMenuItem.Enabled = true;
+                deleteToolStripMenuItem.Enabled = true;
             }
             if (customRTB.SelectionLength == 0)
             {
-                вырезатьToolStripMenuItem.Enabled = false;
-                копироватьToolStripMenuItem.Enabled = false;
-                удалитьToolStripMenuItem.Enabled = false;
+                cutToolStripMenuItem.Enabled = false;
+                copyToolStripMenuItem.Enabled = false;
+                deleteToolStripMenuItem.Enabled = false;
             }
         }
 
