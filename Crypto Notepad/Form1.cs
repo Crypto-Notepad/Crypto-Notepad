@@ -242,12 +242,16 @@ namespace Crypto_Notepad
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ps.WindowLocation = this.Location;
-            ps.MenuWrap = переносПоСловамToolStripMenuItem.Checked;
-            ps.RichWrap = customRTB.WordWrap;
             if (this.WindowState == FormWindowState.Normal)
             {
                 ps.WindowSize = this.Size;
+                ps.WindowLocation = this.Location;
+                ps.WindowState = this.WindowState;
+            }
+
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                ps.WindowState = this.WindowState;
             }
 
             ps.Save();
