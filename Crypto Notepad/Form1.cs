@@ -288,23 +288,14 @@ namespace Crypto_Notepad
                             Application.Exit();
                         }
 
-                        try
+                        if (res == DialogResult.No)
                         {
-                            if (res == DialogResult.No)
-                            {
-                                Environment.Exit(0);
-                            }
-
-                            if (res == DialogResult.Cancel)
-                            {
-
-                                e.Cancel = true;
-                            }
-
+                            Environment.Exit(0);
                         }
-                        catch
-                        {
 
+                        if (res == DialogResult.Cancel)
+                        {
+                            e.Cancel = true;
                         }
                     }
                 }
