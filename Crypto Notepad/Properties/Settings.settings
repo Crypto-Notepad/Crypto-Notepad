@@ -59,5 +59,8 @@
     <Setting Name="WindowSize" Provider="PortableSettingsProvider" Type="System.Drawing.Size" Scope="User">
       <Value Profile="(Default)">645, 460</Value>
     </Setting>
+    <Setting Name="WindowState" Provider="PortableSettingsProvider" Type="System.Windows.Forms.FormWindowState" Scope="User">
+      <Value Profile="(Default)">Normal</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
