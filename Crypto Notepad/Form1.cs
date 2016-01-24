@@ -24,7 +24,7 @@ namespace Crypto_Notepad
         public static string key = "";
         public static bool keyChanged = false;
         public static bool settingsChanged = false;
-        public static string[] args = Environment.GetCommandLineArgs();
+        string[] args = Environment.GetCommandLineArgs();
         Properties.Settings ps = Properties.Settings.Default;
         int caretPos = 0; 
 
