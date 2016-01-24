@@ -998,8 +998,9 @@ namespace Crypto_Notepad
 
         protected override void WndProc(ref Message m)
         {
-            const int WM_SYSCOMMAND = '\x112';
-            const int SC_MINIMIZE = '\xF020';
+            const int WM_SYSCOMMAND = 0x112;
+            const int SC_MINIMIZE = 0xF020;
+
             if (m.Msg == WM_SYSCOMMAND && m.WParam.ToInt32() == SC_MINIMIZE && ps.AutoLock == true && key != "")
             {
                 AutoLock(true);
