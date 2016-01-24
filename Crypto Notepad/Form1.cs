@@ -252,6 +252,7 @@ namespace Crypto_Notepad
 
             ps.Save();
 
+            if (customRTB.Modified == true)
             {
                 string f = "Unnamed.cnp";
                 string NameWithotPath;
