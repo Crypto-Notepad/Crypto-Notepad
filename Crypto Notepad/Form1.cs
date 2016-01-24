@@ -254,12 +254,22 @@ namespace Crypto_Notepad
 
             {
                 string f = "Unnamed.cnp";
+                string NameWithotPath;
+                try
+                {
+                     NameWithotPath = Path.GetFileName(args[1]);
+                }
+                catch (IndexOutOfRangeException)
+                {
+                     NameWithotPath = Path.GetFileName(OpenFile.FileName);
+                }
+
                 if (customRTB.Text != "")
                 {
                     DialogResult res = new DialogResult();
                     using (new CenterWinDialog(this))
                     {
-                        res = MessageBox.Show("Save changes in:\n" + filename + " ?",
+                        res = MessageBox.Show("Save file: " + "\"" + NameWithotPath + "\""  + " ? ",
                                                      "Crypto Notepad",
                                                      MessageBoxButtons.YesNoCancel,
                                                      MessageBoxIcon.Question);
