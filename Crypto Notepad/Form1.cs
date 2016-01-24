@@ -528,6 +528,9 @@ namespace Crypto_Notepad
             {
                 customRTB.WordWrap = false;
             }
+            ps.MenuWrap = wordWrapToolStripMenuItem.Checked;
+            ps.RichWrap = customRTB.WordWrap;
+            ps.Save();
         }
 
         private void отменитьToolStripMenuItem_Click(object sender, EventArgs e)
