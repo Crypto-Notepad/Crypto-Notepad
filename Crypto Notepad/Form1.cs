@@ -326,7 +326,7 @@ namespace Crypto_Notepad
             customRTB.Font = new Font(ps.RichTextFont, ps.RichTextSize);
             customRTB.ForeColor = ps.RichForeColor;
             customRTB.BackColor = ps.RichBackColor;
-            переносПоСловамToolStripMenuItem.Checked = ps.MenuWrap;
+            wordWrapToolStripMenuItem.Checked = ps.MenuWrap;
             customRTB.WordWrap = ps.RichWrap;
             customRTB.SelectionIndent += 6;
             customRTB.SelectionRightIndent += 7;
@@ -518,11 +518,11 @@ namespace Crypto_Notepad
 
         private void переносПоСловамToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (переносПоСловамToolStripMenuItem.Checked == true)
+            if (wordWrapToolStripMenuItem.Checked == true)
             {
                 customRTB.WordWrap = true;
             }
-            if (переносПоСловамToolStripMenuItem.Checked == false)
+            if (wordWrapToolStripMenuItem.Checked == false)
             {
                 customRTB.WordWrap = false;
             }
