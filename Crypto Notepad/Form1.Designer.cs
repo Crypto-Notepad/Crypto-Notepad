@@ -53,7 +53,7 @@
             this.findToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.выделитьВсеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.переносПоСловамToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wordWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.очиститьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -241,7 +241,7 @@
             this.findToolStripMenuItem2,
             this.toolStripSeparator3,
             this.выделитьВсеToolStripMenuItem,
-            this.переносПоСловамToolStripMenuItem,
+            this.wordWrapToolStripMenuItem,
             this.toolStripSeparator5,
             this.очиститьToolStripMenuItem});
             this.правкаToolStripMenuItem.Name = "правкаToolStripMenuItem";
@@ -324,15 +324,15 @@
             this.выделитьВсеToolStripMenuItem.Text = "Select All";
             this.выделитьВсеToolStripMenuItem.Click += new System.EventHandler(this.выделитьВсеToolStripMenuItem_Click);
             // 
-            // переносПоСловамToolStripMenuItem
+            // wordWrapToolStripMenuItem
             // 
-            this.переносПоСловамToolStripMenuItem.Checked = true;
-            this.переносПоСловамToolStripMenuItem.CheckOnClick = true;
-            this.переносПоСловамToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.переносПоСловамToolStripMenuItem.Name = "переносПоСловамToolStripMenuItem";
-            this.переносПоСловамToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.переносПоСловамToolStripMenuItem.Text = "Word Wrap";
-            this.переносПоСловамToolStripMenuItem.Click += new System.EventHandler(this.переносПоСловамToolStripMenuItem_Click);
+            this.wordWrapToolStripMenuItem.Checked = true;
+            this.wordWrapToolStripMenuItem.CheckOnClick = true;
+            this.wordWrapToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.wordWrapToolStripMenuItem.Name = "wordWrapToolStripMenuItem";
+            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.wordWrapToolStripMenuItem.Text = "Word Wrap";
+            this.wordWrapToolStripMenuItem.Click += new System.EventHandler(this.переносПоСловамToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -918,7 +918,7 @@
         private System.Windows.Forms.ToolStripMenuItem deleteFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem openFileLocationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem переносПоСловамToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wordWrapToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem отменитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отменаToolStripMenuItem;
