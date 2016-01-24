@@ -24,10 +24,9 @@ namespace Crypto_Notepad
         public static string key = "";
         public static bool keyChanged = false;
         public static bool settingsChanged = false;
-        public static bool textSave = false;
         public static string[] args = Environment.GetCommandLineArgs();
         Properties.Settings ps = Properties.Settings.Default;
-        int caretPos = 0;
+        int caretPos = 0; 
 
         public MainWindow()
         {
@@ -94,7 +93,6 @@ namespace Crypto_Notepad
                 toolStripStatusLabel1.ToolTipText = (OpenFile.FileName);
                 filename = OpenFile.FileName;
 
-                textSave = false;
                 string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                 customRTB.Select(Convert.ToInt32(cc2), 0);
             }
@@ -156,7 +154,6 @@ namespace Crypto_Notepad
                 toolStripStatusLabel1.ToolTipText = (args[1]);
 
                 filename = args[1];
-                textSave = false;
                 string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                 customRTB.Select(Convert.ToInt32(cc), 0);
             }
@@ -238,7 +235,6 @@ namespace Crypto_Notepad
             toolStripStatusLabel1.Text = "Saved in: " + filename;
             string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
             customRTB.Select(Convert.ToInt32(cc), 0);
-            textSave = false;
             await Task.Delay(4000);
             toolStripStatusLabel1.Text = "Ready";
 
@@ -256,7 +252,6 @@ namespace Crypto_Notepad
 
             ps.Save();
 
-            if (textSave == true)
             {
                 string f = "Unnamed.cnp";
                 if (customRTB.Text != "")
@@ -433,7 +428,6 @@ namespace Crypto_Notepad
             customRTB.Text = noenc;
             string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
             customRTB.Select(Convert.ToInt32(cc), 0);
-            textSave = false;
             toolStripStatusLabel1.Text = "Saved in: " + filename;
             await Task.Delay(4000);
             toolStripStatusLabel1.Text = "Ready";
@@ -673,7 +667,6 @@ namespace Crypto_Notepad
 
         private void customRTB_TextChanged(object sender, EventArgs e)
         {
-            textSave = true;
             LineAndColumn();
         }
 
@@ -979,10 +972,8 @@ namespace Crypto_Notepad
                 toolStripStatusLabel1.ToolTipText = (OpenFile.FileName);
                 filename = OpenFile.FileName;
 
-                textSave = false;
                 string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                 customRTB.SelectionStart = caretPos;
-                textSave = true;
                 this.Show();
             }
             catch (CryptographicException)
