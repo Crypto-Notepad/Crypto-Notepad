@@ -10,7 +10,7 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 ## Features
 
 * Fully customizable editor. Able to customize the colors and fonts  
-* Able to customize all the parameters of the encryption (Hash Algorithm, Key Size, Password Iterations, The Salt)  
+* Able to customize different parameters of the encryption (hash algorithm, key size, password iterations, salt)  
 * Included all the features of the default Windows Notepad  
 * Association with the application extension
 * Easily search through the content
