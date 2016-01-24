@@ -675,6 +675,7 @@ namespace Crypto_Notepad
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SettingsForm sf = new SettingsForm();
+            sf.ShowDialog();
         }
 
         private async void MainWindow_Activated(object sender, EventArgs e)
