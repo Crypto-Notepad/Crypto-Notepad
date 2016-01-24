@@ -314,7 +314,7 @@ namespace Crypto_Notepad
             line += 1;
             column += 1;
 
-            lineStripStatusLabel.Text = "Line: " + line.ToString();
+            lineStripStatusLabel.Text = "Line: " + line.ToString() + ",";
             columnStripStatusLabel.Text = "Column: " + column.ToString();
         }
 

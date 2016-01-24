@@ -82,6 +82,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.whiteSpaceLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.lineStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.columnStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -136,7 +137,7 @@
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.Padding = new System.Windows.Forms.Padding(0);
             this.MainMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.MainMenu.Size = new System.Drawing.Size(689, 24);
+            this.MainMenu.Size = new System.Drawing.Size(535, 24);
             this.MainMenu.TabIndex = 0;
             this.MainMenu.Text = "menuStrip1";
             // 
@@ -536,27 +537,34 @@
             this.statusStrip1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
+            this.whiteSpaceLabel,
             this.lineStripStatusLabel,
             this.columnStripStatusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 439);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 268);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.ShowItemToolTips = true;
-            this.statusStrip1.Size = new System.Drawing.Size(689, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(535, 22);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
-            this.toolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.LightGray;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel1.Text = "Ready";
+            this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // whiteSpaceLabel
+            // 
+            this.whiteSpaceLabel.Name = "whiteSpaceLabel";
+            this.whiteSpaceLabel.Size = new System.Drawing.Size(380, 17);
+            this.whiteSpaceLabel.Spring = true;
             // 
             // lineStripStatusLabel
             // 
-            this.lineStripStatusLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lineStripStatusLabel.Margin = new System.Windows.Forms.Padding(50, 3, 20, 2);
+            this.lineStripStatusLabel.ForeColor = System.Drawing.Color.LightGray;
             this.lineStripStatusLabel.Name = "lineStripStatusLabel";
             this.lineStripStatusLabel.Overflow = System.Windows.Forms.ToolStripItemOverflow.Always;
             this.lineStripStatusLabel.Size = new System.Drawing.Size(42, 17);
@@ -564,7 +572,7 @@
             // 
             // columnStripStatusLabel
             // 
-            this.columnStripStatusLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.columnStripStatusLabel.ForeColor = System.Drawing.Color.LightGray;
             this.columnStripStatusLabel.Name = "columnStripStatusLabel";
             this.columnStripStatusLabel.Overflow = System.Windows.Forms.ToolStripItemOverflow.Always;
             this.columnStripStatusLabel.Size = new System.Drawing.Size(56, 17);
@@ -575,7 +583,7 @@
             this.pictureBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(670, 5);
+            this.pictureBox12.Location = new System.Drawing.Point(516, 5);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(14, 14);
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -721,7 +729,7 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(670, 7);
+            this.pictureBox1.Location = new System.Drawing.Point(516, 7);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(14, 14);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -749,7 +757,7 @@
             // 
             this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchTextBox.Location = new System.Drawing.Point(490, 3);
+            this.searchTextBox.Location = new System.Drawing.Point(336, 3);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(178, 21);
             this.searchTextBox.TabIndex = 9;
@@ -761,7 +769,7 @@
             // 
             this.chkMatchCase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkMatchCase.AutoSize = true;
-            this.chkMatchCase.Location = new System.Drawing.Point(410, 5);
+            this.chkMatchCase.Location = new System.Drawing.Point(256, 5);
             this.chkMatchCase.Name = "chkMatchCase";
             this.chkMatchCase.Size = new System.Drawing.Size(80, 17);
             this.chkMatchCase.TabIndex = 11;
@@ -773,7 +781,7 @@
             // 
             this.chkMatchWholeWord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkMatchWholeWord.AutoSize = true;
-            this.chkMatchWholeWord.Location = new System.Drawing.Point(289, 5);
+            this.chkMatchWholeWord.Location = new System.Drawing.Point(135, 5);
             this.chkMatchWholeWord.Name = "chkMatchWholeWord";
             this.chkMatchWholeWord.Size = new System.Drawing.Size(113, 17);
             this.chkMatchWholeWord.TabIndex = 12;
@@ -790,9 +798,9 @@
             this.panel1.Controls.Add(this.chkMatchCase);
             this.panel1.Controls.Add(this.chkMatchWholeWord);
             this.panel1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.panel1.Location = new System.Drawing.Point(0, 413);
+            this.panel1.Location = new System.Drawing.Point(0, 242);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(689, 27);
+            this.panel1.Size = new System.Drawing.Size(535, 27);
             this.panel1.TabIndex = 13;
             this.panel1.Visible = false;
             // 
@@ -814,7 +822,7 @@
             this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Location = new System.Drawing.Point(-1, 25);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(691, 23);
+            this.panel2.Size = new System.Drawing.Size(537, 23);
             this.panel2.TabIndex = 14;
             // 
             // customRTB
@@ -830,7 +838,7 @@
             this.customRTB.ForeColor = System.Drawing.SystemColors.WindowText;
             this.customRTB.Location = new System.Drawing.Point(0, 48);
             this.customRTB.Name = "customRTB";
-            this.customRTB.Size = new System.Drawing.Size(689, 392);
+            this.customRTB.Size = new System.Drawing.Size(535, 221);
             this.customRTB.TabIndex = 10;
             this.customRTB.Text = "";
             this.customRTB.SelectionChanged += new System.EventHandler(this.customRTB_SelectionChanged_1);
@@ -842,7 +850,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(689, 461);
+            this.ClientSize = new System.Drawing.Size(535, 290);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.customRTB);
@@ -963,6 +971,7 @@
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.ToolStripMenuItem lockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel whiteSpaceLabel;
     }
 }
 
