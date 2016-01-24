@@ -318,13 +318,6 @@ namespace Crypto_Notepad
         {
             string pos = ps.WindowLocation.ToString();
 
-            if (pos != "{X=0,Y=0}")
-            {
-                this.Location = ps.WindowLocation;
-            }
-
-            this.Size = ps.WindowSize;
-
             customRTB.Font = new Font(ps.RichTextFont, ps.RichTextSize);
             customRTB.ForeColor = ps.RichForeColor;
             customRTB.BackColor = ps.RichBackColor;
@@ -364,6 +357,14 @@ namespace Crypto_Notepad
             {
                 openAsotiations();
             }
+
+            if (pos != "{X=0,Y=0}")
+            {
+                this.Location = ps.WindowLocation;
+            }
+
+            this.Size = ps.WindowSize;
+            this.WindowState = ps.WindowState;
         }
 
         public void DeleteUpdateFiles()
