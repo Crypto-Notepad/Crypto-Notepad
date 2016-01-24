@@ -104,7 +104,7 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("101, 51, 6")]
+        [global::System.Configuration.DefaultSettingValueAttribute("172, 87, 11")]
         public global::System.Drawing.Color HighlightsColor {
             get {
                 return ((global::System.Drawing.Color)(this["HighlightsColor"]));
