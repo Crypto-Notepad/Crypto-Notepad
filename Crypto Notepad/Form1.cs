@@ -113,7 +113,7 @@ namespace Crypto_Notepad
         {
             if (OpenFile.ShowDialog() != DialogResult.OK) return;
             {
-                if (OpenFile.FileName.Contains(".txt"))
+                if (!OpenFile.FileName.Contains(".cnp"))
                 {
                     string opnfile = File.ReadAllText(OpenFile.FileName);
                     string NameWithotPath = Path.GetFileName(OpenFile.FileName);
