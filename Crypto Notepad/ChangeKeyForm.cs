@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Media;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -29,6 +30,7 @@ namespace Crypto_Notepad
 
             if (textBox1.Text != MainWindow.encryptionKey)
             {
+                SystemSounds.Beep.Play();
                 statusLabel.Text = "Invalid old key!";
                 statusLabel.Visible = true;
                 textBox1.Text = "";
@@ -38,6 +40,7 @@ namespace Crypto_Notepad
 
             if (textBox1.Text == textBox2.Text)
             {
+                SystemSounds.Beep.Play();
                 statusLabel.Text = "New key is the same as old!";
                 statusLabel.Visible = true;
                 textBox1.Text = "";
