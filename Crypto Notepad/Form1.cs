@@ -16,7 +16,7 @@ namespace Crypto_Notepad
 {
     public partial class MainWindow : Form
     {
-        public static string key = "";
+        public static string encryptionKey = "";
         public static bool keyChanged = false;
         public static bool settingsChanged = false;
         string[] args = Environment.GetCommandLineArgs();
