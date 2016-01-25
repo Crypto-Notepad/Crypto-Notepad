@@ -936,7 +936,7 @@ namespace Crypto_Notepad
 
             try
             {
-                OpenFile.FileName = toolStripStatusLabel1.ToolTipText;
+                OpenFile.FileName = filename;
                 string opnfile = File.ReadAllText(OpenFile.FileName);
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
                 string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
