@@ -19,6 +19,7 @@ namespace Crypto_Notepad
         public static string encryptionKey = "";
         public static bool keyChanged = false;
         public static bool settingsChanged = false;
+        string filename = "Unnamed.cnp";
         string[] args = Environment.GetCommandLineArgs();
         Properties.Settings ps = Properties.Settings.Default;
         int caretPos = 0;
