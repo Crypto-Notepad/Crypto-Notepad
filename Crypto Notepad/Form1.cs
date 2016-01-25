@@ -488,7 +488,7 @@ namespace Crypto_Notepad
             {
                 using (new CenterWinDialog(this))
                 {
-                    if (MessageBox.Show("Delete file: " + filename + " ?", "Crypto Notepad", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Delete file: " + "\"" + filename + "\"" + " ?", "Crypto Notepad", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         File.Delete(filename);
                         customRTB.Clear();
