@@ -246,7 +246,7 @@ namespace Crypto_Notepad
 
             if (customRTB.Modified == true)
             {
-                string f = "Unnamed.cnp";
+                string noname = "Unnamed.cnp";
                 string NameWithotPath;
                 try
                 {
@@ -268,13 +268,13 @@ namespace Crypto_Notepad
                                                      MessageBoxIcon.Question);
                         if (res == DialogResult.Yes)
                         {
-                            if (filename == f)
+                            if (filename == noname)
                             {
-                                SaveFile.FileName = f;
+                                SaveFile.FileName = noname;
                                 saveAsToolStripMenuItem_Click(this, new EventArgs());
                             }
 
-                            if (filename != f)
+                            if (filename != noname)
                             {
                                 saveToolStripMenuItem1_Click_1(this, new EventArgs());
                             }
@@ -376,12 +376,12 @@ namespace Crypto_Notepad
 
         private void saveToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            string f = "Unnamed.cnp";
+            string noname = "Unnamed.cnp";
             string NameWithotPath = Path.GetFileName(OpenFile.FileName);
 
-            if (filename == f)
+            if (filename == noname)
             {
-                SaveFile.FileName = f;
+                SaveFile.FileName = noname;
                 saveAsToolStripMenuItem_Click(this, new EventArgs());
 
                 if (Form2.OkPressed == false)
