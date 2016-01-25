@@ -89,6 +89,7 @@ namespace Crypto_Notepad
                 string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
                 customRTB.Text = de;
 
+                this.Text = appName + " - " + NameWithotPath;
                 filename = OpenFile.FileName;
 
                 string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
@@ -116,6 +117,7 @@ namespace Crypto_Notepad
                     string opnfile = File.ReadAllText(OpenFile.FileName);
                     string NameWithotPath = Path.GetFileName(OpenFile.FileName);
                     customRTB.Text = opnfile;
+                    this.Text = appName + " - " + NameWithotPath;
                     string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                     customRTB.Select(Convert.ToInt32(cc2), 0);
                     return;
@@ -146,6 +148,7 @@ namespace Crypto_Notepad
                 string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
                 customRTB.Text = de;
 
+                this.Text = appName + " - " + NameWithotPath;
 
                 filename = args[1];
                 string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
@@ -183,6 +186,7 @@ namespace Crypto_Notepad
                 customRTB.Clear();
                 StreamWriter sw = new StreamWriter(SaveFile.FileName);
                 string NameWithotPath = Path.GetFileName(SaveFile.FileName);
+                this.Text = appName + " - " + NameWithotPath;
                 filename = SaveFile.FileName;
                 sw.Close();
             }
@@ -248,6 +252,7 @@ namespace Crypto_Notepad
             {
                 string noname = "Unnamed.cnp";
                 string NameWithotPath;
+
                 try
                 {
                      NameWithotPath = Path.GetFileName(args[1]);
@@ -484,6 +489,7 @@ namespace Crypto_Notepad
                         key = "";
                         pictureBox11.Enabled = false;
                         filename = "Unnamed.cnp";
+                        this.Text = appName;
                         return;
                     }
                 }
@@ -928,6 +934,7 @@ namespace Crypto_Notepad
             {
                 key = "";
                 customRTB.Clear();
+                this.Text = appName;
                 OpenFile.FileName = "";
                 this.Show();
                 return;
@@ -941,6 +948,7 @@ namespace Crypto_Notepad
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
                 string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
 
+                this.Text = appName + " - " + NameWithotPath;
                 filename = OpenFile.FileName;
 
                 string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
@@ -958,6 +966,7 @@ namespace Crypto_Notepad
                 {
                     key = "";
                     customRTB.Clear();
+                    this.Text = appName;
                     OpenFile.FileName = "";
                     this.Show();
                     return;
