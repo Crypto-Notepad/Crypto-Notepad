@@ -80,11 +80,6 @@
             this.SaveFile = new System.Windows.Forms.SaveFileDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.whiteSpaceLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lineStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.columnStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -107,7 +102,6 @@
             this.customRTB = new Crypto_Notepad.CustomRichTextBox();
             this.MainMenu.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -531,53 +525,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Visible = false;
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
-            this.statusStrip1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.whiteSpaceLabel,
-            this.lineStripStatusLabel,
-            this.columnStripStatusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 268);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.ShowItemToolTips = true;
-            this.statusStrip1.Size = new System.Drawing.Size(535, 22);
-            this.statusStrip1.SizingGrip = false;
-            this.statusStrip1.TabIndex = 5;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.LightGray;
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(42, 17);
-            this.toolStripStatusLabel1.Text = "Ready";
-            this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // whiteSpaceLabel
-            // 
-            this.whiteSpaceLabel.Name = "whiteSpaceLabel";
-            this.whiteSpaceLabel.Size = new System.Drawing.Size(380, 17);
-            this.whiteSpaceLabel.Spring = true;
-            // 
-            // lineStripStatusLabel
-            // 
-            this.lineStripStatusLabel.ForeColor = System.Drawing.Color.LightGray;
-            this.lineStripStatusLabel.Name = "lineStripStatusLabel";
-            this.lineStripStatusLabel.Overflow = System.Windows.Forms.ToolStripItemOverflow.Always;
-            this.lineStripStatusLabel.Size = new System.Drawing.Size(42, 17);
-            this.lineStripStatusLabel.Text = "Line:";
-            // 
-            // columnStripStatusLabel
-            // 
-            this.columnStripStatusLabel.ForeColor = System.Drawing.Color.LightGray;
-            this.columnStripStatusLabel.Name = "columnStripStatusLabel";
-            this.columnStripStatusLabel.Overflow = System.Windows.Forms.ToolStripItemOverflow.Always;
-            this.columnStripStatusLabel.Size = new System.Drawing.Size(56, 17);
-            this.columnStripStatusLabel.Text = "Column:";
-            // 
             // pictureBox12
             // 
             this.pictureBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -854,7 +801,6 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.customRTB);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.MainMenu);
@@ -871,8 +817,6 @@
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -909,8 +853,6 @@
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.Button button2;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolStripMenuItem сервисToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
@@ -945,8 +887,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private System.Windows.Forms.ToolStripMenuItem changeKeyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сheckForUpdatesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripStatusLabel lineStripStatusLabel;
-        private System.Windows.Forms.ToolStripStatusLabel columnStripStatusLabel;
         private System.Windows.Forms.ToolStripMenuItem documentationToolStripMenuItem;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.CheckBox chkMatchCase;
@@ -971,7 +911,6 @@
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.ToolStripMenuItem lockToolStripMenuItem;
-        private System.Windows.Forms.ToolStripStatusLabel whiteSpaceLabel;
     }
 }
 

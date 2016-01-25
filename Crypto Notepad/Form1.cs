@@ -11,7 +11,6 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Crypto_Notepad
@@ -27,6 +26,7 @@ namespace Crypto_Notepad
         string[] args = Environment.GetCommandLineArgs();
         Properties.Settings ps = Properties.Settings.Default;
         int caretPos = 0;
+        string appName = Assembly.GetExecutingAssembly().GetName().Name;
 
         public MainWindow()
         {
@@ -89,8 +89,6 @@ namespace Crypto_Notepad
                 string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
                 customRTB.Text = de;
 
-                toolStripStatusLabel1.Text = NameWithotPath;
-                toolStripStatusLabel1.ToolTipText = (OpenFile.FileName);
                 filename = OpenFile.FileName;
 
                 string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
@@ -118,8 +116,6 @@ namespace Crypto_Notepad
                     string opnfile = File.ReadAllText(OpenFile.FileName);
                     string NameWithotPath = Path.GetFileName(OpenFile.FileName);
                     customRTB.Text = opnfile;
-                    toolStripStatusLabel1.Text = NameWithotPath;
-                    toolStripStatusLabel1.ToolTipText = (OpenFile.FileName);
                     string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                     customRTB.Select(Convert.ToInt32(cc2), 0);
                     return;
@@ -150,8 +146,6 @@ namespace Crypto_Notepad
                 string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
                 customRTB.Text = de;
 
-                toolStripStatusLabel1.Text = NameWithotPath;
-                toolStripStatusLabel1.ToolTipText = (args[1]);
 
                 filename = args[1];
                 string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
@@ -189,14 +183,12 @@ namespace Crypto_Notepad
                 customRTB.Clear();
                 StreamWriter sw = new StreamWriter(SaveFile.FileName);
                 string NameWithotPath = Path.GetFileName(SaveFile.FileName);
-                toolStripStatusLabel1.Text = NameWithotPath;
-                toolStripStatusLabel1.ToolTipText = (SaveFile.FileName);
                 filename = SaveFile.FileName;
                 sw.Close();
             }
         }
 
-        private async void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string NameWithotPath = Path.GetFileName(OpenFile.FileName);
 
@@ -232,12 +224,8 @@ namespace Crypto_Notepad
             }
             sw.Close();
             customRTB.Text = noenc;
-            toolStripStatusLabel1.Text = "Saved in: " + filename;
             string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
             customRTB.Select(Convert.ToInt32(cc), 0);
-            await Task.Delay(4000);
-            toolStripStatusLabel1.Text = "Ready";
-
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -307,17 +295,6 @@ namespace Crypto_Notepad
             }
         }
 
-        void LineAndColumn()
-        {
-            int line = customRTB.GetLineFromCharIndex(customRTB.SelectionStart);
-            int column = customRTB.SelectionStart - customRTB.GetFirstCharIndexFromLine(line);
-            line += 1;
-            column += 1;
-
-            lineStripStatusLabel.Text = "Line: " + line.ToString() + ",";
-            columnStripStatusLabel.Text = "Column: " + column.ToString();
-        }
-
         private void MainWindow_Load(object sender, EventArgs e)
         {
             string pos = ps.WindowLocation.ToString();
@@ -352,8 +329,6 @@ namespace Crypto_Notepad
                 Thread up = new Thread(() => сheckForUpdates(false));
                 up.Start();
             }
-
-            LineAndColumn();
 
             DeleteUpdateFiles();
 
@@ -399,7 +374,7 @@ namespace Crypto_Notepad
             customRTB.Clear();
         }
 
-        private async void saveToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        private void saveToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
             string f = "Unnamed.cnp";
             string NameWithotPath = Path.GetFileName(OpenFile.FileName);
@@ -435,9 +410,6 @@ namespace Crypto_Notepad
             customRTB.Text = noenc;
             string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
             customRTB.Select(Convert.ToInt32(cc), 0);
-            toolStripStatusLabel1.Text = "Saved in: " + filename;
-            await Task.Delay(4000);
-            toolStripStatusLabel1.Text = "Ready";
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -493,7 +465,7 @@ namespace Crypto_Notepad
             }
         }
 
-        private async void deleteFileToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void deleteFileToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             if (filename != "Unnamed.cnp")
             {
@@ -502,13 +474,10 @@ namespace Crypto_Notepad
                     if (MessageBox.Show("Delete file: " + filename + " ?", "Crypto Notepad", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         File.Delete(filename);
-                        toolStripStatusLabel1.Text = filename + " deleted";
                         customRTB.Clear();
                         key = "";
                         pictureBox11.Enabled = false;
                         filename = "Unnamed.cnp";
-                        await Task.Delay(4000);
-                        toolStripStatusLabel1.Text = "Ready";
                         return;
                     }
                 }
@@ -662,7 +631,6 @@ namespace Crypto_Notepad
 
         private void customRTB_SelectionChanged_1(object sender, EventArgs e)
         {
-            LineAndColumn();
             if (customRTB.SelectionLength != 0)
             {
                 pictureBox8.Enabled = true;
@@ -675,18 +643,13 @@ namespace Crypto_Notepad
             }
         }
 
-        private void customRTB_TextChanged(object sender, EventArgs e)
-        {
-            LineAndColumn();
-        }
-
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SettingsForm sf = new SettingsForm();
             sf.ShowDialog();
         }
 
-        private async void MainWindow_Activated(object sender, EventArgs e)
+        private void MainWindow_Activated(object sender, EventArgs e)
         {
             if (settingsChanged == true)
             {
@@ -715,9 +678,9 @@ namespace Crypto_Notepad
 
             if (keyChanged == true)
             {
-                toolStripStatusLabel1.Text = "Key was changed";
-                await Task.Delay(4000);
-                toolStripStatusLabel1.Text = "Ready";
+                //toolStripStatusLabel1.Text = "Key was changed";
+                //await Task.Delay(4000);
+                //toolStripStatusLabel1.Text = "Ready";
             }
 
             if (key == "")
@@ -959,7 +922,6 @@ namespace Crypto_Notepad
             {
                 key = "";
                 customRTB.Clear();
-                toolStripStatusLabel1.Text = "Ready";
                 OpenFile.FileName = "";
                 this.Show();
                 return;
@@ -973,8 +935,6 @@ namespace Crypto_Notepad
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
                 string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
 
-                toolStripStatusLabel1.Text = NameWithotPath;
-                toolStripStatusLabel1.ToolTipText = (OpenFile.FileName);
                 filename = OpenFile.FileName;
 
                 string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
@@ -992,7 +952,6 @@ namespace Crypto_Notepad
                 {
                     key = "";
                     customRTB.Clear();
-                    toolStripStatusLabel1.Text = "Ready";
                     OpenFile.FileName = "";
                     this.Show();
                     return;
