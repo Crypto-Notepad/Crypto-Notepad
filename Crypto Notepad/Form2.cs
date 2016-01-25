@@ -13,7 +13,7 @@ namespace Crypto_Notepad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MainWindow.key = textBox1.Text;
+            MainWindow.encryptionKey = textBox1.Text;
             textBox1.Focus();
             textBox1.Text = "";
             OkPressed = true;
