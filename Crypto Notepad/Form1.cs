@@ -86,7 +86,7 @@ namespace Crypto_Notepad
             {
                 string opnfile = File.ReadAllText(OpenFile.FileName);
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-                string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+                string de = AES.Decrypt(opnfile, encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
                 customRTB.Text = de;
 
                 this.Text = appName + " - " + NameWithotPath;
@@ -145,7 +145,7 @@ namespace Crypto_Notepad
                 }
                 Form2.OkPressed = false;
 
-                string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+                string de = AES.Decrypt(opnfile, encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
                 customRTB.Text = de;
 
                 this.Text = appName + " - " + NameWithotPath;
@@ -196,7 +196,7 @@ namespace Crypto_Notepad
         {
             string NameWithotPath = Path.GetFileName(OpenFile.FileName);
 
-            if (string.IsNullOrEmpty(key))
+            if (string.IsNullOrEmpty(encryptionKey))
             {
                 Form2 Form2 = new Form2();
                 Form2.ShowDialog();
@@ -215,7 +215,7 @@ namespace Crypto_Notepad
             filename = SaveFile.FileName;
 
             string noenc = customRTB.Text;
-            string en = AES.Encrypt(customRTB.Text, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+            string en = AES.Encrypt(customRTB.Text, encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
             customRTB.Text = en;
             StreamWriter sw = new StreamWriter(filename);
             int i = customRTB.Lines.Count();
@@ -280,7 +280,7 @@ namespace Crypto_Notepad
                     {
                         messageBoxText = "Save file: " + "\"" + NameWithotPath + "\"" + " with a new key? ";
                     }
-                    //Save file with a new key?
+
                     using (new CenterWinDialog(this))
                     {
                         res = MessageBox.Show(messageBoxText, "Crypto Notepad",
@@ -414,7 +414,7 @@ namespace Crypto_Notepad
             }
 
             string noenc = customRTB.Text;
-            string en = AES.Encrypt(customRTB.Text, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+            string en = AES.Encrypt(customRTB.Text, encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
             customRTB.Text = en;
             StreamWriter sw = new StreamWriter(filename);
             int i = customRTB.Lines.Count();
@@ -496,7 +496,7 @@ namespace Crypto_Notepad
                     {
                         File.Delete(filename);
                         customRTB.Clear();
-                        key = "";
+                        encryptionKey = "";
                         pictureBox11.Enabled = false;
                         filename = "Unnamed.cnp";
                         this.Text = appName;
@@ -703,13 +703,13 @@ namespace Crypto_Notepad
                 customRTB.Modified = true;
             }
 
-            if (key == "")
+            if (encryptionKey == "")
             {
                 pictureBox11.Enabled = false;
                 pictureBox13.Enabled = false;
             }
 
-            if (key != "")
+            if (encryptionKey != "")
             {
                 pictureBox11.Enabled = true;
                 pictureBox13.Enabled = true;
@@ -737,7 +737,6 @@ namespace Crypto_Notepad
             {
                 panel1.Visible = true;
                 searchTextBox.Focus();
-                //SendMessage(customRTB.Handle, (uint)0x00B6, (UIntPtr)0, (IntPtr)(-1));
                 customRTB.Height = customRTB.Height - 27;
                 return;
             }
@@ -748,7 +747,6 @@ namespace Crypto_Notepad
                 panel1.Visible = false;
                 customRTB.Height = customRTB.Height += 27;
                 customRTB.Focus();
-                //SendMessage(customRTB.Handle, (uint)0x00B6, (UIntPtr)0, (IntPtr)(1));
                 customRTB.DeselectAll();
                 customRTB.SelectionStart = caretPos;
                 return;
@@ -762,13 +760,13 @@ namespace Crypto_Notepad
 
         private void сервисToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
         {
-            if (key == "")
+            if (encryptionKey == "")
             {
                 changeKeyToolStripMenuItem.Enabled = false;
                 lockToolStripMenuItem.Enabled = false;
             }
 
-            if (key != "") 
+            if (encryptionKey != "") 
             {
                 changeKeyToolStripMenuItem.Enabled = true;
                 lockToolStripMenuItem.Enabled = true;
@@ -929,7 +927,7 @@ namespace Crypto_Notepad
         void AutoLock(bool minimize)
         {
             Form2 f2 = new Form2();
-            key = "";
+            encryptionKey = "";
             caretPos = customRTB.SelectionStart;
             this.Hide();
             if (minimize == true)
@@ -940,7 +938,7 @@ namespace Crypto_Notepad
 
             if (Form2.OkPressed == false)
             {
-                key = "";
+                encryptionKey = "";
                 customRTB.Clear();
                 this.Text = appName;
                 OpenFile.FileName = "";
@@ -954,7 +952,7 @@ namespace Crypto_Notepad
                 OpenFile.FileName = filename;
                 string opnfile = File.ReadAllText(OpenFile.FileName);
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-                string de = AES.Decrypt(opnfile, key, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+                string de = AES.Decrypt(opnfile, encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
 
                 this.Text = appName + " - " + NameWithotPath;
                 filename = OpenFile.FileName;
@@ -972,7 +970,7 @@ namespace Crypto_Notepad
                 }
                 if (dialogResult == DialogResult.Cancel)
                 {
-                    key = "";
+                    encryptionKey = "";
                     customRTB.Clear();
                     this.Text = appName;
                     OpenFile.FileName = "";
@@ -988,7 +986,7 @@ namespace Crypto_Notepad
             const int WM_SYSCOMMAND = 0x112;
             const int SC_MINIMIZE = 0xF020;
 
-            if (m.Msg == WM_SYSCOMMAND && m.WParam.ToInt32() == SC_MINIMIZE && ps.AutoLock == true && key != "")
+            if (m.Msg == WM_SYSCOMMAND && m.WParam.ToInt32() == SC_MINIMIZE && ps.AutoLock == true && encryptionKey != "")
             {
                 AutoLock(true);
                 return;
@@ -1031,5 +1029,6 @@ namespace Crypto_Notepad
         {
             caretPos = customRTB.SelectionStart;
         }
+
     }
 }
