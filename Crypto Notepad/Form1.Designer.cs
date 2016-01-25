@@ -702,11 +702,15 @@
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchTextBox.Location = new System.Drawing.Point(336, 3);
+            this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
+            this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchTextBox.ForeColor = System.Drawing.Color.White;
+            this.searchTextBox.Location = new System.Drawing.Point(196, 6);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(178, 21);
+            this.searchTextBox.Size = new System.Drawing.Size(303, 14);
             this.searchTextBox.TabIndex = 9;
             this.searchTextBox.TabStop = false;
             this.searchTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -714,38 +718,46 @@
             // 
             // chkMatchCase
             // 
-            this.chkMatchCase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkMatchCase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chkMatchCase.AutoSize = true;
-            this.chkMatchCase.Location = new System.Drawing.Point(256, 5);
+            this.chkMatchCase.ForeColor = System.Drawing.Color.Gainsboro;
+            this.chkMatchCase.Location = new System.Drawing.Point(95, 5);
             this.chkMatchCase.Name = "chkMatchCase";
-            this.chkMatchCase.Size = new System.Drawing.Size(80, 17);
+            this.chkMatchCase.Size = new System.Drawing.Size(95, 17);
             this.chkMatchCase.TabIndex = 11;
-            this.chkMatchCase.Text = "Match case";
-            this.chkMatchCase.UseVisualStyleBackColor = true;
+            this.chkMatchCase.Text = "Case sensitive";
+            this.chkMatchCase.UseVisualStyleBackColor = false;
             this.chkMatchCase.CheckedChanged += new System.EventHandler(this.chkMatchCase_CheckedChanged);
             // 
             // chkMatchWholeWord
             // 
-            this.chkMatchWholeWord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkMatchWholeWord.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chkMatchWholeWord.AutoSize = true;
-            this.chkMatchWholeWord.Location = new System.Drawing.Point(135, 5);
+            this.chkMatchWholeWord.BackColor = System.Drawing.Color.Transparent;
+            this.chkMatchWholeWord.ForeColor = System.Drawing.Color.Gainsboro;
+            this.chkMatchWholeWord.Location = new System.Drawing.Point(6, 5);
             this.chkMatchWholeWord.Name = "chkMatchWholeWord";
-            this.chkMatchWholeWord.Size = new System.Drawing.Size(113, 17);
+            this.chkMatchWholeWord.Size = new System.Drawing.Size(83, 17);
             this.chkMatchWholeWord.TabIndex = 12;
-            this.chkMatchWholeWord.Text = "Match whole word";
-            this.chkMatchWholeWord.UseVisualStyleBackColor = true;
+            this.chkMatchWholeWord.Text = "Whole word";
+            this.chkMatchWholeWord.UseVisualStyleBackColor = false;
             this.chkMatchWholeWord.CheckedChanged += new System.EventHandler(this.chkMatchWholeWord_CheckedChanged);
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.searchTextBox);
             this.panel1.Controls.Add(this.chkMatchCase);
             this.panel1.Controls.Add(this.chkMatchWholeWord);
             this.panel1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.panel1.Location = new System.Drawing.Point(0, 242);
+            this.panel1.Location = new System.Drawing.Point(0, 272);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(535, 27);
             this.panel1.TabIndex = 13;
@@ -785,19 +797,18 @@
             this.customRTB.ForeColor = System.Drawing.SystemColors.WindowText;
             this.customRTB.Location = new System.Drawing.Point(0, 48);
             this.customRTB.Name = "customRTB";
-            this.customRTB.Size = new System.Drawing.Size(535, 221);
+            this.customRTB.Size = new System.Drawing.Size(535, 252);
             this.customRTB.TabIndex = 10;
             this.customRTB.Text = "";
             this.customRTB.SelectionChanged += new System.EventHandler(this.customRTB_SelectionChanged_1);
             this.customRTB.Click += new System.EventHandler(this.customRTB_Click);
-            this.customRTB.TextChanged += new System.EventHandler(this.customRTB_TextChanged);
             this.customRTB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.customRTB_KeyDown);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(535, 290);
+            this.ClientSize = new System.Drawing.Size(535, 299);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.customRTB);
