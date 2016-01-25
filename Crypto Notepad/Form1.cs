@@ -270,12 +270,22 @@ namespace Crypto_Notepad
                 if (customRTB.Text != "")
                 {
                     DialogResult res = new DialogResult();
+                    string messageBoxText = "";
+
+                    if (keyChanged == false)
+                    {
+                        messageBoxText = "Save file: " + "\"" + NameWithotPath + "\"" + " ? ";
+                    }
+                    if (keyChanged == true)
+                    {
+                        messageBoxText = "Save file: " + "\"" + NameWithotPath + "\"" + " with a new key? ";
+                    }
+                    //Save file with a new key?
                     using (new CenterWinDialog(this))
                     {
-                        res = MessageBox.Show("Save file: " + "\"" + NameWithotPath + "\""  + " ? ",
-                                                     "Crypto Notepad",
-                                                     MessageBoxButtons.YesNoCancel,
-                                                     MessageBoxIcon.Question);
+                        res = MessageBox.Show(messageBoxText, "Crypto Notepad",
+                                                  MessageBoxButtons.YesNoCancel,
+                                                  MessageBoxIcon.Question);
                         if (res == DialogResult.Yes)
                         {
                             if (filename == noname)
