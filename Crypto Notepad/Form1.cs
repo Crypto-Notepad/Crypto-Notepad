@@ -17,9 +17,6 @@ namespace Crypto_Notepad
 {
     public partial class MainWindow : Form
     {
-        [DllImport("user32.dll")]
-        static extern int SendMessage(IntPtr hWnd, uint wMsg, UIntPtr wParam, IntPtr lParam);
-        public static string filename = "Unnamed.cnp";
         public static string key = "";
         public static bool keyChanged = false;
         public static bool settingsChanged = false;
