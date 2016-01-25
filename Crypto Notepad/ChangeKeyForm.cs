@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Crypto_Notepad
@@ -10,22 +11,26 @@ namespace Crypto_Notepad
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == MainWindow.key & textBox1.Text != textBox2.Text)
             {
                 MainWindow.key = textBox2.Text;
                 MainWindow.keyChanged = true;
+                textBox1.Text = "";
+                textBox2.Text = "";
+                statusLabel.Text = "Key was successfully changed!";
+                statusLabel.Visible = true;
+                button1.Enabled = false;
+                await Task.Delay(2000);
                 this.Close();
                 return;
             }
 
             if (textBox1.Text != MainWindow.key)
             {
-                using (new CenterWinDialog(this))
-                {
-                    MessageBox.Show("Invalid old key!", "Change Key", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                statusLabel.Text = "Invalid old key!";
+                statusLabel.Visible = true;
                 textBox1.Text = "";
                 textBox2.Text = "";
                 return;
@@ -33,10 +38,8 @@ namespace Crypto_Notepad
 
             if (textBox1.Text == textBox2.Text)
             {
-                using (new CenterWinDialog(this))
-                {
-                    MessageBox.Show("New key is the same as old!", "Change Key", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                statusLabel.Text = "New key is the same as old!";
+                statusLabel.Visible = true;
                 textBox1.Text = "";
                 textBox2.Text = "";
                 return;
