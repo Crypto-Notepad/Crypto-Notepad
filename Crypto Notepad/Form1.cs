@@ -257,6 +257,11 @@ namespace Crypto_Notepad
                      NameWithotPath = Path.GetFileName(OpenFile.FileName);
                 }
 
+                if (NameWithotPath == "")
+                {
+                    NameWithotPath = noname;
+                }
+
                 if (customRTB.Text != "")
                 {
                     DialogResult res = new DialogResult();
@@ -278,12 +283,13 @@ namespace Crypto_Notepad
                             {
                                 saveToolStripMenuItem1_Click_1(this, new EventArgs());
                             }
-                            Application.Exit();
+
+                            e.Cancel = true;
                         }
 
                         if (res == DialogResult.No)
                         {
-                            Environment.Exit(0);
+                            return;
                         }
 
                         if (res == DialogResult.Cancel)
