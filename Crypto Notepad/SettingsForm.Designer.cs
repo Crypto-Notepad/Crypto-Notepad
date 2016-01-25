@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.BackgroundColorLabel = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
@@ -44,6 +45,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.closeLabel = new System.Windows.Forms.PictureBox();
+            this.warningLabel = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
@@ -58,9 +61,11 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.closeLabel)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,7 +112,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(260, 218);
             this.tabControl1.TabIndex = 4;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -221,6 +225,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.closeLabel);
+            this.tabPage2.Controls.Add(this.warningLabel);
             this.tabPage2.Controls.Add(this.textBox2);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.comboBox4);
@@ -236,6 +242,36 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Encrypt/Decrypt";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // closeLabel
+            // 
+            this.closeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeLabel.BackColor = System.Drawing.Color.Gainsboro;
+            this.closeLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeLabel.Image = global::Crypto_Notepad.Properties.Resources.close_g;
+            this.closeLabel.Location = new System.Drawing.Point(237, 157);
+            this.closeLabel.Name = "closeLabel";
+            this.closeLabel.Size = new System.Drawing.Size(14, 14);
+            this.closeLabel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.closeLabel.TabIndex = 15;
+            this.closeLabel.TabStop = false;
+            this.toolTip1.SetToolTip(this.closeLabel, "Close");
+            this.closeLabel.Click += new System.EventHandler(this.closeLabel_Click);
+            this.closeLabel.MouseEnter += new System.EventHandler(this.closeLabel_MouseEnter);
+            this.closeLabel.MouseLeave += new System.EventHandler(this.closeLabel_MouseLeave);
+            // 
+            // warningLabel
+            // 
+            this.warningLabel.BackColor = System.Drawing.Color.Gainsboro;
+            this.warningLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.warningLabel.ForeColor = System.Drawing.Color.Black;
+            this.warningLabel.Location = new System.Drawing.Point(0, 156);
+            this.warningLabel.Name = "warningLabel";
+            this.warningLabel.Size = new System.Drawing.Size(252, 36);
+            this.warningLabel.TabIndex = 8;
+            this.warningLabel.Text = "If you change settings in this tab, decrypt the previously encrypted files will n" +
+    "ot be possible.";
+            this.warningLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBox2
             // 
@@ -381,7 +417,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(263, 254);
+            this.ClientSize = new System.Drawing.Size(262, 253);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.saveSettingsButton);
@@ -398,6 +434,7 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.closeLabel)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
@@ -435,5 +472,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.Label warningLabel;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox closeLabel;
     }
 }

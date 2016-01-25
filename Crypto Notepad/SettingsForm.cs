@@ -35,6 +35,12 @@ namespace Crypto_Notepad
             checkBox2.Checked = ps.AutoCheckUpdate;
             checkBox3.Checked = ps.ShowToolbar;
             checkBox4.Checked = ps.AutoLock;
+
+            if (ps.WarningMsg == false)
+            {
+                warningLabel.Visible = false;
+                closeLabel.Visible = false;
+            }
         }
 
         private void saveSettingsButton_Click(object sender, EventArgs e)
@@ -155,16 +161,6 @@ namespace Crypto_Notepad
             panel3.BackColor = colorDialog1.Color;
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if ((tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"]) && (ps.WarningMsg == false))
-            {
-                SystemSounds.Beep.Play();
-                WarningMsgBox w = new WarningMsgBox();
-                w.ShowDialog(this);
-            }
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             using (new CenterWinDialog(this))
@@ -178,5 +174,22 @@ namespace Crypto_Notepad
             }
         }
 
+        private void closeLabel_Click(object sender, EventArgs e)
+        {
+            warningLabel.Visible = false;
+            closeLabel.Visible = false;
+            ps.WarningMsg = false;
+            ps.Save();
+        }
+
+        private void closeLabel_MouseEnter(object sender, EventArgs e)
+        {
+            closeLabel.Image = Properties.Resources.close_b;
+        }
+
+        private void closeLabel_MouseLeave(object sender, EventArgs e)
+        {
+            closeLabel.Image = Properties.Resources.close_g;
+        }
     }
 }
