@@ -282,14 +282,14 @@ namespace Crypto_Notepad
                             {
                                 SaveFile.FileName = noname;
                                 saveAsToolStripMenuItem_Click(this, new EventArgs());
+                                e.Cancel = true;
                             }
 
                             if (filename != noname)
                             {
                                 saveToolStripMenuItem1_Click_1(this, new EventArgs());
+                                Environment.Exit(0);
                             }
-
-                            e.Cancel = true;
                         }
 
                         if (res == DialogResult.No)
@@ -690,9 +690,7 @@ namespace Crypto_Notepad
 
             if (keyChanged == true)
             {
-                //toolStripStatusLabel1.Text = "Key was changed";
-                //await Task.Delay(4000);
-                //toolStripStatusLabel1.Text = "Ready";
+                customRTB.Modified = true;
             }
 
             if (key == "")
@@ -1023,6 +1021,5 @@ namespace Crypto_Notepad
         {
             caretPos = customRTB.SelectionStart;
         }
-
     }
 }
