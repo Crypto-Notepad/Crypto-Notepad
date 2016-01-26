@@ -704,12 +704,16 @@ namespace Crypto_Notepad
             {
                 pictureBox11.Enabled = false;
                 pictureBox13.Enabled = false;
+                pictureBox6.Enabled = false;
+                pictureBox7.Enabled = false;
             }
 
             if (encryptionKey != "")
             {
                 pictureBox11.Enabled = true;
                 pictureBox13.Enabled = true;
+                pictureBox6.Enabled = true;
+                pictureBox7.Enabled = true;
             }
         }
 
