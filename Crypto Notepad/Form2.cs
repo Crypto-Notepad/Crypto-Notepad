@@ -5,7 +5,6 @@ namespace Crypto_Notepad
 {
     public partial class Form2 : Form
     {
-        public static bool OkPressed = false;
         public Form2()
         {
             InitializeComponent();
@@ -13,10 +12,10 @@ namespace Crypto_Notepad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MainWindow.encryptionKey = textBox1.Text;
+            publicVar.encryptionKey = textBox1.Text;
             textBox1.Focus();
             textBox1.Text = "";
-            OkPressed = true;
+            publicVar.okPressed = true;
             this.Hide();
         }
 

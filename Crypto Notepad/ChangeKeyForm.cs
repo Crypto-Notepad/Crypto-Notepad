@@ -14,10 +14,10 @@ namespace Crypto_Notepad
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == MainWindow.encryptionKey & textBox1.Text != textBox2.Text)
+            if (textBox1.Text == publicVar.encryptionKey & textBox1.Text != textBox2.Text)
             {
-                MainWindow.encryptionKey = textBox2.Text;
-                MainWindow.keyChanged = true;
+                publicVar.encryptionKey = textBox2.Text;
+                publicVar.keyChanged = true;
                 textBox1.Text = "";
                 textBox2.Text = "";
                 statusLabel.Text = "Key was successfully changed!";
@@ -28,7 +28,7 @@ namespace Crypto_Notepad
                 return;
             }
 
-            if (textBox1.Text != MainWindow.encryptionKey)
+            if (textBox1.Text != publicVar.encryptionKey)
             {
                 SystemSounds.Beep.Play();
                 statusLabel.Text = "Invalid old key!";

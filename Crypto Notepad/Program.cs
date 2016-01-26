@@ -16,4 +16,12 @@ namespace Crypto_Notepad
             Application.Run(new MainWindow());
         }
     }
+
+    static class publicVar
+    {
+        public static string encryptionKey { get; set; }
+        public static bool keyChanged { get; set; }
+        public static bool settingsChanged{ get; set; }
+        public static bool okPressed { get; set; }
+    }
 }

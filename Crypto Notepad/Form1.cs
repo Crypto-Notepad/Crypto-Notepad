@@ -16,12 +16,9 @@ namespace Crypto_Notepad
 {
     public partial class MainWindow : Form
     {
-        public static string encryptionKey = "";
-        public static bool keyChanged = false;
-        public static bool settingsChanged = false;
+        Properties.Settings ps = Properties.Settings.Default;
         string filename = "Unnamed.cnp";
         string[] args = Environment.GetCommandLineArgs();
-        Properties.Settings ps = Properties.Settings.Default;
         int caretPos = 0;
         string appName = Assembly.GetExecutingAssembly().GetName().Name;
 
@@ -72,18 +69,18 @@ namespace Crypto_Notepad
         {
             Form2 f2 = new Form2();
             f2.ShowDialog();
-            if (Form2.OkPressed == false)
+            if (publicVar.okPressed == false)
             {
                 OpenFile.FileName = "";
                 return;
             }
-            Form2.OkPressed = false;
+            publicVar.okPressed = false;
 
             try
             {
                 string opnfile = File.ReadAllText(OpenFile.FileName);
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-                string de = AES.Decrypt(opnfile, encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+                string de = AES.Decrypt(opnfile, publicVar.encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
                 customRTB.Text = de;
 
                 this.Text = appName + " - " + NameWithotPath;
@@ -135,14 +132,14 @@ namespace Crypto_Notepad
                 string opnfile = File.ReadAllText(args[1]);
 
                 Form2.ShowDialog();
-                if (Form2.OkPressed == false)
+                if (publicVar.okPressed == false)
                 {
                     OpenFile.FileName = "";
                     return;
                 }
-                Form2.OkPressed = false;
+                publicVar.okPressed = false;
 
-                string de = AES.Decrypt(opnfile, encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+                string de = AES.Decrypt(opnfile, publicVar.encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
                 customRTB.Text = de;
 
                 this.Text = appName + " - " + NameWithotPath;
@@ -168,14 +165,14 @@ namespace Crypto_Notepad
             Form2 f2 = new Form2();
             f2.ShowDialog();
 
-            if (Form2.OkPressed == false)
+            if (publicVar.okPressed == false)
             {
                 return;
             }
 
-            if (Form2.OkPressed == true)
+            if (publicVar.okPressed == true)
             {
-                Form2.OkPressed = false;
+                publicVar.okPressed = false;
                 if (SaveFile.ShowDialog() != DialogResult.OK)
                 {
                     return;
@@ -193,15 +190,15 @@ namespace Crypto_Notepad
         {
             string NameWithotPath = Path.GetFileName(OpenFile.FileName);
 
-            if (string.IsNullOrEmpty(encryptionKey))
+            if (string.IsNullOrEmpty(publicVar.encryptionKey))
             {
                 Form2 Form2 = new Form2();
                 Form2.ShowDialog();
-                if (Form2.OkPressed == false)
+                if (publicVar.okPressed == false)
                 {
                     return;
                 }
-                Form2.OkPressed = false;
+                publicVar.okPressed = false;
             }
 
             if (SaveFile.ShowDialog() != DialogResult.OK)
@@ -212,7 +209,7 @@ namespace Crypto_Notepad
             filename = SaveFile.FileName;
 
             string noenc = customRTB.Text;
-            string en = AES.Encrypt(customRTB.Text, encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+            string en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
             customRTB.Text = en;
             StreamWriter sw = new StreamWriter(filename);
             int i = customRTB.Lines.Count();
@@ -269,11 +266,11 @@ namespace Crypto_Notepad
                     DialogResult res = new DialogResult();
                     string messageBoxText = "";
 
-                    if (keyChanged == false)
+                    if (publicVar.keyChanged == false)
                     {
                         messageBoxText = "Save file: " + "\"" + NameWithotPath + "\"" + " ? ";
                     }
-                    if (keyChanged == true)
+                    if (publicVar.keyChanged == true)
                     {
                         messageBoxText = "Save file: " + "\"" + NameWithotPath + "\"" + " with a new key? ";
                     }
@@ -402,16 +399,16 @@ namespace Crypto_Notepad
                 SaveFile.FileName = noname;
                 saveAsToolStripMenuItem_Click(this, new EventArgs());
 
-                if (Form2.OkPressed == false)
+                if (publicVar.okPressed == false)
                 {
                     return;
                 }
 
-                Form2.OkPressed = false;
+                publicVar.okPressed = false;
             }
 
             string noenc = customRTB.Text;
-            string en = AES.Encrypt(customRTB.Text, encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+            string en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
             customRTB.Text = en;
             StreamWriter sw = new StreamWriter(filename);
             int i = customRTB.Lines.Count();
@@ -493,7 +490,7 @@ namespace Crypto_Notepad
                     {
                         File.Delete(filename);
                         customRTB.Clear();
-                        encryptionKey = "";
+                        publicVar.encryptionKey = "";
                         pictureBox11.Enabled = false;
                         filename = "Unnamed.cnp";
                         this.Text = appName;
@@ -670,7 +667,7 @@ namespace Crypto_Notepad
 
         private void MainWindow_Activated(object sender, EventArgs e)
         {
-            if (settingsChanged == true)
+            if (publicVar.settingsChanged == true)
             {
                 customRTB.Font = new Font(ps.RichTextFont, ps.RichTextSize);
                 customRTB.ForeColor = ps.RichForeColor;
@@ -695,12 +692,12 @@ namespace Crypto_Notepad
                 }
             }
 
-            if (keyChanged == true)
+            if (publicVar.keyChanged == true)
             {
                 customRTB.Modified = true;
             }
 
-            if (encryptionKey == "")
+            if (publicVar.encryptionKey == "")
             {
                 pictureBox11.Enabled = false;
                 pictureBox13.Enabled = false;
@@ -708,7 +705,7 @@ namespace Crypto_Notepad
                 pictureBox7.Enabled = false;
             }
 
-            if (encryptionKey != "")
+            if (publicVar.encryptionKey != "")
             {
                 pictureBox11.Enabled = true;
                 pictureBox13.Enabled = true;
@@ -761,13 +758,13 @@ namespace Crypto_Notepad
 
         private void сервисToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
         {
-            if (encryptionKey == "")
+            if (publicVar.encryptionKey == "")
             {
                 changeKeyToolStripMenuItem.Enabled = false;
                 lockToolStripMenuItem.Enabled = false;
             }
 
-            if (encryptionKey != "") 
+            if (publicVar.encryptionKey != "") 
             {
                 changeKeyToolStripMenuItem.Enabled = true;
                 lockToolStripMenuItem.Enabled = true;
@@ -928,7 +925,7 @@ namespace Crypto_Notepad
         void AutoLock(bool minimize)
         {
             Form2 f2 = new Form2();
-            encryptionKey = "";
+            publicVar.encryptionKey = "";
             caretPos = customRTB.SelectionStart;
             this.Hide();
             if (minimize == true)
@@ -937,23 +934,23 @@ namespace Crypto_Notepad
             }
             f2.ShowDialog();
 
-            if (Form2.OkPressed == false)
+            if (publicVar.okPressed == false)
             {
-                encryptionKey = "";
+                publicVar.encryptionKey = "";
                 customRTB.Clear();
                 this.Text = appName;
                 OpenFile.FileName = "";
                 this.Show();
                 return;
             }
-            Form2.OkPressed = false;
+            publicVar.okPressed = false;
 
             try
             {
                 OpenFile.FileName = filename;
                 string opnfile = File.ReadAllText(OpenFile.FileName);
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-                string de = AES.Decrypt(opnfile, encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+                string de = AES.Decrypt(opnfile, publicVar.encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
 
                 this.Text = appName + " - " + NameWithotPath;
                 filename = OpenFile.FileName;
@@ -971,7 +968,7 @@ namespace Crypto_Notepad
                 }
                 if (dialogResult == DialogResult.Cancel)
                 {
-                    encryptionKey = "";
+                    publicVar.encryptionKey = "";
                     customRTB.Clear();
                     this.Text = appName;
                     OpenFile.FileName = "";
@@ -987,7 +984,7 @@ namespace Crypto_Notepad
             const int WM_SYSCOMMAND = 0x112;
             const int SC_MINIMIZE = 0xF020;
 
-            if (m.Msg == WM_SYSCOMMAND && m.WParam.ToInt32() == SC_MINIMIZE && ps.AutoLock == true && encryptionKey != "")
+            if (m.Msg == WM_SYSCOMMAND && m.WParam.ToInt32() == SC_MINIMIZE && ps.AutoLock == true && publicVar.encryptionKey != "")
             {
                 AutoLock(true);
                 return;

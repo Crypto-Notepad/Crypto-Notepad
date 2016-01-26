@@ -77,7 +77,7 @@ namespace Crypto_Notepad
                 ps.AutoLock = checkBox4.Checked;
                 ps.Save();
 
-                MainWindow.settingsChanged = true;
+                publicVar.settingsChanged = true;
 
                 this.Hide();
             }
