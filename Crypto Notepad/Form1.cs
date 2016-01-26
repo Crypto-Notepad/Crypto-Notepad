@@ -927,7 +927,9 @@ namespace Crypto_Notepad
             Form2 f2 = new Form2();
             publicVar.encryptionKey = "";
             caretPos = customRTB.SelectionStart;
+            f2.MinimizeBox = true;
             this.Hide();
+
             if (minimize == true)
             {
                 f2.WindowState = FormWindowState.Minimized;
