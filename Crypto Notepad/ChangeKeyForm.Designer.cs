@@ -169,7 +169,6 @@
             this.Name = "ChangeKeyForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Change Key";
-            this.Load += new System.EventHandler(this.ChangeKeyForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
