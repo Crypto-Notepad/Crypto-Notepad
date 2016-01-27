@@ -249,7 +249,7 @@
             this.closeLabel.BackColor = System.Drawing.Color.Gainsboro;
             this.closeLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.closeLabel.Image = global::Crypto_Notepad.Properties.Resources.close_g;
-            this.closeLabel.Location = new System.Drawing.Point(237, 157);
+            this.closeLabel.Location = new System.Drawing.Point(234, 158);
             this.closeLabel.Name = "closeLabel";
             this.closeLabel.Size = new System.Drawing.Size(14, 14);
             this.closeLabel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -267,11 +267,11 @@
             this.warningLabel.ForeColor = System.Drawing.Color.Black;
             this.warningLabel.Location = new System.Drawing.Point(0, 156);
             this.warningLabel.Name = "warningLabel";
-            this.warningLabel.Size = new System.Drawing.Size(252, 36);
+            this.warningLabel.Size = new System.Drawing.Size(250, 36);
             this.warningLabel.TabIndex = 8;
             this.warningLabel.Text = "If you change settings in this tab, decrypt the previously encrypted files will n" +
     "ot be possible.";
-            this.warningLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.warningLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBox2
             // 
