@@ -882,49 +882,56 @@ namespace Crypto_Notepad
 
         public void сheckForUpdates(bool autoCheck)
         {
-            WebClient client = new WebClient();
-            Stream stream = client.OpenRead("https://raw.githubusercontent.com/Sigmanor/Crypto-Notepad/master/version.txt");
-            StreamReader reader = new StreamReader(stream);
-            string content = reader.ReadToEnd();
-            string version = Application.ProductVersion;
-            string exePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\";
-
-            int ver = Convert.ToInt32(version.Replace(".", "")), con = Convert.ToInt32(content.Replace(".", ""));
-
-            if (con != ver)
+            try
             {
-                MainMenu.Invoke((Action)delegate
+                WebClient client = new WebClient();
+                Stream stream = client.OpenRead("https://raw.githubusercontent.com/Sigmanor/Crypto-Notepad/master/version.txt");
+                StreamReader reader = new StreamReader(stream);
+                string content = reader.ReadToEnd();
+                string version = Application.ProductVersion;
+                string exePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\";
+
+                int ver = Convert.ToInt32(version.Replace(".", "")), con = Convert.ToInt32(content.Replace(".", ""));
+
+                if (con != ver)
                 {
-                    using (new CenterWinDialog(this))
+                    MainMenu.Invoke((Action)delegate
                     {
-                        DialogResult res = new DialogResult();
-
-                        res = MessageBox.Show("New version is available. Install it now?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                        if (res == DialogResult.Yes)
+                        using (new CenterWinDialog(this))
                         {
-                            File.WriteAllBytes(exePath + "Ionic.Zip.dll", Properties.Resources.Ionic_Zip);
-                            File.WriteAllBytes(exePath + "Updater.exe", Properties.Resources.Updater);
+                            DialogResult res = new DialogResult();
 
-                            var pr = new Process();
-                            pr.StartInfo.FileName = exePath + "Updater.exe";
-                            pr.StartInfo.Arguments = "/u";
-                            pr.Start();
-                            Application.Exit();
+                            res = MessageBox.Show("New version is available. Install it now?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                            if (res == DialogResult.Yes)
+                            {
+                                File.WriteAllBytes(exePath + "Ionic.Zip.dll", Properties.Resources.Ionic_Zip);
+                                File.WriteAllBytes(exePath + "Updater.exe", Properties.Resources.Updater);
+
+                                var pr = new Process();
+                                pr.StartInfo.FileName = exePath + "Updater.exe";
+                                pr.StartInfo.Arguments = "/u";
+                                pr.Start();
+                                Application.Exit();
+                            }
                         }
-                    }
-                });
-            }
+                    });
+                }
 
-            if (con == ver && autoCheck == true)
-            {
-                MainMenu.Invoke((Action)delegate
+                if (con == ver && autoCheck == true)
                 {
-                    using (new CenterWinDialog(this))
+                    MainMenu.Invoke((Action)delegate
                     {
-                        MessageBox.Show("Crypto Notepad is up to date.", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                });
+                        using (new CenterWinDialog(this))
+                        {
+                            MessageBox.Show("Crypto Notepad is up to date.", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    });
+                }
+            }
+            catch
+            {
+                return;
             }
         }
         
