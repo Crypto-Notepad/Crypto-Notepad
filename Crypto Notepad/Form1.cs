@@ -75,7 +75,10 @@ namespace Crypto_Notepad
                 return;
             }
             publicVar.okPressed = false;
-
+            if (panel1.Visible == true)
+            {
+                findToolStripMenuItem2_Click(this, new EventArgs());
+            }
             try
             {
                 string opnfile = File.ReadAllText(OpenFile.FileName);
