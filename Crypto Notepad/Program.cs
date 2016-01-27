@@ -19,9 +19,10 @@ namespace Crypto_Notepad
 
     static class publicVar
     {
-        public static string encryptionKey { get; set; }
-        public static bool keyChanged { get; set; }
-        public static bool settingsChanged{ get; set; }
-        public static bool okPressed { get; set; }
+        public static string encryptionKey = "";
+        public static bool keyChanged = false;
+        public static bool settingsChanged = false;
+        public static bool okPressed = false;
     }
+
 }
