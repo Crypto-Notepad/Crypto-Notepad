@@ -20,11 +20,12 @@ namespace Crypto_Notepad
         string filename = "Unnamed.cnp";
         string[] args = Environment.GetCommandLineArgs();
         int caretPos = 0;
-        string appName = Assembly.GetExecutingAssembly().GetName().Name + " – ";
-
+        string appName = Assembly.GetExecutingAssembly().GetName().Name + " – ";        
         public MainWindow()
         {
             InitializeComponent();
+            customRTB.DragDrop += new DragEventHandler(customRTB_DragDrop);
+            customRTB.AllowDrop = true;
         }
 
         #region SaltMac
@@ -161,7 +162,6 @@ namespace Crypto_Notepad
                 }
             }
         }
-
 
         private void newToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
@@ -1046,6 +1046,36 @@ namespace Crypto_Notepad
         private void customRTB_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             Process.Start(e.LinkText);
+        }
+
+        void customRTB_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] FileList = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+            foreach (string file in FileList) OpenFile.FileName = file;
+
+            object fname = e.Data.GetData("FileDrop");
+            if (fname != null)
+            {
+                var list = fname as string[];
+
+                if (list != null && !string.IsNullOrWhiteSpace(list[0]))
+                {
+                    if (!OpenFile.FileName.Contains(".cnp"))
+                    {
+                        customRTB.Clear();
+                        string opnfile = File.ReadAllText(OpenFile.FileName);
+                        string NameWithotPath = Path.GetFileName(OpenFile.FileName);
+                        customRTB.Text = opnfile;
+                        this.Text = appName + NameWithotPath;
+                        string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+                        customRTB.Select(Convert.ToInt32(cc2), 0);
+                        return;
+                    }
+                    customRTB.Clear();
+                    DecryptAES();
+                }
+
+            }
         }
 
     }
