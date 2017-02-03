@@ -1043,5 +1043,10 @@ namespace Crypto_Notepad
             caretPos = customRTB.SelectionStart;
         }
 
+        private void customRTB_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            Process.Start(e.LinkText);
+        }
+
     }
 }
