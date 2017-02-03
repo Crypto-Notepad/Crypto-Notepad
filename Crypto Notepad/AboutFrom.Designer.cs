@@ -137,7 +137,7 @@
             this.customRichTextBox1.RightMargin = 600;
             this.customRichTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
             this.customRichTextBox1.ShowSelectionMargin = true;
-            this.customRichTextBox1.Size = new System.Drawing.Size(300, 88);
+            this.customRichTextBox1.Size = new System.Drawing.Size(300, 104);
             this.customRichTextBox1.TabIndex = 8;
             this.customRichTextBox1.TabStop = false;
             this.customRichTextBox1.Text = resources.GetString("customRichTextBox1.Text");
@@ -149,7 +149,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(300, 208);
+            this.ClientSize = new System.Drawing.Size(300, 224);
             this.Controls.Add(this.customRichTextBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
