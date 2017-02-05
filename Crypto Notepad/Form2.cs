@@ -58,5 +58,9 @@ namespace Crypto_Notepad
             textBox1.Text = "";
         }
 
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            this.Text = publicVar.openFileName;
+        }
     }
 }

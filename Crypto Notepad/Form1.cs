@@ -20,7 +20,8 @@ namespace Crypto_Notepad
         string filename = "Unnamed.cnp";
         string[] args = Environment.GetCommandLineArgs();
         int caretPos = 0;
-        string appName = Assembly.GetExecutingAssembly().GetName().Name + " – ";        
+        string appName = Assembly.GetExecutingAssembly().GetName().Name + " – ";
+        string currentFilename;
         bool shiftPresed;
         public MainWindow()
         {
@@ -69,6 +70,7 @@ namespace Crypto_Notepad
 
         void DecryptAES()
         {
+            publicVar.openFileName = Path.GetFileName(OpenFile.FileName);
             Form2 f2 = new Form2();
             f2.ShowDialog();
             if (publicVar.okPressed == false)
@@ -109,6 +111,8 @@ namespace Crypto_Notepad
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            currentFilename = this.Text.Substring(this.Text.LastIndexOf(" – ") + 2);
+
             if (OpenFile.ShowDialog() != DialogResult.OK) return;
             {
                 if (!OpenFile.FileName.Contains(".cnp"))
@@ -122,7 +126,8 @@ namespace Crypto_Notepad
                     return;
                 }
 
-                DecryptAES();
+                saveConfirm();
+
             }
         }
 
@@ -193,7 +198,6 @@ namespace Crypto_Notepad
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-
             if (string.IsNullOrEmpty(publicVar.encryptionKey))
             {
                 Form2 Form2 = new Form2();
@@ -228,6 +232,7 @@ namespace Crypto_Notepad
             customRTB.Text = noenc;
             string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
             customRTB.Select(Convert.ToInt32(cc), 0);
+            this.Text = appName + Path.GetFileName(filename);
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -253,11 +258,11 @@ namespace Crypto_Notepad
 
                 try
                 {
-                     NameWithotPath = Path.GetFileName(args[1]);
+                    NameWithotPath = Path.GetFileName(args[1]);
                 }
                 catch (IndexOutOfRangeException)
                 {
-                     NameWithotPath = Path.GetFileName(OpenFile.FileName);
+                    NameWithotPath = Path.GetFileName(OpenFile.FileName);
                 }
 
                 if (NameWithotPath == "")
@@ -428,7 +433,7 @@ namespace Crypto_Notepad
             sw.Close();
             customRTB.Text = noenc;
             string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-            customRTB.Select(Convert.ToInt32(cc), 0);
+            customRTB.Select(Convert.ToInt32(cc), 0);         
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -494,7 +499,7 @@ namespace Crypto_Notepad
                     {
                         File.Delete(filename);
                         customRTB.Clear();
-                        publicVar.encryptionKey = "";    
+                        publicVar.encryptionKey = "";
                         pictureBox6.Enabled = false;
                         pictureBox7.Enabled = false;
                         pictureBox11.Enabled = false;
@@ -676,6 +681,7 @@ namespace Crypto_Notepad
         {
             if (publicVar.settingsChanged == true)
             {
+                publicVar.settingsChanged = false;
                 customRTB.Font = new Font(ps.RichTextFont, ps.RichTextSize);
                 customRTB.ForeColor = ps.RichForeColor;
                 customRTB.BackColor = ps.RichBackColor;
@@ -697,6 +703,7 @@ namespace Crypto_Notepad
                     customRTB.Height = h;
                     customRTB.Location = new Point(0, 48);
                 }
+
             }
 
             if (publicVar.keyChanged == true)
@@ -771,7 +778,7 @@ namespace Crypto_Notepad
                 lockToolStripMenuItem.Enabled = false;
             }
 
-            if (publicVar.encryptionKey != "") 
+            if (publicVar.encryptionKey != "")
             {
                 changeKeyToolStripMenuItem.Enabled = true;
                 lockToolStripMenuItem.Enabled = true;
@@ -935,9 +942,10 @@ namespace Crypto_Notepad
                 return;
             }
         }
-        
+
         void AutoLock(bool minimize)
         {
+            saveToolStripMenuItem1_Click_1(this, new EventArgs());
             Form2 f2 = new Form2();
             publicVar.encryptionKey = "";
             caretPos = customRTB.SelectionStart;
@@ -1036,7 +1044,7 @@ namespace Crypto_Notepad
 
         private void customRTB_Click(object sender, EventArgs e)
         {
-           caretPos = customRTB.SelectionStart;
+            caretPos = customRTB.SelectionStart;
         }
 
         private void customRTB_KeyDown(object sender, KeyEventArgs e)
@@ -1057,11 +1065,11 @@ namespace Crypto_Notepad
             }
         }
 
-        void customRTB_DragDrop(object sender, DragEventArgs e)
+        private void customRTB_DragDrop(object sender, DragEventArgs e)
         {
+            currentFilename = this.Text.Substring(this.Text.LastIndexOf(" – ") + 2);
             string[] FileList = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             foreach (string file in FileList) OpenFile.FileName = file;
-
             object fname = e.Data.GetData("FileDrop");
             if (fname != null)
             {
@@ -1071,18 +1079,98 @@ namespace Crypto_Notepad
                 {
                     if (!OpenFile.FileName.Contains(".cnp"))
                     {
-                        customRTB.Clear();
                         string opnfile = File.ReadAllText(OpenFile.FileName);
                         string NameWithotPath = Path.GetFileName(OpenFile.FileName);
                         customRTB.Text = opnfile;
                         this.Text = appName + NameWithotPath;
                         string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                         customRTB.Select(Convert.ToInt32(cc2), 0);
+                        saveConfirm();
                         return;
                     }
-                    customRTB.Clear();
-                    DecryptAES();
+                    saveConfirm();
                 }
+
+            }
+        }
+
+        void saveConfirm()
+        {
+            if (customRTB.Modified == true)
+            {
+                string noname = "Unnamed.cnp";
+                string NameWithotPath = "Unnamed.cnp";
+
+                if (!this.Text.Contains(".cnp"))
+                {
+                    NameWithotPath = "Unnamed.cnp";
+                }
+
+                if (this.Text.Contains(".cnp"))
+                {
+                    NameWithotPath = currentFilename;
+                }
+
+                if (customRTB.Text != "")
+                {
+                    DialogResult res = new DialogResult();
+                    string messageBoxText = "";
+
+                    if (publicVar.keyChanged == false)
+                    {
+                        messageBoxText = "Save file: " + "\"" + NameWithotPath + "\"" + " ? ";
+                    }
+                    if (publicVar.keyChanged == true)
+                    {
+                        messageBoxText = "Save file: " + "\"" + NameWithotPath + "\"" + " with a new key? ";
+                    }
+
+                    using (new CenterWinDialog(this))
+                    {
+                        res = MessageBox.Show(messageBoxText, "Crypto Notepad",
+                                                  MessageBoxButtons.YesNoCancel,
+                                                  MessageBoxIcon.Question);
+                        if (res == DialogResult.Yes)
+                        {
+                            if (filename == noname)
+                            {
+                                SaveFile.FileName = noname;
+                                saveAsToolStripMenuItem_Click(this, new EventArgs());
+                                return;
+                            }
+
+                            if (filename != noname)
+                            {
+                                saveToolStripMenuItem1_Click_1(this, new EventArgs());
+                            }
+                        }
+
+                        if (res == DialogResult.No)
+                        {
+                            DecryptAES();
+                            return;
+                        }
+
+                        if (res == DialogResult.Cancel)
+                        {
+                            return;
+                        }
+                    }
+                }
+
+                if (customRTB.Text == "")
+                {
+                    DecryptAES();
+                    return;
+                }
+            }
+
+            if (customRTB.Modified == false)
+            {
+                DecryptAES();
+            }
+
+        }
 
         private void customRTB_KeyUp(object sender, KeyEventArgs e)
         {

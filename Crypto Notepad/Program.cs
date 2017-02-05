@@ -23,6 +23,7 @@ namespace Crypto_Notepad
         public static bool keyChanged = false;
         public static bool settingsChanged = false;
         public static bool okPressed = false;
+        public static string openFileName = "Crypto Notepad";
     }
 
 }
