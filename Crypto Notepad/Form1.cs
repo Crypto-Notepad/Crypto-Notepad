@@ -686,6 +686,12 @@ namespace Crypto_Notepad
                 customRTB.ForeColor = ps.RichForeColor;
                 customRTB.BackColor = ps.RichBackColor;
 
+                /*workaround, unhighlight URLs fix*/
+                SendKeys.Send("^(z)");
+                SendKeys.Send("^(z)");
+                SendKeys.Send("{right}");
+                /*workaround, unhighlight URLs fix*/
+
                 if (ps.ShowToolbar == false && panel2.Visible == true)
                 {
                     panel2.Visible = false;
