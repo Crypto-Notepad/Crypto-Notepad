@@ -21,6 +21,7 @@ namespace Crypto_Notepad
         string[] args = Environment.GetCommandLineArgs();
         int caretPos = 0;
         string appName = Assembly.GetExecutingAssembly().GetName().Name + " – ";        
+        bool shiftPresed;
         public MainWindow()
         {
             InitializeComponent();
@@ -1041,11 +1042,19 @@ namespace Crypto_Notepad
         private void customRTB_KeyDown(object sender, KeyEventArgs e)
         {
             caretPos = customRTB.SelectionStart;
+            if (e.KeyCode == Keys.ShiftKey)
+            {
+                shiftPresed = true;
+            }
         }
 
         private void customRTB_LinkClicked(object sender, LinkClickedEventArgs e)
         {
-            Process.Start(e.LinkText);
+            if (shiftPresed)
+            {
+                shiftPresed = false;
+                Process.Start(e.LinkText);
+            }
         }
 
         void customRTB_DragDrop(object sender, DragEventArgs e)
@@ -1075,6 +1084,11 @@ namespace Crypto_Notepad
                     DecryptAES();
                 }
 
+        private void customRTB_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.ShiftKey)
+            {
+                shiftPresed = false;
             }
         }
 
