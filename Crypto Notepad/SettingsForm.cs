@@ -35,6 +35,7 @@ namespace Crypto_Notepad
             checkBox2.Checked = ps.AutoCheckUpdate;
             checkBox3.Checked = ps.ShowToolbar;
             checkBox4.Checked = ps.AutoLock;
+            checkBox5.Checked = ps.AutoSave;
 
             if (ps.WarningMsg == false)
             {
@@ -75,6 +76,7 @@ namespace Crypto_Notepad
                 ps.ShowToolbar = checkBox3.Checked;
                 ps.AutoCheckUpdate = checkBox2.Checked;
                 ps.AutoLock = checkBox4.Checked;
+                ps.AutoSave = checkBox5.Checked;
                 ps.Save();
 
                 publicVar.settingsChanged = true;
