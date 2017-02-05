@@ -43,6 +43,16 @@ namespace Crypto_Notepad
         //and this one issues the control to perform scrolling
         private const int WM_VSCROLL = 0x115;
 
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            base.OnHandleCreated(e);
+            if (!base.AutoWordSelection)
+            {
+                base.AutoWordSelection = true;
+                base.AutoWordSelection = false;
+            }
+        }
+
         protected override void WndProc(ref Message m)
         {
             if (m.Msg == WM_MOUSEWHEEL)
