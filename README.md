@@ -13,6 +13,10 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 * Association with the application extension
 * Easily search through the content
 
+## System requirements
+* Windows Vista SP2 and higer
+* .NET Framework 4.5
+
 ## Contribution
 Feel free :octocat:
 
