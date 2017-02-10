@@ -1037,11 +1037,10 @@ namespace Crypto_Notepad
                 var list = fname as string[];
                 if (list != null && !string.IsNullOrWhiteSpace(list[0]))
                 {
-                    string opnfile = File.ReadAllText(OpenFile.FileName);
-                    string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-
                     if (!OpenFile.FileName.Contains(".cnp"))
                     {
+                        string opnfile = File.ReadAllText(OpenFile.FileName);
+                        string NameWithotPath = Path.GetFileName(OpenFile.FileName);
                         customRTB.Text = opnfile;
                         this.Text = appName + NameWithotPath;
                         string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
