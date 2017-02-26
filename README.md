@@ -16,7 +16,7 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 * Easily search through the content
 
 ## System requirements
-* Windows Vista SP2 and higer
+* Windows Vista SP2 and higher
 * .NET Framework 4.5
 
 ## Contribution
