@@ -767,6 +767,7 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel2.Controls.Add(this.pictureBox12);
             this.panel2.Controls.Add(this.pictureBox13);
             this.panel2.Controls.Add(this.pictureBox5);
@@ -779,7 +780,7 @@
             this.panel2.Controls.Add(this.pictureBox6);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Location = new System.Drawing.Point(-1, 25);
+            this.panel2.Location = new System.Drawing.Point(-1, 24);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(537, 23);
             this.panel2.TabIndex = 14;
@@ -794,9 +795,9 @@
             this.customRTB.ContextMenuStrip = this.contextMenuStrip1;
             this.customRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.customRTB.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.customRTB.Location = new System.Drawing.Point(0, 48);
+            this.customRTB.Location = new System.Drawing.Point(6, 52);
             this.customRTB.Name = "customRTB";
-            this.customRTB.Size = new System.Drawing.Size(535, 252);
+            this.customRTB.Size = new System.Drawing.Size(523, 247);
             this.customRTB.TabIndex = 10;
             this.customRTB.Text = "";
             this.customRTB.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.customRTB_LinkClicked);

@@ -283,10 +283,9 @@ namespace Crypto_Notepad
             customRTB.Font = new Font(ps.RichTextFont, ps.RichTextSize);
             customRTB.ForeColor = ps.RichForeColor;
             customRTB.BackColor = ps.RichBackColor;
+            this.BackColor = ps.RichBackColor;
             wordWrapToolStripMenuItem.Checked = ps.MenuWrap;
             customRTB.WordWrap = ps.RichWrap;
-            customRTB.SelectionIndent += 6;
-            customRTB.SelectionRightIndent += 7;
             panel2.Visible = ps.ShowToolbar;
 
             if (ps.ShowToolbar == false)
@@ -295,7 +294,7 @@ namespace Crypto_Notepad
                 int h = customRTB.Height;
                 h += 23;
                 customRTB.Height = h;
-                customRTB.Location = new Point(0, 25);
+                customRTB.Location = new Point(6, 29);
             }
 
             if (ps.ShowToolbar == true)
@@ -654,7 +653,7 @@ namespace Crypto_Notepad
                     int h = customRTB.Height;
                     h += 23;
                     customRTB.Height = h;
-                    customRTB.Location = new Point(0, 25);
+                    customRTB.Location = new Point(6, 29);
                 }
 
                 if (ps.ShowToolbar == true && panel2.Visible == false)
@@ -663,7 +662,7 @@ namespace Crypto_Notepad
                     int h = customRTB.Height;
                     h -= 23;
                     customRTB.Height = h;
-                    customRTB.Location = new Point(0, 48);
+                    customRTB.Location = new Point(6, 52);
                 }
 
             }
@@ -803,7 +802,7 @@ namespace Crypto_Notepad
             int h = customRTB.Height;
             h += 23;
             customRTB.Height = h;
-            customRTB.Location = new Point(0, 25);
+            customRTB.Location = new Point(6, 29);
             ps.ShowToolbar = false;
             ps.Save();
         }
