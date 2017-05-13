@@ -132,6 +132,13 @@ namespace Crypto_Notepad
                     return;
                 }
                 DecryptAES();
+
+                /*workaround, strange behavior with the cursor in customRTB fix*/
+                customRTB.DetectUrls = false;
+                customRTB.DetectUrls = true;
+                customRTB.Modified = false;
+                /*workaround, strange behavior with the cursor in customRTB fix*/
+
                 if (publicVar.okPressed == true)
                 {
                     publicVar.okPressed = false;
