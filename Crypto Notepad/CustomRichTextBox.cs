@@ -53,22 +53,29 @@ namespace Crypto_Notepad
             }
         }
 
-        //protected override void WndProc(ref Message m)
-        //{
-        //    if (m.Msg == WM_MOUSEWHEEL)
-        //    {
-        //        int scrollLines = SystemInformation.MouseWheelScrollLines;
-        //        for (int i = 0; i < scrollLines; i++)
-        //        {
-        //            if ((int)m.WParam > 0) // when wParam is greater than 0
-        //                SendMessage(this.Handle, WM_VSCROLL, (IntPtr)0, IntPtr.Zero); // scroll up 
-        //            else
-        //                SendMessage(this.Handle, WM_VSCROLL, (IntPtr)1, IntPtr.Zero); // else scroll down
-        //        }
-        //        return;
-        //    }
-        //    base.WndProc(ref m);
-        //}
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == WM_MOUSEWHEEL)
+            {
+                int scrollLines = SystemInformation.MouseWheelScrollLines;
+                for (int i = 0; i < scrollLines; i++)
+                {
+                    try
+                    {
+                        if ((int)m.WParam >= 0) // when wParam is greater than 0
+                            SendMessage(this.Handle, WM_VSCROLL, (IntPtr)0, IntPtr.Zero); // scroll up 
+                        else
+                            SendMessage(this.Handle, WM_VSCROLL, (IntPtr)1, IntPtr.Zero); // scroll down
+                    }
+                    catch (OverflowException)
+                    {
+                        SendMessage(this.Handle, WM_VSCROLL, (IntPtr)1, IntPtr.Zero); // scroll down
+                    }
+                }
+                return;
+            }
+            base.WndProc(ref m);
+        }
 
         /// <summary>
         ///  Search and Highlight all text in RichTextBox Control 

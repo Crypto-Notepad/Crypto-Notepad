@@ -795,9 +795,9 @@
             this.customRTB.ContextMenuStrip = this.contextMenuStrip1;
             this.customRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.customRTB.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.customRTB.Location = new System.Drawing.Point(6, 52);
+            this.customRTB.Location = new System.Drawing.Point(6, 47);
             this.customRTB.Name = "customRTB";
-            this.customRTB.Size = new System.Drawing.Size(523, 247);
+            this.customRTB.Size = new System.Drawing.Size(529, 252);
             this.customRTB.TabIndex = 10;
             this.customRTB.Text = "";
             this.customRTB.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.customRTB_LinkClicked);
