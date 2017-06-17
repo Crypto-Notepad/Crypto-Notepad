@@ -27,3 +27,9 @@ App was created in Visual Studio Community 2015, you can run the .sln file and s
 
 ## License
 Distributed under [MIT](https://github.com/Sigmanor/Crypto-Notepad/blob/master/LICENSE) license
+
+## Partners
+![FileHorse](http://i.imgur.com/o5hgnav.png) [FileHorse](http://www.filehorse.com/)  
+![Softpedia](http://i.imgur.com/mPpwppP.png) [Softpedia](http://www.softpedia.com/get/Office-tools/Text-editors/Crypto-Notepad.shtml)
+![Oszone](http://i.imgur.com/ObA9pjn.png) [Oszone](http://soft.oszone.net/program/17444/Crypto_Notepad/)
+![Portablefreeware](http://i.imgur.com/7v2GHXE.png) [Portablefreeware](https://www.portablefreeware.com/index.php?id=2873)
