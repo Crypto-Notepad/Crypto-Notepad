@@ -214,6 +214,7 @@ namespace Crypto_Notepad
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int saveCaret = customRTB.SelectionStart;
             string NameWithotPath = Path.GetFileName(OpenFile.FileName);
             if (string.IsNullOrEmpty(publicVar.encryptionKey))
             {
@@ -247,9 +248,9 @@ namespace Crypto_Notepad
             }
             sw.Close();
             customRTB.Text = noenc;
-            string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-            customRTB.Select(Convert.ToInt32(cc), 0);
             this.Text = appName + Path.GetFileName(filename);
+
+            customRTB.Select(Convert.ToInt32(saveCaret), 0);
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -358,6 +359,7 @@ namespace Crypto_Notepad
         {
             string noname = "Unnamed.cnp";
             string NameWithotPath = Path.GetFileName(OpenFile.FileName);
+            int saveCaret = customRTB.SelectionStart;
 
             if (filename == noname)
             {
@@ -388,8 +390,7 @@ namespace Crypto_Notepad
 
             sw.Close();
             customRTB.Text = noenc;
-            string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-            customRTB.Select(Convert.ToInt32(cc), 0);         
+            customRTB.Select(Convert.ToInt32(saveCaret), 0);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
