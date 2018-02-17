@@ -11,11 +11,6 @@ namespace Crypto_Notepad
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://github.com/Sigmanor/Crypto-Notepad/blob/master/LICENSE");
-        }
-
         private void label7_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/Sigmanor/Crypto-Notepad");
@@ -48,11 +43,6 @@ namespace Crypto_Notepad
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://github.com/Sigmanor/Crypto-Notepad");
-        }
-
         private void customRichTextBox1_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             Process.Start(e.LinkText);
@@ -68,7 +58,22 @@ namespace Crypto_Notepad
             Process.Start("https://github.com/Sigmanor/Crypto-Notepad/wiki/Release-Notes");
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://crypto-notepad.github.io/");
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/Sigmanor/Crypto-Notepad");
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/Sigmanor/Crypto-Notepad/blob/master/LICENSE");
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("http://sigmanor.pp.ua/");
         }
