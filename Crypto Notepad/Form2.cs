@@ -7,6 +7,8 @@ namespace Crypto_Notepad
     {
         public Form2()
         {
+            // Initialize to false in case user presses the exit button
+            publicVar.okPressed = false;
             InitializeComponent();
         }
 
