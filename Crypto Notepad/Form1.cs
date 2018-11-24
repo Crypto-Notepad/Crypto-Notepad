@@ -51,7 +51,7 @@ namespace Crypto_Notepad
                 DialogResult res = new DialogResult();
                 using (new CenterWinDialog(this))
                 {
-                    res = MessageBox.Show("Get The Salt from mac address? (You can edit it by himself in Settings)", "Crypto Notepad",
+                    res = MessageBox.Show("Get The Salt from mac address? (You can change it yourself in Settings)", "Crypto Notepad",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 }
 
@@ -88,7 +88,7 @@ namespace Crypto_Notepad
             {
                 string opnfile = File.ReadAllText(OpenFile.FileName);
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-                string de = AES.Decrypt(opnfile, publicVar.encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+                string de = AES.Decrypt(opnfile, publicVar.encryptionKey, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                 customRTB.Text = de;
 
                 this.Text = appName + NameWithotPath;
@@ -165,7 +165,7 @@ namespace Crypto_Notepad
                 }
                 publicVar.okPressed = false;
 
-                string de = AES.Decrypt(opnfile, publicVar.encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+                string de = AES.Decrypt(opnfile, publicVar.encryptionKey, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                 customRTB.Text = de;
 
                 this.Text = appName + NameWithotPath;
@@ -234,8 +234,15 @@ namespace Crypto_Notepad
 
             filename = SaveFile.FileName;
 
+            // Generate random initialization vector
+            RandomNumberGenerator RandNumGen = RNGCryptoServiceProvider.Create();
+            byte[] RandInitVector = new byte[16];
+            RandNumGen.GetNonZeroBytes(RandInitVector);
+
             string noenc = customRTB.Text;
-            string en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+            string en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey, RandInitVector, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+            RandNumGen.Dispose();
+
             customRTB.Text = en;
             StreamWriter sw = new StreamWriter(filename);
             int i = customRTB.Lines.Count();
@@ -374,8 +381,15 @@ namespace Crypto_Notepad
                 publicVar.okPressed = false;
             }
 
+            // Generate random initialization vector
+            RandomNumberGenerator RandNumGen = RNGCryptoServiceProvider.Create();
+            byte[] RandInitVector = new byte[16];
+            RandNumGen.GetNonZeroBytes(RandInitVector);
+
             string noenc = customRTB.Text;
-            string en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+            string en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey, RandInitVector, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+            RandNumGen.Dispose();
+
             customRTB.Text = en;
             StreamWriter sw = new StreamWriter(filename);
             int i = customRTB.Lines.Count();
@@ -936,7 +950,7 @@ namespace Crypto_Notepad
                 OpenFile.FileName = filename;
                 string opnfile = File.ReadAllText(OpenFile.FileName);
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-                string de = AES.Decrypt(opnfile, publicVar.encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, "16CHARSLONG12345", ps.KeySize);
+                string de = AES.Decrypt(opnfile, publicVar.encryptionKey, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
 
                 this.Text = appName + NameWithotPath;
                 filename = OpenFile.FileName;
