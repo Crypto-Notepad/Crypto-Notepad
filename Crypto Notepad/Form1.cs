@@ -234,14 +234,8 @@ namespace Crypto_Notepad
 
             filename = SaveFile.FileName;
 
-            // Generate random initialization vector
-            RandomNumberGenerator RandNumGen = RNGCryptoServiceProvider.Create();
-            byte[] RandInitVector = new byte[16];
-            RandNumGen.GetNonZeroBytes(RandInitVector);
-
             string noenc = customRTB.Text;
-            string en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey, RandInitVector, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-            RandNumGen.Dispose();
+            string en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
 
             customRTB.Text = en;
             StreamWriter sw = new StreamWriter(filename);
@@ -381,14 +375,8 @@ namespace Crypto_Notepad
                 publicVar.okPressed = false;
             }
 
-            // Generate random initialization vector
-            RandomNumberGenerator RandNumGen = RNGCryptoServiceProvider.Create();
-            byte[] RandInitVector = new byte[16];
-            RandNumGen.GetNonZeroBytes(RandInitVector);
-
             string noenc = customRTB.Text;
-            string en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey, RandInitVector, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-            RandNumGen.Dispose();
+            string en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
 
             customRTB.Text = en;
             StreamWriter sw = new StreamWriter(filename);

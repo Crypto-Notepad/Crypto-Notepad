@@ -87,7 +87,7 @@ namespace Crypto_Notepad
 
     class AES
     {
-        public static string Encrypt(string plainText, string password, byte[] initialVectorBytes,
+        public static string Encrypt(string plainText, string password,
         string salt = "Kosher", string hashAlgorithm = "SHA1",
         int passwordIterations = 2, int keySize = 256)
         {
@@ -103,19 +103,20 @@ namespace Crypto_Notepad
             byte[] keyBytes = derivedPassword.GetBytes(keySize / 8);
             RijndaelManaged symmetricKey = new RijndaelManaged();
             symmetricKey.Mode = CipherMode.CBC;
+            symmetricKey.GenerateIV();
 
             byte[] cipherTextBytes = null;
 
             using (MemoryStream memStream = new MemoryStream())
             {
                 byte[] nullByte = { 0 };
-                memStream.Write(initialVectorBytes, 0, initialVectorBytes.Length);
+                memStream.Write(symmetricKey.IV, 0, symmetricKey.IV.Length);
                 memStream.Write(nullByte, 0, 1);
                 memStream.Write(saltValueBytes, 0, saltValueBytes.Length);
                 memStream.Write(nullByte, 0, 1);
 
                 using (ICryptoTransform encryptor = symmetricKey.CreateEncryptor
-                (keyBytes, initialVectorBytes))
+                (keyBytes, symmetricKey.IV))
                 {
                     using (CryptoStream cryptoStream = new CryptoStream
                              (memStream, encryptor, CryptoStreamMode.Write))
