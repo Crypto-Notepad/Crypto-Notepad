@@ -88,7 +88,7 @@ namespace Crypto_Notepad
             {
                 string opnfile = File.ReadAllText(OpenFile.FileName);
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-                string de = AES.Decrypt(opnfile, publicVar.encryptionKey, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+                string de = AES.Decrypt(opnfile, publicVar.encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                 customRTB.Text = de;
 
                 this.Text = appName + NameWithotPath;
@@ -165,7 +165,7 @@ namespace Crypto_Notepad
                 }
                 publicVar.okPressed = false;
 
-                string de = AES.Decrypt(opnfile, publicVar.encryptionKey, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+                string de = AES.Decrypt(opnfile, publicVar.encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                 customRTB.Text = de;
 
                 this.Text = appName + NameWithotPath;
@@ -938,7 +938,7 @@ namespace Crypto_Notepad
                 OpenFile.FileName = filename;
                 string opnfile = File.ReadAllText(OpenFile.FileName);
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-                string de = AES.Decrypt(opnfile, publicVar.encryptionKey, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+                string de = AES.Decrypt(opnfile, publicVar.encryptionKey, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
 
                 this.Text = appName + NameWithotPath;
                 filename = OpenFile.FileName;

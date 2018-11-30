@@ -2,6 +2,7 @@
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Crypto_Notepad
 {
@@ -52,23 +53,35 @@ namespace Crypto_Notepad
             rawData = buffer;
         }
 
-        public void GetMetadata(byte[] rawData)
+        public bool GetMetadata(byte[] rawData)
         {
             int index = 0;
+            bool result = false;
             // Read initialVector
-            for (int i = 0; index < rawData.Length; index++, i++)
+            for (int i = 0;
+                index < rawData.Length;
+                index++, i++)
             {
                 if (rawData[index] == '\0') // Null terminator
                 {
+                    result = true;
                     index++;
                     break;
                 }
-                this.initialVector[i] = rawData[index];
+                if (index < this.initialVector.Length)
+                    this.initialVector[i] = rawData[index];
+                else
+                    break;
             }
+
+            if (!result) return false;
+
             // This is kind of a dirty fix, but it gets the job done
             // Get length of salt
             int length = 0;
-            for (int i = index; i < rawData.Length; i++)
+            for (int i = index;
+                i < rawData.Length;
+                i++)
             {
                 if (rawData[i] == '\0') // Null terminator
                 {
@@ -82,23 +95,42 @@ namespace Crypto_Notepad
             System.Buffer.BlockCopy(rawData, index - 1, this.salt, 0, length);
 
             this._offsetToData = this.salt.Length + 1 + this.initialVector.Length + 1;
+
+            return true;
         }
     }
 
     class AES
     {
         public static string Encrypt(string plainText, string password,
-        string salt = "Kosher", string hashAlgorithm = "SHA1",
+        string salt = null, string hashAlgorithm = "SHA1",
         int passwordIterations = 2, int keySize = 256)
         {
             if (string.IsNullOrEmpty(plainText))
                 return "";
 
-            byte[] saltValueBytes = Encoding.ASCII.GetBytes(salt);
-            byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
+            byte[] plainTextBytes;
+            byte[] saltValueBytes;
+
+            // In case user wants a random salt or salt is null/empty for some other reason
+            if (string.IsNullOrEmpty(salt))
+            {
+                saltValueBytes = new byte[64]; // Nice and long
+                RandomNumberGenerator rng = RandomNumberGenerator.Create();
+                rng.GetNonZeroBytes(saltValueBytes);
+            }
+            else
+            {
+                saltValueBytes = Encoding.ASCII.GetBytes(salt);
+            }
+
+            plainTextBytes = Encoding.UTF8.GetBytes(plainText);
 
             PasswordDeriveBytes derivedPassword = new PasswordDeriveBytes
              (password, saltValueBytes, hashAlgorithm, passwordIterations);
+
+            // Null password; adds *some* memory dump protection
+            password = null;
 
             byte[] keyBytes = derivedPassword.GetBytes(keySize / 8);
             RijndaelManaged symmetricKey = new RijndaelManaged();
@@ -134,13 +166,13 @@ namespace Crypto_Notepad
             return Convert.ToBase64String(cipherTextBytes);
         }
 
-        public static string Decrypt(string cipherText, string password,
+        public static string Decrypt(string cipherText, string password, string salt = "Kosher",
         string hashAlgorithm = "SHA1",
         int passwordIterations = 2,
         int keySize = 256)
         {
             if (string.IsNullOrEmpty(cipherText))
-                return "";
+                return null;
 
             byte[] initialVectorBytes;
             byte[] saltValueBytes;
@@ -148,10 +180,27 @@ namespace Crypto_Notepad
 
             // Extract metadata from file
             AESMetadata metadata = new AESMetadata();
-            metadata.GetMetadata(cipherTextBytes);
-            saltValueBytes = metadata.salt;
-            initialVectorBytes = metadata.initialVector;
-            metadata.DeleteMetadataFromBuffer(ref cipherTextBytes);
+            if (!metadata.GetMetadata(cipherTextBytes))
+            {
+                // Metadata parsing error
+                DialogResult result = MessageBox.Show("Unable to parse file metadata.\nAttempt to open anyway?\n(May result in a \'Incorrect Key\' error if the salt is wrong.)",
+                "Missing or Corrupted Metadata", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Asterisk);
+                if (result == DialogResult.Yes)
+                {
+                    // Default initialization vector from builds v1.1.2 and older
+                    const string default_IV = "16CHARSLONG12345";
+
+                    initialVectorBytes = Encoding.ASCII.GetBytes(default_IV);
+                    saltValueBytes = Encoding.ASCII.GetBytes(salt);
+                }
+                else { return null; }
+            }
+            else
+            {
+                saltValueBytes = metadata.salt;
+                initialVectorBytes = metadata.initialVector;
+                metadata.DeleteMetadataFromBuffer(ref cipherTextBytes);
+            }
 
             PasswordDeriveBytes derivedPassword = new PasswordDeriveBytes
                 (password, saltValueBytes, hashAlgorithm, passwordIterations);
