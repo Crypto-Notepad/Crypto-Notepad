@@ -38,6 +38,7 @@ namespace Crypto_Notepad
 
         public void Set(string String)
         {
+            if (String == null) { this.encryptedString = null; return; }
             var encryptor = this.des.CreateEncryptor();
             byte[] str = Encoding.Default.GetBytes(String);
             this.encryptedString = encryptor.TransformFinalBlock(str, 0, str.Length);
