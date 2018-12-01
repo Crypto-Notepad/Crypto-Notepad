@@ -235,7 +235,15 @@ namespace Crypto_Notepad
             filename = SaveFile.FileName;
 
             string noenc = customRTB.Text;
-            string en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey.Get(), ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+            string en;
+            if (publicVar.randomizeSalts)
+            {
+                en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey.Get(), null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+            }
+            else
+            {
+                en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey.Get(), ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+            }
 
             customRTB.Text = en;
             StreamWriter sw = new StreamWriter(filename);
@@ -376,7 +384,15 @@ namespace Crypto_Notepad
             }
 
             string noenc = customRTB.Text;
-            string en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey.Get(), ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+            string en;
+            if (publicVar.randomizeSalts)
+            {
+                en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey.Get(), null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+            }
+            else
+            {
+                en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey.Get(), ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+            }
 
             customRTB.Text = en;
             StreamWriter sw = new StreamWriter(filename);

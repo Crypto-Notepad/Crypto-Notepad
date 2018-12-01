@@ -45,8 +45,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.closeLabel = new System.Windows.Forms.PictureBox();
-            this.warningLabel = new System.Windows.Forms.Label();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
@@ -56,17 +55,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.closeLabel)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,7 +84,7 @@
             // 
             // saveSettingsButton
             // 
-            this.saveSettingsButton.Location = new System.Drawing.Point(179, 225);
+            this.saveSettingsButton.Location = new System.Drawing.Point(179, 239);
             this.saveSettingsButton.Name = "saveSettingsButton";
             this.saveSettingsButton.Size = new System.Drawing.Size(79, 23);
             this.saveSettingsButton.TabIndex = 4;
@@ -111,7 +109,7 @@
             this.tabControl1.Location = new System.Drawing.Point(2, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(260, 218);
+            this.tabControl1.Size = new System.Drawing.Size(260, 231);
             this.tabControl1.TabIndex = 4;
             // 
             // tabPage1
@@ -129,7 +127,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(252, 192);
+            this.tabPage1.Size = new System.Drawing.Size(252, 205);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Fonts and Colors";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -226,8 +224,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.closeLabel);
-            this.tabPage2.Controls.Add(this.warningLabel);
+            this.tabPage2.Controls.Add(this.checkBox6);
             this.tabPage2.Controls.Add(this.textBox2);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.comboBox4);
@@ -239,44 +236,28 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(252, 192);
+            this.tabPage2.Size = new System.Drawing.Size(252, 205);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Encrypt/Decrypt";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // closeLabel
+            // checkBox6
             // 
-            this.closeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.closeLabel.BackColor = System.Drawing.Color.Gainsboro;
-            this.closeLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.closeLabel.Image = global::Crypto_Notepad.Properties.Resources.close_g;
-            this.closeLabel.Location = new System.Drawing.Point(234, 158);
-            this.closeLabel.Name = "closeLabel";
-            this.closeLabel.Size = new System.Drawing.Size(14, 14);
-            this.closeLabel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.closeLabel.TabIndex = 15;
-            this.closeLabel.TabStop = false;
-            this.toolTip1.SetToolTip(this.closeLabel, "Close");
-            this.closeLabel.Click += new System.EventHandler(this.closeLabel_Click);
-            this.closeLabel.MouseEnter += new System.EventHandler(this.closeLabel_MouseEnter);
-            this.closeLabel.MouseLeave += new System.EventHandler(this.closeLabel_MouseLeave);
-            // 
-            // warningLabel
-            // 
-            this.warningLabel.BackColor = System.Drawing.Color.Gainsboro;
-            this.warningLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.warningLabel.ForeColor = System.Drawing.Color.Black;
-            this.warningLabel.Location = new System.Drawing.Point(0, 156);
-            this.warningLabel.Name = "warningLabel";
-            this.warningLabel.Size = new System.Drawing.Size(250, 36);
-            this.warningLabel.TabIndex = 8;
-            this.warningLabel.Text = "If you change settings in this tab, decrypt the previously encrypted files will n" +
-    "ot be possible.";
-            this.warningLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox6.Checked = true;
+            this.checkBox6.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox6.Location = new System.Drawing.Point(131, 109);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(105, 17);
+            this.checkBox6.TabIndex = 16;
+            this.checkBox6.Text = "Randomize Salts";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            this.checkBox6.CheckedChanged += new System.EventHandler(this.checkBox6_CheckedChanged);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(136, 117);
+            this.textBox2.Location = new System.Drawing.Point(136, 140);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 7;
@@ -284,7 +265,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 120);
+            this.label7.Location = new System.Drawing.Point(7, 143);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(101, 13);
             this.label7.TabIndex = 6;
@@ -307,6 +288,7 @@
             this.textBox1.Location = new System.Drawing.Point(136, 83);
             this.textBox1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 4;
             // 
@@ -360,10 +342,20 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(252, 192);
+            this.tabPage3.Size = new System.Drawing.Size(252, 205);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Application";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(7, 126);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(112, 17);
+            this.checkBox5.TabIndex = 4;
+            this.checkBox5.Text = "Auto-save on lock";
+            this.checkBox5.UseVisualStyleBackColor = true;
             // 
             // checkBox4
             // 
@@ -407,7 +399,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(6, 225);
+            this.button1.Location = new System.Drawing.Point(6, 239);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 23);
             this.button1.TabIndex = 5;
@@ -415,21 +407,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(7, 126);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(112, 17);
-            this.checkBox5.TabIndex = 4;
-            this.checkBox5.Text = "Auto-save on lock";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(262, 253);
+            this.ClientSize = new System.Drawing.Size(262, 274);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.saveSettingsButton);
@@ -446,7 +428,6 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.closeLabel)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
@@ -484,9 +465,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.Label warningLabel;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.PictureBox closeLabel;
         private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox checkBox6;
     }
 }

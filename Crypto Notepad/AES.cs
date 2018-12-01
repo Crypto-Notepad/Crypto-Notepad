@@ -118,6 +118,7 @@ namespace Crypto_Notepad
                 saltValueBytes = new byte[64]; // Nice and long
                 RandomNumberGenerator rng = RandomNumberGenerator.Create();
                 rng.GetNonZeroBytes(saltValueBytes);
+                rng.Dispose();
             }
             else
             {
