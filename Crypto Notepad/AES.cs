@@ -3,6 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace Crypto_Notepad
 {
@@ -14,87 +15,58 @@ namespace Crypto_Notepad
         /// <summary>
         /// Offset to actual AES data; size of metadata
         /// </summary>
-        private int _offsetToData;
-        public int offsetToData
-        {
-            get
-            {
-                return this._offsetToData;
-            }
-        }
-        private byte[] _initialVector;
-        public byte[] initialVector
-        {
-            get
-            {
-                return this._initialVector;
-            }
-        }
-        private byte[] _salt;
-        public byte[] salt
-        {
-            get
-            {
-                return this._salt;
-            }
-        }
+        public int OffsetToData { get; private set; }
+        public byte[] InitialVector { get; private set; }
+        public byte[] Salt { get; private set; }
 
         public AESMetadata()
         {
-            this._initialVector = new byte[16];
-            this._salt = null;
+            this.InitialVector = new byte[16];
+            this.Salt = null;
         }
 
         public void DeleteMetadataFromBuffer(ref byte[] rawData)
         {
-            // Possibly unsafe
-            byte[] buffer = new byte[rawData.Length - this.offsetToData];
-            System.Buffer.BlockCopy(rawData, this.offsetToData, buffer, 0, rawData.Length - this.offsetToData);
+            byte[] buffer = new byte[rawData.Length - this.OffsetToData];
+            System.Buffer.BlockCopy(rawData, this.OffsetToData, buffer, 0, rawData.Length - this.OffsetToData);
             rawData = buffer;
+        }
+
+        private bool ReadData(byte[] rawData, int offset, ref byte[] dataOut)
+        {
+            // Buffer to store bytes
+            List<byte> buffer = new List<byte>();
+            const byte nullTerminator = 0;
+            bool foundData = false;
+
+            // Push data to buffer
+            for (int i = offset; i < rawData.Length; i++) {
+                if (rawData[i] == nullTerminator) { foundData = true; break; }
+                else { buffer.Add(rawData[i]); }
+            }
+
+            if (foundData == true)
+            {
+                dataOut = buffer.ToArray();
+                return true;
+            }
+            return false;
         }
 
         public bool GetMetadata(byte[] rawData)
         {
-            int index = 0;
-            bool result = false;
-            // Read initialVector
-            for (int i = 0;
-                index < rawData.Length;
-                index++, i++)
-            {
-                if (rawData[index] == '\0') // Null terminator
-                {
-                    result = true;
-                    index++;
-                    break;
-                }
-                if (index < this.initialVector.Length)
-                    this.initialVector[i] = rawData[index];
-                else
-                    break;
-            }
+            int offset = 0;
+            byte[] buffer = null;
 
-            if (!result) return false;
+            if (!this.ReadData(rawData, 0, ref buffer)) { return false; }
+            this.InitialVector = buffer;
+            offset += buffer.Length + 1;
 
-            // This is kind of a dirty fix, but it gets the job done
-            // Get length of salt
-            int length = 0;
-            for (int i = index;
-                i < rawData.Length;
-                i++)
-            {
-                if (rawData[i] == '\0') // Null terminator
-                {
-                    index++;
-                    break;
-                }
-                length++;
-            }
-            // Copy bytes into this.salt
-            this._salt = new byte[length];
-            System.Buffer.BlockCopy(rawData, index - 1, this.salt, 0, length);
+            if (!this.ReadData(rawData, offset, ref buffer)) { return false; }
+            this.Salt = buffer;
+            offset += buffer.Length + 1;
 
-            this._offsetToData = this.salt.Length + 1 + this.initialVector.Length + 1;
+            this.OffsetToData = offset;
 
             return true;
         }
@@ -198,8 +170,8 @@ namespace Crypto_Notepad
             }
             else
             {
-                saltValueBytes = metadata.salt;
-                initialVectorBytes = metadata.initialVector;
+                saltValueBytes = metadata.Salt;
+                initialVectorBytes = metadata.InitialVector;
                 metadata.DeleteMetadataFromBuffer(ref cipherTextBytes);
             }
 
