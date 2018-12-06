@@ -30,13 +30,13 @@
       <Value Profile="(Default)">SHA1</Value>
     </Setting>
     <Setting Name="KeySize" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">256</Value>
+      <Value Profile="(Default)">192</Value>
     </Setting>
     <Setting Name="TheSalt" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="PasswordIterations" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">1000</Value>
+      <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="FirstLaunch" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -62,7 +62,7 @@
     <Setting Name="WindowState" Provider="PortableSettingsProvider" Type="System.Windows.Forms.FormWindowState" Scope="User">
       <Value Profile="(Default)">Normal</Value>
     </Setting>
-    <Setting Name="AutoSave" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="AutoSave" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
