@@ -95,6 +95,7 @@ namespace Crypto_Notepad
                 checkBox2.Checked = true;
                 checkBox3.Checked = true;
                 checkBox4.Checked = false;
+                checkBox5.Checked = true;
             }
         }
 
