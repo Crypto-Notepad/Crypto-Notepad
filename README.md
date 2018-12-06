@@ -10,7 +10,7 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 * Drag and Drop support
 * Detect URLs and email links
 * Fully customizable editor. Able to customize the colors and fonts  
-* Able to customize different parameters of the encryption (hash algorithm, key size, password iterations, salt)  
+* Able to customize different parameters of the encryption (hash algorithm, key size, password iterations)  
 * Included all the features of the default Windows Notepad  
 * Association with the application extension
 * Easily search through the content
