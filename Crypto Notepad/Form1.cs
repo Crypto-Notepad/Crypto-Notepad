@@ -106,6 +106,10 @@ namespace Crypto_Notepad
                     {
                         DecryptAES();
                     }
+                    if (dialogResult == DialogResult.Cancel)
+                    {
+                        publicVar.encryptionKey.Set(null);
+                    }
                 }
             }
         }
