@@ -32,10 +32,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.customRichTextBox1 = new Crypto_Notepad.CustomRichTextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.customRichTextBox2 = new Crypto_Notepad.CustomRichTextBox();
+            this.customRichTextBox1 = new Crypto_Notepad.CustomRichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,30 +71,11 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(6, 107);
+            this.label5.Location = new System.Drawing.Point(6, 160);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(182, 15);
             this.label5.TabIndex = 4;
             this.label5.Text = "Third-party developments:";
-            // 
-            // customRichTextBox1
-            // 
-            this.customRichTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.customRichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.customRichTextBox1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.customRichTextBox1.ForeColor = System.Drawing.Color.White;
-            this.customRichTextBox1.Location = new System.Drawing.Point(0, 131);
-            this.customRichTextBox1.Name = "customRichTextBox1";
-            this.customRichTextBox1.ReadOnly = true;
-            this.customRichTextBox1.RightMargin = 600;
-            this.customRichTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
-            this.customRichTextBox1.ShowSelectionMargin = true;
-            this.customRichTextBox1.Size = new System.Drawing.Size(398, 90);
-            this.customRichTextBox1.TabIndex = 8;
-            this.customRichTextBox1.TabStop = false;
-            this.customRichTextBox1.Text = resources.GetString("customRichTextBox1.Text");
-            this.customRichTextBox1.WordWrap = false;
-            this.customRichTextBox1.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.customRichTextBox1_LinkClicked);
             // 
             // linkLabel1
             // 
@@ -148,18 +131,69 @@
             this.linkLabel3.UseCompatibleTextRendering = true;
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(6, 105);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(98, 15);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Contributors:";
+            // 
+            // customRichTextBox2
+            // 
+            this.customRichTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.customRichTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.customRichTextBox2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.customRichTextBox2.ForeColor = System.Drawing.Color.White;
+            this.customRichTextBox2.Location = new System.Drawing.Point(-1, 128);
+            this.customRichTextBox2.Name = "customRichTextBox2";
+            this.customRichTextBox2.ReadOnly = true;
+            this.customRichTextBox2.RightMargin = 600;
+            this.customRichTextBox2.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.customRichTextBox2.ShowSelectionMargin = true;
+            this.customRichTextBox2.Size = new System.Drawing.Size(398, 19);
+            this.customRichTextBox2.TabIndex = 8;
+            this.customRichTextBox2.TabStop = false;
+            this.customRichTextBox2.Text = "h5p9sl https://github.com/h5p9sl";
+            this.customRichTextBox2.WordWrap = false;
+            this.customRichTextBox2.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.customRichTextBox1_LinkClicked);
+            // 
+            // customRichTextBox1
+            // 
+            this.customRichTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.customRichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.customRichTextBox1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.customRichTextBox1.ForeColor = System.Drawing.Color.White;
+            this.customRichTextBox1.Location = new System.Drawing.Point(0, 181);
+            this.customRichTextBox1.Name = "customRichTextBox1";
+            this.customRichTextBox1.ReadOnly = true;
+            this.customRichTextBox1.RightMargin = 600;
+            this.customRichTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
+            this.customRichTextBox1.ShowSelectionMargin = true;
+            this.customRichTextBox1.Size = new System.Drawing.Size(398, 90);
+            this.customRichTextBox1.TabIndex = 8;
+            this.customRichTextBox1.TabStop = false;
+            this.customRichTextBox1.Text = resources.GetString("customRichTextBox1.Text");
+            this.customRichTextBox1.WordWrap = false;
+            this.customRichTextBox1.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.customRichTextBox1_LinkClicked);
+            // 
             // AboutFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(398, 221);
+            this.ClientSize = new System.Drawing.Size(398, 271);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.customRichTextBox2);
             this.Controls.Add(this.customRichTextBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -185,5 +219,7 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.Label label2;
+        private CustomRichTextBox customRichTextBox2;
     }
 }
