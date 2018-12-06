@@ -1,7 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Drawing;
-using System.Media;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -131,7 +130,6 @@ namespace Crypto_Notepad
             {
 
             }
-
         }
 
         private void panel1_Click_1(object sender, EventArgs e)
