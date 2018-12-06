@@ -45,7 +45,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
@@ -73,9 +72,9 @@
             this.BackgroundColorLabel.AutoSize = true;
             this.BackgroundColorLabel.Location = new System.Drawing.Point(7, 86);
             this.BackgroundColorLabel.Name = "BackgroundColorLabel";
-            this.BackgroundColorLabel.Size = new System.Drawing.Size(57, 13);
+            this.BackgroundColorLabel.Size = new System.Drawing.Size(54, 13);
             this.BackgroundColorLabel.TabIndex = 0;
-            this.BackgroundColorLabel.Text = "Font color:";
+            this.BackgroundColorLabel.Text = "Font color";
             // 
             // colorDialog1
             // 
@@ -97,9 +96,9 @@
             this.fontLabel.AutoSize = true;
             this.fontLabel.Location = new System.Drawing.Point(7, 18);
             this.fontLabel.Name = "fontLabel";
-            this.fontLabel.Size = new System.Drawing.Size(60, 13);
+            this.fontLabel.Size = new System.Drawing.Size(57, 13);
             this.fontLabel.TabIndex = 1;
-            this.fontLabel.Text = "Font name:";
+            this.fontLabel.Text = "Font name";
             // 
             // tabControl1
             // 
@@ -147,9 +146,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(7, 154);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 13);
+            this.label3.Size = new System.Drawing.Size(79, 13);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Highlights color:";
+            this.label3.Text = "Highlights color";
             // 
             // comboBox2
             // 
@@ -181,18 +180,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(7, 120);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 13);
+            this.label2.Size = new System.Drawing.Size(91, 13);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Background color:";
+            this.label2.Text = "Background color";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(7, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Font size:";
+            this.label1.Text = "Font size";
             // 
             // panel2
             // 
@@ -224,10 +223,9 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.checkBox6);
             this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.comboBox4);
+            this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Controls.Add(this.comboBox3);
             this.tabPage2.Controls.Add(this.label6);
@@ -241,23 +239,9 @@
             this.tabPage2.Text = "Encrypt/Decrypt";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox6.Checked = true;
-            this.checkBox6.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox6.Location = new System.Drawing.Point(131, 109);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(105, 17);
-            this.checkBox6.TabIndex = 16;
-            this.checkBox6.Text = "Randomize Salts";
-            this.checkBox6.UseVisualStyleBackColor = true;
-            this.checkBox6.CheckedChanged += new System.EventHandler(this.checkBox6_CheckedChanged);
-            // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(136, 140);
+            this.textBox2.Location = new System.Drawing.Point(136, 83);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 7;
@@ -265,11 +249,12 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 143);
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(7, 86);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 13);
+            this.label7.Size = new System.Drawing.Size(98, 13);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Password iterations:";
+            this.label7.Text = "Password iterations";
             // 
             // comboBox4
             // 
@@ -285,12 +270,13 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(136, 83);
+            this.textBox1.Location = new System.Drawing.Point(136, 116);
             this.textBox1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 4;
+            this.textBox1.Visible = false;
             // 
             // comboBox3
             // 
@@ -308,29 +294,30 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 86);
+            this.label6.Location = new System.Drawing.Point(7, 119);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 13);
+            this.label6.Size = new System.Drawing.Size(47, 13);
             this.label6.TabIndex = 2;
-            this.label6.Text = "The salt:";
+            this.label6.Text = "The Salt";
+            this.label6.Visible = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(7, 52);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.Size = new System.Drawing.Size(46, 13);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Key size:";
+            this.label5.Text = "Key size";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(7, 18);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 13);
+            this.label4.Size = new System.Drawing.Size(80, 13);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Hash algorithm: ";
+            this.label4.Text = "Hash algorithm ";
             // 
             // tabPage3
             // 
@@ -411,7 +398,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(262, 274);
+            this.ClientSize = new System.Drawing.Size(262, 270);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.saveSettingsButton);
@@ -467,6 +454,5 @@
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox6;
     }
 }
