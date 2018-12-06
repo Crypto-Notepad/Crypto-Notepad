@@ -88,7 +88,7 @@ namespace Crypto_Notepad
             {
                 string opnfile = File.ReadAllText(OpenFile.FileName);
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-                string de = AES.Decrypt(opnfile, publicVar.encryptionKey, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+                string de = AES.Decrypt(opnfile, publicVar.encryptionKey.Get(), ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                 customRTB.Text = de;
 
                 this.Text = appName + NameWithotPath;
@@ -165,7 +165,7 @@ namespace Crypto_Notepad
                 }
                 publicVar.okPressed = false;
 
-                string de = AES.Decrypt(opnfile, publicVar.encryptionKey, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+                string de = AES.Decrypt(opnfile, publicVar.encryptionKey.Get(), ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                 customRTB.Text = de;
 
                 this.Text = appName + NameWithotPath;
@@ -216,7 +216,7 @@ namespace Crypto_Notepad
         {
             int saveCaret = customRTB.SelectionStart;
             string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-            if (string.IsNullOrEmpty(publicVar.encryptionKey))
+            if (string.IsNullOrEmpty(publicVar.encryptionKey.Get()))
             {
                 Form2 Form2 = new Form2();
                 Form2.ShowDialog();
@@ -234,14 +234,16 @@ namespace Crypto_Notepad
 
             filename = SaveFile.FileName;
 
-            // Generate random initialization vector
-            RandomNumberGenerator RandNumGen = RNGCryptoServiceProvider.Create();
-            byte[] RandInitVector = new byte[16];
-            RandNumGen.GetNonZeroBytes(RandInitVector);
-
             string noenc = customRTB.Text;
-            string en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey, RandInitVector, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-            RandNumGen.Dispose();
+            string en;
+            if (publicVar.randomizeSalts)
+            {
+                en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey.Get(), null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+            }
+            else
+            {
+                en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey.Get(), ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+            }
 
             customRTB.Text = en;
             StreamWriter sw = new StreamWriter(filename);
@@ -381,14 +383,16 @@ namespace Crypto_Notepad
                 publicVar.okPressed = false;
             }
 
-            // Generate random initialization vector
-            RandomNumberGenerator RandNumGen = RNGCryptoServiceProvider.Create();
-            byte[] RandInitVector = new byte[16];
-            RandNumGen.GetNonZeroBytes(RandInitVector);
-
             string noenc = customRTB.Text;
-            string en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey, RandInitVector, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-            RandNumGen.Dispose();
+            string en;
+            if (publicVar.randomizeSalts)
+            {
+                en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey.Get(), null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+            }
+            else
+            {
+                en = AES.Encrypt(customRTB.Text, publicVar.encryptionKey.Get(), ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+            }
 
             customRTB.Text = en;
             StreamWriter sw = new StreamWriter(filename);
@@ -470,7 +474,7 @@ namespace Crypto_Notepad
                     {
                         File.Delete(filename);
                         customRTB.Clear();
-                        publicVar.encryptionKey = "";
+                        publicVar.encryptionKey.Set(null);
                         pictureBox6.Enabled = false;
                         pictureBox7.Enabled = false;
                         pictureBox11.Enabled = false;
@@ -687,7 +691,7 @@ namespace Crypto_Notepad
                 customRTB.Modified = true;
             }
 
-            if (publicVar.encryptionKey == "")
+            if (publicVar.encryptionKey.Get() == null)
             {
                 pictureBox6.Enabled = false;
                 pictureBox7.Enabled = false;
@@ -695,7 +699,7 @@ namespace Crypto_Notepad
                 pictureBox13.Enabled = false;
             }
 
-            if (publicVar.encryptionKey != "")
+            if (publicVar.encryptionKey.Get() != null)
             {
                 pictureBox6.Enabled = true;
                 pictureBox7.Enabled = true;
@@ -748,13 +752,13 @@ namespace Crypto_Notepad
 
         private void сервисToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
         {
-            if (publicVar.encryptionKey == "")
+            if (publicVar.encryptionKey.Get() == null)
             {
                 changeKeyToolStripMenuItem.Enabled = false;
                 lockToolStripMenuItem.Enabled = false;
             }
 
-            if (publicVar.encryptionKey != "")
+            if (publicVar.encryptionKey.Get() != null)
             {
                 changeKeyToolStripMenuItem.Enabled = true;
                 lockToolStripMenuItem.Enabled = true;
@@ -923,7 +927,7 @@ namespace Crypto_Notepad
         {
             saveToolStripMenuItem1_Click_1(this, new EventArgs());
             Form2 f2 = new Form2();
-            publicVar.encryptionKey = "";
+            publicVar.encryptionKey.Set(null);
             caretPos = customRTB.SelectionStart;
             f2.MinimizeBox = true;
             this.Hide();
@@ -936,7 +940,7 @@ namespace Crypto_Notepad
 
             if (publicVar.okPressed == false)
             {
-                publicVar.encryptionKey = "";
+                publicVar.encryptionKey.Set(null);
                 customRTB.Clear();
                 this.Text = appName.Remove(14);
                 OpenFile.FileName = "";
@@ -950,7 +954,7 @@ namespace Crypto_Notepad
                 OpenFile.FileName = filename;
                 string opnfile = File.ReadAllText(OpenFile.FileName);
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-                string de = AES.Decrypt(opnfile, publicVar.encryptionKey, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+                string de = AES.Decrypt(opnfile, publicVar.encryptionKey.Get(), ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
 
                 this.Text = appName + NameWithotPath;
                 filename = OpenFile.FileName;
@@ -968,7 +972,7 @@ namespace Crypto_Notepad
                 }
                 if (dialogResult == DialogResult.Cancel)
                 {
-                    publicVar.encryptionKey = "";
+                    publicVar.encryptionKey.Set(null);
                     customRTB.Clear();
                     this.Text = appName.Remove(14);
                     OpenFile.FileName = "";
@@ -984,7 +988,7 @@ namespace Crypto_Notepad
             const int WM_SYSCOMMAND = 0x112;
             const int SC_MINIMIZE = 0xF020;
 
-            if (m.Msg == WM_SYSCOMMAND && m.WParam.ToInt32() == SC_MINIMIZE && ps.AutoLock == true && publicVar.encryptionKey != "")
+            if (m.Msg == WM_SYSCOMMAND && m.WParam.ToInt32() == SC_MINIMIZE && ps.AutoLock == true && publicVar.encryptionKey.Get() != null)
             {
                 AutoLock(true);
                 return;

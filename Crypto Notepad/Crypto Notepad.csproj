@@ -105,6 +105,7 @@
     <Compile Include="CustomRichTextBox.Designer.cs">
       <DependentUpon>CustomRichTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="EncryptedString.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

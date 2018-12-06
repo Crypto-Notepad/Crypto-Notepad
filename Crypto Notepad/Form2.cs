@@ -14,7 +14,7 @@ namespace Crypto_Notepad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            publicVar.encryptionKey = textBox1.Text;
+            publicVar.encryptionKey.Set(textBox1.Text);
             textBox1.Focus();
             textBox1.Text = "";
             publicVar.okPressed = true;

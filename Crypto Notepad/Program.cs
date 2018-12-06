@@ -19,7 +19,8 @@ namespace Crypto_Notepad
 
     static class publicVar
     {
-        public static string encryptionKey = "";
+        public static EncryptedString encryptionKey = new EncryptedString();
+        public static bool randomizeSalts = true;
         public static bool keyChanged = false;
         public static bool settingsChanged = false;
         public static bool okPressed = false;

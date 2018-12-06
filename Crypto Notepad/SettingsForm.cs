@@ -36,12 +36,6 @@ namespace Crypto_Notepad
             checkBox3.Checked = ps.ShowToolbar;
             checkBox4.Checked = ps.AutoLock;
             checkBox5.Checked = ps.AutoSave;
-
-            if (ps.WarningMsg == false)
-            {
-                warningLabel.Visible = false;
-                closeLabel.Visible = false;
-            }
         }
 
         private void saveSettingsButton_Click(object sender, EventArgs e)
@@ -178,20 +172,14 @@ namespace Crypto_Notepad
 
         private void closeLabel_Click(object sender, EventArgs e)
         {
-            warningLabel.Visible = false;
-            closeLabel.Visible = false;
             ps.WarningMsg = false;
             ps.Save();
         }
 
-        private void closeLabel_MouseEnter(object sender, EventArgs e)
+        private void checkBox6_CheckedChanged(object sender, EventArgs e)
         {
-            closeLabel.Image = Properties.Resources.close_b;
-        }
-
-        private void closeLabel_MouseLeave(object sender, EventArgs e)
-        {
-            closeLabel.Image = Properties.Resources.close_g;
+            publicVar.randomizeSalts = this.checkBox6.Checked;
+            this.textBox1.ReadOnly = this.checkBox6.Checked;
         }
     }
 }
