@@ -36,6 +36,13 @@ namespace Crypto_Notepad
             checkBox3.Checked = ps.ShowToolbar;
             checkBox4.Checked = ps.AutoLock;
             checkBox5.Checked = ps.AutoSave;
+
+            if (ps.TheSalt != "")
+            {
+                textBox1.Visible = true;
+                label6.Visible = true;
+
+            }
         }
 
         private void saveSettingsButton_Click(object sender, EventArgs e)
@@ -174,12 +181,6 @@ namespace Crypto_Notepad
         {
             ps.WarningMsg = false;
             ps.Save();
-        }
-
-        private void checkBox6_CheckedChanged(object sender, EventArgs e)
-        {
-            publicVar.randomizeSalts = this.checkBox6.Checked;
-            this.textBox1.ReadOnly = this.checkBox6.Checked;
         }
     }
 }
