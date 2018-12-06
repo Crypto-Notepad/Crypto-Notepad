@@ -53,6 +53,15 @@ namespace Crypto_Notepad
             return false;
         }
 
+        public static void WriteMetadata(MemoryStream stream, byte[] IV, byte[] salt)
+        {
+            byte[] nullByte = { 0 };
+            stream.Write(IV, 0, IV.Length);
+            stream.Write(nullByte, 0, 1);
+            stream.Write(salt, 0, salt.Length);
+            stream.Write(nullByte, 0, 1);
+        }
+
         public bool GetMetadata(byte[] rawData)
         {
             int offset = 0;
@@ -114,11 +123,7 @@ namespace Crypto_Notepad
 
             using (MemoryStream memStream = new MemoryStream())
             {
-                byte[] nullByte = { 0 };
-                memStream.Write(symmetricKey.IV, 0, symmetricKey.IV.Length);
-                memStream.Write(nullByte, 0, 1);
-                memStream.Write(saltValueBytes, 0, saltValueBytes.Length);
-                memStream.Write(nullByte, 0, 1);
+                AESMetadata.WriteMetadata(memStream, symmetricKey.IV, saltValueBytes);
 
                 using (ICryptoTransform encryptor = symmetricKey.CreateEncryptor
                 (keyBytes, symmetricKey.IV))
