@@ -6,7 +6,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Threading;
@@ -50,6 +49,7 @@ namespace Crypto_Notepad
             {
                 string opnfile = File.ReadAllText(OpenFile.FileName);
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
+
                 string de = AES.Decrypt(opnfile, publicVar.encryptionKey.Get(), ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                 customRTB.Text = de;
 
@@ -927,24 +927,26 @@ namespace Crypto_Notepad
                 customRTB.SelectionStart = caretPos;
                 this.Show();
             }
-            catch (CryptographicException)
+            catch (Exception ex)
             {
-                DialogResult dialogResult = MessageBox.Show("Invalid key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                if (dialogResult == DialogResult.Retry)
+                if (ex is CryptographicException)
                 {
-                    AutoLock(false);
-                }
-                if (dialogResult == DialogResult.Cancel)
-                {
-                    publicVar.encryptionKey.Set(null);
-                    customRTB.Clear();
-                    this.Text = appName.Remove(14);
-                    OpenFile.FileName = "";
-                    this.Show();
-                    return;
+                    DialogResult dialogResult = MessageBox.Show("Invalid key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    if (dialogResult == DialogResult.Retry)
+                    {
+                        AutoLock(false);
+                    }
+                    if (dialogResult == DialogResult.Cancel)
+                    {
+                        publicVar.encryptionKey.Set(null);
+                        customRTB.Clear();
+                        this.Text = appName.Remove(14);
+                        OpenFile.FileName = "";
+                        this.Show();
+                        return;
+                    }
                 }
             }
-
         }
 
         protected override void WndProc(ref Message m)
@@ -1044,7 +1046,6 @@ namespace Crypto_Notepad
                         currentFilename = Path.GetFileName(OpenFile.FileName);
                     }
                 }
-
             }
         }
 
@@ -1127,6 +1128,5 @@ namespace Crypto_Notepad
                 shiftPresed = false;
             }
         }
-
     }
 }

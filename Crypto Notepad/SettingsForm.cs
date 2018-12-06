@@ -18,7 +18,7 @@ namespace Crypto_Notepad
         {
             foreach (FontFamily fonts in FontFamily.Families)
             {
-                comboBox1.Items.Add(fonts.Name); 
+                comboBox1.Items.Add(fonts.Name);
             }
 
             comboBox1.Text = ps.RichTextFont;
@@ -78,7 +78,6 @@ namespace Crypto_Notepad
                 ps.AutoLock = checkBox4.Checked;
                 ps.AutoSave = checkBox5.Checked;
                 ps.Save();
-
                 publicVar.settingsChanged = true;
 
                 this.Hide();
@@ -116,7 +115,7 @@ namespace Crypto_Notepad
             catch (Exception)
             {
 
-            }       
+            }
         }
 
         public static void DissociateExtension(string applicationExecutablePath, string extension)
