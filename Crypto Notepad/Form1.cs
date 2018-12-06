@@ -32,44 +32,6 @@ namespace Crypto_Notepad
             customRTB.AllowDrop = true;
         }
 
-        #region SaltMac
-        void SaltMAC()
-        {
-            var address = "";
-            var networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
-
-            foreach (var networkInterface in networkInterfaces)
-            {
-                if (networkInterface.NetworkInterfaceType == NetworkInterfaceType.Ethernet)
-                {
-                    address = networkInterface.GetPhysicalAddress().ToString();
-                }
-            }
-
-            if (ps.FirstLaunch == false)
-            {
-                DialogResult res = new DialogResult();
-                using (new CenterWinDialog(this))
-                {
-                    res = MessageBox.Show("Get The Salt from mac address? (You can change it yourself in Settings)", "Crypto Notepad",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                }
-
-                if (res == DialogResult.Yes)
-                {
-                    ps.TheSalt = address;
-                    ps.FirstLaunch = true;
-                }
-
-                if (res == DialogResult.No)
-                {
-                    ps.FirstLaunch = true;
-                }
-                ps.Save();
-            }
-        }
-        #endregion
-
         void DecryptAES()
         {
             publicVar.openFileName = Path.GetFileName(OpenFile.FileName);
@@ -315,8 +277,6 @@ namespace Crypto_Notepad
             {
                 panel2.Visible = true;
             }
-
-            SaltMAC();
 
             if (ps.AutoCheckUpdate == true)
             {
