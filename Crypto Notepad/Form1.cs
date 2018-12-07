@@ -624,6 +624,7 @@ namespace Crypto_Notepad
                 customRTB.Font = new Font(ps.RichTextFont, ps.RichTextSize);
                 customRTB.ForeColor = ps.RichForeColor;
                 customRTB.BackColor = ps.RichBackColor;
+                this.BackColor = ps.RichBackColor;
 
                 /*workaround, unhighlight URLs fix*/
                 customRTB.DetectUrls = false;
