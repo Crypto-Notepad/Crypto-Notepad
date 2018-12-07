@@ -712,7 +712,7 @@ namespace Crypto_Notepad
 
         private void documentationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/Sigmanor/Crypto-Notepad/wiki/Documentation-%28ENG%29");
+            Process.Start("https://github.com/Sigmanor/Crypto-Notepad/wiki/Documentation");
         }
 
         private void сервисToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
