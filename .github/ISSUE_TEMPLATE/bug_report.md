@@ -24,7 +24,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Software version (please complete the following information):**
- - OS: version [e.g. Windows 10]
+ - OS version [e.g. Windows 10]
  - App version [e.g. v1.2.0]
 
 **Additional context**
