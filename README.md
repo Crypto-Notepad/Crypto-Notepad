@@ -1,5 +1,6 @@
 # Crypto Notepad
-[`Documentation`](https://github.com/Sigmanor/Crypto-Notepad/wiki/Documentation-%28ENG%29) | [`Release Notes`](https://github.com/Sigmanor/Crypto-Notepad/wiki/Release-Notes) | [`Project TODO`](https://github.com/Sigmanor/Crypto-Notepad/wiki/TODO)
+[`Documentation`](https://github.com/Sigmanor/Crypto-Notepad/wiki/Documentation
+# ) | [`Release Notes`](https://github.com/Sigmanor/Crypto-Notepad/wiki/Release-Notes) | [`Project TODO`](https://github.com/Sigmanor/Crypto-Notepad/wiki/TODO)
 
 Notepad-like simple text editor for Windows, where files are saved and loaded encrypted with AES algorithms.
 
