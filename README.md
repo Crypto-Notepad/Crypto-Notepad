@@ -20,7 +20,7 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 * .NET Framework 4.5
 
 ## Contribution
-If you find any bug, or you know how to improve Crypto Notepad, please create new  [Issue](https://github.com/Sigmanor/Crypto-Notepad/issues/new) or make [Pull requests](https://github.com/Sigmanor/Crypto-Notepad/pulls) or just [email me](mailto:sigmanor@pm.me). Feel free :octocat:
+If you find any bug, or you know how to improve Crypto Notepad, please create new  [Issue](https://github.com/Sigmanor/Crypto-Notepad/issues/new/choose) or make [Pull requests](https://github.com/Sigmanor/Crypto-Notepad/pulls) or just [email me](mailto:sigmanor@pm.me). Feel free :octocat:
 
 ## Build
 App was created in Visual Studio Community, you can run the .sln file and simply build a project (The code is very bad. There are no comments, no following the OOP rules. Learn this code at your own risk. )
