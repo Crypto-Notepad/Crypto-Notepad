@@ -254,6 +254,23 @@ namespace Crypto_Notepad
             }
         }
 
+        #region Send to Shortcut
+        public static void SendToShortcut()
+        {
+            string shortcutPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Microsoft\Windows\SendTo";
+            string shortcutName = "Crypto Notepad" + ".lnk";
+            string shortcutLocation = Path.Combine(shortcutPath, shortcutName);
+            string targetFileLocation = Assembly.GetEntryAssembly().Location;
+
+            WshShell shell = new WshShell();
+            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutLocation);
+            shortcut.Description = "Crypto Notepad";
+            shortcut.IconLocation = targetFileLocation;
+            shortcut.TargetPath = targetFileLocation;
+            shortcut.Save();                                   
+        }
+        #endregion
+
         private void MainWindow_Load(object sender, EventArgs e)
         {
             string pos = ps.WindowLocation.ToString();
