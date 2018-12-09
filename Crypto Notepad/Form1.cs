@@ -101,11 +101,11 @@ namespace Crypto_Notepad
                 }
                 DecryptAES();
 
-                /*workaround, strange behavior with the cursor in customRTB fix*/
+                #region workaround, strange behavior with the cursor in customRTB fix
                 customRTB.DetectUrls = false;
                 customRTB.DetectUrls = true;
                 customRTB.Modified = false;
-                /*workaround, strange behavior with the cursor in customRTB fix*/
+                #endregion
 
                 if (publicVar.okPressed == true)
                 {
@@ -266,7 +266,7 @@ namespace Crypto_Notepad
             customRTB.WordWrap = ps.RichWrap;
             panel2.Visible = ps.ShowToolbar;
 
-            if (ps.ShowToolbar == false)
+            if (!ps.ShowToolbar)
             {
                 panel2.Visible = false;
                 int h = customRTB.Height;
@@ -275,12 +275,12 @@ namespace Crypto_Notepad
                 customRTB.Location = new Point(6, 29);
             }
 
-            if (ps.ShowToolbar == true)
+            if (ps.ShowToolbar)
             {
                 panel2.Visible = true;
             }
 
-            if (ps.AutoCheckUpdate == true)
+            if (ps.AutoCheckUpdate)
             {
                 Thread up = new Thread(() => сheckForUpdates(false));
                 up.Start();
@@ -621,17 +621,30 @@ namespace Crypto_Notepad
         private void MainWindow_Activated(object sender, EventArgs e)
         {
             if (publicVar.settingsChanged == true)
-            {
+            { 
                 publicVar.settingsChanged = false;
                 customRTB.Font = new Font(ps.RichTextFont, ps.RichTextSize);
                 customRTB.ForeColor = ps.RichForeColor;
                 customRTB.BackColor = ps.RichBackColor;
                 this.BackColor = ps.RichBackColor;
 
-                /*workaround, unhighlight URLs fix*/
+                if (ps.SendTo)
+                {
+                    SendToShortcut();
+                }
+                else
+                {
+                    string shortcutPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Microsoft\Windows\SendTo\Crypto Notepad.lnk";
+                    if (File.Exists(shortcutPath))
+                    {
+                        File.Delete(shortcutPath);
+                    }
+                }
+
+                #region  workaround, unhighlight URLs fix
                 customRTB.DetectUrls = false;
                 customRTB.DetectUrls = true;
-                /*workaround, unhighlight URLs fix*/
+                #endregion
 
                 if (ps.ShowToolbar == false && panel2.Visible == true)
                 {
@@ -685,11 +698,6 @@ namespace Crypto_Notepad
             bool isexist = customRTB.Highlight(searchTextBox.Text, ps.HighlightsColor, chkMatchCase.Checked, chkMatchWholeWord.Checked);
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            findToolStripMenuItem2_Click(this, new EventArgs());
-        }
-
         private void findToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             if (panel1.Visible == false)
@@ -730,6 +738,11 @@ namespace Crypto_Notepad
                 changeKeyToolStripMenuItem.Enabled = true;
                 lockToolStripMenuItem.Enabled = true;
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            findToolStripMenuItem2_Click(this, new EventArgs());
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -811,6 +824,11 @@ namespace Crypto_Notepad
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
             pictureBox1.Image = Properties.Resources.close_g;
+        }
+
+        private void pictureBox13_Click(object sender, EventArgs e)
+        {
+            AutoLock(false);
         }
 
         private void правкаToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
@@ -964,11 +982,6 @@ namespace Crypto_Notepad
             }
 
             base.WndProc(ref m);
-        }
-
-        private void pictureBox13_Click(object sender, EventArgs e)
-        {
-            AutoLock(false);
         }
 
         private void lockToolStripMenuItem_Click(object sender, EventArgs e)
