@@ -119,38 +119,52 @@ namespace Crypto_Notepad
         {
             Form2 Form2 = new Form2();
             Form2.StartPosition = FormStartPosition.CenterScreen;
+            string fileExtension = Path.GetExtension(args[1]);
 
-            try
+            if (fileExtension == ".cnp")
             {
-                string NameWithotPath = Path.GetFileName(args[1]);
+                try
+                {
+                    string NameWithotPath = Path.GetFileName(args[1]);
+                    string opnfile = File.ReadAllText(args[1]);
+
+                    Form2.ShowDialog();
+                    if (publicVar.okPressed == false)
+                    {
+                        OpenFile.FileName = "";
+                        return;
+                    }
+                    publicVar.okPressed = false;
+
+                    string de = AES.Decrypt(opnfile, publicVar.encryptionKey.Get(), ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+                    customRTB.Text = de;
+
+                    this.Text = appName + NameWithotPath;
+
+                    filename = args[1];
+                    string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+                    customRTB.Select(Convert.ToInt32(cc), 0);
+                }
+                catch (CryptographicException)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Invalid key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    if (dialogResult == DialogResult.Retry)
+                    {
+                        openAsotiations();
+                    }
+                }
+
+            }
+            else
+            {
                 string opnfile = File.ReadAllText(args[1]);
-
-                Form2.ShowDialog();
-                if (publicVar.okPressed == false)
-                {
-                    OpenFile.FileName = "";
-                    return;
-                }
-                publicVar.okPressed = false;
-
-                string de = AES.Decrypt(opnfile, publicVar.encryptionKey.Get(), ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-                customRTB.Text = de;
-
+                string NameWithotPath = Path.GetFileName(args[1]);
+                customRTB.Text = opnfile;
                 this.Text = appName + NameWithotPath;
-
-                filename = args[1];
-                string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-                customRTB.Select(Convert.ToInt32(cc), 0);
+                string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+                customRTB.Select(Convert.ToInt32(cc2), 0);
             }
 
-            catch
-            {
-                DialogResult dialogResult = MessageBox.Show("Invalid key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                if (dialogResult == DialogResult.Retry)
-                {
-                    openAsotiations();
-                }
-            }
             currentFilename = Path.GetFileName(OpenFile.FileName);
         }
 

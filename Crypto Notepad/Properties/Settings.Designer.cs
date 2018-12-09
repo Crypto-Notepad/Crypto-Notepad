@@ -283,6 +283,7 @@ namespace Crypto_Notepad.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool AutoSave {
@@ -291,6 +292,19 @@ namespace Crypto_Notepad.Properties {
             }
             set {
                 this["AutoSave"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SendTo {
+            get {
+                return ((bool)(this["SendTo"]));
+            }
+            set {
+                this["SendTo"] = value;
             }
         }
     }
