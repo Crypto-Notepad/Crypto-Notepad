@@ -39,17 +39,17 @@ namespace Crypto_Notepad
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if (textBox1.UseSystemPasswordChar == true)
+            if (textBox1.UseSystemPasswordChar)
             {
                 textBox1.UseSystemPasswordChar = false;
-                pictureBox1.Image = Properties.Resources.eye_half;
+                pictureBox1.Image = Properties.Resources.eye;
                 return;
             }
 
-            if (textBox1.UseSystemPasswordChar == false)
+            if (!textBox1.UseSystemPasswordChar)
             {
                 textBox1.UseSystemPasswordChar = true;
-                pictureBox1.Image = Properties.Resources.eye;
+                pictureBox1.Image = Properties.Resources.eye_half;
                 return;
             }
         }

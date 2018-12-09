@@ -66,7 +66,8 @@
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::Crypto_Notepad.Properties.Resources.eye;
+            this.pictureBox1.Image = global::Crypto_Notepad.Properties.Resources.eye_half;
+            this.pictureBox1.InitialImage = global::Crypto_Notepad.Properties.Resources.eye_half;
             this.pictureBox1.Location = new System.Drawing.Point(163, 39);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(18, 20);

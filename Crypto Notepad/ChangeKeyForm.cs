@@ -51,41 +51,36 @@ namespace Crypto_Notepad
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if (textBox1.UseSystemPasswordChar == true)
+            if (textBox1.UseSystemPasswordChar)
             {
                 textBox1.UseSystemPasswordChar = false;
-                pictureBox1.Image = Properties.Resources.eye_half;
+                pictureBox1.Image = Properties.Resources.eye;
                 return;
             }
 
-            if (textBox1.UseSystemPasswordChar == false)
+            if (!textBox1.UseSystemPasswordChar)
             {
                 textBox1.UseSystemPasswordChar = true;
-                pictureBox1.Image = Properties.Resources.eye;
+                pictureBox1.Image = Properties.Resources.eye_half;
                 return;
             }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if (textBox2.UseSystemPasswordChar == true)
+            if (textBox2.UseSystemPasswordChar)
             {
                 textBox2.UseSystemPasswordChar = false;
-                pictureBox2.Image = Properties.Resources.eye_half;
-                return;
-            }
-
-            if (textBox2.UseSystemPasswordChar == false)
-            {
-                textBox2.UseSystemPasswordChar = true;
                 pictureBox2.Image = Properties.Resources.eye;
                 return;
             }
-        }
 
-        private void ChangeKeyForm_Load(object sender, EventArgs e)
-        {
-
+            if (!textBox2.UseSystemPasswordChar)
+            {
+                textBox2.UseSystemPasswordChar = true;
+                pictureBox2.Image = Properties.Resources.eye_half;
+                return;
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
