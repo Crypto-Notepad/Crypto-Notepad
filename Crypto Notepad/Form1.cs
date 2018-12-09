@@ -165,7 +165,7 @@ namespace Crypto_Notepad
                 customRTB.Select(Convert.ToInt32(cc2), 0);
             }
 
-            currentFilename = Path.GetFileName(OpenFile.FileName);
+            currentFilename = Path.GetFileName(args[1]);
         }
 
         private void newToolStripMenuItem_Click_1(object sender, EventArgs e)
