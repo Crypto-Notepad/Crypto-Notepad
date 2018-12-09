@@ -895,9 +895,9 @@ namespace Crypto_Notepad
                 string version = Application.ProductVersion;
                 string exePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\";
 
-                int ver = Convert.ToInt32(version.Replace(".", "")), con = Convert.ToInt32(content.Replace(".", ""));
+                int appVersion = Convert.ToInt32(version.Replace(".", "")), serverVersion = Convert.ToInt32(content.Replace(".", ""));
 
-                if (con != ver)
+                if (serverVersion > appVersion)
                 {
                     MainMenu.Invoke((Action)delegate
                     {
@@ -922,7 +922,7 @@ namespace Crypto_Notepad
                     });
                 }
 
-                if (con == ver && autoCheck == true)
+                if (serverVersion <= appVersion && autoCheck == true)
                 {
                     MainMenu.Invoke((Action)delegate
                     {
@@ -932,6 +932,7 @@ namespace Crypto_Notepad
                         }
                     });
                 }
+
             }
             catch
             {
