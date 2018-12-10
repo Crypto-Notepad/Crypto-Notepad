@@ -170,6 +170,9 @@ namespace Crypto_Notepad
 
         private void newToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
+            saveConfirm(false);
+            SaveFile.FileName = "Unnamed.cnp";
+            publicVar.openFileName = "Crypto Notepad";
             Form2 f2 = new Form2();
             f2.ShowDialog();
 
@@ -185,6 +188,7 @@ namespace Crypto_Notepad
                 {
                     return;
                 }
+
                 customRTB.Clear();
                 StreamWriter sw = new StreamWriter(SaveFile.FileName);
                 string NameWithotPath = Path.GetFileName(SaveFile.FileName);
@@ -198,6 +202,7 @@ namespace Crypto_Notepad
         {
             int saveCaret = customRTB.SelectionStart;
             string NameWithotPath = Path.GetFileName(OpenFile.FileName);
+            SaveFile.FileName = currentFilename;
             if (string.IsNullOrEmpty(publicVar.encryptionKey.Get()))
             {
                 Form2 Form2 = new Form2();
