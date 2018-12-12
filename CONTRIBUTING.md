@@ -11,13 +11,7 @@ Before starting, make sure that you visited the project [todo](https://github.co
 * Create a pull request, using [this](https://github.com/Sigmanor/Crypto-Notepad/blob/master/PULL_REQUEST_TEMPLATE.md) template
 
 ### Issue labels explanation
-* `bug` - Issues with bugs
-* `duplicate` - Duplicate issues
-* `enhancement` - Enhancement request
-* `help wanted` - Issues I need help with
-* `hotfix` - Issues with critical bugs, that must be solved as soon as possible
-* `in progress` - Issues with I'm working on right now
-* `question` - Issue that contain only a question
+* You can find the full list in [here](https://github.com/Sigmanor/Crypto-Notepad/issues/labels)
 
 ### Things that will never be in this project
 * Installer. Crypto Notepad will be always portable.
