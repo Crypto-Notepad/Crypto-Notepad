@@ -20,18 +20,19 @@ namespace Crypto_Notepad
                 publicVar.keyChanged = true;
                 textBox1.Text = "";
                 textBox2.Text = "";
-                statusLabel.Text = "Key was successfully changed!";
+                statusLabel.Text = "Key was successfully changed";
                 statusLabel.Visible = true;
                 button1.Enabled = false;
                 await Task.Delay(2000);
-                this.Close();
+                statusLabel.Text = "";
+                //this.Close();
                 return;
             }
 
             if (textBox1.Text != publicVar.encryptionKey.Get())
             {
                 SystemSounds.Beep.Play();
-                statusLabel.Text = "Invalid old key!";
+                statusLabel.Text = "Invalid old key";
                 statusLabel.Visible = true;
                 textBox1.Text = "";
                 textBox2.Text = "";
@@ -41,7 +42,7 @@ namespace Crypto_Notepad
             if (textBox1.Text == textBox2.Text)
             {
                 SystemSounds.Beep.Play();
-                statusLabel.Text = "New key is the same as old!";
+                statusLabel.Text = "New key is the same as old";
                 statusLabel.Visible = true;
                 textBox1.Text = "";
                 textBox2.Text = "";
