@@ -10,6 +10,15 @@ Before starting, make sure that you visited the project [todo](https://github.co
 ###  You can help me fix some bug/implement a new feature?
 * Create a pull request, using [this](https://github.com/Sigmanor/Crypto-Notepad/blob/master/PULL_REQUEST_TEMPLATE.md) template
 
+### Issue labels explanation
+* `bug` - Issues with bugs
+* `duplicate` - Duplicate issues
+* `enhancement` - Enhancement request
+* `help wanted` - Issues I need help with
+* `hotfix` - Issues with critical bugs, that must be solved as soon as possible
+* `in progress` - Issues with I'm working on right now
+* `question` - Issue that contain only a question
+
 ### Things that will never be in this project
 * Installer. Crypto Notepad will be always portable.
 * Significant design changes. Crypto Notepad looks exactly as I want to see it.
