@@ -31,7 +31,7 @@ namespace Crypto_Notepad
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && button1.Enabled)
             {
                 button1_Click(sender, e);
             }
