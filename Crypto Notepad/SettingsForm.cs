@@ -36,6 +36,7 @@ namespace Crypto_Notepad
             checkBox4.Checked = ps.AutoLock;
             checkBox5.Checked = ps.AutoSave;
             checkBox6.Checked = ps.SendTo;
+            checkBox7.Checked = ps.MenuIntegrate;
 
             if (ps.TheSalt != "")
             {
@@ -79,8 +80,9 @@ namespace Crypto_Notepad
                 ps.AutoLock = checkBox4.Checked;
                 ps.AutoSave = checkBox5.Checked;
                 ps.SendTo = checkBox6.Checked;
+                ps.MenuIntegrate = checkBox7.Checked;
                 ps.Save();
-                publicVar.settingsChanged = true;
+                PublicVar.settingsChanged = true;
 
                 this.Hide();
             }
@@ -98,6 +100,7 @@ namespace Crypto_Notepad
                 checkBox4.Checked = false;
                 checkBox5.Checked = true;
                 checkBox6.Checked = false;
+                checkBox7.Checked = false;
             }
         }
 
