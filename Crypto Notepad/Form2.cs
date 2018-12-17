@@ -8,16 +8,15 @@ namespace Crypto_Notepad
         public Form2()
         {
             // Initialize to false in case user presses the exit button
-            publicVar.okPressed = false;
+            PublicVar.okPressed = false;
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            publicVar.encryptionKey.Set(textBox1.Text);
+            TypedPassword.Value = textBox1.Text;
             textBox1.Focus();
-            textBox1.Text = "";
-            publicVar.okPressed = true;
+            PublicVar.okPressed = true;
             this.Hide();
         }
 
@@ -57,12 +56,11 @@ namespace Crypto_Notepad
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
             textBox1.Focus();
-            textBox1.Text = "";
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            this.Text = publicVar.openFileName;
+            this.Text = PublicVar.openFileName;
         }
     }
 }

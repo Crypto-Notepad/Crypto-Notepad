@@ -17,7 +17,6 @@ namespace Crypto_Notepad
         }
     }
 
-    static class publicVar
     static class PublicVar
     {
         public static EncryptedString encryptionKey = new EncryptedString();
