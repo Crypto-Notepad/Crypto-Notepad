@@ -307,5 +307,18 @@ namespace Crypto_Notepad.Properties {
                 this["SendTo"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool MenuIntegrate {
+            get {
+                return ((bool)(this["MenuIntegrate"]));
+            }
+            set {
+                this["MenuIntegrate"] = value;
+            }
+        }
     }
 }
