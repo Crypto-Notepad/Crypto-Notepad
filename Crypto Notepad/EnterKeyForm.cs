@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace Crypto_Notepad
 {
-    public partial class Form2 : Form
+    public partial class EnterKeyForm : Form
     {
-        public Form2()
+        public EnterKeyForm()
         {
             // Initialize to false in case user presses the exit button
             PublicVar.okPressed = false;

@@ -1,6 +1,6 @@
 ﻿namespace Crypto_Notepad
 {
-    partial class Form2
+    partial class EnterKeyForm
     {
         /// <summary>
         /// Required designer variable.
