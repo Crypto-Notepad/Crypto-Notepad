@@ -176,6 +176,60 @@ namespace Crypto_Notepad
             currentFilename = Path.GetFileName(args[1]);
         }
 
+        private void sendTo()
+        {
+            Form2 f2 = new Form2();
+            f2.StartPosition = FormStartPosition.CenterScreen;
+            string fileExtension = Path.GetExtension(argsPath);
+
+            if (fileExtension == ".cnp")
+            {
+                try
+                {
+                    string NameWithotPath = Path.GetFileName(argsPath);
+                    string opnfile = File.ReadAllText(argsPath);
+
+                    f2.ShowDialog();
+                    if (PublicVar.okPressed == false)
+                    {
+                        OpenFile.FileName = "";
+                        return;
+                    }
+                    PublicVar.okPressed = false;
+                    string de = AES.Decrypt(opnfile, TypedPassword.Value, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+                    customRTB.Text = de;
+
+                    this.Text = appName + NameWithotPath;
+
+                    filePath = argsPath;
+                    string cc = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+                    customRTB.Select(Convert.ToInt32(cc), 0);
+                    PublicVar.encryptionKey.Set(TypedPassword.Value);
+                    currentFilename = Path.GetFileName(argsPath);
+                    TypedPassword.Value = null;
+                }
+                catch (CryptographicException)
+                {
+                    TypedPassword.Value = null;
+                    DialogResult dialogResult = MessageBox.Show("Invalid key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    if (dialogResult == DialogResult.Retry)
+                    {
+                        sendTo();
+                    }
+                }
+
+            }
+            else
+            {
+                string opnfile = File.ReadAllText(argsPath);
+                string NameWithotPath = Path.GetFileName(argsPath);
+                customRTB.Text = opnfile;
+                this.Text = appName + NameWithotPath;
+                string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+                customRTB.Select(Convert.ToInt32(cc2), 0);
+            }
+        }
+
         private void newToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             saveConfirm(false);
@@ -305,6 +359,7 @@ namespace Crypto_Notepad
             shortcut.Description = "Crypto Notepad";
             shortcut.IconLocation = targetFileLocation;
             shortcut.TargetPath = targetFileLocation;
+            shortcut.Arguments = "/s";
             shortcut.Save();                                   
         }
         #endregion
@@ -344,6 +399,14 @@ namespace Crypto_Notepad
             DeleteUpdateFiles();
 
             if (args.Length > 1)
+            if (args.Contains("/s")) /*send to*/
+            {
+                foreach (var arg in args)
+                {
+                    argsPath = arg;
+                }
+                sendTo();
+            }
             {
                 openAsotiations();
             }
