@@ -949,11 +949,11 @@ namespace Crypto_Notepad
 
         private void documentationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Process.Start("https://github.com/Sigmanor/Crypto-Notepad/wiki/Documentation");
-            MessageBox.Show("currentFilename: " + currentFilename);
-            MessageBox.Show("encryptionKey: " + PublicVar.encryptionKey.Get());
-            MessageBox.Show("TypedPassword: " + TypedPassword.Value);
-            MessageBox.Show("filePath: " + filePath);
+            Process.Start("https://github.com/Sigmanor/Crypto-Notepad/wiki/Documentation");
+            //MessageBox.Show("currentFilename: " + currentFilename);
+            //MessageBox.Show("encryptionKey: " + PublicVar.encryptionKey.Get());
+            //MessageBox.Show("TypedPassword: " + TypedPassword.Value);
+            //MessageBox.Show("filePath: " + filePath);
         }
 
         private void ToolsToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
