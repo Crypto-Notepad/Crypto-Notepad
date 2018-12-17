@@ -159,14 +159,12 @@ namespace Crypto_Notepad
                     key.CreateSubKey("Crypto Notepad").SetValue("SubCommands", "");
                     key.CreateSubKey(@"Crypto Notepad\shell");
 
-                    key.CreateSubKey(@"Crypto Notepad\shell\cmd1\").SetValue("MUIVerb", "Encrypt current file");
-                    key.CreateSubKey(@"Crypto Notepad\shell\cmd1\command").SetValue(string.Empty, "\"" + appExePath + "\" \"%1\" /e");
+                    key.CreateSubKey(@"Crypto Notepad\shell\cmd1\").SetValue("MUIVerb", "Encrypt");
+                    key.CreateSubKey(@"Crypto Notepad\shell\cmd1\command").SetValue(string.Empty, "\"" + appExePath + "\" \"%1\" /er");
 
-                    key.CreateSubKey(@"Crypto Notepad\shell\cmd2\").SetValue("MUIVerb", "Decrypt current file");
+                    key.CreateSubKey(@"Crypto Notepad\shell\cmd2\").SetValue("MUIVerb", "Decrypt");
                     key.CreateSubKey(@"Crypto Notepad\shell\cmd2\command").SetValue(string.Empty, "\"" + appExePath + "\" \"%1\" /o");
 
-                    key.CreateSubKey(@"Crypto Notepad\shell\cmd3\").SetValue("MUIVerb", "Encrypt and replace current file");
-                    key.CreateSubKey(@"Crypto Notepad\shell\cmd3\command").SetValue(string.Empty, "\"" + appExePath + "\" \"%1\" /er");
                 }
 
                 if (action == "disable")
