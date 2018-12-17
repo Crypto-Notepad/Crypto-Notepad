@@ -55,14 +55,22 @@ namespace Crypto_Notepad
         {
             if (value == "Save")
             {
-                if (checkBox1.Checked == true)
+                if (checkBox1.Checked)
                 {
                     AssociateExtension(Assembly.GetEntryAssembly().Location, "cnp");
                 }
-
-                if (checkBox1.Checked == false)
+                else
                 {
                     DissociateExtension(Assembly.GetEntryAssembly().Location, "cnp");
+                }
+
+                if (checkBox7.Checked)
+                {
+                    MenuIntegrate("enable");
+                }
+                else
+                {
+                    MenuIntegrate("disable");
                 }
 
                 ps.RichForeColor = panel1.BackColor;
@@ -123,7 +131,7 @@ namespace Crypto_Notepad
 
             }
         }
-        
+
         public static void DissociateExtension(string applicationExecutablePath, string extension)
         {
             try
@@ -136,6 +144,42 @@ namespace Crypto_Notepad
             {
 
             }
+        }
+
+        public static void MenuIntegrate(string action)
+        {
+            string appExePath = Assembly.GetEntryAssembly().Location;
+            try
+            {
+                if (action == "enable")
+                {
+                    RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Classes\*\shell\", true);
+
+                    key.CreateSubKey("Crypto Notepad").SetValue("icon", appExePath);
+                    key.CreateSubKey("Crypto Notepad").SetValue("SubCommands", "");
+                    key.CreateSubKey(@"Crypto Notepad\shell");
+
+                    key.CreateSubKey(@"Crypto Notepad\shell\cmd1\").SetValue("MUIVerb", "Encrypt current file");
+                    key.CreateSubKey(@"Crypto Notepad\shell\cmd1\command").SetValue(string.Empty, "\"" + appExePath + "\" \"%1\" /e");
+
+                    key.CreateSubKey(@"Crypto Notepad\shell\cmd2\").SetValue("MUIVerb", "Decrypt current file");
+                    key.CreateSubKey(@"Crypto Notepad\shell\cmd2\command").SetValue(string.Empty, "\"" + appExePath + "\" \"%1\" /o");
+
+                    key.CreateSubKey(@"Crypto Notepad\shell\cmd3\").SetValue("MUIVerb", "Encrypt and replace current file");
+                    key.CreateSubKey(@"Crypto Notepad\shell\cmd3\command").SetValue(string.Empty, "\"" + appExePath + "\" \"%1\" /er");
+                }
+
+                if (action == "disable")
+                {
+                    RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Classes\*\shell\", true);
+                    key.DeleteSubKeyTree("Crypto Notepad");
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
         }
 
         private void panel1_Click_1(object sender, EventArgs e)
