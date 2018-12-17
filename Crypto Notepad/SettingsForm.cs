@@ -112,7 +112,7 @@ namespace Crypto_Notepad
                 key = key.CreateSubKey("Shell");
                 key.SetValue(string.Empty, "Open");
                 key = key.CreateSubKey("Open");
-                key.CreateSubKey("Command").SetValue(string.Empty, "\"" + applicationExecutablePath + "\" \"%1\"");
+                key.CreateSubKey("Command").SetValue(string.Empty, "\"" + applicationExecutablePath + "\" \"%1\" /o");
                 key.CreateSubKey("ddeexec\\Topic").SetValue(string.Empty, "System");
             }
             catch (Exception)
@@ -120,7 +120,7 @@ namespace Crypto_Notepad
 
             }
         }
-
+        
         public static void DissociateExtension(string applicationExecutablePath, string extension)
         {
             try

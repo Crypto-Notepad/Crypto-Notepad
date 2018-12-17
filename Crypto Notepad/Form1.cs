@@ -407,6 +407,8 @@ namespace Crypto_Notepad
                 }
                 sendTo();
             }
+
+            if (args.Contains("/o"))  /*decrypt & open cnp*/
             {
                 openAsotiations();
             }
