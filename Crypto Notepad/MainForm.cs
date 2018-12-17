@@ -447,7 +447,7 @@ namespace Crypto_Notepad
 
             if (res == DialogResult.Cancel)
             {
-                Application.Exit();
+                Environment.Exit(0);
             }
 
             if (!args[1].Contains(".cnp"))
@@ -950,7 +950,7 @@ namespace Crypto_Notepad
         private void documentationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Process.Start("https://github.com/Sigmanor/Crypto-Notepad/wiki/Documentation");
-            MessageBox.Show("currentFilename: "+ currentFilename);
+            MessageBox.Show("currentFilename: " + currentFilename);
             MessageBox.Show("encryptionKey: " + PublicVar.encryptionKey.Get());
             MessageBox.Show("TypedPassword: " + TypedPassword.Value);
             MessageBox.Show("filePath: " + filePath);
