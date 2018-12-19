@@ -933,21 +933,11 @@ namespace Crypto_Notepad
 
         private void documentationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Process.Start("https://github.com/Sigmanor/Crypto-Notepad/wiki/Documentation");
+            Process.Start("https://github.com/Sigmanor/Crypto-Notepad/wiki/Documentation");
             //MessageBox.Show("currentFilename: " + currentFilename);
             //MessageBox.Show("encryptionKey: " + PublicVar.encryptionKey.Get());
             //MessageBox.Show("TypedPassword: " + TypedPassword.Value);
             //MessageBox.Show("filePath: " + filePath);
-
-            int i = 1;
-            while (i != 100)
-            {
-                i++;
-                Text = i.ToString();
-                saveToolStripMenuItem1_Click_1(sender, e);
-                CheckFileSavedCorrectly(sender, e);
-            }
-
         }
 
         private void ToolsToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
@@ -1378,25 +1368,6 @@ namespace Crypto_Notepad
             {
                 shiftPresed = false;
             }
-        }
-
-        private void CheckFileSavedCorrectly(object sender, EventArgs e)
-        {
-            string de = "";
-            try
-            {
-                string opnfile = File.ReadAllText(OpenFile.FileName);
-                de = AES.Decrypt(opnfile, PublicVar.encryptionKey.Get(), null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-                customRTB.Text = de;
-                string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-                customRTB.Select(Convert.ToInt32(cc2), 0);
-            }
-            catch (CryptographicException)
-            {
-                MessageBox.Show("Gotcha!");
-                saveToolStripMenuItem1_Click_1(sender, e);
-            }
-
         }
     }
 }
