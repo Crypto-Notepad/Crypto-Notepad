@@ -10,6 +10,7 @@ using System.Net;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using File = System.IO.File;
 
@@ -51,7 +52,7 @@ namespace Crypto_Notepad
                 string opnfile = File.ReadAllText(OpenFile.FileName);
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
 
-                string de = AES.Decrypt(opnfile, TypedPassword.Value, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+                string de = AES.Decrypt(opnfile, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                 customRTB.Text = de;
 
                 this.Text = appName + NameWithotPath;
@@ -141,7 +142,7 @@ namespace Crypto_Notepad
                     }
                     PublicVar.okPressed = false;
 
-                    string de = AES.Decrypt(opnfile, TypedPassword.Value, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+                    string de = AES.Decrypt(opnfile, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                     customRTB.Text = de;
 
                     this.Text = appName + NameWithotPath;
@@ -196,7 +197,7 @@ namespace Crypto_Notepad
                         return;
                     }
                     PublicVar.okPressed = false;
-                    string de = AES.Decrypt(opnfile, TypedPassword.Value, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+                    string de = AES.Decrypt(opnfile, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                     customRTB.Text = de;
 
                     this.Text = appName + NameWithotPath;
@@ -294,15 +295,7 @@ namespace Crypto_Notepad
             filePath = SaveFile.FileName;
             string noenc = customRTB.Text;
             string en;
-            if (PublicVar.randomizeSalts)
-            {
-                en = AES.Encrypt(customRTB.Text, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-            }
-            else
-            {
-                en = AES.Encrypt(customRTB.Text, TypedPassword.Value, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-            }
-
+            en = AES.Encrypt(customRTB.Text, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
             customRTB.Text = en;
             StreamWriter sw = new StreamWriter(filePath);
             int i = customRTB.Lines.Count();
@@ -560,35 +553,25 @@ namespace Crypto_Notepad
 
         private void saveToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            string noname = "Unnamed.cnp";
-            string NameWithotPath = Path.GetFileName(OpenFile.FileName);
             int saveCaret = customRTB.SelectionStart;
 
             if (PublicVar.encryptionKey.Get() == null)
             {
-                SaveFile.FileName = noname;
-                saveAsToolStripMenuItem_Click(this, new EventArgs());
-
+                SaveFile.FileName = "Unnamed.cnp";
+                saveAsToolStripMenuItem_Click(sender, e);
                 if (PublicVar.okPressed == false)
                 {
                     return;
                 }
-
                 PublicVar.okPressed = false;
             }
 
             string noenc = customRTB.Text;
             string en;
-            if (PublicVar.randomizeSalts)
-            {
-                en = AES.Encrypt(customRTB.Text, PublicVar.encryptionKey.Get(), null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-            }
-            else
-            {
-                en = AES.Encrypt(customRTB.Text, PublicVar.encryptionKey.Get(), ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-            }
-
+           
+            en = AES.Encrypt(customRTB.Text, PublicVar.encryptionKey.Get(), null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
             customRTB.Text = en;
+
             StreamWriter sw = new StreamWriter(filePath);
             int i = customRTB.Lines.Count();
             int j = 0;
@@ -599,11 +582,12 @@ namespace Crypto_Notepad
                 sw.WriteLine(customRTB.Lines.GetValue(j).ToString());
                 j = j + 1;
             }
-
             sw.Close();
+
             customRTB.Text = noenc;
             customRTB.Select(Convert.ToInt32(saveCaret), 0);
             PublicVar.keyChanged = false;
+            //CheckFileSavedCorrectly(sender, e);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -845,7 +829,7 @@ namespace Crypto_Notepad
             sf.ShowDialog();
         }
 
-        private void MainWindow_Activated(object sender, EventArgs e)
+        private async void MainWindow_Activated(object sender, EventArgs e)
         {
             if (PublicVar.settingsChanged == true)
             { 
@@ -949,11 +933,21 @@ namespace Crypto_Notepad
 
         private void documentationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/Sigmanor/Crypto-Notepad/wiki/Documentation");
+            //Process.Start("https://github.com/Sigmanor/Crypto-Notepad/wiki/Documentation");
             //MessageBox.Show("currentFilename: " + currentFilename);
             //MessageBox.Show("encryptionKey: " + PublicVar.encryptionKey.Get());
             //MessageBox.Show("TypedPassword: " + TypedPassword.Value);
             //MessageBox.Show("filePath: " + filePath);
+
+            int i = 1;
+            while (i != 100)
+            {
+                i++;
+                Text = i.ToString();
+                saveToolStripMenuItem1_Click_1(sender, e);
+                CheckFileSavedCorrectly(sender, e);
+            }
+
         }
 
         private void ToolsToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
@@ -1158,7 +1152,8 @@ namespace Crypto_Notepad
                 PublicVar.encryptionKey.Set(null);
                 customRTB.Clear();
                 this.Text = appName.Remove(14);
-                OpenFile.FileName = "";
+                currentFilename = "";
+                filePath = "";
                 this.Show();
                 return;
             }
@@ -1166,15 +1161,13 @@ namespace Crypto_Notepad
 
             try
             {
-                OpenFile.FileName = filePath;
-                string opnfile = File.ReadAllText(OpenFile.FileName);
-                string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-                string de = AES.Decrypt(opnfile, TypedPassword.Value, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-
-                this.Text = appName + NameWithotPath;
-                filePath = OpenFile.FileName;
-
+                customRTB.Clear();
+                string opnfile = File.ReadAllText(filePath);
+                string de = AES.Decrypt(opnfile, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+                customRTB.Text = de;
+                this.Text = appName + currentFilename;
                 string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+                customRTB.Select(Convert.ToInt32(cc2), 0);
                 customRTB.SelectionStart = caretPos;
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
                 TypedPassword.Value = null;
@@ -1195,7 +1188,8 @@ namespace Crypto_Notepad
                         PublicVar.encryptionKey.Set(null);
                         customRTB.Clear();
                         this.Text = appName.Remove(14);
-                        OpenFile.FileName = "";
+                        filePath = "";
+                        currentFilename = "";
                         this.Show();
                         return;
                     }
@@ -1210,10 +1204,17 @@ namespace Crypto_Notepad
 
             if (m.Msg == WM_SYSCOMMAND && m.WParam.ToInt32() == SC_MINIMIZE && ps.AutoLock == true && PublicVar.encryptionKey.Get() != null)
             {
+                if (ps.AutoSave)
+                {
+                    saveToolStripMenuItem1_Click_1(this, new EventArgs());
+                }
+                else
+                {
+                    saveConfirm(false);
+                }
                 AutoLock(true);
                 return;
             }
-
             base.WndProc(ref m);
         }
 
@@ -1377,6 +1378,25 @@ namespace Crypto_Notepad
             {
                 shiftPresed = false;
             }
+        }
+
+        private void CheckFileSavedCorrectly(object sender, EventArgs e)
+        {
+            string de = "";
+            try
+            {
+                string opnfile = File.ReadAllText(OpenFile.FileName);
+                de = AES.Decrypt(opnfile, PublicVar.encryptionKey.Get(), null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+                customRTB.Text = de;
+                string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+                customRTB.Select(Convert.ToInt32(cc2), 0);
+            }
+            catch (CryptographicException)
+            {
+                MessageBox.Show("Gotcha!");
+                saveToolStripMenuItem1_Click_1(sender, e);
+            }
+
         }
     }
 }

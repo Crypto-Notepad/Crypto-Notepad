@@ -62,8 +62,8 @@
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сheckForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сheckForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.undoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -363,6 +363,7 @@
             // lockToolStripMenuItem
             // 
             this.lockToolStripMenuItem.Name = "lockToolStripMenuItem";
+            this.lockToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
             this.lockToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.lockToolStripMenuItem.Text = "Lock";
             this.lockToolStripMenuItem.Click += new System.EventHandler(this.lockToolStripMenuItem_Click);
@@ -378,8 +379,8 @@
             // 
             this.HelpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.documentationToolStripMenuItem,
-            this.сheckForUpdatesToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.сheckForUpdatesToolStripMenuItem});
             this.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem";
             this.HelpToolStripMenuItem.Size = new System.Drawing.Size(43, 24);
             this.HelpToolStripMenuItem.Text = "Help";
@@ -392,19 +393,19 @@
             this.documentationToolStripMenuItem.Text = "Documentation";
             this.documentationToolStripMenuItem.Click += new System.EventHandler(this.documentationToolStripMenuItem_Click);
             // 
-            // сheckForUpdatesToolStripMenuItem
-            // 
-            this.сheckForUpdatesToolStripMenuItem.Name = "сheckForUpdatesToolStripMenuItem";
-            this.сheckForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.сheckForUpdatesToolStripMenuItem.Text = "Сheck for Updates...";
-            this.сheckForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.сheckForUpdatesToolStripMenuItem_Click);
-            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // сheckForUpdatesToolStripMenuItem
+            // 
+            this.сheckForUpdatesToolStripMenuItem.Name = "сheckForUpdatesToolStripMenuItem";
+            this.сheckForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.сheckForUpdatesToolStripMenuItem.Text = "Сheck for Updates...";
+            this.сheckForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.сheckForUpdatesToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
