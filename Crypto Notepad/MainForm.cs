@@ -10,7 +10,6 @@ using System.Net;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using File = System.IO.File;
 
