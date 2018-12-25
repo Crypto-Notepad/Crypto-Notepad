@@ -1,4 +1,4 @@
-﻿using IWshRuntimeLibrary;
+using IWshRuntimeLibrary;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -703,12 +703,13 @@ namespace Crypto_Notepad
         private void cutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             customRTB.Cut();
-        }
-
+                    CustomRTB.Height += 23;
+                    CustomRTB.Location = new Point(0, 24);
         private void copyToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             customRTB.Copy();
-        }
+                    CustomRTB.Height -= 23;
+                    CustomRTB.Location = new Point(0, 47);
 
         private void pasteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -746,6 +747,8 @@ namespace Crypto_Notepad
             if (rightToLeftToolStripMenuItem.Checked == true)
             {
                 customRTB.RightToLeft = RightToLeft.Yes;
+                CustomRTB.Height += 23;
+                CustomRTB.Location = new Point(0, 24);
             }
             if (rightToLeftToolStripMenuItem.Checked == false)
             {
@@ -1089,13 +1092,14 @@ namespace Crypto_Notepad
                             {
                                 File.WriteAllBytes(exePath + "Ionic.Zip.dll", Properties.Resources.Ionic_Zip);
                                 File.WriteAllBytes(exePath + "Updater.exe", Properties.Resources.Updater);
-
+                CustomRTB.Height += 27;
                                 var pr = new Process();
                                 pr.StartInfo.FileName = exePath + "Updater.exe";
                                 pr.StartInfo.Arguments = "/u";
                                 pr.Start();
                                 Application.Exit();
                             }
+                CustomRTB.Height -= 27;
                         }
                     });
                 }
@@ -1336,6 +1340,8 @@ namespace Crypto_Notepad
                                 Environment.Exit(0);
                             }
 
+            CustomRTB.Height += 23;
+            CustomRTB.Location = new Point(0, 24);
                         }
 
                         if (res == DialogResult.No)
@@ -1350,7 +1356,7 @@ namespace Crypto_Notepad
                         {
                             noExit = true;
                             cancelPressed = true;
-                            return;
+                CustomRTB.Height += 27;
                         }
                     }
                 }

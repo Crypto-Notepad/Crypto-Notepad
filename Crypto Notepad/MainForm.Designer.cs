@@ -1,4 +1,4 @@
-﻿namespace Crypto_Notepad
+namespace Crypto_Notepad
 {
     partial class MainForm
     {
@@ -800,7 +800,7 @@
             this.customRTB.ContextMenuStrip = this.contextMenuStrip1;
             this.customRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.customRTB.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.customRTB.Location = new System.Drawing.Point(6, 47);
+            this.CustomRTB.Location = new System.Drawing.Point(0, 47);
             this.customRTB.Name = "customRTB";
             this.customRTB.Size = new System.Drawing.Size(529, 252);
             this.customRTB.TabIndex = 10;
