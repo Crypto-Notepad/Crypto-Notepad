@@ -14,48 +14,12 @@ namespace Crypto_Notepad
             InitializeComponent();
         }
 
-        private void SettingsForm_Load(object sender, EventArgs e)
-        {
-            foreach (FontFamily fonts in FontFamily.Families)
-            {
-                comboBox1.Items.Add(fonts.Name);
-            }
-
-            comboBox1.Text = ps.RichTextFont;
-            comboBox2.Text = ps.RichTextSize.ToString();
-            comboBox4.Text = ps.HashAlgorithm;
-            comboBox3.Text = ps.KeySize.ToString();
-            textBox1.Text = ps.TheSalt;
-            textBox2.Text = ps.PasswordIterations.ToString();
-            panel1.BackColor = ps.RichForeColor;
-            panel2.BackColor = ps.RichBackColor;
-            panel3.BackColor = ps.HighlightsColor;
-            checkBox1.Checked = ps.AssociateCheck;
-            checkBox2.Checked = ps.AutoCheckUpdate;
-            checkBox3.Checked = ps.ShowToolbar;
-            checkBox4.Checked = ps.AutoLock;
-            checkBox5.Checked = ps.AutoSave;
-            checkBox6.Checked = ps.SendTo;
-            checkBox7.Checked = ps.MenuIntegrate;
-
-            if (ps.TheSalt != "")
-            {
-                textBox1.Visible = true;
-                label6.Visible = true;
-
-            }
-        }
-
-        private void saveSettingsButton_Click(object sender, EventArgs e)
-        {
-            SetSettings("Save");
-        }
-
+        /*Functions*/
         private void SetSettings(string value)
         {
-            if (value == "Save")
+            if (value == "save")
             {
-                if (checkBox1.Checked)
+                if (AssociateCheckBox.Checked)
                 {
                     AssociateExtension(Assembly.GetEntryAssembly().Location, "cnp");
                 }
@@ -64,7 +28,7 @@ namespace Crypto_Notepad
                     DissociateExtension(Assembly.GetEntryAssembly().Location, "cnp");
                 }
 
-                if (checkBox7.Checked)
+                if (IntegrateCheckBox.Checked)
                 {
                     MenuIntegrate("enable");
                 }
@@ -73,46 +37,46 @@ namespace Crypto_Notepad
                     MenuIntegrate("disable");
                 }
 
-                ps.RichForeColor = panel1.BackColor;
-                ps.RichBackColor = panel2.BackColor;
-                ps.HighlightsColor = panel3.BackColor;
-                ps.RichTextFont = comboBox1.Text;
-                ps.RichTextSize = Convert.ToInt32(comboBox2.Text.ToString());
-                ps.AssociateCheck = checkBox1.Checked;
-                ps.HashAlgorithm = comboBox4.Text;
-                ps.KeySize = Convert.ToInt32(comboBox3.Text.ToString());
-                ps.TheSalt = textBox1.Text;
-                ps.PasswordIterations = Convert.ToInt32(textBox2.Text.ToString());
-                ps.ShowToolbar = checkBox3.Checked;
-                ps.AutoCheckUpdate = checkBox2.Checked;
-                ps.AutoLock = checkBox4.Checked;
-                ps.AutoSave = checkBox5.Checked;
-                ps.SendTo = checkBox6.Checked;
-                ps.MenuIntegrate = checkBox7.Checked;
+                ps.RichForeColor = FontColorPanel.BackColor;
+                ps.RichBackColor = BackgroundColorPanel.BackColor;
+                ps.HighlightsColor = HighlightsColorPanel.BackColor;
+                ps.RichTextFont = FontNameComboBox.Text;
+                ps.RichTextSize = Convert.ToInt32(FontSizeComboBox.Text.ToString());
+                ps.AssociateCheck = AssociateCheckBox.Checked;
+                ps.HashAlgorithm = HashComboBox.Text;
+                ps.KeySize = Convert.ToInt32(KeySizeComboBox.Text.ToString());
+                ps.TheSalt = SaltTextBox.Text;
+                ps.PasswordIterations = Convert.ToInt32(PwdIterationsTextBox.Text.ToString());
+                ps.ShowToolbar = ToolbarCheckBox.Checked;
+                ps.AutoCheckUpdate = UpdatesCheckBox.Checked;
+                ps.AutoLock = AutoLockCheckBox.Checked;
+                ps.AutoSave = AutoSaveCheckBox.Checked;
+                ps.SendTo = SendToCheckBox.Checked;
+                ps.MenuIntegrate = IntegrateCheckBox.Checked;
                 ps.Save();
                 PublicVar.settingsChanged = true;
 
                 this.Hide();
             }
 
-            if (value == "Default")
+            if (value == "default")
             {
-                panel1.BackColor = Color.FromArgb(228, 228, 228);
-                panel2.BackColor = Color.FromArgb(56, 56, 56);
-                panel3.BackColor = Color.FromArgb(101, 51, 6);
-                comboBox1.Text = "Consolas";
-                comboBox2.Text = 11.ToString();
-                checkBox1.Checked = false;
-                checkBox2.Checked = true;
-                checkBox3.Checked = true;
-                checkBox4.Checked = false;
-                checkBox5.Checked = true;
-                checkBox6.Checked = false;
-                checkBox7.Checked = false;
+                FontColorPanel.BackColor = Color.FromArgb(228, 228, 228);
+                BackgroundColorPanel.BackColor = Color.FromArgb(56, 56, 56);
+                HighlightsColorPanel.BackColor = Color.FromArgb(101, 51, 6);
+                FontNameComboBox.Text = "Consolas";
+                FontSizeComboBox.Text = 11.ToString();
+                AssociateCheckBox.Checked = false;
+                UpdatesCheckBox.Checked = true;
+                ToolbarCheckBox.Checked = true;
+                AutoLockCheckBox.Checked = false;
+                AutoSaveCheckBox.Checked = true;
+                SendToCheckBox.Checked = false;
+                IntegrateCheckBox.Checked = false;
             }
         }
 
-        public static void AssociateExtension(string applicationExecutablePath, string extension)
+        private static void AssociateExtension(string applicationExecutablePath, string extension)
         {
             try
             {
@@ -132,7 +96,7 @@ namespace Crypto_Notepad
             }
         }
 
-        public static void DissociateExtension(string applicationExecutablePath, string extension)
+        private static void DissociateExtension(string applicationExecutablePath, string extension)
         {
             try
             {
@@ -146,7 +110,7 @@ namespace Crypto_Notepad
             }
         }
 
-        public static void MenuIntegrate(string action)
+        private static void MenuIntegrate(string action)
         {
             string appExePath = Assembly.GetEntryAssembly().Location;
             try
@@ -154,16 +118,12 @@ namespace Crypto_Notepad
                 if (action == "enable")
                 {
                     RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Classes\*\", true);
-
                     key = key.CreateSubKey("shell");
-
                     key.CreateSubKey("Crypto Notepad").SetValue("icon", appExePath);
                     key.CreateSubKey("Crypto Notepad").SetValue("SubCommands", "");
                     key.CreateSubKey(@"Crypto Notepad\shell");
-
                     key.CreateSubKey(@"Crypto Notepad\shell\cmd1\").SetValue("MUIVerb", "Encrypt");
                     key.CreateSubKey(@"Crypto Notepad\shell\cmd1\command").SetValue(string.Empty, "\"" + appExePath + "\" \"%1\" /er");
-
                     key.CreateSubKey(@"Crypto Notepad\shell\cmd2\").SetValue("MUIVerb", "Decrypt");
                     key.CreateSubKey(@"Crypto Notepad\shell\cmd2\command").SetValue(string.Empty, "\"" + appExePath + "\" \"%1\" /o");
 
@@ -180,54 +140,95 @@ namespace Crypto_Notepad
 
             }
         }
+        /*Functions*/
 
-        private void panel1_Click_1(object sender, EventArgs e)
+
+        /*Form Events*/
+        private void SettingsForm_Load(object sender, EventArgs e)
         {
-            colorDialog1.Color = panel1.BackColor;
-            using (new CenterWinDialog(this))
+            foreach (FontFamily fonts in FontFamily.Families)
             {
-                colorDialog1.ShowDialog();
+                FontNameComboBox.Items.Add(fonts.Name);
             }
-            panel1.BackColor = colorDialog1.Color;
-        }
 
-        private void panel2_Click(object sender, EventArgs e)
-        {
-            colorDialog1.Color = panel2.BackColor;
-            using (new CenterWinDialog(this))
+            FontNameComboBox.Text = ps.RichTextFont;
+            FontSizeComboBox.Text = ps.RichTextSize.ToString();
+            HashComboBox.Text = ps.HashAlgorithm;
+            KeySizeComboBox.Text = ps.KeySize.ToString();
+            SaltTextBox.Text = ps.TheSalt;
+            PwdIterationsTextBox.Text = ps.PasswordIterations.ToString();
+            FontColorPanel.BackColor = ps.RichForeColor;
+            BackgroundColorPanel.BackColor = ps.RichBackColor;
+            HighlightsColorPanel.BackColor = ps.HighlightsColor;
+            AssociateCheckBox.Checked = ps.AssociateCheck;
+            UpdatesCheckBox.Checked = ps.AutoCheckUpdate;
+            ToolbarCheckBox.Checked = ps.ShowToolbar;
+            AutoLockCheckBox.Checked = ps.AutoLock;
+            AutoSaveCheckBox.Checked = ps.AutoSave;
+            SendToCheckBox.Checked = ps.SendTo;
+            IntegrateCheckBox.Checked = ps.MenuIntegrate;
+
+            if (ps.TheSalt != "")
             {
-                colorDialog1.ShowDialog();
+                SaltTextBox.Visible = true;
+                SaltLabel.Visible = true;
+
             }
-            panel2.BackColor = colorDialog1.Color;
         }
+        /*Form Events*/
 
-        private void panel3_Click(object sender, EventArgs e)
-        {
-            colorDialog1.Color = panel3.BackColor;
-            using (new CenterWinDialog(this))
-            {
-                colorDialog1.ShowDialog();
-            }
-            panel3.BackColor = colorDialog1.Color;
-        }
 
-        private void button1_Click(object sender, EventArgs e)
+        /*Buttons*/
+        private void ResetSettingsButton_Click(object sender, EventArgs e)
         {
             using (new CenterWinDialog(this))
             {
-                DialogResult result = MessageBox.Show("Reset to defaults?", "Settings", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Reset app settings to default?", "Settings", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
-                    SetSettings("Default");
+                    SetSettings("default");
                 }
             }
         }
 
-        private void closeLabel_Click(object sender, EventArgs e)
+        private void SaveSettingsButton_Click(object sender, EventArgs e)
         {
-            ps.WarningMsg = false;
-            ps.Save();
+            SetSettings("save");
         }
+        /*Buttons*/
+
+
+        /*Color Panels*/
+        private void FontColorPanel_Click_1(object sender, EventArgs e)
+        {
+            colorDialog1.Color = FontColorPanel.BackColor;
+            using (new CenterWinDialog(this))
+            {
+                colorDialog1.ShowDialog();
+            }
+            FontColorPanel.BackColor = colorDialog1.Color;
+        }
+
+        private void BackgroundColorPanel_Click(object sender, EventArgs e)
+        {
+            colorDialog1.Color = BackgroundColorPanel.BackColor;
+            using (new CenterWinDialog(this))
+            {
+                colorDialog1.ShowDialog();
+            }
+            BackgroundColorPanel.BackColor = colorDialog1.Color;
+        }
+
+        private void HighlightsColorPanel_Click(object sender, EventArgs e)
+        {
+            colorDialog1.Color = HighlightsColorPanel.BackColor;
+            using (new CenterWinDialog(this))
+            {
+                colorDialog1.ShowDialog();
+            }
+            HighlightsColorPanel.BackColor = colorDialog1.Color;
+        }
+        /*Color Panels*/
     }
 }
