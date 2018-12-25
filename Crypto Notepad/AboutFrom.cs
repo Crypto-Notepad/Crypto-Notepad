@@ -11,45 +11,54 @@ namespace Crypto_Notepad
             InitializeComponent();
         }
 
+        /*Form Events*/
         private void AboutWindow_Load(object sender, EventArgs e)
         {
             Version vrs = new Version(Application.ProductVersion);
-            label1.Text = string.Format("Crypto Notepad " + "{0}.{1}.{2}", vrs.Major, vrs.Minor, vrs.Build);
-        }
-
-        private void customRichTextBox1_LinkClicked(object sender, LinkClickedEventArgs e)
-        {
-            Process.Start(e.LinkText);
+            AppVersionLabel.Text = string.Format("Crypto Notepad " + "{0}.{1}.{2}", vrs.Major, vrs.Minor, vrs.Build);
         }
 
         private void AboutFrom_Click(object sender, EventArgs e)
         {
-            pictureBox1.Focus();
+            AppLogoPictureBox.Focus();
         }
+        /*Form Events*/
 
-        private void label1_Click(object sender, EventArgs e)
+
+        /*Main Information*/
+        private void AppVersionLabel_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/Sigmanor/Crypto-Notepad/wiki/Release-Notes");
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void AuthorLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://crypto-notepad.github.io/");
+            Process.Start("https://sigmanor.github.io/");
         }
 
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("https://github.com/Sigmanor/Crypto-Notepad");
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LicenseLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/Sigmanor/Crypto-Notepad/blob/master/LICENSE");
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void GithubLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://sigmanor.github.io/");
+            Process.Start("https://github.com/Sigmanor/Crypto-Notepad");
         }
+
+        private void AppLogoPictureBox_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://crypto-notepad.github.io/");
+        }
+        /*Main Information*/
+
+
+        /*Perform open links*/
+        private void TPDRichTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            Process.Start(e.LinkText);
+        }
+        /*Perform open links*/
+
     }
 }
