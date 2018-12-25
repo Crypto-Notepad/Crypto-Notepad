@@ -1266,33 +1266,36 @@ namespace Crypto_Notepad
                 return;
             }
 
-            string[] FileList = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+        private void RightToLeftEditorMenuStrip_Click(object sender, EventArgs e)
             foreach (string file in FileList) OpenFile.FileName = file;
             object fname = e.Data.GetData("FileDrop");
             if (fname != null)
-            {
-                var list = fname as string[];
+        {
+            if (RightToLeftEditorMenuStrip.Checked)
                 if (list != null && !string.IsNullOrWhiteSpace(list[0]))
+            {
+                if (!WordWrapToolStripMenuItem.Checked)
                 {
-                    if (!OpenFile.FileName.Contains(".cnp"))
-                    {
-                        string opnfile = File.ReadAllText(OpenFile.FileName);
-                        string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-                        customRTB.Text = opnfile;
-                        this.Text = appName + NameWithotPath;
-                        string cc2 = customRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+                    string rtbTxt = CustomRTB.Text;
+                    CustomRTB.Clear();
+                    CustomRTB.RightToLeft = RightToLeft.Yes;
+                    Application.DoEvents();
+                    CustomRTB.Text = rtbTxt;
                         customRTB.Select(Convert.ToInt32(cc2), 0);
                         currentFilename = Path.GetFileName(OpenFile.FileName);
                         filePath = OpenFile.FileName;
                         return;
                     }
-                    PublicVar.openFileName = Path.GetFileName(OpenFile.FileName);
+                else
                     DecryptAES();
                     if (PublicVar.okPressed == true)
-                    {
-                        PublicVar.okPressed = false;
-                    }
+                {
+                    CustomRTB.RightToLeft = RightToLeft.Yes;
                 }
+            }
+            else
+            {
+                CustomRTB.RightToLeft = RightToLeft.No;
             }
         }
 
