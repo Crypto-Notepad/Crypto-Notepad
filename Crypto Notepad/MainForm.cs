@@ -1378,15 +1378,18 @@ namespace Crypto_Notepad
 
 
         /*Debug Menu*/
-        private void VariablesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MainVariablesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int count = CustomRTB.TextLength;
-
-            MessageBox.Show("words count: " + count +
-            "\ncurrentFilename: " + currentFilename +
-            "\nencryptionKey: " + PublicVar.encryptionKey.Get() +
-            "\nTypedPassword: " + TypedPassword.Value +
-            "\nfilePath: " + filePath, "DEBUG");
+            Debug.WriteLine("\ncurrentFilename: " + currentFilename);
+            Debug.WriteLine("encryptionKey: " + PublicVar.encryptionKey.Get());
+            Debug.WriteLine("TypedPassword: " + TypedPassword.Value);
+            Debug.WriteLine("filePath: " + filePath);
+            Debug.WriteLine("cancelPressed: " + cancelPressed);
+            Debug.WriteLine("noExit: " + noExit);
+            Debug.WriteLine("keyChanged: " + PublicVar.keyChanged);
+            Debug.WriteLine("settingsChanged: " + PublicVar.settingsChanged);
+            Debug.WriteLine("okPressed: " + PublicVar.okPressed);
+            Debug.WriteLine("CustomRTB.Modified: " + CustomRTB.Modified);
         }
         /*Debug Menu*/
 
