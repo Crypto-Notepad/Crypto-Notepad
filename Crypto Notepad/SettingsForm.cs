@@ -1,6 +1,8 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -100,14 +102,15 @@ namespace Crypto_Notepad
         {
             try
             {
-                RegistryKey key = Registry.CurrentUser.OpenSubKey("Software\\Classes", true);
-                key.DeleteSubKeyTree(extension + "_auto_file");
-                key.DeleteSubKeyTree("." + extension);
+                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Classes", true);
+                RegistryKey subKeyTree = Registry.CurrentUser.OpenSubKey(@"Software\Classes\" + extension + "_auto_file", true);
+                if (subKeyTree != null)
+                {
+                    key.DeleteSubKeyTree(extension + "_auto_file");
+                    key.DeleteSubKeyTree("." + extension);
+                }
             }
-            catch (Exception)
-            {
-
-            }
+            catch { }
         }
 
         private static void MenuIntegrate(string action)
@@ -132,13 +135,14 @@ namespace Crypto_Notepad
                 if (action == "disable")
                 {
                     RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Classes\*\shell\", true);
-                    key.DeleteSubKeyTree("Crypto Notepad");
+                    RegistryKey subKeyTree = Registry.CurrentUser.OpenSubKey(@"Software\Classes\*\shell\Crypto Notepad", true);
+                    if (subKeyTree != null)
+                    {
+                        key.DeleteSubKeyTree("Crypto Notepad");
+                    }
                 }
             }
-            catch (Exception)
-            {
-
-            }
+            catch { }
         }
         /*Functions*/
 
