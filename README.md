@@ -7,6 +7,7 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 
 ## Features
 
+* Integrate with windows context menu
 * Drag and Drop support
 * Detect URLs and email links
 * Fully customizable editor. Able to customize the colors and fonts  
