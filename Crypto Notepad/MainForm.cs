@@ -1390,28 +1390,5 @@ namespace Crypto_Notepad
         }
         /*Debug Menu*/
 
-
-        //public int FindMyTextNext(string text, int start)
-        //{
-        //    int returnValue = -1;
-        //    if (text.Length > 0 && start >= 0)
-        //    {
-        //        int indexToText = CustomRTB.Find(text, start, RichTextBoxFinds.MatchCase);
-        //        if (indexToText >= 0)
-        //        {
-        //            returnValue = indexToText;
-        //        }
-        //    }
-        //    return returnValue;
-        //}
-
-
-
-
-
-
-
-
-
     }
 }
