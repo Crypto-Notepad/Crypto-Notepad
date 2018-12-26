@@ -67,7 +67,7 @@
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DebugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.VariablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MainVariablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EditorMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.UndoEditorMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.RedoEditorMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,7 +85,6 @@
             this.SaveFile = new System.Windows.Forms.SaveFileDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.CloseToolbar = new System.Windows.Forms.PictureBox();
             this.AutoLockToolbarButton = new System.Windows.Forms.PictureBox();
             this.SettingsToolbarButton = new System.Windows.Forms.PictureBox();
@@ -255,7 +254,7 @@
             // 
             this.UndoToolStripMenuItem.Name = "UndoToolStripMenuItem";
             this.UndoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.UndoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.UndoToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.UndoToolStripMenuItem.Text = "Undo";
             this.UndoToolStripMenuItem.Click += new System.EventHandler(this.UndoToolStripMenuItem_Click);
             // 
@@ -263,21 +262,21 @@
             // 
             this.RedoToolStripMenuItem.Name = "RedoToolStripMenuItem";
             this.RedoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.RedoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.RedoToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.RedoToolStripMenuItem.Text = "Redo";
             this.RedoToolStripMenuItem.Click += new System.EventHandler(this.RedoToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(162, 6);
             // 
             // CutToolStripMenuItem
             // 
             this.CutToolStripMenuItem.Enabled = false;
             this.CutToolStripMenuItem.Name = "CutToolStripMenuItem";
             this.CutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.CutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CutToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.CutToolStripMenuItem.Text = "Cut";
             this.CutToolStripMenuItem.Click += new System.EventHandler(this.CutToolStripMenuItem_Click);
             // 
@@ -286,7 +285,7 @@
             this.CopyToolStripMenuItem.Enabled = false;
             this.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem";
             this.CopyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.CopyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CopyToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.CopyToolStripMenuItem.Text = "Copy";
             this.CopyToolStripMenuItem.Click += new System.EventHandler(this.CopyToolStripMenuItem_Click);
             // 
@@ -294,7 +293,7 @@
             // 
             this.PasteToolStripMenuItem.Name = "PasteToolStripMenuItem";
             this.PasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.PasteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.PasteToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.PasteToolStripMenuItem.Text = "Paste";
             this.PasteToolStripMenuItem.Click += new System.EventHandler(this.PasteToolStripMenuItem_Click);
             // 
@@ -303,34 +302,34 @@
             this.DeleteToolStripMenuItem.Enabled = false;
             this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
             this.DeleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.DeleteToolStripMenuItem.Text = "Delete";
             this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(162, 6);
             // 
             // FindToolStripMenuItem
             // 
             this.FindToolStripMenuItem.Name = "FindToolStripMenuItem";
             this.FindToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.FindToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.FindToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.FindToolStripMenuItem.Text = "Find";
             this.FindToolStripMenuItem.Click += new System.EventHandler(this.FindToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(162, 6);
             // 
             // SelectAllToolStripMenuItem
             // 
             this.SelectAllToolStripMenuItem.Name = "SelectAllToolStripMenuItem";
             this.SelectAllToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.SelectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.SelectAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SelectAllToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.SelectAllToolStripMenuItem.Text = "Select All";
             this.SelectAllToolStripMenuItem.Click += new System.EventHandler(this.SelectAllToolStripMenuItem_Click);
             // 
@@ -340,20 +339,20 @@
             this.WordWrapToolStripMenuItem.CheckOnClick = true;
             this.WordWrapToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.WordWrapToolStripMenuItem.Name = "WordWrapToolStripMenuItem";
-            this.WordWrapToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.WordWrapToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.WordWrapToolStripMenuItem.Text = "Word Wrap";
             this.WordWrapToolStripMenuItem.Click += new System.EventHandler(this.WordWrapToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(162, 6);
             // 
             // ClearToolStripMenuItem
             // 
             this.ClearToolStripMenuItem.Name = "ClearToolStripMenuItem";
             this.ClearToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Delete)));
-            this.ClearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ClearToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.ClearToolStripMenuItem.Text = "Clear";
             this.ClearToolStripMenuItem.Click += new System.EventHandler(this.ClearToolStripMenuItem_Click);
             // 
@@ -436,18 +435,18 @@
             // 
             this.DebugToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.DebugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.VariablesToolStripMenuItem});
+            this.MainVariablesToolStripMenuItem});
             this.DebugToolStripMenuItem.Name = "DebugToolStripMenuItem";
             this.DebugToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.DebugToolStripMenuItem.Text = "Debug";
             this.DebugToolStripMenuItem.Visible = false;
             // 
-            // VariablesToolStripMenuItem
+            // MainVariablesToolStripMenuItem
             // 
-            this.VariablesToolStripMenuItem.Name = "VariablesToolStripMenuItem";
-            this.VariablesToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.VariablesToolStripMenuItem.Text = "Variables";
-            this.VariablesToolStripMenuItem.Click += new System.EventHandler(this.VariablesToolStripMenuItem_Click);
+            this.MainVariablesToolStripMenuItem.Name = "MainVariablesToolStripMenuItem";
+            this.MainVariablesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.MainVariablesToolStripMenuItem.Text = "Main variables";
+            this.MainVariablesToolStripMenuItem.Click += new System.EventHandler(this.MainVariablesToolStripMenuItem_Click);
             // 
             // EditorMenuStrip
             // 
@@ -587,7 +586,6 @@
             this.CloseToolbar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.CloseToolbar.TabIndex = 14;
             this.CloseToolbar.TabStop = false;
-            this.toolTip1.SetToolTip(this.CloseToolbar, "Hide Toolbar");
             this.CloseToolbar.Click += new System.EventHandler(this.CloseToolbar_Click);
             this.CloseToolbar.MouseEnter += new System.EventHandler(this.CloseToolbar_MouseEnter);
             this.CloseToolbar.MouseLeave += new System.EventHandler(this.CloseToolbar_MouseLeave);
@@ -602,7 +600,6 @@
             this.AutoLockToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.AutoLockToolbarButton.TabIndex = 15;
             this.AutoLockToolbarButton.TabStop = false;
-            this.toolTip1.SetToolTip(this.AutoLockToolbarButton, "Lock");
             this.AutoLockToolbarButton.Click += new System.EventHandler(this.AutoLockToolbarButton_Click);
             // 
             // SettingsToolbarButton
@@ -615,7 +612,6 @@
             this.SettingsToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.SettingsToolbarButton.TabIndex = 15;
             this.SettingsToolbarButton.TabStop = false;
-            this.toolTip1.SetToolTip(this.SettingsToolbarButton, "Settings");
             this.SettingsToolbarButton.Click += new System.EventHandler(this.SettingsToolbarButton_Click);
             // 
             // NewToolbarButton
@@ -628,7 +624,6 @@
             this.NewToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.NewToolbarButton.TabIndex = 15;
             this.NewToolbarButton.TabStop = false;
-            this.toolTip1.SetToolTip(this.NewToolbarButton, "New");
             this.NewToolbarButton.Click += new System.EventHandler(this.NewToolbarButton_Click);
             // 
             // ChangeKeyToolbarButton
@@ -641,7 +636,6 @@
             this.ChangeKeyToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.ChangeKeyToolbarButton.TabIndex = 15;
             this.ChangeKeyToolbarButton.TabStop = false;
-            this.toolTip1.SetToolTip(this.ChangeKeyToolbarButton, "Change Key");
             this.ChangeKeyToolbarButton.Click += new System.EventHandler(this.ChangeKeyToolbarButton_Click);
             // 
             // PasteToolbarButton
@@ -654,7 +648,6 @@
             this.PasteToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.PasteToolbarButton.TabIndex = 15;
             this.PasteToolbarButton.TabStop = false;
-            this.toolTip1.SetToolTip(this.PasteToolbarButton, "Paste");
             this.PasteToolbarButton.Click += new System.EventHandler(this.PasteToolbarButton_Click);
             // 
             // CopyToolbarButton
@@ -667,7 +660,6 @@
             this.CopyToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.CopyToolbarButton.TabIndex = 15;
             this.CopyToolbarButton.TabStop = false;
-            this.toolTip1.SetToolTip(this.CopyToolbarButton, "Copy");
             this.CopyToolbarButton.Click += new System.EventHandler(this.CopyToolbarButton_Click);
             // 
             // CutToolbarButton
@@ -680,7 +672,6 @@
             this.CutToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.CutToolbarButton.TabIndex = 15;
             this.CutToolbarButton.TabStop = false;
-            this.toolTip1.SetToolTip(this.CutToolbarButton, "Cut");
             this.CutToolbarButton.Click += new System.EventHandler(this.CutToolbarButton_Click);
             // 
             // DeleteFileToolbarButton
@@ -693,7 +684,6 @@
             this.DeleteFileToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.DeleteFileToolbarButton.TabIndex = 15;
             this.DeleteFileToolbarButton.TabStop = false;
-            this.toolTip1.SetToolTip(this.DeleteFileToolbarButton, "Delete File");
             this.DeleteFileToolbarButton.Click += new System.EventHandler(this.DeleteFileToolbarButton_Click);
             // 
             // FileLocationToolbarButton
@@ -706,7 +696,6 @@
             this.FileLocationToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.FileLocationToolbarButton.TabIndex = 15;
             this.FileLocationToolbarButton.TabStop = false;
-            this.toolTip1.SetToolTip(this.FileLocationToolbarButton, "Open File Location");
             this.FileLocationToolbarButton.Click += new System.EventHandler(this.FileLocationToolbarButton_Click);
             // 
             // SaveToolBarButton
@@ -719,7 +708,6 @@
             this.SaveToolBarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.SaveToolBarButton.TabIndex = 15;
             this.SaveToolBarButton.TabStop = false;
-            this.toolTip1.SetToolTip(this.SaveToolBarButton, "Save");
             this.SaveToolBarButton.Click += new System.EventHandler(this.SaveToolbarButton_Click);
             // 
             // OpenToolbarButton
@@ -732,7 +720,6 @@
             this.OpenToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.OpenToolbarButton.TabIndex = 15;
             this.OpenToolbarButton.TabStop = false;
-            this.toolTip1.SetToolTip(this.OpenToolbarButton, "Open");
             this.OpenToolbarButton.Click += new System.EventHandler(this.OpenToolbarButton_Click);
             // 
             // CloseSearchPanel
@@ -746,7 +733,6 @@
             this.CloseSearchPanel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.CloseSearchPanel.TabIndex = 14;
             this.CloseSearchPanel.TabStop = false;
-            this.toolTip1.SetToolTip(this.CloseSearchPanel, "Close Search");
             this.CloseSearchPanel.Click += new System.EventHandler(this.CloseSearchPanel_Click);
             this.CloseSearchPanel.MouseLeave += new System.EventHandler(this.CloseSearchPanel_MouseLeave);
             this.CloseSearchPanel.MouseHover += new System.EventHandler(this.CloseSearchPanel_MouseHover);
@@ -920,7 +906,6 @@
         private System.Windows.Forms.ToolStripMenuItem NewToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolStripMenuItem ToolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ClearToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OpenToolStripMenuItem;
@@ -982,7 +967,8 @@
         private System.Windows.Forms.ToolStripMenuItem RedoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RedoEditorMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem DebugToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem VariablesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MainVariablesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 
