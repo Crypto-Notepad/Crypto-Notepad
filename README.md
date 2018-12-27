@@ -7,14 +7,14 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 
 ## Features
 
+* Including all the features of the default Windows Notepad
 * Integrate with windows context menu
 * Drag and Drop support
-* Detect URLs and email links
-* Fully customizable editor. Able to customize the colors and fonts  
-* Able to customize different parameters of the encryption (hash algorithm, key size, password iterations)  
-* Included all the features of the default Windows Notepad  
-* Association with the application extension
-* Easily search through the content
+* Detect url and email links
+* Сustomizable editor 
+* Сustomizable encryption options (hash algorithm, key size, password iterations)  
+* Associate with the application extension
+* Portable
 
 ## System requirements
 * Windows Vista SP2 and higher
@@ -24,11 +24,11 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 Want to help make the project better? You can find a complete guide in [here](https://github.com/Sigmanor/Crypto-Notepad/blob/master/CONTRIBUTING.md). Welcome! :octocat:
 
 ## Build
-App was created in Visual Studio Community, you can run the .sln file and simply build a project (The code is very bad. There are no comments, no following the OOP rules. Learn this code at your own risk. )
+App was created in Visual Studio Community, you can run the *.sln file and simply build a project
 
 ## License
 Distributed under [MIT](https://github.com/Sigmanor/Crypto-Notepad/blob/master/LICENSE) license
 
 ## Partners
-![FileHorse](http://i.imgur.com/o5hgnav.png) [FileHorse](http://filehorse.com/download-crypto-notepad/) | ![Softpedia](http://i.imgur.com/mPpwppP.png)[Softpedia](http://softpedia.com/get/Office-tools/Text-editors/Crypto-Notepad.shtml) | ![Oszone](http://i.imgur.com/ObA9pjn.png) [Oszone](http://soft.oszone.net/program/17444/Crypto_Notepad/) | ![Portablefreeware](http://i.imgur.com/7v2GHXE.png) [Portablefreeware](https://portablefreeware.com/index.php?id=2873) | ![Majorgeeks](http://i.imgur.com/qQr5IZv.png) [Majorgeeks](http://www.majorgeeks.com/files/details/crypto_notepad.html)
+![FileHorse](http://i.imgur.com/o5hgnav.png) [FileHorse](http://filehorse.com/download-crypto-notepad/) | ![Softpedia](http://i.imgur.com/mPpwppP.png)[Softpedia](http://softpedia.com/get/Office-tools/Text-editors/Crypto-Notepad.shtml) | ![Oszone](https://i.imgur.com/Jo5hP0X.jpg) [Oldergeeks](https://www.oldergeeks.com/downloads/file.php?id=2665) | ![Portablefreeware](http://i.imgur.com/7v2GHXE.png) [Portablefreeware](https://portablefreeware.com/index.php?id=2873) | ![Majorgeeks](http://i.imgur.com/qQr5IZv.png) [Majorgeeks](http://www.majorgeeks.com/files/details/crypto_notepad.html)
 --- | --- | --- | --- | ---
