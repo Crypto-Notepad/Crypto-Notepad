@@ -1380,6 +1380,7 @@ namespace Crypto_Notepad
         /*Debug Menu*/
         private void MainVariablesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+#if DEBUG
             Debug.WriteLine("\ncurrentFilename: " + currentFilename);
             Debug.WriteLine("encryptionKey: " + PublicVar.encryptionKey.Get());
             Debug.WriteLine("TypedPassword: " + TypedPassword.Value);
@@ -1390,8 +1391,9 @@ namespace Crypto_Notepad
             Debug.WriteLine("settingsChanged: " + PublicVar.settingsChanged);
             Debug.WriteLine("okPressed: " + PublicVar.okPressed);
             Debug.WriteLine("CustomRTB.Modified: " + CustomRTB.Modified);
+#endif      
         }
         /*Debug Menu*/
 
     }
-}
+    }

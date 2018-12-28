@@ -444,7 +444,7 @@
             // MainVariablesToolStripMenuItem
             // 
             this.MainVariablesToolStripMenuItem.Name = "MainVariablesToolStripMenuItem";
-            this.MainVariablesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.MainVariablesToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.MainVariablesToolStripMenuItem.Text = "Main variables";
             this.MainVariablesToolStripMenuItem.Click += new System.EventHandler(this.MainVariablesToolStripMenuItem_Click);
             // 
