@@ -1,15 +1,18 @@
 ﻿using System.Text;
 using System.Security.Cryptography;
+using System;
 
 namespace Crypto_Notepad
 {
     /// <summary>
     /// Stores a string encrypted in memory to defend against memory dumps
     /// </summary>
-    class EncryptedString
+    class EncryptedString: IDisposable
     {
-        private TripleDES des = TripleDESCryptoServiceProvider.Create();
+        private readonly TripleDES des = TripleDES.Create();
         private byte[] encryptedString = null;
+
+        public void Dispose() => des.Dispose();
 
         public EncryptedString(string String)
         {

@@ -28,7 +28,7 @@ namespace Crypto_Notepad
         public void DeleteMetadataFromBuffer(ref byte[] rawData)
         {
             byte[] buffer = new byte[rawData.Length - this.OffsetToData];
-            System.Buffer.BlockCopy(rawData, this.OffsetToData, buffer, 0, rawData.Length - this.OffsetToData);
+            Buffer.BlockCopy(rawData, this.OffsetToData, buffer, 0, rawData.Length - this.OffsetToData);
             rawData = buffer;
         }
 
@@ -172,6 +172,7 @@ namespace Crypto_Notepad
             }
 
             symmetricKey.Dispose();
+            derivedPassword.Dispose();
             return Convert.ToBase64String(cipherTextBytes);
         }
 
@@ -239,7 +240,8 @@ namespace Crypto_Notepad
 
                 symmetricKey.Dispose();
             }
-            
+
+            derivedPassword.Dispose();
             return Encoding.UTF8.GetString(plainTextBytes, 0, byteCount);
         }
     }
