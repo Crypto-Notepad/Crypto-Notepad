@@ -13,31 +13,31 @@ namespace Crypto_Notepad
 
         public EncryptedString(string String)
         {
-            this.des.GenerateIV();
-            this.des.GenerateKey();
-            this.Set(String);
+            des.GenerateIV();
+            des.GenerateKey();
+            Set(String);
         }
 
         public EncryptedString()
         {
-            this.des.GenerateIV();
-            this.des.GenerateKey();
+            des.GenerateIV();
+            des.GenerateKey();
         }
 
         public string Get()
         {
-            if (this.encryptedString == null) return null;
-            var decryptor = this.des.CreateDecryptor();
-            byte[] output = decryptor.TransformFinalBlock(this.encryptedString, 0, this.encryptedString.Length);
+            if (encryptedString == null) return null;
+            var decryptor = des.CreateDecryptor();
+            byte[] output = decryptor.TransformFinalBlock(encryptedString, 0, encryptedString.Length);
             return Encoding.Default.GetString(output);
         }
 
         public void Set(string String)
         {
-            if (String == null) { this.encryptedString = null; return; }
-            var encryptor = this.des.CreateEncryptor();
+            if (String == null) { encryptedString = null; return; }
+            var encryptor = des.CreateEncryptor();
             byte[] str = Encoding.Default.GetBytes(String);
-            this.encryptedString = encryptor.TransformFinalBlock(str, 0, str.Length);
+            encryptedString = encryptor.TransformFinalBlock(str, 0, str.Length);
         }
     }
 }
