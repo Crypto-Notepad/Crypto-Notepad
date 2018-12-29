@@ -53,15 +53,15 @@ namespace Updater
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (arg.Length == 0)
-            {
-                this.Close();
-            }
+            //if (arg.Length == 0)
+            //{
+            //    this.Close();
+            //}
 
-            else if (arg[0] == "/u")
-            {
-                return;
-            }
+            //else if (arg[0] == "/u")
+            //{
+            //    return;
+            //}
         }
 
         private void button1_Click(object sender, EventArgs e)
