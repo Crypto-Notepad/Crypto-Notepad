@@ -53,6 +53,8 @@ namespace Crypto_Notepad
                 ps.AutoSave = AutoSaveCheckBox.Checked;
                 ps.SendTo = SendToCheckBox.Checked;
                 ps.MenuIntegrate = IntegrateCheckBox.Checked;
+                ps.MenuIcons = MenuIconsCheckBox.Checked;
+                ps.ColoredToolbar = ToolbarColorCheckBox.Checked;
                 ps.Save();
                 PublicVar.settingsChanged = true;
 
@@ -73,6 +75,8 @@ namespace Crypto_Notepad
                 AutoSaveCheckBox.Checked = true;
                 SendToCheckBox.Checked = false;
                 IntegrateCheckBox.Checked = false;
+                MenuIconsCheckBox.Checked = false;
+                ToolbarColorCheckBox.Checked = false;
             }
         }
 
@@ -169,6 +173,14 @@ namespace Crypto_Notepad
             AutoSaveCheckBox.Checked = ps.AutoSave;
             SendToCheckBox.Checked = ps.SendTo;
             IntegrateCheckBox.Checked = ps.MenuIntegrate;
+            MenuIconsCheckBox.Checked = ps.MenuIcons;
+            ToolbarColorCheckBox.Checked = ps.ColoredToolbar;
+
+            if (!ps.ShowToolbar)
+            {
+                ToolbarColorCheckBox.Checked = false;
+                ToolbarColorCheckBox.Enabled = false;
+            }
 
             if (ps.TheSalt != "")
             {
@@ -201,7 +213,7 @@ namespace Crypto_Notepad
         /*Buttons*/
 
 
-        /*Color Panels*/
+        /*Settings Section*/
         private void FontColorPanel_Click_1(object sender, EventArgs e)
         {
             colorDialog1.Color = FontColorPanel.BackColor;
@@ -231,6 +243,19 @@ namespace Crypto_Notepad
             }
             HighlightsColorPanel.BackColor = colorDialog1.Color;
         }
-        /*Color Panels*/
+
+        private void ToolbarCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!ToolbarCheckBox.Checked)
+            {
+                ToolbarColorCheckBox.Checked = false;
+                ToolbarColorCheckBox.Enabled = false;
+            }
+            else
+            {
+                ToolbarColorCheckBox.Enabled = true;
+            }
+        }
+        /*Settings Section*/
     }
 }

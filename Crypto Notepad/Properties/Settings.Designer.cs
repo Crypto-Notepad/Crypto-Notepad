@@ -320,5 +320,31 @@ namespace Crypto_Notepad.Properties {
                 this["MenuIntegrate"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool MenuIcons {
+            get {
+                return ((bool)(this["MenuIcons"]));
+            }
+            set {
+                this["MenuIcons"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ColoredToolbar {
+            get {
+                return ((bool)(this["ColoredToolbar"]));
+            }
+            set {
+                this["ColoredToolbar"] = value;
+            }
+        }
     }
 }
