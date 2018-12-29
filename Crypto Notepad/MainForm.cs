@@ -1,5 +1,6 @@
 ﻿using IWshRuntimeLibrary;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
@@ -530,6 +531,50 @@ namespace Crypto_Notepad
             }
             base.WndProc(ref m);
         }
+
+        private void MenuIcons()
+        {
+            if (ps.MenuIcons)
+            {
+                NewToolStripMenuItem.Image = Properties.Resources.document_plus;
+                OpenToolStripMenuItem.Image = Properties.Resources.folder_open_document;
+                SaveToolStripMenuItem.Image = Properties.Resources.disk_return_black;
+                SaveAsToolStripMenuItem.Image = Properties.Resources.disks_black;
+                OpenFileLocationToolStripMenuItem.Image = Properties.Resources.folder_horizontal;
+                DeleteFileToolStripMenuItem.Image = Properties.Resources.document_minus;
+                ExitToolStripMenuItem.Image = Properties.Resources.cross_button;
+
+                UndoToolStripMenuItem.Image = Properties.Resources.arrow_left;
+                RedoToolStripMenuItem.Image = Properties.Resources.arrow_right;
+                CutToolStripMenuItem.Image = Properties.Resources.scissors;
+                CopyToolStripMenuItem.Image = Properties.Resources.document_copy;
+                PasteToolStripMenuItem.Image = Properties.Resources.clipboard;
+                DeleteToolStripMenuItem.Image = Properties.Resources.minus;
+                FindToolStripMenuItem.Image = Properties.Resources.magnifier;
+                SelectAllToolStripMenuItem.Image = Properties.Resources.selection_input;
+                WordWrapToolStripMenuItem.Image = Properties.Resources.wrap_option;
+                ClearToolStripMenuItem.Image = Properties.Resources.document;
+
+                ChangeKeyToolStripMenuItem.Image = Properties.Resources.key;
+                LockToolStripMenuItem.Image = Properties.Resources.lock_warning;
+                SettingsToolStripMenuItem.Image = Properties.Resources.gear;
+
+                DocumentationToolStripMenuItem.Image = Properties.Resources.document_text;
+                CheckForUpdatesToolStripMenuItem.Image = Properties.Resources.upload_cloud;
+                AboutToolStripMenuItem.Image = Properties.Resources.information;
+            }
+            else
+            {
+                foreach (ToolStripItem item in MainMenu.Items)
+                {
+                    if (item is ToolStripDropDownItem)
+                        foreach (ToolStripItem dropDownItem in ((ToolStripDropDownItem)item).DropDownItems)
+                        {
+                            dropDownItem.Image = null;
+                        }
+                }
+            }
+        }
         /*Functions*/
 
 
@@ -573,6 +618,19 @@ namespace Crypto_Notepad
                     ToolbarPanel.Visible = true;
                     CustomRTB.Height -= 23;
                     CustomRTB.Location = new Point(0, 47);
+                }
+
+                MenuIcons();
+
+                if (ps.ColoredToolbar)
+                {
+                    ToolbarPanel.BackColor = ps.RichBackColor;
+                    ToolbarPanel.BorderStyle = BorderStyle.FixedSingle;
+                }
+                else
+                {
+                    ToolbarPanel.BackColor = SystemColors.ButtonFace;
+                    ToolbarPanel.BorderStyle = BorderStyle.None;
                 }
 
             }
@@ -621,6 +679,7 @@ namespace Crypto_Notepad
             }
         }
 
+
         private void MainWindow_Load(object sender, EventArgs e)
         {
             string pos = ps.WindowLocation.ToString();
@@ -631,6 +690,12 @@ namespace Crypto_Notepad
             WordWrapToolStripMenuItem.Checked = ps.MenuWrap;
             CustomRTB.WordWrap = ps.RichWrap;
             ToolbarPanel.Visible = ps.ShowToolbar;
+
+            if (ps.ColoredToolbar)
+            {
+                ToolbarPanel.BackColor = ps.RichBackColor;
+                ToolbarPanel.BorderStyle = BorderStyle.FixedSingle;
+            }
 
             if (!ps.ShowToolbar)
             {
@@ -650,6 +715,7 @@ namespace Crypto_Notepad
                 up.Start();
             }
 
+            MenuIcons();
             DeleteUpdateFiles();
 
             if (args.Contains("/s")) /*send to*/
@@ -860,6 +926,21 @@ namespace Crypto_Notepad
                 if (PublicVar.okPressed)
                 {
                     PublicVar.okPressed = false;
+                }
+
+                if (PublicVar.encryptionKey.Get() == null)
+                {
+                    FileLocationToolbarButton.Enabled = false;
+                    DeleteFileToolbarButton.Enabled = false;
+                    ChangeKeyToolbarButton.Enabled = false;
+                    AutoLockToolbarButton.Enabled = false;
+                }
+                else
+                {
+                    FileLocationToolbarButton.Enabled = true;
+                    DeleteFileToolbarButton.Enabled = true;
+                    ChangeKeyToolbarButton.Enabled = true;
+                    AutoLockToolbarButton.Enabled = true;
                 }
             }
         }

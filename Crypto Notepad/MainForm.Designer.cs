@@ -85,6 +85,12 @@
             this.SaveFile = new System.Windows.Forms.SaveFileDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.SearchTextBox = new System.Windows.Forms.TextBox();
+            this.chkMatchCase = new System.Windows.Forms.CheckBox();
+            this.chkMatchWholeWord = new System.Windows.Forms.CheckBox();
+            this.SearchPanel = new System.Windows.Forms.Panel();
+            this.ToolbarPanel = new System.Windows.Forms.Panel();
+            this.MenuToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.CloseToolbar = new System.Windows.Forms.PictureBox();
             this.AutoLockToolbarButton = new System.Windows.Forms.PictureBox();
             this.SettingsToolbarButton = new System.Windows.Forms.PictureBox();
@@ -98,14 +104,11 @@
             this.SaveToolBarButton = new System.Windows.Forms.PictureBox();
             this.OpenToolbarButton = new System.Windows.Forms.PictureBox();
             this.CloseSearchPanel = new System.Windows.Forms.PictureBox();
-            this.SearchTextBox = new System.Windows.Forms.TextBox();
-            this.chkMatchCase = new System.Windows.Forms.CheckBox();
-            this.chkMatchWholeWord = new System.Windows.Forms.CheckBox();
-            this.SearchPanel = new System.Windows.Forms.Panel();
-            this.ToolbarPanel = new System.Windows.Forms.Panel();
             this.CustomRTB = new Crypto_Notepad.CustomRichTextBox();
             this.MainMenu.SuspendLayout();
             this.EditorMenuStrip.SuspendLayout();
+            this.SearchPanel.SuspendLayout();
+            this.ToolbarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseToolbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AutoLockToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsToolbarButton)).BeginInit();
@@ -119,8 +122,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.SaveToolBarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseSearchPanel)).BeginInit();
-            this.SearchPanel.SuspendLayout();
-            this.ToolbarPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainMenu
@@ -575,168 +576,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Visible = false;
             // 
-            // CloseToolbar
-            // 
-            this.CloseToolbar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CloseToolbar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseToolbar.Image = ((System.Drawing.Image)(resources.GetObject("CloseToolbar.Image")));
-            this.CloseToolbar.Location = new System.Drawing.Point(516, 5);
-            this.CloseToolbar.Name = "CloseToolbar";
-            this.CloseToolbar.Size = new System.Drawing.Size(14, 14);
-            this.CloseToolbar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.CloseToolbar.TabIndex = 14;
-            this.CloseToolbar.TabStop = false;
-            this.CloseToolbar.Click += new System.EventHandler(this.CloseToolbar_Click);
-            this.CloseToolbar.MouseEnter += new System.EventHandler(this.CloseToolbar_MouseEnter);
-            this.CloseToolbar.MouseLeave += new System.EventHandler(this.CloseToolbar_MouseLeave);
-            // 
-            // AutoLockToolbarButton
-            // 
-            this.AutoLockToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AutoLockToolbarButton.Image = global::Crypto_Notepad.Properties.Resources.lock_icon;
-            this.AutoLockToolbarButton.Location = new System.Drawing.Point(260, 3);
-            this.AutoLockToolbarButton.Name = "AutoLockToolbarButton";
-            this.AutoLockToolbarButton.Size = new System.Drawing.Size(16, 16);
-            this.AutoLockToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.AutoLockToolbarButton.TabIndex = 15;
-            this.AutoLockToolbarButton.TabStop = false;
-            this.AutoLockToolbarButton.Click += new System.EventHandler(this.AutoLockToolbarButton_Click);
-            // 
-            // SettingsToolbarButton
-            // 
-            this.SettingsToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SettingsToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("SettingsToolbarButton.Image")));
-            this.SettingsToolbarButton.Location = new System.Drawing.Point(235, 3);
-            this.SettingsToolbarButton.Name = "SettingsToolbarButton";
-            this.SettingsToolbarButton.Size = new System.Drawing.Size(16, 16);
-            this.SettingsToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.SettingsToolbarButton.TabIndex = 15;
-            this.SettingsToolbarButton.TabStop = false;
-            this.SettingsToolbarButton.Click += new System.EventHandler(this.SettingsToolbarButton_Click);
-            // 
-            // NewToolbarButton
-            // 
-            this.NewToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.NewToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("NewToolbarButton.Image")));
-            this.NewToolbarButton.Location = new System.Drawing.Point(10, 3);
-            this.NewToolbarButton.Name = "NewToolbarButton";
-            this.NewToolbarButton.Size = new System.Drawing.Size(16, 16);
-            this.NewToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.NewToolbarButton.TabIndex = 15;
-            this.NewToolbarButton.TabStop = false;
-            this.NewToolbarButton.Click += new System.EventHandler(this.NewToolbarButton_Click);
-            // 
-            // ChangeKeyToolbarButton
-            // 
-            this.ChangeKeyToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ChangeKeyToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("ChangeKeyToolbarButton.Image")));
-            this.ChangeKeyToolbarButton.Location = new System.Drawing.Point(210, 3);
-            this.ChangeKeyToolbarButton.Name = "ChangeKeyToolbarButton";
-            this.ChangeKeyToolbarButton.Size = new System.Drawing.Size(16, 16);
-            this.ChangeKeyToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.ChangeKeyToolbarButton.TabIndex = 15;
-            this.ChangeKeyToolbarButton.TabStop = false;
-            this.ChangeKeyToolbarButton.Click += new System.EventHandler(this.ChangeKeyToolbarButton_Click);
-            // 
-            // PasteToolbarButton
-            // 
-            this.PasteToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PasteToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("PasteToolbarButton.Image")));
-            this.PasteToolbarButton.Location = new System.Drawing.Point(185, 3);
-            this.PasteToolbarButton.Name = "PasteToolbarButton";
-            this.PasteToolbarButton.Size = new System.Drawing.Size(16, 16);
-            this.PasteToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PasteToolbarButton.TabIndex = 15;
-            this.PasteToolbarButton.TabStop = false;
-            this.PasteToolbarButton.Click += new System.EventHandler(this.PasteToolbarButton_Click);
-            // 
-            // CopyToolbarButton
-            // 
-            this.CopyToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CopyToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("CopyToolbarButton.Image")));
-            this.CopyToolbarButton.Location = new System.Drawing.Point(160, 3);
-            this.CopyToolbarButton.Name = "CopyToolbarButton";
-            this.CopyToolbarButton.Size = new System.Drawing.Size(16, 16);
-            this.CopyToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.CopyToolbarButton.TabIndex = 15;
-            this.CopyToolbarButton.TabStop = false;
-            this.CopyToolbarButton.Click += new System.EventHandler(this.CopyToolbarButton_Click);
-            // 
-            // CutToolbarButton
-            // 
-            this.CutToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CutToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("CutToolbarButton.Image")));
-            this.CutToolbarButton.Location = new System.Drawing.Point(135, 3);
-            this.CutToolbarButton.Name = "CutToolbarButton";
-            this.CutToolbarButton.Size = new System.Drawing.Size(16, 16);
-            this.CutToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.CutToolbarButton.TabIndex = 15;
-            this.CutToolbarButton.TabStop = false;
-            this.CutToolbarButton.Click += new System.EventHandler(this.CutToolbarButton_Click);
-            // 
-            // DeleteFileToolbarButton
-            // 
-            this.DeleteFileToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DeleteFileToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteFileToolbarButton.Image")));
-            this.DeleteFileToolbarButton.Location = new System.Drawing.Point(110, 3);
-            this.DeleteFileToolbarButton.Name = "DeleteFileToolbarButton";
-            this.DeleteFileToolbarButton.Size = new System.Drawing.Size(16, 16);
-            this.DeleteFileToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.DeleteFileToolbarButton.TabIndex = 15;
-            this.DeleteFileToolbarButton.TabStop = false;
-            this.DeleteFileToolbarButton.Click += new System.EventHandler(this.DeleteFileToolbarButton_Click);
-            // 
-            // FileLocationToolbarButton
-            // 
-            this.FileLocationToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.FileLocationToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("FileLocationToolbarButton.Image")));
-            this.FileLocationToolbarButton.Location = new System.Drawing.Point(85, 3);
-            this.FileLocationToolbarButton.Name = "FileLocationToolbarButton";
-            this.FileLocationToolbarButton.Size = new System.Drawing.Size(16, 16);
-            this.FileLocationToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.FileLocationToolbarButton.TabIndex = 15;
-            this.FileLocationToolbarButton.TabStop = false;
-            this.FileLocationToolbarButton.Click += new System.EventHandler(this.FileLocationToolbarButton_Click);
-            // 
-            // SaveToolBarButton
-            // 
-            this.SaveToolBarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SaveToolBarButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveToolBarButton.Image")));
-            this.SaveToolBarButton.Location = new System.Drawing.Point(60, 3);
-            this.SaveToolBarButton.Name = "SaveToolBarButton";
-            this.SaveToolBarButton.Size = new System.Drawing.Size(16, 16);
-            this.SaveToolBarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.SaveToolBarButton.TabIndex = 15;
-            this.SaveToolBarButton.TabStop = false;
-            this.SaveToolBarButton.Click += new System.EventHandler(this.SaveToolbarButton_Click);
-            // 
-            // OpenToolbarButton
-            // 
-            this.OpenToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.OpenToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("OpenToolbarButton.Image")));
-            this.OpenToolbarButton.Location = new System.Drawing.Point(35, 3);
-            this.OpenToolbarButton.Name = "OpenToolbarButton";
-            this.OpenToolbarButton.Size = new System.Drawing.Size(16, 16);
-            this.OpenToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.OpenToolbarButton.TabIndex = 15;
-            this.OpenToolbarButton.TabStop = false;
-            this.OpenToolbarButton.Click += new System.EventHandler(this.OpenToolbarButton_Click);
-            // 
-            // CloseSearchPanel
-            // 
-            this.CloseSearchPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CloseSearchPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseSearchPanel.Image = ((System.Drawing.Image)(resources.GetObject("CloseSearchPanel.Image")));
-            this.CloseSearchPanel.Location = new System.Drawing.Point(514, 5);
-            this.CloseSearchPanel.Name = "CloseSearchPanel";
-            this.CloseSearchPanel.Size = new System.Drawing.Size(14, 14);
-            this.CloseSearchPanel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.CloseSearchPanel.TabIndex = 14;
-            this.CloseSearchPanel.TabStop = false;
-            this.CloseSearchPanel.Click += new System.EventHandler(this.CloseSearchPanel_Click);
-            this.CloseSearchPanel.MouseLeave += new System.EventHandler(this.CloseSearchPanel_MouseLeave);
-            this.CloseSearchPanel.MouseHover += new System.EventHandler(this.CloseSearchPanel_MouseHover);
-            // 
             // SearchTextBox
             // 
             this.SearchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -823,6 +662,179 @@
             this.ToolbarPanel.Size = new System.Drawing.Size(537, 23);
             this.ToolbarPanel.TabIndex = 14;
             // 
+            // CloseToolbar
+            // 
+            this.CloseToolbar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseToolbar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseToolbar.Image = global::Crypto_Notepad.Properties.Resources.close_g;
+            this.CloseToolbar.Location = new System.Drawing.Point(516, 5);
+            this.CloseToolbar.Name = "CloseToolbar";
+            this.CloseToolbar.Size = new System.Drawing.Size(14, 14);
+            this.CloseToolbar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CloseToolbar.TabIndex = 14;
+            this.CloseToolbar.TabStop = false;
+            this.CloseToolbar.Click += new System.EventHandler(this.CloseToolbar_Click);
+            this.CloseToolbar.MouseEnter += new System.EventHandler(this.CloseToolbar_MouseEnter);
+            this.CloseToolbar.MouseLeave += new System.EventHandler(this.CloseToolbar_MouseLeave);
+            // 
+            // AutoLockToolbarButton
+            // 
+            this.AutoLockToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AutoLockToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("AutoLockToolbarButton.Image")));
+            this.AutoLockToolbarButton.Location = new System.Drawing.Point(260, 3);
+            this.AutoLockToolbarButton.Name = "AutoLockToolbarButton";
+            this.AutoLockToolbarButton.Size = new System.Drawing.Size(16, 16);
+            this.AutoLockToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.AutoLockToolbarButton.TabIndex = 15;
+            this.AutoLockToolbarButton.TabStop = false;
+            this.MenuToolTip.SetToolTip(this.AutoLockToolbarButton, "Lock");
+            this.AutoLockToolbarButton.Click += new System.EventHandler(this.AutoLockToolbarButton_Click);
+            // 
+            // SettingsToolbarButton
+            // 
+            this.SettingsToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SettingsToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("SettingsToolbarButton.Image")));
+            this.SettingsToolbarButton.Location = new System.Drawing.Point(235, 3);
+            this.SettingsToolbarButton.Name = "SettingsToolbarButton";
+            this.SettingsToolbarButton.Size = new System.Drawing.Size(16, 16);
+            this.SettingsToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.SettingsToolbarButton.TabIndex = 15;
+            this.SettingsToolbarButton.TabStop = false;
+            this.MenuToolTip.SetToolTip(this.SettingsToolbarButton, "Settings");
+            this.SettingsToolbarButton.Click += new System.EventHandler(this.SettingsToolbarButton_Click);
+            // 
+            // NewToolbarButton
+            // 
+            this.NewToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.NewToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("NewToolbarButton.Image")));
+            this.NewToolbarButton.Location = new System.Drawing.Point(10, 3);
+            this.NewToolbarButton.Name = "NewToolbarButton";
+            this.NewToolbarButton.Size = new System.Drawing.Size(16, 16);
+            this.NewToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.NewToolbarButton.TabIndex = 15;
+            this.NewToolbarButton.TabStop = false;
+            this.MenuToolTip.SetToolTip(this.NewToolbarButton, "New");
+            this.NewToolbarButton.Click += new System.EventHandler(this.NewToolbarButton_Click);
+            // 
+            // ChangeKeyToolbarButton
+            // 
+            this.ChangeKeyToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ChangeKeyToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("ChangeKeyToolbarButton.Image")));
+            this.ChangeKeyToolbarButton.Location = new System.Drawing.Point(210, 3);
+            this.ChangeKeyToolbarButton.Name = "ChangeKeyToolbarButton";
+            this.ChangeKeyToolbarButton.Size = new System.Drawing.Size(16, 16);
+            this.ChangeKeyToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.ChangeKeyToolbarButton.TabIndex = 15;
+            this.ChangeKeyToolbarButton.TabStop = false;
+            this.MenuToolTip.SetToolTip(this.ChangeKeyToolbarButton, "Change Key");
+            this.ChangeKeyToolbarButton.Click += new System.EventHandler(this.ChangeKeyToolbarButton_Click);
+            // 
+            // PasteToolbarButton
+            // 
+            this.PasteToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PasteToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("PasteToolbarButton.Image")));
+            this.PasteToolbarButton.Location = new System.Drawing.Point(185, 3);
+            this.PasteToolbarButton.Name = "PasteToolbarButton";
+            this.PasteToolbarButton.Size = new System.Drawing.Size(16, 16);
+            this.PasteToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PasteToolbarButton.TabIndex = 15;
+            this.PasteToolbarButton.TabStop = false;
+            this.MenuToolTip.SetToolTip(this.PasteToolbarButton, "Paste");
+            this.PasteToolbarButton.Click += new System.EventHandler(this.PasteToolbarButton_Click);
+            // 
+            // CopyToolbarButton
+            // 
+            this.CopyToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CopyToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("CopyToolbarButton.Image")));
+            this.CopyToolbarButton.Location = new System.Drawing.Point(160, 3);
+            this.CopyToolbarButton.Name = "CopyToolbarButton";
+            this.CopyToolbarButton.Size = new System.Drawing.Size(16, 16);
+            this.CopyToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.CopyToolbarButton.TabIndex = 15;
+            this.CopyToolbarButton.TabStop = false;
+            this.MenuToolTip.SetToolTip(this.CopyToolbarButton, "Copy");
+            this.CopyToolbarButton.Click += new System.EventHandler(this.CopyToolbarButton_Click);
+            // 
+            // CutToolbarButton
+            // 
+            this.CutToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CutToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("CutToolbarButton.Image")));
+            this.CutToolbarButton.Location = new System.Drawing.Point(135, 3);
+            this.CutToolbarButton.Name = "CutToolbarButton";
+            this.CutToolbarButton.Size = new System.Drawing.Size(16, 16);
+            this.CutToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.CutToolbarButton.TabIndex = 15;
+            this.CutToolbarButton.TabStop = false;
+            this.MenuToolTip.SetToolTip(this.CutToolbarButton, "Cut");
+            this.CutToolbarButton.Click += new System.EventHandler(this.CutToolbarButton_Click);
+            // 
+            // DeleteFileToolbarButton
+            // 
+            this.DeleteFileToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DeleteFileToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteFileToolbarButton.Image")));
+            this.DeleteFileToolbarButton.Location = new System.Drawing.Point(110, 3);
+            this.DeleteFileToolbarButton.Name = "DeleteFileToolbarButton";
+            this.DeleteFileToolbarButton.Size = new System.Drawing.Size(16, 16);
+            this.DeleteFileToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.DeleteFileToolbarButton.TabIndex = 15;
+            this.DeleteFileToolbarButton.TabStop = false;
+            this.MenuToolTip.SetToolTip(this.DeleteFileToolbarButton, "Delete File");
+            this.DeleteFileToolbarButton.Click += new System.EventHandler(this.DeleteFileToolbarButton_Click);
+            // 
+            // FileLocationToolbarButton
+            // 
+            this.FileLocationToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FileLocationToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("FileLocationToolbarButton.Image")));
+            this.FileLocationToolbarButton.Location = new System.Drawing.Point(85, 3);
+            this.FileLocationToolbarButton.Name = "FileLocationToolbarButton";
+            this.FileLocationToolbarButton.Size = new System.Drawing.Size(16, 16);
+            this.FileLocationToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.FileLocationToolbarButton.TabIndex = 15;
+            this.FileLocationToolbarButton.TabStop = false;
+            this.MenuToolTip.SetToolTip(this.FileLocationToolbarButton, "File Location");
+            this.FileLocationToolbarButton.Click += new System.EventHandler(this.FileLocationToolbarButton_Click);
+            // 
+            // SaveToolBarButton
+            // 
+            this.SaveToolBarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SaveToolBarButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveToolBarButton.Image")));
+            this.SaveToolBarButton.Location = new System.Drawing.Point(60, 3);
+            this.SaveToolBarButton.Name = "SaveToolBarButton";
+            this.SaveToolBarButton.Size = new System.Drawing.Size(16, 16);
+            this.SaveToolBarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.SaveToolBarButton.TabIndex = 15;
+            this.SaveToolBarButton.TabStop = false;
+            this.MenuToolTip.SetToolTip(this.SaveToolBarButton, "Save");
+            this.SaveToolBarButton.Click += new System.EventHandler(this.SaveToolbarButton_Click);
+            // 
+            // OpenToolbarButton
+            // 
+            this.OpenToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.OpenToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("OpenToolbarButton.Image")));
+            this.OpenToolbarButton.Location = new System.Drawing.Point(35, 3);
+            this.OpenToolbarButton.Name = "OpenToolbarButton";
+            this.OpenToolbarButton.Size = new System.Drawing.Size(16, 16);
+            this.OpenToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.OpenToolbarButton.TabIndex = 15;
+            this.OpenToolbarButton.TabStop = false;
+            this.MenuToolTip.SetToolTip(this.OpenToolbarButton, "Open");
+            this.OpenToolbarButton.Click += new System.EventHandler(this.OpenToolbarButton_Click);
+            // 
+            // CloseSearchPanel
+            // 
+            this.CloseSearchPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseSearchPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseSearchPanel.Image = ((System.Drawing.Image)(resources.GetObject("CloseSearchPanel.Image")));
+            this.CloseSearchPanel.Location = new System.Drawing.Point(514, 5);
+            this.CloseSearchPanel.Name = "CloseSearchPanel";
+            this.CloseSearchPanel.Size = new System.Drawing.Size(14, 14);
+            this.CloseSearchPanel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CloseSearchPanel.TabIndex = 14;
+            this.CloseSearchPanel.TabStop = false;
+            this.CloseSearchPanel.Click += new System.EventHandler(this.CloseSearchPanel_Click);
+            this.CloseSearchPanel.MouseLeave += new System.EventHandler(this.CloseSearchPanel_MouseLeave);
+            this.CloseSearchPanel.MouseHover += new System.EventHandler(this.CloseSearchPanel_MouseHover);
+            // 
             // CustomRTB
             // 
             this.CustomRTB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -870,6 +882,10 @@
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
             this.EditorMenuStrip.ResumeLayout(false);
+            this.SearchPanel.ResumeLayout(false);
+            this.SearchPanel.PerformLayout();
+            this.ToolbarPanel.ResumeLayout(false);
+            this.ToolbarPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseToolbar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AutoLockToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsToolbarButton)).EndInit();
@@ -883,10 +899,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.SaveToolBarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseSearchPanel)).EndInit();
-            this.SearchPanel.ResumeLayout(false);
-            this.SearchPanel.PerformLayout();
-            this.ToolbarPanel.ResumeLayout(false);
-            this.ToolbarPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -969,6 +981,6 @@
         private System.Windows.Forms.ToolStripMenuItem DebugToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MainVariablesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolTip MenuToolTip;
     }
 }
-
