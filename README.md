@@ -1,12 +1,12 @@
 # Crypto Notepad
-[![](https://img.shields.io/github/downloads/Sigmanor/Crypto-Notepad/total.svg)](https://github.com/Sigmanor/Crypto-Notepad/releases)
-[![](https://img.shields.io/github/license/Sigmanor/Crypto-Notepad.svg)](https://github.com/Sigmanor/Crypto-Notepad/blob/master/LICENSE)
-[![](https://img.shields.io/github/release/Sigmanor/Crypto-Notepad.svg)](https://github.com/Sigmanor/Crypto-Notepad/wiki/Release-Notes)
-[![](https://img.shields.io/badge/documentation-wiki-yellowgreen.svg)](https://github.com/Sigmanor/Crypto-Notepad/wiki/Documentation)
+[![downloads](https://img.shields.io/github/downloads/Sigmanor/Crypto-Notepad/total.svg)](https://github.com/Sigmanor/Crypto-Notepad/releases)
+[![license](https://img.shields.io/github/license/Sigmanor/Crypto-Notepad.svg)](https://github.com/Sigmanor/Crypto-Notepad/blob/master/LICENSE)
+[![release](https://img.shields.io/github/release/Sigmanor/Crypto-Notepad.svg)](https://github.com/Sigmanor/Crypto-Notepad/wiki/Release-Notes)
+[![documentation](https://img.shields.io/badge/documentation-wiki-yellowgreen.svg)](https://github.com/Sigmanor/Crypto-Notepad/wiki/Documentation)
 
 Notepad-like simple text editor for Windows, where files are saved and loaded encrypted with AES algorithms.
 
-![](http://i.imgur.com/edLLh8v.png)
+[![screenshot](http://i.imgur.com/edLLh8v.png)](https://github.com/Sigmanor/Crypto-Notepad/wiki/Documentation#screenshots)
 
 ## Features
 
