@@ -1,12 +1,12 @@
 # Crypto Notepad
-[![downloads](https://img.shields.io/github/downloads/Sigmanor/Crypto-Notepad/total.svg)](https://github.com/Sigmanor/Crypto-Notepad/releases)
-[![license](https://img.shields.io/github/license/Sigmanor/Crypto-Notepad.svg)](https://github.com/Sigmanor/Crypto-Notepad/blob/master/LICENSE)
-[![release](https://img.shields.io/github/release/Sigmanor/Crypto-Notepad.svg)](https://github.com/Sigmanor/Crypto-Notepad/wiki/Release-Notes)
-[![documentation](https://img.shields.io/badge/documentation-wiki-yellowgreen.svg)](https://github.com/Sigmanor/Crypto-Notepad/wiki/Documentation)
+[![downloads](https://img.shields.io/github/downloads/Crypto-Notepad/Crypto-Notepad/total.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/releases)
+[![license](https://img.shields.io/github/license/Crypto-Notepad/Crypto-Notepad.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/blob/master/LICENSE)
+[![release](https://img.shields.io/github/release/Crypto-Notepad/Crypto-Notepad.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Release-Notes)
+[![documentation](https://img.shields.io/badge/documentation-wiki-yellowgreen.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Documentation)
 
 Notepad-like simple text editor for Windows, where files are saved and loaded encrypted with AES algorithms.
 
-[![screenshot](http://i.imgur.com/edLLh8v.png)](https://github.com/Sigmanor/Crypto-Notepad/wiki/Documentation#screenshots)
+[![screenshot](http://i.imgur.com/edLLh8v.png)](https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Documentation#screenshots)
 
 ## Features
 
@@ -24,7 +24,7 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 * .NET Framework 4.5
 
 ## Contributing
-Want to help make the project better? You can find a complete guide in [here](https://github.com/Sigmanor/Crypto-Notepad/blob/master/CONTRIBUTING.md). Welcome! :octocat:
+Want to help make the project better? You can find a complete guide in [here](https://github.com/Crypto-Notepad/Crypto-Notepad/blob/master/CONTRIBUTING.md). Welcome! :octocat:
 
 ## Build
 App was created in Visual Studio Community, you can run the *.sln file and simply build a project
