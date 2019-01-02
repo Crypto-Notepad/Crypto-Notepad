@@ -398,7 +398,7 @@ namespace Crypto_Notepad
             try
             {
                 WebClient client = new WebClient();
-                Stream stream = client.OpenRead("https://raw.githubusercontent.com/Sigmanor/Crypto-Notepad/master/version.txt");
+                Stream stream = client.OpenRead("https://raw.githubusercontent.com/Crypto-Notepad/Crypto-Notepad/master/version.txt");
                 StreamReader reader = new StreamReader(stream);
                 string content = reader.ReadToEnd();
                 string version = Application.ProductVersion;
@@ -1233,7 +1233,7 @@ namespace Crypto_Notepad
         /*Help*/
         private void DocumentationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/Sigmanor/Crypto-Notepad/wiki/Documentation");
+            Process.Start("https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Documentation");
         }
 
         private void CheckForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)

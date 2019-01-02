@@ -28,7 +28,7 @@ namespace Crypto_Notepad
         /*Main Information*/
         private void AppVersionLabel_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/Sigmanor/Crypto-Notepad/wiki/Release-Notes");
+            Process.Start("https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Release-Notes");
         }
 
         private void AuthorLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -38,12 +38,12 @@ namespace Crypto_Notepad
 
         private void LicenseLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://github.com/Sigmanor/Crypto-Notepad/blob/master/LICENSE");
+            Process.Start("https://github.com/Crypto-Notepad/Crypto-Notepad/blob/master/LICENSE");
         }
 
         private void GithubLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://github.com/Sigmanor/Crypto-Notepad");
+            Process.Start("https://github.com/Crypto-Notepad/Crypto-Notepad");
         }
 
         private void AppLogoPictureBox_Click(object sender, EventArgs e)
