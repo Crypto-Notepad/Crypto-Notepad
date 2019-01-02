@@ -1,5 +1,5 @@
 # Crypto Notepad
-[![downloads](https://img.shields.io/github/downloads/Crypto-Notepad/Crypto-Notepad/total.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/releases)
+[![downloads](https://img.shields.io/github/downloads/Crypto-Notepad/Crypto-Notepad/total.svg?&colorB=lightgrey)](https://github.com/Crypto-Notepad/Crypto-Notepad/releases)
 [![license](https://img.shields.io/github/license/Crypto-Notepad/Crypto-Notepad.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/blob/master/LICENSE)
 [![release](https://img.shields.io/github/release/Crypto-Notepad/Crypto-Notepad.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Release-Notes)
 [![documentation](https://img.shields.io/badge/documentation-wiki-yellowgreen.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Documentation)
