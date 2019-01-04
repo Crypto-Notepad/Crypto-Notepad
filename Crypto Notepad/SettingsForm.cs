@@ -186,7 +186,6 @@ namespace Crypto_Notepad
             {
                 SaltTextBox.Visible = true;
                 SaltLabel.Visible = true;
-
             }
         }
         /*Form Events*/
