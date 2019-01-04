@@ -54,6 +54,7 @@ namespace Crypto_Notepad
                 string opnfile = File.ReadAllText(OpenFile.FileName);
                 string NameWithotPath = Path.GetFileName(OpenFile.FileName);
                 string de;
+
                 if (ps.TheSalt != null)
                 {
                      de = AES.Decrypt(opnfile, TypedPassword.Value, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
@@ -63,7 +64,6 @@ namespace Crypto_Notepad
                      de = AES.Decrypt(opnfile, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                 }
 
-                string de = AES.Decrypt(opnfile, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                 CustomRTB.Text = de;
 
                 Text = appName + NameWithotPath;
