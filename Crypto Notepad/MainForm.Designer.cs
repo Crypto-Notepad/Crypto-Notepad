@@ -92,7 +92,7 @@
             this.ToolbarPanel = new System.Windows.Forms.Panel();
             this.MenuToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.CloseToolbar = new System.Windows.Forms.PictureBox();
-            this.AutoLockToolbarButton = new System.Windows.Forms.PictureBox();
+            this.LockToolbarButton = new System.Windows.Forms.PictureBox();
             this.SettingsToolbarButton = new System.Windows.Forms.PictureBox();
             this.NewToolbarButton = new System.Windows.Forms.PictureBox();
             this.ChangeKeyToolbarButton = new System.Windows.Forms.PictureBox();
@@ -110,7 +110,7 @@
             this.SearchPanel.SuspendLayout();
             this.ToolbarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseToolbar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AutoLockToolbarButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LockToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NewToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ChangeKeyToolbarButton)).BeginInit();
@@ -646,7 +646,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ToolbarPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ToolbarPanel.Controls.Add(this.CloseToolbar);
-            this.ToolbarPanel.Controls.Add(this.AutoLockToolbarButton);
+            this.ToolbarPanel.Controls.Add(this.LockToolbarButton);
             this.ToolbarPanel.Controls.Add(this.SettingsToolbarButton);
             this.ToolbarPanel.Controls.Add(this.NewToolbarButton);
             this.ToolbarPanel.Controls.Add(this.ChangeKeyToolbarButton);
@@ -679,16 +679,16 @@
             // 
             // AutoLockToolbarButton
             // 
-            this.AutoLockToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AutoLockToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("AutoLockToolbarButton.Image")));
-            this.AutoLockToolbarButton.Location = new System.Drawing.Point(260, 3);
-            this.AutoLockToolbarButton.Name = "AutoLockToolbarButton";
-            this.AutoLockToolbarButton.Size = new System.Drawing.Size(16, 16);
-            this.AutoLockToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.AutoLockToolbarButton.TabIndex = 15;
-            this.AutoLockToolbarButton.TabStop = false;
-            this.MenuToolTip.SetToolTip(this.AutoLockToolbarButton, "Lock");
-            this.AutoLockToolbarButton.Click += new System.EventHandler(this.AutoLockToolbarButton_Click);
+            this.LockToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LockToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("AutoLockToolbarButton.Image")));
+            this.LockToolbarButton.Location = new System.Drawing.Point(260, 3);
+            this.LockToolbarButton.Name = "AutoLockToolbarButton";
+            this.LockToolbarButton.Size = new System.Drawing.Size(16, 16);
+            this.LockToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.LockToolbarButton.TabIndex = 15;
+            this.LockToolbarButton.TabStop = false;
+            this.MenuToolTip.SetToolTip(this.LockToolbarButton, "Lock");
+            this.LockToolbarButton.Click += new System.EventHandler(this.LockToolbarButton_Click);
             // 
             // SettingsToolbarButton
             // 
@@ -887,7 +887,7 @@
             this.ToolbarPanel.ResumeLayout(false);
             this.ToolbarPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseToolbar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AutoLockToolbarButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LockToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NewToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ChangeKeyToolbarButton)).EndInit();
@@ -973,14 +973,13 @@
         private System.Windows.Forms.PictureBox ChangeKeyToolbarButton;
         private System.Windows.Forms.PictureBox SettingsToolbarButton;
         private System.Windows.Forms.PictureBox CloseToolbar;
-        private System.Windows.Forms.PictureBox AutoLockToolbarButton;
+        private System.Windows.Forms.PictureBox LockToolbarButton;
         private System.Windows.Forms.ToolStripMenuItem LockToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripMenuItem RedoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RedoEditorMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem DebugToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MainVariablesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolTip MenuToolTip;
     }
 }

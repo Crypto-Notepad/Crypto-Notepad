@@ -654,14 +654,14 @@ namespace Crypto_Notepad
                 FileLocationToolbarButton.Enabled = false;
                 DeleteFileToolbarButton.Enabled = false;
                 ChangeKeyToolbarButton.Enabled = false;
-                AutoLockToolbarButton.Enabled = false;
+                LockToolbarButton.Enabled = false;
             }
             else
             {
                 FileLocationToolbarButton.Enabled = true;
                 DeleteFileToolbarButton.Enabled = true;
                 ChangeKeyToolbarButton.Enabled = true;
-                AutoLockToolbarButton.Enabled = true;
+                LockToolbarButton.Enabled = true;
             }
         }
 
@@ -942,14 +942,14 @@ namespace Crypto_Notepad
                     FileLocationToolbarButton.Enabled = false;
                     DeleteFileToolbarButton.Enabled = false;
                     ChangeKeyToolbarButton.Enabled = false;
-                    AutoLockToolbarButton.Enabled = false;
+                    LockToolbarButton.Enabled = false;
                 }
                 else
                 {
                     FileLocationToolbarButton.Enabled = true;
                     DeleteFileToolbarButton.Enabled = true;
                     ChangeKeyToolbarButton.Enabled = true;
-                    AutoLockToolbarButton.Enabled = true;
+                    LockToolbarButton.Enabled = true;
                 }
             }
         }
@@ -1061,7 +1061,7 @@ namespace Crypto_Notepad
                         FileLocationToolbarButton.Enabled = false;
                         DeleteFileToolbarButton.Enabled = false;
                         ChangeKeyToolbarButton.Enabled = false;
-                        AutoLockToolbarButton.Enabled = false;
+                        LockToolbarButton.Enabled = false;
                         filePath = "";
                         currentFilename = "Unnamed.cnp";
                         Text = appName.Remove(14);
@@ -1394,7 +1394,7 @@ namespace Crypto_Notepad
             SettingsToolStripMenuItem_Click(this, new EventArgs());
         }
 
-        private void AutoLockToolbarButton_Click(object sender, EventArgs e)
+        private void LockToolbarButton_Click(object sender, EventArgs e)
         {
             AutoLock(false);
         }   
