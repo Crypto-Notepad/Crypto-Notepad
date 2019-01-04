@@ -1396,8 +1396,8 @@ namespace Crypto_Notepad
 
         private void LockToolbarButton_Click(object sender, EventArgs e)
         {
-            AutoLock(false);
-        }   
+            LockToolStripMenuItem_Click(this, new EventArgs());
+        }
 
         private void CloseToolbar_Click(object sender, EventArgs e)
         {
