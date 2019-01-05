@@ -7,7 +7,7 @@
 
 Notepad-like simple text editor for Windows, where files are saved and loaded encrypted with AES algorithms.
 
-[![screenshot](http://i.imgur.com/edLLh8v.png)](https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Documentation#screenshots)
+[![screenshot](https://i.imgur.com/rqfKzNX.gif)](https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Documentation#screenshots)
 
 ## Features
 
