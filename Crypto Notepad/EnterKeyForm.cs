@@ -20,7 +20,7 @@ namespace Crypto_Notepad
 
         private void EnterKeyForm_Load(object sender, EventArgs e)
         {
-            this.Text = PublicVar.openFileName;
+            Text = PublicVar.openFileName;
         }
         /*Form Events*/
 
@@ -64,7 +64,7 @@ namespace Crypto_Notepad
             TypedPassword.Value = KeyTextBox.Text;
             KeyTextBox.Focus();
             PublicVar.okPressed = true;
-            this.Hide();
+            Hide();
         }
         /*Buttons*/
     }

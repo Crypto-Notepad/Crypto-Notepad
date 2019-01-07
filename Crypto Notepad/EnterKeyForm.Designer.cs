@@ -32,13 +32,13 @@
             this.KeyTextBox = new System.Windows.Forms.TextBox();
             this.OkButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.KeyPictureBox = new System.Windows.Forms.PictureBox();
             this.EyePictureBox = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.KeyPictureBox = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.EyePictureBox)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KeyPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EyePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // KeyTextBox
@@ -62,38 +62,6 @@
             this.OkButton.UseVisualStyleBackColor = true;
             this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.KeyPictureBox);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.KeyTextBox);
-            this.panel1.Controls.Add(this.EyePictureBox);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(191, 73);
-            this.panel1.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(61, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Enter the encryption key:";
-            // 
-            // KeyPictureBox
-            // 
-            this.KeyPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.KeyPictureBox.Image = global::Crypto_Notepad.Properties.Resources.big_lock;
-            this.KeyPictureBox.Location = new System.Drawing.Point(8, 12);
-            this.KeyPictureBox.Name = "KeyPictureBox";
-            this.KeyPictureBox.Size = new System.Drawing.Size(47, 47);
-            this.KeyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.KeyPictureBox.TabIndex = 6;
-            this.KeyPictureBox.TabStop = false;
-            // 
             // EyePictureBox
             // 
             this.EyePictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -108,6 +76,38 @@
             this.EyePictureBox.TabStop = false;
             this.toolTip1.SetToolTip(this.EyePictureBox, "Show key");
             this.EyePictureBox.Click += new System.EventHandler(this.EyePictureBox_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.KeyPictureBox);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.KeyTextBox);
+            this.panel1.Controls.Add(this.EyePictureBox);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(191, 73);
+            this.panel1.TabIndex = 5;
+            // 
+            // KeyPictureBox
+            // 
+            this.KeyPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.KeyPictureBox.Image = global::Crypto_Notepad.Properties.Resources.big_lock;
+            this.KeyPictureBox.Location = new System.Drawing.Point(8, 12);
+            this.KeyPictureBox.Name = "KeyPictureBox";
+            this.KeyPictureBox.Size = new System.Drawing.Size(47, 47);
+            this.KeyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.KeyPictureBox.TabIndex = 6;
+            this.KeyPictureBox.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(61, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Enter the encryption key:";
             // 
             // EnterKeyForm
             // 
@@ -124,10 +124,10 @@
             this.Text = "Crypto Notepad";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EnterKeyForm_FormClosed);
             this.Load += new System.EventHandler(this.EnterKeyForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.EyePictureBox)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KeyPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EyePictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
