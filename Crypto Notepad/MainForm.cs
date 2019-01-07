@@ -1,6 +1,5 @@
 ﻿using IWshRuntimeLibrary;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
@@ -22,10 +21,7 @@ namespace Crypto_Notepad
         string filePath = "";
         string[] args = Environment.GetCommandLineArgs();
         int caretPos = 0;
-        string appName = Assembly.GetExecutingAssembly().GetName().Name + " – ";
-        string currentFilename = "";
         bool shiftPresed;
-        bool cancelPressed = false;
         bool noExit = false;
         string argsPath = "";
 
@@ -43,6 +39,7 @@ namespace Crypto_Notepad
             f2.ShowDialog();
             if (!PublicVar.okPressed)
             {
+                PublicVar.openFileName = Path.GetFileName(filePath);
                 return;
             }
             if (SearchPanel.Visible)
@@ -66,13 +63,11 @@ namespace Crypto_Notepad
 
                 CustomRTB.Text = de;
 
-                Text = appName + NameWithotPath;
+                Text = PublicVar.appName + " – " + NameWithotPath;
                 filePath = OpenFile.FileName;
                 string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                 CustomRTB.Select(Convert.ToInt32(cc2), 0);
-
                 PublicVar.openFileName = Path.GetFileName(OpenFile.FileName);
-                currentFilename = Path.GetFileName(OpenFile.FileName);
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
                 TypedPassword.Value = null;
             }
@@ -88,8 +83,10 @@ namespace Crypto_Notepad
                     }
                     if (dialogResult == DialogResult.Cancel)
                     {
+                        PublicVar.openFileName = Path.GetFileName(filePath);
                         return;
                     }
+
                 }
             }
         }
@@ -99,7 +96,7 @@ namespace Crypto_Notepad
             EnterKeyForm Form2 = new EnterKeyForm();
             Form2.StartPosition = FormStartPosition.CenterScreen;
             string fileExtension = Path.GetExtension(args[1]);
-
+            PublicVar.openFileName = Path.GetFileName(args[1]);
             if (fileExtension == ".cnp")
             {
                 try
@@ -146,8 +143,6 @@ namespace Crypto_Notepad
                 string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                 CustomRTB.Select(Convert.ToInt32(cc2), 0);
             }
-
-            currentFilename = Path.GetFileName(args[1]);
         }
 
         private void SendTo()
@@ -162,6 +157,7 @@ namespace Crypto_Notepad
                 {
                     string NameWithotPath = Path.GetFileName(argsPath);
                     string opnfile = File.ReadAllText(argsPath);
+                    PublicVar.openFileName = Path.GetFileName(argsPath);
 
                     f2.ShowDialog();
                     if (!PublicVar.okPressed)
@@ -179,7 +175,6 @@ namespace Crypto_Notepad
                     string cc = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                     CustomRTB.Select(Convert.ToInt32(cc), 0);
                     PublicVar.encryptionKey.Set(TypedPassword.Value);
-                    currentFilename = Path.GetFileName(argsPath);
                     TypedPassword.Value = null;
                 }
                 catch (CryptographicException)
@@ -222,7 +217,6 @@ namespace Crypto_Notepad
 
         private void ContextMenuEncryptReplace()
         {
-            PublicVar.openFileName = Path.GetFileName(args[1]);
 
             if (args[1].Contains(".cnp"))
             {
@@ -243,7 +237,8 @@ namespace Crypto_Notepad
                 CustomRTB.Text = opnfile;
                 string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                 CustomRTB.Select(Convert.ToInt32(cc2), 0);
-                currentFilename = Path.GetFileName(args[1]);
+                PublicVar.openFileName = Path.GetFileName(args[1]);
+
                 string newFile = Path.GetDirectoryName(args[1]) + @"\" + Path.GetFileNameWithoutExtension(args[1]) + ".cnp";
 
                 EnterKeyForm f2 = new EnterKeyForm();
@@ -273,7 +268,8 @@ namespace Crypto_Notepad
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
                 TypedPassword.Value = null;
                 filePath = newFile;
-                currentFilename = Path.GetFileName(newFile);
+                PublicVar.openFileName = Path.GetFileName(newFile);
+                Text = PublicVar.appName + " – " + PublicVar.openFileName;
                 CustomRTB.Text = noenc;
             }
 
@@ -291,7 +287,6 @@ namespace Crypto_Notepad
 
         private void ContextMenuEncrypt()
         {
-            PublicVar.openFileName = Path.GetFileName(args[1]);
             if (!args[1].Contains(".cnp"))
             {
                 string opnfile = File.ReadAllText(args[1]);
@@ -300,7 +295,7 @@ namespace Crypto_Notepad
                 Text = PublicVar.appName + NameWithotPath;
                 string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                 CustomRTB.Select(Convert.ToInt32(cc2), 0);
-                currentFilename = Path.GetFileName(args[1]);
+                PublicVar.openFileName = Path.GetFileName(args[1]);
                 filePath = OpenFile.FileName;
             }
 
@@ -351,9 +346,9 @@ namespace Crypto_Notepad
             }
             else
             {
-                if (currentFilename == "")
+                if (PublicVar.openFileName == null)
                 {
-                    currentFilename = "Unnamed.cnp";
+                    PublicVar.openFileName = "Unnamed.cnp";
                 }
 
                 if (CustomRTB.Text != "")
@@ -362,11 +357,11 @@ namespace Crypto_Notepad
 
                     if (!PublicVar.keyChanged)
                     {
-                        messageBoxText = "Save file: " + "\"" + currentFilename + "\"" + " ? ";
+                        messageBoxText = "Save file: " + "\"" + PublicVar.openFileName + "\"" + " ? ";
                     }
                     else
                     {
-                        messageBoxText = "Save file: " + "\"" + currentFilename + "\"" + " with a new key? ";
+                        messageBoxText = "Save file: " + "\"" + PublicVar.openFileName + "\"" + " with a new key? ";
                     }
 
                     using (new CenterWinDialog(this))
@@ -393,7 +388,6 @@ namespace Crypto_Notepad
                         if (res == DialogResult.Cancel)
                         {
                             noExit = true;
-                            cancelPressed = true;
                             return;
                         }
                     }
@@ -420,7 +414,7 @@ namespace Crypto_Notepad
                     {
                         using (new CenterWinDialog(this))
                         {
-                            DialogResult res = MessageBox.Show("New version is available. Install it now?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                            DialogResult res = MessageBox.Show("New version is available. Install it now?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                             if (res == DialogResult.Yes)
                             {
@@ -511,7 +505,7 @@ namespace Crypto_Notepad
                         CustomRTB.Clear();
                         Text = PublicVar.appName;
                         filePath = "";
-                        currentFilename = "";
+                        PublicVar.openFileName = null;
                         Show();
                         return;
                     }
@@ -806,15 +800,11 @@ namespace Crypto_Notepad
         private void CustomRTB_DragDrop(object sender, DragEventArgs e)
         {
             SaveConfirm(false);
-            if (cancelPressed)
-            {
-                cancelPressed = false;
-                return;
-            }
 
             string[] FileList = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             foreach (string file in FileList) OpenFile.FileName = file;
             object fname = e.Data.GetData("FileDrop");
+            PublicVar.openFileName = Path.GetFileName(OpenFile.FileName);
             if (fname != null)
             {
                 var list = fname as string[];
@@ -828,11 +818,9 @@ namespace Crypto_Notepad
                         Text = PublicVar.appName + " – " + NameWithotPath;
                         string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                         CustomRTB.Select(Convert.ToInt32(cc2), 0);
-                        currentFilename = Path.GetFileName(OpenFile.FileName);
                         filePath = OpenFile.FileName;
                         return;
                     }
-                    PublicVar.openFileName = Path.GetFileName(OpenFile.FileName);
                     DecryptAES();
                     if (PublicVar.okPressed)
                     {
@@ -868,19 +856,24 @@ namespace Crypto_Notepad
         private void NewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveConfirm(false);
-            SaveFile.FileName = "Unnamed.cnp";
-            PublicVar.openFileName = "Crypto Notepad";
+            PublicVar.openFileName = "Unnamed.cnp";
             EnterKeyForm f2 = new EnterKeyForm();
             f2.ShowDialog();
-            PublicVar.encryptionKey.Set(TypedPassword.Value);
 
             if (!PublicVar.okPressed)
             {
+                if (filePath != "")
+                {
+                    PublicVar.openFileName = Path.GetFileName(filePath);
+                }             
                 TypedPassword.Value = null;
                 return;
             }
             else
             {
+                SaveFile.FileName = "Unnamed.cnp";
+                PublicVar.encryptionKey.Set(TypedPassword.Value);
+
                 PublicVar.okPressed = false;
                 if (SaveFile.ShowDialog() != DialogResult.OK)
                 {
@@ -893,7 +886,7 @@ namespace Crypto_Notepad
                 string NameWithotPath = Path.GetFileName(SaveFile.FileName);
                 Text = PublicVar.appName + " – " + NameWithotPath;
                 filePath = SaveFile.FileName;
-                currentFilename = Path.GetFileName(SaveFile.FileName);
+                PublicVar.openFileName = Path.GetFileName(SaveFile.FileName);
                 sw.Close();
             }
             TypedPassword.Value = null;
@@ -903,11 +896,6 @@ namespace Crypto_Notepad
         {
             OpenFile.FileName = "";
             SaveConfirm(false);
-            if (cancelPressed)
-            {
-                cancelPressed = false;
-                return;
-            }
 
             if (OpenFile.ShowDialog() != DialogResult.OK) return;
             {
@@ -959,7 +947,7 @@ namespace Crypto_Notepad
 
             if (PublicVar.encryptionKey.Get() == null)
             {
-                SaveFile.FileName = "Unnamed.cnp";
+                //SaveFile.FileName = "Unnamed.cnp";
                 SaveAsToolStripMenuItem_Click(this, new EventArgs());
                 if (!PublicVar.okPressed)
                 {
@@ -995,7 +983,15 @@ namespace Crypto_Notepad
         {
             int saveCaret = CustomRTB.SelectionStart;
             string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-            SaveFile.FileName = currentFilename;
+            if (filePath != "")
+            {
+                PublicVar.openFileName = Path.GetFileName(filePath);
+            }
+            else
+            {
+                PublicVar.openFileName = "Unnamed.cnp";
+            }
+            SaveFile.FileName = Path.GetFileName(filePath);
             EnterKeyForm f2 = new EnterKeyForm();
 
             if (string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
@@ -1038,7 +1034,7 @@ namespace Crypto_Notepad
             CustomRTB.Select(Convert.ToInt32(saveCaret), 0);
             PublicVar.encryptionKey.Set(TypedPassword.Value);
             TypedPassword.Value = null;
-            currentFilename = Path.GetFileName(SaveFile.FileName);
+            PublicVar.openFileName = Path.GetFileName(SaveFile.FileName);
         }
 
         private void OpenFileLocationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1062,6 +1058,7 @@ namespace Crypto_Notepad
                         ChangeKeyToolbarButton.Enabled = false;
                         LockToolbarButton.Enabled = false;
                         filePath = "";
+                        PublicVar.openFileName = null;
                         Text = PublicVar.appName;
                         return;
                     }
@@ -1076,7 +1073,7 @@ namespace Crypto_Notepad
 
         private void FileToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
         {
-            if (currentFilename == "")
+            if (filePath == "")
             {
                 OpenFileLocationToolStripMenuItem.Enabled = false;
                 DeleteFileToolStripMenuItem.Enabled = false;
@@ -1092,7 +1089,6 @@ namespace Crypto_Notepad
         /*Edit*/
         private void UndoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             CustomRTB.Undo();
         }
 

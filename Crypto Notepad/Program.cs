@@ -6,7 +6,7 @@ namespace Crypto_Notepad
     static class Program
     {
         /// <summary>
-        /// Главная точка входа для приложения.
+        /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
@@ -24,8 +24,8 @@ namespace Crypto_Notepad
         public static bool keyChanged = false;
         public static bool settingsChanged = false;
         public static bool okPressed = false;
-        public static string openFileName = "Crypto Notepad";
         public const string appName = "Crypto Notepad";
+        public static string openFileName;
     }
     
     static class TypedPassword
