@@ -947,7 +947,6 @@ namespace Crypto_Notepad
 
             if (PublicVar.encryptionKey.Get() == null)
             {
-                //SaveFile.FileName = "Unnamed.cnp";
                 SaveAsToolStripMenuItem_Click(this, new EventArgs());
                 if (!PublicVar.okPressed)
                 {
@@ -986,12 +985,13 @@ namespace Crypto_Notepad
             if (filePath != "")
             {
                 PublicVar.openFileName = Path.GetFileName(filePath);
+                SaveFile.FileName = Path.GetFileName(filePath);
             }
             else
             {
                 PublicVar.openFileName = "Unnamed.cnp";
+                SaveFile.FileName = "Unnamed.cnp";
             }
-            SaveFile.FileName = Path.GetFileName(filePath);
             EnterKeyForm f2 = new EnterKeyForm();
 
             if (string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
@@ -1465,9 +1465,7 @@ namespace Crypto_Notepad
         private void MainVariablesToolStripMenuItem_Click(object sender, EventArgs e)
         {
 #if DEBUG
-            var time = DateTime.Now;
-            string formattedTime = time.ToString("yyyy.MM.dd hh:mm:ss");
-
+            string formattedTime = DateTime.Now.ToString("yyyy.MM.dd hh:mm:ss");
             Debug.WriteLine("\nTime: " + formattedTime);
             Debug.WriteLine("PublicVar.openFileName: " + PublicVar.openFileName);
             Debug.WriteLine("filePath: " + filePath);
