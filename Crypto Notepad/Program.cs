@@ -25,6 +25,7 @@ namespace Crypto_Notepad
         public static bool settingsChanged = false;
         public static bool okPressed = false;
         public static string openFileName = "Crypto Notepad";
+        public const string appName = "Crypto Notepad";
     }
     
     static class TypedPassword

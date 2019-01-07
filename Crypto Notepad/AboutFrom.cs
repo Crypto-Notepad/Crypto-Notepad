@@ -15,7 +15,7 @@ namespace Crypto_Notepad
         private void AboutWindow_Load(object sender, EventArgs e)
         {
             Version vrs = new Version(Application.ProductVersion);
-            AppVersionLabel.Text = string.Format("Crypto Notepad " + "{0}.{1}.{2}", vrs.Major, vrs.Minor, vrs.Build);
+            AppVersionLabel.Text = string.Format(PublicVar.appName + " {0}.{1}.{2}", vrs.Major, vrs.Minor, vrs.Build);
         }
 
         private void AboutFrom_Click(object sender, EventArgs e)

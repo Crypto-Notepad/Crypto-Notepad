@@ -81,7 +81,7 @@ namespace Crypto_Notepad
                 using (new CenterWinDialog(this))
                 {
                     TypedPassword.Value = null;
-                    DialogResult dialogResult = MessageBox.Show("Invalid key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    DialogResult dialogResult = MessageBox.Show("Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                     if (dialogResult == DialogResult.Retry)
                     {
                         DecryptAES();
@@ -118,7 +118,7 @@ namespace Crypto_Notepad
                     string de = AES.Decrypt(opnfile, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                     CustomRTB.Text = de;
 
-                    Text = appName + NameWithotPath;
+                    Text = PublicVar.appName + " – " + NameWithotPath;
 
                     filePath = args[1];
                     string cc = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
@@ -129,7 +129,7 @@ namespace Crypto_Notepad
                 catch (CryptographicException)
                 {
                     TypedPassword.Value = null;
-                    DialogResult dialogResult = MessageBox.Show("Invalid key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    DialogResult dialogResult = MessageBox.Show("Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                     if (dialogResult == DialogResult.Retry)
                     {
                         OpenAsotiations();
@@ -142,7 +142,7 @@ namespace Crypto_Notepad
                 string opnfile = File.ReadAllText(args[1]);
                 string NameWithotPath = Path.GetFileName(args[1]);
                 CustomRTB.Text = opnfile;
-                Text = appName + NameWithotPath;
+                Text = PublicVar.appName + " – " + NameWithotPath;
                 string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                 CustomRTB.Select(Convert.ToInt32(cc2), 0);
             }
@@ -173,7 +173,7 @@ namespace Crypto_Notepad
                     string de = AES.Decrypt(opnfile, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                     CustomRTB.Text = de;
 
-                    Text = appName + NameWithotPath;
+                    Text = PublicVar.appName + " – " + NameWithotPath;
 
                     filePath = argsPath;
                     string cc = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
@@ -185,7 +185,7 @@ namespace Crypto_Notepad
                 catch (CryptographicException)
                 {
                     TypedPassword.Value = null;
-                    DialogResult dialogResult = MessageBox.Show("Invalid key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    DialogResult dialogResult = MessageBox.Show("Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                     if (dialogResult == DialogResult.Retry)
                     {
                         SendTo();
@@ -198,7 +198,7 @@ namespace Crypto_Notepad
                 string opnfile = File.ReadAllText(argsPath);
                 string NameWithotPath = Path.GetFileName(argsPath);
                 CustomRTB.Text = opnfile;
-                Text = appName + NameWithotPath;
+                Text = PublicVar.appName + " – " + NameWithotPath;
                 string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                 CustomRTB.Select(Convert.ToInt32(cc2), 0);
             }
@@ -207,13 +207,13 @@ namespace Crypto_Notepad
         private void SendToShortcut()
         {
             string shortcutPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Microsoft\Windows\SendTo";
-            string shortcutName = "Crypto Notepad" + ".lnk";
+            string shortcutName = PublicVar.appName + ".lnk";
             string shortcutLocation = Path.Combine(shortcutPath, shortcutName);
             string targetFileLocation = Assembly.GetEntryAssembly().Location;
 
             WshShell shell = new WshShell();
             IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutLocation);
-            shortcut.Description = "Crypto Notepad";
+            shortcut.Description = PublicVar.appName;
             shortcut.IconLocation = targetFileLocation;
             shortcut.TargetPath = targetFileLocation;
             shortcut.Arguments = "/s";
@@ -226,11 +226,11 @@ namespace Crypto_Notepad
 
             if (args[1].Contains(".cnp"))
             {
-                MessageBox.Show("Looks like this file is already encrypted", "Crypto Notepad", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Looks like this file is already encrypted", PublicVar.appName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            DialogResult res = MessageBox.Show("This action will delete the source file and replace it with encrypted version", "Crypto Notepad", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult res = MessageBox.Show("This action will delete the source file and replace it with encrypted version", PublicVar.appName, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (res == DialogResult.Cancel)
             {
@@ -274,7 +274,6 @@ namespace Crypto_Notepad
                 TypedPassword.Value = null;
                 filePath = newFile;
                 currentFilename = Path.GetFileName(newFile);
-                Text = appName + currentFilename;
                 CustomRTB.Text = noenc;
             }
 
@@ -298,7 +297,7 @@ namespace Crypto_Notepad
                 string opnfile = File.ReadAllText(args[1]);
                 string NameWithotPath = Path.GetFileName(args[1]);
                 CustomRTB.Text = opnfile;
-                Text = appName + NameWithotPath;
+                Text = PublicVar.appName + NameWithotPath;
                 string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                 CustomRTB.Select(Convert.ToInt32(cc2), 0);
                 currentFilename = Path.GetFileName(args[1]);
@@ -372,7 +371,7 @@ namespace Crypto_Notepad
 
                     using (new CenterWinDialog(this))
                     {
-                        DialogResult res = MessageBox.Show(messageBoxText, "Crypto Notepad", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                        DialogResult res = MessageBox.Show(messageBoxText, PublicVar.appName, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                         if (res == DialogResult.Yes)
                         {
                             SaveToolStripMenuItem_Click(this, new EventArgs());
@@ -444,7 +443,7 @@ namespace Crypto_Notepad
                     {
                         using (new CenterWinDialog(this))
                         {
-                            MessageBox.Show("Crypto Notepad is up to date.", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Crypto Notepad is up to date.", PublicVar.appName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     });
                 }
@@ -474,8 +473,8 @@ namespace Crypto_Notepad
             {
                 PublicVar.encryptionKey.Set(null);
                 CustomRTB.Clear();
-                Text = appName.Remove(14);
-                currentFilename = "";
+                Text = PublicVar.appName;
+                PublicVar.openFileName = null;
                 filePath = "";
                 Show();
                 return;
@@ -488,7 +487,7 @@ namespace Crypto_Notepad
                 string opnfile = File.ReadAllText(filePath);
                 string de = AES.Decrypt(opnfile, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                 CustomRTB.Text = de;
-                Text = appName + currentFilename;
+                Text = PublicVar.appName + " – " + PublicVar.openFileName;
                 string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                 CustomRTB.Select(Convert.ToInt32(cc2), 0);
                 CustomRTB.SelectionStart = caretPos;
@@ -501,7 +500,7 @@ namespace Crypto_Notepad
                 if (ex is CryptographicException)
                 {
                     TypedPassword.Value = null;
-                    DialogResult dialogResult = MessageBox.Show("Invalid key!", "Crypto Notepad", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    DialogResult dialogResult = MessageBox.Show("Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                     if (dialogResult == DialogResult.Retry)
                     {
                         AutoLock(false);
@@ -510,7 +509,7 @@ namespace Crypto_Notepad
                     {
                         PublicVar.encryptionKey.Set(null);
                         CustomRTB.Clear();
-                        Text = appName.Remove(14);
+                        Text = PublicVar.appName;
                         filePath = "";
                         currentFilename = "";
                         Show();
@@ -826,7 +825,7 @@ namespace Crypto_Notepad
                         string opnfile = File.ReadAllText(OpenFile.FileName);
                         string NameWithotPath = Path.GetFileName(OpenFile.FileName);
                         CustomRTB.Text = opnfile;
-                        Text = appName + NameWithotPath;
+                        Text = PublicVar.appName + " – " + NameWithotPath;
                         string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                         CustomRTB.Select(Convert.ToInt32(cc2), 0);
                         currentFilename = Path.GetFileName(OpenFile.FileName);
@@ -892,7 +891,7 @@ namespace Crypto_Notepad
                 CustomRTB.Clear();
                 StreamWriter sw = new StreamWriter(SaveFile.FileName);
                 string NameWithotPath = Path.GetFileName(SaveFile.FileName);
-                Text = appName + NameWithotPath;
+                Text = PublicVar.appName + " – " + NameWithotPath;
                 filePath = SaveFile.FileName;
                 currentFilename = Path.GetFileName(SaveFile.FileName);
                 sw.Close();
@@ -918,7 +917,7 @@ namespace Crypto_Notepad
                     string opnfile = File.ReadAllText(OpenFile.FileName);
                     string NameWithotPath = Path.GetFileName(OpenFile.FileName);
                     CustomRTB.Text = opnfile;
-                    Text = appName + NameWithotPath;
+                    Text = PublicVar.appName + " – " + NameWithotPath;
                     string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
                     CustomRTB.Select(Convert.ToInt32(cc2), 0);
                     return;
@@ -1035,7 +1034,7 @@ namespace Crypto_Notepad
             }
             sw.Close();
             CustomRTB.Text = noenc;
-            Text = appName + Path.GetFileName(filePath);
+            Text = PublicVar.appName + " – " + Path.GetFileName(filePath);
             CustomRTB.Select(Convert.ToInt32(saveCaret), 0);
             PublicVar.encryptionKey.Set(TypedPassword.Value);
             TypedPassword.Value = null;
@@ -1053,7 +1052,7 @@ namespace Crypto_Notepad
             {
                 using (new CenterWinDialog(this))
                 {
-                    if (MessageBox.Show("Delete file: " + "\"" + filePath + "\"" + " ?", "Crypto Notepad", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Delete file: " + "\"" + filePath + "\"" + " ?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         File.Delete(filePath);
                         CustomRTB.Clear();
@@ -1063,8 +1062,7 @@ namespace Crypto_Notepad
                         ChangeKeyToolbarButton.Enabled = false;
                         LockToolbarButton.Enabled = false;
                         filePath = "";
-                        currentFilename = "Unnamed.cnp";
-                        Text = appName.Remove(14);
+                        Text = PublicVar.appName;
                         return;
                     }
                 }
