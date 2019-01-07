@@ -1469,17 +1469,20 @@ namespace Crypto_Notepad
         private void MainVariablesToolStripMenuItem_Click(object sender, EventArgs e)
         {
 #if DEBUG
-            Debug.WriteLine("\ncurrentFilename: " + currentFilename);
+            var time = DateTime.Now;
+            string formattedTime = time.ToString("yyyy.MM.dd hh:mm:ss");
+
+            Debug.WriteLine("\nTime: " + formattedTime);
+            Debug.WriteLine("PublicVar.openFileName: " + PublicVar.openFileName);
+            Debug.WriteLine("filePath: " + filePath);
             Debug.WriteLine("encryptionKey: " + PublicVar.encryptionKey.Get());
             Debug.WriteLine("TypedPassword: " + TypedPassword.Value);
-            Debug.WriteLine("filePath: " + filePath);
-            Debug.WriteLine("cancelPressed: " + cancelPressed);
             Debug.WriteLine("noExit: " + noExit);
             Debug.WriteLine("keyChanged: " + PublicVar.keyChanged);
             Debug.WriteLine("settingsChanged: " + PublicVar.settingsChanged);
             Debug.WriteLine("okPressed: " + PublicVar.okPressed);
             Debug.WriteLine("CustomRTB.Modified: " + CustomRTB.Modified);
-#endif      
+#endif
         }
         /*Debug Menu*/
 
