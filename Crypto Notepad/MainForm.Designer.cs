@@ -89,8 +89,8 @@
             this.chkMatchCase = new System.Windows.Forms.CheckBox();
             this.chkMatchWholeWord = new System.Windows.Forms.CheckBox();
             this.SearchPanel = new System.Windows.Forms.Panel();
+            this.CloseSearchPanel = new System.Windows.Forms.PictureBox();
             this.ToolbarPanel = new System.Windows.Forms.Panel();
-            this.MenuToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.CloseToolbar = new System.Windows.Forms.PictureBox();
             this.LockToolbarButton = new System.Windows.Forms.PictureBox();
             this.SettingsToolbarButton = new System.Windows.Forms.PictureBox();
@@ -103,11 +103,12 @@
             this.FileLocationToolbarButton = new System.Windows.Forms.PictureBox();
             this.SaveToolBarButton = new System.Windows.Forms.PictureBox();
             this.OpenToolbarButton = new System.Windows.Forms.PictureBox();
-            this.CloseSearchPanel = new System.Windows.Forms.PictureBox();
+            this.MenuToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.CustomRTB = new Crypto_Notepad.CustomRichTextBox();
             this.MainMenu.SuspendLayout();
             this.EditorMenuStrip.SuspendLayout();
             this.SearchPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseSearchPanel)).BeginInit();
             this.ToolbarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseToolbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LockToolbarButton)).BeginInit();
@@ -121,7 +122,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.FileLocationToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SaveToolBarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenToolbarButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseSearchPanel)).BeginInit();
             this.SuspendLayout();
             // 
             // MainMenu
@@ -445,7 +445,8 @@
             // MainVariablesToolStripMenuItem
             // 
             this.MainVariablesToolStripMenuItem.Name = "MainVariablesToolStripMenuItem";
-            this.MainVariablesToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.MainVariablesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Space)));
+            this.MainVariablesToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.MainVariablesToolStripMenuItem.Text = "Main variables";
             this.MainVariablesToolStripMenuItem.Click += new System.EventHandler(this.MainVariablesToolStripMenuItem_Click);
             // 
@@ -640,6 +641,21 @@
             this.SearchPanel.TabIndex = 13;
             this.SearchPanel.Visible = false;
             // 
+            // CloseSearchPanel
+            // 
+            this.CloseSearchPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseSearchPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseSearchPanel.Image = ((System.Drawing.Image)(resources.GetObject("CloseSearchPanel.Image")));
+            this.CloseSearchPanel.Location = new System.Drawing.Point(514, 5);
+            this.CloseSearchPanel.Name = "CloseSearchPanel";
+            this.CloseSearchPanel.Size = new System.Drawing.Size(14, 14);
+            this.CloseSearchPanel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CloseSearchPanel.TabIndex = 14;
+            this.CloseSearchPanel.TabStop = false;
+            this.CloseSearchPanel.Click += new System.EventHandler(this.CloseSearchPanel_Click);
+            this.CloseSearchPanel.MouseLeave += new System.EventHandler(this.CloseSearchPanel_MouseLeave);
+            this.CloseSearchPanel.MouseHover += new System.EventHandler(this.CloseSearchPanel_MouseHover);
+            // 
             // ToolbarPanel
             // 
             this.ToolbarPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -677,12 +693,12 @@
             this.CloseToolbar.MouseEnter += new System.EventHandler(this.CloseToolbar_MouseEnter);
             this.CloseToolbar.MouseLeave += new System.EventHandler(this.CloseToolbar_MouseLeave);
             // 
-            // AutoLockToolbarButton
+            // LockToolbarButton
             // 
             this.LockToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LockToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("AutoLockToolbarButton.Image")));
-            this.LockToolbarButton.Location = new System.Drawing.Point(260, 3);
-            this.LockToolbarButton.Name = "AutoLockToolbarButton";
+            this.LockToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("LockToolbarButton.Image")));
+            this.LockToolbarButton.Location = new System.Drawing.Point(235, 3);
+            this.LockToolbarButton.Name = "LockToolbarButton";
             this.LockToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.LockToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.LockToolbarButton.TabIndex = 15;
@@ -694,7 +710,7 @@
             // 
             this.SettingsToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SettingsToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("SettingsToolbarButton.Image")));
-            this.SettingsToolbarButton.Location = new System.Drawing.Point(235, 3);
+            this.SettingsToolbarButton.Location = new System.Drawing.Point(260, 3);
             this.SettingsToolbarButton.Name = "SettingsToolbarButton";
             this.SettingsToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.SettingsToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -820,21 +836,6 @@
             this.MenuToolTip.SetToolTip(this.OpenToolbarButton, "Open");
             this.OpenToolbarButton.Click += new System.EventHandler(this.OpenToolbarButton_Click);
             // 
-            // CloseSearchPanel
-            // 
-            this.CloseSearchPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CloseSearchPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseSearchPanel.Image = ((System.Drawing.Image)(resources.GetObject("CloseSearchPanel.Image")));
-            this.CloseSearchPanel.Location = new System.Drawing.Point(514, 5);
-            this.CloseSearchPanel.Name = "CloseSearchPanel";
-            this.CloseSearchPanel.Size = new System.Drawing.Size(14, 14);
-            this.CloseSearchPanel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.CloseSearchPanel.TabIndex = 14;
-            this.CloseSearchPanel.TabStop = false;
-            this.CloseSearchPanel.Click += new System.EventHandler(this.CloseSearchPanel_Click);
-            this.CloseSearchPanel.MouseLeave += new System.EventHandler(this.CloseSearchPanel_MouseLeave);
-            this.CloseSearchPanel.MouseHover += new System.EventHandler(this.CloseSearchPanel_MouseHover);
-            // 
             // CustomRTB
             // 
             this.CustomRTB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -884,6 +885,7 @@
             this.EditorMenuStrip.ResumeLayout(false);
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseSearchPanel)).EndInit();
             this.ToolbarPanel.ResumeLayout(false);
             this.ToolbarPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseToolbar)).EndInit();
@@ -898,7 +900,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.FileLocationToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SaveToolBarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenToolbarButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseSearchPanel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
