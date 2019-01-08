@@ -58,7 +58,7 @@ namespace Crypto_Notepad
                 ps.Save();
                 PublicVar.settingsChanged = true;
 
-                this.Hide();
+                Hide();
             }
 
             if (value == "default")
