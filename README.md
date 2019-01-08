@@ -14,10 +14,10 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 * Including all the features of the default Windows Notepad
 * Integrate with windows context menu
 * Drag and Drop support
-* Detect url and email links
+* Detecting links in editor
 * Сustomizable editor 
 * Сustomizable encryption options (hash algorithm, key size, password iterations)  
-* Associate with the application extension
+* Associate own file type with application
 * Portable
 
 ## System requirements
