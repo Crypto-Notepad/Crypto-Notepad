@@ -1,9 +1,10 @@
-# Crypto Notepad
-[![downloads](https://img.shields.io/github/downloads/Crypto-Notepad/Crypto-Notepad/total.svg?&colorB=lightgrey)](https://github.com/Crypto-Notepad/Crypto-Notepad/releases/latest)
+# Crypto Notepad [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Simple%20notepad%20for%20Windows%20with%20encryption%20features.%20Download%20for%20free:%20https://crypto-notepad.info/&hashtags=notepad,encryption,windows,opensource,csharp)
+
+[![downloads](https://img.shields.io/github/downloads/Crypto-Notepad/Crypto-Notepad/total.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/releases/latest)
 [![license](https://img.shields.io/github/license/Crypto-Notepad/Crypto-Notepad.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/blob/master/LICENSE)
 [![release](https://img.shields.io/github/release/Crypto-Notepad/Crypto-Notepad.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Release-Notes)
 [![documentation](https://img.shields.io/badge/documentation-wiki-yellowgreen.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Documentation)
-[![status](https://img.shields.io/badge/project_status-suspended-red.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Project-status)
+[![status](https://img.shields.io/badge/project_status-active-green.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Project-status)
 
 Notepad-like simple text editor for Windows, where files are saved and loaded encrypted with AES algorithms.
 
@@ -14,10 +15,10 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 * Including all the features of the default Windows Notepad
 * Integrate with windows context menu
 * Drag and Drop support
-* Detect url and email links
+* Detecting links in editor
 * Сustomizable editor 
 * Сustomizable encryption options (hash algorithm, key size, password iterations)  
-* Associate with the application extension
+* Associate own file type with application
 * Portable
 
 ## System requirements
