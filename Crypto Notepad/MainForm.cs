@@ -843,15 +843,6 @@ namespace Crypto_Notepad
             }
         }
 
-        private void CustomRTB_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void CustomRTB_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         /*CustomRTB Events*/
 
 
