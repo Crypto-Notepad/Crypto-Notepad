@@ -1,4 +1,4 @@
-﻿using IWshRuntimeLibrary;
+using IWshRuntimeLibrary;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -719,6 +719,11 @@ namespace Crypto_Notepad
 
             MenuIcons();
             DeleteUpdateFiles();
+
+            if (args.Length > 1) /*drag & drop to executable*/
+            {
+                OpenAsotiations();
+            }
 
             if (args.Contains("/s")) /*send to*/
             {
