@@ -675,6 +675,11 @@ namespace Crypto_Notepad
             ps.Save();
             SaveConfirm(true);
 
+            if (CustomRTB.Text == "")
+            {
+                noExit = false;
+            }
+
             if (noExit)
             {
                 e.Cancel = true;
