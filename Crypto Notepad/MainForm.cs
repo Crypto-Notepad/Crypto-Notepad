@@ -765,7 +765,7 @@ namespace Crypto_Notepad
 
 
         /*CustomRTB Events*/
-        private void CustomRTB_SelectionChanged_1(object sender, EventArgs e)
+        private void CustomRTB_SelectionChanged(object sender, EventArgs e)
         {
             if (CustomRTB.SelectionLength != 0)
             {
@@ -1481,6 +1481,8 @@ namespace Crypto_Notepad
             Debug.WriteLine("settingsChanged: " + PublicVar.settingsChanged);
             Debug.WriteLine("okPressed: " + PublicVar.okPressed);
             Debug.WriteLine("CustomRTB.Modified: " + CustomRTB.Modified);
+            Debug.WriteLine("EditorMenuStrip: " + EditorMenuStrip.Enabled);
+
 #endif
         }
         /*Debug Menu*/
