@@ -79,12 +79,9 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.SelectAllEditorMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.RightToLeftEditorMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.ClearEditorMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenFile = new System.Windows.Forms.OpenFileDialog();
             this.SaveFile = new System.Windows.Forms.SaveFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.chkMatchCase = new System.Windows.Forms.CheckBox();
             this.chkMatchWholeWord = new System.Windows.Forms.CheckBox();
@@ -103,7 +100,6 @@
             this.FileLocationToolbarButton = new System.Windows.Forms.PictureBox();
             this.SaveToolBarButton = new System.Windows.Forms.PictureBox();
             this.OpenToolbarButton = new System.Windows.Forms.PictureBox();
-            this.MenuToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.CustomRTB = new Crypto_Notepad.CustomRichTextBox();
             this.MainMenu.SuspendLayout();
             this.EditorMenuStrip.SuspendLayout();
@@ -126,6 +122,7 @@
             // 
             // MainMenu
             // 
+            this.MainMenu.BackColor = System.Drawing.SystemColors.Control;
             this.MainMenu.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileToolStripMenuItem,
@@ -136,8 +133,7 @@
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.Padding = new System.Windows.Forms.Padding(0);
-            this.MainMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.MainMenu.Size = new System.Drawing.Size(535, 24);
+            this.MainMenu.Size = new System.Drawing.Size(513, 24);
             this.MainMenu.TabIndex = 0;
             this.MainMenu.Text = "menuStrip1";
             // 
@@ -154,6 +150,7 @@
             this.DeleteFileToolStripMenuItem,
             this.toolStripSeparator2,
             this.ExitToolStripMenuItem});
+            this.FileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
             this.FileToolStripMenuItem.Size = new System.Drawing.Size(36, 24);
             this.FileToolStripMenuItem.Text = "File";
@@ -246,6 +243,7 @@
             this.WordWrapToolStripMenuItem,
             this.toolStripSeparator5,
             this.ClearToolStripMenuItem});
+            this.EditToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
             this.EditToolStripMenuItem.Size = new System.Drawing.Size(40, 24);
             this.EditToolStripMenuItem.Text = "Edit";
@@ -363,6 +361,7 @@
             this.ChangeKeyToolStripMenuItem,
             this.LockToolStripMenuItem,
             this.SettingsToolStripMenuItem});
+            this.ToolsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem";
             this.ToolsToolStripMenuItem.Size = new System.Drawing.Size(48, 24);
             this.ToolsToolStripMenuItem.Text = "Tools";
@@ -401,6 +400,7 @@
             this.CheckForUpdatesToolStripMenuItem,
             this.toolStripSeparator10,
             this.AboutToolStripMenuItem});
+            this.HelpToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem";
             this.HelpToolStripMenuItem.Size = new System.Drawing.Size(43, 24);
             this.HelpToolStripMenuItem.Text = "Help";
@@ -422,12 +422,15 @@
             // 
             // toolStripSeparator10
             // 
+            this.toolStripSeparator10.ForeColor = System.Drawing.SystemColors.ControlText;
             this.toolStripSeparator10.Name = "toolStripSeparator10";
             this.toolStripSeparator10.Size = new System.Drawing.Size(184, 6);
             // 
             // AboutToolStripMenuItem
             // 
+            this.AboutToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
+            this.AboutToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.AboutToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.AboutToolStripMenuItem.Text = "About";
             this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
@@ -452,7 +455,8 @@
             // 
             // EditorMenuStrip
             // 
-            this.EditorMenuStrip.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditorMenuStrip.BackColor = System.Drawing.SystemColors.Control;
+            this.EditorMenuStrip.Font = new System.Drawing.Font("Tahoma", 9F);
             this.EditorMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.UndoEditorMenuStrip,
             this.RedoEditorMenuStrip,
@@ -464,88 +468,92 @@
             this.toolStripSeparator8,
             this.SelectAllEditorMenuStrip,
             this.RightToLeftEditorMenuStrip,
-            this.toolStripSeparator7,
             this.ClearEditorMenuStrip});
             this.EditorMenuStrip.Name = "contextMenuStrip1";
-            this.EditorMenuStrip.Size = new System.Drawing.Size(185, 220);
+            this.EditorMenuStrip.ShowImageMargin = false;
+            this.EditorMenuStrip.Size = new System.Drawing.Size(160, 214);
             this.EditorMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.EditorMenuStrip_Opening);
             // 
             // UndoEditorMenuStrip
             // 
+            this.UndoEditorMenuStrip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.UndoEditorMenuStrip.Name = "UndoEditorMenuStrip";
-            this.UndoEditorMenuStrip.Size = new System.Drawing.Size(184, 22);
+            this.UndoEditorMenuStrip.Size = new System.Drawing.Size(159, 22);
             this.UndoEditorMenuStrip.Text = "Undo";
             this.UndoEditorMenuStrip.Click += new System.EventHandler(this.UndoEditorMenuStrip_Click);
             // 
             // RedoEditorMenuStrip
             // 
+            this.RedoEditorMenuStrip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.RedoEditorMenuStrip.Name = "RedoEditorMenuStrip";
-            this.RedoEditorMenuStrip.Size = new System.Drawing.Size(184, 22);
+            this.RedoEditorMenuStrip.Size = new System.Drawing.Size(159, 22);
             this.RedoEditorMenuStrip.Text = "Redo";
             this.RedoEditorMenuStrip.Click += new System.EventHandler(this.RedoEditorMenuStrip_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(181, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(156, 6);
             // 
             // CutEditorMenuStrip
             // 
+            this.CutEditorMenuStrip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.CutEditorMenuStrip.Name = "CutEditorMenuStrip";
-            this.CutEditorMenuStrip.Size = new System.Drawing.Size(184, 22);
+            this.CutEditorMenuStrip.Size = new System.Drawing.Size(159, 22);
             this.CutEditorMenuStrip.Text = "Cut";
             this.CutEditorMenuStrip.Click += new System.EventHandler(this.CutEditorMenuStrip_Click);
             // 
             // CopyEditorMenuStrip
             // 
+            this.CopyEditorMenuStrip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.CopyEditorMenuStrip.Name = "CopyEditorMenuStrip";
-            this.CopyEditorMenuStrip.Size = new System.Drawing.Size(184, 22);
+            this.CopyEditorMenuStrip.Size = new System.Drawing.Size(159, 22);
             this.CopyEditorMenuStrip.Text = "Copy";
             this.CopyEditorMenuStrip.Click += new System.EventHandler(this.CopyEditorMenuStrip_Click);
             // 
             // PasteEditorMenuStrip
             // 
+            this.PasteEditorMenuStrip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.PasteEditorMenuStrip.Name = "PasteEditorMenuStrip";
-            this.PasteEditorMenuStrip.Size = new System.Drawing.Size(184, 22);
+            this.PasteEditorMenuStrip.Size = new System.Drawing.Size(159, 22);
             this.PasteEditorMenuStrip.Text = "Paste";
             this.PasteEditorMenuStrip.Click += new System.EventHandler(this.PasteEditorMenuStrip_Click);
             // 
             // DeleteEditorMenuStrip
             // 
+            this.DeleteEditorMenuStrip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.DeleteEditorMenuStrip.Name = "DeleteEditorMenuStrip";
-            this.DeleteEditorMenuStrip.Size = new System.Drawing.Size(184, 22);
+            this.DeleteEditorMenuStrip.Size = new System.Drawing.Size(159, 22);
             this.DeleteEditorMenuStrip.Text = "Delete";
             this.DeleteEditorMenuStrip.Click += new System.EventHandler(this.DeleteEditorMenuStrip_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(181, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(156, 6);
             // 
             // SelectAllEditorMenuStrip
             // 
+            this.SelectAllEditorMenuStrip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SelectAllEditorMenuStrip.Name = "SelectAllEditorMenuStrip";
-            this.SelectAllEditorMenuStrip.Size = new System.Drawing.Size(184, 22);
+            this.SelectAllEditorMenuStrip.Size = new System.Drawing.Size(159, 22);
             this.SelectAllEditorMenuStrip.Text = "Select All";
             this.SelectAllEditorMenuStrip.Click += new System.EventHandler(this.SelectAllEditorMenuStrip_Click);
             // 
             // RightToLeftEditorMenuStrip
             // 
             this.RightToLeftEditorMenuStrip.CheckOnClick = true;
+            this.RightToLeftEditorMenuStrip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.RightToLeftEditorMenuStrip.Name = "RightToLeftEditorMenuStrip";
-            this.RightToLeftEditorMenuStrip.Size = new System.Drawing.Size(184, 22);
+            this.RightToLeftEditorMenuStrip.Size = new System.Drawing.Size(159, 22);
             this.RightToLeftEditorMenuStrip.Text = "Right-to-left reading";
             this.RightToLeftEditorMenuStrip.Click += new System.EventHandler(this.RightToLeftEditorMenuStrip_Click);
             // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(181, 6);
-            // 
             // ClearEditorMenuStrip
             // 
+            this.ClearEditorMenuStrip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ClearEditorMenuStrip.Name = "ClearEditorMenuStrip";
-            this.ClearEditorMenuStrip.Size = new System.Drawing.Size(184, 22);
+            this.ClearEditorMenuStrip.Size = new System.Drawing.Size(159, 22);
             this.ClearEditorMenuStrip.Text = "Clear";
             this.ClearEditorMenuStrip.Click += new System.EventHandler(this.ClearEditorMenuStrip_Click);
             // 
@@ -557,26 +565,6 @@
             // 
             this.SaveFile.Filter = "Crypto Notepad (*.cnp)|*.cnp";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(701, 151);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "ENC";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(701, 180);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "DEC";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            // 
             // SearchTextBox
             // 
             this.SearchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -587,7 +575,7 @@
             this.SearchTextBox.ForeColor = System.Drawing.Color.White;
             this.SearchTextBox.Location = new System.Drawing.Point(196, 6);
             this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(301, 14);
+            this.SearchTextBox.Size = new System.Drawing.Size(279, 14);
             this.SearchTextBox.TabIndex = 9;
             this.SearchTextBox.TabStop = false;
             this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
@@ -600,6 +588,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chkMatchCase.AutoSize = true;
             this.chkMatchCase.ForeColor = System.Drawing.Color.Gainsboro;
+            this.chkMatchCase.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.chkMatchCase.Location = new System.Drawing.Point(95, 5);
             this.chkMatchCase.Name = "chkMatchCase";
             this.chkMatchCase.Size = new System.Drawing.Size(95, 17);
@@ -616,6 +605,7 @@
             this.chkMatchWholeWord.AutoSize = true;
             this.chkMatchWholeWord.BackColor = System.Drawing.Color.Transparent;
             this.chkMatchWholeWord.ForeColor = System.Drawing.Color.Gainsboro;
+            this.chkMatchWholeWord.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.chkMatchWholeWord.Location = new System.Drawing.Point(6, 5);
             this.chkMatchWholeWord.Name = "chkMatchWholeWord";
             this.chkMatchWholeWord.Size = new System.Drawing.Size(83, 17);
@@ -626,18 +616,17 @@
             // 
             // SearchPanel
             // 
-            this.SearchPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
             this.SearchPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SearchPanel.Controls.Add(this.CloseSearchPanel);
             this.SearchPanel.Controls.Add(this.SearchTextBox);
             this.SearchPanel.Controls.Add(this.chkMatchCase);
             this.SearchPanel.Controls.Add(this.chkMatchWholeWord);
-            this.SearchPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SearchPanel.Location = new System.Drawing.Point(0, 272);
+            this.SearchPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.SearchPanel.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            this.SearchPanel.Location = new System.Drawing.Point(0, 291);
             this.SearchPanel.Name = "SearchPanel";
-            this.SearchPanel.Size = new System.Drawing.Size(535, 27);
+            this.SearchPanel.Size = new System.Drawing.Size(513, 27);
             this.SearchPanel.TabIndex = 13;
             this.SearchPanel.Visible = false;
             // 
@@ -646,7 +635,8 @@
             this.CloseSearchPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CloseSearchPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseSearchPanel.Image = ((System.Drawing.Image)(resources.GetObject("CloseSearchPanel.Image")));
-            this.CloseSearchPanel.Location = new System.Drawing.Point(514, 5);
+            this.CloseSearchPanel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.CloseSearchPanel.Location = new System.Drawing.Point(492, 5);
             this.CloseSearchPanel.Name = "CloseSearchPanel";
             this.CloseSearchPanel.Size = new System.Drawing.Size(14, 14);
             this.CloseSearchPanel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -658,8 +648,6 @@
             // 
             // ToolbarPanel
             // 
-            this.ToolbarPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.ToolbarPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ToolbarPanel.Controls.Add(this.CloseToolbar);
             this.ToolbarPanel.Controls.Add(this.LockToolbarButton);
@@ -673,9 +661,10 @@
             this.ToolbarPanel.Controls.Add(this.FileLocationToolbarButton);
             this.ToolbarPanel.Controls.Add(this.SaveToolBarButton);
             this.ToolbarPanel.Controls.Add(this.OpenToolbarButton);
-            this.ToolbarPanel.Location = new System.Drawing.Point(-1, 24);
+            this.ToolbarPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ToolbarPanel.Location = new System.Drawing.Point(0, 24);
             this.ToolbarPanel.Name = "ToolbarPanel";
-            this.ToolbarPanel.Size = new System.Drawing.Size(537, 23);
+            this.ToolbarPanel.Size = new System.Drawing.Size(513, 23);
             this.ToolbarPanel.TabIndex = 14;
             // 
             // CloseToolbar
@@ -683,7 +672,8 @@
             this.CloseToolbar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CloseToolbar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseToolbar.Image = global::Crypto_Notepad.Properties.Resources.close_g;
-            this.CloseToolbar.Location = new System.Drawing.Point(516, 5);
+            this.CloseToolbar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.CloseToolbar.Location = new System.Drawing.Point(492, 5);
             this.CloseToolbar.Name = "CloseToolbar";
             this.CloseToolbar.Size = new System.Drawing.Size(14, 14);
             this.CloseToolbar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -697,180 +687,174 @@
             // 
             this.LockToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LockToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("LockToolbarButton.Image")));
+            this.LockToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.LockToolbarButton.Location = new System.Drawing.Point(235, 3);
             this.LockToolbarButton.Name = "LockToolbarButton";
             this.LockToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.LockToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.LockToolbarButton.TabIndex = 15;
             this.LockToolbarButton.TabStop = false;
-            this.MenuToolTip.SetToolTip(this.LockToolbarButton, "Lock");
             this.LockToolbarButton.Click += new System.EventHandler(this.LockToolbarButton_Click);
             // 
             // SettingsToolbarButton
             // 
             this.SettingsToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SettingsToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("SettingsToolbarButton.Image")));
+            this.SettingsToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.SettingsToolbarButton.Location = new System.Drawing.Point(260, 3);
             this.SettingsToolbarButton.Name = "SettingsToolbarButton";
             this.SettingsToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.SettingsToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.SettingsToolbarButton.TabIndex = 15;
             this.SettingsToolbarButton.TabStop = false;
-            this.MenuToolTip.SetToolTip(this.SettingsToolbarButton, "Settings");
             this.SettingsToolbarButton.Click += new System.EventHandler(this.SettingsToolbarButton_Click);
             // 
             // NewToolbarButton
             // 
             this.NewToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NewToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("NewToolbarButton.Image")));
+            this.NewToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.NewToolbarButton.Location = new System.Drawing.Point(10, 3);
             this.NewToolbarButton.Name = "NewToolbarButton";
             this.NewToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.NewToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.NewToolbarButton.TabIndex = 15;
             this.NewToolbarButton.TabStop = false;
-            this.MenuToolTip.SetToolTip(this.NewToolbarButton, "New");
             this.NewToolbarButton.Click += new System.EventHandler(this.NewToolbarButton_Click);
             // 
             // ChangeKeyToolbarButton
             // 
             this.ChangeKeyToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChangeKeyToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("ChangeKeyToolbarButton.Image")));
+            this.ChangeKeyToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.ChangeKeyToolbarButton.Location = new System.Drawing.Point(210, 3);
             this.ChangeKeyToolbarButton.Name = "ChangeKeyToolbarButton";
             this.ChangeKeyToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.ChangeKeyToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.ChangeKeyToolbarButton.TabIndex = 15;
             this.ChangeKeyToolbarButton.TabStop = false;
-            this.MenuToolTip.SetToolTip(this.ChangeKeyToolbarButton, "Change Key");
             this.ChangeKeyToolbarButton.Click += new System.EventHandler(this.ChangeKeyToolbarButton_Click);
             // 
             // PasteToolbarButton
             // 
             this.PasteToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PasteToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("PasteToolbarButton.Image")));
+            this.PasteToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.PasteToolbarButton.Location = new System.Drawing.Point(185, 3);
             this.PasteToolbarButton.Name = "PasteToolbarButton";
             this.PasteToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.PasteToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.PasteToolbarButton.TabIndex = 15;
             this.PasteToolbarButton.TabStop = false;
-            this.MenuToolTip.SetToolTip(this.PasteToolbarButton, "Paste");
             this.PasteToolbarButton.Click += new System.EventHandler(this.PasteToolbarButton_Click);
             // 
             // CopyToolbarButton
             // 
             this.CopyToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CopyToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("CopyToolbarButton.Image")));
+            this.CopyToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.CopyToolbarButton.Location = new System.Drawing.Point(160, 3);
             this.CopyToolbarButton.Name = "CopyToolbarButton";
             this.CopyToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.CopyToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.CopyToolbarButton.TabIndex = 15;
             this.CopyToolbarButton.TabStop = false;
-            this.MenuToolTip.SetToolTip(this.CopyToolbarButton, "Copy");
             this.CopyToolbarButton.Click += new System.EventHandler(this.CopyToolbarButton_Click);
             // 
             // CutToolbarButton
             // 
             this.CutToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CutToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("CutToolbarButton.Image")));
+            this.CutToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.CutToolbarButton.Location = new System.Drawing.Point(135, 3);
             this.CutToolbarButton.Name = "CutToolbarButton";
             this.CutToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.CutToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.CutToolbarButton.TabIndex = 15;
             this.CutToolbarButton.TabStop = false;
-            this.MenuToolTip.SetToolTip(this.CutToolbarButton, "Cut");
             this.CutToolbarButton.Click += new System.EventHandler(this.CutToolbarButton_Click);
             // 
             // DeleteFileToolbarButton
             // 
             this.DeleteFileToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DeleteFileToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteFileToolbarButton.Image")));
+            this.DeleteFileToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.DeleteFileToolbarButton.Location = new System.Drawing.Point(110, 3);
             this.DeleteFileToolbarButton.Name = "DeleteFileToolbarButton";
             this.DeleteFileToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.DeleteFileToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.DeleteFileToolbarButton.TabIndex = 15;
             this.DeleteFileToolbarButton.TabStop = false;
-            this.MenuToolTip.SetToolTip(this.DeleteFileToolbarButton, "Delete File");
             this.DeleteFileToolbarButton.Click += new System.EventHandler(this.DeleteFileToolbarButton_Click);
             // 
             // FileLocationToolbarButton
             // 
             this.FileLocationToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FileLocationToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("FileLocationToolbarButton.Image")));
+            this.FileLocationToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.FileLocationToolbarButton.Location = new System.Drawing.Point(85, 3);
             this.FileLocationToolbarButton.Name = "FileLocationToolbarButton";
             this.FileLocationToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.FileLocationToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.FileLocationToolbarButton.TabIndex = 15;
             this.FileLocationToolbarButton.TabStop = false;
-            this.MenuToolTip.SetToolTip(this.FileLocationToolbarButton, "File Location");
             this.FileLocationToolbarButton.Click += new System.EventHandler(this.FileLocationToolbarButton_Click);
             // 
             // SaveToolBarButton
             // 
             this.SaveToolBarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SaveToolBarButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveToolBarButton.Image")));
+            this.SaveToolBarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.SaveToolBarButton.Location = new System.Drawing.Point(60, 3);
             this.SaveToolBarButton.Name = "SaveToolBarButton";
             this.SaveToolBarButton.Size = new System.Drawing.Size(16, 16);
             this.SaveToolBarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.SaveToolBarButton.TabIndex = 15;
             this.SaveToolBarButton.TabStop = false;
-            this.MenuToolTip.SetToolTip(this.SaveToolBarButton, "Save");
             this.SaveToolBarButton.Click += new System.EventHandler(this.SaveToolbarButton_Click);
             // 
             // OpenToolbarButton
             // 
             this.OpenToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OpenToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("OpenToolbarButton.Image")));
+            this.OpenToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.OpenToolbarButton.Location = new System.Drawing.Point(35, 3);
             this.OpenToolbarButton.Name = "OpenToolbarButton";
             this.OpenToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.OpenToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.OpenToolbarButton.TabIndex = 15;
             this.OpenToolbarButton.TabStop = false;
-            this.MenuToolTip.SetToolTip(this.OpenToolbarButton, "Open");
             this.OpenToolbarButton.Click += new System.EventHandler(this.OpenToolbarButton_Click);
             // 
             // CustomRTB
             // 
-            this.CustomRTB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CustomRTB.BackColor = System.Drawing.SystemColors.Window;
             this.CustomRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CustomRTB.ContextMenuStrip = this.EditorMenuStrip;
-            this.CustomRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CustomRTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CustomRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.CustomRTB.ForeColor = System.Drawing.SystemColors.WindowText;
             this.CustomRTB.Location = new System.Drawing.Point(0, 47);
             this.CustomRTB.Name = "CustomRTB";
-            this.CustomRTB.Size = new System.Drawing.Size(536, 252);
+            this.CustomRTB.Size = new System.Drawing.Size(513, 244);
             this.CustomRTB.TabIndex = 10;
             this.CustomRTB.Text = "";
             this.CustomRTB.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.СustomRTB_LinkClicked);
-            this.CustomRTB.SelectionChanged += new System.EventHandler(this.CustomRTB_SelectionChanged_1);
+            this.CustomRTB.SelectionChanged += new System.EventHandler(this.CustomRTB_SelectionChanged);
             this.CustomRTB.Click += new System.EventHandler(this.CustomRTB_Click);
-            this.CustomRTB.TextChanged += new System.EventHandler(this.CustomRTB_TextChanged);
             this.CustomRTB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CustomRTB_KeyDown);
-            this.CustomRTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CustomRTB_KeyPress);
             this.CustomRTB.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CustomRTB_KeyUp);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(535, 299);
-            this.Controls.Add(this.ToolbarPanel);
-            this.Controls.Add(this.SearchPanel);
+            this.ClientSize = new System.Drawing.Size(513, 318);
             this.Controls.Add(this.CustomRTB);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SearchPanel);
+            this.Controls.Add(this.ToolbarPanel);
             this.Controls.Add(this.MainMenu);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MainMenu;
             this.MinimumSize = new System.Drawing.Size(500, 300);
@@ -917,8 +901,6 @@
         private System.Windows.Forms.OpenFileDialog OpenFile;
         private System.Windows.Forms.SaveFileDialog SaveFile;
         private System.Windows.Forms.ToolStripMenuItem NewToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
-        public System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripMenuItem ToolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ClearToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OpenToolStripMenuItem;
@@ -946,7 +928,6 @@
         private System.Windows.Forms.ToolStripMenuItem DeleteEditorMenuStrip;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem SelectAllEditorMenuStrip;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem RightToLeftEditorMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem ClearEditorMenuStrip;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
@@ -981,6 +962,5 @@
         private System.Windows.Forms.ToolStripMenuItem RedoEditorMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem DebugToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MainVariablesToolStripMenuItem;
-        private System.Windows.Forms.ToolTip MenuToolTip;
     }
 }

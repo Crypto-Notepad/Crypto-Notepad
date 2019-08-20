@@ -34,10 +34,10 @@
             this.NewKeyLabel = new System.Windows.Forms.Label();
             this.AcceptButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.StatusLabel = new System.Windows.Forms.Label();
             this.KeysPictureBox = new System.Windows.Forms.PictureBox();
             this.EyePictureBox2 = new System.Windows.Forms.PictureBox();
             this.EyePictureBox1 = new System.Windows.Forms.PictureBox();
+            this.StatusLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KeysPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EyePictureBox2)).BeginInit();
@@ -106,18 +106,6 @@
             this.panel1.Size = new System.Drawing.Size(262, 75);
             this.panel1.TabIndex = 6;
             // 
-            // StatusLabel
-            // 
-            this.StatusLabel.AutoSize = true;
-            this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.StatusLabel.Location = new System.Drawing.Point(5, 87);
-            this.StatusLabel.Name = "StatusLabel";
-            this.StatusLabel.Size = new System.Drawing.Size(43, 16);
-            this.StatusLabel.TabIndex = 7;
-            this.StatusLabel.Text = "status";
-            this.StatusLabel.Visible = false;
-            // 
             // KeysPictureBox
             // 
             this.KeysPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -155,6 +143,18 @@
             this.EyePictureBox1.TabStop = false;
             this.EyePictureBox1.Click += new System.EventHandler(this.EyePictureBox1_Click);
             // 
+            // StatusLabel
+            // 
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.StatusLabel.Location = new System.Drawing.Point(5, 87);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(43, 16);
+            this.StatusLabel.TabIndex = 7;
+            this.StatusLabel.Text = "status";
+            this.StatusLabel.Visible = false;
+            // 
             // ChangeKeyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,7 +185,7 @@
         private System.Windows.Forms.TextBox NewKeyTextBox;
         private System.Windows.Forms.Label OldKeyLabel;
         private System.Windows.Forms.Label NewKeyLabel;
-        private System.Windows.Forms.Button AcceptButton;
+        private new System.Windows.Forms.Button AcceptButton;
         private System.Windows.Forms.PictureBox EyePictureBox1;
         private System.Windows.Forms.PictureBox EyePictureBox2;
         private System.Windows.Forms.Panel panel1;
