@@ -1,4 +1,4 @@
-﻿namespace Crypto_Notepad
+namespace Crypto_Notepad
 {
     partial class MainForm
     {
@@ -831,6 +831,7 @@
             // 
             // CustomRTB
             // 
+            this.CustomRTB.AcceptsTab = true;
             this.CustomRTB.BackColor = System.Drawing.SystemColors.Window;
             this.CustomRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CustomRTB.ContextMenuStrip = this.EditorMenuStrip;
