@@ -885,6 +885,20 @@ namespace Crypto_Notepad
                     }
                 }
             }
+            if (PublicVar.encryptionKey.Get() == null)
+            {
+                FileLocationToolbarButton.Enabled = false;
+                DeleteFileToolbarButton.Enabled = false;
+                ChangeKeyToolbarButton.Enabled = false;
+                LockToolbarButton.Enabled = false;
+            }
+            else
+            {
+                FileLocationToolbarButton.Enabled = true;
+                DeleteFileToolbarButton.Enabled = true;
+                ChangeKeyToolbarButton.Enabled = true;
+                LockToolbarButton.Enabled = true;
+            }
         }
 
         private void CustomRTB_KeyUp(object sender, KeyEventArgs e)
