@@ -76,6 +76,7 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -109,6 +110,9 @@
       <DependentUpon>CustomRichTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="EncryptedString.cs" />
+    <Compile Include="linenum_rtf.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

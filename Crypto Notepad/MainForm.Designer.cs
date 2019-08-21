@@ -101,6 +101,8 @@
             this.SaveToolBarButton = new System.Windows.Forms.PictureBox();
             this.OpenToolbarButton = new System.Windows.Forms.PictureBox();
             this.CustomRTB = new Crypto_Notepad.CustomRichTextBox();
+            this.LineNumbers_For_RichTextBox = new LineNumbers.LineNumbers_For_RichTextBox();
+            this.insertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.EditorMenuStrip.SuspendLayout();
             this.SearchPanel.SuspendLayout();
@@ -439,7 +441,8 @@
             // 
             this.DebugToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.DebugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MainVariablesToolStripMenuItem});
+            this.MainVariablesToolStripMenuItem,
+            this.insertToolStripMenuItem});
             this.DebugToolStripMenuItem.Name = "DebugToolStripMenuItem";
             this.DebugToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.DebugToolStripMenuItem.Text = "Debug";
@@ -673,7 +676,7 @@
             this.CloseToolbar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseToolbar.Image = global::Crypto_Notepad.Properties.Resources.close_g;
             this.CloseToolbar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CloseToolbar.Location = new System.Drawing.Point(492, 5);
+            this.CloseToolbar.Location = new System.Drawing.Point(497, 5);
             this.CloseToolbar.Name = "CloseToolbar";
             this.CloseToolbar.Size = new System.Drawing.Size(14, 14);
             this.CloseToolbar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -834,9 +837,9 @@
             this.CustomRTB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.CustomRTB.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.CustomRTB.Location = new System.Drawing.Point(0, 47);
+            this.CustomRTB.Location = new System.Drawing.Point(18, 47);
             this.CustomRTB.Name = "CustomRTB";
-            this.CustomRTB.Size = new System.Drawing.Size(513, 244);
+            this.CustomRTB.Size = new System.Drawing.Size(495, 244);
             this.CustomRTB.TabIndex = 10;
             this.CustomRTB.Text = "";
             this.CustomRTB.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.СustomRTB_LinkClicked);
@@ -845,12 +848,61 @@
             this.CustomRTB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CustomRTB_KeyDown);
             this.CustomRTB.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CustomRTB_KeyUp);
             // 
+            // LineNumbers_For_RichTextBox
+            // 
+            this.LineNumbers_For_RichTextBox._SeeThroughMode_ = false;
+            this.LineNumbers_For_RichTextBox.AutoSizing = true;
+            this.LineNumbers_For_RichTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.LineNumbers_For_RichTextBox.BackgroundGradient_AlphaColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.LineNumbers_For_RichTextBox.BackgroundGradient_BetaColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.LineNumbers_For_RichTextBox.BackgroundGradient_Direction = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            this.LineNumbers_For_RichTextBox.BorderLines_Color = System.Drawing.Color.Transparent;
+            this.LineNumbers_For_RichTextBox.BorderLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.LineNumbers_For_RichTextBox.BorderLines_Thickness = 1F;
+            this.LineNumbers_For_RichTextBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.LineNumbers_For_RichTextBox.DockSide = LineNumbers.LineNumbers_For_RichTextBox.LineNumberDockSide.Left;
+            this.LineNumbers_For_RichTextBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LineNumbers_For_RichTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LineNumbers_For_RichTextBox.GridLines_Color = System.Drawing.Color.Transparent;
+            this.LineNumbers_For_RichTextBox.GridLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.LineNumbers_For_RichTextBox.GridLines_Thickness = 1F;
+            this.LineNumbers_For_RichTextBox.LineNrs_Alignment = System.Drawing.ContentAlignment.TopCenter;
+            this.LineNumbers_For_RichTextBox.LineNrs_AntiAlias = true;
+            this.LineNumbers_For_RichTextBox.LineNrs_AsHexadecimal = false;
+            this.LineNumbers_For_RichTextBox.LineNrs_ClippedByItemRectangle = true;
+            this.LineNumbers_For_RichTextBox.LineNrs_LeadingZeroes = false;
+            this.LineNumbers_For_RichTextBox.LineNrs_Offset = new System.Drawing.Size(0, 0);
+            this.LineNumbers_For_RichTextBox.Location = new System.Drawing.Point(0, 47);
+            this.LineNumbers_For_RichTextBox.Margin = new System.Windows.Forms.Padding(0);
+            this.LineNumbers_For_RichTextBox.MarginLines_Color = System.Drawing.Color.Transparent;
+            this.LineNumbers_For_RichTextBox.MarginLines_Side = LineNumbers.LineNumbers_For_RichTextBox.LineNumberDockSide.Height;
+            this.LineNumbers_For_RichTextBox.MarginLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.LineNumbers_For_RichTextBox.MarginLines_Thickness = 1F;
+            this.LineNumbers_For_RichTextBox.Name = "LineNumbers_For_RichTextBox";
+            this.LineNumbers_For_RichTextBox.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.LineNumbers_For_RichTextBox.ParentRichTextBox = this.CustomRTB;
+            this.LineNumbers_For_RichTextBox.Show_BackgroundGradient = false;
+            this.LineNumbers_For_RichTextBox.Show_BorderLines = true;
+            this.LineNumbers_For_RichTextBox.Show_GridLines = true;
+            this.LineNumbers_For_RichTextBox.Show_LineNrs = true;
+            this.LineNumbers_For_RichTextBox.Show_MarginLines = false;
+            this.LineNumbers_For_RichTextBox.Size = new System.Drawing.Size(18, 244);
+            this.LineNumbers_For_RichTextBox.TabIndex = 15;
+            // 
+            // insertToolStripMenuItem
+            // 
+            this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
+            this.insertToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.insertToolStripMenuItem.Text = "Insert";
+            this.insertToolStripMenuItem.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 318);
             this.Controls.Add(this.CustomRTB);
+            this.Controls.Add(this.LineNumbers_For_RichTextBox);
             this.Controls.Add(this.SearchPanel);
             this.Controls.Add(this.ToolbarPanel);
             this.Controls.Add(this.MainMenu);
@@ -962,5 +1014,7 @@
         private System.Windows.Forms.ToolStripMenuItem RedoEditorMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem DebugToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MainVariablesToolStripMenuItem;
+        private LineNumbers.LineNumbers_For_RichTextBox LineNumbers_For_RichTextBox;
+        private System.Windows.Forms.ToolStripMenuItem insertToolStripMenuItem;
     }
 }

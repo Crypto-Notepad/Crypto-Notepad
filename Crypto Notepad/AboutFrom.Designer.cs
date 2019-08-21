@@ -170,10 +170,10 @@
             this.TPDRichTextBox.Location = new System.Drawing.Point(0, 181);
             this.TPDRichTextBox.Name = "TPDRichTextBox";
             this.TPDRichTextBox.ReadOnly = true;
-            this.TPDRichTextBox.RightMargin = 600;
+            this.TPDRichTextBox.RightMargin = 700;
             this.TPDRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
             this.TPDRichTextBox.ShowSelectionMargin = true;
-            this.TPDRichTextBox.Size = new System.Drawing.Size(398, 100);
+            this.TPDRichTextBox.Size = new System.Drawing.Size(400, 121);
             this.TPDRichTextBox.TabIndex = 8;
             this.TPDRichTextBox.TabStop = false;
             this.TPDRichTextBox.Text = resources.GetString("TPDRichTextBox.Text");
@@ -185,7 +185,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(398, 281);
+            this.ClientSize = new System.Drawing.Size(397, 302);
             this.Controls.Add(this.GithubLinkLabel);
             this.Controls.Add(this.LicenseLinkLabel);
             this.Controls.Add(this.AuthorLinkLabel);

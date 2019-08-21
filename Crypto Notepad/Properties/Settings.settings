@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+﻿<?xml version='1.0' encoding='utf-8'?>
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Crypto_Notepad.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
@@ -76,6 +76,33 @@
     </Setting>
     <Setting Name="ColoredToolbar" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LNVisible" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="LNBackgroundColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">53, 53, 53</Value>
+    </Setting>
+    <Setting Name="LNFontColorPanel" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">164, 164, 164</Value>
+    </Setting>
+    <Setting Name="BLShow" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="BLColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">164, 164, 164</Value>
+    </Setting>
+    <Setting Name="BLStyle" Provider="PortableSettingsProvider" Type="System.Drawing.Drawing2D.DashStyle" Scope="User">
+      <Value Profile="(Default)">Solid</Value>
+    </Setting>
+    <Setting Name="GLShow" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="GLColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">164, 164, 164</Value>
+    </Setting>
+    <Setting Name="GLStyle" Provider="PortableSettingsProvider" Type="System.Drawing.Drawing2D.DashStyle" Scope="User">
+      <Value Profile="(Default)">Solid</Value>
     </Setting>
     <Setting Name="InserKey" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">Enable</Value>

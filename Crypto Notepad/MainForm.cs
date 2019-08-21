@@ -1,4 +1,4 @@
-using IWshRuntimeLibrary;
+﻿using IWshRuntimeLibrary;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -591,6 +591,19 @@ namespace Crypto_Notepad
                 CustomRTB.BackColor = ps.RichBackColor;
                 BackColor = ps.RichBackColor;
 
+                LineNumbers_For_RichTextBox.Visible = bool.Parse(ps.LNVisible);
+                LineNumbers_For_RichTextBox.BackColor = ps.LNBackgroundColor;
+                LineNumbers_For_RichTextBox.ForeColor = ps.LNFontColorPanel;
+                LineNumbers_For_RichTextBox.Font = new Font(ps.RichTextFont, ps.RichTextSize);
+
+                LineNumbers_For_RichTextBox.Show_BorderLines = bool.Parse(ps.BLShow);
+                LineNumbers_For_RichTextBox.BorderLines_Color = ps.BLColor;
+                LineNumbers_For_RichTextBox.BorderLines_Style = ps.BLStyle;
+
+                LineNumbers_For_RichTextBox.Show_GridLines = bool.Parse(ps.GLShow);
+                LineNumbers_For_RichTextBox.GridLines_Color = ps.GLColor;
+                LineNumbers_For_RichTextBox.GridLines_Style = ps.GLStyle;
+
                 if (ps.InserKey == "Disable")
                 {
                     insertToolStripMenuItem.ShortcutKeys = Keys.Insert;
@@ -599,6 +612,7 @@ namespace Crypto_Notepad
                 {
                     insertToolStripMenuItem.ShortcutKeys = Keys.None;
                 }
+
                 if (ps.SendTo)
                 {
                     SendToShortcut();
@@ -705,6 +719,19 @@ namespace Crypto_Notepad
             WordWrapToolStripMenuItem.Checked = ps.MenuWrap;
             CustomRTB.WordWrap = ps.RichWrap;
             ToolbarPanel.Visible = ps.ShowToolbar;
+            LineNumbers_For_RichTextBox.Visible = bool.Parse(ps.LNVisible);
+            LineNumbers_For_RichTextBox.ForeColor = ps.LNFontColorPanel;
+            LineNumbers_For_RichTextBox.BackColor = ps.LNBackgroundColor;
+
+            LineNumbers_For_RichTextBox.Show_BorderLines = bool.Parse(ps.BLShow);
+            LineNumbers_For_RichTextBox.BorderLines_Color = ps.BLColor;
+            LineNumbers_For_RichTextBox.BorderLines_Style = ps.BLStyle;
+
+            LineNumbers_For_RichTextBox.Show_GridLines = bool.Parse(ps.GLShow);
+            LineNumbers_For_RichTextBox.GridLines_Color = ps.GLColor;
+            LineNumbers_For_RichTextBox.GridLines_Style = ps.GLStyle;
+
+            LineNumbers_For_RichTextBox.Font = new Font(ps.RichTextFont, ps.RichTextSize);
 
             if (ps.InserKey == "Disable")
             {

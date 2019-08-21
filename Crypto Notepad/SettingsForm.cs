@@ -1,6 +1,7 @@
 using Microsoft.Win32;
 using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -55,7 +56,53 @@ namespace Crypto_Notepad
                 ps.MenuIntegrate = IntegrateCheckBox.Checked;
                 ps.MenuIcons = MenuIconsCheckBox.Checked;
                 ps.ColoredToolbar = ToolbarColorCheckBox.Checked;
+                ps.LNVisible = LNVisibleComboBox.Text;
+                ps.LNBackgroundColor = LNBackgroundColorPanel.BackColor;
+                ps.LNFontColorPanel = LNFontColorPanel.BackColor;
+                ps.BLColor = BLColorPanel.BackColor;
+                ps.BLShow = BLShowСomboBox.Text;
+                ps.GLColor = GLColorPanel.BackColor;
+                ps.GLShow = GLShowComboBox.Text;
                 ps.InserKey = InserKeyComboBox.Text;
+
+                switch (BLStyleComboBox.Text)
+                {
+                    case "Solid":
+                        ps.BLStyle = DashStyle.Solid;
+                        break;
+                    case "Dash":
+                        ps.BLStyle = DashStyle.Dash;
+                        break;
+                    case "Dot":
+                        ps.BLStyle = DashStyle.Dot;
+                        break;
+                    case "DashDot":
+                        ps.BLStyle = DashStyle.DashDot;
+                        break;
+                    case "DashDotDot":
+                        ps.BLStyle = DashStyle.DashDotDot;
+                        break;
+                }
+
+                switch (GLStyleComboBox.Text)
+                {
+                    case "Solid":
+                        ps.GLStyle = DashStyle.Solid;
+                        break;
+                    case "Dash":
+                        ps.GLStyle = DashStyle.Dash;
+                        break;
+                    case "Dot":
+                        ps.GLStyle = DashStyle.Dot;
+                        break;
+                    case "DashDot":
+                        ps.GLStyle = DashStyle.DashDot;
+                        break;
+                    case "DashDotDot":
+                        ps.GLStyle = DashStyle.DashDotDot;
+                        break;
+                }
+
                 ps.Save();
                 PublicVar.settingsChanged = true;
 
@@ -78,6 +125,12 @@ namespace Crypto_Notepad
                 IntegrateCheckBox.Checked = false;
                 MenuIconsCheckBox.Checked = false;
                 ToolbarColorCheckBox.Checked = false;
+                LNVisibleComboBox.Text = "True";
+                LNBackgroundColorPanel.BackColor = Color.FromArgb(53, 53, 53);
+                LNFontColorPanel.BackColor = Color.FromArgb(164, 164, 164);
+                BLShowСomboBox.Text = "False";
+                BLColorPanel.BackColor = Color.FromArgb(164, 164, 164);
+                BLStyleComboBox.Text = "Solid";
                 InserKeyComboBox.Text = "Enable";
             }
         }
@@ -177,6 +230,15 @@ namespace Crypto_Notepad
             IntegrateCheckBox.Checked = ps.MenuIntegrate;
             MenuIconsCheckBox.Checked = ps.MenuIcons;
             ToolbarColorCheckBox.Checked = ps.ColoredToolbar;
+            LNVisibleComboBox.Text = ps.LNVisible;
+            LNBackgroundColorPanel.BackColor = ps.LNBackgroundColor;
+            LNFontColorPanel.BackColor = ps.LNFontColorPanel;
+            BLShowСomboBox.Text = ps.BLShow;
+            BLColorPanel.BackColor = ps.BLColor;
+            BLStyleComboBox.Text = ps.BLStyle.ToString();
+            GLShowComboBox.Text = ps.GLShow;
+            GLColorPanel.BackColor = ps.GLColor;
+            GLStyleComboBox.Text = ps.GLStyle.ToString();
             InserKeyComboBox.Text = ps.InserKey;
 
             if (!ps.ShowToolbar)
@@ -258,6 +320,47 @@ namespace Crypto_Notepad
                 ToolbarColorCheckBox.Enabled = true;
             }
         }
+
+        private void LNBackgroundColorPanel_Click(object sender, EventArgs e)
+        {
+            colorDialog1.Color = LNBackgroundColorPanel.BackColor;
+            using (new CenterWinDialog(this))
+            {
+                colorDialog1.ShowDialog();
+            }
+            LNBackgroundColorPanel.BackColor = colorDialog1.Color;
+        }
+
+        private void LNFontColorPanel_Click(object sender, EventArgs e)
+        {
+            colorDialog1.Color = LNFontColorPanel.BackColor;
+            using (new CenterWinDialog(this))
+            {
+                colorDialog1.ShowDialog();
+            }
+            LNFontColorPanel.BackColor = colorDialog1.Color;
+        }
+
+        private void BLColorPanel_Click(object sender, EventArgs e)
+        {
+            colorDialog1.Color = BLColorPanel.BackColor;
+            using (new CenterWinDialog(this))
+            {
+                colorDialog1.ShowDialog();
+            }
+            BLColorPanel.BackColor = colorDialog1.Color;
+        }
+
+        private void GLColorPanel_Click(object sender, EventArgs e)
+        {
+            colorDialog1.Color = GLColorPanel.BackColor;
+            using (new CenterWinDialog(this))
+            {
+                colorDialog1.ShowDialog();
+            }
+            GLColorPanel.BackColor = colorDialog1.Color;
+        }
+
         /*Settings Section*/
     }
 }
