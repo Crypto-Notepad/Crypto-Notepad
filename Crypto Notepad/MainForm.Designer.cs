@@ -853,6 +853,7 @@
             this.CustomRTB.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.СustomRTB_LinkClicked);
             this.CustomRTB.SelectionChanged += new System.EventHandler(this.CustomRTB_SelectionChanged);
             this.CustomRTB.Click += new System.EventHandler(this.CustomRTB_Click);
+            this.CustomRTB.TextChanged += new System.EventHandler(this.CustomRTB_TextChanged);
             this.CustomRTB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CustomRTB_KeyDown);
             this.CustomRTB.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CustomRTB_KeyUp);
             // 
