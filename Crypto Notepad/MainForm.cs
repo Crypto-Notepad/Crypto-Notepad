@@ -771,7 +771,7 @@ namespace Crypto_Notepad
             MenuIcons();
             DeleteUpdateFiles();
 
-            if (args.Length > 1) /*drag & drop to executable*/
+            if (args.Length == 2) /*drag & drop to executable*/
             {
                 OpenAsotiations();
             }
