@@ -1,4 +1,4 @@
-﻿namespace Crypto_Notepad
+namespace Crypto_Notepad
 {
     partial class SettingsForm
     {
@@ -66,6 +66,8 @@
             this.HashLabel = new System.Windows.Forms.Label();
             this.ResetSettingsButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.InsertKeyLabel = new System.Windows.Forms.Label();
+            this.InserKeyComboBox = new System.Windows.Forms.ComboBox();
             this.SettingsTabControl.SuspendLayout();
             this.EditorTabPage.SuspendLayout();
             this.ApplicationTabPage.SuspendLayout();
@@ -468,6 +470,26 @@
             this.ResetSettingsButton.UseVisualStyleBackColor = true;
             this.ResetSettingsButton.Click += new System.EventHandler(this.ResetSettingsButton_Click);
             // 
+            // InsertKeyLabel
+            // 
+            this.InsertKeyLabel.AutoSize = true;
+            this.InsertKeyLabel.Location = new System.Drawing.Point(9, 165);
+            this.InsertKeyLabel.Name = "InsertKeyLabel";
+            this.InsertKeyLabel.Size = new System.Drawing.Size(58, 15);
+            this.InsertKeyLabel.TabIndex = 13;
+            this.InsertKeyLabel.Text = "Insert key";
+            // 
+            // InserKeyComboBox
+            // 
+            this.InserKeyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.InserKeyComboBox.FormattingEnabled = true;
+            this.InserKeyComboBox.Items.AddRange(new object[] {
+            "Enable",
+            "Disable"});
+            this.InserKeyComboBox.Location = new System.Drawing.Point(137, 165);
+            this.InserKeyComboBox.Name = "InserKeyComboBox";
+            this.InserKeyComboBox.Size = new System.Drawing.Size(100, 23);
+            this.InserKeyComboBox.TabIndex = 14;
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -535,5 +557,6 @@
         private System.Windows.Forms.CheckBox MenuIconsCheckBox;
         private System.Windows.Forms.TabPage IntegrationTabPage;
         private System.Windows.Forms.CheckBox ToolbarColorCheckBox;
+        private System.Windows.Forms.Label InsertKeyLabel;
     }
 }

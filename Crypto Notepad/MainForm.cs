@@ -591,6 +591,14 @@ namespace Crypto_Notepad
                 CustomRTB.BackColor = ps.RichBackColor;
                 BackColor = ps.RichBackColor;
 
+                if (ps.InserKey == "Disable")
+                {
+                    insertToolStripMenuItem.ShortcutKeys = Keys.Insert;
+                }
+                else
+                {
+                    insertToolStripMenuItem.ShortcutKeys = Keys.None;
+                }
                 if (ps.SendTo)
                 {
                     SendToShortcut();
@@ -698,6 +706,14 @@ namespace Crypto_Notepad
             CustomRTB.WordWrap = ps.RichWrap;
             ToolbarPanel.Visible = ps.ShowToolbar;
 
+            if (ps.InserKey == "Disable")
+            {
+                insertToolStripMenuItem.ShortcutKeys = Keys.Insert;
+            }
+            else
+            {
+                insertToolStripMenuItem.ShortcutKeys = Keys.None;
+            }
             if (ps.ColoredToolbar)
             {
                 ToolbarPanel.BackColor = ps.RichBackColor;

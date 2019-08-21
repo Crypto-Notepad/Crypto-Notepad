@@ -1,4 +1,4 @@
-﻿using Microsoft.Win32;
+using Microsoft.Win32;
 using System;
 using System.Drawing;
 using System.Reflection;
@@ -55,6 +55,7 @@ namespace Crypto_Notepad
                 ps.MenuIntegrate = IntegrateCheckBox.Checked;
                 ps.MenuIcons = MenuIconsCheckBox.Checked;
                 ps.ColoredToolbar = ToolbarColorCheckBox.Checked;
+                ps.InserKey = InserKeyComboBox.Text;
                 ps.Save();
                 PublicVar.settingsChanged = true;
 
@@ -77,6 +78,7 @@ namespace Crypto_Notepad
                 IntegrateCheckBox.Checked = false;
                 MenuIconsCheckBox.Checked = false;
                 ToolbarColorCheckBox.Checked = false;
+                InserKeyComboBox.Text = "Enable";
             }
         }
 
@@ -175,6 +177,7 @@ namespace Crypto_Notepad
             IntegrateCheckBox.Checked = ps.MenuIntegrate;
             MenuIconsCheckBox.Checked = ps.MenuIcons;
             ToolbarColorCheckBox.Checked = ps.ColoredToolbar;
+            InserKeyComboBox.Text = ps.InserKey;
 
             if (!ps.ShowToolbar)
             {
