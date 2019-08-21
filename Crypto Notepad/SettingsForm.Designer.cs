@@ -1,4 +1,4 @@
-namespace Crypto_Notepad
+﻿namespace Crypto_Notepad
 {
     partial class SettingsForm
     {
@@ -86,7 +86,6 @@ namespace Crypto_Notepad
             this.KeySizeLabel = new System.Windows.Forms.Label();
             this.HashLabel = new System.Windows.Forms.Label();
             this.ResetSettingsButton = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SettingsTabControl.SuspendLayout();
             this.MainTabPage.SuspendLayout();
             this.LineNumbersGroupBox.SuspendLayout();
@@ -805,7 +804,6 @@ namespace Crypto_Notepad
         private System.Windows.Forms.Button ResetSettingsButton;
         private System.Windows.Forms.CheckBox ToolbarCheckBox;
         private System.Windows.Forms.CheckBox AutoLockCheckBox;
-        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.CheckBox AutoSaveCheckBox;
         private System.Windows.Forms.CheckBox SendToCheckBox;
         private System.Windows.Forms.CheckBox IntegrateCheckBox;
