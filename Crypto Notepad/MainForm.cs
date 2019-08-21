@@ -1,4 +1,4 @@
-﻿using IWshRuntimeLibrary;
+using IWshRuntimeLibrary;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -70,6 +70,7 @@ namespace Crypto_Notepad
                 PublicVar.openFileName = Path.GetFileName(OpenFile.FileName);
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
                 TypedPassword.Value = null;
+                LineNumbers_For_RichTextBox.Refresh();
             }
             catch (CryptographicException)
             {
@@ -474,7 +475,7 @@ namespace Crypto_Notepad
                 return;
             }
             PublicVar.okPressed = false;
-
+            LineNumbers_For_RichTextBox.Refresh();
             try
             {
                 CustomRTB.Clear();
@@ -511,6 +512,8 @@ namespace Crypto_Notepad
                     }
                 }
             }
+
+            LineNumbers_For_RichTextBox.Refresh();
         }
 
         protected override void WndProc(ref Message m)
@@ -656,8 +659,6 @@ namespace Crypto_Notepad
                     ToolbarPanel.BackColor = SystemColors.ButtonFace;
                     ToolbarPanel.BorderStyle = BorderStyle.None;
                 }
-
-                LineNumbers_For_RichTextBox.Refresh();
             }
 
             if (PublicVar.keyChanged)
@@ -679,6 +680,7 @@ namespace Crypto_Notepad
                 ChangeKeyToolbarButton.Enabled = true;
                 LockToolbarButton.Enabled = true;
             }
+            LineNumbers_For_RichTextBox.Refresh();
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -985,6 +987,7 @@ namespace Crypto_Notepad
                     LockToolbarButton.Enabled = true;
                 }
             }
+            LineNumbers_For_RichTextBox.Refresh();
         }
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1525,6 +1528,11 @@ namespace Crypto_Notepad
             Debug.WriteLine("EditorMenuStrip: " + EditorMenuStrip.Enabled);
 
 #endif
+        }
+
+        private void CustomRTB_TextChanged(object sender, EventArgs e)
+        {
+            LineNumbers_For_RichTextBox.Refresh();
         }
 
         /*Debug Menu*/
