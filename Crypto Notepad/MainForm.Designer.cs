@@ -480,15 +480,14 @@
             this.RightToLeftEditorMenuStrip,
             this.ClearEditorMenuStrip});
             this.EditorMenuStrip.Name = "contextMenuStrip1";
-            this.EditorMenuStrip.ShowImageMargin = false;
-            this.EditorMenuStrip.Size = new System.Drawing.Size(160, 214);
+            this.EditorMenuStrip.Size = new System.Drawing.Size(185, 214);
             this.EditorMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.EditorMenuStrip_Opening);
             // 
             // UndoEditorMenuStrip
             // 
             this.UndoEditorMenuStrip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.UndoEditorMenuStrip.Name = "UndoEditorMenuStrip";
-            this.UndoEditorMenuStrip.Size = new System.Drawing.Size(159, 22);
+            this.UndoEditorMenuStrip.Size = new System.Drawing.Size(184, 22);
             this.UndoEditorMenuStrip.Text = "Undo";
             this.UndoEditorMenuStrip.Click += new System.EventHandler(this.UndoEditorMenuStrip_Click);
             // 
@@ -496,20 +495,20 @@
             // 
             this.RedoEditorMenuStrip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.RedoEditorMenuStrip.Name = "RedoEditorMenuStrip";
-            this.RedoEditorMenuStrip.Size = new System.Drawing.Size(159, 22);
+            this.RedoEditorMenuStrip.Size = new System.Drawing.Size(184, 22);
             this.RedoEditorMenuStrip.Text = "Redo";
             this.RedoEditorMenuStrip.Click += new System.EventHandler(this.RedoEditorMenuStrip_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(156, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(181, 6);
             // 
             // CutEditorMenuStrip
             // 
             this.CutEditorMenuStrip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.CutEditorMenuStrip.Name = "CutEditorMenuStrip";
-            this.CutEditorMenuStrip.Size = new System.Drawing.Size(159, 22);
+            this.CutEditorMenuStrip.Size = new System.Drawing.Size(184, 22);
             this.CutEditorMenuStrip.Text = "Cut";
             this.CutEditorMenuStrip.Click += new System.EventHandler(this.CutEditorMenuStrip_Click);
             // 
@@ -517,7 +516,7 @@
             // 
             this.CopyEditorMenuStrip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.CopyEditorMenuStrip.Name = "CopyEditorMenuStrip";
-            this.CopyEditorMenuStrip.Size = new System.Drawing.Size(159, 22);
+            this.CopyEditorMenuStrip.Size = new System.Drawing.Size(184, 22);
             this.CopyEditorMenuStrip.Text = "Copy";
             this.CopyEditorMenuStrip.Click += new System.EventHandler(this.CopyEditorMenuStrip_Click);
             // 
@@ -525,7 +524,7 @@
             // 
             this.PasteEditorMenuStrip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.PasteEditorMenuStrip.Name = "PasteEditorMenuStrip";
-            this.PasteEditorMenuStrip.Size = new System.Drawing.Size(159, 22);
+            this.PasteEditorMenuStrip.Size = new System.Drawing.Size(184, 22);
             this.PasteEditorMenuStrip.Text = "Paste";
             this.PasteEditorMenuStrip.Click += new System.EventHandler(this.PasteEditorMenuStrip_Click);
             // 
@@ -533,20 +532,20 @@
             // 
             this.DeleteEditorMenuStrip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.DeleteEditorMenuStrip.Name = "DeleteEditorMenuStrip";
-            this.DeleteEditorMenuStrip.Size = new System.Drawing.Size(159, 22);
+            this.DeleteEditorMenuStrip.Size = new System.Drawing.Size(184, 22);
             this.DeleteEditorMenuStrip.Text = "Delete";
             this.DeleteEditorMenuStrip.Click += new System.EventHandler(this.DeleteEditorMenuStrip_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(156, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(181, 6);
             // 
             // SelectAllEditorMenuStrip
             // 
             this.SelectAllEditorMenuStrip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SelectAllEditorMenuStrip.Name = "SelectAllEditorMenuStrip";
-            this.SelectAllEditorMenuStrip.Size = new System.Drawing.Size(159, 22);
+            this.SelectAllEditorMenuStrip.Size = new System.Drawing.Size(184, 22);
             this.SelectAllEditorMenuStrip.Text = "Select All";
             this.SelectAllEditorMenuStrip.Click += new System.EventHandler(this.SelectAllEditorMenuStrip_Click);
             // 
@@ -555,7 +554,7 @@
             this.RightToLeftEditorMenuStrip.CheckOnClick = true;
             this.RightToLeftEditorMenuStrip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.RightToLeftEditorMenuStrip.Name = "RightToLeftEditorMenuStrip";
-            this.RightToLeftEditorMenuStrip.Size = new System.Drawing.Size(159, 22);
+            this.RightToLeftEditorMenuStrip.Size = new System.Drawing.Size(184, 22);
             this.RightToLeftEditorMenuStrip.Text = "Right-to-left reading";
             this.RightToLeftEditorMenuStrip.Click += new System.EventHandler(this.RightToLeftEditorMenuStrip_Click);
             // 
@@ -563,7 +562,7 @@
             // 
             this.ClearEditorMenuStrip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ClearEditorMenuStrip.Name = "ClearEditorMenuStrip";
-            this.ClearEditorMenuStrip.Size = new System.Drawing.Size(159, 22);
+            this.ClearEditorMenuStrip.Size = new System.Drawing.Size(184, 22);
             this.ClearEditorMenuStrip.Text = "Clear";
             this.ClearEditorMenuStrip.Click += new System.EventHandler(this.ClearEditorMenuStrip_Click);
             // 
@@ -646,7 +645,7 @@
             this.CloseSearchPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseSearchPanel.Image = ((System.Drawing.Image)(resources.GetObject("CloseSearchPanel.Image")));
             this.CloseSearchPanel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CloseSearchPanel.Location = new System.Drawing.Point(492, 5);
+            this.CloseSearchPanel.Location = new System.Drawing.Point(495, 6);
             this.CloseSearchPanel.Name = "CloseSearchPanel";
             this.CloseSearchPanel.Size = new System.Drawing.Size(14, 14);
             this.CloseSearchPanel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -683,7 +682,7 @@
             this.CloseToolbar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseToolbar.Image = global::Crypto_Notepad.Properties.Resources.close_g;
             this.CloseToolbar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CloseToolbar.Location = new System.Drawing.Point(497, 5);
+            this.CloseToolbar.Location = new System.Drawing.Point(497, 4);
             this.CloseToolbar.Name = "CloseToolbar";
             this.CloseToolbar.Size = new System.Drawing.Size(14, 14);
             this.CloseToolbar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
