@@ -657,6 +657,7 @@ namespace Crypto_Notepad
                     ToolbarPanel.BorderStyle = BorderStyle.None;
                 }
 
+                LineNumbers_For_RichTextBox.Refresh();
             }
 
             if (PublicVar.keyChanged)
@@ -804,6 +805,7 @@ namespace Crypto_Notepad
 
             Size = ps.WindowSize;
             WindowState = ps.WindowState;
+            LineNumbers_For_RichTextBox.Refresh();
 
 #if DEBUG
             DebugToolStripMenuItem.Visible = true;

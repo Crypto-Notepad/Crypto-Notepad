@@ -68,6 +68,7 @@
             this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DebugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainVariablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EditorMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.UndoEditorMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.RedoEditorMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -102,7 +103,6 @@
             this.OpenToolbarButton = new System.Windows.Forms.PictureBox();
             this.CustomRTB = new Crypto_Notepad.CustomRichTextBox();
             this.LineNumbers_For_RichTextBox = new LineNumbers.LineNumbers_For_RichTextBox();
-            this.insertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.EditorMenuStrip.SuspendLayout();
             this.SearchPanel.SuspendLayout();
@@ -455,6 +455,13 @@
             this.MainVariablesToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.MainVariablesToolStripMenuItem.Text = "Main variables";
             this.MainVariablesToolStripMenuItem.Click += new System.EventHandler(this.MainVariablesToolStripMenuItem_Click);
+            // 
+            // insertToolStripMenuItem
+            // 
+            this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
+            this.insertToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.insertToolStripMenuItem.Text = "Insert";
+            this.insertToolStripMenuItem.Visible = false;
             // 
             // EditorMenuStrip
             // 
@@ -889,13 +896,6 @@
             this.LineNumbers_For_RichTextBox.Show_MarginLines = false;
             this.LineNumbers_For_RichTextBox.Size = new System.Drawing.Size(18, 244);
             this.LineNumbers_For_RichTextBox.TabIndex = 15;
-            // 
-            // insertToolStripMenuItem
-            // 
-            this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
-            this.insertToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.insertToolStripMenuItem.Text = "Insert";
-            this.insertToolStripMenuItem.Visible = false;
             // 
             // MainForm
             // 
