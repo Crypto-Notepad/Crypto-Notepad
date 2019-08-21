@@ -476,5 +476,18 @@ namespace Crypto_Notepad.Properties {
                 this["InserKey"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string CustomColor {
+            get {
+                return ((string)(this["CustomColor"]));
+            }
+            set {
+                this["CustomColor"] = value;
+            }
+        }
     }
 }

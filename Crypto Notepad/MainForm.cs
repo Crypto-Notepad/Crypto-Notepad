@@ -54,11 +54,11 @@ namespace Crypto_Notepad
 
                 if (ps.TheSalt != null)
                 {
-                     de = AES.Decrypt(opnfile, TypedPassword.Value, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+                    de = AES.Decrypt(opnfile, TypedPassword.Value, ps.TheSalt, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                 }
                 else
                 {
-                     de = AES.Decrypt(opnfile, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+                    de = AES.Decrypt(opnfile, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                 }
 
                 CustomRTB.Text = de;
@@ -909,7 +909,7 @@ namespace Crypto_Notepad
                 if (filePath != "")
                 {
                     PublicVar.openFileName = Path.GetFileName(filePath);
-                }             
+                }
                 TypedPassword.Value = null;
                 return;
             }
@@ -1481,7 +1481,7 @@ namespace Crypto_Notepad
         private void CloseSearchPanel_Click(object sender, EventArgs e)
         {
             FindToolStripMenuItem_Click(this, new EventArgs());
-        }  
+        }
 
         private void CloseSearchPanel_MouseHover(object sender, EventArgs e)
         {
@@ -1524,7 +1524,8 @@ namespace Crypto_Notepad
 
 #endif
         }
+
         /*Debug Menu*/
 
     }
-    }
+}

@@ -107,5 +107,8 @@
     <Setting Name="InserKey" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">Enable</Value>
     </Setting>
+    <Setting Name="CustomColor" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

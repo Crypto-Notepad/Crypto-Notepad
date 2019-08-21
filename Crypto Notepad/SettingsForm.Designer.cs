@@ -56,6 +56,8 @@
             this.LNBackgroundColor = new System.Windows.Forms.Label();
             this.LNVisibleLabel = new System.Windows.Forms.Label();
             this.EditorGroupBox = new System.Windows.Forms.GroupBox();
+            this.InserKeyComboBox = new System.Windows.Forms.ComboBox();
+            this.InsertKeyLabel = new System.Windows.Forms.Label();
             this.HighlightsColorPanel = new System.Windows.Forms.Panel();
             this.FontNameComboBox = new System.Windows.Forms.ComboBox();
             this.HighlightsColorLabel = new System.Windows.Forms.Label();
@@ -86,8 +88,6 @@
             this.HashLabel = new System.Windows.Forms.Label();
             this.ResetSettingsButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.InsertKeyLabel = new System.Windows.Forms.Label();
-            this.InserKeyComboBox = new System.Windows.Forms.ComboBox();
             this.SettingsTabControl.SuspendLayout();
             this.MainTabPage.SuspendLayout();
             this.LineNumbersGroupBox.SuspendLayout();
@@ -396,6 +396,27 @@
             this.EditorGroupBox.TabStop = false;
             this.EditorGroupBox.Text = "Editor";
             // 
+            // InserKeyComboBox
+            // 
+            this.InserKeyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.InserKeyComboBox.FormattingEnabled = true;
+            this.InserKeyComboBox.Items.AddRange(new object[] {
+            "Enable",
+            "Disable"});
+            this.InserKeyComboBox.Location = new System.Drawing.Point(137, 165);
+            this.InserKeyComboBox.Name = "InserKeyComboBox";
+            this.InserKeyComboBox.Size = new System.Drawing.Size(100, 23);
+            this.InserKeyComboBox.TabIndex = 14;
+            // 
+            // InsertKeyLabel
+            // 
+            this.InsertKeyLabel.AutoSize = true;
+            this.InsertKeyLabel.Location = new System.Drawing.Point(9, 165);
+            this.InsertKeyLabel.Name = "InsertKeyLabel";
+            this.InsertKeyLabel.Size = new System.Drawing.Size(58, 15);
+            this.InsertKeyLabel.TabIndex = 13;
+            this.InsertKeyLabel.Text = "Insert key";
+            // 
             // HighlightsColorPanel
             // 
             this.HighlightsColorPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -499,7 +520,7 @@
             this.ApplicationTabPage.Location = new System.Drawing.Point(4, 24);
             this.ApplicationTabPage.Name = "ApplicationTabPage";
             this.ApplicationTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ApplicationTabPage.Size = new System.Drawing.Size(278, 213);
+            this.ApplicationTabPage.Size = new System.Drawing.Size(278, 239);
             this.ApplicationTabPage.TabIndex = 2;
             this.ApplicationTabPage.Text = "Application";
             // 
@@ -573,7 +594,7 @@
             this.IntegrationTabPage.Location = new System.Drawing.Point(4, 24);
             this.IntegrationTabPage.Name = "IntegrationTabPage";
             this.IntegrationTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.IntegrationTabPage.Size = new System.Drawing.Size(278, 213);
+            this.IntegrationTabPage.Size = new System.Drawing.Size(278, 239);
             this.IntegrationTabPage.TabIndex = 3;
             this.IntegrationTabPage.Text = "Integration";
             this.IntegrationTabPage.UseVisualStyleBackColor = true;
@@ -623,7 +644,7 @@
             this.EncryptionTabPage.Location = new System.Drawing.Point(4, 24);
             this.EncryptionTabPage.Name = "EncryptionTabPage";
             this.EncryptionTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.EncryptionTabPage.Size = new System.Drawing.Size(278, 213);
+            this.EncryptionTabPage.Size = new System.Drawing.Size(278, 239);
             this.EncryptionTabPage.TabIndex = 1;
             this.EncryptionTabPage.Text = "Encryption";
             // 
@@ -721,27 +742,6 @@
             this.ResetSettingsButton.UseVisualStyleBackColor = true;
             this.ResetSettingsButton.Click += new System.EventHandler(this.ResetSettingsButton_Click);
             // 
-            // InsertKeyLabel
-            // 
-            this.InsertKeyLabel.AutoSize = true;
-            this.InsertKeyLabel.Location = new System.Drawing.Point(9, 165);
-            this.InsertKeyLabel.Name = "InsertKeyLabel";
-            this.InsertKeyLabel.Size = new System.Drawing.Size(58, 15);
-            this.InsertKeyLabel.TabIndex = 13;
-            this.InsertKeyLabel.Text = "Insert key";
-            // 
-            // InserKeyComboBox
-            // 
-            this.InserKeyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.InserKeyComboBox.FormattingEnabled = true;
-            this.InserKeyComboBox.Items.AddRange(new object[] {
-            "Enable",
-            "Disable"});
-            this.InserKeyComboBox.Location = new System.Drawing.Point(137, 165);
-            this.InserKeyComboBox.Name = "InserKeyComboBox";
-            this.InserKeyComboBox.Size = new System.Drawing.Size(100, 23);
-            this.InserKeyComboBox.TabIndex = 14;
-            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -757,6 +757,7 @@
             this.Name = "SettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Settings";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SettingsForm_FormClosed);
             this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.SettingsTabControl.ResumeLayout(false);
             this.MainTabPage.ResumeLayout(false);

@@ -1,7 +1,8 @@
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -106,7 +107,7 @@ namespace Crypto_Notepad
                 ps.Save();
                 PublicVar.settingsChanged = true;
 
-                Hide();
+                Close();
             }
 
             if (value == "default")
@@ -252,6 +253,10 @@ namespace Crypto_Notepad
                 SaltTextBox.Visible = true;
                 SaltLabel.Visible = true;
             }
+
+            string custom_colors = ps.CustomColor;
+            int[] array_of_colors = custom_colors.Split(';').Select(n => Convert.ToInt32(n)).ToArray();
+            colorDialog1.CustomColors = array_of_colors;
         }
         /*Form Events*/
 
@@ -359,6 +364,13 @@ namespace Crypto_Notepad
                 colorDialog1.ShowDialog();
             }
             GLColorPanel.BackColor = colorDialog1.Color;
+        }
+
+        private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            string result = string.Join(";", colorDialog1.CustomColors);
+            ps.CustomColor = result;
+            ps.Save();
         }
 
         /*Settings Section*/
