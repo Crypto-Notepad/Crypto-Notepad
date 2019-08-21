@@ -1,4 +1,4 @@
-﻿namespace Crypto_Notepad
+namespace Crypto_Notepad
 {
     partial class SettingsForm
     {
@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.FontColorLabel = new System.Windows.Forms.Label();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.SaveSettingsButton = new System.Windows.Forms.Button();
             this.FontNameLabel = new System.Windows.Forms.Label();
             this.SettingsTabControl = new System.Windows.Forms.TabControl();
@@ -106,10 +105,10 @@
             this.FontColorLabel.TabIndex = 0;
             this.FontColorLabel.Text = "Font color";
             // 
-            // colorDialog1
+            // colorDialog
             // 
-            this.colorDialog1.AnyColor = true;
-            this.colorDialog1.FullOpen = true;
+            this.colorDialog.AnyColor = true;
+            this.colorDialog.FullOpen = true;
             // 
             // SaveSettingsButton
             // 
@@ -794,7 +793,7 @@
         private System.Windows.Forms.Label BackgroundColorLabel;
         private System.Windows.Forms.Panel HighlightsColorPanel;
         private System.Windows.Forms.Label HighlightsColorLabel;
-        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ColorDialog colorDialog;
         private System.Windows.Forms.TextBox SaltTextBox;
         private System.Windows.Forms.ComboBox KeySizeComboBox;
         private System.Windows.Forms.Label SaltLabel;

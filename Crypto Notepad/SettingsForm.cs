@@ -256,7 +256,7 @@ namespace Crypto_Notepad
 
             string custom_colors = ps.CustomColor;
             int[] array_of_colors = custom_colors.Split(';').Select(n => Convert.ToInt32(n)).ToArray();
-            colorDialog1.CustomColors = array_of_colors;
+            colorDialog.CustomColors = array_of_colors;
         }
         /*Form Events*/
 
@@ -285,32 +285,32 @@ namespace Crypto_Notepad
         /*Settings Section*/
         private void FontColorPanel_Click_1(object sender, EventArgs e)
         {
-            colorDialog1.Color = FontColorPanel.BackColor;
+            colorDialog.Color = FontColorPanel.BackColor;
             using (new CenterWinDialog(this))
             {
-                colorDialog1.ShowDialog();
+                colorDialog.ShowDialog();
             }
-            FontColorPanel.BackColor = colorDialog1.Color;
+            FontColorPanel.BackColor = colorDialog.Color;
         }
 
         private void BackgroundColorPanel_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = BackgroundColorPanel.BackColor;
+            colorDialog.Color = BackgroundColorPanel.BackColor;
             using (new CenterWinDialog(this))
             {
-                colorDialog1.ShowDialog();
+                colorDialog.ShowDialog();
             }
-            BackgroundColorPanel.BackColor = colorDialog1.Color;
+            BackgroundColorPanel.BackColor = colorDialog.Color;
         }
 
         private void HighlightsColorPanel_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = HighlightsColorPanel.BackColor;
+            colorDialog.Color = HighlightsColorPanel.BackColor;
             using (new CenterWinDialog(this))
             {
-                colorDialog1.ShowDialog();
+                colorDialog.ShowDialog();
             }
-            HighlightsColorPanel.BackColor = colorDialog1.Color;
+            HighlightsColorPanel.BackColor = colorDialog.Color;
         }
 
         private void ToolbarCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -328,47 +328,47 @@ namespace Crypto_Notepad
 
         private void LNBackgroundColorPanel_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = LNBackgroundColorPanel.BackColor;
+            colorDialog.Color = LNBackgroundColorPanel.BackColor;
             using (new CenterWinDialog(this))
             {
-                colorDialog1.ShowDialog();
+                colorDialog.ShowDialog();
             }
-            LNBackgroundColorPanel.BackColor = colorDialog1.Color;
+            LNBackgroundColorPanel.BackColor = colorDialog.Color;
         }
 
         private void LNFontColorPanel_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = LNFontColorPanel.BackColor;
+            colorDialog.Color = LNFontColorPanel.BackColor;
             using (new CenterWinDialog(this))
             {
-                colorDialog1.ShowDialog();
+                colorDialog.ShowDialog();
             }
-            LNFontColorPanel.BackColor = colorDialog1.Color;
+            LNFontColorPanel.BackColor = colorDialog.Color;
         }
 
         private void BLColorPanel_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = BLColorPanel.BackColor;
+            colorDialog.Color = BLColorPanel.BackColor;
             using (new CenterWinDialog(this))
             {
-                colorDialog1.ShowDialog();
+                colorDialog.ShowDialog();
             }
-            BLColorPanel.BackColor = colorDialog1.Color;
+            BLColorPanel.BackColor = colorDialog.Color;
         }
 
         private void GLColorPanel_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = GLColorPanel.BackColor;
+            colorDialog.Color = GLColorPanel.BackColor;
             using (new CenterWinDialog(this))
             {
-                colorDialog1.ShowDialog();
+                colorDialog.ShowDialog();
             }
-            GLColorPanel.BackColor = colorDialog1.Color;
+            GLColorPanel.BackColor = colorDialog.Color;
         }
 
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            string result = string.Join(";", colorDialog1.CustomColors);
+            string result = string.Join(";", colorDialog.CustomColors);
             ps.CustomColor = result;
             ps.Save();
         }
