@@ -20,9 +20,6 @@
     <Setting Name="RichTextSize" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">11</Value>
     </Setting>
-    <Setting Name="HighlightsColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">172, 87, 11</Value>
-    </Setting>
     <Setting Name="AssociateCheck" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>

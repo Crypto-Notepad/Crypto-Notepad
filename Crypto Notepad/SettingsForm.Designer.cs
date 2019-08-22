@@ -57,9 +57,7 @@
             this.EditorGroupBox = new System.Windows.Forms.GroupBox();
             this.InserKeyComboBox = new System.Windows.Forms.ComboBox();
             this.InsertKeyLabel = new System.Windows.Forms.Label();
-            this.HighlightsColorPanel = new System.Windows.Forms.Panel();
             this.FontNameComboBox = new System.Windows.Forms.ComboBox();
-            this.HighlightsColorLabel = new System.Windows.Forms.Label();
             this.FontColorPanel = new System.Windows.Forms.Panel();
             this.FontSizeComboBox = new System.Windows.Forms.ComboBox();
             this.BackgroundColorPanel = new System.Windows.Forms.Panel();
@@ -179,7 +177,7 @@
             this.LineNumbersGroupBox.Controls.Add(this.LNFontColorLabel);
             this.LineNumbersGroupBox.Controls.Add(this.LNBackgroundColor);
             this.LineNumbersGroupBox.Controls.Add(this.LNVisibleLabel);
-            this.LineNumbersGroupBox.Location = new System.Drawing.Point(2, 236);
+            this.LineNumbersGroupBox.Location = new System.Drawing.Point(2, 215);
             this.LineNumbersGroupBox.Name = "LineNumbersGroupBox";
             this.LineNumbersGroupBox.Size = new System.Drawing.Size(249, 283);
             this.LineNumbersGroupBox.TabIndex = 14;
@@ -379,9 +377,7 @@
             this.EditorGroupBox.Controls.Add(this.InsertKeyLabel);
             this.EditorGroupBox.Controls.Add(this.FontNameLabel);
             this.EditorGroupBox.Controls.Add(this.FontColorLabel);
-            this.EditorGroupBox.Controls.Add(this.HighlightsColorPanel);
             this.EditorGroupBox.Controls.Add(this.FontNameComboBox);
-            this.EditorGroupBox.Controls.Add(this.HighlightsColorLabel);
             this.EditorGroupBox.Controls.Add(this.FontColorPanel);
             this.EditorGroupBox.Controls.Add(this.FontSizeComboBox);
             this.EditorGroupBox.Controls.Add(this.BackgroundColorPanel);
@@ -389,7 +385,7 @@
             this.EditorGroupBox.Controls.Add(this.FontSizeLabel);
             this.EditorGroupBox.Location = new System.Drawing.Point(6, 12);
             this.EditorGroupBox.Name = "EditorGroupBox";
-            this.EditorGroupBox.Size = new System.Drawing.Size(249, 205);
+            this.EditorGroupBox.Size = new System.Drawing.Size(249, 183);
             this.EditorGroupBox.TabIndex = 13;
             this.EditorGroupBox.TabStop = false;
             this.EditorGroupBox.Text = "Editor";
@@ -401,7 +397,7 @@
             this.InserKeyComboBox.Items.AddRange(new object[] {
             "Enable",
             "Disable"});
-            this.InserKeyComboBox.Location = new System.Drawing.Point(137, 165);
+            this.InserKeyComboBox.Location = new System.Drawing.Point(137, 138);
             this.InserKeyComboBox.Name = "InserKeyComboBox";
             this.InserKeyComboBox.Size = new System.Drawing.Size(100, 23);
             this.InserKeyComboBox.TabIndex = 14;
@@ -409,21 +405,11 @@
             // InsertKeyLabel
             // 
             this.InsertKeyLabel.AutoSize = true;
-            this.InsertKeyLabel.Location = new System.Drawing.Point(9, 165);
+            this.InsertKeyLabel.Location = new System.Drawing.Point(9, 138);
             this.InsertKeyLabel.Name = "InsertKeyLabel";
             this.InsertKeyLabel.Size = new System.Drawing.Size(58, 15);
             this.InsertKeyLabel.TabIndex = 13;
             this.InsertKeyLabel.Text = "Insert key";
-            // 
-            // HighlightsColorPanel
-            // 
-            this.HighlightsColorPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.HighlightsColorPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.HighlightsColorPanel.Location = new System.Drawing.Point(137, 138);
-            this.HighlightsColorPanel.Name = "HighlightsColorPanel";
-            this.HighlightsColorPanel.Size = new System.Drawing.Size(100, 21);
-            this.HighlightsColorPanel.TabIndex = 12;
-            this.HighlightsColorPanel.Click += new System.EventHandler(this.HighlightsColorPanel_Click);
             // 
             // FontNameComboBox
             // 
@@ -432,15 +418,6 @@
             this.FontNameComboBox.Name = "FontNameComboBox";
             this.FontNameComboBox.Size = new System.Drawing.Size(100, 23);
             this.FontNameComboBox.TabIndex = 5;
-            // 
-            // HighlightsColorLabel
-            // 
-            this.HighlightsColorLabel.AutoSize = true;
-            this.HighlightsColorLabel.Location = new System.Drawing.Point(9, 138);
-            this.HighlightsColorLabel.Name = "HighlightsColorLabel";
-            this.HighlightsColorLabel.Size = new System.Drawing.Size(92, 15);
-            this.HighlightsColorLabel.TabIndex = 11;
-            this.HighlightsColorLabel.Text = "Highlights color";
             // 
             // FontColorPanel
             // 
@@ -790,8 +767,6 @@
         private System.Windows.Forms.Panel BackgroundColorPanel;
         private System.Windows.Forms.Label FontSizeLabel;
         private System.Windows.Forms.Label BackgroundColorLabel;
-        private System.Windows.Forms.Panel HighlightsColorPanel;
-        private System.Windows.Forms.Label HighlightsColorLabel;
         private System.Windows.Forms.ColorDialog colorDialog;
         private System.Windows.Forms.TextBox SaltTextBox;
         private System.Windows.Forms.ComboBox KeySizeComboBox;

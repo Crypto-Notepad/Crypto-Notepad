@@ -41,7 +41,6 @@ namespace Crypto_Notepad
 
                 ps.RichForeColor = FontColorPanel.BackColor;
                 ps.RichBackColor = BackgroundColorPanel.BackColor;
-                ps.HighlightsColor = HighlightsColorPanel.BackColor;
                 ps.RichTextFont = FontNameComboBox.Text;
                 ps.RichTextSize = Convert.ToInt32(FontSizeComboBox.Text.ToString());
                 ps.AssociateCheck = AssociateCheckBox.Checked;
@@ -114,7 +113,6 @@ namespace Crypto_Notepad
             {
                 FontColorPanel.BackColor = Color.FromArgb(228, 228, 228);
                 BackgroundColorPanel.BackColor = Color.FromArgb(56, 56, 56);
-                HighlightsColorPanel.BackColor = Color.FromArgb(101, 51, 6);
                 FontNameComboBox.Text = "Consolas";
                 FontSizeComboBox.Text = 11.ToString();
                 AssociateCheckBox.Checked = false;
@@ -221,7 +219,6 @@ namespace Crypto_Notepad
             PwdIterationsTextBox.Text = ps.PasswordIterations.ToString();
             FontColorPanel.BackColor = ps.RichForeColor;
             BackgroundColorPanel.BackColor = ps.RichBackColor;
-            HighlightsColorPanel.BackColor = ps.HighlightsColor;
             AssociateCheckBox.Checked = ps.AssociateCheck;
             UpdatesCheckBox.Checked = ps.AutoCheckUpdate;
             ToolbarCheckBox.Checked = ps.ShowToolbar;
@@ -305,12 +302,7 @@ namespace Crypto_Notepad
 
         private void HighlightsColorPanel_Click(object sender, EventArgs e)
         {
-            colorDialog.Color = HighlightsColorPanel.BackColor;
-            using (new CenterWinDialog(this))
-            {
-                colorDialog.ShowDialog();
-            }
-            HighlightsColorPanel.BackColor = colorDialog.Color;
+
         }
 
         private void ToolbarCheckBox_CheckedChanged(object sender, EventArgs e)
