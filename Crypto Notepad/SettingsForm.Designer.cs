@@ -413,6 +413,8 @@
             // 
             // FontNameComboBox
             // 
+            this.FontNameComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.FontNameComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.FontNameComboBox.FormattingEnabled = true;
             this.FontNameComboBox.Location = new System.Drawing.Point(137, 26);
             this.FontNameComboBox.Name = "FontNameComboBox";
@@ -431,6 +433,8 @@
             // 
             // FontSizeComboBox
             // 
+            this.FontSizeComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.FontSizeComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.FontSizeComboBox.FormattingEnabled = true;
             this.FontSizeComboBox.Items.AddRange(new object[] {
             "8",
