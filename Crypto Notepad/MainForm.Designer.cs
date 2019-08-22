@@ -84,9 +84,10 @@
             this.OpenFile = new System.Windows.Forms.OpenFileDialog();
             this.SaveFile = new System.Windows.Forms.SaveFileDialog();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
-            this.chkMatchCase = new System.Windows.Forms.CheckBox();
-            this.chkMatchWholeWord = new System.Windows.Forms.CheckBox();
+            this.MatchCaseCheckBox = new System.Windows.Forms.CheckBox();
+            this.WholeWordCheckBox = new System.Windows.Forms.CheckBox();
             this.SearchPanel = new System.Windows.Forms.Panel();
+            this.FindNextButton = new System.Windows.Forms.Button();
             this.CloseSearchPanel = new System.Windows.Forms.PictureBox();
             this.ToolbarPanel = new System.Windows.Forms.Panel();
             this.CloseToolbar = new System.Windows.Forms.PictureBox();
@@ -582,55 +583,56 @@
             this.SearchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
             this.SearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SearchTextBox.ForeColor = System.Drawing.Color.White;
-            this.SearchTextBox.Location = new System.Drawing.Point(196, 6);
+            this.SearchTextBox.Location = new System.Drawing.Point(191, 5);
             this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(279, 14);
+            this.SearchTextBox.Size = new System.Drawing.Size(236, 14);
             this.SearchTextBox.TabIndex = 9;
             this.SearchTextBox.TabStop = false;
             this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             this.SearchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchTextBox_KeyDown);
             // 
-            // chkMatchCase
+            // MatchCaseCheckBox
             // 
-            this.chkMatchCase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.MatchCaseCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkMatchCase.AutoSize = true;
-            this.chkMatchCase.ForeColor = System.Drawing.Color.Gainsboro;
-            this.chkMatchCase.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkMatchCase.Location = new System.Drawing.Point(95, 5);
-            this.chkMatchCase.Name = "chkMatchCase";
-            this.chkMatchCase.Size = new System.Drawing.Size(95, 17);
-            this.chkMatchCase.TabIndex = 11;
-            this.chkMatchCase.Text = "Case sensitive";
-            this.chkMatchCase.UseVisualStyleBackColor = false;
-            this.chkMatchCase.CheckedChanged += new System.EventHandler(this.ChkMatchCase_CheckedChanged);
+            this.MatchCaseCheckBox.AutoSize = true;
+            this.MatchCaseCheckBox.ForeColor = System.Drawing.Color.Gainsboro;
+            this.MatchCaseCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.MatchCaseCheckBox.Location = new System.Drawing.Point(95, 5);
+            this.MatchCaseCheckBox.Name = "MatchCaseCheckBox";
+            this.MatchCaseCheckBox.Size = new System.Drawing.Size(95, 17);
+            this.MatchCaseCheckBox.TabIndex = 11;
+            this.MatchCaseCheckBox.Text = "Case sensitive";
+            this.MatchCaseCheckBox.UseVisualStyleBackColor = false;
+            this.MatchCaseCheckBox.CheckedChanged += new System.EventHandler(this.MatchCaseCheckBox_CheckedChanged);
             // 
-            // chkMatchWholeWord
+            // WholeWordCheckBox
             // 
-            this.chkMatchWholeWord.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.WholeWordCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkMatchWholeWord.AutoSize = true;
-            this.chkMatchWholeWord.BackColor = System.Drawing.Color.Transparent;
-            this.chkMatchWholeWord.ForeColor = System.Drawing.Color.Gainsboro;
-            this.chkMatchWholeWord.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkMatchWholeWord.Location = new System.Drawing.Point(6, 5);
-            this.chkMatchWholeWord.Name = "chkMatchWholeWord";
-            this.chkMatchWholeWord.Size = new System.Drawing.Size(83, 17);
-            this.chkMatchWholeWord.TabIndex = 12;
-            this.chkMatchWholeWord.Text = "Whole word";
-            this.chkMatchWholeWord.UseVisualStyleBackColor = false;
-            this.chkMatchWholeWord.CheckedChanged += new System.EventHandler(this.ChkMatchWholeWord_CheckedChanged);
+            this.WholeWordCheckBox.AutoSize = true;
+            this.WholeWordCheckBox.BackColor = System.Drawing.Color.Transparent;
+            this.WholeWordCheckBox.ForeColor = System.Drawing.Color.Gainsboro;
+            this.WholeWordCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.WholeWordCheckBox.Location = new System.Drawing.Point(6, 5);
+            this.WholeWordCheckBox.Name = "WholeWordCheckBox";
+            this.WholeWordCheckBox.Size = new System.Drawing.Size(83, 17);
+            this.WholeWordCheckBox.TabIndex = 12;
+            this.WholeWordCheckBox.Text = "Whole word";
+            this.WholeWordCheckBox.UseVisualStyleBackColor = false;
+            this.WholeWordCheckBox.CheckedChanged += new System.EventHandler(this.WholeWordCheckBox_CheckedChanged);
             // 
             // SearchPanel
             // 
             this.SearchPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
             this.SearchPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SearchPanel.Controls.Add(this.CloseSearchPanel);
             this.SearchPanel.Controls.Add(this.SearchTextBox);
-            this.SearchPanel.Controls.Add(this.chkMatchCase);
-            this.SearchPanel.Controls.Add(this.chkMatchWholeWord);
+            this.SearchPanel.Controls.Add(this.MatchCaseCheckBox);
+            this.SearchPanel.Controls.Add(this.WholeWordCheckBox);
+            this.SearchPanel.Controls.Add(this.FindNextButton);
+            this.SearchPanel.Controls.Add(this.CloseSearchPanel);
             this.SearchPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SearchPanel.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.SearchPanel.Location = new System.Drawing.Point(0, 291);
@@ -639,15 +641,36 @@
             this.SearchPanel.TabIndex = 13;
             this.SearchPanel.Visible = false;
             // 
+            // FindNextButton
+            // 
+            this.FindNextButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FindNextButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.FindNextButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.FindNextButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.FindNextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.FindNextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FindNextButton.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.FindNextButton.Location = new System.Drawing.Point(433, 0);
+            this.FindNextButton.Name = "FindNextButton";
+            this.FindNextButton.Size = new System.Drawing.Size(64, 25);
+            this.FindNextButton.TabIndex = 15;
+            this.FindNextButton.TabStop = false;
+            this.FindNextButton.Text = "Find Next";
+            this.FindNextButton.UseMnemonic = false;
+            this.FindNextButton.UseVisualStyleBackColor = true;
+            this.FindNextButton.Click += new System.EventHandler(this.FindNextButton_Click);
+            // 
             // CloseSearchPanel
             // 
-            this.CloseSearchPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseSearchPanel.BackColor = System.Drawing.Color.Transparent;
+            this.CloseSearchPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CloseSearchPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseSearchPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.CloseSearchPanel.Image = ((System.Drawing.Image)(resources.GetObject("CloseSearchPanel.Image")));
             this.CloseSearchPanel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CloseSearchPanel.Location = new System.Drawing.Point(495, 6);
+            this.CloseSearchPanel.Location = new System.Drawing.Point(497, 0);
             this.CloseSearchPanel.Name = "CloseSearchPanel";
-            this.CloseSearchPanel.Size = new System.Drawing.Size(14, 14);
+            this.CloseSearchPanel.Size = new System.Drawing.Size(14, 25);
             this.CloseSearchPanel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.CloseSearchPanel.TabIndex = 14;
             this.CloseSearchPanel.TabStop = false;
@@ -844,11 +867,11 @@
             this.CustomRTB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.CustomRTB.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.CustomRTB.Location = new System.Drawing.Point(18, 47);
+            this.CustomRTB.Location = new System.Drawing.Point(17, 47);
             this.CustomRTB.Name = "CustomRTB";
-            this.CustomRTB.Size = new System.Drawing.Size(495, 244);
+            this.CustomRTB.Size = new System.Drawing.Size(496, 244);
             this.CustomRTB.TabIndex = 10;
-            this.CustomRTB.Text = "";
+            this.CustomRTB.Text = "TEST  TEST  TEST  TEST  TEST  TEST  ";
             this.CustomRTB.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.СustomRTB_LinkClicked);
             this.CustomRTB.SelectionChanged += new System.EventHandler(this.CustomRTB_SelectionChanged);
             this.CustomRTB.Click += new System.EventHandler(this.CustomRTB_Click);
@@ -894,7 +917,7 @@
             this.LineNumbers_For_RichTextBox.Show_GridLines = true;
             this.LineNumbers_For_RichTextBox.Show_LineNrs = true;
             this.LineNumbers_For_RichTextBox.Show_MarginLines = false;
-            this.LineNumbers_For_RichTextBox.Size = new System.Drawing.Size(18, 244);
+            this.LineNumbers_For_RichTextBox.Size = new System.Drawing.Size(17, 244);
             this.LineNumbers_For_RichTextBox.TabIndex = 15;
             // 
             // MainForm
@@ -988,8 +1011,8 @@
         private System.Windows.Forms.ToolStripMenuItem CheckForUpdatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DocumentationToolStripMenuItem;
         private System.Windows.Forms.TextBox SearchTextBox;
-        private System.Windows.Forms.CheckBox chkMatchCase;
-        private System.Windows.Forms.CheckBox chkMatchWholeWord;
+        private System.Windows.Forms.CheckBox MatchCaseCheckBox;
+        private System.Windows.Forms.CheckBox WholeWordCheckBox;
         private System.Windows.Forms.Panel SearchPanel;
         private System.Windows.Forms.ToolStripMenuItem SettingsToolStripMenuItem;
         public CustomRichTextBox CustomRTB;
@@ -1017,5 +1040,6 @@
         private System.Windows.Forms.ToolStripMenuItem MainVariablesToolStripMenuItem;
         private LineNumbers.LineNumbers_For_RichTextBox LineNumbers_For_RichTextBox;
         private System.Windows.Forms.ToolStripMenuItem insertToolStripMenuItem;
+        private System.Windows.Forms.Button FindNextButton;
     }
 }

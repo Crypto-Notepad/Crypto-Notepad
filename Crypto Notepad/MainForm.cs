@@ -24,6 +24,7 @@ namespace Crypto_Notepad
         bool shiftPresed;
         bool noExit = false;
         string argsPath = "";
+        int findPos = 0;
 
         public MainForm()
         {
@@ -637,14 +638,10 @@ namespace Crypto_Notepad
                 if (!ps.ShowToolbar && ToolbarPanel.Visible)
                 {
                     ToolbarPanel.Visible = false;
-                    CustomRTB.Height += 23;
-                    CustomRTB.Location = new Point(0, 24);
                 }
                 if (ps.ShowToolbar && !ToolbarPanel.Visible)
                 {
                     ToolbarPanel.Visible = true;
-                    CustomRTB.Height -= 23;
-                    CustomRTB.Location = new Point(0, 47);
                 }
 
                 MenuIcons();
@@ -753,9 +750,6 @@ namespace Crypto_Notepad
             if (!ps.ShowToolbar)
             {
                 ToolbarPanel.Visible = false;
-
-                CustomRTB.Height += 23;
-                CustomRTB.Location = new Point(0, 24);
             }
             else
             {
@@ -843,6 +837,16 @@ namespace Crypto_Notepad
             {
                 shiftPresed = true;
             }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                SearchTextBox.Text = "";
+                SearchPanel.Visible = false;
+                CustomRTB.Focus();
+                CustomRTB.DeselectAll();
+                e.Handled = e.SuppressKeyPress = true;
+                findPos = 0;
+            }
         }
 
         private void СustomRTB_LinkClicked(object sender, LinkClickedEventArgs e)
@@ -908,7 +912,10 @@ namespace Crypto_Notepad
                 shiftPresed = false;
             }
         }
-
+        private void CustomRTB_TextChanged(object sender, EventArgs e)
+        {
+            LineNumbers_For_RichTextBox.Refresh();
+        }
         /*CustomRTB Events*/
 
 
@@ -1193,16 +1200,14 @@ namespace Crypto_Notepad
             {
                 SearchTextBox.Text = "";
                 SearchPanel.Visible = false;
-                CustomRTB.Height += 27;
                 CustomRTB.Focus();
                 CustomRTB.DeselectAll();
-                CustomRTB.SelectionStart = caretPos;
+                //CustomRTB.SelectionStart = caretPos;
             }
             else
             {
                 SearchPanel.Visible = true;
                 SearchTextBox.Focus();
-                CustomRTB.Height -= 27;
             }
         }
 
@@ -1459,8 +1464,6 @@ namespace Crypto_Notepad
         private void CloseToolbar_Click(object sender, EventArgs e)
         {
             ToolbarPanel.Visible = false;
-            CustomRTB.Height += 23;
-            CustomRTB.Location = new Point(0, 24);
             ps.ShowToolbar = false;
             ps.Save();
         }
@@ -1478,9 +1481,10 @@ namespace Crypto_Notepad
 
 
         /*Search Panel*/
+
         private void SearchTextBox_TextChanged(object sender, EventArgs e)
         {
-            bool isexist = CustomRTB.Highlight(SearchTextBox.Text, ps.HighlightsColor, chkMatchCase.Checked, chkMatchWholeWord.Checked);
+            findPos = 0;
         }
 
         private void SearchTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -1489,11 +1493,10 @@ namespace Crypto_Notepad
             {
                 SearchTextBox.Text = "";
                 SearchPanel.Visible = false;
-                CustomRTB.Height += 27;
                 CustomRTB.Focus();
                 CustomRTB.DeselectAll();
-                CustomRTB.SelectionStart = caretPos;
                 e.Handled = e.SuppressKeyPress = true;
+                findPos = 0;
             }
         }
 
@@ -1504,22 +1507,73 @@ namespace Crypto_Notepad
 
         private void CloseSearchPanel_MouseHover(object sender, EventArgs e)
         {
-            CloseSearchPanel.Image = Properties.Resources.close_b;
+            CloseSearchPanel.BackColor = Color.DimGray;
         }
 
         private void CloseSearchPanel_MouseLeave(object sender, EventArgs e)
         {
-            CloseSearchPanel.Image = Properties.Resources.close_g;
+            CloseSearchPanel.BackColor = Color.Transparent;
         }
 
-        private void ChkMatchCase_CheckedChanged(object sender, EventArgs e)
+        private void MatchCaseCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            bool isexist = CustomRTB.Highlight(SearchTextBox.Text, ps.HighlightsColor, chkMatchCase.Checked, chkMatchWholeWord.Checked);
+            findPos = 0;
+            CustomRTB.DeselectAll();
         }
 
-        private void ChkMatchWholeWord_CheckedChanged(object sender, EventArgs e)
+        private void WholeWordCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            bool isexist = CustomRTB.Highlight(SearchTextBox.Text, ps.HighlightsColor, chkMatchCase.Checked, chkMatchWholeWord.Checked);
+            findPos = 0;
+            CustomRTB.DeselectAll();
+        }
+
+        private void FindMyText(string text, RichTextBoxFinds findOptions)
+        {
+            if (text.Length > 0)
+            {
+                try
+                {
+                    findPos = CustomRTB.Find(SearchTextBox.Text, findPos, findOptions);
+                    if (findPos == -1)
+                    {
+                        findPos = 0;
+                        return;
+                    }
+                    CustomRTB.Focus();
+                    CustomRTB.Select(findPos, SearchTextBox.Text.Length);
+                    findPos += SearchTextBox.Text.Length + 1;
+                }
+                catch
+                {
+                    findPos = 0;
+                }
+            }
+        }
+        private void FindNextButton_Click(object sender, EventArgs e)
+        {
+            if ((!WholeWordCheckBox.Checked) & (!MatchCaseCheckBox.Checked))
+            {
+                FindMyText(SearchTextBox.Text, RichTextBoxFinds.None);
+                return;
+            }
+
+            if (WholeWordCheckBox.Checked & MatchCaseCheckBox.Checked)
+            {
+                FindMyText(SearchTextBox.Text, RichTextBoxFinds.MatchCase | RichTextBoxFinds.WholeWord);
+                return;
+            }
+
+            if (MatchCaseCheckBox.Checked)
+            {
+                FindMyText(SearchTextBox.Text, RichTextBoxFinds.MatchCase);
+                return;
+            }
+
+            if (WholeWordCheckBox.Checked)
+            {
+                FindMyText(SearchTextBox.Text, RichTextBoxFinds.WholeWord);
+                return;
+            }
         }
         /*Search Panel*/
 
@@ -1540,16 +1594,8 @@ namespace Crypto_Notepad
             Debug.WriteLine("okPressed: " + PublicVar.okPressed);
             Debug.WriteLine("CustomRTB.Modified: " + CustomRTB.Modified);
             Debug.WriteLine("EditorMenuStrip: " + EditorMenuStrip.Enabled);
-
 #endif
-        }
-
-        private void CustomRTB_TextChanged(object sender, EventArgs e)
-        {
-            LineNumbers_For_RichTextBox.Refresh();
-        }
-
+        }  
         /*Debug Menu*/
-
     }
 }
