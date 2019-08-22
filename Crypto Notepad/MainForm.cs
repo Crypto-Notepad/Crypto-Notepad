@@ -29,8 +29,8 @@ namespace Crypto_Notepad
         public MainForm()
         {
             InitializeComponent();
-            CustomRTB.DragDrop += new DragEventHandler(CustomRTB_DragDrop);
-            CustomRTB.AllowDrop = true;
+            RichTextBox.DragDrop += new DragEventHandler(RichTextBox_DragDrop);
+            RichTextBox.AllowDrop = true;
         }
 
         /*Functions*/
@@ -62,12 +62,12 @@ namespace Crypto_Notepad
                     de = AES.Decrypt(opnfile, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                 }
 
-                CustomRTB.Text = de;
+                RichTextBox.Text = de;
 
                 Text = PublicVar.appName + " – " + NameWithotPath;
                 filePath = OpenFile.FileName;
-                string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-                CustomRTB.Select(Convert.ToInt32(cc2), 0);
+                string cc2 = RichTextBox.Text.Length.ToString(CultureInfo.InvariantCulture);
+                RichTextBox.Select(Convert.ToInt32(cc2), 0);
                 PublicVar.openFileName = Path.GetFileName(OpenFile.FileName);
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
                 TypedPassword.Value = null;
@@ -115,14 +115,14 @@ namespace Crypto_Notepad
                     PublicVar.okPressed = false;
 
                     string de = AES.Decrypt(opnfile, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-                    CustomRTB.Text = de;
+                    RichTextBox.Text = de;
 
                     Text = PublicVar.appName + " – " + NameWithotPath;
 
                     filePath = args[1];
-                    string cc = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
+                    string cc = RichTextBox.Text.Length.ToString(CultureInfo.InvariantCulture);
                     PublicVar.encryptionKey.Set(TypedPassword.Value);
-                    CustomRTB.Select(Convert.ToInt32(cc), 0);
+                    RichTextBox.Select(Convert.ToInt32(cc), 0);
                     TypedPassword.Value = null;
                 }
                 catch (CryptographicException)
@@ -140,10 +140,10 @@ namespace Crypto_Notepad
             {
                 string opnfile = File.ReadAllText(args[1]);
                 string NameWithotPath = Path.GetFileName(args[1]);
-                CustomRTB.Text = opnfile;
+                RichTextBox.Text = opnfile;
                 Text = PublicVar.appName + " – " + NameWithotPath;
-                string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-                CustomRTB.Select(Convert.ToInt32(cc2), 0);
+                string cc2 = RichTextBox.Text.Length.ToString(CultureInfo.InvariantCulture);
+                RichTextBox.Select(Convert.ToInt32(cc2), 0);
             }
         }
 
@@ -169,13 +169,13 @@ namespace Crypto_Notepad
                     }
                     PublicVar.okPressed = false;
                     string de = AES.Decrypt(opnfile, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-                    CustomRTB.Text = de;
+                    RichTextBox.Text = de;
 
                     Text = PublicVar.appName + " – " + NameWithotPath;
 
                     filePath = argsPath;
-                    string cc = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-                    CustomRTB.Select(Convert.ToInt32(cc), 0);
+                    string cc = RichTextBox.Text.Length.ToString(CultureInfo.InvariantCulture);
+                    RichTextBox.Select(Convert.ToInt32(cc), 0);
                     PublicVar.encryptionKey.Set(TypedPassword.Value);
                     TypedPassword.Value = null;
                 }
@@ -194,10 +194,10 @@ namespace Crypto_Notepad
             {
                 string opnfile = File.ReadAllText(argsPath);
                 string NameWithotPath = Path.GetFileName(argsPath);
-                CustomRTB.Text = opnfile;
+                RichTextBox.Text = opnfile;
                 Text = PublicVar.appName + " – " + NameWithotPath;
-                string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-                CustomRTB.Select(Convert.ToInt32(cc2), 0);
+                string cc2 = RichTextBox.Text.Length.ToString(CultureInfo.InvariantCulture);
+                RichTextBox.Select(Convert.ToInt32(cc2), 0);
             }
         }
 
@@ -236,9 +236,9 @@ namespace Crypto_Notepad
             if (!args[1].Contains(".cnp"))
             {
                 string opnfile = File.ReadAllText(args[1]);
-                CustomRTB.Text = opnfile;
-                string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-                CustomRTB.Select(Convert.ToInt32(cc2), 0);
+                RichTextBox.Text = opnfile;
+                string cc2 = RichTextBox.Text.Length.ToString(CultureInfo.InvariantCulture);
+                RichTextBox.Select(Convert.ToInt32(cc2), 0);
                 PublicVar.openFileName = Path.GetFileName(args[1]);
 
                 string newFile = Path.GetDirectoryName(args[1]) + @"\" + Path.GetFileNameWithoutExtension(args[1]) + ".cnp";
@@ -253,17 +253,17 @@ namespace Crypto_Notepad
 
                 File.Delete(args[1]);
 
-                string noenc = CustomRTB.Text;
+                string noenc = RichTextBox.Text;
                 string en;
-                en = AES.Encrypt(CustomRTB.Text, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-                CustomRTB.Text = en;
+                en = AES.Encrypt(RichTextBox.Text, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+                RichTextBox.Text = en;
                 StreamWriter sw = new StreamWriter(newFile);
-                int i = CustomRTB.Lines.Count();
+                int i = RichTextBox.Lines.Count();
                 int j = 0;
                 i = i - 1;
                 while (j <= i)
                 {
-                    sw.WriteLine(CustomRTB.Lines.GetValue(j).ToString());
+                    sw.WriteLine(RichTextBox.Lines.GetValue(j).ToString());
                     j = j + 1;
                 }
                 sw.Close();
@@ -272,13 +272,13 @@ namespace Crypto_Notepad
                 filePath = newFile;
                 PublicVar.openFileName = Path.GetFileName(newFile);
                 Text = PublicVar.appName + " – " + PublicVar.openFileName;
-                CustomRTB.Text = noenc;
+                RichTextBox.Text = noenc;
             }
 
-            #region workaround, strange behavior with the cursor in customRTB fix
-            CustomRTB.DetectUrls = false;
-            CustomRTB.DetectUrls = true;
-            CustomRTB.Modified = false;
+            #region fix strange behavior with the cursor in RichTextBox
+            RichTextBox.DetectUrls = false;
+            RichTextBox.DetectUrls = true;
+            RichTextBox.Modified = false;
             #endregion
 
             if (PublicVar.okPressed)
@@ -293,20 +293,20 @@ namespace Crypto_Notepad
             {
                 string opnfile = File.ReadAllText(args[1]);
                 string NameWithotPath = Path.GetFileName(args[1]);
-                CustomRTB.Text = opnfile;
+                RichTextBox.Text = opnfile;
                 Text = PublicVar.appName + NameWithotPath;
-                string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-                CustomRTB.Select(Convert.ToInt32(cc2), 0);
+                string cc2 = RichTextBox.Text.Length.ToString(CultureInfo.InvariantCulture);
+                RichTextBox.Select(Convert.ToInt32(cc2), 0);
                 PublicVar.openFileName = Path.GetFileName(args[1]);
                 filePath = OpenFile.FileName;
             }
 
-            #region workaround, strange behavior with the cursor in customRTB fix
-            CustomRTB.DetectUrls = false;
-            CustomRTB.DetectUrls = true;
+            #region fix strange behavior with the cursor in RichTextBox
+            RichTextBox.DetectUrls = false;
+            RichTextBox.DetectUrls = true;
             #endregion
 
-            CustomRTB.Modified = false;
+            RichTextBox.Modified = false;
 
             if (PublicVar.okPressed)
             {
@@ -339,7 +339,7 @@ namespace Crypto_Notepad
 
         private void SaveConfirm(bool exit)
         {
-            if (!CustomRTB.Modified)
+            if (!RichTextBox.Modified)
             {
                 if (exit)
                 {
@@ -353,7 +353,7 @@ namespace Crypto_Notepad
                     PublicVar.openFileName = "Unnamed.cnp";
                 }
 
-                if (CustomRTB.Text != "")
+                if (RichTextBox.Text != "")
                 {
                     string messageBoxText = "";
 
@@ -455,7 +455,7 @@ namespace Crypto_Notepad
         {
             EnterKeyForm f2 = new EnterKeyForm();
             PublicVar.encryptionKey.Set(null);
-            caretPos = CustomRTB.SelectionStart;
+            caretPos = RichTextBox.SelectionStart;
             f2.MinimizeBox = true;
             Hide();
 
@@ -468,7 +468,7 @@ namespace Crypto_Notepad
             if (!PublicVar.okPressed)
             {
                 PublicVar.encryptionKey.Set(null);
-                CustomRTB.Clear();
+                RichTextBox.Clear();
                 Text = PublicVar.appName;
                 PublicVar.openFileName = null;
                 filePath = "";
@@ -479,14 +479,14 @@ namespace Crypto_Notepad
             LineNumbers_For_RichTextBox.Refresh();
             try
             {
-                CustomRTB.Clear();
+                RichTextBox.Clear();
                 string opnfile = File.ReadAllText(filePath);
                 string de = AES.Decrypt(opnfile, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-                CustomRTB.Text = de;
+                RichTextBox.Text = de;
                 Text = PublicVar.appName + " – " + PublicVar.openFileName;
-                string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-                CustomRTB.Select(Convert.ToInt32(cc2), 0);
-                CustomRTB.SelectionStart = caretPos;
+                string cc2 = RichTextBox.Text.Length.ToString(CultureInfo.InvariantCulture);
+                RichTextBox.Select(Convert.ToInt32(cc2), 0);
+                RichTextBox.SelectionStart = caretPos;
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
                 TypedPassword.Value = null;
                 Show();
@@ -504,7 +504,7 @@ namespace Crypto_Notepad
                     if (dialogResult == DialogResult.Cancel)
                     {
                         PublicVar.encryptionKey.Set(null);
-                        CustomRTB.Clear();
+                        RichTextBox.Clear();
                         Text = PublicVar.appName;
                         filePath = "";
                         PublicVar.openFileName = null;
@@ -590,9 +590,9 @@ namespace Crypto_Notepad
             if (PublicVar.settingsChanged)
             {
                 PublicVar.settingsChanged = false;
-                CustomRTB.Font = new Font(ps.RichTextFont, ps.RichTextSize);
-                CustomRTB.ForeColor = ps.RichForeColor;
-                CustomRTB.BackColor = ps.RichBackColor;
+                RichTextBox.Font = new Font(ps.RichTextFont, ps.RichTextSize);
+                RichTextBox.ForeColor = ps.RichForeColor;
+                RichTextBox.BackColor = ps.RichBackColor;
                 BackColor = ps.RichBackColor;
 
                 LineNumbers_For_RichTextBox.Visible = bool.Parse(ps.LNVisible);
@@ -631,8 +631,8 @@ namespace Crypto_Notepad
                 }
 
                 #region  workaround, unhighlight URLs fix
-                CustomRTB.DetectUrls = false;
-                CustomRTB.DetectUrls = true;
+                RichTextBox.DetectUrls = false;
+                RichTextBox.DetectUrls = true;
                 #endregion
 
                 if (!ps.ShowToolbar && ToolbarPanel.Visible)
@@ -660,7 +660,7 @@ namespace Crypto_Notepad
 
             if (PublicVar.keyChanged)
             {
-                CustomRTB.Modified = true;
+                RichTextBox.Modified = true;
             }
 
             if (PublicVar.encryptionKey.Get() == null)
@@ -697,7 +697,7 @@ namespace Crypto_Notepad
             ps.Save();
             SaveConfirm(true);
 
-            if (CustomRTB.Text == "")
+            if (RichTextBox.Text == "")
             {
                 noExit = false;
             }
@@ -712,12 +712,12 @@ namespace Crypto_Notepad
         private void MainWindow_Load(object sender, EventArgs e)
         {
             string pos = ps.WindowLocation.ToString();
-            CustomRTB.Font = new Font(ps.RichTextFont, ps.RichTextSize);
-            CustomRTB.ForeColor = ps.RichForeColor;
-            CustomRTB.BackColor = ps.RichBackColor;
+            RichTextBox.Font = new Font(ps.RichTextFont, ps.RichTextSize);
+            RichTextBox.ForeColor = ps.RichForeColor;
+            RichTextBox.BackColor = ps.RichBackColor;
             BackColor = ps.RichBackColor;
             WordWrapToolStripMenuItem.Checked = ps.MenuWrap;
-            CustomRTB.WordWrap = ps.RichWrap;
+            RichTextBox.WordWrap = ps.RichWrap;
             ToolbarPanel.Visible = ps.ShowToolbar;
             LineNumbers_For_RichTextBox.Visible = bool.Parse(ps.LNVisible);
             LineNumbers_For_RichTextBox.ForeColor = ps.LNFontColorPanel;
@@ -810,10 +810,10 @@ namespace Crypto_Notepad
         /*Form Events*/
 
 
-        /*CustomRTB Events*/
-        private void CustomRTB_SelectionChanged(object sender, EventArgs e)
+        /*RichTextBox Events*/
+        private void RichTextBox_SelectionChanged(object sender, EventArgs e)
         {
-            if (CustomRTB.SelectionLength != 0)
+            if (RichTextBox.SelectionLength != 0)
             {
                 CutToolbarButton.Enabled = true;
                 CopyToolbarButton.Enabled = true;
@@ -825,14 +825,14 @@ namespace Crypto_Notepad
             }
         }
 
-        private void CustomRTB_Click(object sender, EventArgs e)
+        private void RichTextBox_Click(object sender, EventArgs e)
         {
-            caretPos = CustomRTB.SelectionStart;
+            caretPos = RichTextBox.SelectionStart;
         }
 
-        private void CustomRTB_KeyDown(object sender, KeyEventArgs e)
+        private void RichTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            caretPos = CustomRTB.SelectionStart;
+            caretPos = RichTextBox.SelectionStart;
             if (e.KeyCode == Keys.ShiftKey)
             {
                 shiftPresed = true;
@@ -842,14 +842,14 @@ namespace Crypto_Notepad
             {
                 SearchTextBox.Text = "";
                 SearchPanel.Visible = false;
-                CustomRTB.Focus();
-                CustomRTB.DeselectAll();
+                RichTextBox.Focus();
+                RichTextBox.DeselectAll();
                 e.Handled = e.SuppressKeyPress = true;
                 findPos = 0;
             }
         }
 
-        private void СustomRTB_LinkClicked(object sender, LinkClickedEventArgs e)
+        private void RichTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             if (shiftPresed)
             {
@@ -858,7 +858,7 @@ namespace Crypto_Notepad
             }
         }
 
-        private void CustomRTB_DragDrop(object sender, DragEventArgs e)
+        private void RichTextBox_DragDrop(object sender, DragEventArgs e)
         {
             SaveConfirm(false);
 
@@ -875,10 +875,10 @@ namespace Crypto_Notepad
                     {
                         string opnfile = File.ReadAllText(OpenFile.FileName);
                         string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-                        CustomRTB.Text = opnfile;
+                        RichTextBox.Text = opnfile;
                         Text = PublicVar.appName + " – " + NameWithotPath;
-                        string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-                        CustomRTB.Select(Convert.ToInt32(cc2), 0);
+                        string cc2 = RichTextBox.Text.Length.ToString(CultureInfo.InvariantCulture);
+                        RichTextBox.Select(Convert.ToInt32(cc2), 0);
                         filePath = OpenFile.FileName;
                         return;
                     }
@@ -905,18 +905,18 @@ namespace Crypto_Notepad
             }
         }
 
-        private void CustomRTB_KeyUp(object sender, KeyEventArgs e)
+        private void RichTextBox_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.ShiftKey)
             {
                 shiftPresed = false;
             }
         }
-        private void CustomRTB_TextChanged(object sender, EventArgs e)
+        private void RichTextBox_TextChanged(object sender, EventArgs e)
         {
             LineNumbers_For_RichTextBox.Refresh();
         }
-        /*CustomRTB Events*/
+        /*RichTextBox Events*/
 
 
         /* Main Menu */
@@ -950,7 +950,7 @@ namespace Crypto_Notepad
                     return;
                 }
 
-                CustomRTB.Clear();
+                RichTextBox.Clear();
                 StreamWriter sw = new StreamWriter(SaveFile.FileName);
                 string NameWithotPath = Path.GetFileName(SaveFile.FileName);
                 Text = PublicVar.appName + " – " + NameWithotPath;
@@ -973,20 +973,20 @@ namespace Crypto_Notepad
                 {
                     string opnfile = File.ReadAllText(OpenFile.FileName);
                     string NameWithotPath = Path.GetFileName(OpenFile.FileName);
-                    CustomRTB.Text = opnfile;
+                    RichTextBox.Text = opnfile;
                     Text = PublicVar.appName + " – " + NameWithotPath;
-                    string cc2 = CustomRTB.Text.Length.ToString(CultureInfo.InvariantCulture);
-                    CustomRTB.Select(Convert.ToInt32(cc2), 0);
+                    string cc2 = RichTextBox.Text.Length.ToString(CultureInfo.InvariantCulture);
+                    RichTextBox.Select(Convert.ToInt32(cc2), 0);
                     return;
                 }
                 DecryptAES();
 
-                #region workaround, strange behavior with the cursor in customRTB fix
-                CustomRTB.DetectUrls = false;
-                CustomRTB.DetectUrls = true;
+                #region fix strange behavior with the cursor in RichTextBox 
+                RichTextBox.DetectUrls = false;
+                RichTextBox.DetectUrls = true;
                 #endregion
 
-                CustomRTB.Modified = false;
+                RichTextBox.Modified = false;
 
                 if (PublicVar.okPressed)
                 {
@@ -1013,7 +1013,7 @@ namespace Crypto_Notepad
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int saveCaret = CustomRTB.SelectionStart;
+            int saveCaret = RichTextBox.SelectionStart;
 
             if (PublicVar.encryptionKey.Get() == null)
             {
@@ -1025,32 +1025,32 @@ namespace Crypto_Notepad
                 PublicVar.okPressed = false;
             }
 
-            string noenc = CustomRTB.Text;
+            string noenc = RichTextBox.Text;
             string en;
 
-            en = AES.Encrypt(CustomRTB.Text, PublicVar.encryptionKey.Get(), null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-            CustomRTB.Text = en;
+            en = AES.Encrypt(RichTextBox.Text, PublicVar.encryptionKey.Get(), null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+            RichTextBox.Text = en;
 
             StreamWriter sw = new StreamWriter(filePath);
-            int i = CustomRTB.Lines.Count();
+            int i = RichTextBox.Lines.Count();
             int j = 0;
             i = i - 1;
 
             while (j <= i)
             {
-                sw.WriteLine(CustomRTB.Lines.GetValue(j).ToString());
+                sw.WriteLine(RichTextBox.Lines.GetValue(j).ToString());
                 j = j + 1;
             }
             sw.Close();
 
-            CustomRTB.Text = noenc;
-            CustomRTB.Select(Convert.ToInt32(saveCaret), 0);
+            RichTextBox.Text = noenc;
+            RichTextBox.Select(Convert.ToInt32(saveCaret), 0);
             PublicVar.keyChanged = false;
         }
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int saveCaret = CustomRTB.SelectionStart;
+            int saveCaret = RichTextBox.SelectionStart;
             string NameWithotPath = Path.GetFileName(OpenFile.FileName);
             if (filePath != "")
             {
@@ -1085,23 +1085,23 @@ namespace Crypto_Notepad
             }
 
             filePath = SaveFile.FileName;
-            string noenc = CustomRTB.Text;
+            string noenc = RichTextBox.Text;
             string en;
-            en = AES.Encrypt(CustomRTB.Text, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-            CustomRTB.Text = en;
+            en = AES.Encrypt(RichTextBox.Text, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+            RichTextBox.Text = en;
             StreamWriter sw = new StreamWriter(filePath);
-            int i = CustomRTB.Lines.Count();
+            int i = RichTextBox.Lines.Count();
             int j = 0;
             i = i - 1;
             while (j <= i)
             {
-                sw.WriteLine(CustomRTB.Lines.GetValue(j).ToString());
+                sw.WriteLine(RichTextBox.Lines.GetValue(j).ToString());
                 j = j + 1;
             }
             sw.Close();
-            CustomRTB.Text = noenc;
+            RichTextBox.Text = noenc;
             Text = PublicVar.appName + " – " + Path.GetFileName(filePath);
-            CustomRTB.Select(Convert.ToInt32(saveCaret), 0);
+            RichTextBox.Select(Convert.ToInt32(saveCaret), 0);
             PublicVar.encryptionKey.Set(TypedPassword.Value);
             TypedPassword.Value = null;
             PublicVar.openFileName = Path.GetFileName(SaveFile.FileName);
@@ -1121,7 +1121,7 @@ namespace Crypto_Notepad
                     if (MessageBox.Show("Delete file: " + "\"" + filePath + "\"" + " ?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         File.Delete(filePath);
-                        CustomRTB.Clear();
+                        RichTextBox.Clear();
                         PublicVar.encryptionKey.Set(null);
                         FileLocationToolbarButton.Enabled = false;
                         DeleteFileToolbarButton.Enabled = false;
@@ -1159,29 +1159,29 @@ namespace Crypto_Notepad
         /*Edit*/
         private void UndoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CustomRTB.Undo();
+            RichTextBox.Undo();
         }
 
         public void RedoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CustomRTB.Redo();
+            RichTextBox.Redo();
         }
 
         private void CutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CustomRTB.Cut();
+            RichTextBox.Cut();
         }
 
         private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CustomRTB.Copy();
+            RichTextBox.Copy();
         }
 
         private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (CustomRTB.Focused)
+            if (RichTextBox.Focused)
             {
-                CustomRTB.Paste(DataFormats.GetFormat(DataFormats.Text));
+                RichTextBox.Paste(DataFormats.GetFormat(DataFormats.Text));
             }
             if (SearchTextBox.Focused)
             {
@@ -1191,7 +1191,7 @@ namespace Crypto_Notepad
 
         private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CustomRTB.SelectedText = "";
+            RichTextBox.SelectedText = "";
         }
 
         private void FindToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1200,9 +1200,8 @@ namespace Crypto_Notepad
             {
                 SearchTextBox.Text = "";
                 SearchPanel.Visible = false;
-                CustomRTB.Focus();
-                CustomRTB.DeselectAll();
-                //CustomRTB.SelectionStart = caretPos;
+                RichTextBox.Focus();
+                RichTextBox.DeselectAll();
             }
             else
             {
@@ -1213,9 +1212,9 @@ namespace Crypto_Notepad
 
         private void SelectAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (CustomRTB.Focused)
+            if (RichTextBox.Focused)
             {
-                CustomRTB.SelectAll();
+                RichTextBox.SelectAll();
             }
             if (SearchTextBox.Focused)
             {
@@ -1227,25 +1226,25 @@ namespace Crypto_Notepad
         {
             if (WordWrapToolStripMenuItem.Checked)
             {
-                CustomRTB.WordWrap = true;
+                RichTextBox.WordWrap = true;
             }
             else
             {
-                CustomRTB.WordWrap = false;
+                RichTextBox.WordWrap = false;
             }
             ps.MenuWrap = WordWrapToolStripMenuItem.Checked;
-            ps.RichWrap = CustomRTB.WordWrap;
+            ps.RichWrap = RichTextBox.WordWrap;
             ps.Save();
         }
 
         private void ClearToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CustomRTB.Clear();
+            RichTextBox.Clear();
         }
 
         private void EditToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
         {
-            if (CustomRTB.SelectionLength != 0)
+            if (RichTextBox.SelectionLength != 0)
             {
                 CutToolStripMenuItem.Enabled = true;
                 CopyToolStripMenuItem.Enabled = true;
@@ -1365,20 +1364,20 @@ namespace Crypto_Notepad
             {
                 if (!WordWrapToolStripMenuItem.Checked)
                 {
-                    string rtbTxt = CustomRTB.Text;
-                    CustomRTB.Clear();
-                    CustomRTB.RightToLeft = RightToLeft.Yes;
+                    string rtbTxt = RichTextBox.Text;
+                    RichTextBox.Clear();
+                    RichTextBox.RightToLeft = RightToLeft.Yes;
                     Application.DoEvents();
-                    CustomRTB.Text = rtbTxt;
+                    RichTextBox.Text = rtbTxt;
                 }
                 else
                 {
-                    CustomRTB.RightToLeft = RightToLeft.Yes;
+                    RichTextBox.RightToLeft = RightToLeft.Yes;
                 }
             }
             else
             {
-                CustomRTB.RightToLeft = RightToLeft.No;
+                RichTextBox.RightToLeft = RightToLeft.No;
             }
         }
 
@@ -1389,7 +1388,7 @@ namespace Crypto_Notepad
 
         private void EditorMenuStrip_Opening(object sender, CancelEventArgs e)
         {
-            if (CustomRTB.SelectionLength != 0)
+            if (RichTextBox.SelectionLength != 0)
             {
                 CutEditorMenuStrip.Enabled = true;
                 CopyEditorMenuStrip.Enabled = true;
@@ -1481,7 +1480,6 @@ namespace Crypto_Notepad
 
 
         /*Search Panel*/
-
         private void SearchTextBox_TextChanged(object sender, EventArgs e)
         {
             findPos = 0;
@@ -1493,8 +1491,8 @@ namespace Crypto_Notepad
             {
                 SearchTextBox.Text = "";
                 SearchPanel.Visible = false;
-                CustomRTB.Focus();
-                CustomRTB.DeselectAll();
+                RichTextBox.Focus();
+                RichTextBox.DeselectAll();
                 e.Handled = e.SuppressKeyPress = true;
                 findPos = 0;
             }
@@ -1518,13 +1516,13 @@ namespace Crypto_Notepad
         private void MatchCaseCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             findPos = 0;
-            CustomRTB.DeselectAll();
+            RichTextBox.DeselectAll();
         }
 
         private void WholeWordCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             findPos = 0;
-            CustomRTB.DeselectAll();
+            RichTextBox.DeselectAll();
         }
 
         private void FindMyText(string text, RichTextBoxFinds findOptions)
@@ -1533,14 +1531,14 @@ namespace Crypto_Notepad
             {
                 try
                 {
-                    findPos = CustomRTB.Find(SearchTextBox.Text, findPos, findOptions);
+                    findPos = RichTextBox.Find(SearchTextBox.Text, findPos, findOptions);
                     if (findPos == -1)
                     {
                         findPos = 0;
                         return;
                     }
-                    CustomRTB.Focus();
-                    CustomRTB.Select(findPos, SearchTextBox.Text.Length);
+                    RichTextBox.Focus();
+                    RichTextBox.Select(findPos, SearchTextBox.Text.Length);
                     findPos += SearchTextBox.Text.Length + 1;
                 }
                 catch
@@ -1592,7 +1590,7 @@ namespace Crypto_Notepad
             Debug.WriteLine("keyChanged: " + PublicVar.keyChanged);
             Debug.WriteLine("settingsChanged: " + PublicVar.settingsChanged);
             Debug.WriteLine("okPressed: " + PublicVar.okPressed);
-            Debug.WriteLine("CustomRTB.Modified: " + CustomRTB.Modified);
+            Debug.WriteLine("RichTextBox.Modified: " + RichTextBox.Modified);
             Debug.WriteLine("EditorMenuStrip: " + EditorMenuStrip.Enabled);
 #endif
         }  

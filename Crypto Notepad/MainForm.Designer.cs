@@ -102,8 +102,8 @@
             this.FileLocationToolbarButton = new System.Windows.Forms.PictureBox();
             this.SaveToolBarButton = new System.Windows.Forms.PictureBox();
             this.OpenToolbarButton = new System.Windows.Forms.PictureBox();
-            this.CustomRTB = new Crypto_Notepad.CustomRichTextBox();
             this.LineNumbers_For_RichTextBox = new LineNumbers.LineNumbers_For_RichTextBox();
+            this.RichTextBox = new System.Windows.Forms.RichTextBox();
             this.MainMenu.SuspendLayout();
             this.EditorMenuStrip.SuspendLayout();
             this.SearchPanel.SuspendLayout();
@@ -858,27 +858,6 @@
             this.OpenToolbarButton.TabStop = false;
             this.OpenToolbarButton.Click += new System.EventHandler(this.OpenToolbarButton_Click);
             // 
-            // CustomRTB
-            // 
-            this.CustomRTB.AcceptsTab = true;
-            this.CustomRTB.BackColor = System.Drawing.SystemColors.Window;
-            this.CustomRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.CustomRTB.ContextMenuStrip = this.EditorMenuStrip;
-            this.CustomRTB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CustomRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.CustomRTB.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.CustomRTB.Location = new System.Drawing.Point(17, 47);
-            this.CustomRTB.Name = "CustomRTB";
-            this.CustomRTB.Size = new System.Drawing.Size(496, 244);
-            this.CustomRTB.TabIndex = 10;
-            this.CustomRTB.Text = "TEST  TEST  TEST  TEST  TEST  TEST  ";
-            this.CustomRTB.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.СustomRTB_LinkClicked);
-            this.CustomRTB.SelectionChanged += new System.EventHandler(this.CustomRTB_SelectionChanged);
-            this.CustomRTB.Click += new System.EventHandler(this.CustomRTB_Click);
-            this.CustomRTB.TextChanged += new System.EventHandler(this.CustomRTB_TextChanged);
-            this.CustomRTB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CustomRTB_KeyDown);
-            this.CustomRTB.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CustomRTB_KeyUp);
-            // 
             // LineNumbers_For_RichTextBox
             // 
             this.LineNumbers_For_RichTextBox._SeeThroughMode_ = false;
@@ -911,21 +890,39 @@
             this.LineNumbers_For_RichTextBox.MarginLines_Thickness = 1F;
             this.LineNumbers_For_RichTextBox.Name = "LineNumbers_For_RichTextBox";
             this.LineNumbers_For_RichTextBox.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.LineNumbers_For_RichTextBox.ParentRichTextBox = this.CustomRTB;
+            this.LineNumbers_For_RichTextBox.ParentRichTextBox = this.RichTextBox;
             this.LineNumbers_For_RichTextBox.Show_BackgroundGradient = false;
             this.LineNumbers_For_RichTextBox.Show_BorderLines = true;
             this.LineNumbers_For_RichTextBox.Show_GridLines = true;
             this.LineNumbers_For_RichTextBox.Show_LineNrs = true;
             this.LineNumbers_For_RichTextBox.Show_MarginLines = false;
-            this.LineNumbers_For_RichTextBox.Size = new System.Drawing.Size(17, 244);
+            this.LineNumbers_For_RichTextBox.Size = new System.Drawing.Size(18, 244);
             this.LineNumbers_For_RichTextBox.TabIndex = 15;
+            // 
+            // RichTextBox
+            // 
+            this.RichTextBox.AcceptsTab = true;
+            this.RichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RichTextBox.ContextMenuStrip = this.EditorMenuStrip;
+            this.RichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RichTextBox.Location = new System.Drawing.Point(18, 47);
+            this.RichTextBox.Name = "RichTextBox";
+            this.RichTextBox.Size = new System.Drawing.Size(495, 244);
+            this.RichTextBox.TabIndex = 16;
+            this.RichTextBox.Text = "";
+            this.RichTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichTextBox_LinkClicked);
+            this.RichTextBox.SelectionChanged += new System.EventHandler(this.RichTextBox_SelectionChanged);
+            this.RichTextBox.Click += new System.EventHandler(this.RichTextBox_Click);
+            this.RichTextBox.TextChanged += new System.EventHandler(this.RichTextBox_TextChanged);
+            this.RichTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyDown);
+            this.RichTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyUp);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 318);
-            this.Controls.Add(this.CustomRTB);
+            this.Controls.Add(this.RichTextBox);
             this.Controls.Add(this.LineNumbers_For_RichTextBox);
             this.Controls.Add(this.SearchPanel);
             this.Controls.Add(this.ToolbarPanel);
@@ -1015,7 +1012,6 @@
         private System.Windows.Forms.CheckBox WholeWordCheckBox;
         private System.Windows.Forms.Panel SearchPanel;
         private System.Windows.Forms.ToolStripMenuItem SettingsToolStripMenuItem;
-        public CustomRichTextBox CustomRTB;
         private System.Windows.Forms.PictureBox CloseSearchPanel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripMenuItem FindToolStripMenuItem;
@@ -1041,5 +1037,6 @@
         private LineNumbers.LineNumbers_For_RichTextBox LineNumbers_For_RichTextBox;
         private System.Windows.Forms.ToolStripMenuItem insertToolStripMenuItem;
         private System.Windows.Forms.Button FindNextButton;
+        private System.Windows.Forms.RichTextBox RichTextBox;
     }
 }
