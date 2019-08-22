@@ -63,7 +63,6 @@ namespace Crypto_Notepad
                 }
 
                 RichTextBox.Text = de;
-
                 Text = PublicVar.appName + " – " + NameWithotPath;
                 filePath = OpenFile.FileName;
                 string cc2 = RichTextBox.Text.Length.ToString(CultureInfo.InvariantCulture);
@@ -116,9 +115,7 @@ namespace Crypto_Notepad
 
                     string de = AES.Decrypt(opnfile, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                     RichTextBox.Text = de;
-
                     Text = PublicVar.appName + " – " + NameWithotPath;
-
                     filePath = args[1];
                     string cc = RichTextBox.Text.Length.ToString(CultureInfo.InvariantCulture);
                     PublicVar.encryptionKey.Set(TypedPassword.Value);
@@ -353,6 +350,11 @@ namespace Crypto_Notepad
                     PublicVar.openFileName = "Unnamed.cnp";
                 }
 
+                if (PublicVar.openFileName == String.Empty)
+                {
+                    PublicVar.openFileName = "Unnamed.cnp";
+                }
+
                 if (RichTextBox.Text != "")
                 {
                     string messageBoxText = "";
@@ -376,7 +378,6 @@ namespace Crypto_Notepad
                             {
                                 Environment.Exit(0);
                             }
-
                         }
 
                         if (res == DialogResult.No)
@@ -587,6 +588,7 @@ namespace Crypto_Notepad
         /*Form Events*/
         private void MainWindow_Activated(object sender, EventArgs e)
         {
+            RichTextBox.Focus();
             if (PublicVar.settingsChanged)
             {
                 PublicVar.settingsChanged = false;
@@ -722,15 +724,12 @@ namespace Crypto_Notepad
             LineNumbers_For_RichTextBox.Visible = bool.Parse(ps.LNVisible);
             LineNumbers_For_RichTextBox.ForeColor = ps.LNFontColorPanel;
             LineNumbers_For_RichTextBox.BackColor = ps.LNBackgroundColor;
-
             LineNumbers_For_RichTextBox.Show_BorderLines = bool.Parse(ps.BLShow);
             LineNumbers_For_RichTextBox.BorderLines_Color = ps.BLColor;
             LineNumbers_For_RichTextBox.BorderLines_Style = ps.BLStyle;
-
             LineNumbers_For_RichTextBox.Show_GridLines = bool.Parse(ps.GLShow);
             LineNumbers_For_RichTextBox.GridLines_Color = ps.GLColor;
             LineNumbers_For_RichTextBox.GridLines_Style = ps.GLStyle;
-
             LineNumbers_For_RichTextBox.Font = new Font(ps.RichTextFont, ps.RichTextSize);
 
             if (ps.InserKey == "Disable")
@@ -741,6 +740,7 @@ namespace Crypto_Notepad
             {
                 insertToolStripMenuItem.ShortcutKeys = Keys.None;
             }
+
             if (ps.ColoredToolbar)
             {
                 ToolbarPanel.BackColor = ps.RichBackColor;
