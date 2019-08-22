@@ -102,8 +102,8 @@
             this.FileLocationToolbarButton = new System.Windows.Forms.PictureBox();
             this.SaveToolBarButton = new System.Windows.Forms.PictureBox();
             this.OpenToolbarButton = new System.Windows.Forms.PictureBox();
-            this.LineNumbers_For_RichTextBox = new LineNumbers.LineNumbers_For_RichTextBox();
             this.RichTextBox = new System.Windows.Forms.RichTextBox();
+            this.LineNumbers_For_RichTextBox = new LineNumbers.LineNumbers_For_RichTextBox();
             this.MainMenu.SuspendLayout();
             this.EditorMenuStrip.SuspendLayout();
             this.SearchPanel.SuspendLayout();
@@ -858,6 +858,24 @@
             this.OpenToolbarButton.TabStop = false;
             this.OpenToolbarButton.Click += new System.EventHandler(this.OpenToolbarButton_Click);
             // 
+            // RichTextBox
+            // 
+            this.RichTextBox.AcceptsTab = true;
+            this.RichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RichTextBox.ContextMenuStrip = this.EditorMenuStrip;
+            this.RichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RichTextBox.Location = new System.Drawing.Point(18, 47);
+            this.RichTextBox.Name = "RichTextBox";
+            this.RichTextBox.Size = new System.Drawing.Size(495, 244);
+            this.RichTextBox.TabIndex = 16;
+            this.RichTextBox.Text = "";
+            this.RichTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichTextBox_LinkClicked);
+            this.RichTextBox.SelectionChanged += new System.EventHandler(this.RichTextBox_SelectionChanged);
+            this.RichTextBox.Click += new System.EventHandler(this.RichTextBox_Click);
+            this.RichTextBox.TextChanged += new System.EventHandler(this.RichTextBox_TextChanged);
+            this.RichTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyDown);
+            this.RichTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyUp);
+            // 
             // LineNumbers_For_RichTextBox
             // 
             this.LineNumbers_For_RichTextBox._SeeThroughMode_ = false;
@@ -898,24 +916,6 @@
             this.LineNumbers_For_RichTextBox.Show_MarginLines = false;
             this.LineNumbers_For_RichTextBox.Size = new System.Drawing.Size(18, 244);
             this.LineNumbers_For_RichTextBox.TabIndex = 15;
-            // 
-            // RichTextBox
-            // 
-            this.RichTextBox.AcceptsTab = true;
-            this.RichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RichTextBox.ContextMenuStrip = this.EditorMenuStrip;
-            this.RichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RichTextBox.Location = new System.Drawing.Point(18, 47);
-            this.RichTextBox.Name = "RichTextBox";
-            this.RichTextBox.Size = new System.Drawing.Size(495, 244);
-            this.RichTextBox.TabIndex = 16;
-            this.RichTextBox.Text = "";
-            this.RichTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichTextBox_LinkClicked);
-            this.RichTextBox.SelectionChanged += new System.EventHandler(this.RichTextBox_SelectionChanged);
-            this.RichTextBox.Click += new System.EventHandler(this.RichTextBox_Click);
-            this.RichTextBox.TextChanged += new System.EventHandler(this.RichTextBox_TextChanged);
-            this.RichTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyDown);
-            this.RichTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyUp);
             // 
             // MainForm
             // 

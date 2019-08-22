@@ -68,6 +68,11 @@ namespace Crypto_Notepad
         {
             Process.Start(e.LinkText);
         }
+
+        private void ContributorsRichTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            Process.Start(e.LinkText);
+        }
         /*Perform open links*/
 
     }

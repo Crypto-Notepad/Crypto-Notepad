@@ -103,12 +103,6 @@
     <Compile Include="ChangeKeyForm.Designer.cs">
       <DependentUpon>ChangeKeyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomRichTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CustomRichTextBox.Designer.cs">
-      <DependentUpon>CustomRichTextBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="EncryptedString.cs" />
     <Compile Include="linenum_rtf.cs">
       <SubType>Component</SubType>
