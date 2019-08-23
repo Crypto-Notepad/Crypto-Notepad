@@ -577,15 +577,14 @@
             // 
             // SearchTextBox
             // 
-            this.SearchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.SearchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
             this.SearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SearchTextBox.ForeColor = System.Drawing.Color.White;
-            this.SearchTextBox.Location = new System.Drawing.Point(191, 5);
+            this.SearchTextBox.Location = new System.Drawing.Point(3, 6);
             this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(236, 14);
+            this.SearchTextBox.Size = new System.Drawing.Size(246, 14);
             this.SearchTextBox.TabIndex = 9;
             this.SearchTextBox.TabStop = false;
             this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
@@ -593,15 +592,13 @@
             // 
             // MatchCaseCheckBox
             // 
-            this.MatchCaseCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.MatchCaseCheckBox.AutoSize = true;
+            this.MatchCaseCheckBox.Dock = System.Windows.Forms.DockStyle.Right;
             this.MatchCaseCheckBox.ForeColor = System.Drawing.Color.Gainsboro;
             this.MatchCaseCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.MatchCaseCheckBox.Location = new System.Drawing.Point(95, 5);
+            this.MatchCaseCheckBox.Location = new System.Drawing.Point(255, 0);
             this.MatchCaseCheckBox.Name = "MatchCaseCheckBox";
-            this.MatchCaseCheckBox.Size = new System.Drawing.Size(95, 17);
+            this.MatchCaseCheckBox.Size = new System.Drawing.Size(95, 25);
             this.MatchCaseCheckBox.TabIndex = 11;
             this.MatchCaseCheckBox.Text = "Case sensitive";
             this.MatchCaseCheckBox.UseVisualStyleBackColor = false;
@@ -609,16 +606,14 @@
             // 
             // WholeWordCheckBox
             // 
-            this.WholeWordCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.WholeWordCheckBox.AutoSize = true;
             this.WholeWordCheckBox.BackColor = System.Drawing.Color.Transparent;
+            this.WholeWordCheckBox.Dock = System.Windows.Forms.DockStyle.Right;
             this.WholeWordCheckBox.ForeColor = System.Drawing.Color.Gainsboro;
             this.WholeWordCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.WholeWordCheckBox.Location = new System.Drawing.Point(6, 5);
+            this.WholeWordCheckBox.Location = new System.Drawing.Point(350, 0);
             this.WholeWordCheckBox.Name = "WholeWordCheckBox";
-            this.WholeWordCheckBox.Size = new System.Drawing.Size(83, 17);
+            this.WholeWordCheckBox.Size = new System.Drawing.Size(83, 25);
             this.WholeWordCheckBox.TabIndex = 12;
             this.WholeWordCheckBox.Text = "Whole word";
             this.WholeWordCheckBox.UseVisualStyleBackColor = false;
@@ -628,8 +623,8 @@
             // 
             this.SearchPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
             this.SearchPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SearchPanel.Controls.Add(this.SearchTextBox);
             this.SearchPanel.Controls.Add(this.MatchCaseCheckBox);
+            this.SearchPanel.Controls.Add(this.SearchTextBox);
             this.SearchPanel.Controls.Add(this.WholeWordCheckBox);
             this.SearchPanel.Controls.Add(this.FindNextButton);
             this.SearchPanel.Controls.Add(this.CloseSearchPanel);
@@ -701,13 +696,13 @@
             // 
             // CloseToolbar
             // 
-            this.CloseToolbar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CloseToolbar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseToolbar.Dock = System.Windows.Forms.DockStyle.Right;
             this.CloseToolbar.Image = global::Crypto_Notepad.Properties.Resources.close_g;
             this.CloseToolbar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CloseToolbar.Location = new System.Drawing.Point(497, 4);
+            this.CloseToolbar.Location = new System.Drawing.Point(499, 0);
             this.CloseToolbar.Name = "CloseToolbar";
-            this.CloseToolbar.Size = new System.Drawing.Size(14, 14);
+            this.CloseToolbar.Size = new System.Drawing.Size(14, 23);
             this.CloseToolbar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.CloseToolbar.TabIndex = 14;
             this.CloseToolbar.TabStop = false;

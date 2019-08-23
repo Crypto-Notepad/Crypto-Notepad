@@ -167,9 +167,7 @@ namespace Crypto_Notepad
                     PublicVar.okPressed = false;
                     string de = AES.Decrypt(opnfile, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                     RichTextBox.Text = de;
-
                     Text = PublicVar.appName + " – " + NameWithotPath;
-
                     filePath = argsPath;
                     string cc = RichTextBox.Text.Length.ToString(CultureInfo.InvariantCulture);
                     RichTextBox.Select(Convert.ToInt32(cc), 0);
@@ -204,7 +202,6 @@ namespace Crypto_Notepad
             string shortcutName = PublicVar.appName + ".lnk";
             string shortcutLocation = Path.Combine(shortcutPath, shortcutName);
             string targetFileLocation = Assembly.GetEntryAssembly().Location;
-
             WshShell shell = new WshShell();
             IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutLocation);
             shortcut.Description = PublicVar.appName;
@@ -216,7 +213,6 @@ namespace Crypto_Notepad
 
         private void ContextMenuEncryptReplace()
         {
-
             if (args[1].Contains(".cnp"))
             {
                 MessageBox.Show("Looks like this file is already encrypted", PublicVar.appName, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -237,9 +233,7 @@ namespace Crypto_Notepad
                 string cc2 = RichTextBox.Text.Length.ToString(CultureInfo.InvariantCulture);
                 RichTextBox.Select(Convert.ToInt32(cc2), 0);
                 PublicVar.openFileName = Path.GetFileName(args[1]);
-
                 string newFile = Path.GetDirectoryName(args[1]) + @"\" + Path.GetFileNameWithoutExtension(args[1]) + ".cnp";
-
                 EnterKeyForm f2 = new EnterKeyForm();
                 f2.ShowDialog();
                 if (!PublicVar.okPressed)
@@ -247,9 +241,7 @@ namespace Crypto_Notepad
                     Application.Exit();
                 }
                 PublicVar.okPressed = false;
-
                 File.Delete(args[1]);
-
                 string noenc = RichTextBox.Text;
                 string en;
                 en = AES.Encrypt(RichTextBox.Text, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
@@ -408,7 +400,6 @@ namespace Crypto_Notepad
                 string content = reader.ReadToEnd();
                 string version = Application.ProductVersion;
                 string exePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\";
-
                 int appVersion = Convert.ToInt32(version.Replace(".", "")), serverVersion = Convert.ToInt32(content.Replace(".", ""));
 
                 if (serverVersion > appVersion)
@@ -550,7 +541,6 @@ namespace Crypto_Notepad
                 OpenFileLocationToolStripMenuItem.Image = Properties.Resources.folder_horizontal;
                 DeleteFileToolStripMenuItem.Image = Properties.Resources.document_minus;
                 ExitToolStripMenuItem.Image = Properties.Resources.cross_button;
-
                 UndoToolStripMenuItem.Image = Properties.Resources.arrow_left;
                 RedoToolStripMenuItem.Image = Properties.Resources.arrow_right;
                 CutToolStripMenuItem.Image = Properties.Resources.scissors;
@@ -561,11 +551,9 @@ namespace Crypto_Notepad
                 SelectAllToolStripMenuItem.Image = Properties.Resources.selection_input;
                 WordWrapToolStripMenuItem.Image = Properties.Resources.wrap_option;
                 ClearToolStripMenuItem.Image = Properties.Resources.document;
-
                 ChangeKeyToolStripMenuItem.Image = Properties.Resources.key;
                 LockToolStripMenuItem.Image = Properties.Resources.lock_warning;
                 SettingsToolStripMenuItem.Image = Properties.Resources.gear;
-
                 DocumentationToolStripMenuItem.Image = Properties.Resources.document_text;
                 CheckForUpdatesToolStripMenuItem.Image = Properties.Resources.upload_cloud;
                 AboutToolStripMenuItem.Image = Properties.Resources.information;
@@ -596,16 +584,13 @@ namespace Crypto_Notepad
                 RichTextBox.ForeColor = ps.RichForeColor;
                 RichTextBox.BackColor = ps.RichBackColor;
                 BackColor = ps.RichBackColor;
-
                 LineNumbers_For_RichTextBox.Visible = bool.Parse(ps.LNVisible);
                 LineNumbers_For_RichTextBox.BackColor = ps.LNBackgroundColor;
                 LineNumbers_For_RichTextBox.ForeColor = ps.LNFontColorPanel;
                 LineNumbers_For_RichTextBox.Font = new Font(ps.RichTextFont, ps.RichTextSize);
-
                 LineNumbers_For_RichTextBox.Show_BorderLines = bool.Parse(ps.BLShow);
                 LineNumbers_For_RichTextBox.BorderLines_Color = ps.BLColor;
                 LineNumbers_For_RichTextBox.BorderLines_Style = ps.BLStyle;
-
                 LineNumbers_For_RichTextBox.Show_GridLines = bool.Parse(ps.GLShow);
                 LineNumbers_For_RichTextBox.GridLines_Color = ps.GLColor;
                 LineNumbers_For_RichTextBox.GridLines_Style = ps.GLStyle;
@@ -861,7 +846,6 @@ namespace Crypto_Notepad
         private void RichTextBox_DragDrop(object sender, DragEventArgs e)
         {
             SaveConfirm(false);
-
             string[] FileList = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             foreach (string file in FileList) OpenFile.FileName = file;
             object fname = e.Data.GetData("FileDrop");
@@ -987,7 +971,6 @@ namespace Crypto_Notepad
                 #endregion
 
                 RichTextBox.Modified = false;
-
                 if (PublicVar.okPressed)
                 {
                     PublicVar.okPressed = false;
@@ -1027,10 +1010,8 @@ namespace Crypto_Notepad
 
             string noenc = RichTextBox.Text;
             string en;
-
             en = AES.Encrypt(RichTextBox.Text, PublicVar.encryptionKey.Get(), null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
             RichTextBox.Text = en;
-
             StreamWriter sw = new StreamWriter(filePath);
             int i = RichTextBox.Lines.Count();
             int j = 0;
@@ -1593,7 +1574,7 @@ namespace Crypto_Notepad
             Debug.WriteLine("RichTextBox.Modified: " + RichTextBox.Modified);
             Debug.WriteLine("EditorMenuStrip: " + EditorMenuStrip.Enabled);
 #endif
-        }  
+        }
         /*Debug Menu*/
     }
 }
