@@ -300,11 +300,6 @@ namespace Crypto_Notepad
             BackgroundColorPanel.BackColor = colorDialog.Color;
         }
 
-        private void HighlightsColorPanel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ToolbarCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (!ToolbarCheckBox.Checked)
