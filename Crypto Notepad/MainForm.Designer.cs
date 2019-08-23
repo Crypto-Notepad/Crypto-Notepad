@@ -919,8 +919,8 @@
             this.ClientSize = new System.Drawing.Size(513, 318);
             this.Controls.Add(this.RichTextBox);
             this.Controls.Add(this.LineNumbers_For_RichTextBox);
-            this.Controls.Add(this.SearchPanel);
             this.Controls.Add(this.ToolbarPanel);
+            this.Controls.Add(this.SearchPanel);
             this.Controls.Add(this.MainMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

@@ -629,6 +629,7 @@ namespace Crypto_Notepad
                 if (ps.ShowToolbar && !ToolbarPanel.Visible)
                 {
                     ToolbarPanel.Visible = true;
+                    LineNumbers_For_RichTextBox.Height = 1;
                 }
 
                 MenuIcons();
