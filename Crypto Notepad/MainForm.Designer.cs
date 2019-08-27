@@ -884,11 +884,11 @@
             this.RichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RichTextBox.ContextMenuStrip = this.EditorMenuStrip;
             this.RichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RichTextBox.Location = new System.Drawing.Point(27, 47);
+            this.RichTextBox.Location = new System.Drawing.Point(18, 47);
             this.RichTextBox.Name = "RichTextBox";
-            this.RichTextBox.Size = new System.Drawing.Size(486, 240);
+            this.RichTextBox.Size = new System.Drawing.Size(495, 240);
             this.RichTextBox.TabIndex = 16;
-            this.RichTextBox.Text = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+            this.RichTextBox.Text = "";
             this.RichTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichTextBox_LinkClicked);
             this.RichTextBox.SelectionChanged += new System.EventHandler(this.RichTextBox_SelectionChanged);
             this.RichTextBox.Click += new System.EventHandler(this.RichTextBox_Click);
@@ -934,7 +934,7 @@
             this.LineNumbers_For_RichTextBox.Show_GridLines = true;
             this.LineNumbers_For_RichTextBox.Show_LineNrs = true;
             this.LineNumbers_For_RichTextBox.Show_MarginLines = false;
-            this.LineNumbers_For_RichTextBox.Size = new System.Drawing.Size(27, 240);
+            this.LineNumbers_For_RichTextBox.Size = new System.Drawing.Size(18, 240);
             this.LineNumbers_For_RichTextBox.TabIndex = 15;
             // 
             // MainForm
