@@ -86,10 +86,8 @@
             this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.MatchCaseCheckBox = new System.Windows.Forms.CheckBox();
             this.WholeWordCheckBox = new System.Windows.Forms.CheckBox();
-            this.SearchPanel = new System.Windows.Forms.Panel();
             this.FindNextButton = new System.Windows.Forms.Button();
             this.CloseSearchPanel = new System.Windows.Forms.PictureBox();
-            this.ToolbarPanel = new System.Windows.Forms.Panel();
             this.CloseToolbar = new System.Windows.Forms.PictureBox();
             this.LockToolbarButton = new System.Windows.Forms.PictureBox();
             this.SettingsToolbarButton = new System.Windows.Forms.PictureBox();
@@ -102,13 +100,13 @@
             this.FileLocationToolbarButton = new System.Windows.Forms.PictureBox();
             this.SaveToolBarButton = new System.Windows.Forms.PictureBox();
             this.OpenToolbarButton = new System.Windows.Forms.PictureBox();
-            this.RichTextBox = new System.Windows.Forms.RichTextBox();
+            this.ToolbarPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SearchPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.RichTextBox = new Crypto_Notepad.ExRichTextBox();
             this.LineNumbers_For_RichTextBox = new LineNumbers.LineNumbers_For_RichTextBox();
             this.MainMenu.SuspendLayout();
             this.EditorMenuStrip.SuspendLayout();
-            this.SearchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseSearchPanel)).BeginInit();
-            this.ToolbarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseToolbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LockToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsToolbarButton)).BeginInit();
@@ -121,6 +119,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.FileLocationToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SaveToolBarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenToolbarButton)).BeginInit();
+            this.ToolbarPanel.SuspendLayout();
+            this.SearchPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainMenu
@@ -577,14 +577,13 @@
             // 
             // SearchTextBox
             // 
-            this.SearchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
             this.SearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SearchTextBox.ForeColor = System.Drawing.Color.White;
-            this.SearchTextBox.Location = new System.Drawing.Point(3, 6);
+            this.SearchTextBox.Location = new System.Drawing.Point(3, 9);
             this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(246, 14);
+            this.SearchTextBox.Size = new System.Drawing.Size(224, 13);
             this.SearchTextBox.TabIndex = 9;
             this.SearchTextBox.TabStop = false;
             this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
@@ -593,14 +592,15 @@
             // MatchCaseCheckBox
             // 
             this.MatchCaseCheckBox.AutoSize = true;
-            this.MatchCaseCheckBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.MatchCaseCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MatchCaseCheckBox.ForeColor = System.Drawing.Color.Gainsboro;
             this.MatchCaseCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.MatchCaseCheckBox.Location = new System.Drawing.Point(255, 0);
+            this.MatchCaseCheckBox.Location = new System.Drawing.Point(233, 3);
             this.MatchCaseCheckBox.Name = "MatchCaseCheckBox";
-            this.MatchCaseCheckBox.Size = new System.Drawing.Size(95, 25);
+            this.MatchCaseCheckBox.Size = new System.Drawing.Size(96, 25);
             this.MatchCaseCheckBox.TabIndex = 11;
             this.MatchCaseCheckBox.Text = "Case sensitive";
+            this.MatchCaseCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.MatchCaseCheckBox.UseVisualStyleBackColor = false;
             this.MatchCaseCheckBox.CheckedChanged += new System.EventHandler(this.MatchCaseCheckBox_CheckedChanged);
             // 
@@ -608,49 +608,34 @@
             // 
             this.WholeWordCheckBox.AutoSize = true;
             this.WholeWordCheckBox.BackColor = System.Drawing.Color.Transparent;
-            this.WholeWordCheckBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.WholeWordCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.WholeWordCheckBox.ForeColor = System.Drawing.Color.Gainsboro;
             this.WholeWordCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.WholeWordCheckBox.Location = new System.Drawing.Point(350, 0);
+            this.WholeWordCheckBox.Location = new System.Drawing.Point(335, 3);
             this.WholeWordCheckBox.Name = "WholeWordCheckBox";
-            this.WholeWordCheckBox.Size = new System.Drawing.Size(83, 25);
+            this.WholeWordCheckBox.Size = new System.Drawing.Size(84, 25);
             this.WholeWordCheckBox.TabIndex = 12;
             this.WholeWordCheckBox.Text = "Whole word";
+            this.WholeWordCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.WholeWordCheckBox.UseVisualStyleBackColor = false;
             this.WholeWordCheckBox.CheckedChanged += new System.EventHandler(this.WholeWordCheckBox_CheckedChanged);
-            // 
-            // SearchPanel
-            // 
-            this.SearchPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
-            this.SearchPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SearchPanel.Controls.Add(this.MatchCaseCheckBox);
-            this.SearchPanel.Controls.Add(this.SearchTextBox);
-            this.SearchPanel.Controls.Add(this.WholeWordCheckBox);
-            this.SearchPanel.Controls.Add(this.FindNextButton);
-            this.SearchPanel.Controls.Add(this.CloseSearchPanel);
-            this.SearchPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.SearchPanel.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.SearchPanel.Location = new System.Drawing.Point(0, 291);
-            this.SearchPanel.Name = "SearchPanel";
-            this.SearchPanel.Size = new System.Drawing.Size(513, 27);
-            this.SearchPanel.TabIndex = 13;
-            this.SearchPanel.Visible = false;
             // 
             // FindNextButton
             // 
             this.FindNextButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.FindNextButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.FindNextButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FindNextButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.FindNextButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
             this.FindNextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.FindNextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FindNextButton.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.FindNextButton.Location = new System.Drawing.Point(433, 0);
+            this.FindNextButton.Location = new System.Drawing.Point(425, 3);
             this.FindNextButton.Name = "FindNextButton";
-            this.FindNextButton.Size = new System.Drawing.Size(64, 25);
+            this.FindNextButton.Size = new System.Drawing.Size(66, 25);
             this.FindNextButton.TabIndex = 15;
             this.FindNextButton.TabStop = false;
             this.FindNextButton.Text = "Find Next";
+            this.FindNextButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.FindNextButton.UseMnemonic = false;
             this.FindNextButton.UseVisualStyleBackColor = true;
             this.FindNextButton.Click += new System.EventHandler(this.FindNextButton_Click);
@@ -658,12 +643,11 @@
             // CloseSearchPanel
             // 
             this.CloseSearchPanel.BackColor = System.Drawing.Color.Transparent;
-            this.CloseSearchPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CloseSearchPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseSearchPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.CloseSearchPanel.Image = ((System.Drawing.Image)(resources.GetObject("CloseSearchPanel.Image")));
             this.CloseSearchPanel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CloseSearchPanel.Location = new System.Drawing.Point(497, 0);
+            this.CloseSearchPanel.Location = new System.Drawing.Point(497, 3);
+            this.CloseSearchPanel.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.CloseSearchPanel.Name = "CloseSearchPanel";
             this.CloseSearchPanel.Size = new System.Drawing.Size(14, 25);
             this.CloseSearchPanel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -673,36 +657,15 @@
             this.CloseSearchPanel.MouseLeave += new System.EventHandler(this.CloseSearchPanel_MouseLeave);
             this.CloseSearchPanel.MouseHover += new System.EventHandler(this.CloseSearchPanel_MouseHover);
             // 
-            // ToolbarPanel
-            // 
-            this.ToolbarPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ToolbarPanel.Controls.Add(this.CloseToolbar);
-            this.ToolbarPanel.Controls.Add(this.LockToolbarButton);
-            this.ToolbarPanel.Controls.Add(this.SettingsToolbarButton);
-            this.ToolbarPanel.Controls.Add(this.NewToolbarButton);
-            this.ToolbarPanel.Controls.Add(this.ChangeKeyToolbarButton);
-            this.ToolbarPanel.Controls.Add(this.PasteToolbarButton);
-            this.ToolbarPanel.Controls.Add(this.CopyToolbarButton);
-            this.ToolbarPanel.Controls.Add(this.CutToolbarButton);
-            this.ToolbarPanel.Controls.Add(this.DeleteFileToolbarButton);
-            this.ToolbarPanel.Controls.Add(this.FileLocationToolbarButton);
-            this.ToolbarPanel.Controls.Add(this.SaveToolBarButton);
-            this.ToolbarPanel.Controls.Add(this.OpenToolbarButton);
-            this.ToolbarPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ToolbarPanel.Location = new System.Drawing.Point(0, 24);
-            this.ToolbarPanel.Name = "ToolbarPanel";
-            this.ToolbarPanel.Size = new System.Drawing.Size(513, 23);
-            this.ToolbarPanel.TabIndex = 14;
-            // 
             // CloseToolbar
             // 
             this.CloseToolbar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseToolbar.Dock = System.Windows.Forms.DockStyle.Right;
             this.CloseToolbar.Image = global::Crypto_Notepad.Properties.Resources.close_g;
             this.CloseToolbar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CloseToolbar.Location = new System.Drawing.Point(499, 0);
+            this.CloseToolbar.Location = new System.Drawing.Point(496, 3);
+            this.CloseToolbar.Margin = new System.Windows.Forms.Padding(3, 3, 2, 3);
             this.CloseToolbar.Name = "CloseToolbar";
-            this.CloseToolbar.Size = new System.Drawing.Size(14, 23);
+            this.CloseToolbar.Size = new System.Drawing.Size(14, 17);
             this.CloseToolbar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.CloseToolbar.TabIndex = 14;
             this.CloseToolbar.TabStop = false;
@@ -715,7 +678,7 @@
             this.LockToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LockToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("LockToolbarButton.Image")));
             this.LockToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.LockToolbarButton.Location = new System.Drawing.Point(235, 3);
+            this.LockToolbarButton.Location = new System.Drawing.Point(219, 3);
             this.LockToolbarButton.Name = "LockToolbarButton";
             this.LockToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.LockToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -728,7 +691,7 @@
             this.SettingsToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SettingsToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("SettingsToolbarButton.Image")));
             this.SettingsToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.SettingsToolbarButton.Location = new System.Drawing.Point(260, 3);
+            this.SettingsToolbarButton.Location = new System.Drawing.Point(243, 3);
             this.SettingsToolbarButton.Name = "SettingsToolbarButton";
             this.SettingsToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.SettingsToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -741,7 +704,7 @@
             this.NewToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NewToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("NewToolbarButton.Image")));
             this.NewToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.NewToolbarButton.Location = new System.Drawing.Point(10, 3);
+            this.NewToolbarButton.Location = new System.Drawing.Point(3, 3);
             this.NewToolbarButton.Name = "NewToolbarButton";
             this.NewToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.NewToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -754,7 +717,7 @@
             this.ChangeKeyToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChangeKeyToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("ChangeKeyToolbarButton.Image")));
             this.ChangeKeyToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ChangeKeyToolbarButton.Location = new System.Drawing.Point(210, 3);
+            this.ChangeKeyToolbarButton.Location = new System.Drawing.Point(195, 3);
             this.ChangeKeyToolbarButton.Name = "ChangeKeyToolbarButton";
             this.ChangeKeyToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.ChangeKeyToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -767,7 +730,7 @@
             this.PasteToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PasteToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("PasteToolbarButton.Image")));
             this.PasteToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.PasteToolbarButton.Location = new System.Drawing.Point(185, 3);
+            this.PasteToolbarButton.Location = new System.Drawing.Point(171, 3);
             this.PasteToolbarButton.Name = "PasteToolbarButton";
             this.PasteToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.PasteToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -780,7 +743,7 @@
             this.CopyToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CopyToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("CopyToolbarButton.Image")));
             this.CopyToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CopyToolbarButton.Location = new System.Drawing.Point(160, 3);
+            this.CopyToolbarButton.Location = new System.Drawing.Point(147, 3);
             this.CopyToolbarButton.Name = "CopyToolbarButton";
             this.CopyToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.CopyToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -793,7 +756,7 @@
             this.CutToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CutToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("CutToolbarButton.Image")));
             this.CutToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CutToolbarButton.Location = new System.Drawing.Point(135, 3);
+            this.CutToolbarButton.Location = new System.Drawing.Point(123, 3);
             this.CutToolbarButton.Name = "CutToolbarButton";
             this.CutToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.CutToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -806,7 +769,7 @@
             this.DeleteFileToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DeleteFileToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteFileToolbarButton.Image")));
             this.DeleteFileToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.DeleteFileToolbarButton.Location = new System.Drawing.Point(110, 3);
+            this.DeleteFileToolbarButton.Location = new System.Drawing.Point(99, 3);
             this.DeleteFileToolbarButton.Name = "DeleteFileToolbarButton";
             this.DeleteFileToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.DeleteFileToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -819,7 +782,7 @@
             this.FileLocationToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FileLocationToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("FileLocationToolbarButton.Image")));
             this.FileLocationToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.FileLocationToolbarButton.Location = new System.Drawing.Point(85, 3);
+            this.FileLocationToolbarButton.Location = new System.Drawing.Point(75, 3);
             this.FileLocationToolbarButton.Name = "FileLocationToolbarButton";
             this.FileLocationToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.FileLocationToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -832,7 +795,7 @@
             this.SaveToolBarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SaveToolBarButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveToolBarButton.Image")));
             this.SaveToolBarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.SaveToolBarButton.Location = new System.Drawing.Point(60, 3);
+            this.SaveToolBarButton.Location = new System.Drawing.Point(51, 3);
             this.SaveToolBarButton.Name = "SaveToolBarButton";
             this.SaveToolBarButton.Size = new System.Drawing.Size(16, 16);
             this.SaveToolBarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -845,7 +808,7 @@
             this.OpenToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OpenToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("OpenToolbarButton.Image")));
             this.OpenToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.OpenToolbarButton.Location = new System.Drawing.Point(35, 3);
+            this.OpenToolbarButton.Location = new System.Drawing.Point(27, 3);
             this.OpenToolbarButton.Name = "OpenToolbarButton";
             this.OpenToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.OpenToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -853,17 +816,79 @@
             this.OpenToolbarButton.TabStop = false;
             this.OpenToolbarButton.Click += new System.EventHandler(this.OpenToolbarButton_Click);
             // 
+            // ToolbarPanel
+            // 
+            this.ToolbarPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ToolbarPanel.ColumnCount = 13;
+            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.ToolbarPanel.Controls.Add(this.LockToolbarButton, 9, 0);
+            this.ToolbarPanel.Controls.Add(this.NewToolbarButton, 0, 0);
+            this.ToolbarPanel.Controls.Add(this.ChangeKeyToolbarButton, 8, 0);
+            this.ToolbarPanel.Controls.Add(this.OpenToolbarButton, 1, 0);
+            this.ToolbarPanel.Controls.Add(this.PasteToolbarButton, 7, 0);
+            this.ToolbarPanel.Controls.Add(this.SaveToolBarButton, 2, 0);
+            this.ToolbarPanel.Controls.Add(this.CopyToolbarButton, 6, 0);
+            this.ToolbarPanel.Controls.Add(this.FileLocationToolbarButton, 3, 0);
+            this.ToolbarPanel.Controls.Add(this.CutToolbarButton, 5, 0);
+            this.ToolbarPanel.Controls.Add(this.DeleteFileToolbarButton, 4, 0);
+            this.ToolbarPanel.Controls.Add(this.CloseToolbar, 12, 0);
+            this.ToolbarPanel.Controls.Add(this.SettingsToolbarButton, 10, 0);
+            this.ToolbarPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ToolbarPanel.ForeColor = System.Drawing.SystemColors.Control;
+            this.ToolbarPanel.Location = new System.Drawing.Point(0, 24);
+            this.ToolbarPanel.Name = "ToolbarPanel";
+            this.ToolbarPanel.RowCount = 1;
+            this.ToolbarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ToolbarPanel.Size = new System.Drawing.Size(513, 23);
+            this.ToolbarPanel.TabIndex = 17;
+            // 
+            // SearchPanel
+            // 
+            this.SearchPanel.AutoSize = true;
+            this.SearchPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
+            this.SearchPanel.ColumnCount = 5;
+            this.SearchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SearchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102F));
+            this.SearchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.SearchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
+            this.SearchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.SearchPanel.Controls.Add(this.FindNextButton, 3, 0);
+            this.SearchPanel.Controls.Add(this.CloseSearchPanel, 4, 0);
+            this.SearchPanel.Controls.Add(this.SearchTextBox, 0, 0);
+            this.SearchPanel.Controls.Add(this.WholeWordCheckBox, 2, 0);
+            this.SearchPanel.Controls.Add(this.MatchCaseCheckBox, 1, 0);
+            this.SearchPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.SearchPanel.Location = new System.Drawing.Point(0, 287);
+            this.SearchPanel.Name = "SearchPanel";
+            this.SearchPanel.RowCount = 1;
+            this.SearchPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SearchPanel.Size = new System.Drawing.Size(513, 31);
+            this.SearchPanel.TabIndex = 17;
+            this.SearchPanel.Visible = false;
+            // 
             // RichTextBox
             // 
             this.RichTextBox.AcceptsTab = true;
             this.RichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RichTextBox.ContextMenuStrip = this.EditorMenuStrip;
             this.RichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RichTextBox.Location = new System.Drawing.Point(18, 47);
+            this.RichTextBox.Location = new System.Drawing.Point(27, 47);
             this.RichTextBox.Name = "RichTextBox";
-            this.RichTextBox.Size = new System.Drawing.Size(495, 244);
+            this.RichTextBox.Size = new System.Drawing.Size(486, 240);
             this.RichTextBox.TabIndex = 16;
-            this.RichTextBox.Text = "";
+            this.RichTextBox.Text = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
             this.RichTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichTextBox_LinkClicked);
             this.RichTextBox.SelectionChanged += new System.EventHandler(this.RichTextBox_SelectionChanged);
             this.RichTextBox.Click += new System.EventHandler(this.RichTextBox_Click);
@@ -909,7 +934,7 @@
             this.LineNumbers_For_RichTextBox.Show_GridLines = true;
             this.LineNumbers_For_RichTextBox.Show_LineNrs = true;
             this.LineNumbers_For_RichTextBox.Show_MarginLines = false;
-            this.LineNumbers_For_RichTextBox.Size = new System.Drawing.Size(18, 244);
+            this.LineNumbers_For_RichTextBox.Size = new System.Drawing.Size(27, 240);
             this.LineNumbers_For_RichTextBox.TabIndex = 15;
             // 
             // MainForm
@@ -920,8 +945,8 @@
             this.Controls.Add(this.RichTextBox);
             this.Controls.Add(this.LineNumbers_For_RichTextBox);
             this.Controls.Add(this.ToolbarPanel);
-            this.Controls.Add(this.SearchPanel);
             this.Controls.Add(this.MainMenu);
+            this.Controls.Add(this.SearchPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MainMenu;
@@ -935,11 +960,7 @@
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
             this.EditorMenuStrip.ResumeLayout(false);
-            this.SearchPanel.ResumeLayout(false);
-            this.SearchPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseSearchPanel)).EndInit();
-            this.ToolbarPanel.ResumeLayout(false);
-            this.ToolbarPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseToolbar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LockToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsToolbarButton)).EndInit();
@@ -952,6 +973,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.FileLocationToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SaveToolBarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OpenToolbarButton)).EndInit();
+            this.ToolbarPanel.ResumeLayout(false);
+            this.ToolbarPanel.PerformLayout();
+            this.SearchPanel.ResumeLayout(false);
+            this.SearchPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1005,12 +1030,10 @@
         private System.Windows.Forms.TextBox SearchTextBox;
         private System.Windows.Forms.CheckBox MatchCaseCheckBox;
         private System.Windows.Forms.CheckBox WholeWordCheckBox;
-        private System.Windows.Forms.Panel SearchPanel;
         private System.Windows.Forms.ToolStripMenuItem SettingsToolStripMenuItem;
         private System.Windows.Forms.PictureBox CloseSearchPanel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripMenuItem FindToolStripMenuItem;
-        private System.Windows.Forms.Panel ToolbarPanel;
         private System.Windows.Forms.PictureBox NewToolbarButton;
         private System.Windows.Forms.PictureBox OpenToolbarButton;
         private System.Windows.Forms.PictureBox SaveToolBarButton;
@@ -1032,6 +1055,8 @@
         private LineNumbers.LineNumbers_For_RichTextBox LineNumbers_For_RichTextBox;
         private System.Windows.Forms.ToolStripMenuItem insertToolStripMenuItem;
         private System.Windows.Forms.Button FindNextButton;
-        private System.Windows.Forms.RichTextBox RichTextBox;
+        private System.Windows.Forms.TableLayoutPanel ToolbarPanel;
+        private System.Windows.Forms.TableLayoutPanel SearchPanel;
+        private ExRichTextBox RichTextBox;
     }
 }

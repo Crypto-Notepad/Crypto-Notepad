@@ -120,6 +120,9 @@
       <DependentUpon>EnterKeyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MsgBoxCenterParent.cs" />
+    <Compile Include="ExRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PortableSettingsProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

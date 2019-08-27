@@ -36,8 +36,8 @@
             this.LicenseLinkLabel = new System.Windows.Forms.LinkLabel();
             this.GithubLinkLabel = new System.Windows.Forms.LinkLabel();
             this.ContributorsLabel = new System.Windows.Forms.Label();
-            this.TPDRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.ContributorsRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.TPDRichTextBox = new Crypto_Notepad.ExRichTextBox();
+            this.ContributorsRichTextBox = new Crypto_Notepad.ExRichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.AppLogoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 

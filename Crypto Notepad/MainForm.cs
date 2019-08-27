@@ -512,8 +512,7 @@ namespace Crypto_Notepad
         protected override void WndProc(ref Message m)
         {
             const int WM_SYSCOMMAND = 0x112;
-            const int SC_MINIMIZE = 0xF020;
-
+            const int SC_MINIMIZE = 0xF020;         
             if (m.Msg == WM_SYSCOMMAND && m.WParam.ToInt32() == SC_MINIMIZE && ps.AutoLock && PublicVar.encryptionKey.Get() != null)
             {
                 if (ps.AutoSave)
@@ -529,6 +528,7 @@ namespace Crypto_Notepad
             }
             base.WndProc(ref m);
         }
+
 
         private void MenuIcons()
         {
@@ -570,6 +570,7 @@ namespace Crypto_Notepad
                 }
             }
         }
+
         /*Functions*/
 
 
@@ -897,6 +898,7 @@ namespace Crypto_Notepad
                 shiftPresed = false;
             }
         }
+
         private void RichTextBox_TextChanged(object sender, EventArgs e)
         {
             LineNumbers_For_RichTextBox.Refresh();
@@ -1184,11 +1186,13 @@ namespace Crypto_Notepad
                 SearchPanel.Visible = false;
                 RichTextBox.Focus();
                 RichTextBox.DeselectAll();
+                LineNumbers_For_RichTextBox.Height = 1;
             }
             else
             {
                 SearchPanel.Visible = true;
                 SearchTextBox.Focus();
+                LineNumbers_For_RichTextBox.Width = 1;
             }
         }
 
@@ -1487,12 +1491,12 @@ namespace Crypto_Notepad
 
         private void CloseSearchPanel_MouseHover(object sender, EventArgs e)
         {
-            CloseSearchPanel.BackColor = Color.DimGray;
+            CloseSearchPanel.Image = Properties.Resources.close_b;
         }
 
         private void CloseSearchPanel_MouseLeave(object sender, EventArgs e)
         {
-            CloseSearchPanel.BackColor = Color.Transparent;
+            CloseSearchPanel.Image = Properties.Resources.close_g;
         }
 
         private void MatchCaseCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -1507,7 +1511,7 @@ namespace Crypto_Notepad
             RichTextBox.DeselectAll();
         }
 
-        private void FindMyText(string text, RichTextBoxFinds findOptions)
+        private void FindText(string text, RichTextBoxFinds findOptions)
         {
             if (text.Length > 0)
             {
@@ -1533,25 +1537,25 @@ namespace Crypto_Notepad
         {
             if ((!WholeWordCheckBox.Checked) & (!MatchCaseCheckBox.Checked))
             {
-                FindMyText(SearchTextBox.Text, RichTextBoxFinds.None);
+                FindText(SearchTextBox.Text, RichTextBoxFinds.None);
                 return;
             }
 
             if (WholeWordCheckBox.Checked & MatchCaseCheckBox.Checked)
             {
-                FindMyText(SearchTextBox.Text, RichTextBoxFinds.MatchCase | RichTextBoxFinds.WholeWord);
+                FindText(SearchTextBox.Text, RichTextBoxFinds.MatchCase | RichTextBoxFinds.WholeWord);
                 return;
             }
 
             if (MatchCaseCheckBox.Checked)
             {
-                FindMyText(SearchTextBox.Text, RichTextBoxFinds.MatchCase);
+                FindText(SearchTextBox.Text, RichTextBoxFinds.MatchCase);
                 return;
             }
 
             if (WholeWordCheckBox.Checked)
             {
-                FindMyText(SearchTextBox.Text, RichTextBoxFinds.WholeWord);
+                FindText(SearchTextBox.Text, RichTextBoxFinds.WholeWord);
                 return;
             }
         }
