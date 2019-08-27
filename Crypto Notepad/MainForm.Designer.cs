@@ -892,7 +892,6 @@
             this.RichTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichTextBox_LinkClicked);
             this.RichTextBox.SelectionChanged += new System.EventHandler(this.RichTextBox_SelectionChanged);
             this.RichTextBox.Click += new System.EventHandler(this.RichTextBox_Click);
-            this.RichTextBox.TextChanged += new System.EventHandler(this.RichTextBox_TextChanged);
             this.RichTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyDown);
             this.RichTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyUp);
             // 

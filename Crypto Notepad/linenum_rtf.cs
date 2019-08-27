@@ -599,9 +599,8 @@ namespace LineNumbers
 		/// <remarks></remarks>
 		private void Update_VisibleLineNumberItems()
 		{
-
-			// ################
-			int tmpY;
+            // ################
+            int tmpY;
 			// ###############
 			zLNIs.Clear();
 			zAutoSizing_Size = new Size(0, 0);
@@ -722,7 +721,7 @@ namespace LineNumbers
 			//   To measure the LineNumber's width, its Format 0 is replaced by w as that is likely to be one of the widest characters in non-monospace fonts. 
 			if (zAutoSizing == true)
 				zAutoSizing_Size = new Size(TextRenderer.MeasureText(zLineNumbers_Format.Replace('0', 'W'), this.Font).Width, 0);
-				//zAutoSizing_Size = new Size(TextRenderer.MeasureText(zLineNumbers_Format.Replace("0".ToCharArray(), "W".ToCharArray()), this.Font).Width, 0);
+            //zAutoSizing_Size = new Size(TextRenderer.MeasureText(zLineNumbers_Format.Replace("0".ToCharArray(), "W".ToCharArray()), this.Font).Width, 0);
 		}
 
 		/// <summary>
@@ -1083,7 +1082,7 @@ namespace LineNumbers
 
 		private void zTimer_Tick(object sender, System.EventArgs e)
 		{
-			zParentIsScrolling = false;
+            zParentIsScrolling = false;
 			zTimer.Stop();
 			this.Invalidate();
 		}
@@ -1098,7 +1097,8 @@ namespace LineNumbers
 		{
 			zParentIsScrolling = true;
 			this.Invalidate();
-		}
+            this.Refresh();
+        }
 
 		private void zParent_ContentsResized(object sender, System.Windows.Forms.ContentsResizedEventArgs e)
 		{

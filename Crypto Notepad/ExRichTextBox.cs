@@ -8,8 +8,8 @@ namespace Crypto_Notepad
     {
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
         static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
-        const int WM_MOUSEWHEEL = 0x020A;
-        const int WM_VSCROLL = 0x115;
+        private const int WM_VSCROLL = 0x115;
+        private const int WM_MOUSEWHEEL = 0x20A;
         protected override void WndProc(ref Message m)
         {
             if (m.Msg == WM_MOUSEWHEEL)
@@ -26,5 +26,6 @@ namespace Crypto_Notepad
             }
             base.WndProc(ref m);
         }
+
     }
 }

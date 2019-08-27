@@ -61,7 +61,6 @@ namespace Crypto_Notepad
                 {
                     de = AES.Decrypt(opnfile, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
                 }
-
                 RichTextBox.Text = de;
                 Text = PublicVar.appName + " – " + NameWithotPath;
                 filePath = OpenFile.FileName;
@@ -70,7 +69,6 @@ namespace Crypto_Notepad
                 PublicVar.openFileName = Path.GetFileName(OpenFile.FileName);
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
                 TypedPassword.Value = null;
-                LineNumbers_For_RichTextBox.Refresh();
             }
             catch (CryptographicException)
             {
@@ -468,7 +466,6 @@ namespace Crypto_Notepad
                 return;
             }
             PublicVar.okPressed = false;
-            LineNumbers_For_RichTextBox.Refresh();
             try
             {
                 RichTextBox.Clear();
@@ -505,8 +502,6 @@ namespace Crypto_Notepad
                     }
                 }
             }
-
-            LineNumbers_For_RichTextBox.Refresh();
         }
 
         protected override void WndProc(ref Message m)
@@ -666,7 +661,6 @@ namespace Crypto_Notepad
                 ChangeKeyToolbarButton.Enabled = true;
                 LockToolbarButton.Enabled = true;
             }
-            LineNumbers_For_RichTextBox.Refresh();
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -788,8 +782,6 @@ namespace Crypto_Notepad
 
             Size = ps.WindowSize;
             WindowState = ps.WindowState;
-            LineNumbers_For_RichTextBox.Refresh();
-
 #if DEBUG
             DebugToolStripMenuItem.Visible = true;
 #endif
@@ -898,11 +890,6 @@ namespace Crypto_Notepad
                 shiftPresed = false;
             }
         }
-
-        private void RichTextBox_TextChanged(object sender, EventArgs e)
-        {
-            LineNumbers_For_RichTextBox.Refresh();
-        }
         /*RichTextBox Events*/
 
 
@@ -994,7 +981,6 @@ namespace Crypto_Notepad
                     LockToolbarButton.Enabled = true;
                 }
             }
-            LineNumbers_For_RichTextBox.Refresh();
         }
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
