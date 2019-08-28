@@ -506,7 +506,7 @@
             // ToolbarColorCheckBox
             // 
             this.ToolbarColorCheckBox.AutoSize = true;
-            this.ToolbarColorCheckBox.Location = new System.Drawing.Point(7, 82);
+            this.ToolbarColorCheckBox.Location = new System.Drawing.Point(7, 128);
             this.ToolbarColorCheckBox.Name = "ToolbarColorCheckBox";
             this.ToolbarColorCheckBox.Size = new System.Drawing.Size(131, 19);
             this.ToolbarColorCheckBox.TabIndex = 8;
@@ -516,7 +516,7 @@
             // MenuIconsCheckBox
             // 
             this.MenuIconsCheckBox.AutoSize = true;
-            this.MenuIconsCheckBox.Location = new System.Drawing.Point(7, 128);
+            this.MenuIconsCheckBox.Location = new System.Drawing.Point(7, 82);
             this.MenuIconsCheckBox.Name = "MenuIconsCheckBox";
             this.MenuIconsCheckBox.Size = new System.Drawing.Size(90, 19);
             this.MenuIconsCheckBox.TabIndex = 7;

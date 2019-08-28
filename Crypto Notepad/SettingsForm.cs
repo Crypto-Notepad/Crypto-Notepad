@@ -241,7 +241,6 @@ namespace Crypto_Notepad
 
             if (!ps.ShowToolbar)
             {
-                ToolbarColorCheckBox.Checked = false;
                 ToolbarColorCheckBox.Enabled = false;
             }
 
@@ -304,7 +303,6 @@ namespace Crypto_Notepad
         {
             if (!ToolbarCheckBox.Checked)
             {
-                ToolbarColorCheckBox.Checked = false;
                 ToolbarColorCheckBox.Enabled = false;
             }
             else
