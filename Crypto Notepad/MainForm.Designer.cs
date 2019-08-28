@@ -926,7 +926,7 @@
             this.LineNumbers_For_RichTextBox.MarginLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
             this.LineNumbers_For_RichTextBox.MarginLines_Thickness = 1F;
             this.LineNumbers_For_RichTextBox.Name = "LineNumbers_For_RichTextBox";
-            this.LineNumbers_For_RichTextBox.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.LineNumbers_For_RichTextBox.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.LineNumbers_For_RichTextBox.ParentRichTextBox = this.RichTextBox;
             this.LineNumbers_For_RichTextBox.Show_BackgroundGradient = false;
             this.LineNumbers_For_RichTextBox.Show_BorderLines = true;
