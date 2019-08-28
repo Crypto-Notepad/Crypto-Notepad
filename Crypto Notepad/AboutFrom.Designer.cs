@@ -36,8 +36,8 @@
             this.LicenseLinkLabel = new System.Windows.Forms.LinkLabel();
             this.GithubLinkLabel = new System.Windows.Forms.LinkLabel();
             this.ContributorsLabel = new System.Windows.Forms.Label();
-            this.TPDRichTextBox = new Crypto_Notepad.ExRichTextBox();
             this.ContributorsRichTextBox = new Crypto_Notepad.ExRichTextBox();
+            this.TPDRichTextBox = new Crypto_Notepad.ExRichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.AppLogoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,25 +142,6 @@
             this.ContributorsLabel.TabIndex = 4;
             this.ContributorsLabel.Text = "Contributors:";
             // 
-            // TPDRichTextBox
-            // 
-            this.TPDRichTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.TPDRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TPDRichTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.TPDRichTextBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TPDRichTextBox.ForeColor = System.Drawing.Color.White;
-            this.TPDRichTextBox.Location = new System.Drawing.Point(0, 181);
-            this.TPDRichTextBox.Name = "TPDRichTextBox";
-            this.TPDRichTextBox.ReadOnly = true;
-            this.TPDRichTextBox.RightMargin = 700;
-            this.TPDRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
-            this.TPDRichTextBox.ShowSelectionMargin = true;
-            this.TPDRichTextBox.Size = new System.Drawing.Size(397, 103);
-            this.TPDRichTextBox.TabIndex = 10;
-            this.TPDRichTextBox.Text = resources.GetString("TPDRichTextBox.Text");
-            this.TPDRichTextBox.WordWrap = false;
-            this.TPDRichTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.TPDRichTextBox_LinkClicked);
-            // 
             // ContributorsRichTextBox
             // 
             this.ContributorsRichTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
@@ -178,6 +159,25 @@
             this.ContributorsRichTextBox.Text = "h5p9sl https://github.com/h5p9sl";
             this.ContributorsRichTextBox.WordWrap = false;
             this.ContributorsRichTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.ContributorsRichTextBox_LinkClicked);
+            // 
+            // TPDRichTextBox
+            // 
+            this.TPDRichTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.TPDRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TPDRichTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.TPDRichTextBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TPDRichTextBox.ForeColor = System.Drawing.Color.White;
+            this.TPDRichTextBox.Location = new System.Drawing.Point(0, 184);
+            this.TPDRichTextBox.Name = "TPDRichTextBox";
+            this.TPDRichTextBox.ReadOnly = true;
+            this.TPDRichTextBox.RightMargin = 700;
+            this.TPDRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedHorizontal;
+            this.TPDRichTextBox.ShowSelectionMargin = true;
+            this.TPDRichTextBox.Size = new System.Drawing.Size(397, 100);
+            this.TPDRichTextBox.TabIndex = 10;
+            this.TPDRichTextBox.Text = resources.GetString("TPDRichTextBox.Text");
+            this.TPDRichTextBox.WordWrap = false;
+            this.TPDRichTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.TPDRichTextBox_LinkClicked);
             // 
             // AboutFrom
             // 
@@ -218,7 +218,7 @@
         private System.Windows.Forms.LinkLabel LicenseLinkLabel;
         private System.Windows.Forms.LinkLabel GithubLinkLabel;
         private System.Windows.Forms.Label ContributorsLabel;
-        private System.Windows.Forms.RichTextBox TPDRichTextBox;
-        private System.Windows.Forms.RichTextBox ContributorsRichTextBox;
+        private ExRichTextBox TPDRichTextBox;
+        private ExRichTextBox ContributorsRichTextBox;
     }
 }

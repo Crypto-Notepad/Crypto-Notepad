@@ -11,6 +11,7 @@ namespace Crypto_Notepad
             InitializeComponent();
         }
 
+
         /*Form Events*/
         private void AboutWindow_Load(object sender, EventArgs e)
         {
