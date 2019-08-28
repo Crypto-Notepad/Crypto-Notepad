@@ -661,6 +661,7 @@ namespace Crypto_Notepad
                 ChangeKeyToolbarButton.Enabled = true;
                 LockToolbarButton.Enabled = true;
             }
+            LineNumbers_For_RichTextBox.Refresh();
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
