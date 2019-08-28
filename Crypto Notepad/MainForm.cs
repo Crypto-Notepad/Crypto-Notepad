@@ -1172,13 +1172,11 @@ namespace Crypto_Notepad
                 SearchPanel.Visible = false;
                 RichTextBox.Focus();
                 RichTextBox.DeselectAll();
-                LineNumbers_For_RichTextBox.Height = 1;
             }
             else
             {
                 SearchPanel.Visible = true;
                 SearchTextBox.Focus();
-                LineNumbers_For_RichTextBox.Width = 1;
             }
         }
 
