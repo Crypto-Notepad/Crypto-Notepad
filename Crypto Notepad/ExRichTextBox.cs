@@ -17,10 +17,17 @@ namespace Crypto_Notepad
                 int scrollLines = SystemInformation.MouseWheelScrollLines;
                 for (int i = 0; i < scrollLines; i++)
                 {
-                    if ((long)m.WParam <= 2147483647)
-                        SendMessage(Handle, WM_VSCROLL, (IntPtr)0, IntPtr.Zero);
-                    else
+                    try
+                    {
+                        if ((int)m.WParam >= 0)
+                            SendMessage(Handle, WM_VSCROLL, (IntPtr)0, IntPtr.Zero);
+                        else
+                            SendMessage(Handle, WM_VSCROLL, (IntPtr)1, IntPtr.Zero);
+                    }
+                    catch (OverflowException)
+                    {
                         SendMessage(Handle, WM_VSCROLL, (IntPtr)1, IntPtr.Zero);
+                    }
                 }
                 return;
             }
