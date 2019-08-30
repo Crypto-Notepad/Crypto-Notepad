@@ -148,13 +148,13 @@
             this.ContributorsRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ContributorsRichTextBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ContributorsRichTextBox.ForeColor = System.Drawing.Color.White;
-            this.ContributorsRichTextBox.Location = new System.Drawing.Point(0, 125);
+            this.ContributorsRichTextBox.Location = new System.Drawing.Point(0, 129);
             this.ContributorsRichTextBox.Name = "ContributorsRichTextBox";
             this.ContributorsRichTextBox.ReadOnly = true;
             this.ContributorsRichTextBox.RightMargin = 700;
             this.ContributorsRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.ContributorsRichTextBox.ShowSelectionMargin = true;
-            this.ContributorsRichTextBox.Size = new System.Drawing.Size(397, 18);
+            this.ContributorsRichTextBox.Size = new System.Drawing.Size(397, 20);
             this.ContributorsRichTextBox.TabIndex = 11;
             this.ContributorsRichTextBox.Text = "h5p9sl https://github.com/h5p9sl";
             this.ContributorsRichTextBox.WordWrap = false;
