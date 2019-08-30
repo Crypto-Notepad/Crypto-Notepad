@@ -1,4 +1,4 @@
-﻿using IWshRuntimeLibrary;
+using IWshRuntimeLibrary;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -507,7 +507,7 @@ namespace Crypto_Notepad
         protected override void WndProc(ref Message m)
         {
             const int WM_SYSCOMMAND = 0x112;
-            const int SC_MINIMIZE = 0xF020;         
+            const int SC_MINIMIZE = 0xF020;
             if (m.Msg == WM_SYSCOMMAND && m.WParam.ToInt32() == SC_MINIMIZE && ps.AutoLock && PublicVar.encryptionKey.Get() != null)
             {
                 if (ps.AutoSave)
@@ -986,8 +986,6 @@ namespace Crypto_Notepad
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int saveCaret = RichTextBox.SelectionStart;
-
             if (PublicVar.encryptionKey.Get() == null)
             {
                 SaveAsToolStripMenuItem_Click(this, new EventArgs());
@@ -997,32 +995,18 @@ namespace Crypto_Notepad
                 }
                 PublicVar.okPressed = false;
             }
-
-            string noenc = RichTextBox.Text;
-            string en;
-            en = AES.Encrypt(RichTextBox.Text, PublicVar.encryptionKey.Get(), null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-            RichTextBox.Text = en;
-            StreamWriter sw = new StreamWriter(filePath);
-            int i = RichTextBox.Lines.Count();
-            int j = 0;
-            i = i - 1;
-
-            while (j <= i)
+            string enc = AES.Encrypt(RichTextBox.Text, PublicVar.encryptionKey.Get(), null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+            using (StreamWriter writer = new StreamWriter(filePath))
             {
-                sw.WriteLine(RichTextBox.Lines.GetValue(j).ToString());
-                j = j + 1;
+                writer.Write(enc);
+                writer.Close();
             }
-            sw.Close();
-
-            RichTextBox.Text = noenc;
-            RichTextBox.Select(Convert.ToInt32(saveCaret), 0);
+            RichTextBox.Modified = false;
             PublicVar.keyChanged = false;
         }
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int saveCaret = RichTextBox.SelectionStart;
-            string NameWithotPath = Path.GetFileName(OpenFile.FileName);
             if (filePath != "")
             {
                 PublicVar.openFileName = Path.GetFileName(filePath);
@@ -1056,23 +1040,15 @@ namespace Crypto_Notepad
             }
 
             filePath = SaveFile.FileName;
-            string noenc = RichTextBox.Text;
-            string en;
-            en = AES.Encrypt(RichTextBox.Text, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
-            RichTextBox.Text = en;
-            StreamWriter sw = new StreamWriter(filePath);
-            int i = RichTextBox.Lines.Count();
-            int j = 0;
-            i = i - 1;
-            while (j <= i)
+            string enc = AES.Encrypt(RichTextBox.Text, TypedPassword.Value, null, ps.HashAlgorithm, ps.PasswordIterations, ps.KeySize);
+            using (StreamWriter writer = new StreamWriter(filePath))
             {
-                sw.WriteLine(RichTextBox.Lines.GetValue(j).ToString());
-                j = j + 1;
+                writer.Write(enc);
+                writer.Close();
             }
-            sw.Close();
-            RichTextBox.Text = noenc;
+
+            RichTextBox.Modified = false;
             Text = PublicVar.appName + " – " + Path.GetFileName(filePath);
-            RichTextBox.Select(Convert.ToInt32(saveCaret), 0);
             PublicVar.encryptionKey.Set(TypedPassword.Value);
             TypedPassword.Value = null;
             PublicVar.openFileName = Path.GetFileName(SaveFile.FileName);
