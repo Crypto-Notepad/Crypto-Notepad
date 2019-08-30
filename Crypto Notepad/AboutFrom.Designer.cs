@@ -69,13 +69,13 @@
             // TPDLabel
             // 
             this.TPDLabel.AutoSize = true;
-            this.TPDLabel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TPDLabel.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TPDLabel.ForeColor = System.Drawing.Color.White;
             this.TPDLabel.Location = new System.Drawing.Point(6, 160);
             this.TPDLabel.Name = "TPDLabel";
-            this.TPDLabel.Size = new System.Drawing.Size(182, 15);
+            this.TPDLabel.Size = new System.Drawing.Size(200, 18);
             this.TPDLabel.TabIndex = 4;
-            this.TPDLabel.Text = "Third-party developments:";
+            this.TPDLabel.Text = "Third-party developments";
             // 
             // AuthorLinkLabel
             // 
@@ -134,13 +134,13 @@
             // ContributorsLabel
             // 
             this.ContributorsLabel.AutoSize = true;
-            this.ContributorsLabel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ContributorsLabel.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ContributorsLabel.ForeColor = System.Drawing.Color.White;
             this.ContributorsLabel.Location = new System.Drawing.Point(6, 105);
             this.ContributorsLabel.Name = "ContributorsLabel";
-            this.ContributorsLabel.Size = new System.Drawing.Size(98, 15);
+            this.ContributorsLabel.Size = new System.Drawing.Size(104, 18);
             this.ContributorsLabel.TabIndex = 4;
-            this.ContributorsLabel.Text = "Contributors:";
+            this.ContributorsLabel.Text = "Contributors";
             // 
             // ContributorsRichTextBox
             // 
@@ -167,13 +167,13 @@
             this.TPDRichTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.TPDRichTextBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TPDRichTextBox.ForeColor = System.Drawing.Color.White;
-            this.TPDRichTextBox.Location = new System.Drawing.Point(0, 184);
+            this.TPDRichTextBox.Location = new System.Drawing.Point(0, 183);
             this.TPDRichTextBox.Name = "TPDRichTextBox";
             this.TPDRichTextBox.ReadOnly = true;
             this.TPDRichTextBox.RightMargin = 700;
             this.TPDRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedHorizontal;
             this.TPDRichTextBox.ShowSelectionMargin = true;
-            this.TPDRichTextBox.Size = new System.Drawing.Size(397, 100);
+            this.TPDRichTextBox.Size = new System.Drawing.Size(397, 101);
             this.TPDRichTextBox.TabIndex = 10;
             this.TPDRichTextBox.Text = resources.GetString("TPDRichTextBox.Text");
             this.TPDRichTextBox.WordWrap = false;
