@@ -1,4 +1,4 @@
-using IWshRuntimeLibrary;
+﻿using IWshRuntimeLibrary;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -10,6 +10,7 @@ using System.Net;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using File = System.IO.File;
 
@@ -438,6 +439,17 @@ namespace Crypto_Notepad
             catch
             {
                 return;
+            }
+        }
+
+        private async void SaveStatus()
+        {
+            if (!Text.Contains(" [File Saved]"))
+            {
+                string common = Text;
+                Text += " [File Saved]";
+                await Task.Delay(3000);
+                Text = common;
             }
         }
 
@@ -1003,6 +1015,7 @@ namespace Crypto_Notepad
             }
             RichTextBox.Modified = false;
             PublicVar.keyChanged = false;
+            SaveStatus();
         }
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1052,6 +1065,7 @@ namespace Crypto_Notepad
             PublicVar.encryptionKey.Set(TypedPassword.Value);
             TypedPassword.Value = null;
             PublicVar.openFileName = Path.GetFileName(SaveFile.FileName);
+            SaveStatus();
         }
 
         private void OpenFileLocationToolStripMenuItem_Click(object sender, EventArgs e)
