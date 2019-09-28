@@ -26,39 +26,26 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Consolas")]
-        public string RichTextFont {
+        [global::System.Configuration.DefaultSettingValueAttribute("Black")]
+        public global::System.Drawing.Color editroFontColor {
             get {
-                return ((string)(this["RichTextFont"]));
+                return ((global::System.Drawing.Color)(this["editroFontColor"]));
             }
             set {
-                this["RichTextFont"] = value;
+                this["editroFontColor"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("228, 228, 228")]
-        public global::System.Drawing.Color RichForeColor {
+        [global::System.Configuration.DefaultSettingValueAttribute("White")]
+        public global::System.Drawing.Color editorBackColor {
             get {
-                return ((global::System.Drawing.Color)(this["RichForeColor"]));
+                return ((global::System.Drawing.Color)(this["editorBackColor"]));
             }
             set {
-                this["RichForeColor"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("56, 56, 56")]
-        public global::System.Drawing.Color RichBackColor {
-            get {
-                return ((global::System.Drawing.Color)(this["RichBackColor"]));
-            }
-            set {
-                this["RichBackColor"] = value;
+                this["editorBackColor"] = value;
             }
         }
         
@@ -66,12 +53,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool MenuWrap {
+        public bool menuWrap {
             get {
-                return ((bool)(this["MenuWrap"]));
+                return ((bool)(this["menuWrap"]));
             }
             set {
-                this["MenuWrap"] = value;
+                this["menuWrap"] = value;
             }
         }
         
@@ -79,25 +66,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool RichWrap {
+        public bool editorWrap {
             get {
-                return ((bool)(this["RichWrap"]));
+                return ((bool)(this["editorWrap"]));
             }
             set {
-                this["RichWrap"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("11")]
-        public int RichTextSize {
-            get {
-                return ((int)(this["RichTextSize"]));
-            }
-            set {
-                this["RichTextSize"] = value;
+                this["editorWrap"] = value;
             }
         }
         
@@ -105,12 +79,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AssociateCheck {
+        public bool explorerAssociate {
             get {
-                return ((bool)(this["AssociateCheck"]));
+                return ((bool)(this["explorerAssociate"]));
             }
             set {
-                this["AssociateCheck"] = value;
+                this["explorerAssociate"] = value;
             }
         }
         
@@ -131,9 +105,9 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("256")]
-        public int KeySize {
+        public string KeySize {
             get {
-                return ((int)(this["KeySize"]));
+                return ((string)(this["KeySize"]));
             }
             set {
                 this["KeySize"] = value;
@@ -143,23 +117,10 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string TheSalt {
-            get {
-                return ((string)(this["TheSalt"]));
-            }
-            set {
-                this["TheSalt"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1000")]
-        public int PasswordIterations {
+        public string PasswordIterations {
             get {
-                return ((int)(this["PasswordIterations"]));
+                return ((string)(this["PasswordIterations"]));
             }
             set {
                 this["PasswordIterations"] = value;
@@ -169,13 +130,13 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool FirstLaunch {
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool showToolbar {
             get {
-                return ((bool)(this["FirstLaunch"]));
+                return ((bool)(this["showToolbar"]));
             }
             set {
-                this["FirstLaunch"] = value;
+                this["showToolbar"] = value;
             }
         }
         
@@ -183,38 +144,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool WarningMsg {
+        public bool autoCheckUpdate {
             get {
-                return ((bool)(this["WarningMsg"]));
+                return ((bool)(this["autoCheckUpdate"]));
             }
             set {
-                this["WarningMsg"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool ShowToolbar {
-            get {
-                return ((bool)(this["ShowToolbar"]));
-            }
-            set {
-                this["ShowToolbar"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool AutoCheckUpdate {
-            get {
-                return ((bool)(this["AutoCheckUpdate"]));
-            }
-            set {
-                this["AutoCheckUpdate"] = value;
+                this["autoCheckUpdate"] = value;
             }
         }
         
@@ -222,24 +157,25 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AutoLock {
+        public bool autoLock {
             get {
-                return ((bool)(this["AutoLock"]));
+                return ((bool)(this["autoLock"]));
             }
             set {
-                this["AutoLock"] = value;
+                this["autoLock"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Drawing.Point WindowLocation {
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point windowLocation {
             get {
-                return ((global::System.Drawing.Point)(this["WindowLocation"]));
+                return ((global::System.Drawing.Point)(this["windowLocation"]));
             }
             set {
-                this["WindowLocation"] = value;
+                this["windowLocation"] = value;
             }
         }
         
@@ -247,12 +183,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("645, 460")]
-        public global::System.Drawing.Size WindowSize {
+        public global::System.Drawing.Size windowSize {
             get {
-                return ((global::System.Drawing.Size)(this["WindowSize"]));
+                return ((global::System.Drawing.Size)(this["windowSize"]));
             }
             set {
-                this["WindowSize"] = value;
+                this["windowSize"] = value;
             }
         }
         
@@ -260,25 +196,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
-        public global::System.Windows.Forms.FormWindowState WindowState {
+        public global::System.Windows.Forms.FormWindowState windowState {
             get {
-                return ((global::System.Windows.Forms.FormWindowState)(this["WindowState"]));
+                return ((global::System.Windows.Forms.FormWindowState)(this["windowState"]));
             }
             set {
-                this["WindowState"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool AutoSave {
-            get {
-                return ((bool)(this["AutoSave"]));
-            }
-            set {
-                this["AutoSave"] = value;
+                this["windowState"] = value;
             }
         }
         
@@ -286,12 +209,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool SendTo {
+        public bool sendTo {
             get {
-                return ((bool)(this["SendTo"]));
+                return ((bool)(this["sendTo"]));
             }
             set {
-                this["SendTo"] = value;
+                this["sendTo"] = value;
             }
         }
         
@@ -299,12 +222,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool MenuIntegrate {
+        public bool explorerIntegrate {
             get {
-                return ((bool)(this["MenuIntegrate"]));
+                return ((bool)(this["explorerIntegrate"]));
             }
             set {
-                this["MenuIntegrate"] = value;
+                this["explorerIntegrate"] = value;
             }
         }
         
@@ -312,12 +235,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool MenuIcons {
+        public bool menuIcons {
             get {
-                return ((bool)(this["MenuIcons"]));
+                return ((bool)(this["menuIcons"]));
             }
             set {
-                this["MenuIcons"] = value;
+                this["menuIcons"] = value;
             }
         }
         
@@ -325,38 +248,25 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool ColoredToolbar {
+        public string lnVisible {
             get {
-                return ((bool)(this["ColoredToolbar"]));
+                return ((string)(this["lnVisible"]));
             }
             set {
-                this["ColoredToolbar"] = value;
+                this["lnVisible"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public string LNVisible {
+        [global::System.Configuration.DefaultSettingValueAttribute("240, 240, 240")]
+        public global::System.Drawing.Color lnBackColor {
             get {
-                return ((string)(this["LNVisible"]));
+                return ((global::System.Drawing.Color)(this["lnBackColor"]));
             }
             set {
-                this["LNVisible"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("53, 53, 53")]
-        public global::System.Drawing.Color LNBackgroundColor {
-            get {
-                return ((global::System.Drawing.Color)(this["LNBackgroundColor"]));
-            }
-            set {
-                this["LNBackgroundColor"] = value;
+                this["lnBackColor"] = value;
             }
         }
         
@@ -364,12 +274,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("164, 164, 164")]
-        public global::System.Drawing.Color LNFontColorPanel {
+        public global::System.Drawing.Color lnFontColor {
             get {
-                return ((global::System.Drawing.Color)(this["LNFontColorPanel"]));
+                return ((global::System.Drawing.Color)(this["lnFontColor"]));
             }
             set {
-                this["LNFontColorPanel"] = value;
+                this["lnFontColor"] = value;
             }
         }
         
@@ -377,12 +287,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public string BLShow {
+        public string blShow {
             get {
-                return ((string)(this["BLShow"]));
+                return ((string)(this["blShow"]));
             }
             set {
-                this["BLShow"] = value;
+                this["blShow"] = value;
             }
         }
         
@@ -390,12 +300,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("164, 164, 164")]
-        public global::System.Drawing.Color BLColor {
+        public global::System.Drawing.Color blColor {
             get {
-                return ((global::System.Drawing.Color)(this["BLColor"]));
+                return ((global::System.Drawing.Color)(this["blColor"]));
             }
             set {
-                this["BLColor"] = value;
+                this["blColor"] = value;
             }
         }
         
@@ -403,12 +313,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Solid")]
-        public global::System.Drawing.Drawing2D.DashStyle BLStyle {
+        public string blStyle {
             get {
-                return ((global::System.Drawing.Drawing2D.DashStyle)(this["BLStyle"]));
+                return ((string)(this["blStyle"]));
             }
             set {
-                this["BLStyle"] = value;
+                this["blStyle"] = value;
             }
         }
         
@@ -416,12 +326,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public string GLShow {
+        public string glShow {
             get {
-                return ((string)(this["GLShow"]));
+                return ((string)(this["glShow"]));
             }
             set {
-                this["GLShow"] = value;
+                this["glShow"] = value;
             }
         }
         
@@ -429,12 +339,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("164, 164, 164")]
-        public global::System.Drawing.Color GLColor {
+        public global::System.Drawing.Color glColor {
             get {
-                return ((global::System.Drawing.Color)(this["GLColor"]));
+                return ((global::System.Drawing.Color)(this["glColor"]));
             }
             set {
-                this["GLColor"] = value;
+                this["glColor"] = value;
             }
         }
         
@@ -442,12 +352,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Solid")]
-        public global::System.Drawing.Drawing2D.DashStyle GLStyle {
+        public string glStyle {
             get {
-                return ((global::System.Drawing.Drawing2D.DashStyle)(this["GLStyle"]));
+                return ((string)(this["glStyle"]));
             }
             set {
-                this["GLStyle"] = value;
+                this["glStyle"] = value;
             }
         }
         
@@ -455,25 +365,182 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Enable")]
-        public string InserKey {
+        public string insKey {
             get {
-                return ((string)(this["InserKey"]));
+                return ((string)(this["insKey"]));
             }
             set {
-                this["InserKey"] = value;
+                this["insKey"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public string CustomColor {
+        [global::System.Configuration.DefaultSettingValueAttribute("16777215;16777215;16777215;16777215;16777215;16777215;16777215;16777215;16777215;" +
+            "16777215;16777215;16777215;16777215;16777215;16777215;16777215")]
+        public string customColor {
             get {
-                return ((string)(this["CustomColor"]));
+                return ((string)(this["customColor"]));
             }
             set {
-                this["CustomColor"] = value;
+                this["customColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public string editorPaddingLeft {
+            get {
+                return ((string)(this["editorPaddingLeft"]));
+            }
+            set {
+                this["editorPaddingLeft"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool editorRightToLeft {
+            get {
+                return ((bool)(this["editorRightToLeft"]));
+            }
+            set {
+                this["editorRightToLeft"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Microsoft Sans Serif, 10pt")]
+        public global::System.Drawing.Font editorFont {
+            get {
+                return ((global::System.Drawing.Font)(this["editorFont"]));
+            }
+            set {
+                this["editorFont"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool statusPanel {
+            get {
+                return ((bool)(this["statusPanel"]));
+            }
+            set {
+                this["statusPanel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("240, 240, 240")]
+        public global::System.Drawing.Color statusPanelBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["statusPanelBackColor"]));
+            }
+            set {
+                this["statusPanelBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Black")]
+        public global::System.Drawing.Color statusPanelFontColor {
+            get {
+                return ((global::System.Drawing.Color)(this["statusPanelFontColor"]));
+            }
+            set {
+                this["statusPanelFontColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("240, 240, 240")]
+        public global::System.Drawing.Color toolbarBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["toolbarBackColor"]));
+            }
+            set {
+                this["toolbarBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool toolbarBorder {
+            get {
+                return ((bool)(this["toolbarBorder"]));
+            }
+            set {
+                this["toolbarBorder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Black")]
+        public global::System.Drawing.Color searchPanelFontColor {
+            get {
+                return ((global::System.Drawing.Color)(this["searchPanelFontColor"]));
+            }
+            set {
+                this["searchPanelFontColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("240, 240, 240")]
+        public global::System.Drawing.Color searchPanelBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["searchPanelBackColor"]));
+            }
+            set {
+                this["searchPanelBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("LMB Click")]
+        public string openLinks {
+            get {
+                return ((string)(this["openLinks"]));
+            }
+            set {
+                this["openLinks"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool mainMenu {
+            get {
+                return ((bool)(this["mainMenu"]));
+            }
+            set {
+                this["mainMenu"] = value;
             }
         }
     }

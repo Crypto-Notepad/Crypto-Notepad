@@ -2,110 +2,125 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Crypto_Notepad.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="RichTextFont" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Consolas</Value>
+    <Setting Name="editroFontColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Black</Value>
     </Setting>
-    <Setting Name="RichForeColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">228, 228, 228</Value>
+    <Setting Name="editorBackColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
     </Setting>
-    <Setting Name="RichBackColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">56, 56, 56</Value>
-    </Setting>
-    <Setting Name="MenuWrap" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="menuWrap" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="RichWrap" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="editorWrap" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="RichTextSize" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">11</Value>
-    </Setting>
-    <Setting Name="AssociateCheck" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="explorerAssociate" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="HashAlgorithm" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">SHA1</Value>
     </Setting>
-    <Setting Name="KeySize" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
+    <Setting Name="KeySize" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">256</Value>
     </Setting>
-    <Setting Name="TheSalt" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="PasswordIterations" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
+    <Setting Name="PasswordIterations" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">1000</Value>
     </Setting>
-    <Setting Name="FirstLaunch" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="showToolbar" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="autoCheckUpdate" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="autoLock" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="WarningMsg" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+    <Setting Name="windowLocation" Provider="PortableSettingsProvider" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
     </Setting>
-    <Setting Name="ShowToolbar" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="AutoCheckUpdate" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="AutoLock" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="WindowLocation" Provider="PortableSettingsProvider" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="WindowSize" Provider="PortableSettingsProvider" Type="System.Drawing.Size" Scope="User">
+    <Setting Name="windowSize" Provider="PortableSettingsProvider" Type="System.Drawing.Size" Scope="User">
       <Value Profile="(Default)">645, 460</Value>
     </Setting>
-    <Setting Name="WindowState" Provider="PortableSettingsProvider" Type="System.Windows.Forms.FormWindowState" Scope="User">
+    <Setting Name="windowState" Provider="PortableSettingsProvider" Type="System.Windows.Forms.FormWindowState" Scope="User">
       <Value Profile="(Default)">Normal</Value>
     </Setting>
-    <Setting Name="AutoSave" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="SendTo" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="sendTo" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="MenuIntegrate" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="explorerIntegrate" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="MenuIcons" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="menuIcons" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="ColoredToolbar" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="lnVisible" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="LNVisible" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
-      <Value Profile="(Default)">True</Value>
+    <Setting Name="lnBackColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">240, 240, 240</Value>
     </Setting>
-    <Setting Name="LNBackgroundColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">53, 53, 53</Value>
-    </Setting>
-    <Setting Name="LNFontColorPanel" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="lnFontColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">164, 164, 164</Value>
     </Setting>
-    <Setting Name="BLShow" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+    <Setting Name="blShow" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="BLColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="blColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">164, 164, 164</Value>
     </Setting>
-    <Setting Name="BLStyle" Provider="PortableSettingsProvider" Type="System.Drawing.Drawing2D.DashStyle" Scope="User">
+    <Setting Name="blStyle" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">Solid</Value>
     </Setting>
-    <Setting Name="GLShow" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+    <Setting Name="glShow" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="GLColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="glColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">164, 164, 164</Value>
     </Setting>
-    <Setting Name="GLStyle" Provider="PortableSettingsProvider" Type="System.Drawing.Drawing2D.DashStyle" Scope="User">
+    <Setting Name="glStyle" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">Solid</Value>
     </Setting>
-    <Setting Name="InserKey" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+    <Setting Name="insKey" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">Enable</Value>
     </Setting>
-    <Setting Name="CustomColor" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="customColor" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">16777215;16777215;16777215;16777215;16777215;16777215;16777215;16777215;16777215;16777215;16777215;16777215;16777215;16777215;16777215;16777215</Value>
+    </Setting>
+    <Setting Name="editorPaddingLeft" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="editorRightToLeft" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="editorFont" Provider="PortableSettingsProvider" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Microsoft Sans Serif, 10pt</Value>
+    </Setting>
+    <Setting Name="statusPanel" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="statusPanelBackColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">240, 240, 240</Value>
+    </Setting>
+    <Setting Name="statusPanelFontColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Black</Value>
+    </Setting>
+    <Setting Name="toolbarBackColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">240, 240, 240</Value>
+    </Setting>
+    <Setting Name="toolbarBorder" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="searchPanelFontColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Black</Value>
+    </Setting>
+    <Setting Name="searchPanelBackColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">240, 240, 240</Value>
+    </Setting>
+    <Setting Name="openLinks" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LMB Click</Value>
+    </Setting>
+    <Setting Name="mainMenu" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>
