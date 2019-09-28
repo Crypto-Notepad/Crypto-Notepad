@@ -722,6 +722,7 @@ namespace Crypto_Notepad
             }
         }
 
+            richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
