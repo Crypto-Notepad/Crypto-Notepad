@@ -16,12 +16,12 @@ namespace Crypto_Notepad
         private void AboutWindow_Load(object sender, EventArgs e)
         {
             Version vrs = new Version(Application.ProductVersion);
-            AppVersionLabel.Text = string.Format(PublicVar.appName + " {0}.{1}.{2}", vrs.Major, vrs.Minor, vrs.Build);
+            appVersionLabel.Text = string.Format(PublicVar.appName + " {0}.{1}.{2}", vrs.Major, vrs.Minor, vrs.Build);
         }
 
         private void AboutFrom_Click(object sender, EventArgs e)
         {
-            AppLogoPictureBox.Focus();
+            appLogo.Focus();
         }
 
         protected override bool ProcessDialogKey(Keys keyData)
@@ -42,22 +42,22 @@ namespace Crypto_Notepad
             Process.Start("https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Release-Notes");
         }
 
-        private void AuthorLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void AuthorLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://sigmanor.github.io/");
         }
 
-        private void LicenseLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LicenseLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/Crypto-Notepad/Crypto-Notepad/blob/master/LICENSE");
         }
 
-        private void GithubLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void GithubLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/Crypto-Notepad/Crypto-Notepad");
         }
 
-        private void AppLogoPictureBox_Click(object sender, EventArgs e)
+        private void AppLogo_Click(object sender, EventArgs e)
         {
             Process.Start("https://crypto-notepad.github.io/");
         }
@@ -65,12 +65,12 @@ namespace Crypto_Notepad
 
 
         /*Perform open links*/
-        private void TPDRichTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
+        private void ThirdPartyDevList_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             Process.Start(e.LinkText);
         }
 
-        private void ContributorsRichTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
+        private void ContributorsList_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             Process.Start(e.LinkText);
         }

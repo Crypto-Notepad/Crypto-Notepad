@@ -21,14 +21,14 @@ namespace Crypto_Notepad
 
         public AESMetadata()
         {
-            this.InitialVector = new byte[16];
-            this.Salt = null;
+            InitialVector = new byte[16];
+            Salt = null;
         }
 
         public void DeleteMetadataFromBuffer(ref byte[] rawData)
         {
-            byte[] buffer = new byte[rawData.Length - this.OffsetToData];
-            Buffer.BlockCopy(rawData, this.OffsetToData, buffer, 0, rawData.Length - this.OffsetToData);
+            byte[] buffer = new byte[rawData.Length - OffsetToData];
+            Buffer.BlockCopy(rawData, OffsetToData, buffer, 0, rawData.Length - OffsetToData);
             rawData = buffer;
         }
 
@@ -67,15 +67,15 @@ namespace Crypto_Notepad
             int offset = 0;
             byte[] buffer = null;
 
-            if (!this.ReadData(rawData, 0, ref buffer)) { return false; }
-            this.InitialVector = buffer;
+            if (!ReadData(rawData, 0, ref buffer)) { return false; }
+            InitialVector = buffer;
             offset += buffer.Length + 1;
 
-            if (!this.ReadData(rawData, offset, ref buffer)) { return false; }
-            this.Salt = buffer;
+            if (!ReadData(rawData, offset, ref buffer)) { return false; }
+            Salt = buffer;
             offset += buffer.Length + 1;
 
-            this.OffsetToData = offset;
+            OffsetToData = offset;
 
             return true;
         }
@@ -167,6 +167,7 @@ namespace Crypto_Notepad
                         cipherTextBytes = memStream.ToArray();
                         memStream.Close();
                         cryptoStream.Close();
+                        
                     }
                 }
             }

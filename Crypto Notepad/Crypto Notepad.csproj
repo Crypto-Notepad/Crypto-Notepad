@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -104,7 +104,7 @@
       <DependentUpon>ChangeKeyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EncryptedString.cs" />
-    <Compile Include="linenum_rtf.cs">
+    <Compile Include="LineNumbers.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="MainForm.cs">

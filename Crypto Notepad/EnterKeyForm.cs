@@ -15,12 +15,17 @@ namespace Crypto_Notepad
         /*Form Events*/
         private void EnterKeyForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            KeyTextBox.Focus();
+            MainForm main = Owner as MainForm;
+            keyTextBox.Focus();
+            if (main.Visible == false)
+            {
+                Application.Exit();
+            }
         }
 
         private void EnterKeyForm_Load(object sender, EventArgs e)
         {
-            Text = PublicVar.openFileName;
+            fileNameLabel.Text = PublicVar.openFileName;
         }
         /*Form Events*/
 
@@ -28,31 +33,31 @@ namespace Crypto_Notepad
         /*Enter key area*/
         private void KeyTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (KeyTextBox.Text.Length > 0)
-                OkButton.Enabled = true;
+            if (keyTextBox.Text.Length > 0)
+                okButton.Enabled = true;
             else
-                OkButton.Enabled = false;
+                okButton.Enabled = false;
         }
 
         private void KeyTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && OkButton.Enabled)
+            if (e.KeyCode == Keys.Enter && okButton.Enabled)
             {
                 OkButton_Click(sender, e);
             }
         }
 
-        private void EyePictureBox_Click(object sender, EventArgs e)
+        private void KeyEyeIcon_Click(object sender, EventArgs e)
         {
-            if (KeyTextBox.UseSystemPasswordChar)
+            if (keyTextBox.UseSystemPasswordChar)
             {
-                KeyTextBox.UseSystemPasswordChar = false;
-                EyePictureBox.Image = Properties.Resources.eye;
+                keyTextBox.UseSystemPasswordChar = false;
+                keyEyeIcon.Image = Properties.Resources.eye;
             }
             else
             {
-                KeyTextBox.UseSystemPasswordChar = true;
-                EyePictureBox.Image = Properties.Resources.eye_half;
+                keyTextBox.UseSystemPasswordChar = true;
+                keyEyeIcon.Image = Properties.Resources.eye_half;
             }
         }
         /*Enter key area*/
@@ -61,11 +66,13 @@ namespace Crypto_Notepad
         /*Buttons*/
         private void OkButton_Click(object sender, EventArgs e)
         {
-            TypedPassword.Value = KeyTextBox.Text;
-            KeyTextBox.Focus();
+            TypedPassword.Value = keyTextBox.Text;
+            keyTextBox.Focus();
             PublicVar.okPressed = true;
             Hide();
         }
         /*Buttons*/
+
+
     }
 }
