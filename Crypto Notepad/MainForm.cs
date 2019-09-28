@@ -745,13 +745,15 @@ namespace Crypto_Notepad
             LineNumbers_For_RichTextBox.GridLines_Style = ps.GLStyle;
             LineNumbers_For_RichTextBox.Font = new Font(ps.RichTextFont, ps.RichTextSize);
 
-            if (ps.InserKey == "Disable")
+            if (settings.editorRightToLeft)
             {
-                insertToolStripMenuItem.ShortcutKeys = Keys.Insert;
+                richTextBox.RightToLeft = RightToLeft.Yes;
+                rightToLeftContextMenu.Checked = true;
             }
             else
             {
-                insertToolStripMenuItem.ShortcutKeys = Keys.None;
+                richTextBox.RightToLeft = RightToLeft.No;
+                rightToLeftContextMenu.Checked = false;
             }
 
             if (ps.ColoredToolbar)
@@ -1338,27 +1340,29 @@ namespace Crypto_Notepad
             SelectAllToolStripMenuItem_Click(this, new EventArgs());
         }
 
-        private void RightToLeftEditorMenuStrip_Click(object sender, EventArgs e)
+        private void RightToLeftContextMenu_Click(object sender, EventArgs e)
         {
-            if (RightToLeftEditorMenuStrip.Checked)
+            if (rightToLeftContextMenu.Checked)
             {
                 if (!WordWrapToolStripMenuItem.Checked)
                 {
                     string rtbTxt = RichTextBox.Text;
                     RichTextBox.Clear();
-                    RichTextBox.RightToLeft = RightToLeft.Yes;
+                    richTextBox.RightToLeft = RightToLeft.Yes;
                     Application.DoEvents();
                     RichTextBox.Text = rtbTxt;
                 }
                 else
                 {
                     RichTextBox.RightToLeft = RightToLeft.Yes;
+                    richTextBox.RightToLeft = RightToLeft.Yes;
                 }
+                settings.editorRightToLeft = true;
             }
             else
             {
-                RichTextBox.RightToLeft = RightToLeft.No;
-            }
+                richTextBox.RightToLeft = RightToLeft.No;
+                settings.editorRightToLeft = false;
         }
 
         private void ClearEditorMenuStrip_Click(object sender, EventArgs e)
