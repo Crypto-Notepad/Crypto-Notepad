@@ -1,4 +1,5 @@
-using System;
+﻿using System;
+using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -34,6 +35,41 @@ namespace Crypto_Notepad
             base.WndProc(ref m);
         }
 
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            base.OnHandleCreated(e);
+            if (!AutoWordSelection)
+            {
+                AutoWordSelection = true;
+                AutoWordSelection = false;
+            }
+        }
+
+        public event EventHandler CursorPositionChanged;
+
+        protected virtual void OnCursorPositionChanged(EventArgs e)
+        {
+            if (CursorPositionChanged != null)
+                CursorPositionChanged(this, e);
+        }
+
+        protected override void OnSelectionChanged(EventArgs e)
+        {
+            if (SelectionLength == 0)
+                OnCursorPositionChanged(e);
+            else
+                base.OnSelectionChanged(e);
+        }
+
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            if (GetLineFromCharIndex(SelectionStart) == 0 && e.KeyData == Keys.Up ||
+                GetLineFromCharIndex(SelectionStart) == GetLineFromCharIndex(TextLength) && e.KeyData == Keys.Down ||
+                SelectionStart == TextLength && e.KeyData == Keys.Right ||
+                SelectionStart == 0 && e.KeyData == Keys.Left
+            ) e.Handled = true;
+        }
+    }
     public static class RichTextBoxPadding
     {
         public static void SetInnerMargins(this TextBoxBase textBox, int left, int top, int right, int bottom)
@@ -88,5 +124,4 @@ namespace Crypto_Notepad
         }
     }
 }
-    }
-}
+
