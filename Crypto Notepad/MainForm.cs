@@ -1,4 +1,4 @@
-﻿using IWshRuntimeLibrary;
+using IWshRuntimeLibrary;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -438,7 +438,25 @@ namespace Crypto_Notepad
             }
             catch
             {
-                return;
+                if (autoCheck)
+                {
+                    mainMenu.Invoke((Action)delegate
+                    {
+                        using (new CenterWinDialog(this))
+                        {
+                            if (statusPanel.Visible)
+                            {
+                                StatusPanelMessage("update-failed");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Checking for updates failed:\nConnection lost or the server is busy.", PublicVar.appName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    });
+                }
+            }
+        }
             }
         }
 
