@@ -1662,24 +1662,25 @@ namespace Crypto_Notepad
         /*Search Panel*/
 
 
-        /*Debug Menu*/
-        private void MainVariablesToolStripMenuItem_Click(object sender, EventArgs e)
+        #region Debug Menu
+        private void VariablesMainMenu_Click(object sender, EventArgs e)
         {
-#if DEBUG
-            string formattedTime = DateTime.Now.ToString("yyyy.MM.dd hh:mm:ss");
-            Debug.WriteLine("\nTime: " + formattedTime);
-            Debug.WriteLine("PublicVar.openFileName: " + PublicVar.openFileName);
-            Debug.WriteLine("filePath: " + filePath);
-            Debug.WriteLine("encryptionKey: " + PublicVar.encryptionKey.Get());
-            Debug.WriteLine("TypedPassword: " + TypedPassword.Value);
-            Debug.WriteLine("noExit: " + noExit);
-            Debug.WriteLine("keyChanged: " + PublicVar.keyChanged);
-            Debug.WriteLine("settingsChanged: " + PublicVar.settingsChanged);
-            Debug.WriteLine("okPressed: " + PublicVar.okPressed);
-            Debug.WriteLine("RichTextBox.Modified: " + RichTextBox.Modified);
-            Debug.WriteLine("EditorMenuStrip: " + EditorMenuStrip.Enabled);
-#endif
+        #if DEBUG
+        string formattedTime = DateTime.Now.ToString("yyyy.MM.dd hh:mm:ss");
+        Debug.WriteLine("\nTime: " + formattedTime);
+        Debug.WriteLine("PublicVar.openFileName: " + PublicVar.openFileName);
+        Debug.WriteLine("filePath: " + filePath);
+        Debug.WriteLine("encryptionKey: " + PublicVar.encryptionKey.Get());
+        Debug.WriteLine("TypedPassword: " + TypedPassword.Value);
+        Debug.WriteLine("preventExit: " + preventExit);
+        Debug.WriteLine("keyChanged: " + PublicVar.keyChanged);
+        Debug.WriteLine("okPressed: " + PublicVar.okPressed);
+        Debug.WriteLine("RichTextBox.Modified: " + richTextBox.Modified);
+        Debug.WriteLine("EditorMenuStrip: " + contextMenu.Enabled);
+        #endif
         }
-        /*Debug Menu*/
+        #endregion
+
+
     }
 }
