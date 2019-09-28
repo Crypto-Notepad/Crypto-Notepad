@@ -1565,7 +1565,7 @@ namespace Crypto_Notepad
         /*Toolbar*/
 
 
-        /*Search Panel*/
+        #region Search Panel
         private void SearchTextBox_TextChanged(object sender, EventArgs e)
         {
             findPos = 0;
@@ -1575,40 +1575,46 @@ namespace Crypto_Notepad
         {
             if (e.KeyCode == Keys.Escape)
             {
-                SearchTextBox.Text = "";
-                SearchPanel.Visible = false;
-                RichTextBox.Focus();
-                RichTextBox.DeselectAll();
+                searchTextBox.Text = "";
+                searchPanel.Visible = false;
+                richTextBox.Focus();
+                richTextBox.DeselectAll();
                 e.Handled = e.SuppressKeyPress = true;
                 findPos = 0;
+            }
+
+            if (e.KeyCode == Keys.Enter & searchPanel.Visible & searchTextBox.Text != "")
+            {
+                FindNextButton_Click(this, new EventArgs());
+                e.Handled = e.SuppressKeyPress = true;
             }
         }
 
         private void CloseSearchPanel_Click(object sender, EventArgs e)
         {
-            FindToolStripMenuItem_Click(this, new EventArgs());
+            FindMainMenu_Click(this, new EventArgs());
         }
 
         private void CloseSearchPanel_MouseHover(object sender, EventArgs e)
         {
-            CloseSearchPanel.Image = Properties.Resources.close_b;
+            closeSearchPanel.Image = Properties.Resources.close_b;
         }
 
         private void CloseSearchPanel_MouseLeave(object sender, EventArgs e)
         {
-            CloseSearchPanel.Image = Properties.Resources.close_g;
+            closeSearchPanel.Image = Properties.Resources.close_g;
         }
 
-        private void MatchCaseCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void CaseSensitiveCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             findPos = 0;
-            RichTextBox.DeselectAll();
+            richTextBox.DeselectAll();
         }
 
         private void WholeWordCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             findPos = 0;
-            RichTextBox.DeselectAll();
+            richTextBox.DeselectAll();
         }
 
         private void FindText(string text, RichTextBoxFinds findOptions)
@@ -1617,15 +1623,16 @@ namespace Crypto_Notepad
             {
                 try
                 {
-                    findPos = RichTextBox.Find(SearchTextBox.Text, findPos, findOptions);
+                    findPos = richTextBox.Find(searchTextBox.Text, findPos, findOptions);
                     if (findPos == -1)
                     {
                         findPos = 0;
+                        searchTextBox.Focus();
                         return;
                     }
-                    RichTextBox.Focus();
-                    RichTextBox.Select(findPos, SearchTextBox.Text.Length);
-                    findPos += SearchTextBox.Text.Length + 1;
+                    richTextBox.Focus();
+                    richTextBox.Select(findPos, searchTextBox.Text.Length);
+                    findPos += searchTextBox.Text.Length + 1;
                 }
                 catch
                 {
@@ -1633,33 +1640,34 @@ namespace Crypto_Notepad
                 }
             }
         }
+
         private void FindNextButton_Click(object sender, EventArgs e)
         {
-            if ((!WholeWordCheckBox.Checked) & (!MatchCaseCheckBox.Checked))
+            if ((!wholeWordCheckBox.Checked) & (!caseSensitiveCheckBox.Checked))
             {
-                FindText(SearchTextBox.Text, RichTextBoxFinds.None);
+                FindText(searchTextBox.Text, RichTextBoxFinds.None);
                 return;
             }
 
-            if (WholeWordCheckBox.Checked & MatchCaseCheckBox.Checked)
+            if (wholeWordCheckBox.Checked & caseSensitiveCheckBox.Checked)
             {
-                FindText(SearchTextBox.Text, RichTextBoxFinds.MatchCase | RichTextBoxFinds.WholeWord);
+                FindText(searchTextBox.Text, RichTextBoxFinds.MatchCase | RichTextBoxFinds.WholeWord);
                 return;
             }
 
-            if (MatchCaseCheckBox.Checked)
+            if (caseSensitiveCheckBox.Checked)
             {
-                FindText(SearchTextBox.Text, RichTextBoxFinds.MatchCase);
+                FindText(searchTextBox.Text, RichTextBoxFinds.MatchCase);
                 return;
             }
 
-            if (WholeWordCheckBox.Checked)
+            if (wholeWordCheckBox.Checked)
             {
-                FindText(SearchTextBox.Text, RichTextBoxFinds.WholeWord);
+                FindText(searchTextBox.Text, RichTextBoxFinds.WholeWord);
                 return;
             }
         }
-        /*Search Panel*/
+        #endregion
 
 
         #region Debug Menu
