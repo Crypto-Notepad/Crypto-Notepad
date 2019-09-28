@@ -403,22 +403,27 @@ namespace Crypto_Notepad
 
                 if (serverVersion > appVersion)
                 {
-                    MainMenu.Invoke((Action)delegate
+                    mainMenu.Invoke((Action)delegate
                     {
-                        using (new CenterWinDialog(this))
+                        if (statusPanel.Visible)
                         {
-                            DialogResult res = MessageBox.Show("New version is available. Install it now?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                            if (res == DialogResult.Yes)
+                            StatusPanelMessage("update-needed");
+                        }
+                        else
+                        {
+                            using (new CenterWinDialog(this))
                             {
-                                File.WriteAllBytes(exePath + "Ionic.Zip.dll", Properties.Resources.Ionic_Zip);
-                                File.WriteAllBytes(exePath + "Updater.exe", Properties.Resources.Updater);
-
-                                var pr = new Process();
-                                pr.StartInfo.FileName = exePath + "Updater.exe";
-                                pr.StartInfo.Arguments = "/u";
-                                pr.Start();
-                                Application.Exit();
+                                DialogResult res = MessageBox.Show("New version is available. Install it now?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                                if (res == DialogResult.Yes)
+                                {
+                                    File.WriteAllBytes(exePath + "Ionic.Zip.dll", Properties.Resources.Ionic_Zip);
+                                    File.WriteAllBytes(exePath + "Updater.exe", Properties.Resources.Updater);
+                                    var pr = new Process();
+                                    pr.StartInfo.FileName = exePath + "Updater.exe";
+                                    pr.StartInfo.Arguments = "/u";
+                                    pr.Start();
+                                    Application.Exit();
+                                }
                             }
                         }
                     });
@@ -426,11 +431,18 @@ namespace Crypto_Notepad
 
                 if (serverVersion <= appVersion && autoCheck)
                 {
-                    MainMenu.Invoke((Action)delegate
+                    mainMenu.Invoke((Action)delegate
                     {
                         using (new CenterWinDialog(this))
                         {
-                            MessageBox.Show("Crypto Notepad is up to date.", PublicVar.appName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (statusPanel.Visible)
+                            {
+                                StatusPanelMessage("update-missing");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Crypto Notepad is up to date.", PublicVar.appName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
                     });
                 }
@@ -457,6 +469,62 @@ namespace Crypto_Notepad
                 }
             }
         }
+
+        private async void StatusPanelMessage(string type)
+        {
+            string ready = "Ready";
+
+            if (statusLabel.Text == "New version is available")
+            {
+                ready = "New version is available";
+            }
+
+            switch (type)
+            {
+                case "save":
+                    if (statusLabel.Text != "File Saved")
+                    {
+                        statusLabel.Text = "File Saved";
+                        await Task.Delay(3000);
+                        statusLabel.Text = ready;
+                    }
+                    break;
+                case "update-missing":
+                    statusLabel.Text = "Crypto Notepad is up to date";
+                    await Task.Delay(3000);
+                    statusLabel.Text = ready;
+                    break;
+                case "update-failed":
+                    statusLabel.Text = "Checking for updates failed";
+                    await Task.Delay(3000);
+                    statusLabel.Text = ready;
+                    break;
+                case "update-needed":
+                    statusLabel.Text = "New version is available";
+                    break;
+            }
+        }
+
+        private void StatusPanelTextInfo()
+        {
+            int currentColumn = 1 + richTextBox.SelectionStart - richTextBox.GetFirstCharIndexOfCurrentLine();
+            int currentLine = 0;
+            using (RichTextBox rtb = new RichTextBox() { WordWrap = false, Text = richTextBox.Text })
+            {
+                currentLine = 1 + rtb.GetLineFromCharIndex(richTextBox.SelectionStart);
+            }
+            int linesCount = richTextBox.Lines.Count();
+            if (linesCount == 0)
+            {
+                linesCount = 1;
+            }
+
+            lengthStatusLabel.Text = "Length: " + richTextBox.TextLength;
+            linesStatusLabel.Text = "Lines: " + linesCount;
+            lnStatusLabel.Text = "Ln: " + currentLine;
+            colStatusLabel.Text = "Col: " + currentColumn;
+        }
+
             }
         }
 
@@ -915,17 +983,51 @@ namespace Crypto_Notepad
                 ChangeKeyToolbarButton.Enabled = true;
                 LockToolbarButton.Enabled = true;
             }
+        private void RichTextBox_TextChanged(object sender, EventArgs e)
+        {
+            StatusPanelTextInfo();
         }
 
-        private void RichTextBox_KeyUp(object sender, KeyEventArgs e)
+        private void RichTextBox_CursorPositionChanged(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.ShiftKey)
+            StatusPanelTextInfo();
+        }
+
+        private void StatusLabel_TextChanged(object sender, EventArgs e)
+        {
+            if (statusLabel.Text == "New version is available")
             {
-                shiftPresed = false;
+                statusLabel.IsLink = true;
+            }
+            else
+            {
+                statusLabel.IsLink = false;
             }
         }
         /*RichTextBox Events*/
 
+        private void StatusLabel_Click(object sender, EventArgs e)
+        {
+            if (statusLabel.Text == "New version is available")
+            {
+                string exePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\";
+                using (new CenterWinDialog(this))
+                {
+                    DialogResult res = MessageBox.Show("New version is available. Install it now?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (res == DialogResult.Yes)
+                    {
+                        File.WriteAllBytes(exePath + "Ionic.Zip.dll", Properties.Resources.Ionic_Zip);
+                        File.WriteAllBytes(exePath + "Updater.exe", Properties.Resources.Updater);
+                        var pr = new Process();
+                        pr.StartInfo.FileName = exePath + "Updater.exe";
+                        pr.StartInfo.Arguments = "/u";
+                        pr.Start();
+                        Application.Exit();
+                    }
+                }
+            }
+        }
+        #endregion
 
         /* Main Menu */
 
@@ -1036,7 +1138,7 @@ namespace Crypto_Notepad
             }
             RichTextBox.Modified = false;
             PublicVar.keyChanged = false;
-            SaveStatus();
+            StatusPanelMessage("save");
         }
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1086,7 +1188,7 @@ namespace Crypto_Notepad
             PublicVar.encryptionKey.Set(TypedPassword.Value);
             TypedPassword.Value = null;
             PublicVar.openFileName = Path.GetFileName(SaveFile.FileName);
-            SaveStatus();
+            StatusPanelMessage("save");
         }
 
         private void OpenFileLocationToolStripMenuItem_Click(object sender, EventArgs e)

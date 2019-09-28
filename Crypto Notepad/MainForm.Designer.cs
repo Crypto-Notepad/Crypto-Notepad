@@ -1,4 +1,4 @@
-﻿namespace Crypto_Notepad
+namespace Crypto_Notepad
 {
     partial class MainForm
     {
@@ -102,12 +102,12 @@
             this.OpenToolbarButton = new System.Windows.Forms.PictureBox();
             this.ToolbarPanel = new System.Windows.Forms.TableLayoutPanel();
             this.SearchPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.RichTextBox = new Crypto_Notepad.ExRichTextBox();
-            this.LineNumbers_For_RichTextBox = new LineNumbers.LineNumbers_For_RichTextBox();
-            this.MainMenu.SuspendLayout();
-            this.EditorMenuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseSearchPanel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseToolbar)).BeginInit();
+            this.statusPanel = new System.Windows.Forms.StatusStrip();
+            this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lengthStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.linesStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lnStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.colStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.LockToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NewToolbarButton)).BeginInit();
@@ -121,6 +121,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.OpenToolbarButton)).BeginInit();
             this.ToolbarPanel.SuspendLayout();
             this.SearchPanel.SuspendLayout();
+            this.statusPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainMenu
@@ -764,103 +765,85 @@
             this.CutToolbarButton.TabStop = false;
             this.CutToolbarButton.Click += new System.EventHandler(this.CutToolbarButton_Click);
             // 
-            // DeleteFileToolbarButton
+            // statusPanel
             // 
-            this.DeleteFileToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DeleteFileToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteFileToolbarButton.Image")));
-            this.DeleteFileToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.DeleteFileToolbarButton.Location = new System.Drawing.Point(99, 3);
-            this.DeleteFileToolbarButton.Name = "DeleteFileToolbarButton";
-            this.DeleteFileToolbarButton.Size = new System.Drawing.Size(16, 16);
-            this.DeleteFileToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.DeleteFileToolbarButton.TabIndex = 15;
-            this.DeleteFileToolbarButton.TabStop = false;
-            this.DeleteFileToolbarButton.Click += new System.EventHandler(this.DeleteFileToolbarButton_Click);
+            this.statusPanel.BackColor = global::Crypto_Notepad.Properties.Settings.Default.statusPanelBackColor;
+            this.statusPanel.DataBindings.Add(new System.Windows.Forms.Binding("Visible", global::Crypto_Notepad.Properties.Settings.Default, "statusPanel", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.statusPanel.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "statusPanelBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.statusPanel.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::Crypto_Notepad.Properties.Settings.Default, "statusPanelFontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.statusPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.statusPanel.ForeColor = global::Crypto_Notepad.Properties.Settings.Default.statusPanelFontColor;
+            this.statusPanel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLabel,
+            this.lengthStatusLabel,
+            this.linesStatusLabel,
+            this.lnStatusLabel,
+            this.colStatusLabel});
+            this.statusPanel.Location = new System.Drawing.Point(0, 239);
+            this.statusPanel.Name = "statusPanel";
+            this.statusPanel.Size = new System.Drawing.Size(484, 22);
+            this.statusPanel.TabIndex = 18;
+            this.statusPanel.Visible = global::Crypto_Notepad.Properties.Settings.Default.statusPanel;
             // 
-            // FileLocationToolbarButton
+            // statusLabel
             // 
-            this.FileLocationToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.FileLocationToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("FileLocationToolbarButton.Image")));
-            this.FileLocationToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.FileLocationToolbarButton.Location = new System.Drawing.Point(75, 3);
-            this.FileLocationToolbarButton.Name = "FileLocationToolbarButton";
-            this.FileLocationToolbarButton.Size = new System.Drawing.Size(16, 16);
-            this.FileLocationToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.FileLocationToolbarButton.TabIndex = 15;
-            this.FileLocationToolbarButton.TabStop = false;
-            this.FileLocationToolbarButton.Click += new System.EventHandler(this.FileLocationToolbarButton_Click);
+            this.statusLabel.ActiveLinkColor = System.Drawing.Color.SteelBlue;
+            this.statusLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.statusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.statusLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.statusLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.statusLabel.ImageTransparentColor = System.Drawing.SystemColors.Control;
+            this.statusLabel.LinkColor = System.Drawing.Color.SteelBlue;
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(43, 17);
+            this.statusLabel.Text = "Ready";
+            this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.statusLabel.VisitedLinkColor = System.Drawing.Color.SteelBlue;
+            this.statusLabel.Click += new System.EventHandler(this.StatusLabel_Click);
+            this.statusLabel.TextChanged += new System.EventHandler(this.StatusLabel_TextChanged);
             // 
-            // SaveToolBarButton
+            // lengthStatusLabel
             // 
-            this.SaveToolBarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SaveToolBarButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveToolBarButton.Image")));
-            this.SaveToolBarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.SaveToolBarButton.Location = new System.Drawing.Point(51, 3);
-            this.SaveToolBarButton.Name = "SaveToolBarButton";
-            this.SaveToolBarButton.Size = new System.Drawing.Size(16, 16);
+            this.lengthStatusLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.lengthStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.lengthStatusLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.lengthStatusLabel.Name = "lengthStatusLabel";
+            this.lengthStatusLabel.Size = new System.Drawing.Size(59, 17);
+            this.lengthStatusLabel.Text = "Length: 0";
             this.SaveToolBarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.SaveToolBarButton.TabIndex = 15;
             this.SaveToolBarButton.TabStop = false;
             this.SaveToolBarButton.Click += new System.EventHandler(this.SaveToolbarButton_Click);
             // 
-            // OpenToolbarButton
+            // linesStatusLabel
             // 
-            this.OpenToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.OpenToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("OpenToolbarButton.Image")));
-            this.OpenToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.OpenToolbarButton.Location = new System.Drawing.Point(27, 3);
-            this.OpenToolbarButton.Name = "OpenToolbarButton";
-            this.OpenToolbarButton.Size = new System.Drawing.Size(16, 16);
+            this.linesStatusLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.linesStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.linesStatusLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.linesStatusLabel.Name = "linesStatusLabel";
+            this.linesStatusLabel.Size = new System.Drawing.Size(49, 17);
+            this.linesStatusLabel.Text = "Lines: 1";
             this.OpenToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.OpenToolbarButton.TabIndex = 15;
             this.OpenToolbarButton.TabStop = false;
             this.OpenToolbarButton.Click += new System.EventHandler(this.OpenToolbarButton_Click);
             // 
-            // ToolbarPanel
+            // lnStatusLabel
             // 
-            this.ToolbarPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ToolbarPanel.ColumnCount = 13;
-            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.ToolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.ToolbarPanel.Controls.Add(this.LockToolbarButton, 9, 0);
-            this.ToolbarPanel.Controls.Add(this.NewToolbarButton, 0, 0);
-            this.ToolbarPanel.Controls.Add(this.ChangeKeyToolbarButton, 8, 0);
-            this.ToolbarPanel.Controls.Add(this.OpenToolbarButton, 1, 0);
-            this.ToolbarPanel.Controls.Add(this.PasteToolbarButton, 7, 0);
-            this.ToolbarPanel.Controls.Add(this.SaveToolBarButton, 2, 0);
-            this.ToolbarPanel.Controls.Add(this.CopyToolbarButton, 6, 0);
-            this.ToolbarPanel.Controls.Add(this.FileLocationToolbarButton, 3, 0);
-            this.ToolbarPanel.Controls.Add(this.CutToolbarButton, 5, 0);
-            this.ToolbarPanel.Controls.Add(this.DeleteFileToolbarButton, 4, 0);
-            this.ToolbarPanel.Controls.Add(this.CloseToolbar, 12, 0);
-            this.ToolbarPanel.Controls.Add(this.SettingsToolbarButton, 10, 0);
-            this.ToolbarPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ToolbarPanel.ForeColor = System.Drawing.SystemColors.Control;
-            this.ToolbarPanel.Location = new System.Drawing.Point(0, 24);
-            this.ToolbarPanel.Name = "ToolbarPanel";
-            this.ToolbarPanel.RowCount = 1;
-            this.ToolbarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.ToolbarPanel.Size = new System.Drawing.Size(513, 23);
-            this.ToolbarPanel.TabIndex = 17;
+            this.lnStatusLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.lnStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.lnStatusLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.lnStatusLabel.Name = "lnStatusLabel";
+            this.lnStatusLabel.Size = new System.Drawing.Size(35, 17);
+            this.lnStatusLabel.Text = "Ln: 1";
             // 
-            // SearchPanel
+            // colStatusLabel
             // 
-            this.SearchPanel.AutoSize = true;
-            this.SearchPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
-            this.SearchPanel.ColumnCount = 5;
-            this.SearchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SearchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102F));
+            this.colStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.colStatusLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.colStatusLabel.Name = "colStatusLabel";
+            this.colStatusLabel.Size = new System.Drawing.Size(36, 17);
+            this.colStatusLabel.Text = "Col: 0";
             this.SearchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
             this.SearchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
             this.SearchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
@@ -946,6 +929,7 @@
             this.Controls.Add(this.ToolbarPanel);
             this.Controls.Add(this.MainMenu);
             this.Controls.Add(this.SearchPanel);
+            this.Controls.Add(this.statusPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MainMenu;
@@ -976,6 +960,8 @@
             this.ToolbarPanel.PerformLayout();
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
+            this.statusPanel.ResumeLayout(false);
+            this.statusPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1045,16 +1031,16 @@
         private System.Windows.Forms.PictureBox SettingsToolbarButton;
         private System.Windows.Forms.PictureBox CloseToolbar;
         private System.Windows.Forms.PictureBox LockToolbarButton;
-        private System.Windows.Forms.ToolStripMenuItem LockToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
-        private System.Windows.Forms.ToolStripMenuItem RedoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem RedoEditorMenuStrip;
+        private System.Windows.Forms.ToolStripStatusLabel lengthStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel linesStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel lnStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel colStatusLabel;
         private System.Windows.Forms.ToolStripMenuItem DebugToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MainVariablesToolStripMenuItem;
         private LineNumbers.LineNumbers_For_RichTextBox LineNumbers_For_RichTextBox;
         private System.Windows.Forms.ToolStripMenuItem insertToolStripMenuItem;
-        private System.Windows.Forms.Button FindNextButton;
-        private System.Windows.Forms.TableLayoutPanel ToolbarPanel;
+        protected internal System.Windows.Forms.StatusStrip statusPanel;
+        protected internal System.Windows.Forms.ToolStripStatusLabel statusLabel;
         private System.Windows.Forms.TableLayoutPanel SearchPanel;
         private ExRichTextBox RichTextBox;
     }
