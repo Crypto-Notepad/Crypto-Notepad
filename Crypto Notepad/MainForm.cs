@@ -34,7 +34,23 @@ namespace Crypto_Notepad
             RichTextBox.AllowDrop = true;
         }
 
-        /*Functions*/
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_SYSCOMMAND = 0x112;
+            const int SC_MINIMIZE = 0xF020;
+
+            if (m.Msg == WM_SYSCOMMAND && m.WParam.ToInt32() == SC_MINIMIZE && settings.autoLock && PublicVar.encryptionKey.Get() != null)
+            {
+                SaveMainMenu_Click(this, new EventArgs());
+                AutoLock(true);
+                return;
+            }
+
+            base.WndProc(ref m);
+        }
+
+
+        #region Functions
         private void DecryptAES()
         {
             EnterKeyForm f2 = new EnterKeyForm();
