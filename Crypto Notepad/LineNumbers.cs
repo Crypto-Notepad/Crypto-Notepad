@@ -1,19 +1,14 @@
 using Microsoft.VisualBasic;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-
-using System.Diagnostics;
 using System.Windows.Forms;
 
 
 namespace LineNumbers
 {
-	[System.ComponentModel.DefaultProperty("ParentRichTextBox")]
-	public class LineNumbers_For_RichTextBox : System.Windows.Forms.Control
+    [System.ComponentModel.DefaultProperty("ParentRichTextBox")]
+	public class LineNumbers: Control
 	{
 
 		private class LineNumberItem
@@ -22,8 +17,8 @@ namespace LineNumbers
 			internal Rectangle Rectangle;
 			internal LineNumberItem(int zLineNumber, Rectangle zRectangle)
 			{
-				this.LineNumber = zLineNumber;
-				this.Rectangle = zRectangle;
+				LineNumber = zLineNumber;
+				Rectangle = zRectangle;
 			}
 		}
 
@@ -130,7 +125,7 @@ namespace LineNumbers
 		private int zParentInMe = 0;
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		public LineNumbers_For_RichTextBox()
+		public LineNumbers()
 		{
 			{
 				this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
@@ -1113,6 +1108,7 @@ namespace LineNumbers
 			this.Refresh();
 			this.Invalidate();
 		}
+
 
 	}
 }
