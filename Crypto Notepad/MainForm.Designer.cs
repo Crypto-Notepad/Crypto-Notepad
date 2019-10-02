@@ -595,7 +595,7 @@
             this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.searchPanel.Controls.Add(this.findNextButton, 3, 0);
             this.searchPanel.Controls.Add(this.searchTextBox, 0, 0);
             this.searchPanel.Controls.Add(this.wholeWordCheckBox, 2, 0);
@@ -624,7 +624,7 @@
             this.findNextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.findNextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.findNextButton.ForeColor = global::Crypto_Notepad.Properties.Settings.Default.searchPanelFontColor;
-            this.findNextButton.Location = new System.Drawing.Point(375, 4);
+            this.findNextButton.Location = new System.Drawing.Point(398, 4);
             this.findNextButton.Name = "findNextButton";
             this.findNextButton.Size = new System.Drawing.Size(60, 20);
             this.findNextButton.TabIndex = 15;
@@ -644,7 +644,7 @@
             this.searchTextBox.ForeColor = global::Crypto_Notepad.Properties.Settings.Default.searchPanelFontColor;
             this.searchTextBox.Location = new System.Drawing.Point(4, 7);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(173, 13);
+            this.searchTextBox.Size = new System.Drawing.Size(196, 13);
             this.searchTextBox.TabIndex = 9;
             this.searchTextBox.TabStop = false;
             this.searchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
@@ -658,7 +658,7 @@
             this.wholeWordCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wholeWordCheckBox.ForeColor = global::Crypto_Notepad.Properties.Settings.Default.searchPanelFontColor;
             this.wholeWordCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.wholeWordCheckBox.Location = new System.Drawing.Point(285, 4);
+            this.wholeWordCheckBox.Location = new System.Drawing.Point(308, 4);
             this.wholeWordCheckBox.Name = "wholeWordCheckBox";
             this.wholeWordCheckBox.Size = new System.Drawing.Size(83, 20);
             this.wholeWordCheckBox.TabIndex = 12;
@@ -675,7 +675,7 @@
             this.caseSensitiveCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.caseSensitiveCheckBox.ForeColor = global::Crypto_Notepad.Properties.Settings.Default.searchPanelFontColor;
             this.caseSensitiveCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.caseSensitiveCheckBox.Location = new System.Drawing.Point(184, 4);
+            this.caseSensitiveCheckBox.Location = new System.Drawing.Point(207, 4);
             this.caseSensitiveCheckBox.Name = "caseSensitiveCheckBox";
             this.caseSensitiveCheckBox.Size = new System.Drawing.Size(94, 20);
             this.caseSensitiveCheckBox.TabIndex = 11;
@@ -690,7 +690,7 @@
             this.closeSearchPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.closeSearchPanel.Image = ((System.Drawing.Image)(resources.GetObject("closeSearchPanel.Image")));
             this.closeSearchPanel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.closeSearchPanel.Location = new System.Drawing.Point(442, 4);
+            this.closeSearchPanel.Location = new System.Drawing.Point(465, 4);
             this.closeSearchPanel.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.closeSearchPanel.Name = "closeSearchPanel";
             this.closeSearchPanel.Size = new System.Drawing.Size(15, 19);
