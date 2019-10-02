@@ -543,5 +543,18 @@ namespace Crypto_Notepad.Properties {
                 this["mainMenu"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool oldToolbarIcons {
+            get {
+                return ((bool)(this["oldToolbarIcons"]));
+            }
+            set {
+                this["oldToolbarIcons"] = value;
+            }
+        }
     }
 }
