@@ -1,4 +1,5 @@
-﻿using System;
+using Crypto_Notepad.Properties;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing.Drawing2D;
@@ -604,6 +605,38 @@ namespace Crypto_Notepad
                 }
             }
         }
+        public void Toolbaricons(bool oldicons)
+        {
+            if (oldicons)
+            {
+                newToolbarButton.Image = Resources.old_page_white_add;
+                openToolbarButton.Image = Resources.old_folder_vertical_document;
+                saveToolbarButton.Image = Resources.old_diskette;
+                fileLocationToolbarButton.Image = Resources.old_folder_stand;
+                deleteFileToolbarButton.Image = Resources.old_page_white_delete;
+                cutToolbarButton.Image = Resources.old_cut_red;
+                copyToolbarButton.Image = Resources.old_page_white_copy;
+                pasteToolbarButton.Image = Resources.old_paste_plain;
+                changeKeyToolbarButton.Image = Resources.old_page_white_key;
+                lockToolbarButton.Image = Resources.old_lock;
+                settingsToolbarButton.Image = Resources.old_setting_tools;
+            }
+            else
+            {
+                newToolbarButton.Image = Resources.document_plus;
+                openToolbarButton.Image = Resources.folder_open_document;
+                saveToolbarButton.Image = Resources.disk_return_black;
+                fileLocationToolbarButton.Image = Resources.folder_horizontal;
+                deleteFileToolbarButton.Image = Resources.document_minus;
+                cutToolbarButton.Image = Resources.scissors;
+                copyToolbarButton.Image = Resources.document_copy;
+                pasteToolbarButton.Image = Resources.clipboard;
+                changeKeyToolbarButton.Image = Resources.key;
+                lockToolbarButton.Image = Resources.lock_warning;
+                settingsToolbarButton.Image = Resources.gear;
+            }
+
+        }
         #endregion
 
 
@@ -717,6 +750,7 @@ namespace Crypto_Notepad
 
             MenuIcons();
             DeleteUpdateFiles();
+            Toolbaricons(settings.oldToolbarIcons);
 
             if (args.Length == 2) /*drag & drop to executable*/
             {

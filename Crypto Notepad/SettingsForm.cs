@@ -1,4 +1,4 @@
-﻿using IWshRuntimeLibrary;
+using IWshRuntimeLibrary;
 using Microsoft.Win32;
 using System;
 using System.Drawing;
@@ -608,6 +608,13 @@ namespace Crypto_Notepad
             {
                 main.mainMenu.Visible = false;
             }
+        }
+
+        private void ToolbarOldIcons_Click(object sender, EventArgs e)
+        {
+            settings.oldToolbarIcons = toolbarOldIcons.Checked;
+            MainForm main = Owner as MainForm;
+            main.Toolbaricons(settings.oldToolbarIcons);
         }
         /*Settings Section*/
 
