@@ -1,4 +1,4 @@
-using Crypto_Notepad.Properties;
+﻿using Crypto_Notepad.Properties;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -46,7 +46,7 @@ namespace Crypto_Notepad
         }
 
 
-        #region Functions
+        #region Methods
         private void DecryptAES()
         {
             EnterKeyForm enterKeyForm = new EnterKeyForm
@@ -379,8 +379,6 @@ namespace Crypto_Notepad
 
                 if (serverVersion > appVersion)
                 {
-                    mainMenu.Invoke((Action)delegate
-                    {
                         if (statusPanel.Visible)
                         {
                             StatusPanelMessage("update-needed");
@@ -402,13 +400,10 @@ namespace Crypto_Notepad
                                 }
                             }
                         }
-                    });
                 }
 
                 if (serverVersion <= appVersion && autoCheck)
                 {
-                    mainMenu.Invoke((Action)delegate
-                    {
                         using (new CenterWinDialog(this))
                         {
                             if (statusPanel.Visible)
@@ -420,9 +415,7 @@ namespace Crypto_Notepad
                                 MessageBox.Show("Crypto Notepad is up to date.", PublicVar.appName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
-                    });
                 }
-
             }
             catch
             {
@@ -605,6 +598,7 @@ namespace Crypto_Notepad
                 }
             }
         }
+
         public void Toolbaricons(bool oldicons)
         {
             if (oldicons)
@@ -744,8 +738,9 @@ namespace Crypto_Notepad
 
             if (settings.autoCheckUpdate)
             {
-                Thread up = new Thread(() => CheckForUpdates(false));
-                up.Start();
+                //Thread up = new Thread(() => CheckForUpdates(false));
+                //up.Start();
+                CheckForUpdates(false);
             }
 
             MenuIcons();
@@ -1319,8 +1314,9 @@ namespace Crypto_Notepad
 
         private void UpdatesMainMenu_Click(object sender, EventArgs e)
         {
-            Thread up = new Thread(() => CheckForUpdates(true));
-            up.Start();
+            //Thread up = new Thread(() => CheckForUpdates(true));
+            //up.Start();
+            CheckForUpdates(true);
         }
 
         private void AboutMainMenu_Click(object sender, EventArgs e)
