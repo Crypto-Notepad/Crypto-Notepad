@@ -1,8 +1,8 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Crypto_Notepad.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="editroFontColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="editroForeColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Black</Value>
     </Setting>
     <Setting Name="editorBackColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
@@ -26,7 +26,7 @@
     <Setting Name="PasswordIterations" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">1000</Value>
     </Setting>
-    <Setting Name="showToolbar" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="toolbarVisible" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="autoCheckUpdate" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
@@ -44,7 +44,7 @@
     <Setting Name="windowState" Provider="PortableSettingsProvider" Type="System.Windows.Forms.FormWindowState" Scope="User">
       <Value Profile="(Default)">Normal</Value>
     </Setting>
-    <Setting Name="sendTo" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="explorerSendTo" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="explorerIntegrate" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
@@ -59,7 +59,7 @@
     <Setting Name="lnBackColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">240, 240, 240</Value>
     </Setting>
-    <Setting Name="lnFontColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="lnForeColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">164, 164, 164</Value>
     </Setting>
     <Setting Name="blShow" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
@@ -95,7 +95,7 @@
     <Setting Name="editorFont" Provider="PortableSettingsProvider" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">Microsoft Sans Serif, 10pt</Value>
     </Setting>
-    <Setting Name="statusPanel" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="statusPanelVisible" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="statusPanelBackColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
@@ -110,7 +110,7 @@
     <Setting Name="toolbarBorder" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="searchPanelFontColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="searchPanelForeColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Black</Value>
     </Setting>
     <Setting Name="searchPanelBackColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
@@ -119,7 +119,7 @@
     <Setting Name="openLinks" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">LMB Click</Value>
     </Setting>
-    <Setting Name="mainMenu" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="mainMenuVisible" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="oldToolbarIcons" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
