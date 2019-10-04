@@ -1,4 +1,4 @@
-using IWshRuntimeLibrary;
+﻿using IWshRuntimeLibrary;
 using Microsoft.Win32;
 using System;
 using System.Drawing;
@@ -674,6 +674,110 @@ namespace Crypto_Notepad
             settings.oldToolbarIcons = toolbarOldIcons.Checked;
             MainForm main = Owner as MainForm;
             main.Toolbaricons(settings.oldToolbarIcons);
+        }
+
+        private void LinksComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            if (settings.openLinks != linksComboBox.Text)
+            {
+                settings.openLinks = linksComboBox.Text;
+            }
+
+        }
+
+        private void AutoLockCheckBox_Click(object sender, EventArgs e)
+        {
+            settings.autoLock = autoLockCheckBox.Checked;
+        }
+
+        private void UpdatesCheckBox_Click(object sender, EventArgs e)
+        {
+            settings.autoCheckUpdate = updatesCheckBox.Checked;
+
+        }
+
+        private void PwdIterationsTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (pwdIterationsTextBox.Text != settings.PasswordIterations)
+            {
+                settings.PasswordIterations = pwdIterationsTextBox.Text;
+            }
+        }
+
+        private void MLVisibleComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            MainForm main = Owner as MainForm;
+            if (settings.mlVisible != MLVisibleComboBox.Text)
+            {
+                settings.mlVisible = MLVisibleComboBox.Text;
+                main.RTBLineNumbers.Show_MarginLines = bool.Parse(settings.mlVisible);
+            }
+        }
+
+        private void MLSideComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            MainForm main = Owner as MainForm;
+            if (settings.mlSide.ToString() != MLSideComboBox.Text)
+            {
+                switch (MLSideComboBox.Text)
+                {
+                    case "None":
+                        settings.mlSide = LineNumbers.LineNumbers.LineNumberDockSide.None.ToString();
+                        break;
+                    case "Left":
+                        settings.mlSide = LineNumbers.LineNumbers.LineNumberDockSide.Left.ToString();
+                        break;
+                    case "Right":
+                        settings.mlSide = LineNumbers.LineNumbers.LineNumberDockSide.Right.ToString();
+                        break;
+                    case "Height":
+                        settings.mlSide = LineNumbers.LineNumbers.LineNumberDockSide.Height.ToString();
+                        break;
+                }
+                main.RTBLineNumbers.MarginLines_Side = (LineNumbers.LineNumbers.LineNumberDockSide)Enum.Parse(typeof(LineNumbers.LineNumbers.LineNumberDockSide), settings.mlSide);
+            }
+        }
+
+        private void MLStyleComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            MainForm main = Owner as MainForm;
+            if (settings.mlStyle != MLStyleComboBox.Text)
+            {
+                switch (MLStyleComboBox.Text)
+                {
+                    case "Solid":
+                        settings.mlStyle = DashStyle.Solid.ToString();
+                        break;
+                    case "Dash":
+                        settings.mlStyle = DashStyle.Dash.ToString();
+                        break;
+                    case "Dot":
+                        settings.mlStyle = DashStyle.Dot.ToString();
+                        break;
+                    case "DashDot":
+                        settings.mlStyle = DashStyle.DashDot.ToString();
+                        break;
+                    case "DashDotDot":
+                        settings.mlStyle = DashStyle.DashDotDot.ToString();
+                        break;
+                }
+                main.RTBLineNumbers.MarginLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.mlStyle);
+            }
+        }
+
+        private void MLColor_Click(object sender, EventArgs e)
+        {
+            colorDialog.Color = MLColor.BackColor;
+            using (new CenterWinDialog(this))
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK)
+                {
+                    MainForm main = Owner as MainForm;
+                    main.RTBLineNumbers.MarginLines_Color = colorDialog.Color;
+                    MLColor.BackColor = colorDialog.Color;
+                    settings.mlColor = colorDialog.Color;
+                }
+            }
         }
         /*Settings Section*/
 

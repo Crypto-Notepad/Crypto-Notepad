@@ -60,24 +60,36 @@
             this.hashLabel = new System.Windows.Forms.Label();
             this.keySizeComboBox = new System.Windows.Forms.ComboBox();
             this.lineNumbersTabPage = new System.Windows.Forms.TabPage();
-            this.GLStyleComboBox = new System.Windows.Forms.ComboBox();
-            this.LNVisibleLabel = new System.Windows.Forms.Label();
-            this.GLStyleLabel = new System.Windows.Forms.Label();
-            this.LNBackgroundColor = new System.Windows.Forms.Label();
-            this.LNFontColorLabel = new System.Windows.Forms.Label();
-            this.GLColorLabel = new System.Windows.Forms.Label();
-            this.GLShowLabel = new System.Windows.Forms.Label();
-            this.BLShowLabel = new System.Windows.Forms.Label();
-            this.BLStyleLabel = new System.Windows.Forms.Label();
-            this.BLColorLabel = new System.Windows.Forms.Label();
-            this.GLColor = new System.Windows.Forms.Panel();
+            this.MLGroupBox = new System.Windows.Forms.GroupBox();
+            this.MLStyleComboBox = new System.Windows.Forms.ComboBox();
+            this.MLStyleLabel = new System.Windows.Forms.Label();
+            this.MLSideComboBox = new System.Windows.Forms.ComboBox();
+            this.MLColor = new System.Windows.Forms.Panel();
+            this.MLSideLabel = new System.Windows.Forms.Label();
+            this.MLColorLabel = new System.Windows.Forms.Label();
+            this.MLVisibleComboBox = new System.Windows.Forms.ComboBox();
+            this.MLShowLabel = new System.Windows.Forms.Label();
+            this.GLGroupBox = new System.Windows.Forms.GroupBox();
             this.GLShowComboBox = new System.Windows.Forms.ComboBox();
+            this.GLStyleComboBox = new System.Windows.Forms.ComboBox();
+            this.GLColor = new System.Windows.Forms.Panel();
+            this.GLShowLabel = new System.Windows.Forms.Label();
+            this.GLStyleLabel = new System.Windows.Forms.Label();
+            this.GLColorLabel = new System.Windows.Forms.Label();
+            this.BLGroupBox = new System.Windows.Forms.GroupBox();
+            this.BLShowСomboBox = new System.Windows.Forms.ComboBox();
             this.BLStyleComboBox = new System.Windows.Forms.ComboBox();
+            this.BLColorLabel = new System.Windows.Forms.Label();
+            this.BLStyleLabel = new System.Windows.Forms.Label();
+            this.BLShowLabel = new System.Windows.Forms.Label();
+            this.BLColor = new System.Windows.Forms.Panel();
+            this.LNGroupBox = new System.Windows.Forms.GroupBox();
             this.LNVisibleComboBox = new System.Windows.Forms.ComboBox();
             this.LNBackColor = new System.Windows.Forms.Panel();
+            this.LNVisibleLabel = new System.Windows.Forms.Label();
             this.LNFontColor = new System.Windows.Forms.Panel();
-            this.BLShowСomboBox = new System.Windows.Forms.ComboBox();
-            this.BLColor = new System.Windows.Forms.Panel();
+            this.LNFontColorLabel = new System.Windows.Forms.Label();
+            this.LNBackgroundColor = new System.Windows.Forms.Label();
             this.statusPanelTabPage = new System.Windows.Forms.TabPage();
             this.statusPanelVisible = new System.Windows.Forms.CheckBox();
             this.statusBackColor = new System.Windows.Forms.Panel();
@@ -103,6 +115,10 @@
             this.integrationTabPage.SuspendLayout();
             this.encryptionTabPage.SuspendLayout();
             this.lineNumbersTabPage.SuspendLayout();
+            this.MLGroupBox.SuspendLayout();
+            this.GLGroupBox.SuspendLayout();
+            this.BLGroupBox.SuspendLayout();
+            this.LNGroupBox.SuspendLayout();
             this.statusPanelTabPage.SuspendLayout();
             this.toolbarTabPage.SuspendLayout();
             this.searchPanelTabPage.SuspendLayout();
@@ -166,7 +182,6 @@
             // 
             // linksComboBox
             // 
-            this.linksComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Crypto_Notepad.Properties.Settings.Default, "openLinks", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.linksComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.linksComboBox.FormattingEnabled = true;
             this.linksComboBox.Items.AddRange(new object[] {
@@ -177,7 +192,7 @@
             this.linksComboBox.Name = "linksComboBox";
             this.linksComboBox.Size = new System.Drawing.Size(100, 23);
             this.linksComboBox.TabIndex = 19;
-            this.linksComboBox.Text = global::Crypto_Notepad.Properties.Settings.Default.openLinks;
+            this.linksComboBox.DropDownClosed += new System.EventHandler(this.LinksComboBox_DropDownClosed);
             // 
             // linksLabel
             // 
@@ -200,13 +215,11 @@
             // 
             // paddingLeftTextBox
             // 
-            this.paddingLeftTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Crypto_Notepad.Properties.Settings.Default, "editorPaddingLeft", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.paddingLeftTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.paddingLeftTextBox.Location = new System.Drawing.Point(132, 87);
             this.paddingLeftTextBox.Name = "paddingLeftTextBox";
             this.paddingLeftTextBox.Size = new System.Drawing.Size(100, 20);
             this.paddingLeftTextBox.TabIndex = 16;
-            this.paddingLeftTextBox.Text = global::Crypto_Notepad.Properties.Settings.Default.editorPaddingLeft;
             this.paddingLeftTextBox.Click += new System.EventHandler(this.PaddingLeftTextBox_Click);
             this.paddingLeftTextBox.TextChanged += new System.EventHandler(this.PaddingLeftTextBox_TextChanged);
             this.paddingLeftTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PaddingLeftTextBox_KeyPress);
@@ -222,7 +235,6 @@
             // 
             // insKeyComboBox
             // 
-            this.insKeyComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Crypto_Notepad.Properties.Settings.Default, "insKey", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.insKeyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.insKeyComboBox.FormattingEnabled = true;
             this.insKeyComboBox.Items.AddRange(new object[] {
@@ -232,7 +244,6 @@
             this.insKeyComboBox.Name = "insKeyComboBox";
             this.insKeyComboBox.Size = new System.Drawing.Size(100, 23);
             this.insKeyComboBox.TabIndex = 14;
-            this.insKeyComboBox.Text = global::Crypto_Notepad.Properties.Settings.Default.insKey;
             this.insKeyComboBox.DropDownClosed += new System.EventHandler(this.InsKeyComboBox_DropDownClosed);
             // 
             // editorBGColorLabel
@@ -255,10 +266,9 @@
             // 
             // editorBGColor
             // 
-            this.editorBGColor.BackColor = global::Crypto_Notepad.Properties.Settings.Default.editorBackColor;
+            this.editorBGColor.BackColor = System.Drawing.SystemColors.Control;
             this.editorBGColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editorBGColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.editorBGColor.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "editorBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.editorBGColor.Location = new System.Drawing.Point(132, 31);
             this.editorBGColor.Name = "editorBGColor";
             this.editorBGColor.Size = new System.Drawing.Size(100, 21);
@@ -267,10 +277,9 @@
             // 
             // editorFontColor
             // 
-            this.editorFontColor.BackColor = global::Crypto_Notepad.Properties.Settings.Default.editroFontColor;
+            this.editorFontColor.BackColor = System.Drawing.Color.Black;
             this.editorFontColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editorFontColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.editorFontColor.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "editroFontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.editorFontColor.Location = new System.Drawing.Point(132, 4);
             this.editorFontColor.Name = "editorFontColor";
             this.editorFontColor.Size = new System.Drawing.Size(100, 21);
@@ -295,9 +304,6 @@
             // mainMenuCheckBox
             // 
             this.mainMenuCheckBox.AutoSize = true;
-            this.mainMenuCheckBox.Checked = global::Crypto_Notepad.Properties.Settings.Default.mainMenu;
-            this.mainMenuCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.mainMenuCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Crypto_Notepad.Properties.Settings.Default, "mainMenu", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.mainMenuCheckBox.Location = new System.Drawing.Point(7, 55);
             this.mainMenuCheckBox.Name = "mainMenuCheckBox";
             this.mainMenuCheckBox.Size = new System.Drawing.Size(89, 19);
@@ -309,8 +315,6 @@
             // menuIconsCheckBox
             // 
             this.menuIconsCheckBox.AutoSize = true;
-            this.menuIconsCheckBox.Checked = global::Crypto_Notepad.Properties.Settings.Default.menuIcons;
-            this.menuIconsCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Crypto_Notepad.Properties.Settings.Default, "menuIcons", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.menuIconsCheckBox.Location = new System.Drawing.Point(7, 80);
             this.menuIconsCheckBox.Name = "menuIconsCheckBox";
             this.menuIconsCheckBox.Size = new System.Drawing.Size(90, 19);
@@ -322,27 +326,24 @@
             // updatesCheckBox
             // 
             this.updatesCheckBox.AutoSize = true;
-            this.updatesCheckBox.Checked = global::Crypto_Notepad.Properties.Settings.Default.autoCheckUpdate;
-            this.updatesCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.updatesCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Crypto_Notepad.Properties.Settings.Default, "autoCheckUpdate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.updatesCheckBox.Location = new System.Drawing.Point(7, 30);
             this.updatesCheckBox.Name = "updatesCheckBox";
             this.updatesCheckBox.Size = new System.Drawing.Size(132, 19);
             this.updatesCheckBox.TabIndex = 1;
             this.updatesCheckBox.Text = "Auto check updates";
             this.updatesCheckBox.UseVisualStyleBackColor = true;
+            this.updatesCheckBox.Click += new System.EventHandler(this.UpdatesCheckBox_Click);
             // 
             // autoLockCheckBox
             // 
             this.autoLockCheckBox.AutoSize = true;
-            this.autoLockCheckBox.Checked = global::Crypto_Notepad.Properties.Settings.Default.autoLock;
-            this.autoLockCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Crypto_Notepad.Properties.Settings.Default, "autoLock", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.autoLockCheckBox.Location = new System.Drawing.Point(7, 7);
             this.autoLockCheckBox.Name = "autoLockCheckBox";
             this.autoLockCheckBox.Size = new System.Drawing.Size(146, 19);
             this.autoLockCheckBox.TabIndex = 3;
             this.autoLockCheckBox.Text = "Auto lock on minimize";
             this.autoLockCheckBox.UseVisualStyleBackColor = true;
+            this.autoLockCheckBox.Click += new System.EventHandler(this.AutoLockCheckBox_Click);
             // 
             // integrationTabPage
             // 
@@ -361,8 +362,6 @@
             // integrateCheckBox
             // 
             this.integrateCheckBox.AutoSize = true;
-            this.integrateCheckBox.Checked = global::Crypto_Notepad.Properties.Settings.Default.explorerIntegrate;
-            this.integrateCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Crypto_Notepad.Properties.Settings.Default, "explorerIntegrate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.integrateCheckBox.Location = new System.Drawing.Point(7, 7);
             this.integrateCheckBox.Name = "integrateCheckBox";
             this.integrateCheckBox.Size = new System.Drawing.Size(227, 19);
@@ -374,8 +373,6 @@
             // associateCheckBox
             // 
             this.associateCheckBox.AutoSize = true;
-            this.associateCheckBox.Checked = global::Crypto_Notepad.Properties.Settings.Default.explorerAssociate;
-            this.associateCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Crypto_Notepad.Properties.Settings.Default, "explorerAssociate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.associateCheckBox.Location = new System.Drawing.Point(7, 30);
             this.associateCheckBox.Name = "associateCheckBox";
             this.associateCheckBox.Size = new System.Drawing.Size(159, 19);
@@ -387,8 +384,6 @@
             // sendToCheckBox
             // 
             this.sendToCheckBox.AutoSize = true;
-            this.sendToCheckBox.Checked = global::Crypto_Notepad.Properties.Settings.Default.sendTo;
-            this.sendToCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Crypto_Notepad.Properties.Settings.Default, "sendTo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.sendToCheckBox.Location = new System.Drawing.Point(7, 53);
             this.sendToCheckBox.Name = "sendToCheckBox";
             this.sendToCheckBox.Size = new System.Drawing.Size(158, 19);
@@ -416,18 +411,16 @@
             // 
             // pwdIterationsTextBox
             // 
-            this.pwdIterationsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Crypto_Notepad.Properties.Settings.Default, "passwordIterations", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.pwdIterationsTextBox.Location = new System.Drawing.Point(132, 62);
             this.pwdIterationsTextBox.Name = "pwdIterationsTextBox";
             this.pwdIterationsTextBox.Size = new System.Drawing.Size(100, 21);
             this.pwdIterationsTextBox.TabIndex = 7;
-            this.pwdIterationsTextBox.Text = global::Crypto_Notepad.Properties.Settings.Default.PasswordIterations;
+            this.pwdIterationsTextBox.Text = "1000";
+            this.pwdIterationsTextBox.TextChanged += new System.EventHandler(this.PwdIterationsTextBox_TextChanged);
             this.pwdIterationsTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PwdIterationsTextBox_KeyPress);
-            this.pwdIterationsTextBox.Leave += new System.EventHandler(this.PwdIterationsTextBox_Leave);
             // 
             // hashComboBox
             // 
-            this.hashComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Crypto_Notepad.Properties.Settings.Default, "hashAlgorithm", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.hashComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.hashComboBox.FormattingEnabled = true;
             this.hashComboBox.Items.AddRange(new object[] {
@@ -440,7 +433,6 @@
             this.hashComboBox.Name = "hashComboBox";
             this.hashComboBox.Size = new System.Drawing.Size(100, 23);
             this.hashComboBox.TabIndex = 5;
-            this.hashComboBox.Text = global::Crypto_Notepad.Properties.Settings.Default.HashAlgorithm;
             this.hashComboBox.DropDownClosed += new System.EventHandler(this.HashComboBox_DropDownClosed);
             // 
             // pwdIterationsLabel
@@ -473,7 +465,6 @@
             // 
             // keySizeComboBox
             // 
-            this.keySizeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Crypto_Notepad.Properties.Settings.Default, "keySize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.keySizeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.keySizeComboBox.FormattingEnabled = true;
             this.keySizeComboBox.Items.AddRange(new object[] {
@@ -484,31 +475,17 @@
             this.keySizeComboBox.Name = "keySizeComboBox";
             this.keySizeComboBox.Size = new System.Drawing.Size(100, 23);
             this.keySizeComboBox.TabIndex = 3;
-            this.keySizeComboBox.Text = global::Crypto_Notepad.Properties.Settings.Default.KeySize;
             this.keySizeComboBox.DropDownClosed += new System.EventHandler(this.KeySizeComboBox_DropDownClosed);
             // 
             // lineNumbersTabPage
             // 
+            this.lineNumbersTabPage.AutoScroll = true;
             this.lineNumbersTabPage.BackColor = System.Drawing.SystemColors.Window;
             this.lineNumbersTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lineNumbersTabPage.Controls.Add(this.GLStyleComboBox);
-            this.lineNumbersTabPage.Controls.Add(this.LNVisibleLabel);
-            this.lineNumbersTabPage.Controls.Add(this.GLStyleLabel);
-            this.lineNumbersTabPage.Controls.Add(this.LNBackgroundColor);
-            this.lineNumbersTabPage.Controls.Add(this.LNFontColorLabel);
-            this.lineNumbersTabPage.Controls.Add(this.GLColorLabel);
-            this.lineNumbersTabPage.Controls.Add(this.GLShowLabel);
-            this.lineNumbersTabPage.Controls.Add(this.BLShowLabel);
-            this.lineNumbersTabPage.Controls.Add(this.BLStyleLabel);
-            this.lineNumbersTabPage.Controls.Add(this.BLColorLabel);
-            this.lineNumbersTabPage.Controls.Add(this.GLColor);
-            this.lineNumbersTabPage.Controls.Add(this.GLShowComboBox);
-            this.lineNumbersTabPage.Controls.Add(this.BLStyleComboBox);
-            this.lineNumbersTabPage.Controls.Add(this.LNVisibleComboBox);
-            this.lineNumbersTabPage.Controls.Add(this.LNBackColor);
-            this.lineNumbersTabPage.Controls.Add(this.LNFontColor);
-            this.lineNumbersTabPage.Controls.Add(this.BLShowСomboBox);
-            this.lineNumbersTabPage.Controls.Add(this.BLColor);
+            this.lineNumbersTabPage.Controls.Add(this.MLGroupBox);
+            this.lineNumbersTabPage.Controls.Add(this.GLGroupBox);
+            this.lineNumbersTabPage.Controls.Add(this.BLGroupBox);
+            this.lineNumbersTabPage.Controls.Add(this.LNGroupBox);
             this.lineNumbersTabPage.Location = new System.Drawing.Point(4, 44);
             this.lineNumbersTabPage.Name = "lineNumbersTabPage";
             this.lineNumbersTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -516,9 +493,148 @@
             this.lineNumbersTabPage.TabIndex = 4;
             this.lineNumbersTabPage.Text = "ln";
             // 
+            // MLGroupBox
+            // 
+            this.MLGroupBox.BackColor = System.Drawing.Color.Transparent;
+            this.MLGroupBox.Controls.Add(this.MLStyleComboBox);
+            this.MLGroupBox.Controls.Add(this.MLStyleLabel);
+            this.MLGroupBox.Controls.Add(this.MLSideComboBox);
+            this.MLGroupBox.Controls.Add(this.MLColor);
+            this.MLGroupBox.Controls.Add(this.MLSideLabel);
+            this.MLGroupBox.Controls.Add(this.MLColorLabel);
+            this.MLGroupBox.Controls.Add(this.MLVisibleComboBox);
+            this.MLGroupBox.Controls.Add(this.MLShowLabel);
+            this.MLGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MLGroupBox.Location = new System.Drawing.Point(3, 333);
+            this.MLGroupBox.Name = "MLGroupBox";
+            this.MLGroupBox.Size = new System.Drawing.Size(219, 143);
+            this.MLGroupBox.TabIndex = 7;
+            this.MLGroupBox.TabStop = false;
+            this.MLGroupBox.Text = "Margin lines";
+            // 
+            // MLStyleComboBox
+            // 
+            this.MLStyleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MLStyleComboBox.FormattingEnabled = true;
+            this.MLStyleComboBox.Items.AddRange(new object[] {
+            "Solid",
+            "Dash",
+            "Dot",
+            "DashDot",
+            "DashDotDot"});
+            this.MLStyleComboBox.Location = new System.Drawing.Point(106, 81);
+            this.MLStyleComboBox.Name = "MLStyleComboBox";
+            this.MLStyleComboBox.Size = new System.Drawing.Size(100, 23);
+            this.MLStyleComboBox.TabIndex = 35;
+            this.MLStyleComboBox.DropDownClosed += new System.EventHandler(this.MLStyleComboBox_DropDownClosed);
+            // 
+            // MLStyleLabel
+            // 
+            this.MLStyleLabel.AutoSize = true;
+            this.MLStyleLabel.Location = new System.Drawing.Point(10, 84);
+            this.MLStyleLabel.Name = "MLStyleLabel";
+            this.MLStyleLabel.Size = new System.Drawing.Size(33, 15);
+            this.MLStyleLabel.TabIndex = 34;
+            this.MLStyleLabel.Text = "Style";
+            // 
+            // MLSideComboBox
+            // 
+            this.MLSideComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MLSideComboBox.FormattingEnabled = true;
+            this.MLSideComboBox.Items.AddRange(new object[] {
+            "None",
+            "Left",
+            "Right",
+            "Height"});
+            this.MLSideComboBox.Location = new System.Drawing.Point(106, 110);
+            this.MLSideComboBox.Name = "MLSideComboBox";
+            this.MLSideComboBox.Size = new System.Drawing.Size(100, 23);
+            this.MLSideComboBox.TabIndex = 33;
+            this.MLSideComboBox.DropDownClosed += new System.EventHandler(this.MLSideComboBox_DropDownClosed);
+            // 
+            // MLColor
+            // 
+            this.MLColor.BackColor = System.Drawing.SystemColors.Control;
+            this.MLColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MLColor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MLColor.Location = new System.Drawing.Point(106, 54);
+            this.MLColor.Name = "MLColor";
+            this.MLColor.Size = new System.Drawing.Size(100, 21);
+            this.MLColor.TabIndex = 32;
+            this.MLColor.Click += new System.EventHandler(this.MLColor_Click);
+            // 
+            // MLSideLabel
+            // 
+            this.MLSideLabel.AutoSize = true;
+            this.MLSideLabel.Location = new System.Drawing.Point(10, 113);
+            this.MLSideLabel.Name = "MLSideLabel";
+            this.MLSideLabel.Size = new System.Drawing.Size(32, 15);
+            this.MLSideLabel.TabIndex = 31;
+            this.MLSideLabel.Text = "Side";
+            // 
+            // MLColorLabel
+            // 
+            this.MLColorLabel.Location = new System.Drawing.Point(10, 54);
+            this.MLColorLabel.Name = "MLColorLabel";
+            this.MLColorLabel.Size = new System.Drawing.Size(45, 21);
+            this.MLColorLabel.TabIndex = 30;
+            this.MLColorLabel.Text = "Color";
+            this.MLColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // MLVisibleComboBox
+            // 
+            this.MLVisibleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MLVisibleComboBox.FormattingEnabled = true;
+            this.MLVisibleComboBox.Items.AddRange(new object[] {
+            "True",
+            "False"});
+            this.MLVisibleComboBox.Location = new System.Drawing.Point(106, 25);
+            this.MLVisibleComboBox.Name = "MLVisibleComboBox";
+            this.MLVisibleComboBox.Size = new System.Drawing.Size(100, 23);
+            this.MLVisibleComboBox.TabIndex = 29;
+            this.MLVisibleComboBox.DropDownClosed += new System.EventHandler(this.MLVisibleComboBox_DropDownClosed);
+            // 
+            // MLShowLabel
+            // 
+            this.MLShowLabel.AutoSize = true;
+            this.MLShowLabel.Location = new System.Drawing.Point(10, 28);
+            this.MLShowLabel.Name = "MLShowLabel";
+            this.MLShowLabel.Size = new System.Drawing.Size(43, 15);
+            this.MLShowLabel.TabIndex = 28;
+            this.MLShowLabel.Text = "Visible";
+            // 
+            // GLGroupBox
+            // 
+            this.GLGroupBox.Controls.Add(this.GLShowComboBox);
+            this.GLGroupBox.Controls.Add(this.GLStyleComboBox);
+            this.GLGroupBox.Controls.Add(this.GLColor);
+            this.GLGroupBox.Controls.Add(this.GLShowLabel);
+            this.GLGroupBox.Controls.Add(this.GLStyleLabel);
+            this.GLGroupBox.Controls.Add(this.GLColorLabel);
+            this.GLGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.GLGroupBox.Location = new System.Drawing.Point(3, 223);
+            this.GLGroupBox.Name = "GLGroupBox";
+            this.GLGroupBox.Size = new System.Drawing.Size(219, 110);
+            this.GLGroupBox.TabIndex = 27;
+            this.GLGroupBox.TabStop = false;
+            this.GLGroupBox.Text = "Grid lines";
+            // 
+            // GLShowComboBox
+            // 
+            this.GLShowComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.GLShowComboBox.FormattingEnabled = true;
+            this.GLShowComboBox.Items.AddRange(new object[] {
+            "True",
+            "False"});
+            this.GLShowComboBox.Location = new System.Drawing.Point(106, 20);
+            this.GLShowComboBox.Name = "GLShowComboBox";
+            this.GLShowComboBox.Size = new System.Drawing.Size(100, 23);
+            this.GLShowComboBox.TabIndex = 22;
+            this.GLShowComboBox.Tag = "False";
+            this.GLShowComboBox.DropDownClosed += new System.EventHandler(this.GLShowComboBox_DropDownClosed);
+            // 
             // GLStyleComboBox
             // 
-            this.GLStyleComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Crypto_Notepad.Properties.Settings.Default, "glStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.GLStyleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GLStyleComboBox.FormattingEnabled = true;
             this.GLStyleComboBox.Items.AddRange(new object[] {
@@ -527,125 +643,81 @@
             "Dot",
             "DashDot",
             "DashDotDot"});
-            this.GLStyleComboBox.Location = new System.Drawing.Point(132, 228);
+            this.GLStyleComboBox.Location = new System.Drawing.Point(106, 76);
             this.GLStyleComboBox.Name = "GLStyleComboBox";
             this.GLStyleComboBox.Size = new System.Drawing.Size(100, 23);
             this.GLStyleComboBox.TabIndex = 26;
-            this.GLStyleComboBox.Text = global::Crypto_Notepad.Properties.Settings.Default.glStyle;
             this.GLStyleComboBox.DropDownClosed += new System.EventHandler(this.GLStyleComboBox_DropDownClosed);
-            // 
-            // LNVisibleLabel
-            // 
-            this.LNVisibleLabel.AutoSize = true;
-            this.LNVisibleLabel.Location = new System.Drawing.Point(6, 7);
-            this.LNVisibleLabel.Name = "LNVisibleLabel";
-            this.LNVisibleLabel.Size = new System.Drawing.Size(43, 15);
-            this.LNVisibleLabel.TabIndex = 0;
-            this.LNVisibleLabel.Text = "Visible";
-            // 
-            // GLStyleLabel
-            // 
-            this.GLStyleLabel.AutoSize = true;
-            this.GLStyleLabel.Location = new System.Drawing.Point(6, 231);
-            this.GLStyleLabel.Name = "GLStyleLabel";
-            this.GLStyleLabel.Size = new System.Drawing.Size(86, 15);
-            this.GLStyleLabel.TabIndex = 25;
-            this.GLStyleLabel.Text = "Grid lines style";
-            // 
-            // LNBackgroundColor
-            // 
-            this.LNBackgroundColor.Location = new System.Drawing.Point(6, 33);
-            this.LNBackgroundColor.Name = "LNBackgroundColor";
-            this.LNBackgroundColor.Size = new System.Drawing.Size(103, 21);
-            this.LNBackgroundColor.TabIndex = 1;
-            this.LNBackgroundColor.Text = "Background color";
-            this.LNBackgroundColor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // LNFontColorLabel
-            // 
-            this.LNFontColorLabel.Location = new System.Drawing.Point(6, 60);
-            this.LNFontColorLabel.Name = "LNFontColorLabel";
-            this.LNFontColorLabel.Size = new System.Drawing.Size(61, 21);
-            this.LNFontColorLabel.TabIndex = 2;
-            this.LNFontColorLabel.Text = "Font color";
-            this.LNFontColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // GLColorLabel
-            // 
-            this.GLColorLabel.Location = new System.Drawing.Point(6, 201);
-            this.GLColorLabel.Name = "GLColorLabel";
-            this.GLColorLabel.Size = new System.Drawing.Size(89, 21);
-            this.GLColorLabel.TabIndex = 23;
-            this.GLColorLabel.Text = "Grid lines color";
-            this.GLColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // GLShowLabel
-            // 
-            this.GLShowLabel.AutoSize = true;
-            this.GLShowLabel.Location = new System.Drawing.Point(6, 175);
-            this.GLShowLabel.Name = "GLShowLabel";
-            this.GLShowLabel.Size = new System.Drawing.Size(91, 15);
-            this.GLShowLabel.TabIndex = 21;
-            this.GLShowLabel.Text = "Show grid lines";
-            // 
-            // BLShowLabel
-            // 
-            this.BLShowLabel.AutoSize = true;
-            this.BLShowLabel.Location = new System.Drawing.Point(6, 90);
-            this.BLShowLabel.Name = "BLShowLabel";
-            this.BLShowLabel.Size = new System.Drawing.Size(106, 15);
-            this.BLShowLabel.TabIndex = 15;
-            this.BLShowLabel.Text = "Show border lines";
-            // 
-            // BLStyleLabel
-            // 
-            this.BLStyleLabel.AutoSize = true;
-            this.BLStyleLabel.Location = new System.Drawing.Point(6, 146);
-            this.BLStyleLabel.Name = "BLStyleLabel";
-            this.BLStyleLabel.Size = new System.Drawing.Size(100, 15);
-            this.BLStyleLabel.TabIndex = 19;
-            this.BLStyleLabel.Text = "Border lines style";
-            // 
-            // BLColorLabel
-            // 
-            this.BLColorLabel.Location = new System.Drawing.Point(6, 116);
-            this.BLColorLabel.Name = "BLColorLabel";
-            this.BLColorLabel.Size = new System.Drawing.Size(103, 21);
-            this.BLColorLabel.TabIndex = 17;
-            this.BLColorLabel.Text = "Border lines color";
-            this.BLColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // GLColor
             // 
-            this.GLColor.BackColor = global::Crypto_Notepad.Properties.Settings.Default.glColor;
+            this.GLColor.BackColor = System.Drawing.SystemColors.Control;
             this.GLColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.GLColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GLColor.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "glColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.GLColor.Location = new System.Drawing.Point(132, 201);
+            this.GLColor.Location = new System.Drawing.Point(106, 49);
             this.GLColor.Name = "GLColor";
             this.GLColor.Size = new System.Drawing.Size(100, 21);
             this.GLColor.TabIndex = 24;
             this.GLColor.Click += new System.EventHandler(this.GLColor_Click);
             // 
-            // GLShowComboBox
+            // GLShowLabel
             // 
-            this.GLShowComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Crypto_Notepad.Properties.Settings.Default, "glShow", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.GLShowComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.GLShowComboBox.FormattingEnabled = true;
-            this.GLShowComboBox.Items.AddRange(new object[] {
+            this.GLShowLabel.AutoSize = true;
+            this.GLShowLabel.Location = new System.Drawing.Point(10, 23);
+            this.GLShowLabel.Name = "GLShowLabel";
+            this.GLShowLabel.Size = new System.Drawing.Size(43, 15);
+            this.GLShowLabel.TabIndex = 21;
+            this.GLShowLabel.Text = "Visible";
+            // 
+            // GLStyleLabel
+            // 
+            this.GLStyleLabel.AutoSize = true;
+            this.GLStyleLabel.Location = new System.Drawing.Point(10, 79);
+            this.GLStyleLabel.Name = "GLStyleLabel";
+            this.GLStyleLabel.Size = new System.Drawing.Size(33, 15);
+            this.GLStyleLabel.TabIndex = 25;
+            this.GLStyleLabel.Text = "Style";
+            // 
+            // GLColorLabel
+            // 
+            this.GLColorLabel.Location = new System.Drawing.Point(10, 49);
+            this.GLColorLabel.Name = "GLColorLabel";
+            this.GLColorLabel.Size = new System.Drawing.Size(61, 21);
+            this.GLColorLabel.TabIndex = 23;
+            this.GLColorLabel.Text = "Color";
+            this.GLColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // BLGroupBox
+            // 
+            this.BLGroupBox.Controls.Add(this.BLShowСomboBox);
+            this.BLGroupBox.Controls.Add(this.BLStyleComboBox);
+            this.BLGroupBox.Controls.Add(this.BLColorLabel);
+            this.BLGroupBox.Controls.Add(this.BLStyleLabel);
+            this.BLGroupBox.Controls.Add(this.BLShowLabel);
+            this.BLGroupBox.Controls.Add(this.BLColor);
+            this.BLGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BLGroupBox.Location = new System.Drawing.Point(3, 113);
+            this.BLGroupBox.Name = "BLGroupBox";
+            this.BLGroupBox.Size = new System.Drawing.Size(219, 110);
+            this.BLGroupBox.TabIndex = 27;
+            this.BLGroupBox.TabStop = false;
+            this.BLGroupBox.Text = "Border lines";
+            // 
+            // BLShowСomboBox
+            // 
+            this.BLShowСomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.BLShowСomboBox.FormattingEnabled = true;
+            this.BLShowСomboBox.Items.AddRange(new object[] {
             "True",
             "False"});
-            this.GLShowComboBox.Location = new System.Drawing.Point(132, 172);
-            this.GLShowComboBox.Name = "GLShowComboBox";
-            this.GLShowComboBox.Size = new System.Drawing.Size(100, 23);
-            this.GLShowComboBox.TabIndex = 22;
-            this.GLShowComboBox.Tag = "False";
-            this.GLShowComboBox.Text = global::Crypto_Notepad.Properties.Settings.Default.glShow;
-            this.GLShowComboBox.DropDownClosed += new System.EventHandler(this.GLShowComboBox_DropDownClosed);
+            this.BLShowСomboBox.Location = new System.Drawing.Point(106, 19);
+            this.BLShowСomboBox.Name = "BLShowСomboBox";
+            this.BLShowСomboBox.Size = new System.Drawing.Size(100, 23);
+            this.BLShowСomboBox.TabIndex = 16;
+            this.BLShowСomboBox.DropDownClosed += new System.EventHandler(this.BLShowСomboBox_DropDownClosed);
             // 
             // BLStyleComboBox
             // 
-            this.BLStyleComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Crypto_Notepad.Properties.Settings.Default, "blStyle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.BLStyleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.BLStyleComboBox.FormattingEnabled = true;
             this.BLStyleComboBox.Items.AddRange(new object[] {
@@ -654,78 +726,128 @@
             "Dot",
             "DashDot",
             "DashDotDot"});
-            this.BLStyleComboBox.Location = new System.Drawing.Point(132, 143);
+            this.BLStyleComboBox.Location = new System.Drawing.Point(106, 75);
             this.BLStyleComboBox.Name = "BLStyleComboBox";
             this.BLStyleComboBox.Size = new System.Drawing.Size(100, 23);
             this.BLStyleComboBox.TabIndex = 20;
-            this.BLStyleComboBox.Text = global::Crypto_Notepad.Properties.Settings.Default.blStyle;
             this.BLStyleComboBox.DropDownClosed += new System.EventHandler(this.BLStyleComboBox_DropDownClosed);
+            // 
+            // BLColorLabel
+            // 
+            this.BLColorLabel.Location = new System.Drawing.Point(10, 48);
+            this.BLColorLabel.Name = "BLColorLabel";
+            this.BLColorLabel.Size = new System.Drawing.Size(45, 21);
+            this.BLColorLabel.TabIndex = 17;
+            this.BLColorLabel.Text = "Color";
+            this.BLColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // BLStyleLabel
+            // 
+            this.BLStyleLabel.AutoSize = true;
+            this.BLStyleLabel.Location = new System.Drawing.Point(10, 78);
+            this.BLStyleLabel.Name = "BLStyleLabel";
+            this.BLStyleLabel.Size = new System.Drawing.Size(33, 15);
+            this.BLStyleLabel.TabIndex = 19;
+            this.BLStyleLabel.Text = "Style";
+            // 
+            // BLShowLabel
+            // 
+            this.BLShowLabel.AutoSize = true;
+            this.BLShowLabel.Location = new System.Drawing.Point(10, 22);
+            this.BLShowLabel.Name = "BLShowLabel";
+            this.BLShowLabel.Size = new System.Drawing.Size(43, 15);
+            this.BLShowLabel.TabIndex = 15;
+            this.BLShowLabel.Text = "Visible";
+            // 
+            // BLColor
+            // 
+            this.BLColor.BackColor = System.Drawing.SystemColors.Control;
+            this.BLColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BLColor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BLColor.Location = new System.Drawing.Point(106, 48);
+            this.BLColor.Name = "BLColor";
+            this.BLColor.Size = new System.Drawing.Size(100, 21);
+            this.BLColor.TabIndex = 18;
+            this.BLColor.Click += new System.EventHandler(this.BLColor_Click);
+            // 
+            // LNGroupBox
+            // 
+            this.LNGroupBox.Controls.Add(this.LNVisibleComboBox);
+            this.LNGroupBox.Controls.Add(this.LNBackColor);
+            this.LNGroupBox.Controls.Add(this.LNVisibleLabel);
+            this.LNGroupBox.Controls.Add(this.LNFontColor);
+            this.LNGroupBox.Controls.Add(this.LNFontColorLabel);
+            this.LNGroupBox.Controls.Add(this.LNBackgroundColor);
+            this.LNGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LNGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.LNGroupBox.Name = "LNGroupBox";
+            this.LNGroupBox.Size = new System.Drawing.Size(219, 110);
+            this.LNGroupBox.TabIndex = 27;
+            this.LNGroupBox.TabStop = false;
+            this.LNGroupBox.Text = "Line numbers";
             // 
             // LNVisibleComboBox
             // 
-            this.LNVisibleComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Crypto_Notepad.Properties.Settings.Default, "lnVisible", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.LNVisibleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.LNVisibleComboBox.FormattingEnabled = true;
             this.LNVisibleComboBox.Items.AddRange(new object[] {
             "True",
             "False"});
-            this.LNVisibleComboBox.Location = new System.Drawing.Point(132, 4);
+            this.LNVisibleComboBox.Location = new System.Drawing.Point(106, 19);
             this.LNVisibleComboBox.Name = "LNVisibleComboBox";
             this.LNVisibleComboBox.Size = new System.Drawing.Size(100, 23);
             this.LNVisibleComboBox.TabIndex = 3;
-            this.LNVisibleComboBox.Text = global::Crypto_Notepad.Properties.Settings.Default.lnVisible;
             this.LNVisibleComboBox.DropDownClosed += new System.EventHandler(this.LNVisibleComboBox_DropDownClosed);
             // 
             // LNBackColor
             // 
-            this.LNBackColor.BackColor = global::Crypto_Notepad.Properties.Settings.Default.lnBackColor;
+            this.LNBackColor.BackColor = System.Drawing.SystemColors.Control;
             this.LNBackColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LNBackColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LNBackColor.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "lnBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.LNBackColor.Location = new System.Drawing.Point(132, 33);
+            this.LNBackColor.Location = new System.Drawing.Point(106, 48);
             this.LNBackColor.Name = "LNBackColor";
             this.LNBackColor.Size = new System.Drawing.Size(100, 21);
             this.LNBackColor.TabIndex = 13;
             this.LNBackColor.Click += new System.EventHandler(this.LNBackColor_Click);
             // 
+            // LNVisibleLabel
+            // 
+            this.LNVisibleLabel.AutoSize = true;
+            this.LNVisibleLabel.Location = new System.Drawing.Point(10, 22);
+            this.LNVisibleLabel.Name = "LNVisibleLabel";
+            this.LNVisibleLabel.Size = new System.Drawing.Size(43, 15);
+            this.LNVisibleLabel.TabIndex = 0;
+            this.LNVisibleLabel.Text = "Visible";
+            // 
             // LNFontColor
             // 
-            this.LNFontColor.BackColor = global::Crypto_Notepad.Properties.Settings.Default.lnFontColor;
+            this.LNFontColor.BackColor = System.Drawing.SystemColors.Control;
             this.LNFontColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LNFontColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LNFontColor.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "lnFontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.LNFontColor.Location = new System.Drawing.Point(132, 60);
+            this.LNFontColor.Location = new System.Drawing.Point(106, 75);
             this.LNFontColor.Name = "LNFontColor";
             this.LNFontColor.Size = new System.Drawing.Size(100, 21);
             this.LNFontColor.TabIndex = 14;
             this.LNFontColor.Click += new System.EventHandler(this.LNFontColor_Click);
             // 
-            // BLShowСomboBox
+            // LNFontColorLabel
             // 
-            this.BLShowСomboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Crypto_Notepad.Properties.Settings.Default, "blShow", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.BLShowСomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.BLShowСomboBox.FormattingEnabled = true;
-            this.BLShowСomboBox.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.BLShowСomboBox.Location = new System.Drawing.Point(132, 87);
-            this.BLShowСomboBox.Name = "BLShowСomboBox";
-            this.BLShowСomboBox.Size = new System.Drawing.Size(100, 23);
-            this.BLShowСomboBox.TabIndex = 16;
-            this.BLShowСomboBox.Text = global::Crypto_Notepad.Properties.Settings.Default.blShow;
-            this.BLShowСomboBox.DropDownClosed += new System.EventHandler(this.BLShowСomboBox_DropDownClosed);
+            this.LNFontColorLabel.Location = new System.Drawing.Point(10, 75);
+            this.LNFontColorLabel.Name = "LNFontColorLabel";
+            this.LNFontColorLabel.Size = new System.Drawing.Size(61, 21);
+            this.LNFontColorLabel.TabIndex = 2;
+            this.LNFontColorLabel.Text = "Font color";
+            this.LNFontColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // BLColor
+            // LNBackgroundColor
             // 
-            this.BLColor.BackColor = global::Crypto_Notepad.Properties.Settings.Default.blColor;
-            this.BLColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.BLColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BLColor.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "blColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.BLColor.Location = new System.Drawing.Point(132, 116);
-            this.BLColor.Name = "BLColor";
-            this.BLColor.Size = new System.Drawing.Size(100, 21);
-            this.BLColor.TabIndex = 18;
-            this.BLColor.Click += new System.EventHandler(this.BLColor_Click);
+            this.LNBackgroundColor.BackColor = System.Drawing.SystemColors.Window;
+            this.LNBackgroundColor.Location = new System.Drawing.Point(10, 48);
+            this.LNBackgroundColor.Name = "LNBackgroundColor";
+            this.LNBackgroundColor.Size = new System.Drawing.Size(69, 21);
+            this.LNBackgroundColor.TabIndex = 1;
+            this.LNBackgroundColor.Text = "Back Color";
+            this.LNBackgroundColor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // statusPanelTabPage
             // 
@@ -746,9 +868,6 @@
             // statusPanelVisible
             // 
             this.statusPanelVisible.AutoSize = true;
-            this.statusPanelVisible.Checked = global::Crypto_Notepad.Properties.Settings.Default.statusPanel;
-            this.statusPanelVisible.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.statusPanelVisible.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Crypto_Notepad.Properties.Settings.Default, "statusPanel", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.statusPanelVisible.Location = new System.Drawing.Point(9, 66);
             this.statusPanelVisible.Name = "statusPanelVisible";
             this.statusPanelVisible.Size = new System.Drawing.Size(62, 19);
@@ -759,10 +878,9 @@
             // 
             // statusBackColor
             // 
-            this.statusBackColor.BackColor = global::Crypto_Notepad.Properties.Settings.Default.statusPanelBackColor;
+            this.statusBackColor.BackColor = System.Drawing.SystemColors.Control;
             this.statusBackColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.statusBackColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.statusBackColor.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "statusPanelBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.statusBackColor.Location = new System.Drawing.Point(132, 4);
             this.statusBackColor.Name = "statusBackColor";
             this.statusBackColor.Size = new System.Drawing.Size(100, 21);
@@ -771,10 +889,9 @@
             // 
             // statusFontColor
             // 
-            this.statusFontColor.BackColor = global::Crypto_Notepad.Properties.Settings.Default.statusPanelFontColor;
+            this.statusFontColor.BackColor = System.Drawing.SystemColors.Control;
             this.statusFontColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.statusFontColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.statusFontColor.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "statusPanelFontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.statusFontColor.Location = new System.Drawing.Point(132, 31);
             this.statusFontColor.Name = "statusFontColor";
             this.statusFontColor.Size = new System.Drawing.Size(100, 21);
@@ -818,8 +935,6 @@
             // toolbarOldIcons
             // 
             this.toolbarOldIcons.AutoSize = true;
-            this.toolbarOldIcons.Checked = global::Crypto_Notepad.Properties.Settings.Default.oldToolbarIcons;
-            this.toolbarOldIcons.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Crypto_Notepad.Properties.Settings.Default, "oldToolbarIcons", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.toolbarOldIcons.Location = new System.Drawing.Point(9, 91);
             this.toolbarOldIcons.Name = "toolbarOldIcons";
             this.toolbarOldIcons.Size = new System.Drawing.Size(77, 19);
@@ -831,8 +946,6 @@
             // toolbarBorder
             // 
             this.toolbarBorder.AutoSize = true;
-            this.toolbarBorder.Checked = global::Crypto_Notepad.Properties.Settings.Default.toolbarBorder;
-            this.toolbarBorder.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Crypto_Notepad.Properties.Settings.Default, "toolbarBorder", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.toolbarBorder.Location = new System.Drawing.Point(9, 41);
             this.toolbarBorder.Name = "toolbarBorder";
             this.toolbarBorder.Size = new System.Drawing.Size(63, 19);
@@ -843,10 +956,9 @@
             // 
             // toolbarBackColor
             // 
-            this.toolbarBackColor.BackColor = global::Crypto_Notepad.Properties.Settings.Default.toolbarBackColor;
+            this.toolbarBackColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.toolbarBackColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.toolbarBackColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.toolbarBackColor.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "toolbarBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.toolbarBackColor.Location = new System.Drawing.Point(132, 4);
             this.toolbarBackColor.Name = "toolbarBackColor";
             this.toolbarBackColor.Size = new System.Drawing.Size(100, 21);
@@ -865,9 +977,6 @@
             // toolbarVisible
             // 
             this.toolbarVisible.AutoSize = true;
-            this.toolbarVisible.Checked = global::Crypto_Notepad.Properties.Settings.Default.showToolbar;
-            this.toolbarVisible.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.toolbarVisible.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Crypto_Notepad.Properties.Settings.Default, "showToolbar", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.toolbarVisible.Location = new System.Drawing.Point(9, 66);
             this.toolbarVisible.Name = "toolbarVisible";
             this.toolbarVisible.Size = new System.Drawing.Size(62, 19);
@@ -893,10 +1002,9 @@
             // 
             // searchFontColor
             // 
-            this.searchFontColor.BackColor = global::Crypto_Notepad.Properties.Settings.Default.searchPanelFontColor;
+            this.searchFontColor.BackColor = System.Drawing.Color.Black;
             this.searchFontColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchFontColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchFontColor.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "searchPanelFontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.searchFontColor.Location = new System.Drawing.Point(132, 31);
             this.searchFontColor.Name = "searchFontColor";
             this.searchFontColor.Size = new System.Drawing.Size(100, 21);
@@ -905,10 +1013,9 @@
             // 
             // searchBackColor
             // 
-            this.searchBackColor.BackColor = global::Crypto_Notepad.Properties.Settings.Default.searchPanelBackColor;
+            this.searchBackColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.searchBackColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchBackColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchBackColor.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "searchPanelBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.searchBackColor.Location = new System.Drawing.Point(132, 4);
             this.searchBackColor.Name = "searchBackColor";
             this.searchBackColor.Size = new System.Drawing.Size(100, 21);
@@ -959,7 +1066,7 @@
             this.fontDialog.AllowSimulations = false;
             this.fontDialog.AllowVectorFonts = false;
             this.fontDialog.AllowVerticalFonts = false;
-            this.fontDialog.Font = global::Crypto_Notepad.Properties.Settings.Default.editorFont;
+            this.fontDialog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.fontDialog.FontMustExist = true;
             this.fontDialog.MaxSize = 72;
             this.fontDialog.MinSize = 8;
@@ -994,7 +1101,14 @@
             this.encryptionTabPage.ResumeLayout(false);
             this.encryptionTabPage.PerformLayout();
             this.lineNumbersTabPage.ResumeLayout(false);
-            this.lineNumbersTabPage.PerformLayout();
+            this.MLGroupBox.ResumeLayout(false);
+            this.MLGroupBox.PerformLayout();
+            this.GLGroupBox.ResumeLayout(false);
+            this.GLGroupBox.PerformLayout();
+            this.BLGroupBox.ResumeLayout(false);
+            this.BLGroupBox.PerformLayout();
+            this.LNGroupBox.ResumeLayout(false);
+            this.LNGroupBox.PerformLayout();
             this.statusPanelTabPage.ResumeLayout(false);
             this.statusPanelTabPage.PerformLayout();
             this.toolbarTabPage.ResumeLayout(false);
@@ -1074,5 +1188,17 @@
         private System.Windows.Forms.Label linksLabel;
         private System.Windows.Forms.CheckBox mainMenuCheckBox;
         private System.Windows.Forms.CheckBox toolbarOldIcons;
+        private System.Windows.Forms.Label MLShowLabel;
+        private System.Windows.Forms.GroupBox MLGroupBox;
+        private System.Windows.Forms.ComboBox MLVisibleComboBox;
+        private System.Windows.Forms.Label MLColorLabel;
+        private System.Windows.Forms.ComboBox MLSideComboBox;
+        private System.Windows.Forms.Panel MLColor;
+        private System.Windows.Forms.Label MLSideLabel;
+        private System.Windows.Forms.ComboBox MLStyleComboBox;
+        private System.Windows.Forms.Label MLStyleLabel;
+        private System.Windows.Forms.GroupBox LNGroupBox;
+        private System.Windows.Forms.GroupBox GLGroupBox;
+        private System.Windows.Forms.GroupBox BLGroupBox;
     }
 }
