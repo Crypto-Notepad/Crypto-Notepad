@@ -60,15 +60,6 @@ namespace Crypto_Notepad
             else
                 base.OnSelectionChanged(e);
         }
-
-        protected override void OnKeyDown(KeyEventArgs e)
-        {
-            if (GetLineFromCharIndex(SelectionStart) == 0 && e.KeyData == Keys.Up ||
-                GetLineFromCharIndex(SelectionStart) == GetLineFromCharIndex(TextLength) && e.KeyData == Keys.Down ||
-                SelectionStart == TextLength && e.KeyData == Keys.Right ||
-                SelectionStart == 0 && e.KeyData == Keys.Left
-            ) e.Handled = true;
-        }
     }
     public static class RichTextBoxPadding
     {

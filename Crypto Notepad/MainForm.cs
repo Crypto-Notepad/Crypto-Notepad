@@ -1347,8 +1347,6 @@ namespace Crypto_Notepad
 
         private void UpdatesMainMenu_Click(object sender, EventArgs e)
         {
-            //Thread up = new Thread(() => CheckForUpdates(true));
-            //up.Start();
             CheckForUpdates(true);
         }
 
@@ -1650,6 +1648,7 @@ namespace Crypto_Notepad
             Debug.WriteLine("EditorMenuStrip: " + contextMenu.Enabled);
 #endif
         }
+
         #endregion
 
 
