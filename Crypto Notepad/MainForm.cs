@@ -1,4 +1,4 @@
-using Crypto_Notepad.Properties;
+﻿using Crypto_Notepad.Properties;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -8,7 +8,6 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Security.Cryptography;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,7 +15,7 @@ namespace Crypto_Notepad
 {
     public partial class MainForm : Form
     {
-        Properties.Settings settings = Properties.Settings.Default;
+        Properties.Settings settings = Settings.Default;
         readonly string[] args = Environment.GetCommandLineArgs();
         bool preventExit = false;
         string filePath = "";
@@ -379,42 +378,42 @@ namespace Crypto_Notepad
 
                 if (serverVersion > appVersion)
                 {
-                        if (statusPanel.Visible)
+                    if (statusPanel.Visible)
+                    {
+                        StatusPanelMessage("update-needed");
+                    }
+                    else
+                    {
+                        using (new CenterWinDialog(this))
                         {
-                            StatusPanelMessage("update-needed");
-                        }
-                        else
-                        {
-                            using (new CenterWinDialog(this))
+                            DialogResult res = MessageBox.Show("New version is available. Install it now?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                            if (res == DialogResult.Yes)
                             {
-                                DialogResult res = MessageBox.Show("New version is available. Install it now?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                                if (res == DialogResult.Yes)
-                                {
-                                    File.WriteAllBytes(exePath + "Ionic.Zip.dll", Properties.Resources.Ionic_Zip);
-                                    File.WriteAllBytes(exePath + "Updater.exe", Properties.Resources.Updater);
-                                    var pr = new Process();
-                                    pr.StartInfo.FileName = exePath + "Updater.exe";
-                                    pr.StartInfo.Arguments = "/u";
-                                    pr.Start();
-                                    Application.Exit();
-                                }
+                                File.WriteAllBytes(exePath + "Ionic.Zip.dll", Resources.Ionic_Zip);
+                                File.WriteAllBytes(exePath + "Updater.exe", Resources.Updater);
+                                var pr = new Process();
+                                pr.StartInfo.FileName = exePath + "Updater.exe";
+                                pr.StartInfo.Arguments = "/u";
+                                pr.Start();
+                                Application.Exit();
                             }
                         }
+                    }
                 }
 
                 if (serverVersion <= appVersion && autoCheck)
                 {
-                        using (new CenterWinDialog(this))
+                    using (new CenterWinDialog(this))
+                    {
+                        if (statusPanel.Visible)
                         {
-                            if (statusPanel.Visible)
-                            {
-                                StatusPanelMessage("update-missing");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Crypto Notepad is up to date.", PublicVar.appName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
+                            StatusPanelMessage("update-missing");
                         }
+                        else
+                        {
+                            MessageBox.Show("Crypto Notepad is up to date.", PublicVar.appName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
                 }
             }
             catch
@@ -687,9 +686,9 @@ namespace Crypto_Notepad
             }
         }
 
-        public void Toolbaricons(bool oldicons)
+        public void Toolbaricons(bool oldIcons)
         {
-            if (oldicons)
+            if (oldIcons)
             {
                 newToolbarButton.Image = Resources.old_page_white_add;
                 openToolbarButton.Image = Resources.old_folder_vertical_document;
@@ -967,8 +966,8 @@ namespace Crypto_Notepad
                     DialogResult res = MessageBox.Show("New version is available. Install it now?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (res == DialogResult.Yes)
                     {
-                        File.WriteAllBytes(exePath + "Ionic.Zip.dll", Properties.Resources.Ionic_Zip);
-                        File.WriteAllBytes(exePath + "Updater.exe", Properties.Resources.Updater);
+                        File.WriteAllBytes(exePath + "Ionic.Zip.dll", Resources.Ionic_Zip);
+                        File.WriteAllBytes(exePath + "Updater.exe", Resources.Updater);
                         var pr = new Process();
                         pr.StartInfo.FileName = exePath + "Updater.exe";
                         pr.StartInfo.Arguments = "/u";
@@ -1514,16 +1513,17 @@ namespace Crypto_Notepad
         private void CloseToolbarButton_Click(object sender, EventArgs e)
         {
             toolbarPanel.Visible = false;
+            settings.toolbarVisible = false;
         }
 
         private void CloseToolbarButton_MouseEnter(object sender, EventArgs e)
         {
-            closeToolbarButton.Image = Properties.Resources.close_b;
+            closeToolbarButton.Image = Resources.close_b;
         }
 
         private void CloseToolbarButton_MouseLeave(object sender, EventArgs e)
         {
-            closeToolbarButton.Image = Properties.Resources.close_g;
+            closeToolbarButton.Image = Resources.close_g;
         }
         #endregion
 
@@ -1560,12 +1560,12 @@ namespace Crypto_Notepad
 
         private void CloseSearchPanel_MouseHover(object sender, EventArgs e)
         {
-            closeSearchPanel.Image = Properties.Resources.close_b;
+            closeSearchPanel.Image = Resources.close_b;
         }
 
         private void CloseSearchPanel_MouseLeave(object sender, EventArgs e)
         {
-            closeSearchPanel.Image = Properties.Resources.close_g;
+            closeSearchPanel.Image = Resources.close_g;
         }
 
         private void CaseSensitiveCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -1636,19 +1636,19 @@ namespace Crypto_Notepad
         #region Debug Menu
         private void VariablesMainMenu_Click(object sender, EventArgs e)
         {
-        #if DEBUG
-        string formattedTime = DateTime.Now.ToString("yyyy.MM.dd hh:mm:ss");
-        Debug.WriteLine("\nTime: " + formattedTime);
-        Debug.WriteLine("PublicVar.openFileName: " + PublicVar.openFileName);
-        Debug.WriteLine("filePath: " + filePath);
-        Debug.WriteLine("encryptionKey: " + PublicVar.encryptionKey.Get());
-        Debug.WriteLine("TypedPassword: " + TypedPassword.Value);
-        Debug.WriteLine("preventExit: " + preventExit);
-        Debug.WriteLine("keyChanged: " + PublicVar.keyChanged);
-        Debug.WriteLine("okPressed: " + PublicVar.okPressed);
-        Debug.WriteLine("RichTextBox.Modified: " + richTextBox.Modified);
-        Debug.WriteLine("EditorMenuStrip: " + contextMenu.Enabled);
-        #endif
+#if DEBUG
+            string formattedTime = DateTime.Now.ToString("yyyy.MM.dd hh:mm:ss");
+            Debug.WriteLine("\nTime: " + formattedTime);
+            Debug.WriteLine("PublicVar.openFileName: " + PublicVar.openFileName);
+            Debug.WriteLine("filePath: " + filePath);
+            Debug.WriteLine("encryptionKey: " + PublicVar.encryptionKey.Get());
+            Debug.WriteLine("TypedPassword: " + TypedPassword.Value);
+            Debug.WriteLine("preventExit: " + preventExit);
+            Debug.WriteLine("keyChanged: " + PublicVar.keyChanged);
+            Debug.WriteLine("okPressed: " + PublicVar.okPressed);
+            Debug.WriteLine("RichTextBox.Modified: " + richTextBox.Modified);
+            Debug.WriteLine("EditorMenuStrip: " + contextMenu.Enabled);
+#endif
         }
         #endregion
 

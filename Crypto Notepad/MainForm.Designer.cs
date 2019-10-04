@@ -133,7 +133,6 @@
             // mainMenu
             // 
             this.mainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.mainMenu.DataBindings.Add(new System.Windows.Forms.Binding("Visible", global::Crypto_Notepad.Properties.Settings.Default, "mainMenu", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.mainMenu.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMainMenu,
@@ -144,10 +143,9 @@
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
             this.mainMenu.Padding = new System.Windows.Forms.Padding(0);
-            this.mainMenu.Size = new System.Drawing.Size(484, 24);
+            this.mainMenu.Size = new System.Drawing.Size(598, 24);
             this.mainMenu.TabIndex = 0;
             this.mainMenu.Text = "menuStrip1";
-            this.mainMenu.Visible = global::Crypto_Notepad.Properties.Settings.Default.mainMenu;
             // 
             // fileMainMenu
             // 
@@ -562,7 +560,6 @@
             // 
             // rightToLeftContextMenu
             // 
-            this.rightToLeftContextMenu.Checked = global::Crypto_Notepad.Properties.Settings.Default.editorRightToLeft;
             this.rightToLeftContextMenu.CheckOnClick = true;
             this.rightToLeftContextMenu.ForeColor = System.Drawing.SystemColors.ControlText;
             this.rightToLeftContextMenu.Name = "rightToLeftContextMenu";
@@ -588,27 +585,26 @@
             // 
             // searchPanel
             // 
-            this.searchPanel.BackColor = global::Crypto_Notepad.Properties.Settings.Default.searchPanelBackColor;
+            this.searchPanel.BackColor = System.Drawing.Color.White;
             this.searchPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.searchPanel.ColumnCount = 5;
             this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.searchPanel.Controls.Add(this.findNextButton, 3, 0);
             this.searchPanel.Controls.Add(this.searchTextBox, 0, 0);
             this.searchPanel.Controls.Add(this.wholeWordCheckBox, 2, 0);
             this.searchPanel.Controls.Add(this.caseSensitiveCheckBox, 1, 0);
             this.searchPanel.Controls.Add(this.closeSearchPanel, 4, 0);
-            this.searchPanel.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "searchPanelBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.searchPanel.ForeColor = System.Drawing.Color.Black;
-            this.searchPanel.Location = new System.Drawing.Point(0, 211);
+            this.searchPanel.Location = new System.Drawing.Point(0, 335);
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.RowCount = 1;
             this.searchPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.searchPanel.Size = new System.Drawing.Size(484, 28);
+            this.searchPanel.Size = new System.Drawing.Size(598, 28);
             this.searchPanel.TabIndex = 17;
             this.searchPanel.Visible = false;
             // 
@@ -616,17 +612,16 @@
             // 
             this.findNextButton.BackColor = System.Drawing.Color.Transparent;
             this.findNextButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.findNextButton.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::Crypto_Notepad.Properties.Settings.Default, "searchPanelFontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.findNextButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.findNextButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.findNextButton.FlatAppearance.BorderSize = 0;
             this.findNextButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.findNextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.findNextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.findNextButton.ForeColor = global::Crypto_Notepad.Properties.Settings.Default.searchPanelFontColor;
-            this.findNextButton.Location = new System.Drawing.Point(398, 4);
+            this.findNextButton.ForeColor = System.Drawing.Color.Black;
+            this.findNextButton.Location = new System.Drawing.Point(504, 4);
             this.findNextButton.Name = "findNextButton";
-            this.findNextButton.Size = new System.Drawing.Size(60, 20);
+            this.findNextButton.Size = new System.Drawing.Size(64, 20);
             this.findNextButton.TabIndex = 15;
             this.findNextButton.TabStop = false;
             this.findNextButton.Text = "Find Next";
@@ -637,14 +632,12 @@
             // searchTextBox
             // 
             this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchTextBox.BackColor = global::Crypto_Notepad.Properties.Settings.Default.searchPanelBackColor;
+            this.searchTextBox.BackColor = System.Drawing.SystemColors.Control;
             this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchTextBox.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::Crypto_Notepad.Properties.Settings.Default, "searchPanelFontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.searchTextBox.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "searchPanelBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.searchTextBox.ForeColor = global::Crypto_Notepad.Properties.Settings.Default.searchPanelFontColor;
+            this.searchTextBox.ForeColor = System.Drawing.Color.Black;
             this.searchTextBox.Location = new System.Drawing.Point(4, 7);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(196, 13);
+            this.searchTextBox.Size = new System.Drawing.Size(291, 13);
             this.searchTextBox.TabIndex = 9;
             this.searchTextBox.TabStop = false;
             this.searchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
@@ -654,13 +647,12 @@
             // 
             this.wholeWordCheckBox.AutoSize = true;
             this.wholeWordCheckBox.BackColor = System.Drawing.Color.Transparent;
-            this.wholeWordCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::Crypto_Notepad.Properties.Settings.Default, "searchPanelFontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.wholeWordCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wholeWordCheckBox.ForeColor = global::Crypto_Notepad.Properties.Settings.Default.searchPanelFontColor;
+            this.wholeWordCheckBox.ForeColor = System.Drawing.Color.Black;
             this.wholeWordCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.wholeWordCheckBox.Location = new System.Drawing.Point(308, 4);
+            this.wholeWordCheckBox.Location = new System.Drawing.Point(403, 4);
             this.wholeWordCheckBox.Name = "wholeWordCheckBox";
-            this.wholeWordCheckBox.Size = new System.Drawing.Size(83, 20);
+            this.wholeWordCheckBox.Size = new System.Drawing.Size(94, 20);
             this.wholeWordCheckBox.TabIndex = 12;
             this.wholeWordCheckBox.Text = "Whole word";
             this.wholeWordCheckBox.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -671,11 +663,10 @@
             // 
             this.caseSensitiveCheckBox.AutoSize = true;
             this.caseSensitiveCheckBox.BackColor = System.Drawing.Color.Transparent;
-            this.caseSensitiveCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::Crypto_Notepad.Properties.Settings.Default, "searchPanelFontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.caseSensitiveCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.caseSensitiveCheckBox.ForeColor = global::Crypto_Notepad.Properties.Settings.Default.searchPanelFontColor;
+            this.caseSensitiveCheckBox.ForeColor = System.Drawing.Color.Black;
             this.caseSensitiveCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.caseSensitiveCheckBox.Location = new System.Drawing.Point(207, 4);
+            this.caseSensitiveCheckBox.Location = new System.Drawing.Point(302, 4);
             this.caseSensitiveCheckBox.Name = "caseSensitiveCheckBox";
             this.caseSensitiveCheckBox.Size = new System.Drawing.Size(94, 20);
             this.caseSensitiveCheckBox.TabIndex = 11;
@@ -690,10 +681,10 @@
             this.closeSearchPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.closeSearchPanel.Image = ((System.Drawing.Image)(resources.GetObject("closeSearchPanel.Image")));
             this.closeSearchPanel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.closeSearchPanel.Location = new System.Drawing.Point(465, 4);
+            this.closeSearchPanel.Location = new System.Drawing.Point(575, 4);
             this.closeSearchPanel.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.closeSearchPanel.Name = "closeSearchPanel";
-            this.closeSearchPanel.Size = new System.Drawing.Size(15, 19);
+            this.closeSearchPanel.Size = new System.Drawing.Size(15, 20);
             this.closeSearchPanel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.closeSearchPanel.TabIndex = 14;
             this.closeSearchPanel.TabStop = false;
@@ -703,7 +694,7 @@
             // 
             // toolbarPanel
             // 
-            this.toolbarPanel.BackColor = global::Crypto_Notepad.Properties.Settings.Default.toolbarBackColor;
+            this.toolbarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.toolbarPanel.ColumnCount = 13;
             this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
@@ -730,17 +721,14 @@
             this.toolbarPanel.Controls.Add(this.deleteFileToolbarButton, 4, 0);
             this.toolbarPanel.Controls.Add(this.closeToolbarButton, 12, 0);
             this.toolbarPanel.Controls.Add(this.settingsToolbarButton, 10, 0);
-            this.toolbarPanel.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "toolbarBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.toolbarPanel.DataBindings.Add(new System.Windows.Forms.Binding("Visible", global::Crypto_Notepad.Properties.Settings.Default, "showToolbar", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.toolbarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.toolbarPanel.ForeColor = System.Drawing.SystemColors.Control;
             this.toolbarPanel.Location = new System.Drawing.Point(0, 24);
             this.toolbarPanel.Name = "toolbarPanel";
             this.toolbarPanel.RowCount = 1;
             this.toolbarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.toolbarPanel.Size = new System.Drawing.Size(484, 25);
+            this.toolbarPanel.Size = new System.Drawing.Size(598, 25);
             this.toolbarPanel.TabIndex = 17;
-            this.toolbarPanel.Visible = global::Crypto_Notepad.Properties.Settings.Default.showToolbar;
             // 
             // lockToolbarButton
             // 
@@ -878,7 +866,7 @@
             this.closeToolbarButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.closeToolbarButton.Image = global::Crypto_Notepad.Properties.Resources.close_g;
             this.closeToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.closeToolbarButton.Location = new System.Drawing.Point(467, 3);
+            this.closeToolbarButton.Location = new System.Drawing.Point(581, 3);
             this.closeToolbarButton.Margin = new System.Windows.Forms.Padding(3, 3, 2, 3);
             this.closeToolbarButton.Name = "closeToolbarButton";
             this.closeToolbarButton.Size = new System.Drawing.Size(15, 19);
@@ -904,23 +892,19 @@
             // 
             // statusPanel
             // 
-            this.statusPanel.BackColor = global::Crypto_Notepad.Properties.Settings.Default.statusPanelBackColor;
-            this.statusPanel.DataBindings.Add(new System.Windows.Forms.Binding("Visible", global::Crypto_Notepad.Properties.Settings.Default, "statusPanel", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.statusPanel.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "statusPanelBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.statusPanel.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::Crypto_Notepad.Properties.Settings.Default, "statusPanelFontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.statusPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.statusPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.statusPanel.ForeColor = global::Crypto_Notepad.Properties.Settings.Default.statusPanelFontColor;
+            this.statusPanel.ForeColor = System.Drawing.Color.Black;
             this.statusPanel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel,
             this.lengthStatusLabel,
             this.linesStatusLabel,
             this.lnStatusLabel,
             this.colStatusLabel});
-            this.statusPanel.Location = new System.Drawing.Point(0, 239);
+            this.statusPanel.Location = new System.Drawing.Point(0, 363);
             this.statusPanel.Name = "statusPanel";
-            this.statusPanel.Size = new System.Drawing.Size(484, 22);
+            this.statusPanel.Size = new System.Drawing.Size(598, 22);
             this.statusPanel.TabIndex = 18;
-            this.statusPanel.Visible = global::Crypto_Notepad.Properties.Settings.Default.statusPanel;
             // 
             // statusLabel
             // 
@@ -977,18 +961,15 @@
             // richTextBox
             // 
             this.richTextBox.AcceptsTab = true;
-            this.richTextBox.BackColor = global::Crypto_Notepad.Properties.Settings.Default.editorBackColor;
+            this.richTextBox.BackColor = System.Drawing.Color.White;
             this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox.ContextMenuStrip = this.contextMenu;
-            this.richTextBox.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "editorBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.richTextBox.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::Crypto_Notepad.Properties.Settings.Default, "editroFontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.richTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::Crypto_Notepad.Properties.Settings.Default, "editorFont", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.richTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox.Font = global::Crypto_Notepad.Properties.Settings.Default.editorFont;
-            this.richTextBox.ForeColor = global::Crypto_Notepad.Properties.Settings.Default.editroFontColor;
+            this.richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.richTextBox.ForeColor = System.Drawing.Color.Black;
             this.richTextBox.Location = new System.Drawing.Point(22, 49);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(462, 162);
+            this.richTextBox.Size = new System.Drawing.Size(576, 286);
             this.richTextBox.TabIndex = 16;
             this.richTextBox.Text = "";
             this.richTextBox.CursorPositionChanged += new System.EventHandler(this.RichTextBox_CursorPositionChanged);
@@ -1002,20 +983,17 @@
             // 
             this.RTBLineNumbers._SeeThroughMode_ = false;
             this.RTBLineNumbers.AutoSizing = true;
-            this.RTBLineNumbers.BackColor = global::Crypto_Notepad.Properties.Settings.Default.lnBackColor;
+            this.RTBLineNumbers.BackColor = System.Drawing.SystemColors.Control;
             this.RTBLineNumbers.BackgroundGradient_AlphaColor = System.Drawing.Color.Transparent;
             this.RTBLineNumbers.BackgroundGradient_BetaColor = System.Drawing.Color.Transparent;
             this.RTBLineNumbers.BackgroundGradient_Direction = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
             this.RTBLineNumbers.BorderLines_Color = System.Drawing.Color.Transparent;
             this.RTBLineNumbers.BorderLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
             this.RTBLineNumbers.BorderLines_Thickness = 1F;
-            this.RTBLineNumbers.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::Crypto_Notepad.Properties.Settings.Default, "editorFont", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.RTBLineNumbers.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "lnBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.RTBLineNumbers.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::Crypto_Notepad.Properties.Settings.Default, "lnFontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.RTBLineNumbers.Dock = System.Windows.Forms.DockStyle.Left;
             this.RTBLineNumbers.DockSide = LineNumbers.LineNumbers.LineNumberDockSide.Left;
-            this.RTBLineNumbers.Font = global::Crypto_Notepad.Properties.Settings.Default.editorFont;
-            this.RTBLineNumbers.ForeColor = global::Crypto_Notepad.Properties.Settings.Default.lnFontColor;
+            this.RTBLineNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.RTBLineNumbers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(164)))), ((int)(((byte)(164)))));
             this.RTBLineNumbers.GridLines_Color = System.Drawing.Color.Transparent;
             this.RTBLineNumbers.GridLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
             this.RTBLineNumbers.GridLines_Thickness = 1F;
@@ -1034,27 +1012,26 @@
             this.RTBLineNumbers.Name = "RTBLineNumbers";
             this.RTBLineNumbers.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.RTBLineNumbers.ParentRichTextBox = this.richTextBox;
-            this.RTBLineNumbers.Show_BackgroundGradient = true;
+            this.RTBLineNumbers.Show_BackgroundGradient = false;
             this.RTBLineNumbers.Show_BorderLines = false;
-            this.RTBLineNumbers.Show_GridLines = true;
+            this.RTBLineNumbers.Show_GridLines = false;
             this.RTBLineNumbers.Show_LineNrs = true;
-            this.RTBLineNumbers.Show_MarginLines = true;
-            this.RTBLineNumbers.Size = new System.Drawing.Size(22, 162);
+            this.RTBLineNumbers.Show_MarginLines = false;
+            this.RTBLineNumbers.Size = new System.Drawing.Size(22, 286);
             this.RTBLineNumbers.TabIndex = 19;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = global::Crypto_Notepad.Properties.Settings.Default.editorBackColor;
-            this.ClientSize = new System.Drawing.Size(484, 261);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(598, 385);
             this.Controls.Add(this.richTextBox);
             this.Controls.Add(this.RTBLineNumbers);
             this.Controls.Add(this.searchPanel);
             this.Controls.Add(this.toolbarPanel);
             this.Controls.Add(this.mainMenu);
             this.Controls.Add(this.statusPanel);
-            this.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::Crypto_Notepad.Properties.Settings.Default, "editorBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1173,7 +1150,7 @@
         protected internal System.Windows.Forms.CheckBox wholeWordCheckBox;
         protected internal System.Windows.Forms.Button findNextButton;
         public System.Windows.Forms.TableLayoutPanel searchPanel;
-        private System.Windows.Forms.PictureBox closeSearchPanel;
         public System.Windows.Forms.MenuStrip mainMenu;
+        private System.Windows.Forms.PictureBox closeSearchPanel;
     }
 }
