@@ -263,7 +263,7 @@
             // 
             this.undoMainMenu.Name = "undoMainMenu";
             this.undoMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.undoMainMenu.Size = new System.Drawing.Size(180, 22);
             this.undoMainMenu.Text = "Undo";
             this.undoMainMenu.Click += new System.EventHandler(this.UndoMainMenu_Click);
             // 
@@ -271,21 +271,21 @@
             // 
             this.redoMainMenu.Name = "redoMainMenu";
             this.redoMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.redoMainMenu.Size = new System.Drawing.Size(180, 22);
             this.redoMainMenu.Text = "Redo";
             this.redoMainMenu.Click += new System.EventHandler(this.RedoMainMenu_Click);
             // 
             // mainMenuSeparator4
             // 
             this.mainMenuSeparator4.Name = "mainMenuSeparator4";
-            this.mainMenuSeparator4.Size = new System.Drawing.Size(162, 6);
+            this.mainMenuSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // cutMainMenu
             // 
             this.cutMainMenu.Enabled = false;
             this.cutMainMenu.Name = "cutMainMenu";
             this.cutMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.cutMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.cutMainMenu.Size = new System.Drawing.Size(180, 22);
             this.cutMainMenu.Text = "Cut";
             this.cutMainMenu.Click += new System.EventHandler(this.CutMainMenu_Click);
             // 
@@ -294,7 +294,7 @@
             this.copyMainMenu.Enabled = false;
             this.copyMainMenu.Name = "copyMainMenu";
             this.copyMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copyMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.copyMainMenu.Size = new System.Drawing.Size(180, 22);
             this.copyMainMenu.Text = "Copy";
             this.copyMainMenu.Click += new System.EventHandler(this.CopyMainMenu_Click);
             // 
@@ -302,7 +302,7 @@
             // 
             this.pasteMainMenu.Name = "pasteMainMenu";
             this.pasteMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.pasteMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.pasteMainMenu.Size = new System.Drawing.Size(180, 22);
             this.pasteMainMenu.Text = "Paste";
             this.pasteMainMenu.Click += new System.EventHandler(this.PasteMainMenu_Click);
             // 
@@ -311,34 +311,34 @@
             this.deleteMainMenu.Enabled = false;
             this.deleteMainMenu.Name = "deleteMainMenu";
             this.deleteMainMenu.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.deleteMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.deleteMainMenu.Size = new System.Drawing.Size(180, 22);
             this.deleteMainMenu.Text = "Delete";
             this.deleteMainMenu.Click += new System.EventHandler(this.DeleteMainMenu_Click);
             // 
             // mainMenuSeparator5
             // 
             this.mainMenuSeparator5.Name = "mainMenuSeparator5";
-            this.mainMenuSeparator5.Size = new System.Drawing.Size(162, 6);
+            this.mainMenuSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // findMainMenu
             // 
             this.findMainMenu.Name = "findMainMenu";
             this.findMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.findMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.findMainMenu.Size = new System.Drawing.Size(180, 22);
             this.findMainMenu.Text = "Find";
             this.findMainMenu.Click += new System.EventHandler(this.FindMainMenu_Click);
             // 
             // mainMenuSeparator6
             // 
             this.mainMenuSeparator6.Name = "mainMenuSeparator6";
-            this.mainMenuSeparator6.Size = new System.Drawing.Size(162, 6);
+            this.mainMenuSeparator6.Size = new System.Drawing.Size(177, 6);
             // 
             // selectAllMainMenu
             // 
             this.selectAllMainMenu.Name = "selectAllMainMenu";
             this.selectAllMainMenu.ShortcutKeyDisplayString = "";
             this.selectAllMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.selectAllMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.selectAllMainMenu.Size = new System.Drawing.Size(180, 22);
             this.selectAllMainMenu.Text = "Select All";
             this.selectAllMainMenu.Click += new System.EventHandler(this.SelectAllMainMenu_Click);
             // 
@@ -348,20 +348,20 @@
             this.wordWrapMainMenu.CheckOnClick = true;
             this.wordWrapMainMenu.CheckState = System.Windows.Forms.CheckState.Checked;
             this.wordWrapMainMenu.Name = "wordWrapMainMenu";
-            this.wordWrapMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.wordWrapMainMenu.Size = new System.Drawing.Size(180, 22);
             this.wordWrapMainMenu.Text = "Word Wrap";
             this.wordWrapMainMenu.Click += new System.EventHandler(this.WordWrapMainMenu_Click);
             // 
             // mainMenuSeparator7
             // 
             this.mainMenuSeparator7.Name = "mainMenuSeparator7";
-            this.mainMenuSeparator7.Size = new System.Drawing.Size(162, 6);
+            this.mainMenuSeparator7.Size = new System.Drawing.Size(177, 6);
             // 
             // clearMainMenu
             // 
             this.clearMainMenu.Name = "clearMainMenu";
             this.clearMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Delete)));
-            this.clearMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.clearMainMenu.Size = new System.Drawing.Size(180, 22);
             this.clearMainMenu.Text = "Clear";
             this.clearMainMenu.Click += new System.EventHandler(this.ClearMainMenu_Click);
             // 
@@ -592,7 +592,7 @@
             this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.searchPanel.Controls.Add(this.findNextButton, 3, 0);
             this.searchPanel.Controls.Add(this.searchTextBox, 0, 0);
             this.searchPanel.Controls.Add(this.wholeWordCheckBox, 2, 0);
@@ -619,7 +619,7 @@
             this.findNextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.findNextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.findNextButton.ForeColor = System.Drawing.Color.Black;
-            this.findNextButton.Location = new System.Drawing.Point(504, 4);
+            this.findNextButton.Location = new System.Drawing.Point(507, 4);
             this.findNextButton.Name = "findNextButton";
             this.findNextButton.Size = new System.Drawing.Size(64, 20);
             this.findNextButton.TabIndex = 15;
@@ -637,7 +637,7 @@
             this.searchTextBox.ForeColor = System.Drawing.Color.Black;
             this.searchTextBox.Location = new System.Drawing.Point(4, 7);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(291, 13);
+            this.searchTextBox.Size = new System.Drawing.Size(294, 13);
             this.searchTextBox.TabIndex = 9;
             this.searchTextBox.TabStop = false;
             this.searchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
@@ -650,7 +650,7 @@
             this.wholeWordCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wholeWordCheckBox.ForeColor = System.Drawing.Color.Black;
             this.wholeWordCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.wholeWordCheckBox.Location = new System.Drawing.Point(403, 4);
+            this.wholeWordCheckBox.Location = new System.Drawing.Point(406, 4);
             this.wholeWordCheckBox.Name = "wholeWordCheckBox";
             this.wholeWordCheckBox.Size = new System.Drawing.Size(94, 20);
             this.wholeWordCheckBox.TabIndex = 12;
@@ -666,7 +666,7 @@
             this.caseSensitiveCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.caseSensitiveCheckBox.ForeColor = System.Drawing.Color.Black;
             this.caseSensitiveCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.caseSensitiveCheckBox.Location = new System.Drawing.Point(302, 4);
+            this.caseSensitiveCheckBox.Location = new System.Drawing.Point(305, 4);
             this.caseSensitiveCheckBox.Name = "caseSensitiveCheckBox";
             this.caseSensitiveCheckBox.Size = new System.Drawing.Size(94, 20);
             this.caseSensitiveCheckBox.TabIndex = 11;
@@ -681,7 +681,7 @@
             this.closeSearchPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.closeSearchPanel.Image = ((System.Drawing.Image)(resources.GetObject("closeSearchPanel.Image")));
             this.closeSearchPanel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.closeSearchPanel.Location = new System.Drawing.Point(575, 4);
+            this.closeSearchPanel.Location = new System.Drawing.Point(578, 4);
             this.closeSearchPanel.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.closeSearchPanel.Name = "closeSearchPanel";
             this.closeSearchPanel.Size = new System.Drawing.Size(15, 20);
