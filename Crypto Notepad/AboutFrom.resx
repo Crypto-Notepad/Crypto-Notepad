@@ -372,7 +372,7 @@
 CustomSettingsProvider: http://www.codeproject.com/Articles/20917/Settings-Provider
 MsgBoxCenterParent: http://stackoverflow.com/a/2576220/4430027
 DotNetZip: https://www.nuget.org/packages/DotNetZip/
-Icons: http://p.yusukekamiyamane.com/
+Icons: http://p.yusukekamiyamane.com/   http://www.fatcow.com/free-icons
 AES: http://www.codeproject.com/Answers/391219/AES#answer2</value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
