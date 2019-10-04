@@ -19,7 +19,57 @@ namespace Crypto_Notepad
         }
 
 
-        /*Functions*/   
+        /*Methods*/
+        private void LoadSettings()
+        {
+            editorFontColor.BackColor = settings.editroForeColor;
+            editorBGColor.BackColor = settings.editorBackColor;
+            insKeyComboBox.Text = settings.insKey;
+            paddingLeftTextBox.Text = settings.editorPaddingLeft;
+            linksComboBox.Text = settings.openLinks;
+            fontDialog.Font = settings.editorFont;
+
+            autoLockCheckBox.Checked = settings.autoLock;
+            updatesCheckBox.Checked = settings.autoCheckUpdate;
+            mainMenuCheckBox.Checked = settings.mainMenuVisible;
+            menuIconsCheckBox.Checked = settings.menuIcons;
+
+            integrateCheckBox.Checked = settings.explorerIntegrate;
+            associateCheckBox.Checked = settings.explorerAssociate;
+            sendToCheckBox.Checked = settings.explorerSendTo;
+
+            hashComboBox.Text = settings.HashAlgorithm;
+            keySizeComboBox.Text = settings.KeySize;
+            pwdIterationsTextBox.Text = settings.PasswordIterations;
+
+            searchBackColor.BackColor = settings.searchPanelBackColor;
+            searchFontColor.BackColor = settings.searchPanelForeColor;
+
+            toolbarBackColor.BackColor = settings.toolbarBackColor;
+            toolbarBorder.Checked = settings.toolbarBorder;
+            toolbarVisible.Checked = settings.toolbarVisible;
+            toolbarOldIcons.Checked = settings.oldToolbarIcons;
+
+            statusBackColor.BackColor = settings.statusPanelBackColor;
+            statusFontColor.BackColor = settings.statusPanelFontColor;
+            statusPanelVisible.Checked = settings.statusPanelVisible;
+
+            LNVisibleComboBox.Text = settings.lnVisible;
+            LNBackColor.BackColor = settings.lnBackColor;
+            LNFontColor.BackColor = settings.lnForeColor;
+            BLShowСomboBox.Text = settings.blShow;
+            BLColor.BackColor = settings.blColor;
+            BLStyleComboBox.Text = settings.blStyle;
+            GLShowComboBox.Text = settings.glShow;
+            GLColor.BackColor = settings.glColor;
+            GLStyleComboBox.Text = settings.glStyle;
+
+            MLVisibleComboBox.Text = settings.mlVisible;
+            MLColor.BackColor = settings.mlColor;
+            MLStyleComboBox.Text = settings.mlStyle;
+            MLSideComboBox.Text = settings.mlSide;
+        }
+
         private static void AssociateExtension(string applicationExecutablePath, string extension)
         {
             try
@@ -101,7 +151,7 @@ namespace Crypto_Notepad
             shortcut.Arguments = "/s";
             shortcut.Save();
         }
-        /*Functions*/
+        /*Methods*/
 
 
         /*Form Events*/
@@ -115,6 +165,7 @@ namespace Crypto_Notepad
             settingsTabControl.ItemSize = new Size(0, 1);
             settingsTabControl.SizeMode = TabSizeMode.Fixed;
             settingsNav.SelectedIndex = 0;
+            LoadSettings();
         }
 
         private void PaddingLeftTextBox_Click(object sender, EventArgs e)
@@ -152,6 +203,8 @@ namespace Crypto_Notepad
                     MainForm main = Owner as MainForm;
                     main.richTextBox.ForeColor = colorDialog.Color;
                     main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
+                    settings.editroForeColor = colorDialog.Color;
+                    editorFontColor.BackColor = colorDialog.Color;
                 }
             }
         }
@@ -165,6 +218,8 @@ namespace Crypto_Notepad
                     MainForm main = Owner as MainForm;
                     main.richTextBox.BackColor = colorDialog.Color;
                     main.BackColor = colorDialog.Color;
+                    settings.editorBackColor = colorDialog.Color;
+                    editorBGColor.BackColor = colorDialog.Color;
                 }
             }
         }
@@ -178,9 +233,10 @@ namespace Crypto_Notepad
                 {
                     MainForm main = Owner as MainForm;
                     main.RTBLineNumbers.BackColor = colorDialog.Color;
+                    LNBackColor.BackColor = colorDialog.Color;
+                    settings.lnBackColor = colorDialog.Color;
                 }
             }
-            LNBackColor.BackColor = colorDialog.Color;
         }
 
         private void LNFontColor_Click(object sender, EventArgs e)
@@ -192,9 +248,10 @@ namespace Crypto_Notepad
                 {
                     MainForm main = Owner as MainForm;
                     main.RTBLineNumbers.ForeColor = colorDialog.Color;
+                    LNFontColor.BackColor = colorDialog.Color;
+                    settings.lnForeColor = colorDialog.Color;
                 }
             }
-            LNFontColor.BackColor = colorDialog.Color;
         }
 
         private void BLColor_Click(object sender, EventArgs e)
@@ -206,9 +263,10 @@ namespace Crypto_Notepad
                 {
                     MainForm main = Owner as MainForm;
                     main.RTBLineNumbers.BorderLines_Color = colorDialog.Color;
+                    BLColor.BackColor = colorDialog.Color;
+                    settings.blColor = colorDialog.Color;
                 }
             }
-            BLColor.BackColor = colorDialog.Color;
         }
 
         private void GLColor_Click(object sender, EventArgs e)
@@ -220,9 +278,10 @@ namespace Crypto_Notepad
                 {
                     MainForm main = Owner as MainForm;
                     main.RTBLineNumbers.GridLines_Color = colorDialog.Color;
+                    GLColor.BackColor = colorDialog.Color;
+                    settings.glColor = colorDialog.Color;
                 }
             }
-            GLColor.BackColor = colorDialog.Color;
         }
 
         private void SettingsNav_Click(object sender, EventArgs e)
@@ -264,19 +323,10 @@ namespace Crypto_Notepad
         private void ToolbarVisible_Click(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (main != null)
-            {
-                if (toolbarVisible.Checked)
-                {
-                    main.toolbarPanel.Visible = true;
-                    main.RTBLineNumbers.Height = 1;
-                }
-                else
-                {
-                    main.toolbarPanel.Visible = false;
-                }
-                main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
-            }
+            main.toolbarPanel.Visible = toolbarVisible.Checked;
+            main.RTBLineNumbers.Height = 1;
+            main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
+            settings.toolbarVisible= toolbarVisible.Checked;
         }
 
         private void AssociateCheckBox_Click(object sender, EventArgs e)
@@ -289,6 +339,8 @@ namespace Crypto_Notepad
             {
                 DissociateExtension(Assembly.GetEntryAssembly().Location, "cnp");
             }
+            settings.explorerAssociate = associateCheckBox.Checked;
+
         }
 
         private void IntegrateCheckBox_Click(object sender, EventArgs e)
@@ -301,6 +353,7 @@ namespace Crypto_Notepad
             {
                 MenuIntegrate("disable");
             }
+            settings.explorerIntegrate = integrateCheckBox.Checked;
         }
 
         private void PaddingLeftTextBox_TextChanged(object sender, EventArgs e)
@@ -312,6 +365,7 @@ namespace Crypto_Notepad
                 {
                     main.richTextBox.SetInnerMargins(Convert.ToInt32(paddingLeftTextBox.Text), 0, 0, 0);
                     main.richTextBox.Refresh();
+                    settings.editorPaddingLeft = paddingLeftTextBox.Text;
                 }
             }
         }
@@ -330,25 +384,32 @@ namespace Crypto_Notepad
                     System.IO.File.Delete(shortcutPath);
                 }
             }
+            settings.explorerSendTo = sendToCheckBox.Checked;
+
         }
 
         private void InsKeyComboBox_DropDownClosed(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (insKeyComboBox.Text == "Disable")
+            if (settings.insKey != insKeyComboBox.Text)
             {
-                main.insMainMenu.ShortcutKeys = Keys.Insert;
-            }
-            else
-            {
-                main.insMainMenu.ShortcutKeys = Keys.None;
+                if (insKeyComboBox.Text == "Disable")
+                {
+                    main.insMainMenu.ShortcutKeys = Keys.Insert;
+                }
+                else
+                {
+                    main.insMainMenu.ShortcutKeys = Keys.None;
+                }
+                settings.insKey = insKeyComboBox.Text;
             }
         }
 
         private void MenuIconsCheckBox_Click(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            main.MenuIcons();
+            settings.menuIcons = menuIconsCheckBox.Checked;
+            main.MenuIcons(settings.menuIcons);
         }
 
         private void FontButton_Click(object sender, EventArgs e)
@@ -373,6 +434,7 @@ namespace Crypto_Notepad
                 settings.lnVisible = LNVisibleComboBox.Text;
                 main.RTBLineNumbers.Visible = bool.Parse(settings.lnVisible);
                 main.RTBLineNumbers.Height = 1;
+                settings.lnVisible = LNVisibleComboBox.Text;
             }
         }
 
@@ -450,17 +512,9 @@ namespace Crypto_Notepad
             }
         }
 
-        private void PwdIterationsTextBox_Leave(object sender, EventArgs e)
-        {
-            if (pwdIterationsTextBox.Text != settings.PasswordIterations.ToString())
-            {
-                settings.PasswordIterations = pwdIterationsTextBox.Text;
-            }
-        }
-
         private void KeySizeComboBox_DropDownClosed(object sender, EventArgs e)
         {
-            if (keySizeComboBox.Text != settings.KeySize.ToString())
+            if (keySizeComboBox.Text != settings.KeySize)
             {
                 settings.KeySize = keySizeComboBox.Text;
             }
@@ -496,20 +550,15 @@ namespace Crypto_Notepad
             main.richTextBox.Font = fontDialog.Font;
             main.RTBLineNumbers.Font = fontDialog.Font;
             main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
+            settings.editorFont = fontDialog.Font;
         }
 
         private void StatusPanelVisible_Click(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (statusPanelVisible.Checked)
-            {
-                main.statusPanel.Visible = true;
-            }
-            else
-            {
-                main.statusPanel.Visible = false;
-            }
+            main.statusPanel.Visible = statusPanelVisible.Checked;
             main.richTextBox.SetInnerMargins(Convert.ToInt32(paddingLeftTextBox.Text), 0, 0, 0);
+            settings.statusPanelVisible = statusPanelVisible.Checked;
         }
 
         private void StatusBackColor_Click(object sender, EventArgs e)
@@ -521,6 +570,8 @@ namespace Crypto_Notepad
                 {
                     MainForm main = Owner as MainForm;
                     main.statusPanel.BackColor = colorDialog.Color;
+                    statusBackColor.BackColor = colorDialog.Color;
+                    settings.statusPanelBackColor = colorDialog.Color;
                 }
             }
         }
@@ -535,6 +586,8 @@ namespace Crypto_Notepad
                     MainForm main = Owner as MainForm;
                     main.statusPanel.ForeColor = colorDialog.Color;
                     main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
+                    statusFontColor.BackColor = colorDialog.Color;
+                    settings.statusPanelFontColor = colorDialog.Color;
                 }
             }
         }
@@ -548,6 +601,8 @@ namespace Crypto_Notepad
                 {
                     MainForm main = Owner as MainForm;
                     main.toolbarPanel.BackColor = colorDialog.Color;
+                    settings.toolbarBackColor = colorDialog.Color;
+                    toolbarBackColor.BackColor = colorDialog.Color;
                 }
             }
         }    
@@ -558,13 +613,12 @@ namespace Crypto_Notepad
             if (toolbarBorder.Checked)
             {
                 main.toolbarPanel.BorderStyle = BorderStyle.FixedSingle;
-                settings.toolbarBorder = true;
             }
             else
             {
                 main.toolbarPanel.BorderStyle = BorderStyle.None;
-                settings.toolbarBorder = false;
             }
+            settings.toolbarBorder = toolbarBorder.Checked;
         }
 
         private void SearchBackColor_Click(object sender, EventArgs e)
@@ -577,6 +631,8 @@ namespace Crypto_Notepad
                     MainForm main = Owner as MainForm;
                     main.searchPanel.BackColor = colorDialog.Color;
                     main.searchTextBox.BackColor = colorDialog.Color;
+                    settings.searchPanelBackColor = colorDialog.Color;
+                    searchBackColor.BackColor = colorDialog.Color;
                 }
             }
         }
@@ -593,6 +649,8 @@ namespace Crypto_Notepad
                     main.caseSensitiveCheckBox.ForeColor = colorDialog.Color;
                     main.wholeWordCheckBox.ForeColor = colorDialog.Color;
                     main.findNextButton.ForeColor = colorDialog.Color;
+                    settings.searchPanelForeColor = colorDialog.Color;
+                    searchFontColor.BackColor = colorDialog.Color;
                 }
             }
         }
@@ -608,6 +666,7 @@ namespace Crypto_Notepad
             {
                 main.mainMenu.Visible = false;
             }
+            settings.mainMenuVisible = mainMenuCheckBox.Checked;
         }
 
         private void ToolbarOldIcons_Click(object sender, EventArgs e)

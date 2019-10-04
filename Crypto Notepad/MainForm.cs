@@ -1,4 +1,4 @@
-﻿using Crypto_Notepad.Properties;
+using Crypto_Notepad.Properties;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -558,33 +558,121 @@ namespace Crypto_Notepad
             }
         }
 
-        public void MenuIcons()
+        private void LoadSettings()
         {
-            if (settings.menuIcons)
+            if (settings.editorRightToLeft)
             {
-                newMainMenu.Image = Properties.Resources.document_plus;
-                openMainMenu.Image = Properties.Resources.folder_open_document;
-                saveMainMenu.Image = Properties.Resources.disk_return_black;
-                saveAsMainMenu.Image = Properties.Resources.disks_black;
-                fileLocationMainMenu.Image = Properties.Resources.folder_horizontal;
-                deleteFileMainMenu.Image = Properties.Resources.document_minus;
-                exitMainMenu.Image = Properties.Resources.cross_button;
-                undoMainMenu.Image = Properties.Resources.arrow_left;
-                redoMainMenu.Image = Properties.Resources.arrow_right;
-                cutMainMenu.Image = Properties.Resources.scissors;
-                copyMainMenu.Image = Properties.Resources.document_copy;
-                pasteMainMenu.Image = Properties.Resources.clipboard;
-                deleteMainMenu.Image = Properties.Resources.minus;
-                findMainMenu.Image = Properties.Resources.magnifier;
-                selectAllMainMenu.Image = Properties.Resources.selection_input;
-                wordWrapMainMenu.Image = Properties.Resources.wrap_option;
-                clearMainMenu.Image = Properties.Resources.document;
-                changeKeyMainMenu.Image = Properties.Resources.key;
-                lockMainMenu.Image = Properties.Resources.lock_warning;
-                settingsMainMenu.Image = Properties.Resources.gear;
-                docsMainMenu.Image = Properties.Resources.document_text;
-                updatesMainMenu.Image = Properties.Resources.upload_cloud;
-                aboutMainMenu.Image = Properties.Resources.information;
+                richTextBox.RightToLeft = RightToLeft.Yes;
+                RTBLineNumbers.Dock = DockStyle.Right;
+                rightToLeftContextMenu.Checked = true;
+            }
+            else
+            {
+                richTextBox.RightToLeft = RightToLeft.No;
+                RTBLineNumbers.Dock = DockStyle.Left;
+                rightToLeftContextMenu.Checked = false;
+            }
+
+            if (settings.insKey == "Disable")
+            {
+                insMainMenu.ShortcutKeys = Keys.Insert;
+            }
+            else
+            {
+                insMainMenu.ShortcutKeys = Keys.None;
+            }
+
+            if (settings.autoCheckUpdate)
+            {
+                CheckForUpdates(false);
+            }
+
+            if (settings.windowLocation.ToString() != "{X=0,Y=0}")
+            {
+                Location = settings.windowLocation;
+            }
+            Size = settings.windowSize;
+            WindowState = settings.windowState;
+
+            if (settings.toolbarBorder)
+            {
+                toolbarPanel.BorderStyle = BorderStyle.FixedSingle;
+            }
+            else
+            {
+                toolbarPanel.BorderStyle = BorderStyle.None;
+            }
+
+            wordWrapMainMenu.Checked = settings.editorWrap;
+
+            toolbarPanel.BackColor = settings.toolbarBackColor;
+            toolbarPanel.Visible = settings.toolbarVisible;
+
+            mainMenu.Visible = settings.mainMenuVisible;
+            rightToLeftContextMenu.Checked = settings.editorRightToLeft;
+
+            RTBLineNumbers.BackColor = settings.lnBackColor;
+            RTBLineNumbers.Font = settings.editorFont;
+            RTBLineNumbers.ForeColor = settings.lnForeColor;
+
+            statusPanel.ForeColor = settings.statusPanelFontColor;
+            statusPanel.BackColor = settings.statusPanelBackColor;
+            statusPanel.Visible = settings.statusPanelVisible;
+
+            richTextBox.WordWrap = settings.editorWrap;
+            richTextBox.ForeColor = settings.editroForeColor;
+            richTextBox.BackColor = settings.editorBackColor;
+            richTextBox.Font = settings.editorFont;
+            BackColor = settings.editorBackColor;
+
+            searchPanel.BackColor = settings.searchPanelBackColor;
+            searchPanel.ForeColor = settings.searchPanelForeColor;
+            searchTextBox.BackColor = settings.searchPanelBackColor;
+            searchTextBox.ForeColor = settings.searchPanelForeColor;
+            caseSensitiveCheckBox.ForeColor = settings.searchPanelForeColor;
+            wholeWordCheckBox.ForeColor = settings.searchPanelForeColor;
+            findNextButton.ForeColor = settings.searchPanelForeColor;
+
+            RTBLineNumbers.Visible = bool.Parse(settings.lnVisible);
+            RTBLineNumbers.Show_BorderLines = bool.Parse(settings.blShow);
+            RTBLineNumbers.Show_GridLines = bool.Parse(settings.glShow);
+            RTBLineNumbers.Show_MarginLines = bool.Parse(settings.mlVisible);
+            RTBLineNumbers.GridLines_Color = settings.glColor;
+            RTBLineNumbers.MarginLines_Color = settings.mlColor;
+            RTBLineNumbers.BorderLines_Color = settings.blColor;
+            RTBLineNumbers.BorderLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.blStyle);
+            RTBLineNumbers.GridLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.glStyle);
+            RTBLineNumbers.MarginLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.mlStyle);
+            RTBLineNumbers.MarginLines_Side = (LineNumbers.LineNumbers.LineNumberDockSide)Enum.Parse(typeof(LineNumbers.LineNumbers.LineNumberDockSide), settings.mlSide);
+        }
+
+        public void MenuIcons(bool menuIcons)
+        {
+            if (menuIcons)
+            {
+                newMainMenu.Image = Resources.document_plus;
+                openMainMenu.Image = Resources.folder_open_document;
+                saveMainMenu.Image = Resources.disk_return_black;
+                saveAsMainMenu.Image = Resources.disks_black;
+                fileLocationMainMenu.Image = Resources.folder_horizontal;
+                deleteFileMainMenu.Image = Resources.document_minus;
+                exitMainMenu.Image = Resources.cross_button;
+                undoMainMenu.Image = Resources.arrow_left;
+                redoMainMenu.Image = Resources.arrow_right;
+                cutMainMenu.Image = Resources.scissors;
+                copyMainMenu.Image = Resources.document_copy;
+                pasteMainMenu.Image = Resources.clipboard;
+                deleteMainMenu.Image = Resources.minus;
+                findMainMenu.Image = Resources.magnifier;
+                selectAllMainMenu.Image = Resources.selection_input;
+                wordWrapMainMenu.Image = Resources.wrap_option;
+                clearMainMenu.Image = Resources.document;
+                changeKeyMainMenu.Image = Resources.key;
+                lockMainMenu.Image = Resources.lock_warning;
+                settingsMainMenu.Image = Resources.gear;
+                docsMainMenu.Image = Resources.document_text;
+                updatesMainMenu.Image = Resources.upload_cloud;
+                aboutMainMenu.Image = Resources.information;
             }
             else
             {
@@ -694,57 +782,10 @@ namespace Crypto_Notepad
         private void MainWindow_Load(object sender, EventArgs e)
         {
             Visible = false;
-            string pos = settings.windowLocation.ToString();
-            wordWrapMainMenu.Checked = settings.editorWrap;
-            richTextBox.WordWrap = settings.editorWrap;
-            RTBLineNumbers.Visible = bool.Parse(settings.lnVisible);
-            RTBLineNumbers.Show_BorderLines = bool.Parse(settings.blShow);
-            RTBLineNumbers.BorderLines_Color = settings.blColor;
-            RTBLineNumbers.BorderLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.blStyle);
-            RTBLineNumbers.Show_GridLines = bool.Parse(settings.glShow);
-            RTBLineNumbers.GridLines_Color = settings.glColor;
-            RTBLineNumbers.GridLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.glStyle);
 
-            if (settings.editorRightToLeft)
-            {
-                richTextBox.RightToLeft = RightToLeft.Yes;
-                RTBLineNumbers.Dock = DockStyle.Right;
-                rightToLeftContextMenu.Checked = true;
-            }
-            else
-            {
-                richTextBox.RightToLeft = RightToLeft.No;
-                RTBLineNumbers.Dock = DockStyle.Left;
-                rightToLeftContextMenu.Checked = false;
-            }
-
-            if (settings.insKey == "Disable")
-            {
-                insMainMenu.ShortcutKeys = Keys.Insert;
-            }
-            else
-            {
-                insMainMenu.ShortcutKeys = Keys.None;
-            }
-
-            if (settings.toolbarBorder)
-            {
-                toolbarPanel.BorderStyle = BorderStyle.FixedSingle;
-            }
-            else
-            {
-                toolbarPanel.BorderStyle = BorderStyle.None;
-            }
-
-            if (settings.autoCheckUpdate)
-            {
-                //Thread up = new Thread(() => CheckForUpdates(false));
-                //up.Start();
-                CheckForUpdates(false);
-            }
-
-            MenuIcons();
+            LoadSettings();
             DeleteUpdateFiles();
+            MenuIcons(settings.menuIcons);
             Toolbaricons(settings.oldToolbarIcons);
 
             if (args.Length == 2) /*drag & drop to executable*/
@@ -775,13 +816,6 @@ namespace Crypto_Notepad
             {
                 ContextMenuEncryptReplace();
             }
-
-            if (pos != "{X=0,Y=0}")
-            {
-                Location = settings.windowLocation;
-            }
-            Size = settings.windowSize;
-            WindowState = settings.windowState;
 
             #if DEBUG
             debugMainMenu.Visible = true;
