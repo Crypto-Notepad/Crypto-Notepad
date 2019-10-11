@@ -604,6 +604,10 @@ namespace Crypto_Notepad
                 toolbarPanel.BorderStyle = BorderStyle.None;
             }
 
+            if (settings.closeToTray | settings.minimizeToTray)
+            {
+                trayIcon.Visible = true;
+            }
             wordWrapMainMenu.Checked = settings.editorWrap;
 
             toolbarPanel.BackColor = settings.toolbarBackColor;
@@ -727,21 +731,27 @@ namespace Crypto_Notepad
 
 
         #region Event Handlers
-        private void MainWindow_Activated(object sender, EventArgs e)
+        private void MainForm_Resize(object sender, EventArgs e)
         {
-            richTextBox.Focus();
-
-            if (PublicVar.keyChanged)
+            if (settings.minimizeToTray)
             {
-                richTextBox.Modified = true;
+                if (WindowState == FormWindowState.Minimized)
+                {
+                    Hide();
+                }
             }
 
-            if (PublicVar.encryptionKey.Get() == null)
+            if (WindowState == FormWindowState.Minimized & settings.autoLock & PublicVar.encryptionKey.Get() != null)
             {
-                fileLocationToolbarButton.Enabled = false;
-                deleteFileToolbarButton.Enabled = false;
-                changeKeyToolbarButton.Enabled = false;
-                lockToolbarButton.Enabled = false;
+                pnlEnterKey.Visible = true;
+            }
+
+            if (WindowState == FormWindowState.Normal)
+            {
+                if (pnlEnterKey.Visible)
+                {
+                    txtKey.Focus();
+                }
             }
             else
             {
@@ -755,18 +765,16 @@ namespace Crypto_Notepad
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (WindowState == FormWindowState.Normal)
+            if (settings.closeToTray)
             {
-                settings.windowSize = Size;
-                settings.windowLocation = Location;
-                settings.windowState = WindowState;
+                if (settings.autoLock & PublicVar.encryptionKey.Get() != null)
+                {
+                    pnlEnterKey.Visible = true;
+                }
+                Hide();
+                e.Cancel = true;
+                return;
             }
-
-            if (WindowState == FormWindowState.Maximized)
-            {
-                settings.windowState = WindowState;
-            }
-            settings.Save();
 
             SaveConfirm(true);
 
@@ -1184,7 +1192,11 @@ namespace Crypto_Notepad
 
         private void ExitMainMenu_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            SaveConfirm(true);
+            if (settings.closeToTray)
+            {
+                Environment.Exit(0);
+            }
         }
 
         private void fileMainMenu_DropDownOpened(object sender, EventArgs e)
@@ -1670,6 +1682,11 @@ namespace Crypto_Notepad
         #endregion
 
 
+            SaveConfirm(true);
+            if (settings.closeToTray)
+            {
+                Environment.Exit(0);
+            }
         #region Debug Menu
         private void VariablesMainMenu_Click(object sender, EventArgs e)
         {
