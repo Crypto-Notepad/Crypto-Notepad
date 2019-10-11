@@ -1,4 +1,4 @@
-﻿namespace Crypto_Notepad
+namespace Crypto_Notepad
 {
     partial class MainForm
     {
@@ -58,6 +58,7 @@
             this.mainMenuSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.clearMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMainMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.alwaysOnTopMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.changeKeyMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.lockMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsMainMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -102,6 +103,7 @@
             this.deleteFileToolbarButton = new System.Windows.Forms.PictureBox();
             this.closeToolbarButton = new System.Windows.Forms.PictureBox();
             this.settingsToolbarButton = new System.Windows.Forms.PictureBox();
+            this.alwaysOnTopToolbarButton = new System.Windows.Forms.PictureBox();
             this.statusPanel = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.lengthStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -127,6 +129,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.deleteFileToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsToolbarButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alwaysOnTopToolbarButton)).BeginInit();
             this.statusPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -368,6 +371,7 @@
             // toolsMainMenu
             // 
             this.toolsMainMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.alwaysOnTopMainMenu,
             this.changeKeyMainMenu,
             this.lockMainMenu,
             this.settingsMainMenu});
@@ -376,6 +380,15 @@
             this.toolsMainMenu.Size = new System.Drawing.Size(48, 24);
             this.toolsMainMenu.Text = "Tools";
             this.toolsMainMenu.DropDownOpened += new System.EventHandler(this.ToolsMainMenu_DropDownOpened);
+            // 
+            // alwaysOnTopMainMenu
+            // 
+            this.alwaysOnTopMainMenu.CheckOnClick = true;
+            this.alwaysOnTopMainMenu.Name = "alwaysOnTopMainMenu";
+            this.alwaysOnTopMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.alwaysOnTopMainMenu.Size = new System.Drawing.Size(202, 22);
+            this.alwaysOnTopMainMenu.Text = "Always on Top";
+            this.alwaysOnTopMainMenu.Click += new System.EventHandler(this.AlwaysOnTopMainMenu_Click);
             // 
             // changeKeyMainMenu
             // 
@@ -721,6 +734,7 @@
             this.toolbarPanel.Controls.Add(this.deleteFileToolbarButton, 4, 0);
             this.toolbarPanel.Controls.Add(this.closeToolbarButton, 12, 0);
             this.toolbarPanel.Controls.Add(this.settingsToolbarButton, 10, 0);
+            this.toolbarPanel.Controls.Add(this.alwaysOnTopToolbarButton, 10, 0);
             this.toolbarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.toolbarPanel.ForeColor = System.Drawing.SystemColors.Control;
             this.toolbarPanel.Location = new System.Drawing.Point(0, 24);
@@ -889,6 +903,20 @@
             this.settingsToolbarButton.TabIndex = 15;
             this.settingsToolbarButton.TabStop = false;
             this.settingsToolbarButton.Click += new System.EventHandler(this.SettingsToolbarButton_Click);
+            // 
+            // alwaysOnTopToolbarButton
+            // 
+            this.alwaysOnTopToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.alwaysOnTopToolbarButton.Image = global::Crypto_Notepad.Properties.Resources.applications_blue;
+            this.alwaysOnTopToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.alwaysOnTopToolbarButton.Location = new System.Drawing.Point(243, 3);
+            this.alwaysOnTopToolbarButton.Name = "alwaysOnTopToolbarButton";
+            this.alwaysOnTopToolbarButton.Size = new System.Drawing.Size(16, 16);
+            this.alwaysOnTopToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.alwaysOnTopToolbarButton.TabIndex = 15;
+            this.alwaysOnTopToolbarButton.TabStop = false;
+            this.toolTip.SetToolTip(this.alwaysOnTopToolbarButton, "Always on Top");
+            this.alwaysOnTopToolbarButton.Click += new System.EventHandler(this.AlwaysOnTopToolbarButton_Click);
             // 
             // statusPanel
             // 
@@ -1152,5 +1180,7 @@
         public System.Windows.Forms.TableLayoutPanel searchPanel;
         public System.Windows.Forms.MenuStrip mainMenu;
         private System.Windows.Forms.PictureBox closeSearchPanel;
+        private System.Windows.Forms.ToolStripMenuItem alwaysOnTopMainMenu;
+        private System.Windows.Forms.PictureBox alwaysOnTopToolbarButton;
     }
 }

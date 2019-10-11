@@ -63,6 +63,16 @@ namespace Crypto_Notepad.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap applications_blue {
+            get {
+                object obj = ResourceManager.GetObject("applications_blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_left {
             get {
                 object obj = ResourceManager.GetObject("arrow_left", resourceCulture);
@@ -316,6 +326,16 @@ namespace Crypto_Notepad.Properties {
         internal static System.Drawing.Bitmap notepad_lock {
             get {
                 object obj = ResourceManager.GetObject("notepad_lock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap old_application_double {
+            get {
+                object obj = ResourceManager.GetObject("old_application_double", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Crypto_Notepad.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
@@ -136,6 +136,9 @@
     </Setting>
     <Setting Name="mlStyle" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">Solid</Value>
+    </Setting>
+    <Setting Name="alwaysOnTop" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -1,12 +1,14 @@
-﻿using Crypto_Notepad.Properties;
+using Crypto_Notepad.Properties;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -672,6 +674,7 @@ namespace Crypto_Notepad
                 docsMainMenu.Image = Resources.document_text;
                 updatesMainMenu.Image = Resources.upload_cloud;
                 aboutMainMenu.Image = Resources.information;
+                alwaysOnTopMainMenu.Image = Resources.applications_blue;
             }
             else
             {
@@ -701,6 +704,7 @@ namespace Crypto_Notepad
                 changeKeyToolbarButton.Image = Resources.old_page_white_key;
                 lockToolbarButton.Image = Resources.old_lock;
                 settingsToolbarButton.Image = Resources.old_setting_tools;
+                alwaysOnTopToolbarButton.Image = Resources.old_application_double;
             }
             else
             {
@@ -715,6 +719,7 @@ namespace Crypto_Notepad
                 changeKeyToolbarButton.Image = Resources.key;
                 lockToolbarButton.Image = Resources.lock_warning;
                 settingsToolbarButton.Image = Resources.gear;
+                alwaysOnTopToolbarButton.Image = Resources.applications_blue;
             }
 
         }
@@ -1303,6 +1308,22 @@ namespace Crypto_Notepad
         /*Edit*/
 
         /*Tools*/
+        private void AlwaysOnTopMainMenu_Click(object sender, EventArgs e)
+        {
+            if (alwaysOnTopMainMenu.Checked)
+            {
+                settings.alwaysOnTop = true;
+                TopMost = true;
+                StatusPanelMessage("always-top-on");
+            }
+            else
+            {
+                settings.alwaysOnTop = false;
+                TopMost = false;
+                StatusPanelMessage("always-top-off");
+            }
+
+        }
         private void ToolsMainMenu_DropDownOpened(object sender, EventArgs e)
         {
             if (PublicVar.encryptionKey.Get() == null)
@@ -1522,6 +1543,24 @@ namespace Crypto_Notepad
         private void CloseToolbarButton_MouseLeave(object sender, EventArgs e)
         {
             closeToolbarButton.Image = Resources.close_g;
+        }
+
+        private void AlwaysOnTopToolbarButton_Click(object sender, EventArgs e)
+        {
+            if (settings.alwaysOnTop)
+            {
+                settings.alwaysOnTop = false;
+                TopMost = settings.alwaysOnTop;
+                alwaysOnTopMainMenu.Checked = settings.alwaysOnTop;
+                StatusPanelMessage("always-top-off");
+            }
+            else
+            {
+                settings.alwaysOnTop = true;
+                TopMost = settings.alwaysOnTop;
+                alwaysOnTopMainMenu.Checked = settings.alwaysOnTop;
+                StatusPanelMessage("always-top-on");
+            }
         }
         #endregion
 

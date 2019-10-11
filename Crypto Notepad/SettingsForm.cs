@@ -1,4 +1,4 @@
-﻿using IWshRuntimeLibrary;
+using IWshRuntimeLibrary;
 using Microsoft.Win32;
 using System;
 using System.Drawing;
@@ -165,6 +165,7 @@ namespace Crypto_Notepad
             settingsTabControl.ItemSize = new Size(0, 1);
             settingsTabControl.SizeMode = TabSizeMode.Fixed;
             settingsNav.SelectedIndex = 0;
+            TopMost = settings.alwaysOnTop;
             LoadSettings();
         }
 
