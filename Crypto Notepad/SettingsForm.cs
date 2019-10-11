@@ -1,4 +1,4 @@
-using IWshRuntimeLibrary;
+﻿using IWshRuntimeLibrary;
 using Microsoft.Win32;
 using System;
 using System.Drawing;
@@ -22,25 +22,27 @@ namespace Crypto_Notepad
         /*Methods*/
         private void LoadSettings()
         {
-            editorFontColor.BackColor = settings.editroForeColor;
-            editorBGColor.BackColor = settings.editorBackColor;
-            insKeyComboBox.Text = settings.insKey;
-            paddingLeftTextBox.Text = settings.editorPaddingLeft;
-            linksComboBox.Text = settings.openLinks;
+            pnlEditorFontColor.BackColor = settings.editroForeColor;
+            pnlEditorBackColor.BackColor = settings.editorBackColor;
+            cbxInsKey.Text = settings.insKey;
+            txtPaddingLeft.Text = settings.editorPaddingLeft;
+            cbxOpenLinks.Text = settings.openLinks;
             fontDialog.Font = settings.editorFont;
 
-            autoLockCheckBox.Checked = settings.autoLock;
-            updatesCheckBox.Checked = settings.autoCheckUpdate;
-            mainMenuCheckBox.Checked = settings.mainMenuVisible;
-            menuIconsCheckBox.Checked = settings.menuIcons;
+            chkAutoLock.Checked = settings.autoLock;
+            chkUpdates.Checked = settings.autoCheckUpdate;
+            chkMainMenu.Checked = settings.mainMenuVisible;
+            chkMenuIcons.Checked = settings.menuIcons;
+            chkMinimizeToTray.Checked = settings.minimizeToTray;
+            chkCloseToTray.Checked = settings.closeToTray;
 
-            integrateCheckBox.Checked = settings.explorerIntegrate;
-            associateCheckBox.Checked = settings.explorerAssociate;
-            sendToCheckBox.Checked = settings.explorerSendTo;
+            chkIntegrate.Checked = settings.explorerIntegrate;
+            chkAssociate.Checked = settings.explorerAssociate;
+            chkSendTo.Checked = settings.explorerSendTo;
 
-            hashComboBox.Text = settings.HashAlgorithm;
-            keySizeComboBox.Text = settings.KeySize;
-            pwdIterationsTextBox.Text = settings.PasswordIterations;
+            cboHash.Text = settings.HashAlgorithm;
+            cboKeySize.Text = settings.KeySize;
+            txtPwdIterations.Text = settings.PasswordIterations;
 
             searchBackColor.BackColor = settings.searchPanelBackColor;
             searchFontColor.BackColor = settings.searchPanelForeColor;
@@ -164,14 +166,14 @@ namespace Crypto_Notepad
             settingsTabControl.Appearance = TabAppearance.FlatButtons;
             settingsTabControl.ItemSize = new Size(0, 1);
             settingsTabControl.SizeMode = TabSizeMode.Fixed;
-            settingsNav.SelectedIndex = 0;
+            lstSettingsNav.SelectedIndex = 0;
             TopMost = settings.alwaysOnTop;
             LoadSettings();
         }
 
-        private void PaddingLeftTextBox_Click(object sender, EventArgs e)
+        private void TxtPaddingLeft_Click(object sender, EventArgs e)
         {
-            paddingLeftTextBox.SelectAll();
+            txtPaddingLeft.SelectAll();
         }
 
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -183,7 +185,7 @@ namespace Crypto_Notepad
             {
                 settings.PasswordIterations = "1";
             }
-            if (string.IsNullOrWhiteSpace(paddingLeftTextBox.Text))
+            if (string.IsNullOrWhiteSpace(txtPaddingLeft.Text))
             {
                 settings.editorPaddingLeft = "0";
                 main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
@@ -196,7 +198,7 @@ namespace Crypto_Notepad
         /*Settings Section*/
         private void EditorFontColor_Click(object sender, EventArgs e)
         {
-            colorDialog.Color = editorFontColor.BackColor;
+            colorDialog.Color = pnlEditorFontColor.BackColor;
             using (new CenterWinDialog(this))
             {
                 if (colorDialog.ShowDialog() == DialogResult.OK)
@@ -205,13 +207,13 @@ namespace Crypto_Notepad
                     main.richTextBox.ForeColor = colorDialog.Color;
                     main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
                     settings.editroForeColor = colorDialog.Color;
-                    editorFontColor.BackColor = colorDialog.Color;
+                    pnlEditorFontColor.BackColor = colorDialog.Color;
                 }
             }
         }
         private void EditorBGColor_Click(object sender, EventArgs e)
         {
-            colorDialog.Color = editorBGColor.BackColor;
+            colorDialog.Color = pnlEditorBackColor.BackColor;
             using (new CenterWinDialog(this))
             {
                 if (colorDialog.ShowDialog() == DialogResult.OK)
@@ -220,7 +222,7 @@ namespace Crypto_Notepad
                     main.richTextBox.BackColor = colorDialog.Color;
                     main.BackColor = colorDialog.Color;
                     settings.editorBackColor = colorDialog.Color;
-                    editorBGColor.BackColor = colorDialog.Color;
+                    pnlEditorBackColor.BackColor = colorDialog.Color;
                 }
             }
         }
@@ -285,9 +287,9 @@ namespace Crypto_Notepad
             }
         }
 
-        private void SettingsNav_Click(object sender, EventArgs e)
+        private void LstSettingsNav_Click(object sender, EventArgs e)
         {
-            switch (settingsNav.SelectedIndex)
+            switch (lstSettingsNav.SelectedIndex)
             {
                 case 0:
                     settingsTabControl.SelectedTab = editorTabPage;
@@ -314,6 +316,8 @@ namespace Crypto_Notepad
                     settingsTabControl.SelectedTab = encryptionTabPage;
                     break;
             }
+
+            
         }
 
         private void SettingsTabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -332,7 +336,7 @@ namespace Crypto_Notepad
 
         private void AssociateCheckBox_Click(object sender, EventArgs e)
         {
-            if (associateCheckBox.Checked)
+            if (chkAssociate.Checked)
             {
                 AssociateExtension(Assembly.GetEntryAssembly().Location, "cnp");
             }
@@ -340,13 +344,13 @@ namespace Crypto_Notepad
             {
                 DissociateExtension(Assembly.GetEntryAssembly().Location, "cnp");
             }
-            settings.explorerAssociate = associateCheckBox.Checked;
+            settings.explorerAssociate = chkAssociate.Checked;
 
         }
 
         private void IntegrateCheckBox_Click(object sender, EventArgs e)
         {
-            if (integrateCheckBox.Checked)
+            if (chkIntegrate.Checked)
             {
                 MenuIntegrate("enable");
             }
@@ -354,26 +358,26 @@ namespace Crypto_Notepad
             {
                 MenuIntegrate("disable");
             }
-            settings.explorerIntegrate = integrateCheckBox.Checked;
+            settings.explorerIntegrate = chkIntegrate.Checked;
         }
 
-        private void PaddingLeftTextBox_TextChanged(object sender, EventArgs e)
+        private void TxtPaddingLeft_TextChanged(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (paddingLeftTextBox.Text.Length >= 1)
+            if (txtPaddingLeft.Text.Length >= 1)
             {
-                if (settings.editorPaddingLeft != paddingLeftTextBox.Text)
+                if (settings.editorPaddingLeft != txtPaddingLeft.Text)
                 {
-                    main.richTextBox.SetInnerMargins(Convert.ToInt32(paddingLeftTextBox.Text), 0, 0, 0);
+                    main.richTextBox.SetInnerMargins(Convert.ToInt32(txtPaddingLeft.Text), 0, 0, 0);
                     main.richTextBox.Refresh();
-                    settings.editorPaddingLeft = paddingLeftTextBox.Text;
+                    settings.editorPaddingLeft = txtPaddingLeft.Text;
                 }
             }
         }
 
         private void SendToCheckBox_Click(object sender, EventArgs e)
         {
-            if (sendToCheckBox.Checked)
+            if (chkSendTo.Checked)
             {
                 SendToShortcut();
             }
@@ -385,16 +389,16 @@ namespace Crypto_Notepad
                     System.IO.File.Delete(shortcutPath);
                 }
             }
-            settings.explorerSendTo = sendToCheckBox.Checked;
+            settings.explorerSendTo = chkSendTo.Checked;
 
         }
 
         private void InsKeyComboBox_DropDownClosed(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (settings.insKey != insKeyComboBox.Text)
+            if (settings.insKey != cbxInsKey.Text)
             {
-                if (insKeyComboBox.Text == "Disable")
+                if (cbxInsKey.Text == "Disable")
                 {
                     main.insMainMenu.ShortcutKeys = Keys.Insert;
                 }
@@ -402,18 +406,18 @@ namespace Crypto_Notepad
                 {
                     main.insMainMenu.ShortcutKeys = Keys.None;
                 }
-                settings.insKey = insKeyComboBox.Text;
+                settings.insKey = cbxInsKey.Text;
             }
         }
 
         private void MenuIconsCheckBox_Click(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            settings.menuIcons = menuIconsCheckBox.Checked;
+            settings.menuIcons = chkMenuIcons.Checked;
             main.MenuIcons(settings.menuIcons);
         }
 
-        private void FontButton_Click(object sender, EventArgs e)
+        private void BtnFont_Click(object sender, EventArgs e)
         {
             using (new CenterWinDialog(this))
             {
@@ -515,21 +519,21 @@ namespace Crypto_Notepad
 
         private void KeySizeComboBox_DropDownClosed(object sender, EventArgs e)
         {
-            if (keySizeComboBox.Text != settings.KeySize)
+            if (cboKeySize.Text != settings.KeySize)
             {
-                settings.KeySize = keySizeComboBox.Text;
+                settings.KeySize = cboKeySize.Text;
             }
         }
 
         private void HashComboBox_DropDownClosed(object sender, EventArgs e)
         {
-            if (hashComboBox.Text != settings.HashAlgorithm)
+            if (cboHash.Text != settings.HashAlgorithm)
             {
-                settings.HashAlgorithm = hashComboBox.Text;
+                settings.HashAlgorithm = cboHash.Text;
             }
         }
 
-        private void PaddingLeftTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtPaddingLeft_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
@@ -558,7 +562,7 @@ namespace Crypto_Notepad
         {
             MainForm main = Owner as MainForm;
             main.statusPanel.Visible = statusPanelVisible.Checked;
-            main.richTextBox.SetInnerMargins(Convert.ToInt32(paddingLeftTextBox.Text), 0, 0, 0);
+            main.richTextBox.SetInnerMargins(Convert.ToInt32(txtPaddingLeft.Text), 0, 0, 0);
             settings.statusPanelVisible = statusPanelVisible.Checked;
         }
 
@@ -659,7 +663,7 @@ namespace Crypto_Notepad
         private void MainMenuCheckBox_Click(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (mainMenuCheckBox.Checked)
+            if (chkMainMenu.Checked)
             {
                 main.mainMenu.Visible = true;
             }
@@ -667,7 +671,7 @@ namespace Crypto_Notepad
             {
                 main.mainMenu.Visible = false;
             }
-            settings.mainMenuVisible = mainMenuCheckBox.Checked;
+            settings.mainMenuVisible = chkMainMenu.Checked;
         }
 
         private void ToolbarOldIcons_Click(object sender, EventArgs e)
@@ -677,31 +681,31 @@ namespace Crypto_Notepad
             main.Toolbaricons(settings.oldToolbarIcons);
         }
 
-        private void LinksComboBox_DropDownClosed(object sender, EventArgs e)
+        private void CbxOpenLinks_DropDownClosed(object sender, EventArgs e)
         {
-            if (settings.openLinks != linksComboBox.Text)
+            if (settings.openLinks != cbxOpenLinks.Text)
             {
-                settings.openLinks = linksComboBox.Text;
+                settings.openLinks = cbxOpenLinks.Text;
             }
 
         }
 
         private void AutoLockCheckBox_Click(object sender, EventArgs e)
         {
-            settings.autoLock = autoLockCheckBox.Checked;
+            settings.autoLock = chkAutoLock.Checked;
         }
 
         private void UpdatesCheckBox_Click(object sender, EventArgs e)
         {
-            settings.autoCheckUpdate = updatesCheckBox.Checked;
+            settings.autoCheckUpdate = chkUpdates.Checked;
 
         }
 
         private void PwdIterationsTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (pwdIterationsTextBox.Text != settings.PasswordIterations)
+            if (txtPwdIterations.Text != settings.PasswordIterations)
             {
-                settings.PasswordIterations = pwdIterationsTextBox.Text;
+                settings.PasswordIterations = txtPwdIterations.Text;
             }
         }
 
@@ -779,6 +783,34 @@ namespace Crypto_Notepad
                     settings.mlColor = colorDialog.Color;
                 }
             }
+        }
+
+        private void ChkMinimizeToTray_Click(object sender, EventArgs e)
+        {
+            MainForm main = Owner as MainForm;
+            if (chkCloseToTray.Checked == false & chkMinimizeToTray.Checked == false)
+            {
+                main.trayIcon.Visible = false;
+            }
+            if (chkMinimizeToTray.Checked == true)
+            {
+                main.trayIcon.Visible = true;
+            }
+            settings.minimizeToTray = chkMinimizeToTray.Checked;
+        }
+
+        private void ChkCloseToTray_Click(object sender, EventArgs e)
+        {
+            MainForm main = Owner as MainForm;
+            if (chkCloseToTray.Checked == false & chkMinimizeToTray.Checked ==false )
+            {
+                main.trayIcon.Visible = false;
+            }
+            if (chkCloseToTray.Checked == true)
+            {
+                main.trayIcon.Visible = true;
+            }
+            settings.closeToTray = chkCloseToTray.Checked;
         }
         /*Settings Section*/
 

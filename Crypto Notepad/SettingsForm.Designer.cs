@@ -29,36 +29,38 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
-            this.editorFontColorLabel = new System.Windows.Forms.Label();
+            this.lblEditorFontColor = new System.Windows.Forms.Label();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.settingsTabControl = new System.Windows.Forms.TabControl();
             this.editorTabPage = new System.Windows.Forms.TabPage();
-            this.linksComboBox = new System.Windows.Forms.ComboBox();
-            this.linksLabel = new System.Windows.Forms.Label();
-            this.FontButton = new System.Windows.Forms.Button();
-            this.paddingLeftTextBox = new System.Windows.Forms.TextBox();
-            this.paddingLeftLabel = new System.Windows.Forms.Label();
-            this.insKeyComboBox = new System.Windows.Forms.ComboBox();
-            this.editorBGColorLabel = new System.Windows.Forms.Label();
-            this.insKeyLabel = new System.Windows.Forms.Label();
-            this.editorBGColor = new System.Windows.Forms.Panel();
-            this.editorFontColor = new System.Windows.Forms.Panel();
+            this.cbxOpenLinks = new System.Windows.Forms.ComboBox();
+            this.lblOpenLinks = new System.Windows.Forms.Label();
+            this.btnFont = new System.Windows.Forms.Button();
+            this.txtPaddingLeft = new System.Windows.Forms.TextBox();
+            this.lblPaddingLeft = new System.Windows.Forms.Label();
+            this.cbxInsKey = new System.Windows.Forms.ComboBox();
+            this.lblEditorBackColor = new System.Windows.Forms.Label();
+            this.lblInsKey = new System.Windows.Forms.Label();
+            this.pnlEditorBackColor = new System.Windows.Forms.Panel();
+            this.pnlEditorFontColor = new System.Windows.Forms.Panel();
             this.applicationTabPage = new System.Windows.Forms.TabPage();
-            this.mainMenuCheckBox = new System.Windows.Forms.CheckBox();
-            this.menuIconsCheckBox = new System.Windows.Forms.CheckBox();
-            this.updatesCheckBox = new System.Windows.Forms.CheckBox();
-            this.autoLockCheckBox = new System.Windows.Forms.CheckBox();
+            this.chkCloseToTray = new System.Windows.Forms.CheckBox();
+            this.chkMinimizeToTray = new System.Windows.Forms.CheckBox();
+            this.chkMainMenu = new System.Windows.Forms.CheckBox();
+            this.chkMenuIcons = new System.Windows.Forms.CheckBox();
+            this.chkUpdates = new System.Windows.Forms.CheckBox();
+            this.chkAutoLock = new System.Windows.Forms.CheckBox();
             this.integrationTabPage = new System.Windows.Forms.TabPage();
-            this.integrateCheckBox = new System.Windows.Forms.CheckBox();
-            this.associateCheckBox = new System.Windows.Forms.CheckBox();
-            this.sendToCheckBox = new System.Windows.Forms.CheckBox();
+            this.chkIntegrate = new System.Windows.Forms.CheckBox();
+            this.chkAssociate = new System.Windows.Forms.CheckBox();
+            this.chkSendTo = new System.Windows.Forms.CheckBox();
             this.encryptionTabPage = new System.Windows.Forms.TabPage();
-            this.pwdIterationsTextBox = new System.Windows.Forms.TextBox();
-            this.hashComboBox = new System.Windows.Forms.ComboBox();
-            this.pwdIterationsLabel = new System.Windows.Forms.Label();
-            this.keySizeLabel = new System.Windows.Forms.Label();
-            this.hashLabel = new System.Windows.Forms.Label();
-            this.keySizeComboBox = new System.Windows.Forms.ComboBox();
+            this.txtPwdIterations = new System.Windows.Forms.TextBox();
+            this.cboHash = new System.Windows.Forms.ComboBox();
+            this.lblPwdIterations = new System.Windows.Forms.Label();
+            this.lblKeySize = new System.Windows.Forms.Label();
+            this.lblHash = new System.Windows.Forms.Label();
+            this.cboKeySize = new System.Windows.Forms.ComboBox();
             this.lineNumbersTabPage = new System.Windows.Forms.TabPage();
             this.MLGroupBox = new System.Windows.Forms.GroupBox();
             this.MLStyleComboBox = new System.Windows.Forms.ComboBox();
@@ -107,7 +109,7 @@
             this.searchBackColor = new System.Windows.Forms.Panel();
             this.searchFontColorLabel = new System.Windows.Forms.Label();
             this.searchBackColorLabel = new System.Windows.Forms.Label();
-            this.settingsNav = new System.Windows.Forms.ListBox();
+            this.lstSettingsNav = new System.Windows.Forms.ListBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.settingsTabControl.SuspendLayout();
             this.editorTabPage.SuspendLayout();
@@ -124,14 +126,14 @@
             this.searchPanelTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
-            // editorFontColorLabel
+            // lblEditorFontColor
             // 
-            this.editorFontColorLabel.Location = new System.Drawing.Point(6, 4);
-            this.editorFontColorLabel.Name = "editorFontColorLabel";
-            this.editorFontColorLabel.Size = new System.Drawing.Size(83, 21);
-            this.editorFontColorLabel.TabIndex = 0;
-            this.editorFontColorLabel.Text = "Font color";
-            this.editorFontColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEditorFontColor.Location = new System.Drawing.Point(6, 4);
+            this.lblEditorFontColor.Name = "lblEditorFontColor";
+            this.lblEditorFontColor.Size = new System.Drawing.Size(83, 21);
+            this.lblEditorFontColor.TabIndex = 0;
+            this.lblEditorFontColor.Text = "Font color";
+            this.lblEditorFontColor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // colorDialog
             // 
@@ -162,17 +164,17 @@
             this.editorTabPage.AutoScroll = true;
             this.editorTabPage.BackColor = System.Drawing.SystemColors.Window;
             this.editorTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.editorTabPage.Controls.Add(this.linksComboBox);
-            this.editorTabPage.Controls.Add(this.linksLabel);
-            this.editorTabPage.Controls.Add(this.FontButton);
-            this.editorTabPage.Controls.Add(this.paddingLeftTextBox);
-            this.editorTabPage.Controls.Add(this.paddingLeftLabel);
-            this.editorTabPage.Controls.Add(this.insKeyComboBox);
-            this.editorTabPage.Controls.Add(this.editorBGColorLabel);
-            this.editorTabPage.Controls.Add(this.insKeyLabel);
-            this.editorTabPage.Controls.Add(this.editorBGColor);
-            this.editorTabPage.Controls.Add(this.editorFontColorLabel);
-            this.editorTabPage.Controls.Add(this.editorFontColor);
+            this.editorTabPage.Controls.Add(this.cbxOpenLinks);
+            this.editorTabPage.Controls.Add(this.lblOpenLinks);
+            this.editorTabPage.Controls.Add(this.btnFont);
+            this.editorTabPage.Controls.Add(this.txtPaddingLeft);
+            this.editorTabPage.Controls.Add(this.lblPaddingLeft);
+            this.editorTabPage.Controls.Add(this.cbxInsKey);
+            this.editorTabPage.Controls.Add(this.lblEditorBackColor);
+            this.editorTabPage.Controls.Add(this.lblInsKey);
+            this.editorTabPage.Controls.Add(this.pnlEditorBackColor);
+            this.editorTabPage.Controls.Add(this.lblEditorFontColor);
+            this.editorTabPage.Controls.Add(this.pnlEditorFontColor);
             this.editorTabPage.Location = new System.Drawing.Point(4, 44);
             this.editorTabPage.Name = "editorTabPage";
             this.editorTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -180,120 +182,122 @@
             this.editorTabPage.TabIndex = 0;
             this.editorTabPage.Text = "edt";
             // 
-            // linksComboBox
+            // cbxOpenLinks
             // 
-            this.linksComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.linksComboBox.FormattingEnabled = true;
-            this.linksComboBox.Items.AddRange(new object[] {
+            this.cbxOpenLinks.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxOpenLinks.FormattingEnabled = true;
+            this.cbxOpenLinks.Items.AddRange(new object[] {
             "LMB Click",
             "Shift+LMB",
             "Control+LMB"});
-            this.linksComboBox.Location = new System.Drawing.Point(132, 113);
-            this.linksComboBox.Name = "linksComboBox";
-            this.linksComboBox.Size = new System.Drawing.Size(100, 23);
-            this.linksComboBox.TabIndex = 19;
-            this.linksComboBox.DropDownClosed += new System.EventHandler(this.LinksComboBox_DropDownClosed);
+            this.cbxOpenLinks.Location = new System.Drawing.Point(132, 113);
+            this.cbxOpenLinks.Name = "cbxOpenLinks";
+            this.cbxOpenLinks.Size = new System.Drawing.Size(100, 23);
+            this.cbxOpenLinks.TabIndex = 19;
+            this.cbxOpenLinks.DropDownClosed += new System.EventHandler(this.CbxOpenLinks_DropDownClosed);
             // 
-            // linksLabel
+            // lblOpenLinks
             // 
-            this.linksLabel.AutoSize = true;
-            this.linksLabel.Location = new System.Drawing.Point(6, 116);
-            this.linksLabel.Name = "linksLabel";
-            this.linksLabel.Size = new System.Drawing.Size(90, 15);
-            this.linksLabel.TabIndex = 18;
-            this.linksLabel.Text = "Open links with";
+            this.lblOpenLinks.AutoSize = true;
+            this.lblOpenLinks.Location = new System.Drawing.Point(6, 116);
+            this.lblOpenLinks.Name = "lblOpenLinks";
+            this.lblOpenLinks.Size = new System.Drawing.Size(90, 15);
+            this.lblOpenLinks.TabIndex = 18;
+            this.lblOpenLinks.Text = "Open links with";
             // 
-            // FontButton
+            // btnFont
             // 
-            this.FontButton.Location = new System.Drawing.Point(9, 142);
-            this.FontButton.Name = "FontButton";
-            this.FontButton.Size = new System.Drawing.Size(223, 23);
-            this.FontButton.TabIndex = 17;
-            this.FontButton.Text = "Font";
-            this.FontButton.UseVisualStyleBackColor = true;
-            this.FontButton.Click += new System.EventHandler(this.FontButton_Click);
+            this.btnFont.Location = new System.Drawing.Point(9, 142);
+            this.btnFont.Name = "btnFont";
+            this.btnFont.Size = new System.Drawing.Size(223, 23);
+            this.btnFont.TabIndex = 17;
+            this.btnFont.Text = "Font";
+            this.btnFont.UseVisualStyleBackColor = true;
+            this.btnFont.Click += new System.EventHandler(this.BtnFont_Click);
             // 
-            // paddingLeftTextBox
+            // txtPaddingLeft
             // 
-            this.paddingLeftTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.paddingLeftTextBox.Location = new System.Drawing.Point(132, 87);
-            this.paddingLeftTextBox.Name = "paddingLeftTextBox";
-            this.paddingLeftTextBox.Size = new System.Drawing.Size(100, 20);
-            this.paddingLeftTextBox.TabIndex = 16;
-            this.paddingLeftTextBox.Click += new System.EventHandler(this.PaddingLeftTextBox_Click);
-            this.paddingLeftTextBox.TextChanged += new System.EventHandler(this.PaddingLeftTextBox_TextChanged);
-            this.paddingLeftTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PaddingLeftTextBox_KeyPress);
+            this.txtPaddingLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtPaddingLeft.Location = new System.Drawing.Point(132, 87);
+            this.txtPaddingLeft.Name = "txtPaddingLeft";
+            this.txtPaddingLeft.Size = new System.Drawing.Size(100, 20);
+            this.txtPaddingLeft.TabIndex = 16;
+            this.txtPaddingLeft.Click += new System.EventHandler(this.TxtPaddingLeft_Click);
+            this.txtPaddingLeft.TextChanged += new System.EventHandler(this.TxtPaddingLeft_TextChanged);
+            this.txtPaddingLeft.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPaddingLeft_KeyPress);
             // 
-            // paddingLeftLabel
+            // lblPaddingLeft
             // 
-            this.paddingLeftLabel.AutoSize = true;
-            this.paddingLeftLabel.Location = new System.Drawing.Point(6, 88);
-            this.paddingLeftLabel.Name = "paddingLeftLabel";
-            this.paddingLeftLabel.Size = new System.Drawing.Size(73, 15);
-            this.paddingLeftLabel.TabIndex = 15;
-            this.paddingLeftLabel.Text = "Padding-left";
+            this.lblPaddingLeft.AutoSize = true;
+            this.lblPaddingLeft.Location = new System.Drawing.Point(6, 88);
+            this.lblPaddingLeft.Name = "lblPaddingLeft";
+            this.lblPaddingLeft.Size = new System.Drawing.Size(73, 15);
+            this.lblPaddingLeft.TabIndex = 15;
+            this.lblPaddingLeft.Text = "Padding-left";
             // 
-            // insKeyComboBox
+            // cbxInsKey
             // 
-            this.insKeyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.insKeyComboBox.FormattingEnabled = true;
-            this.insKeyComboBox.Items.AddRange(new object[] {
+            this.cbxInsKey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxInsKey.FormattingEnabled = true;
+            this.cbxInsKey.Items.AddRange(new object[] {
             "Enable",
             "Disable"});
-            this.insKeyComboBox.Location = new System.Drawing.Point(132, 58);
-            this.insKeyComboBox.Name = "insKeyComboBox";
-            this.insKeyComboBox.Size = new System.Drawing.Size(100, 23);
-            this.insKeyComboBox.TabIndex = 14;
-            this.insKeyComboBox.DropDownClosed += new System.EventHandler(this.InsKeyComboBox_DropDownClosed);
+            this.cbxInsKey.Location = new System.Drawing.Point(132, 58);
+            this.cbxInsKey.Name = "cbxInsKey";
+            this.cbxInsKey.Size = new System.Drawing.Size(100, 23);
+            this.cbxInsKey.TabIndex = 14;
+            this.cbxInsKey.DropDownClosed += new System.EventHandler(this.InsKeyComboBox_DropDownClosed);
             // 
-            // editorBGColorLabel
+            // lblEditorBackColor
             // 
-            this.editorBGColorLabel.Location = new System.Drawing.Point(6, 31);
-            this.editorBGColorLabel.Name = "editorBGColorLabel";
-            this.editorBGColorLabel.Size = new System.Drawing.Size(103, 21);
-            this.editorBGColorLabel.TabIndex = 10;
-            this.editorBGColorLabel.Text = "Background color";
-            this.editorBGColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEditorBackColor.Location = new System.Drawing.Point(6, 31);
+            this.lblEditorBackColor.Name = "lblEditorBackColor";
+            this.lblEditorBackColor.Size = new System.Drawing.Size(103, 21);
+            this.lblEditorBackColor.TabIndex = 10;
+            this.lblEditorBackColor.Text = "Background color";
+            this.lblEditorBackColor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // insKeyLabel
+            // lblInsKey
             // 
-            this.insKeyLabel.AutoSize = true;
-            this.insKeyLabel.Location = new System.Drawing.Point(6, 61);
-            this.insKeyLabel.Name = "insKeyLabel";
-            this.insKeyLabel.Size = new System.Drawing.Size(58, 15);
-            this.insKeyLabel.TabIndex = 13;
-            this.insKeyLabel.Text = "Insert key";
+            this.lblInsKey.AutoSize = true;
+            this.lblInsKey.Location = new System.Drawing.Point(6, 61);
+            this.lblInsKey.Name = "lblInsKey";
+            this.lblInsKey.Size = new System.Drawing.Size(58, 15);
+            this.lblInsKey.TabIndex = 13;
+            this.lblInsKey.Text = "Insert key";
             // 
-            // editorBGColor
+            // pnlEditorBackColor
             // 
-            this.editorBGColor.BackColor = System.Drawing.SystemColors.Control;
-            this.editorBGColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.editorBGColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.editorBGColor.Location = new System.Drawing.Point(132, 31);
-            this.editorBGColor.Name = "editorBGColor";
-            this.editorBGColor.Size = new System.Drawing.Size(100, 21);
-            this.editorBGColor.TabIndex = 8;
-            this.editorBGColor.Click += new System.EventHandler(this.EditorBGColor_Click);
+            this.pnlEditorBackColor.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlEditorBackColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlEditorBackColor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pnlEditorBackColor.Location = new System.Drawing.Point(132, 31);
+            this.pnlEditorBackColor.Name = "pnlEditorBackColor";
+            this.pnlEditorBackColor.Size = new System.Drawing.Size(100, 21);
+            this.pnlEditorBackColor.TabIndex = 8;
+            this.pnlEditorBackColor.Click += new System.EventHandler(this.EditorBGColor_Click);
             // 
-            // editorFontColor
+            // pnlEditorFontColor
             // 
-            this.editorFontColor.BackColor = System.Drawing.Color.Black;
-            this.editorFontColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.editorFontColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.editorFontColor.Location = new System.Drawing.Point(132, 4);
-            this.editorFontColor.Name = "editorFontColor";
-            this.editorFontColor.Size = new System.Drawing.Size(100, 21);
-            this.editorFontColor.TabIndex = 7;
-            this.editorFontColor.Click += new System.EventHandler(this.EditorFontColor_Click);
+            this.pnlEditorFontColor.BackColor = System.Drawing.Color.Black;
+            this.pnlEditorFontColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlEditorFontColor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pnlEditorFontColor.Location = new System.Drawing.Point(132, 4);
+            this.pnlEditorFontColor.Name = "pnlEditorFontColor";
+            this.pnlEditorFontColor.Size = new System.Drawing.Size(100, 21);
+            this.pnlEditorFontColor.TabIndex = 7;
+            this.pnlEditorFontColor.Click += new System.EventHandler(this.EditorFontColor_Click);
             // 
             // applicationTabPage
             // 
             this.applicationTabPage.BackColor = System.Drawing.SystemColors.Window;
             this.applicationTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.applicationTabPage.Controls.Add(this.mainMenuCheckBox);
-            this.applicationTabPage.Controls.Add(this.menuIconsCheckBox);
-            this.applicationTabPage.Controls.Add(this.updatesCheckBox);
-            this.applicationTabPage.Controls.Add(this.autoLockCheckBox);
+            this.applicationTabPage.Controls.Add(this.chkCloseToTray);
+            this.applicationTabPage.Controls.Add(this.chkMinimizeToTray);
+            this.applicationTabPage.Controls.Add(this.chkMainMenu);
+            this.applicationTabPage.Controls.Add(this.chkMenuIcons);
+            this.applicationTabPage.Controls.Add(this.chkUpdates);
+            this.applicationTabPage.Controls.Add(this.chkAutoLock);
             this.applicationTabPage.Location = new System.Drawing.Point(4, 44);
             this.applicationTabPage.Name = "applicationTabPage";
             this.applicationTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -301,57 +305,79 @@
             this.applicationTabPage.TabIndex = 2;
             this.applicationTabPage.Text = "app";
             // 
-            // mainMenuCheckBox
+            // chkCloseToTray
             // 
-            this.mainMenuCheckBox.AutoSize = true;
-            this.mainMenuCheckBox.Location = new System.Drawing.Point(7, 55);
-            this.mainMenuCheckBox.Name = "mainMenuCheckBox";
-            this.mainMenuCheckBox.Size = new System.Drawing.Size(89, 19);
-            this.mainMenuCheckBox.TabIndex = 8;
-            this.mainMenuCheckBox.Text = "Main menu";
-            this.mainMenuCheckBox.UseVisualStyleBackColor = true;
-            this.mainMenuCheckBox.Click += new System.EventHandler(this.MainMenuCheckBox_Click);
+            this.chkCloseToTray.AutoSize = true;
+            this.chkCloseToTray.Location = new System.Drawing.Point(7, 130);
+            this.chkCloseToTray.Name = "chkCloseToTray";
+            this.chkCloseToTray.Size = new System.Drawing.Size(92, 19);
+            this.chkCloseToTray.TabIndex = 10;
+            this.chkCloseToTray.Text = "Close to tray";
+            this.chkCloseToTray.UseVisualStyleBackColor = true;
+            this.chkCloseToTray.Click += new System.EventHandler(this.ChkCloseToTray_Click);
             // 
-            // menuIconsCheckBox
+            // chkMinimizeToTray
             // 
-            this.menuIconsCheckBox.AutoSize = true;
-            this.menuIconsCheckBox.Location = new System.Drawing.Point(7, 80);
-            this.menuIconsCheckBox.Name = "menuIconsCheckBox";
-            this.menuIconsCheckBox.Size = new System.Drawing.Size(90, 19);
-            this.menuIconsCheckBox.TabIndex = 7;
-            this.menuIconsCheckBox.Text = "Menu icons";
-            this.menuIconsCheckBox.UseVisualStyleBackColor = true;
-            this.menuIconsCheckBox.Click += new System.EventHandler(this.MenuIconsCheckBox_Click);
+            this.chkMinimizeToTray.AutoSize = true;
+            this.chkMinimizeToTray.Location = new System.Drawing.Point(7, 105);
+            this.chkMinimizeToTray.Name = "chkMinimizeToTray";
+            this.chkMinimizeToTray.Size = new System.Drawing.Size(112, 19);
+            this.chkMinimizeToTray.TabIndex = 9;
+            this.chkMinimizeToTray.Text = "Minimize to tray";
+            this.chkMinimizeToTray.UseVisualStyleBackColor = true;
+            this.chkMinimizeToTray.Click += new System.EventHandler(this.ChkMinimizeToTray_Click);
             // 
-            // updatesCheckBox
+            // chkMainMenu
             // 
-            this.updatesCheckBox.AutoSize = true;
-            this.updatesCheckBox.Location = new System.Drawing.Point(7, 30);
-            this.updatesCheckBox.Name = "updatesCheckBox";
-            this.updatesCheckBox.Size = new System.Drawing.Size(132, 19);
-            this.updatesCheckBox.TabIndex = 1;
-            this.updatesCheckBox.Text = "Auto check updates";
-            this.updatesCheckBox.UseVisualStyleBackColor = true;
-            this.updatesCheckBox.Click += new System.EventHandler(this.UpdatesCheckBox_Click);
+            this.chkMainMenu.AutoSize = true;
+            this.chkMainMenu.Location = new System.Drawing.Point(7, 55);
+            this.chkMainMenu.Name = "chkMainMenu";
+            this.chkMainMenu.Size = new System.Drawing.Size(89, 19);
+            this.chkMainMenu.TabIndex = 8;
+            this.chkMainMenu.Text = "Main menu";
+            this.chkMainMenu.UseVisualStyleBackColor = true;
+            this.chkMainMenu.Click += new System.EventHandler(this.MainMenuCheckBox_Click);
             // 
-            // autoLockCheckBox
+            // chkMenuIcons
             // 
-            this.autoLockCheckBox.AutoSize = true;
-            this.autoLockCheckBox.Location = new System.Drawing.Point(7, 7);
-            this.autoLockCheckBox.Name = "autoLockCheckBox";
-            this.autoLockCheckBox.Size = new System.Drawing.Size(146, 19);
-            this.autoLockCheckBox.TabIndex = 3;
-            this.autoLockCheckBox.Text = "Auto lock on minimize";
-            this.autoLockCheckBox.UseVisualStyleBackColor = true;
-            this.autoLockCheckBox.Click += new System.EventHandler(this.AutoLockCheckBox_Click);
+            this.chkMenuIcons.AutoSize = true;
+            this.chkMenuIcons.Location = new System.Drawing.Point(7, 80);
+            this.chkMenuIcons.Name = "chkMenuIcons";
+            this.chkMenuIcons.Size = new System.Drawing.Size(90, 19);
+            this.chkMenuIcons.TabIndex = 7;
+            this.chkMenuIcons.Text = "Menu icons";
+            this.chkMenuIcons.UseVisualStyleBackColor = true;
+            this.chkMenuIcons.Click += new System.EventHandler(this.MenuIconsCheckBox_Click);
+            // 
+            // chkUpdates
+            // 
+            this.chkUpdates.AutoSize = true;
+            this.chkUpdates.Location = new System.Drawing.Point(7, 30);
+            this.chkUpdates.Name = "chkUpdates";
+            this.chkUpdates.Size = new System.Drawing.Size(132, 19);
+            this.chkUpdates.TabIndex = 1;
+            this.chkUpdates.Text = "Auto check updates";
+            this.chkUpdates.UseVisualStyleBackColor = true;
+            this.chkUpdates.Click += new System.EventHandler(this.UpdatesCheckBox_Click);
+            // 
+            // chkAutoLock
+            // 
+            this.chkAutoLock.AutoSize = true;
+            this.chkAutoLock.Location = new System.Drawing.Point(7, 7);
+            this.chkAutoLock.Name = "chkAutoLock";
+            this.chkAutoLock.Size = new System.Drawing.Size(146, 19);
+            this.chkAutoLock.TabIndex = 3;
+            this.chkAutoLock.Text = "Auto lock on minimize";
+            this.chkAutoLock.UseVisualStyleBackColor = true;
+            this.chkAutoLock.Click += new System.EventHandler(this.AutoLockCheckBox_Click);
             // 
             // integrationTabPage
             // 
             this.integrationTabPage.BackColor = System.Drawing.SystemColors.Window;
             this.integrationTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.integrationTabPage.Controls.Add(this.integrateCheckBox);
-            this.integrationTabPage.Controls.Add(this.associateCheckBox);
-            this.integrationTabPage.Controls.Add(this.sendToCheckBox);
+            this.integrationTabPage.Controls.Add(this.chkIntegrate);
+            this.integrationTabPage.Controls.Add(this.chkAssociate);
+            this.integrationTabPage.Controls.Add(this.chkSendTo);
             this.integrationTabPage.Location = new System.Drawing.Point(4, 44);
             this.integrationTabPage.Name = "integrationTabPage";
             this.integrationTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -359,49 +385,49 @@
             this.integrationTabPage.TabIndex = 3;
             this.integrationTabPage.Text = "intgr";
             // 
-            // integrateCheckBox
+            // chkIntegrate
             // 
-            this.integrateCheckBox.AutoSize = true;
-            this.integrateCheckBox.Location = new System.Drawing.Point(7, 7);
-            this.integrateCheckBox.Name = "integrateCheckBox";
-            this.integrateCheckBox.Size = new System.Drawing.Size(227, 19);
-            this.integrateCheckBox.TabIndex = 6;
-            this.integrateCheckBox.Text = "Integrate with windows context menu";
-            this.integrateCheckBox.UseVisualStyleBackColor = true;
-            this.integrateCheckBox.Click += new System.EventHandler(this.IntegrateCheckBox_Click);
+            this.chkIntegrate.AutoSize = true;
+            this.chkIntegrate.Location = new System.Drawing.Point(7, 7);
+            this.chkIntegrate.Name = "chkIntegrate";
+            this.chkIntegrate.Size = new System.Drawing.Size(227, 19);
+            this.chkIntegrate.TabIndex = 6;
+            this.chkIntegrate.Text = "Integrate with windows context menu";
+            this.chkIntegrate.UseVisualStyleBackColor = true;
+            this.chkIntegrate.Click += new System.EventHandler(this.IntegrateCheckBox_Click);
             // 
-            // associateCheckBox
+            // chkAssociate
             // 
-            this.associateCheckBox.AutoSize = true;
-            this.associateCheckBox.Location = new System.Drawing.Point(7, 30);
-            this.associateCheckBox.Name = "associateCheckBox";
-            this.associateCheckBox.Size = new System.Drawing.Size(159, 19);
-            this.associateCheckBox.TabIndex = 0;
-            this.associateCheckBox.Text = "Associate with *.cnp files";
-            this.associateCheckBox.UseVisualStyleBackColor = true;
-            this.associateCheckBox.Click += new System.EventHandler(this.AssociateCheckBox_Click);
+            this.chkAssociate.AutoSize = true;
+            this.chkAssociate.Location = new System.Drawing.Point(7, 30);
+            this.chkAssociate.Name = "chkAssociate";
+            this.chkAssociate.Size = new System.Drawing.Size(159, 19);
+            this.chkAssociate.TabIndex = 0;
+            this.chkAssociate.Text = "Associate with *.cnp files";
+            this.chkAssociate.UseVisualStyleBackColor = true;
+            this.chkAssociate.Click += new System.EventHandler(this.AssociateCheckBox_Click);
             // 
-            // sendToCheckBox
+            // chkSendTo
             // 
-            this.sendToCheckBox.AutoSize = true;
-            this.sendToCheckBox.Location = new System.Drawing.Point(7, 53);
-            this.sendToCheckBox.Name = "sendToCheckBox";
-            this.sendToCheckBox.Size = new System.Drawing.Size(158, 19);
-            this.sendToCheckBox.TabIndex = 5;
-            this.sendToCheckBox.Text = "Show in \"Send to\" menu";
-            this.sendToCheckBox.UseVisualStyleBackColor = true;
-            this.sendToCheckBox.Click += new System.EventHandler(this.SendToCheckBox_Click);
+            this.chkSendTo.AutoSize = true;
+            this.chkSendTo.Location = new System.Drawing.Point(7, 53);
+            this.chkSendTo.Name = "chkSendTo";
+            this.chkSendTo.Size = new System.Drawing.Size(158, 19);
+            this.chkSendTo.TabIndex = 5;
+            this.chkSendTo.Text = "Show in \"Send to\" menu";
+            this.chkSendTo.UseVisualStyleBackColor = true;
+            this.chkSendTo.Click += new System.EventHandler(this.SendToCheckBox_Click);
             // 
             // encryptionTabPage
             // 
             this.encryptionTabPage.BackColor = System.Drawing.SystemColors.Window;
             this.encryptionTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.encryptionTabPage.Controls.Add(this.pwdIterationsTextBox);
-            this.encryptionTabPage.Controls.Add(this.hashComboBox);
-            this.encryptionTabPage.Controls.Add(this.pwdIterationsLabel);
-            this.encryptionTabPage.Controls.Add(this.keySizeLabel);
-            this.encryptionTabPage.Controls.Add(this.hashLabel);
-            this.encryptionTabPage.Controls.Add(this.keySizeComboBox);
+            this.encryptionTabPage.Controls.Add(this.txtPwdIterations);
+            this.encryptionTabPage.Controls.Add(this.cboHash);
+            this.encryptionTabPage.Controls.Add(this.lblPwdIterations);
+            this.encryptionTabPage.Controls.Add(this.lblKeySize);
+            this.encryptionTabPage.Controls.Add(this.lblHash);
+            this.encryptionTabPage.Controls.Add(this.cboKeySize);
             this.encryptionTabPage.Location = new System.Drawing.Point(4, 44);
             this.encryptionTabPage.Name = "encryptionTabPage";
             this.encryptionTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -409,73 +435,73 @@
             this.encryptionTabPage.TabIndex = 1;
             this.encryptionTabPage.Text = "enc";
             // 
-            // pwdIterationsTextBox
+            // txtPwdIterations
             // 
-            this.pwdIterationsTextBox.Location = new System.Drawing.Point(132, 62);
-            this.pwdIterationsTextBox.Name = "pwdIterationsTextBox";
-            this.pwdIterationsTextBox.Size = new System.Drawing.Size(100, 21);
-            this.pwdIterationsTextBox.TabIndex = 7;
-            this.pwdIterationsTextBox.Text = "1000";
-            this.pwdIterationsTextBox.TextChanged += new System.EventHandler(this.PwdIterationsTextBox_TextChanged);
-            this.pwdIterationsTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PwdIterationsTextBox_KeyPress);
+            this.txtPwdIterations.Location = new System.Drawing.Point(132, 62);
+            this.txtPwdIterations.Name = "txtPwdIterations";
+            this.txtPwdIterations.Size = new System.Drawing.Size(100, 21);
+            this.txtPwdIterations.TabIndex = 7;
+            this.txtPwdIterations.Text = "1000";
+            this.txtPwdIterations.TextChanged += new System.EventHandler(this.PwdIterationsTextBox_TextChanged);
+            this.txtPwdIterations.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PwdIterationsTextBox_KeyPress);
             // 
-            // hashComboBox
+            // cboHash
             // 
-            this.hashComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.hashComboBox.FormattingEnabled = true;
-            this.hashComboBox.Items.AddRange(new object[] {
+            this.cboHash.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboHash.FormattingEnabled = true;
+            this.cboHash.Items.AddRange(new object[] {
             "MD5",
             "SHA1",
             "SHA256",
             "SHA384",
             "SHA512"});
-            this.hashComboBox.Location = new System.Drawing.Point(132, 4);
-            this.hashComboBox.Name = "hashComboBox";
-            this.hashComboBox.Size = new System.Drawing.Size(100, 23);
-            this.hashComboBox.TabIndex = 5;
-            this.hashComboBox.DropDownClosed += new System.EventHandler(this.HashComboBox_DropDownClosed);
+            this.cboHash.Location = new System.Drawing.Point(132, 4);
+            this.cboHash.Name = "cboHash";
+            this.cboHash.Size = new System.Drawing.Size(100, 23);
+            this.cboHash.TabIndex = 5;
+            this.cboHash.DropDownClosed += new System.EventHandler(this.HashComboBox_DropDownClosed);
             // 
-            // pwdIterationsLabel
+            // lblPwdIterations
             // 
-            this.pwdIterationsLabel.AutoSize = true;
-            this.pwdIterationsLabel.BackColor = System.Drawing.Color.Transparent;
-            this.pwdIterationsLabel.Location = new System.Drawing.Point(6, 65);
-            this.pwdIterationsLabel.Name = "pwdIterationsLabel";
-            this.pwdIterationsLabel.Size = new System.Drawing.Size(114, 15);
-            this.pwdIterationsLabel.TabIndex = 6;
-            this.pwdIterationsLabel.Text = "Password iterations";
+            this.lblPwdIterations.AutoSize = true;
+            this.lblPwdIterations.BackColor = System.Drawing.Color.Transparent;
+            this.lblPwdIterations.Location = new System.Drawing.Point(6, 65);
+            this.lblPwdIterations.Name = "lblPwdIterations";
+            this.lblPwdIterations.Size = new System.Drawing.Size(114, 15);
+            this.lblPwdIterations.TabIndex = 6;
+            this.lblPwdIterations.Text = "Password iterations";
             // 
-            // keySizeLabel
+            // lblKeySize
             // 
-            this.keySizeLabel.AutoSize = true;
-            this.keySizeLabel.Location = new System.Drawing.Point(6, 36);
-            this.keySizeLabel.Name = "keySizeLabel";
-            this.keySizeLabel.Size = new System.Drawing.Size(52, 15);
-            this.keySizeLabel.TabIndex = 1;
-            this.keySizeLabel.Text = "Key size";
+            this.lblKeySize.AutoSize = true;
+            this.lblKeySize.Location = new System.Drawing.Point(6, 36);
+            this.lblKeySize.Name = "lblKeySize";
+            this.lblKeySize.Size = new System.Drawing.Size(52, 15);
+            this.lblKeySize.TabIndex = 1;
+            this.lblKeySize.Text = "Key size";
             // 
-            // hashLabel
+            // lblHash
             // 
-            this.hashLabel.AutoSize = true;
-            this.hashLabel.Location = new System.Drawing.Point(6, 7);
-            this.hashLabel.Name = "hashLabel";
-            this.hashLabel.Size = new System.Drawing.Size(94, 15);
-            this.hashLabel.TabIndex = 0;
-            this.hashLabel.Text = "Hash algorithm ";
+            this.lblHash.AutoSize = true;
+            this.lblHash.Location = new System.Drawing.Point(6, 7);
+            this.lblHash.Name = "lblHash";
+            this.lblHash.Size = new System.Drawing.Size(94, 15);
+            this.lblHash.TabIndex = 0;
+            this.lblHash.Text = "Hash algorithm ";
             // 
-            // keySizeComboBox
+            // cboKeySize
             // 
-            this.keySizeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.keySizeComboBox.FormattingEnabled = true;
-            this.keySizeComboBox.Items.AddRange(new object[] {
+            this.cboKeySize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboKeySize.FormattingEnabled = true;
+            this.cboKeySize.Items.AddRange(new object[] {
             "128",
             "192",
             "256"});
-            this.keySizeComboBox.Location = new System.Drawing.Point(132, 33);
-            this.keySizeComboBox.Name = "keySizeComboBox";
-            this.keySizeComboBox.Size = new System.Drawing.Size(100, 23);
-            this.keySizeComboBox.TabIndex = 3;
-            this.keySizeComboBox.DropDownClosed += new System.EventHandler(this.KeySizeComboBox_DropDownClosed);
+            this.cboKeySize.Location = new System.Drawing.Point(132, 33);
+            this.cboKeySize.Name = "cboKeySize";
+            this.cboKeySize.Size = new System.Drawing.Size(100, 23);
+            this.cboKeySize.TabIndex = 3;
+            this.cboKeySize.DropDownClosed += new System.EventHandler(this.KeySizeComboBox_DropDownClosed);
             // 
             // lineNumbersTabPage
             // 
@@ -1040,12 +1066,12 @@
             this.searchBackColorLabel.Text = "Background color";
             this.searchBackColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // settingsNav
+            // lstSettingsNav
             // 
-            this.settingsNav.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.settingsNav.FormattingEnabled = true;
-            this.settingsNav.ItemHeight = 16;
-            this.settingsNav.Items.AddRange(new object[] {
+            this.lstSettingsNav.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lstSettingsNav.FormattingEnabled = true;
+            this.lstSettingsNav.ItemHeight = 16;
+            this.lstSettingsNav.Items.AddRange(new object[] {
             "Editor",
             "Line Numbers",
             "Status Panel",
@@ -1054,11 +1080,11 @@
             "Search Panel",
             "Integration",
             "Encryption"});
-            this.settingsNav.Location = new System.Drawing.Point(3, 3);
-            this.settingsNav.Name = "settingsNav";
-            this.settingsNav.Size = new System.Drawing.Size(102, 292);
-            this.settingsNav.TabIndex = 6;
-            this.settingsNav.Click += new System.EventHandler(this.SettingsNav_Click);
+            this.lstSettingsNav.Location = new System.Drawing.Point(3, 3);
+            this.lstSettingsNav.Name = "lstSettingsNav";
+            this.lstSettingsNav.Size = new System.Drawing.Size(102, 292);
+            this.lstSettingsNav.TabIndex = 6;
+            this.lstSettingsNav.Click += new System.EventHandler(this.LstSettingsNav_Click);
             // 
             // fontDialog
             // 
@@ -1080,7 +1106,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(356, 299);
             this.Controls.Add(this.settingsTabControl);
-            this.Controls.Add(this.settingsNav);
+            this.Controls.Add(this.lstSettingsNav);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -1120,28 +1146,28 @@
 
         #endregion
 
-        private System.Windows.Forms.Label editorFontColorLabel;
+        private System.Windows.Forms.Label lblEditorFontColor;
         private System.Windows.Forms.TabControl settingsTabControl;
         private System.Windows.Forms.TabPage editorTabPage;
         private System.Windows.Forms.TabPage encryptionTabPage;
         private System.Windows.Forms.TabPage applicationTabPage;
-        private System.Windows.Forms.CheckBox associateCheckBox;
-        private System.Windows.Forms.CheckBox updatesCheckBox;
-        private System.Windows.Forms.Panel editorFontColor;
-        private System.Windows.Forms.Panel editorBGColor;
-        private System.Windows.Forms.Label editorBGColorLabel;
+        private System.Windows.Forms.CheckBox chkAssociate;
+        private System.Windows.Forms.CheckBox chkUpdates;
+        private System.Windows.Forms.Panel pnlEditorFontColor;
+        private System.Windows.Forms.Panel pnlEditorBackColor;
+        private System.Windows.Forms.Label lblEditorBackColor;
         private System.Windows.Forms.ColorDialog colorDialog;
-        private System.Windows.Forms.ComboBox keySizeComboBox;
-        private System.Windows.Forms.Label keySizeLabel;
-        private System.Windows.Forms.Label hashLabel;
-        private System.Windows.Forms.ComboBox hashComboBox;
-        private System.Windows.Forms.TextBox pwdIterationsTextBox;
-        private System.Windows.Forms.Label pwdIterationsLabel;
+        private System.Windows.Forms.ComboBox cboKeySize;
+        private System.Windows.Forms.Label lblKeySize;
+        private System.Windows.Forms.Label lblHash;
+        private System.Windows.Forms.ComboBox cboHash;
+        private System.Windows.Forms.TextBox txtPwdIterations;
+        private System.Windows.Forms.Label lblPwdIterations;
         private System.Windows.Forms.CheckBox toolbarVisible;
-        private System.Windows.Forms.CheckBox autoLockCheckBox;
-        private System.Windows.Forms.CheckBox sendToCheckBox;
-        private System.Windows.Forms.CheckBox integrateCheckBox;
-        private System.Windows.Forms.CheckBox menuIconsCheckBox;
+        private System.Windows.Forms.CheckBox chkAutoLock;
+        private System.Windows.Forms.CheckBox chkSendTo;
+        private System.Windows.Forms.CheckBox chkIntegrate;
+        private System.Windows.Forms.CheckBox chkMenuIcons;
         private System.Windows.Forms.TabPage integrationTabPage;
         private System.Windows.Forms.Label LNFontColorLabel;
         private System.Windows.Forms.Label LNBackgroundColor;
@@ -1161,13 +1187,13 @@
         private System.Windows.Forms.Label GLColorLabel;
         private System.Windows.Forms.ComboBox GLShowComboBox;
         private System.Windows.Forms.Label GLShowLabel;
-        private System.Windows.Forms.ComboBox insKeyComboBox;
-        private System.Windows.Forms.Label insKeyLabel;
-        private System.Windows.Forms.TextBox paddingLeftTextBox;
-        private System.Windows.Forms.Label paddingLeftLabel;
-        private System.Windows.Forms.ListBox settingsNav;
+        private System.Windows.Forms.ComboBox cbxInsKey;
+        private System.Windows.Forms.Label lblInsKey;
+        private System.Windows.Forms.TextBox txtPaddingLeft;
+        private System.Windows.Forms.Label lblPaddingLeft;
+        private System.Windows.Forms.ListBox lstSettingsNav;
         private System.Windows.Forms.TabPage lineNumbersTabPage;
-        private System.Windows.Forms.Button FontButton;
+        private System.Windows.Forms.Button btnFont;
         private System.Windows.Forms.FontDialog fontDialog;
         private System.Windows.Forms.TabPage statusPanelTabPage;
         private System.Windows.Forms.TabPage toolbarTabPage;
@@ -1184,9 +1210,9 @@
         private System.Windows.Forms.Panel toolbarBackColor;
         private System.Windows.Forms.Label toolbarBackColorLabel;
         private System.Windows.Forms.CheckBox toolbarBorder;
-        private System.Windows.Forms.ComboBox linksComboBox;
-        private System.Windows.Forms.Label linksLabel;
-        private System.Windows.Forms.CheckBox mainMenuCheckBox;
+        private System.Windows.Forms.ComboBox cbxOpenLinks;
+        private System.Windows.Forms.Label lblOpenLinks;
+        private System.Windows.Forms.CheckBox chkMainMenu;
         private System.Windows.Forms.CheckBox toolbarOldIcons;
         private System.Windows.Forms.Label MLShowLabel;
         private System.Windows.Forms.GroupBox MLGroupBox;
@@ -1200,5 +1226,7 @@
         private System.Windows.Forms.GroupBox LNGroupBox;
         private System.Windows.Forms.GroupBox GLGroupBox;
         private System.Windows.Forms.GroupBox BLGroupBox;
+        private System.Windows.Forms.CheckBox chkCloseToTray;
+        private System.Windows.Forms.CheckBox chkMinimizeToTray;
     }
 }

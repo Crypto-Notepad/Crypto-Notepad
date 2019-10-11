@@ -7,7 +7,6 @@ namespace Crypto_Notepad
     {
         public EnterKeyForm()
         {
-            // Initialize to false in case user presses the exit button
             PublicVar.okPressed = false;
             InitializeComponent();
         }
@@ -16,58 +15,65 @@ namespace Crypto_Notepad
         private void EnterKeyForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             MainForm main = Owner as MainForm;
-            keyTextBox.Focus();
             if (main.Visible == false)
             {
-                Application.Exit();
+                Environment.Exit(0);
             }
+            txtKey.Focus();
         }
 
         private void EnterKeyForm_Load(object sender, EventArgs e)
         {
-            fileNameLabel.Text = PublicVar.openFileName;
+            lblFileName.Text = PublicVar.openFileName;
+            Properties.Settings settings = Properties.Settings.Default;
+            TopMost = settings.alwaysOnTop;
+        }
+
+        private void EnterKeyForm_Shown(object sender, EventArgs e)
+        {
+            lblFileName.Text = PublicVar.openFileName;
         }
         /*Form Events*/
 
 
         /*Enter key area*/
-        private void KeyTextBox_TextChanged(object sender, EventArgs e)
+        private void TxtKey_TextChanged(object sender, EventArgs e)
         {
-            if (keyTextBox.Text.Length > 0)
-                okButton.Enabled = true;
+            if (txtKey.Text.Length > 0)
+                btnOk.Enabled = true;
             else
-                okButton.Enabled = false;
+                btnOk.Enabled = false;
         }
 
-        private void KeyTextBox_KeyDown(object sender, KeyEventArgs e)
+        private void TxtKey_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && okButton.Enabled)
+            if (e.KeyCode == Keys.Enter && btnOk.Enabled)
             {
-                OkButton_Click(sender, e);
+                BtnOk_Click(sender, e);
             }
         }
 
         private void KeyEyeIcon_Click(object sender, EventArgs e)
         {
-            if (keyTextBox.UseSystemPasswordChar)
+            if (txtKey.UseSystemPasswordChar)
             {
-                keyTextBox.UseSystemPasswordChar = false;
-                keyEyeIcon.Image = Properties.Resources.eye;
+                txtKey.UseSystemPasswordChar = false;
+                picShowKey.Image = Properties.Resources.eye;
             }
             else
             {
-                keyTextBox.UseSystemPasswordChar = true;
-                keyEyeIcon.Image = Properties.Resources.eye_half;
+                txtKey.UseSystemPasswordChar = true;
+                picShowKey.Image = Properties.Resources.eye_half;
             }
         }
         /*Enter key area*/
 
 
         /*Buttons*/
-        private void OkButton_Click(object sender, EventArgs e)
+        private void BtnOk_Click(object sender, EventArgs e)
         {
-            TypedPassword.Value = keyTextBox.Text;
-            keyTextBox.Focus();
+            TypedPassword.Value = txtKey.Text;
+            txtKey.Focus();
             PublicVar.okPressed = true;
             Hide();
         }

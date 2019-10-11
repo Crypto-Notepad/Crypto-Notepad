@@ -13,39 +13,39 @@ namespace Crypto_Notepad
         }
 
         /*Buttons*/
-        private async void AcceptButton_Click(object sender, EventArgs e)
+        private async void BtnAccept_Click(object sender, EventArgs e)
         {
-            if (oldKeyTextBox.Text == PublicVar.encryptionKey.Get() && oldKeyTextBox.Text != newKeyTextBox.Text)
+            if (txtOldKey.Text == PublicVar.encryptionKey.Get() && txtOldKey.Text != txtNewKey.Text)
             {
-                PublicVar.encryptionKey.Set(newKeyTextBox.Text);
+                PublicVar.encryptionKey.Set(txtNewKey.Text);
                 PublicVar.keyChanged = true;
-                oldKeyTextBox.Text = "";
-                newKeyTextBox.Text = "";
-                statusLabel.Text = "Key was successfully changed";
-                statusLabel.Visible = true;
-                acceptButton.Enabled = false;
+                txtOldKey.Text = "";
+                txtNewKey.Text = "";
+                lblStatus.Text = "Key was successfully changed";
+                lblStatus.Visible = true;
+                btnAccept.Enabled = false;
                 await Task.Delay(2000);
-                statusLabel.Text = "";
+                lblStatus.Text = "";
                 return;
             }
 
-            if (oldKeyTextBox.Text != PublicVar.encryptionKey.Get())
+            if (txtOldKey.Text != PublicVar.encryptionKey.Get())
             {
                 SystemSounds.Beep.Play();
-                statusLabel.Text = "Invalid old key";
-                statusLabel.Visible = true;
-                oldKeyTextBox.Text = "";
-                newKeyTextBox.Text = "";
+                lblStatus.Text = "Invalid old key";
+                lblStatus.Visible = true;
+                txtOldKey.Text = "";
+                txtNewKey.Text = "";
                 return;
             }
 
-            if (oldKeyTextBox.Text == newKeyTextBox.Text)
+            if (txtOldKey.Text == txtNewKey.Text)
             {
                 SystemSounds.Beep.Play();
-                statusLabel.Text = "New key is the same as old";
-                statusLabel.Visible = true;
-                oldKeyTextBox.Text = "";
-                newKeyTextBox.Text = "";
+                lblStatus.Text = "New key is the same as old";
+                lblStatus.Visible = true;
+                txtOldKey.Text = "";
+                txtNewKey.Text = "";
                 return;
             }
         }
@@ -53,55 +53,55 @@ namespace Crypto_Notepad
 
 
         /*Enter keys area*/
-        private void OldKeyEyeIcon_Click(object sender, EventArgs e)
+        private void PicOldKeyEyeIcon_Click(object sender, EventArgs e)
         {
-            if (oldKeyTextBox.UseSystemPasswordChar)
+            if (txtOldKey.UseSystemPasswordChar)
             {
-                oldKeyTextBox.UseSystemPasswordChar = false;
-                oldKeyEyeIcon.Image = Properties.Resources.eye;
+                txtOldKey.UseSystemPasswordChar = false;
+                picOldKey.Image = Properties.Resources.eye;
             }
             else
             {
-                oldKeyTextBox.UseSystemPasswordChar = true;
-                oldKeyEyeIcon.Image = Properties.Resources.eye_half;
+                txtOldKey.UseSystemPasswordChar = true;
+                picOldKey.Image = Properties.Resources.eye_half;
             }
         }
 
-        private void NewKeyEyeIcon_Click(object sender, EventArgs e)
+        private void PicNewKeyEyeIcon_Click(object sender, EventArgs e)
         {
-            if (newKeyTextBox.UseSystemPasswordChar)
+            if (txtNewKey.UseSystemPasswordChar)
             {
-                newKeyTextBox.UseSystemPasswordChar = false;
-                newKeyEyeIcon.Image = Properties.Resources.eye;
+                txtNewKey.UseSystemPasswordChar = false;
+                picNewKey.Image = Properties.Resources.eye;
             }
             else
             {
-                newKeyTextBox.UseSystemPasswordChar = true;
-                newKeyEyeIcon.Image = Properties.Resources.eye_half;
+                txtNewKey.UseSystemPasswordChar = true;
+                picNewKey.Image = Properties.Resources.eye_half;
             }
         }
 
-        private void OldKeyTextBox_TextChanged(object sender, EventArgs e)
+        private void TxtOldKey_TextChanged(object sender, EventArgs e)
         {
-            if (oldKeyTextBox.Text.Length > 0 && newKeyTextBox.Text.Length > 0)
+            if (txtOldKey.Text.Length > 0 && txtNewKey.Text.Length > 0)
             {
-                acceptButton.Enabled = true;
+                btnAccept.Enabled = true;
             }
             else
             {
-                acceptButton.Enabled = false;
+                btnAccept.Enabled = false;
             }
         }
 
-        private void NewKeyTextBox_TextChanged(object sender, EventArgs e)
+        private void TxtNewKey_TextChanged(object sender, EventArgs e)
         {
-            if (newKeyTextBox.Text.Length > 0 && oldKeyTextBox.Text.Length > 0)
+            if (txtNewKey.Text.Length > 0 && txtOldKey.Text.Length > 0)
             {
-                acceptButton.Enabled = true;
+                btnAccept.Enabled = true;
             }
             else
             {
-                acceptButton.Enabled = false;
+                btnAccept.Enabled = false;
             }
         }
         /*Enter keys area*/
