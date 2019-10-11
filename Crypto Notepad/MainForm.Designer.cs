@@ -1,4 +1,4 @@
-namespace Crypto_Notepad
+﻿namespace Crypto_Notepad
 {
     partial class MainForm
     {
@@ -110,6 +110,17 @@ namespace Crypto_Notepad
             this.linesStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.lnStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.colStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.mnuTray = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlEnterKey = new System.Windows.Forms.Panel();
+            this.btnCloseEnterKey = new System.Windows.Forms.Button();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.txtKey = new System.Windows.Forms.TextBox();
+            this.picShowKey = new System.Windows.Forms.PictureBox();
+            this.lblFileName = new System.Windows.Forms.Label();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.richTextBox = new Crypto_Notepad.ExRichTextBox();
             this.RTBLineNumbers = new LineNumbers.LineNumbers();
             this.mainMenu.SuspendLayout();
@@ -131,6 +142,9 @@ namespace Crypto_Notepad
             ((System.ComponentModel.ISupportInitialize)(this.settingsToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alwaysOnTopToolbarButton)).BeginInit();
             this.statusPanel.SuspendLayout();
+            this.mnuTray.SuspendLayout();
+            this.pnlEnterKey.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picShowKey)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenu
@@ -146,7 +160,7 @@ namespace Crypto_Notepad
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
             this.mainMenu.Padding = new System.Windows.Forms.Padding(0);
-            this.mainMenu.Size = new System.Drawing.Size(598, 24);
+            this.mainMenu.Size = new System.Drawing.Size(484, 24);
             this.mainMenu.TabIndex = 0;
             this.mainMenu.Text = "menuStrip1";
             // 
@@ -599,11 +613,10 @@ namespace Crypto_Notepad
             // searchPanel
             // 
             this.searchPanel.BackColor = System.Drawing.Color.White;
-            this.searchPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.searchPanel.ColumnCount = 5;
             this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
             this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.searchPanel.Controls.Add(this.findNextButton, 3, 0);
@@ -613,11 +626,11 @@ namespace Crypto_Notepad
             this.searchPanel.Controls.Add(this.closeSearchPanel, 4, 0);
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.searchPanel.ForeColor = System.Drawing.Color.Black;
-            this.searchPanel.Location = new System.Drawing.Point(0, 335);
+            this.searchPanel.Location = new System.Drawing.Point(0, 211);
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.RowCount = 1;
             this.searchPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.searchPanel.Size = new System.Drawing.Size(598, 28);
+            this.searchPanel.Size = new System.Drawing.Size(484, 28);
             this.searchPanel.TabIndex = 17;
             this.searchPanel.Visible = false;
             // 
@@ -632,9 +645,9 @@ namespace Crypto_Notepad
             this.findNextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.findNextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.findNextButton.ForeColor = System.Drawing.Color.Black;
-            this.findNextButton.Location = new System.Drawing.Point(507, 4);
+            this.findNextButton.Location = new System.Drawing.Point(395, 3);
             this.findNextButton.Name = "findNextButton";
-            this.findNextButton.Size = new System.Drawing.Size(64, 20);
+            this.findNextButton.Size = new System.Drawing.Size(64, 22);
             this.findNextButton.TabIndex = 15;
             this.findNextButton.TabStop = false;
             this.findNextButton.Text = "Find Next";
@@ -648,9 +661,9 @@ namespace Crypto_Notepad
             this.searchTextBox.BackColor = System.Drawing.SystemColors.Control;
             this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchTextBox.ForeColor = System.Drawing.Color.Black;
-            this.searchTextBox.Location = new System.Drawing.Point(4, 7);
+            this.searchTextBox.Location = new System.Drawing.Point(3, 7);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(294, 13);
+            this.searchTextBox.Size = new System.Drawing.Size(196, 13);
             this.searchTextBox.TabIndex = 9;
             this.searchTextBox.TabStop = false;
             this.searchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
@@ -663,9 +676,9 @@ namespace Crypto_Notepad
             this.wholeWordCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wholeWordCheckBox.ForeColor = System.Drawing.Color.Black;
             this.wholeWordCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.wholeWordCheckBox.Location = new System.Drawing.Point(406, 4);
+            this.wholeWordCheckBox.Location = new System.Drawing.Point(305, 3);
             this.wholeWordCheckBox.Name = "wholeWordCheckBox";
-            this.wholeWordCheckBox.Size = new System.Drawing.Size(94, 20);
+            this.wholeWordCheckBox.Size = new System.Drawing.Size(84, 22);
             this.wholeWordCheckBox.TabIndex = 12;
             this.wholeWordCheckBox.Text = "Whole word";
             this.wholeWordCheckBox.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -679,9 +692,9 @@ namespace Crypto_Notepad
             this.caseSensitiveCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.caseSensitiveCheckBox.ForeColor = System.Drawing.Color.Black;
             this.caseSensitiveCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.caseSensitiveCheckBox.Location = new System.Drawing.Point(305, 4);
+            this.caseSensitiveCheckBox.Location = new System.Drawing.Point(205, 3);
             this.caseSensitiveCheckBox.Name = "caseSensitiveCheckBox";
-            this.caseSensitiveCheckBox.Size = new System.Drawing.Size(94, 20);
+            this.caseSensitiveCheckBox.Size = new System.Drawing.Size(94, 22);
             this.caseSensitiveCheckBox.TabIndex = 11;
             this.caseSensitiveCheckBox.Text = "Case sensitive";
             this.caseSensitiveCheckBox.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -694,7 +707,7 @@ namespace Crypto_Notepad
             this.closeSearchPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.closeSearchPanel.Image = ((System.Drawing.Image)(resources.GetObject("closeSearchPanel.Image")));
             this.closeSearchPanel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.closeSearchPanel.Location = new System.Drawing.Point(578, 4);
+            this.closeSearchPanel.Location = new System.Drawing.Point(465, 3);
             this.closeSearchPanel.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.closeSearchPanel.Name = "closeSearchPanel";
             this.closeSearchPanel.Size = new System.Drawing.Size(15, 20);
@@ -708,7 +721,8 @@ namespace Crypto_Notepad
             // toolbarPanel
             // 
             this.toolbarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.toolbarPanel.ColumnCount = 13;
+            this.toolbarPanel.ColumnCount = 14;
+            this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
@@ -721,7 +735,7 @@ namespace Crypto_Notepad
             this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.toolbarPanel.Controls.Add(this.lockToolbarButton, 9, 0);
             this.toolbarPanel.Controls.Add(this.newToolbarButton, 0, 0);
             this.toolbarPanel.Controls.Add(this.changeKeyToolbarButton, 8, 0);
@@ -732,8 +746,8 @@ namespace Crypto_Notepad
             this.toolbarPanel.Controls.Add(this.fileLocationToolbarButton, 3, 0);
             this.toolbarPanel.Controls.Add(this.cutToolbarButton, 5, 0);
             this.toolbarPanel.Controls.Add(this.deleteFileToolbarButton, 4, 0);
-            this.toolbarPanel.Controls.Add(this.closeToolbarButton, 12, 0);
-            this.toolbarPanel.Controls.Add(this.settingsToolbarButton, 10, 0);
+            this.toolbarPanel.Controls.Add(this.closeToolbarButton, 13, 0);
+            this.toolbarPanel.Controls.Add(this.settingsToolbarButton, 11, 0);
             this.toolbarPanel.Controls.Add(this.alwaysOnTopToolbarButton, 10, 0);
             this.toolbarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.toolbarPanel.ForeColor = System.Drawing.SystemColors.Control;
@@ -741,8 +755,9 @@ namespace Crypto_Notepad
             this.toolbarPanel.Name = "toolbarPanel";
             this.toolbarPanel.RowCount = 1;
             this.toolbarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.toolbarPanel.Size = new System.Drawing.Size(598, 25);
+            this.toolbarPanel.Size = new System.Drawing.Size(484, 24);
             this.toolbarPanel.TabIndex = 17;
+            this.toolbarPanel.MouseEnter += new System.EventHandler(this.ToolbarPanel_MouseEnter);
             // 
             // lockToolbarButton
             // 
@@ -755,6 +770,7 @@ namespace Crypto_Notepad
             this.lockToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.lockToolbarButton.TabIndex = 15;
             this.lockToolbarButton.TabStop = false;
+            this.toolTip.SetToolTip(this.lockToolbarButton, "Lock");
             this.lockToolbarButton.Click += new System.EventHandler(this.LockToolbarButton_Click);
             // 
             // newToolbarButton
@@ -768,6 +784,7 @@ namespace Crypto_Notepad
             this.newToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.newToolbarButton.TabIndex = 15;
             this.newToolbarButton.TabStop = false;
+            this.toolTip.SetToolTip(this.newToolbarButton, "New");
             this.newToolbarButton.Click += new System.EventHandler(this.NewToolbarButton_Click);
             // 
             // changeKeyToolbarButton
@@ -781,6 +798,7 @@ namespace Crypto_Notepad
             this.changeKeyToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.changeKeyToolbarButton.TabIndex = 15;
             this.changeKeyToolbarButton.TabStop = false;
+            this.toolTip.SetToolTip(this.changeKeyToolbarButton, "Change key");
             this.changeKeyToolbarButton.Click += new System.EventHandler(this.ChangeKeyToolbarButton_Click);
             // 
             // openToolbarButton
@@ -794,6 +812,7 @@ namespace Crypto_Notepad
             this.openToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.openToolbarButton.TabIndex = 15;
             this.openToolbarButton.TabStop = false;
+            this.toolTip.SetToolTip(this.openToolbarButton, "Open");
             this.openToolbarButton.Click += new System.EventHandler(this.OpenToolbarButton_Click);
             // 
             // pasteToolbarButton
@@ -807,6 +826,7 @@ namespace Crypto_Notepad
             this.pasteToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pasteToolbarButton.TabIndex = 15;
             this.pasteToolbarButton.TabStop = false;
+            this.toolTip.SetToolTip(this.pasteToolbarButton, "Paste");
             this.pasteToolbarButton.Click += new System.EventHandler(this.PasteToolbarButton_Click);
             // 
             // saveToolbarButton
@@ -820,6 +840,7 @@ namespace Crypto_Notepad
             this.saveToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.saveToolbarButton.TabIndex = 15;
             this.saveToolbarButton.TabStop = false;
+            this.toolTip.SetToolTip(this.saveToolbarButton, "Save");
             this.saveToolbarButton.Click += new System.EventHandler(this.SaveToolbarButton_Click);
             // 
             // copyToolbarButton
@@ -833,6 +854,7 @@ namespace Crypto_Notepad
             this.copyToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.copyToolbarButton.TabIndex = 15;
             this.copyToolbarButton.TabStop = false;
+            this.toolTip.SetToolTip(this.copyToolbarButton, "Copy");
             this.copyToolbarButton.Click += new System.EventHandler(this.CopyToolbarButton_Click);
             // 
             // fileLocationToolbarButton
@@ -846,6 +868,7 @@ namespace Crypto_Notepad
             this.fileLocationToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.fileLocationToolbarButton.TabIndex = 15;
             this.fileLocationToolbarButton.TabStop = false;
+            this.toolTip.SetToolTip(this.fileLocationToolbarButton, "Open file folder");
             this.fileLocationToolbarButton.Click += new System.EventHandler(this.FileLocationToolbarButton_Click);
             // 
             // cutToolbarButton
@@ -859,6 +882,7 @@ namespace Crypto_Notepad
             this.cutToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.cutToolbarButton.TabIndex = 15;
             this.cutToolbarButton.TabStop = false;
+            this.toolTip.SetToolTip(this.cutToolbarButton, "Cut");
             this.cutToolbarButton.Click += new System.EventHandler(this.CutToolbarButton_Click);
             // 
             // deleteFileToolbarButton
@@ -872,21 +896,22 @@ namespace Crypto_Notepad
             this.deleteFileToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.deleteFileToolbarButton.TabIndex = 15;
             this.deleteFileToolbarButton.TabStop = false;
+            this.toolTip.SetToolTip(this.deleteFileToolbarButton, "Delete file");
             this.deleteFileToolbarButton.Click += new System.EventHandler(this.DeleteFileToolbarButton_Click);
             // 
             // closeToolbarButton
             // 
             this.closeToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.closeToolbarButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.closeToolbarButton.Image = global::Crypto_Notepad.Properties.Resources.close_g;
             this.closeToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.closeToolbarButton.Location = new System.Drawing.Point(581, 3);
+            this.closeToolbarButton.Location = new System.Drawing.Point(463, 3);
             this.closeToolbarButton.Margin = new System.Windows.Forms.Padding(3, 3, 2, 3);
             this.closeToolbarButton.Name = "closeToolbarButton";
-            this.closeToolbarButton.Size = new System.Drawing.Size(15, 19);
+            this.closeToolbarButton.Size = new System.Drawing.Size(15, 18);
             this.closeToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.closeToolbarButton.TabIndex = 14;
             this.closeToolbarButton.TabStop = false;
+            this.closeToolbarButton.Visible = false;
             this.closeToolbarButton.Click += new System.EventHandler(this.CloseToolbarButton_Click);
             this.closeToolbarButton.MouseEnter += new System.EventHandler(this.CloseToolbarButton_MouseEnter);
             this.closeToolbarButton.MouseLeave += new System.EventHandler(this.CloseToolbarButton_MouseLeave);
@@ -896,12 +921,13 @@ namespace Crypto_Notepad
             this.settingsToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.settingsToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("settingsToolbarButton.Image")));
             this.settingsToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.settingsToolbarButton.Location = new System.Drawing.Point(243, 3);
+            this.settingsToolbarButton.Location = new System.Drawing.Point(267, 3);
             this.settingsToolbarButton.Name = "settingsToolbarButton";
             this.settingsToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.settingsToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.settingsToolbarButton.TabIndex = 15;
             this.settingsToolbarButton.TabStop = false;
+            this.toolTip.SetToolTip(this.settingsToolbarButton, "Settings");
             this.settingsToolbarButton.Click += new System.EventHandler(this.SettingsToolbarButton_Click);
             // 
             // alwaysOnTopToolbarButton
@@ -929,9 +955,9 @@ namespace Crypto_Notepad
             this.linesStatusLabel,
             this.lnStatusLabel,
             this.colStatusLabel});
-            this.statusPanel.Location = new System.Drawing.Point(0, 363);
+            this.statusPanel.Location = new System.Drawing.Point(0, 239);
             this.statusPanel.Name = "statusPanel";
-            this.statusPanel.Size = new System.Drawing.Size(598, 22);
+            this.statusPanel.Size = new System.Drawing.Size(484, 22);
             this.statusPanel.TabIndex = 18;
             // 
             // statusLabel
@@ -986,6 +1012,119 @@ namespace Crypto_Notepad
             this.colStatusLabel.Size = new System.Drawing.Size(36, 17);
             this.colStatusLabel.Text = "Col: 0";
             // 
+            // trayIcon
+            // 
+            this.trayIcon.ContextMenuStrip = this.mnuTray;
+            this.trayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("trayIcon.Icon")));
+            this.trayIcon.Text = "Crypto Notepad";
+            this.trayIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.TrayIcon_MouseDoubleClick);
+            // 
+            // mnuTray
+            // 
+            this.mnuTray.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.mnuTray.Name = "mnuTray";
+            this.mnuTray.Size = new System.Drawing.Size(181, 70);
+            // 
+            // showToolStripMenuItem
+            // 
+            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showToolStripMenuItem.Text = "Show";
+            this.showToolStripMenuItem.Click += new System.EventHandler(this.ShowToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            // 
+            // pnlEnterKey
+            // 
+            this.pnlEnterKey.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlEnterKey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.pnlEnterKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlEnterKey.Controls.Add(this.btnCloseEnterKey);
+            this.pnlEnterKey.Controls.Add(this.btnOk);
+            this.pnlEnterKey.Controls.Add(this.txtKey);
+            this.pnlEnterKey.Controls.Add(this.picShowKey);
+            this.pnlEnterKey.Controls.Add(this.lblFileName);
+            this.pnlEnterKey.ForeColor = System.Drawing.Color.Azure;
+            this.pnlEnterKey.Location = new System.Drawing.Point(103, 84);
+            this.pnlEnterKey.Name = "pnlEnterKey";
+            this.pnlEnterKey.Size = new System.Drawing.Size(267, 95);
+            this.pnlEnterKey.TabIndex = 20;
+            this.pnlEnterKey.Visible = false;
+            this.pnlEnterKey.VisibleChanged += new System.EventHandler(this.PnlEnterKey_VisibleChanged);
+            // 
+            // btnCloseEnterKey
+            // 
+            this.btnCloseEnterKey.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCloseEnterKey.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.btnCloseEnterKey.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.btnCloseEnterKey.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.btnCloseEnterKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseEnterKey.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCloseEnterKey.ForeColor = System.Drawing.Color.DimGray;
+            this.btnCloseEnterKey.Location = new System.Drawing.Point(243, 0);
+            this.btnCloseEnterKey.Name = "btnCloseEnterKey";
+            this.btnCloseEnterKey.Size = new System.Drawing.Size(23, 23);
+            this.btnCloseEnterKey.TabIndex = 11;
+            this.btnCloseEnterKey.Text = "X";
+            this.btnCloseEnterKey.UseVisualStyleBackColor = true;
+            this.btnCloseEnterKey.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BtnCloseEnterKey_MouseClick);
+            this.btnCloseEnterKey.MouseEnter += new System.EventHandler(this.BtnCloseEnterKey_MouseEnter);
+            this.btnCloseEnterKey.MouseLeave += new System.EventHandler(this.BtnCloseEnterKey_MouseLeave);
+            // 
+            // btnOk
+            // 
+            this.btnOk.Enabled = false;
+            this.btnOk.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnOk.Location = new System.Drawing.Point(6, 60);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(75, 23);
+            this.btnOk.TabIndex = 10;
+            this.btnOk.Text = "OK";
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.BtnOk_Click);
+            // 
+            // txtKey
+            // 
+            this.txtKey.Location = new System.Drawing.Point(6, 34);
+            this.txtKey.Name = "txtKey";
+            this.txtKey.Size = new System.Drawing.Size(231, 20);
+            this.txtKey.TabIndex = 8;
+            this.txtKey.UseSystemPasswordChar = true;
+            this.txtKey.TextChanged += new System.EventHandler(this.TxtKey_TextChanged);
+            this.txtKey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtKey_KeyDown);
+            // 
+            // picShowKey
+            // 
+            this.picShowKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picShowKey.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picShowKey.Image = global::Crypto_Notepad.Properties.Resources.eye_half;
+            this.picShowKey.InitialImage = global::Crypto_Notepad.Properties.Resources.eye_half;
+            this.picShowKey.Location = new System.Drawing.Point(243, 34);
+            this.picShowKey.Name = "picShowKey";
+            this.picShowKey.Size = new System.Drawing.Size(18, 20);
+            this.picShowKey.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picShowKey.TabIndex = 9;
+            this.picShowKey.TabStop = false;
+            this.picShowKey.Click += new System.EventHandler(this.PicShowKey_Click);
+            // 
+            // lblFileName
+            // 
+            this.lblFileName.AutoEllipsis = true;
+            this.lblFileName.AutoSize = true;
+            this.lblFileName.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblFileName.Location = new System.Drawing.Point(2, 2);
+            this.lblFileName.Name = "lblFileName";
+            this.lblFileName.Size = new System.Drawing.Size(71, 17);
+            this.lblFileName.TabIndex = 7;
+            this.lblFileName.Text = "File locked";
+            // 
             // richTextBox
             // 
             this.richTextBox.AcceptsTab = true;
@@ -995,9 +1134,9 @@ namespace Crypto_Notepad
             this.richTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.richTextBox.ForeColor = System.Drawing.Color.Black;
-            this.richTextBox.Location = new System.Drawing.Point(22, 49);
+            this.richTextBox.Location = new System.Drawing.Point(22, 48);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(576, 286);
+            this.richTextBox.Size = new System.Drawing.Size(462, 163);
             this.richTextBox.TabIndex = 16;
             this.richTextBox.Text = "";
             this.richTextBox.CursorPositionChanged += new System.EventHandler(this.RichTextBox_CursorPositionChanged);
@@ -1031,7 +1170,7 @@ namespace Crypto_Notepad
             this.RTBLineNumbers.LineNrs_ClippedByItemRectangle = true;
             this.RTBLineNumbers.LineNrs_LeadingZeroes = false;
             this.RTBLineNumbers.LineNrs_Offset = new System.Drawing.Size(0, 0);
-            this.RTBLineNumbers.Location = new System.Drawing.Point(0, 49);
+            this.RTBLineNumbers.Location = new System.Drawing.Point(0, 48);
             this.RTBLineNumbers.Margin = new System.Windows.Forms.Padding(0);
             this.RTBLineNumbers.MarginLines_Color = System.Drawing.Color.DarkGray;
             this.RTBLineNumbers.MarginLines_Side = LineNumbers.LineNumbers.LineNumberDockSide.None;
@@ -1045,7 +1184,7 @@ namespace Crypto_Notepad
             this.RTBLineNumbers.Show_GridLines = false;
             this.RTBLineNumbers.Show_LineNrs = true;
             this.RTBLineNumbers.Show_MarginLines = false;
-            this.RTBLineNumbers.Size = new System.Drawing.Size(22, 286);
+            this.RTBLineNumbers.Size = new System.Drawing.Size(22, 163);
             this.RTBLineNumbers.TabIndex = 19;
             // 
             // MainForm
@@ -1053,7 +1192,8 @@ namespace Crypto_Notepad
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(598, 385);
+            this.ClientSize = new System.Drawing.Size(484, 261);
+            this.Controls.Add(this.pnlEnterKey);
             this.Controls.Add(this.richTextBox);
             this.Controls.Add(this.RTBLineNumbers);
             this.Controls.Add(this.searchPanel);
@@ -1072,6 +1212,7 @@ namespace Crypto_Notepad
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             this.contextMenu.ResumeLayout(false);
@@ -1092,8 +1233,13 @@ namespace Crypto_Notepad
             ((System.ComponentModel.ISupportInitialize)(this.deleteFileToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsToolbarButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alwaysOnTopToolbarButton)).EndInit();
             this.statusPanel.ResumeLayout(false);
             this.statusPanel.PerformLayout();
+            this.mnuTray.ResumeLayout(false);
+            this.pnlEnterKey.ResumeLayout(false);
+            this.pnlEnterKey.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picShowKey)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1180,7 +1326,18 @@ namespace Crypto_Notepad
         public System.Windows.Forms.TableLayoutPanel searchPanel;
         public System.Windows.Forms.MenuStrip mainMenu;
         private System.Windows.Forms.PictureBox closeSearchPanel;
+        protected internal System.Windows.Forms.NotifyIcon trayIcon;
+        private System.Windows.Forms.Panel pnlEnterKey;
+        private System.Windows.Forms.Label lblFileName;
+        public System.Windows.Forms.TextBox txtKey;
+        private System.Windows.Forms.PictureBox picShowKey;
+        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Button btnCloseEnterKey;
         private System.Windows.Forms.ToolStripMenuItem alwaysOnTopMainMenu;
         private System.Windows.Forms.PictureBox alwaysOnTopToolbarButton;
+        private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.ContextMenuStrip mnuTray;
+        private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }

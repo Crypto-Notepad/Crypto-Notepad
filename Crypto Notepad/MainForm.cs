@@ -1,4 +1,4 @@
-using Crypto_Notepad.Properties;
+﻿using Crypto_Notepad.Properties;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -17,12 +17,13 @@ namespace Crypto_Notepad
 {
     public partial class MainForm : Form
     {
-        Properties.Settings settings = Settings.Default;
+        Settings settings = Settings.Default;
         readonly string[] args = Environment.GetCommandLineArgs();
         bool preventExit = false;
         string filePath = "";
         string argsPath = "";
         int findPos = 0;
+        int caretPos;
 
         public MainForm()
         {
@@ -30,22 +31,6 @@ namespace Crypto_Notepad
             richTextBox.DragDrop += new DragEventHandler(RichTextBox_DragDrop);
             richTextBox.AllowDrop = true;
         }
-
-        protected override void WndProc(ref Message m)
-        {
-            const int WM_SYSCOMMAND = 0x112;
-            const int SC_MINIMIZE = 0xF020;
-
-            if (m.Msg == WM_SYSCOMMAND && m.WParam.ToInt32() == SC_MINIMIZE && settings.autoLock && PublicVar.encryptionKey.Get() != null)
-            {
-                SaveMainMenu_Click(this, new EventArgs());
-                AutoLock(true);
-                return;
-            }
-
-            base.WndProc(ref m);
-        }
-
 
         #region Methods
         private void DecryptAES()
@@ -70,7 +55,6 @@ namespace Crypto_Notepad
                 string opnfile = File.ReadAllText(openFileDialog.FileName);
                 string NameWithotPath = Path.GetFileName(openFileDialog.FileName);
                 string de;
-
                 de = AES.Decrypt(opnfile, TypedPassword.Value, null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
                 richTextBox.Text = de;
                 Text = PublicVar.appName + " – " + NameWithotPath;
@@ -114,15 +98,7 @@ namespace Crypto_Notepad
                 {
                     string NameWithotPath = Path.GetFileName(args[1]);
                     string opnfile = File.ReadAllText(args[1]);
-
                     enterKeyForm.ShowDialog();
-                    if (!PublicVar.okPressed)
-                    {
-                        openFileDialog.FileName = "";
-                        return;
-                    }
-                    PublicVar.okPressed = false;
-
                     string de = AES.Decrypt(opnfile, TypedPassword.Value, null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
                     richTextBox.Text = de;
                     Text = PublicVar.appName + " – " + NameWithotPath;
@@ -166,14 +142,7 @@ namespace Crypto_Notepad
                     string NameWithotPath = Path.GetFileName(argsPath);
                     string opnfile = File.ReadAllText(argsPath);
                     PublicVar.openFileName = Path.GetFileName(argsPath);
-
                     enterKeyForm.ShowDialog();
-                    if (!PublicVar.okPressed)
-                    {
-                        openFileDialog.FileName = "";
-                        return;
-                    }
-                    PublicVar.okPressed = false;
                     string de = AES.Decrypt(opnfile, TypedPassword.Value, null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
                     richTextBox.Text = de;
                     Text = PublicVar.appName + " – " + NameWithotPath;
@@ -227,11 +196,6 @@ namespace Crypto_Notepad
                     Owner = this
                 };
                 enterKeyForm.ShowDialog();
-                if (!PublicVar.okPressed)
-                {
-                    Application.Exit();
-                }
-                PublicVar.okPressed = false;
                 File.Delete(args[1]);
                 string noenc = richTextBox.Text;
                 string en;
@@ -255,10 +219,6 @@ namespace Crypto_Notepad
                 richTextBox.Text = noenc;
             }
             richTextBox.Modified = false;
-            if (PublicVar.okPressed)
-            {
-                PublicVar.okPressed = false;
-            }
         }
 
         private void ContextMenuEncrypt()
@@ -272,13 +232,7 @@ namespace Crypto_Notepad
                 PublicVar.openFileName = Path.GetFileName(args[1]);
                 filePath = openFileDialog.FileName;
             }
-
             richTextBox.Modified = false;
-
-            if (PublicVar.okPressed)
-            {
-                PublicVar.okPressed = false;
-            }
         }
 
         private void DeleteUpdateFiles()
@@ -306,11 +260,25 @@ namespace Crypto_Notepad
 
         private void SaveConfirm(bool exit)
         {
+            if (WindowState == FormWindowState.Normal)
+            {
+                settings.windowSize = Size;
+                settings.windowLocation = Location;
+                settings.windowState = WindowState;
+            }
+
+            if (WindowState == FormWindowState.Maximized)
+            {
+                settings.windowState = WindowState;
+            }
+            settings.Save();
+
             if (!richTextBox.Modified)
             {
                 if (exit)
                 {
-                    Environment.Exit(0);
+                    trayIcon.Visible = false;
+                    Application.Exit();
                 }
             }
             else
@@ -345,7 +313,8 @@ namespace Crypto_Notepad
                             SaveMainMenu_Click(this, new EventArgs());
                             if (exit)
                             {
-                                Environment.Exit(0);
+                                trayIcon.Visible = false;
+                                Application.Exit();
                             }
                         }
 
@@ -353,7 +322,8 @@ namespace Crypto_Notepad
                         {
                             if (exit)
                             {
-                                Environment.Exit(0);
+                                trayIcon.Visible = false;
+                                Application.Exit();
                             }
                         }
 
@@ -472,6 +442,22 @@ namespace Crypto_Notepad
                 case "update-needed":
                     statusLabel.Text = "New version is available";
                     break;
+                case "always-top-on":
+                    if (statusLabel.Text != "Always on top ON")
+                    {
+                        statusLabel.Text = "Always on top ON";
+                        await Task.Delay(3000);
+                        statusLabel.Text = ready;
+                    }
+                    break;
+                case "always-top-off":
+                    if (statusLabel.Text != "Always on top OFF")
+                    {
+                        statusLabel.Text = "Always on top OFF";
+                        await Task.Delay(3000);
+                        statusLabel.Text = ready;
+                    }
+                    break;
             }
         }
 
@@ -495,65 +481,40 @@ namespace Crypto_Notepad
             colStatusLabel.Text = "Col: " + currentColumn;
         }
 
-        private void AutoLock(bool minimize)
-        {
-            EnterKeyForm enterKeyForm = new EnterKeyForm
-            {
-                Owner = this
-            };
-            PublicVar.encryptionKey.Set(null);
-            int caretPos = richTextBox.SelectionStart;
-            enterKeyForm.MinimizeBox = true;
-            Hide();
-
-            if (minimize)
-            {
-                enterKeyForm.WindowState = FormWindowState.Minimized;
-            }
-            enterKeyForm.ShowDialog();
-
-            if (!PublicVar.okPressed)
-            {
-                PublicVar.encryptionKey.Set(null);
-                richTextBox.Clear();
-                Text = PublicVar.appName;
-                PublicVar.openFileName = null;
-                filePath = "";
-                Show();
-                return;
-            }
-            PublicVar.okPressed = false;
+        private void LockFile()
+        {        
             try
             {
-                richTextBox.Clear();
+                TypedPassword.Value = txtKey.Text;
                 string opnfile = File.ReadAllText(filePath);
                 string de = AES.Decrypt(opnfile, TypedPassword.Value, null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
+                pnlEnterKey.Visible = false;
+                richTextBox.Focus();
                 richTextBox.Text = de;
-                Text = PublicVar.appName + " – " + PublicVar.openFileName;
                 richTextBox.SelectionStart = caretPos;
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
                 TypedPassword.Value = null;
-                Show();
             }
             catch (Exception ex)
             {
                 if (ex is CryptographicException)
                 {
                     TypedPassword.Value = null;
-                    DialogResult dialogResult = MessageBox.Show("Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                    if (dialogResult == DialogResult.Retry)
+                    using (new CenterWinDialog(this))
                     {
-                        AutoLock(false);
-                    }
-                    if (dialogResult == DialogResult.Cancel)
-                    {
-                        PublicVar.encryptionKey.Set(null);
-                        richTextBox.Clear();
-                        Text = PublicVar.appName;
-                        filePath = "";
-                        PublicVar.openFileName = null;
-                        Show();
-                        return;
+                        DialogResult dialogResult = MessageBox.Show("Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                        if (dialogResult == DialogResult.Retry)
+                        {
+                            txtKey.Text = "";
+                            txtKey.Focus();
+                        }
+                        if (dialogResult == DialogResult.Cancel)
+                        {
+                            pnlEnterKey.Visible = false;
+                            Text = PublicVar.appName;
+                            filePath = "";
+                            PublicVar.openFileName = null;
+                        }
                     }
                 }
             }
@@ -604,10 +565,14 @@ namespace Crypto_Notepad
                 toolbarPanel.BorderStyle = BorderStyle.None;
             }
 
+            TopMost = settings.alwaysOnTop;
+            alwaysOnTopMainMenu.Checked = settings.alwaysOnTop;
+
             if (settings.closeToTray | settings.minimizeToTray)
             {
                 trayIcon.Visible = true;
             }
+
             wordWrapMainMenu.Checked = settings.editorWrap;
 
             toolbarPanel.BackColor = settings.toolbarBackColor;
@@ -753,12 +718,15 @@ namespace Crypto_Notepad
                     txtKey.Focus();
                 }
             }
-            else
+        }
+
+        private void MainWindow_Activated(object sender, EventArgs e)
+        {
+            richTextBox.Focus();
+
+            if (PublicVar.keyChanged)
             {
-                fileLocationToolbarButton.Enabled = true;
-                deleteFileToolbarButton.Enabled = true;
-                changeKeyToolbarButton.Enabled = true;
-                lockToolbarButton.Enabled = true;
+                richTextBox.Modified = true;
             }
             RTBLineNumbers.Refresh();
         }
@@ -794,6 +762,7 @@ namespace Crypto_Notepad
         private void MainWindow_Load(object sender, EventArgs e)
         {
             Visible = false;
+            searchPanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
 
             LoadSettings();
             DeleteUpdateFiles();
@@ -925,25 +894,7 @@ namespace Crypto_Notepad
                         return;
                     }
                     DecryptAES();
-                    if (PublicVar.okPressed)
-                    {
-                        PublicVar.okPressed = false;
-                    }
                 }
-            }
-            if (PublicVar.encryptionKey.Get() == null)
-            {
-                fileLocationToolbarButton.Enabled = false;
-                deleteFileToolbarButton.Enabled = false;
-                changeKeyToolbarButton.Enabled = false;
-                lockToolbarButton.Enabled = false;
-            }
-            else
-            {
-                fileLocationToolbarButton.Enabled = true;
-                deleteFileToolbarButton.Enabled = true;
-                changeKeyToolbarButton.Enabled = true;
-                lockToolbarButton.Enabled = true;
             }
         }
 
@@ -1063,26 +1014,6 @@ namespace Crypto_Notepad
                 DecryptAES();
 
                 richTextBox.Modified = false;
-
-                if (PublicVar.okPressed)
-                {
-                    PublicVar.okPressed = false;
-                }
-
-                if (PublicVar.encryptionKey.Get() == null)
-                {
-                    fileLocationToolbarButton.Enabled = false;
-                    deleteFileToolbarButton.Enabled = false;
-                    changeKeyToolbarButton.Enabled = false;
-                    lockToolbarButton.Enabled = false;
-                }
-                else
-                {
-                    fileLocationToolbarButton.Enabled = true;
-                    deleteFileToolbarButton.Enabled = true;
-                    changeKeyToolbarButton.Enabled = true;
-                    lockToolbarButton.Enabled = true;
-                }
             }
         }
 
@@ -1091,11 +1022,6 @@ namespace Crypto_Notepad
             if (PublicVar.encryptionKey.Get() == null)
             {
                 SaveAsMainMenu_Click(this, new EventArgs());
-                if (!PublicVar.okPressed)
-                {
-                    return;
-                }
-                PublicVar.okPressed = false;
             }
             string enc = AES.Encrypt(richTextBox.Text, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
             using (StreamWriter writer = new StreamWriter(filePath))
@@ -1128,11 +1054,6 @@ namespace Crypto_Notepad
             if (string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
             {
                 enterKeyForm.ShowDialog();
-                if (!PublicVar.okPressed)
-                {
-                    return;
-                }
-                PublicVar.okPressed = false;
             }
 
             if (saveFileDialog.ShowDialog() != DialogResult.OK)
@@ -1271,6 +1192,8 @@ namespace Crypto_Notepad
 
         private void FindMainMenu_Click(object sender, EventArgs e)
         {
+            if (!richTextBox.Visible) return;
+            
             if (searchPanel.Visible)
             {
                 searchTextBox.Text = "";
@@ -1336,6 +1259,7 @@ namespace Crypto_Notepad
             }
 
         }
+
         private void ToolsMainMenu_DropDownOpened(object sender, EventArgs e)
         {
             if (PublicVar.encryptionKey.Get() == null)
@@ -1359,7 +1283,7 @@ namespace Crypto_Notepad
         private void LockMainMenu_Click(object sender, EventArgs e)
         {
             SaveMainMenu_Click(this, new EventArgs());
-            AutoLock(false);
+            pnlEnterKey.Visible = true;
         }
 
         private void SettingsMainMenu_Click(object sender, EventArgs e)
@@ -1574,6 +1498,35 @@ namespace Crypto_Notepad
                 StatusPanelMessage("always-top-on");
             }
         }
+
+        private void ToolbarPanel_MouseEnter(object sender, EventArgs e)
+        {
+            if (richTextBox.SelectionLength != 0)
+            {
+                cutToolbarButton.Enabled = true;
+                copyToolbarButton.Enabled = true;
+            }
+            else
+            {
+                cutToolbarButton.Enabled = false;
+                copyToolbarButton.Enabled = false;
+            }
+
+            if (PublicVar.encryptionKey.Get() == null)
+            {
+                fileLocationToolbarButton.Enabled = false;
+                deleteFileToolbarButton.Enabled = false;
+                changeKeyToolbarButton.Enabled = false;
+                lockToolbarButton.Enabled = false;
+            }
+            else
+            {
+                fileLocationToolbarButton.Enabled = true;
+                deleteFileToolbarButton.Enabled = true;
+                changeKeyToolbarButton.Enabled = true;
+                lockToolbarButton.Enabled = true;
+            }
+        }
         #endregion
 
 
@@ -1682,11 +1635,107 @@ namespace Crypto_Notepad
         #endregion
 
 
+        #region AutoLock
+        private void TxtKey_TextChanged(object sender, EventArgs e)
+        {
+            if (txtKey.Text.Length > 0)
+                btnOk.Enabled = true;
+            else
+                btnOk.Enabled = false;
+        }
+
+        private void PnlEnterKey_VisibleChanged(object sender, EventArgs e)
+        {
+            if (pnlEnterKey.Visible)
+            {
+                PublicVar.encryptionKey.Set(null);
+                caretPos = richTextBox.SelectionStart;
+                richTextBox.Visible = false;
+                toolbarPanel.Enabled = false;
+                mainMenu.Enabled = false;
+                richTextBox.Clear();
+                txtKey.Focus();
+            }
+            else
+            {
+                richTextBox.Visible = true;
+                toolbarPanel.Enabled = true;
+                searchPanel.Enabled = true;
+                mainMenu.Enabled = true;
+                txtKey.Text = null;
+            }
+
+        }
+
+        private void BtnOk_Click(object sender, EventArgs e)
+        {
+            LockFile();
+        }
+
+        private void BtnCloseEnterKey_MouseClick(object sender, MouseEventArgs e)
+        {
+            pnlEnterKey.Visible = false;
+            Text = PublicVar.appName;
+            filePath = null;
+            PublicVar.openFileName = null;
+        }
+
+        private void PicShowKey_Click(object sender, EventArgs e)
+        {
+            if (txtKey.UseSystemPasswordChar)
+            {
+                txtKey.UseSystemPasswordChar = false;
+                picShowKey.Image = Resources.eye;
+            }
+            else
+            {
+                txtKey.UseSystemPasswordChar = true;
+                picShowKey.Image = Resources.eye_half;
+            }
+        }
+
+        private void TxtKey_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter & btnOk.Enabled)
+            {
+                BtnOk_Click(sender, e);
+            }
+        }
+
+        private void BtnCloseEnterKey_MouseEnter(object sender, EventArgs e)
+        {
+            btnCloseEnterKey.ForeColor = Color.Silver;
+        }
+
+        private void BtnCloseEnterKey_MouseLeave(object sender, EventArgs e)
+        {
+            btnCloseEnterKey.ForeColor = Color.DimGray;
+        }
+        #endregion
+
+
+        #region Tray
+        private void TrayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Show();
+            WindowState = FormWindowState.Normal;
+        }
+        private void ShowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Show();
+            WindowState = FormWindowState.Normal;
+        }
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             SaveConfirm(true);
             if (settings.closeToTray)
             {
                 Environment.Exit(0);
             }
+        }
+        #endregion
+
+
         #region Debug Menu
         private void VariablesMainMenu_Click(object sender, EventArgs e)
         {
@@ -1704,7 +1753,6 @@ namespace Crypto_Notepad
             Debug.WriteLine("EditorMenuStrip: " + contextMenu.Enabled);
 #endif
         }
-
         #endregion
 
 
