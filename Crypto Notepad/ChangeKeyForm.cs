@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Media;
 using System.Threading.Tasks;
@@ -95,12 +95,14 @@ namespace Crypto_Notepad
             {
                 acceptButton.Enabled = false;
             }
+
+            if (oldKeyTextBox.Text.Length > 0)
             {
-                btnAccept.Enabled = true;
+                oldKeyPlaceholder.Visible = false;
             }
             else
             {
-                btnAccept.Enabled = false;
+                oldKeyPlaceholder.Visible = true;
             }
         }
 
@@ -117,11 +119,29 @@ namespace Crypto_Notepad
 
             if (newKeyTextBox.Text.Length > 0)
             {
-                btnAccept.Enabled = true;
+                newKeyPlaceholder.Visible = false;
             }
             else
             {
-                btnAccept.Enabled = false;
+                newKeyPlaceholder.Visible = true;
+            }
+        }
+
+        private void NewKeyPlaceholder_Click(object sender, EventArgs e)
+        {
+            newKeyTextBox.Focus();
+        }
+        private void OldKeyPlaceholder_Click(object sender, EventArgs e)
+        {
+            oldKeyTextBox.Focus();
+        }
+        private void NewKeyTextBox_Leave(object sender, EventArgs e)
+        {
+            if (newKeyTextBox.Text.Length == 0)
+            {
+                newKeyPlaceholder.Visible = true;
+            }
+        }
 
         private void NewKeyTextBox_KeyDown(object sender, KeyEventArgs e)
         {

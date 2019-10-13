@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Crypto_Notepad
@@ -40,10 +40,16 @@ namespace Crypto_Notepad
         /*Enter key area*/
         private void KeyTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (txtKey.Text.Length > 0)
-                btnOk.Enabled = true;
+            if (keyTextBox.Text.Length > 0)
+            {
+                okButton.Enabled = true;
+                encryptionKeyPlaceholder.Visible = false;
+            }
             else
-                btnOk.Enabled = false;
+            {
+                okButton.Enabled = false;
+                encryptionKeyPlaceholder.Visible = true;
+            }
         }
 
         private void KeyTextBox_KeyDown(object sender, KeyEventArgs e)
