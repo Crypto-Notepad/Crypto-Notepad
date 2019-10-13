@@ -1,4 +1,4 @@
-using Crypto_Notepad.Properties;
+﻿using Crypto_Notepad.Properties;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -1121,7 +1121,7 @@ namespace Crypto_Notepad
 
         private void FileMainMenu_DropDownOpened(object sender, EventArgs e)
         {
-            if (filePath == "")
+            if (filePath == null)
             {
                 fileLocationMainMenu.Enabled = false;
                 deleteFileMainMenu.Enabled = false;
@@ -1653,6 +1653,15 @@ namespace Crypto_Notepad
         {
             if (fileLockedPanel.Visible)
             {
+                foreach (ToolStripItem item in mainMenu.Items)
+                {
+                    if (item is ToolStripDropDownItem)
+                        foreach (ToolStripItem dropDownItem in ((ToolStripDropDownItem)item).DropDownItems)
+                        {
+                            dropDownItem.Enabled = false;
+                        }
+                }
+
                 PublicVar.encryptionKey.Set(null);
                 caretPos = richTextBox.SelectionStart;
                 richTextBox.Visible = false;
@@ -1663,6 +1672,15 @@ namespace Crypto_Notepad
             }
             else
             {
+                foreach (ToolStripItem item in mainMenu.Items)
+                {
+                    if (item is ToolStripDropDownItem)
+                        foreach (ToolStripItem dropDownItem in ((ToolStripDropDownItem)item).DropDownItems)
+                        {
+                            dropDownItem.Enabled = true;
+                        }
+                }
+
                 richTextBox.Visible = true;
                 toolbarPanel.Enabled = true;
                 searchPanel.Enabled = true;
