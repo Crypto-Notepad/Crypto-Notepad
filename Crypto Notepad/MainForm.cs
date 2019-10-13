@@ -1638,9 +1638,15 @@ namespace Crypto_Notepad
         private void FileLockedKeyTextBox_TextChanged(object sender, EventArgs e)
         {
             if (fileLockedKeyTextBox.Text.Length > 0)
+            {
                 fileLockedOkButton.Enabled = true;
+                encryptionKeyPlaceholder.Visible = false;
+            }
             else
+            {
+                encryptionKeyPlaceholder.Visible = true;
                 fileLockedOkButton.Enabled = false;
+            }
         }
 
         private void FileLockedPanel_VisibleChanged(object sender, EventArgs e)

@@ -1,4 +1,4 @@
-namespace Crypto_Notepad
+﻿namespace Crypto_Notepad
 {
     partial class MainForm
     {
@@ -123,6 +123,7 @@ namespace Crypto_Notepad
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.richTextBox = new Crypto_Notepad.ExRichTextBox();
             this.lineNumbers = new LineNumbers.LineNumbers();
+            this.encryptionKeyPlaceholder = new System.Windows.Forms.Label();
             this.mainMenu.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.searchPanel.SuspendLayout();
@@ -1045,6 +1046,7 @@ namespace Crypto_Notepad
             this.fileLockedPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.fileLockedPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.fileLockedPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fileLockedPanel.Controls.Add(this.encryptionKeyPlaceholder);
             this.fileLockedPanel.Controls.Add(this.fileLockedCloseButton);
             this.fileLockedPanel.Controls.Add(this.fileLockedOkButton);
             this.fileLockedPanel.Controls.Add(this.fileLockedKeyTextBox);
@@ -1119,7 +1121,7 @@ namespace Crypto_Notepad
             this.fileLockedLabel.AutoEllipsis = true;
             this.fileLockedLabel.AutoSize = true;
             this.fileLockedLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fileLockedLabel.Location = new System.Drawing.Point(2, 2);
+            this.fileLockedLabel.Location = new System.Drawing.Point(88, 3);
             this.fileLockedLabel.Name = "fileLockedLabel";
             this.fileLockedLabel.Size = new System.Drawing.Size(71, 17);
             this.fileLockedLabel.TabIndex = 7;
@@ -1186,6 +1188,18 @@ namespace Crypto_Notepad
             this.lineNumbers.Show_MarginLines = false;
             this.lineNumbers.Size = new System.Drawing.Size(22, 163);
             this.lineNumbers.TabIndex = 19;
+            // 
+            // encryptionKeyPlaceholder
+            // 
+            this.encryptionKeyPlaceholder.AutoSize = true;
+            this.encryptionKeyPlaceholder.BackColor = System.Drawing.SystemColors.Window;
+            this.encryptionKeyPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.encryptionKeyPlaceholder.ForeColor = System.Drawing.Color.DarkGray;
+            this.encryptionKeyPlaceholder.Location = new System.Drawing.Point(10, 37);
+            this.encryptionKeyPlaceholder.Name = "encryptionKeyPlaceholder";
+            this.encryptionKeyPlaceholder.Size = new System.Drawing.Size(82, 13);
+            this.encryptionKeyPlaceholder.TabIndex = 12;
+            this.encryptionKeyPlaceholder.Text = "Encryption key";
             // 
             // MainForm
             // 
@@ -1339,5 +1353,6 @@ namespace Crypto_Notepad
         private System.Windows.Forms.ContextMenuStrip trayMenu;
         private System.Windows.Forms.ToolStripMenuItem trayMenuShow;
         private System.Windows.Forms.ToolStripMenuItem trayMenuExit;
+        private System.Windows.Forms.Label encryptionKeyPlaceholder;
     }
 }
