@@ -263,6 +263,16 @@ namespace Crypto_Notepad.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gnupg_keys {
+            get {
+                object obj = ResourceManager.GetObject("gnupg_keys", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap information {
             get {
                 object obj = ResourceManager.GetObject("information", resourceCulture);
@@ -286,6 +296,16 @@ namespace Crypto_Notepad.Properties {
         internal static System.Drawing.Bitmap key {
             get {
                 object obj = ResourceManager.GetObject("key", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap key_solid {
+            get {
+                object obj = ResourceManager.GetObject("key_solid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
