@@ -1,4 +1,4 @@
-﻿namespace Crypto_Notepad
+namespace Crypto_Notepad
 {
     partial class MainForm
     {
@@ -182,7 +182,7 @@
             this.fileMainMenu.Name = "fileMainMenu";
             this.fileMainMenu.Size = new System.Drawing.Size(37, 24);
             this.fileMainMenu.Text = "File";
-            this.fileMainMenu.DropDownOpened += new System.EventHandler(this.fileMainMenu_DropDownOpened);
+            this.fileMainMenu.DropDownOpened += new System.EventHandler(this.FileMainMenu_DropDownOpened);
             // 
             // newMainMenu
             // 
@@ -425,6 +425,7 @@
             // settingsMainMenu
             // 
             this.settingsMainMenu.Name = "settingsMainMenu";
+            this.settingsMainMenu.ShortcutKeyDisplayString = "";
             this.settingsMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.S)));
             this.settingsMainMenu.Size = new System.Drawing.Size(201, 22);

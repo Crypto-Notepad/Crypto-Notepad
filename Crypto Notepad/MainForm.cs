@@ -1,4 +1,4 @@
-﻿using Crypto_Notepad.Properties;
+using Crypto_Notepad.Properties;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -1119,7 +1119,7 @@ namespace Crypto_Notepad
             Application.Exit();
         }
 
-        private void fileMainMenu_DropDownOpened(object sender, EventArgs e)
+        private void FileMainMenu_DropDownOpened(object sender, EventArgs e)
         {
             if (filePath == "")
             {
