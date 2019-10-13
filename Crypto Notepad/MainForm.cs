@@ -68,7 +68,7 @@ namespace Crypto_Notepad
                 using (new CenterWinDialog(this))
                 {
                     TypedPassword.Value = null;
-                    DialogResult dialogResult = MessageBox.Show("Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    DialogResult dialogResult = MessageBox.Show(this, "Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                     if (dialogResult == DialogResult.Retry)
                     {
                         DecryptAES();
@@ -109,7 +109,7 @@ namespace Crypto_Notepad
                 catch (CryptographicException)
                 {
                     TypedPassword.Value = null;
-                    DialogResult dialogResult = MessageBox.Show("Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    DialogResult dialogResult = MessageBox.Show(this, "Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                     if (dialogResult == DialogResult.Retry)
                     {
                         OpenAsotiations();
@@ -153,7 +153,7 @@ namespace Crypto_Notepad
                 catch (CryptographicException)
                 {
                     TypedPassword.Value = null;
-                    DialogResult dialogResult = MessageBox.Show("Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    DialogResult dialogResult = MessageBox.Show(this, "Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                     if (dialogResult == DialogResult.Retry)
                     {
                         SendTo();
@@ -174,11 +174,11 @@ namespace Crypto_Notepad
         {
             if (args[1].Contains(".cnp"))
             {
-                MessageBox.Show("Looks like this file is already encrypted", PublicVar.appName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, "Looks like this file is already encrypted", PublicVar.appName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            DialogResult res = MessageBox.Show("This action will delete the source file and replace it with encrypted version", PublicVar.appName, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult res = MessageBox.Show(this, "This action will delete the source file and replace it with encrypted version", PublicVar.appName, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (res == DialogResult.Cancel)
             {
@@ -307,14 +307,14 @@ namespace Crypto_Notepad
 
                     using (new CenterWinDialog(this))
                     {
-                        DialogResult res = MessageBox.Show(messageBoxText, PublicVar.appName, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    DialogResult res = MessageBox.Show(this, messageBoxText, PublicVar.appName, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                         if (res == DialogResult.Yes)
                         {
                             SaveMainMenu_Click(this, new EventArgs());
                             if (exit)
                             {
                                 trayIcon.Visible = false;
-                                Application.Exit();
+                        SaveMainMenu_Click(this, new EventArgs());
                             }
                         }
 
@@ -358,7 +358,7 @@ namespace Crypto_Notepad
                     {
                         using (new CenterWinDialog(this))
                         {
-                            DialogResult res = MessageBox.Show("New version is available. Install it now?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                            DialogResult res = MessageBox.Show(this, "New version is available. Install it now?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                             if (res == DialogResult.Yes)
                             {
                                 File.WriteAllBytes(exePath + "Ionic.Zip.dll", Resources.Ionic_Zip);
@@ -383,7 +383,7 @@ namespace Crypto_Notepad
                         }
                         else
                         {
-                            MessageBox.Show("Crypto Notepad is up to date.", PublicVar.appName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show(this, "Crypto Notepad is up to date.", PublicVar.appName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
@@ -402,7 +402,7 @@ namespace Crypto_Notepad
                             }
                             else
                             {
-                                MessageBox.Show("Checking for updates failed:\nConnection lost or the server is busy.", PublicVar.appName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show(this, "Checking for updates failed:\nConnection lost or the server is busy.", PublicVar.appName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                     });
@@ -502,7 +502,7 @@ namespace Crypto_Notepad
                     TypedPassword.Value = null;
                     using (new CenterWinDialog(this))
                     {
-                        DialogResult dialogResult = MessageBox.Show("Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                        DialogResult dialogResult = MessageBox.Show(this, "Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                         if (dialogResult == DialogResult.Retry)
                         {
                             fileLockedKeyTextBox.Text = "";
@@ -748,6 +748,11 @@ namespace Crypto_Notepad
 
             if (preventExit)
             {
+                        DialogResult res = MessageBox.Show(this, messageBoxText, PublicVar.appName, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                        if (res == DialogResult.Yes)
+                        {
+                            trayIcon.Visible = false;
+                            SaveMainMenu_Click(this, new EventArgs());
                 e.Cancel = true;
             }
         }
@@ -927,7 +932,7 @@ namespace Crypto_Notepad
                 string exePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\";
                 using (new CenterWinDialog(this))
                 {
-                    DialogResult res = MessageBox.Show("New version is available. Install it now?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    DialogResult res = MessageBox.Show(this, "New version is available. Install it now?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (res == DialogResult.Yes)
                     {
                         File.WriteAllBytes(exePath + "Ionic.Zip.dll", Resources.Ionic_Zip);
@@ -1093,7 +1098,7 @@ namespace Crypto_Notepad
             {
                 using (new CenterWinDialog(this))
                 {
-                    if (MessageBox.Show("Delete file: " + "\"" + filePath + "\"" + " ?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show(this, "Delete file: " + "\"" + filePath + "\"" + " ?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         File.Delete(filePath);
                         richTextBox.Clear();
