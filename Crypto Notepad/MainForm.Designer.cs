@@ -1,4 +1,4 @@
-﻿namespace Crypto_Notepad
+namespace Crypto_Notepad
 {
     partial class MainForm
     {
@@ -1084,7 +1084,7 @@
             this.fileLockedOkButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.fileLockedOkButton.Location = new System.Drawing.Point(6, 60);
             this.fileLockedOkButton.Name = "fileLockedOkButton";
-            this.fileLockedOkButton.Size = new System.Drawing.Size(75, 23);
+            this.fileLockedOkButton.Size = new System.Drawing.Size(57, 23);
             this.fileLockedOkButton.TabIndex = 10;
             this.fileLockedOkButton.Text = "OK";
             this.fileLockedOkButton.UseVisualStyleBackColor = true;
