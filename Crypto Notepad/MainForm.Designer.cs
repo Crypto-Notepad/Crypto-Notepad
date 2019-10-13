@@ -38,7 +38,7 @@
             this.saveMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.fileLocationMainMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileLocationMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteFileMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exitMainMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,8 +63,8 @@
             this.lockMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMainMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.docsMainMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.updatesMainMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.documentationMainMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkForUpdatesMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.debugMainMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -112,9 +112,10 @@
             this.statusPaneColLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.trayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.trayMenuShow = new System.Windows.Forms.ToolStripMenuItem();
-            this.trayMenuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.showTrayMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitTrayMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.fileLockedPanel = new System.Windows.Forms.Panel();
+            this.encryptionKeyPlaceholder = new System.Windows.Forms.Label();
             this.fileLockedCloseButton = new System.Windows.Forms.Button();
             this.fileLockedOkButton = new System.Windows.Forms.Button();
             this.fileLockedKeyTextBox = new System.Windows.Forms.TextBox();
@@ -123,7 +124,6 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.richTextBox = new Crypto_Notepad.ExRichTextBox();
             this.lineNumbers = new LineNumbers.LineNumbers();
-            this.encryptionKeyPlaceholder = new System.Windows.Forms.Label();
             this.mainMenu.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.searchPanel.SuspendLayout();
@@ -174,7 +174,7 @@
             this.saveMainMenu,
             this.saveAsMainMenu,
             this.mainMenuSeparator2,
-            this.fileLocationMainMenu,
+            this.openFileLocationMainMenu,
             this.deleteFileMainMenu,
             this.mainMenuSeparator3,
             this.exitMainMenu});
@@ -227,12 +227,12 @@
             this.mainMenuSeparator2.Name = "mainMenuSeparator2";
             this.mainMenuSeparator2.Size = new System.Drawing.Size(192, 6);
             // 
-            // fileLocationMainMenu
+            // openFileLocationMainMenu
             // 
-            this.fileLocationMainMenu.Name = "fileLocationMainMenu";
-            this.fileLocationMainMenu.Size = new System.Drawing.Size(195, 22);
-            this.fileLocationMainMenu.Text = "Open File Location";
-            this.fileLocationMainMenu.Click += new System.EventHandler(this.FileLocationMainMenu_Click);
+            this.openFileLocationMainMenu.Name = "openFileLocationMainMenu";
+            this.openFileLocationMainMenu.Size = new System.Drawing.Size(195, 22);
+            this.openFileLocationMainMenu.Text = "Open File Location";
+            this.openFileLocationMainMenu.Click += new System.EventHandler(this.OpenFileLocationMainMenu_Click);
             // 
             // deleteFileMainMenu
             // 
@@ -435,8 +435,8 @@
             // helpMainMenu
             // 
             this.helpMainMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.docsMainMenu,
-            this.updatesMainMenu,
+            this.documentationMainMenu,
+            this.checkForUpdatesMainMenu,
             this.mainMenuSeparator8,
             this.aboutMainMenu});
             this.helpMainMenu.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -444,21 +444,21 @@
             this.helpMainMenu.Size = new System.Drawing.Size(44, 24);
             this.helpMainMenu.Text = "Help";
             // 
-            // docsMainMenu
+            // documentationMainMenu
             // 
-            this.docsMainMenu.Name = "docsMainMenu";
-            this.docsMainMenu.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.docsMainMenu.Size = new System.Drawing.Size(180, 22);
-            this.docsMainMenu.Text = "Documentation";
-            this.docsMainMenu.Click += new System.EventHandler(this.DocsMainMenu_Click);
+            this.documentationMainMenu.Name = "documentationMainMenu";
+            this.documentationMainMenu.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.documentationMainMenu.Size = new System.Drawing.Size(180, 22);
+            this.documentationMainMenu.Text = "Documentation";
+            this.documentationMainMenu.Click += new System.EventHandler(this.DocumentationMainMenu_Click);
             // 
-            // updatesMainMenu
+            // checkForUpdatesMainMenu
             // 
-            this.updatesMainMenu.Name = "updatesMainMenu";
-            this.updatesMainMenu.RightToLeftAutoMirrorImage = true;
-            this.updatesMainMenu.Size = new System.Drawing.Size(180, 22);
-            this.updatesMainMenu.Text = "Сheck for Updates...";
-            this.updatesMainMenu.Click += new System.EventHandler(this.UpdatesMainMenu_Click);
+            this.checkForUpdatesMainMenu.Name = "checkForUpdatesMainMenu";
+            this.checkForUpdatesMainMenu.RightToLeftAutoMirrorImage = true;
+            this.checkForUpdatesMainMenu.Size = new System.Drawing.Size(180, 22);
+            this.checkForUpdatesMainMenu.Text = "Сheck for Updates...";
+            this.checkForUpdatesMainMenu.Click += new System.EventHandler(this.CheckForUpdatesMainMenu_Click);
             // 
             // mainMenuSeparator8
             // 
@@ -1023,24 +1023,24 @@
             // trayMenu
             // 
             this.trayMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.trayMenuShow,
-            this.trayMenuExit});
+            this.showTrayMenu,
+            this.exitTrayMenu});
             this.trayMenu.Name = "mnuTray";
-            this.trayMenu.Size = new System.Drawing.Size(104, 48);
+            this.trayMenu.Size = new System.Drawing.Size(181, 70);
             // 
-            // trayMenuShow
+            // showTrayMenu
             // 
-            this.trayMenuShow.Name = "trayMenuShow";
-            this.trayMenuShow.Size = new System.Drawing.Size(103, 22);
-            this.trayMenuShow.Text = "Show";
-            this.trayMenuShow.Click += new System.EventHandler(this.TrayMenuShow_Click);
+            this.showTrayMenu.Name = "showTrayMenu";
+            this.showTrayMenu.Size = new System.Drawing.Size(180, 22);
+            this.showTrayMenu.Text = "Show";
+            this.showTrayMenu.Click += new System.EventHandler(this.ShowTrayMenu_Click);
             // 
-            // trayMenuExit
+            // exitTrayMenu
             // 
-            this.trayMenuExit.Name = "trayMenuExit";
-            this.trayMenuExit.Size = new System.Drawing.Size(103, 22);
-            this.trayMenuExit.Text = "Exit";
-            this.trayMenuExit.Click += new System.EventHandler(this.TrayMenuExit_Click);
+            this.exitTrayMenu.Name = "exitTrayMenu";
+            this.exitTrayMenu.Size = new System.Drawing.Size(180, 22);
+            this.exitTrayMenu.Text = "Exit";
+            this.exitTrayMenu.Click += new System.EventHandler(this.ExitTrayMenu_Click);
             // 
             // fileLockedPanel
             // 
@@ -1061,6 +1061,18 @@
             this.fileLockedPanel.TabIndex = 20;
             this.fileLockedPanel.Visible = false;
             this.fileLockedPanel.VisibleChanged += new System.EventHandler(this.FileLockedPanel_VisibleChanged);
+            // 
+            // encryptionKeyPlaceholder
+            // 
+            this.encryptionKeyPlaceholder.AutoSize = true;
+            this.encryptionKeyPlaceholder.BackColor = System.Drawing.SystemColors.Window;
+            this.encryptionKeyPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.encryptionKeyPlaceholder.ForeColor = System.Drawing.Color.DarkGray;
+            this.encryptionKeyPlaceholder.Location = new System.Drawing.Point(10, 37);
+            this.encryptionKeyPlaceholder.Name = "encryptionKeyPlaceholder";
+            this.encryptionKeyPlaceholder.Size = new System.Drawing.Size(82, 13);
+            this.encryptionKeyPlaceholder.TabIndex = 12;
+            this.encryptionKeyPlaceholder.Text = "Encryption key";
             // 
             // fileLockedCloseButton
             // 
@@ -1190,18 +1202,6 @@
             this.lineNumbers.Size = new System.Drawing.Size(22, 163);
             this.lineNumbers.TabIndex = 19;
             // 
-            // encryptionKeyPlaceholder
-            // 
-            this.encryptionKeyPlaceholder.AutoSize = true;
-            this.encryptionKeyPlaceholder.BackColor = System.Drawing.SystemColors.Window;
-            this.encryptionKeyPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.encryptionKeyPlaceholder.ForeColor = System.Drawing.Color.DarkGray;
-            this.encryptionKeyPlaceholder.Location = new System.Drawing.Point(10, 37);
-            this.encryptionKeyPlaceholder.Name = "encryptionKeyPlaceholder";
-            this.encryptionKeyPlaceholder.Size = new System.Drawing.Size(82, 13);
-            this.encryptionKeyPlaceholder.TabIndex = 12;
-            this.encryptionKeyPlaceholder.Text = "Encryption key";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1283,7 +1283,7 @@
         private System.Windows.Forms.ToolStripSeparator mainMenuSeparator6;
         private System.Windows.Forms.ToolStripMenuItem deleteFileMainMenu;
         private System.Windows.Forms.ToolStripSeparator mainMenuSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem fileLocationMainMenu;
+        private System.Windows.Forms.ToolStripMenuItem openFileLocationMainMenu;
         private System.Windows.Forms.ToolStripMenuItem wordWrapMainMenu;
         private System.Windows.Forms.ContextMenuStrip contextMenu;
         private System.Windows.Forms.ToolStripMenuItem undoContextMenu;
@@ -1301,8 +1301,8 @@
         private System.Windows.Forms.ToolStripMenuItem clearContextMenu;
         private System.Windows.Forms.ToolStripSeparator mainMenuSeparator1;
         private System.Windows.Forms.ToolStripMenuItem changeKeyMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem updatesMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem docsMainMenu;
+        private System.Windows.Forms.ToolStripMenuItem checkForUpdatesMainMenu;
+        private System.Windows.Forms.ToolStripMenuItem documentationMainMenu;
         private System.Windows.Forms.ToolStripMenuItem settingsMainMenu;
         private System.Windows.Forms.ToolStripSeparator mainMenuSeparator5;
         private System.Windows.Forms.ToolStripMenuItem findMainMenu;
@@ -1352,8 +1352,8 @@
         private System.Windows.Forms.PictureBox alwaysOnTopToolbarButton;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ContextMenuStrip trayMenu;
-        private System.Windows.Forms.ToolStripMenuItem trayMenuShow;
-        private System.Windows.Forms.ToolStripMenuItem trayMenuExit;
+        private System.Windows.Forms.ToolStripMenuItem showTrayMenu;
+        private System.Windows.Forms.ToolStripMenuItem exitTrayMenu;
         private System.Windows.Forms.Label encryptionKeyPlaceholder;
     }
 }

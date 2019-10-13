@@ -579,7 +579,7 @@ namespace Crypto_Notepad
                 openMainMenu.Image = Resources.folder_open_document;
                 saveMainMenu.Image = Resources.disk_return_black;
                 saveAsMainMenu.Image = Resources.disks_black;
-                fileLocationMainMenu.Image = Resources.folder_horizontal;
+                openFileLocationMainMenu.Image = Resources.folder_horizontal;
                 deleteFileMainMenu.Image = Resources.document_minus;
                 exitMainMenu.Image = Resources.cross_button;
                 undoMainMenu.Image = Resources.arrow_left;
@@ -595,8 +595,8 @@ namespace Crypto_Notepad
                 changeKeyMainMenu.Image = Resources.key;
                 lockMainMenu.Image = Resources.lock_warning;
                 settingsMainMenu.Image = Resources.gear;
-                docsMainMenu.Image = Resources.document_text;
-                updatesMainMenu.Image = Resources.upload_cloud;
+                documentationMainMenu.Image = Resources.document_text;
+                checkForUpdatesMainMenu.Image = Resources.upload_cloud;
                 aboutMainMenu.Image = Resources.information;
                 alwaysOnTopMainMenu.Image = Resources.applications_blue;
             }
@@ -1085,7 +1085,7 @@ namespace Crypto_Notepad
             StatusPanelMessage("save");
         }
 
-        private void FileLocationMainMenu_Click(object sender, EventArgs e)
+        private void OpenFileLocationMainMenu_Click(object sender, EventArgs e)
         {
             Process.Start("explorer.exe", @"/select, " + filePath);
         }
@@ -1123,12 +1123,12 @@ namespace Crypto_Notepad
         {
             if (filePath == null)
             {
-                fileLocationMainMenu.Enabled = false;
+                openFileLocationMainMenu.Enabled = false;
                 deleteFileMainMenu.Enabled = false;
             }
             else
             {
-                fileLocationMainMenu.Enabled = true;
+                openFileLocationMainMenu.Enabled = true;
                 deleteFileMainMenu.Enabled = true;
             }
         }
@@ -1296,12 +1296,12 @@ namespace Crypto_Notepad
         /*Tools*/
 
         /*Help*/
-        private void DocsMainMenu_Click(object sender, EventArgs e)
+        private void DocumentationMainMenu_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Documentation");
         }
 
-        private void UpdatesMainMenu_Click(object sender, EventArgs e)
+        private void CheckForUpdatesMainMenu_Click(object sender, EventArgs e)
         {
             CheckForUpdates(true);
         }
@@ -1344,7 +1344,7 @@ namespace Crypto_Notepad
 
         private void CutContextMenu_Click(object sender, EventArgs e)
         {
-            CutMainMenu_Click(this, new EventArgs());
+            CutMainMenu_Click(this, new EventArgs());     
         }
 
         private void CopyContextMenu_Click(object sender, EventArgs e)
@@ -1426,7 +1426,7 @@ namespace Crypto_Notepad
 
         private void FileLocationToolbarButton_Click(object sender, EventArgs e)
         {
-            FileLocationMainMenu_Click(this, new EventArgs());
+            OpenFileLocationMainMenu_Click(this, new EventArgs());
         }
 
         private void DeleteFileToolbarButton_Click(object sender, EventArgs e)
@@ -1745,12 +1745,12 @@ namespace Crypto_Notepad
                 WindowState = FormWindowState.Normal;
             }
         }
-        private void TrayMenuShow_Click(object sender, EventArgs e)
+        private void ShowTrayMenu_Click(object sender, EventArgs e)
         {
             Show();
             WindowState = FormWindowState.Normal;
         }
-        private void TrayMenuExit_Click(object sender, EventArgs e)
+        private void ExitTrayMenu_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
