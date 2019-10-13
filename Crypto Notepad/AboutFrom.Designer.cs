@@ -71,7 +71,7 @@
             this.lblThirdPartyDev.AutoSize = true;
             this.lblThirdPartyDev.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblThirdPartyDev.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblThirdPartyDev.Location = new System.Drawing.Point(5, 158);
+            this.lblThirdPartyDev.Location = new System.Drawing.Point(5, 178);
             this.lblThirdPartyDev.Name = "lblThirdPartyDev";
             this.lblThirdPartyDev.Size = new System.Drawing.Size(200, 18);
             this.lblThirdPartyDev.TabIndex = 4;
@@ -138,9 +138,9 @@
             this.lblContributors.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblContributors.Location = new System.Drawing.Point(5, 105);
             this.lblContributors.Name = "lblContributors";
-            this.lblContributors.Size = new System.Drawing.Size(104, 18);
+            this.lblContributors.Size = new System.Drawing.Size(168, 18);
             this.lblContributors.TabIndex = 4;
-            this.lblContributors.Text = "Contributors";
+            this.lblContributors.Text = "Contributors/testers";
             // 
             // rtbContributors
             // 
@@ -154,9 +154,9 @@
             this.rtbContributors.RightMargin = 700;
             this.rtbContributors.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.rtbContributors.ShowSelectionMargin = true;
-            this.rtbContributors.Size = new System.Drawing.Size(414, 20);
+            this.rtbContributors.Size = new System.Drawing.Size(414, 50);
             this.rtbContributors.TabIndex = 11;
-            this.rtbContributors.Text = "h5p9sl https://github.com/h5p9sl";
+            this.rtbContributors.Text = "h5p9sl https://github.com/h5p9sl\nsmaragdus https://github.com/smaragdus";
             this.rtbContributors.WordWrap = false;
             this.rtbContributors.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RtbContributors_LinkClicked);
             // 
@@ -166,7 +166,7 @@
             this.rtbThirdPartyDev.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbThirdPartyDev.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.rtbThirdPartyDev.ForeColor = System.Drawing.SystemColors.Control;
-            this.rtbThirdPartyDev.Location = new System.Drawing.Point(-1, 179);
+            this.rtbThirdPartyDev.Location = new System.Drawing.Point(-1, 199);
             this.rtbThirdPartyDev.Name = "rtbThirdPartyDev";
             this.rtbThirdPartyDev.ReadOnly = true;
             this.rtbThirdPartyDev.RightMargin = 700;
@@ -183,7 +183,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(411, 280);
+            this.ClientSize = new System.Drawing.Size(411, 300);
             this.Controls.Add(this.rtbContributors);
             this.Controls.Add(this.rtbThirdPartyDev);
             this.Controls.Add(this.lblGithub);
@@ -193,6 +193,7 @@
             this.Controls.Add(this.lblAppVersion);
             this.Controls.Add(this.lblContributors);
             this.Controls.Add(this.lblThirdPartyDev);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
