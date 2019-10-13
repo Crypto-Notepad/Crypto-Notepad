@@ -248,12 +248,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public string lnVisible {
+        public string lineNumbersVisible {
             get {
-                return ((string)(this["lnVisible"]));
+                return ((string)(this["lineNumbersVisible"]));
             }
             set {
-                this["lnVisible"] = value;
+                this["lineNumbersVisible"] = value;
             }
         }
         
@@ -261,12 +261,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("240, 240, 240")]
-        public global::System.Drawing.Color lnBackColor {
+        public global::System.Drawing.Color lineNumbersBackColor {
             get {
-                return ((global::System.Drawing.Color)(this["lnBackColor"]));
+                return ((global::System.Drawing.Color)(this["lineNumbersBackColor"]));
             }
             set {
-                this["lnBackColor"] = value;
+                this["lineNumbersBackColor"] = value;
             }
         }
         
@@ -274,12 +274,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("164, 164, 164")]
-        public global::System.Drawing.Color lnForeColor {
+        public global::System.Drawing.Color lineNumbersForeColor {
             get {
-                return ((global::System.Drawing.Color)(this["lnForeColor"]));
+                return ((global::System.Drawing.Color)(this["lineNumbersForeColor"]));
             }
             set {
-                this["lnForeColor"] = value;
+                this["lineNumbersForeColor"] = value;
             }
         }
         
@@ -287,12 +287,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public string blShow {
+        public string borderLinesVisible {
             get {
-                return ((string)(this["blShow"]));
+                return ((string)(this["borderLinesVisible"]));
             }
             set {
-                this["blShow"] = value;
+                this["borderLinesVisible"] = value;
             }
         }
         
@@ -300,12 +300,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("164, 164, 164")]
-        public global::System.Drawing.Color blColor {
+        public global::System.Drawing.Color borderLinesColor {
             get {
-                return ((global::System.Drawing.Color)(this["blColor"]));
+                return ((global::System.Drawing.Color)(this["borderLinesColor"]));
             }
             set {
-                this["blColor"] = value;
+                this["borderLinesColor"] = value;
             }
         }
         
@@ -313,12 +313,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Solid")]
-        public string blStyle {
+        public string borderLinesStyle {
             get {
-                return ((string)(this["blStyle"]));
+                return ((string)(this["borderLinesStyle"]));
             }
             set {
-                this["blStyle"] = value;
+                this["borderLinesStyle"] = value;
             }
         }
         
@@ -326,12 +326,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public string glShow {
+        public string gridLinesVisible {
             get {
-                return ((string)(this["glShow"]));
+                return ((string)(this["gridLinesVisible"]));
             }
             set {
-                this["glShow"] = value;
+                this["gridLinesVisible"] = value;
             }
         }
         
@@ -339,12 +339,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("164, 164, 164")]
-        public global::System.Drawing.Color glColor {
+        public global::System.Drawing.Color gridLinesColor {
             get {
-                return ((global::System.Drawing.Color)(this["glColor"]));
+                return ((global::System.Drawing.Color)(this["gridLinesColor"]));
             }
             set {
-                this["glColor"] = value;
+                this["gridLinesColor"] = value;
             }
         }
         
@@ -352,12 +352,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Solid")]
-        public string glStyle {
+        public string gridLinesStyle {
             get {
-                return ((string)(this["glStyle"]));
+                return ((string)(this["gridLinesStyle"]));
             }
             set {
-                this["glStyle"] = value;
+                this["gridLinesStyle"] = value;
             }
         }
         
@@ -365,12 +365,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Enable")]
-        public string insKey {
+        public string insertKey {
             get {
-                return ((string)(this["insKey"]));
+                return ((string)(this["insertKey"]));
             }
             set {
-                this["insKey"] = value;
+                this["insertKey"] = value;
             }
         }
         
@@ -561,12 +561,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public string mlVisible {
+        public string marginLinesVisible {
             get {
-                return ((string)(this["mlVisible"]));
+                return ((string)(this["marginLinesVisible"]));
             }
             set {
-                this["mlVisible"] = value;
+                this["marginLinesVisible"] = value;
             }
         }
         
@@ -574,12 +574,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("164, 164, 164")]
-        public global::System.Drawing.Color mlColor {
+        public global::System.Drawing.Color marginLinesColor {
             get {
-                return ((global::System.Drawing.Color)(this["mlColor"]));
+                return ((global::System.Drawing.Color)(this["marginLinesColor"]));
             }
             set {
-                this["mlColor"] = value;
+                this["marginLinesColor"] = value;
             }
         }
         
@@ -587,12 +587,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Right")]
-        public string mlSide {
+        public string marginLinesSide {
             get {
-                return ((string)(this["mlSide"]));
+                return ((string)(this["marginLinesSide"]));
             }
             set {
-                this["mlSide"] = value;
+                this["marginLinesSide"] = value;
             }
         }
         
@@ -600,12 +600,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Solid")]
-        public string mlStyle {
+        public string marginLinesStyle {
             get {
-                return ((string)(this["mlStyle"]));
+                return ((string)(this["marginLinesStyle"]));
             }
             set {
-                this["mlStyle"] = value;
+                this["marginLinesStyle"] = value;
             }
         }
         

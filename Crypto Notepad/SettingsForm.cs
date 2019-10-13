@@ -22,54 +22,54 @@ namespace Crypto_Notepad
         /*Methods*/
         private void LoadSettings()
         {
-            pnlEditorFontColor.BackColor = settings.editroForeColor;
-            pnlEditorBackColor.BackColor = settings.editorBackColor;
-            cbxInsKey.Text = settings.insKey;
-            txtPaddingLeft.Text = settings.editorPaddingLeft;
-            cbxOpenLinks.Text = settings.openLinks;
+            editorFontColor.BackColor = settings.editroForeColor;
+            editorBackColor.BackColor = settings.editorBackColor;
+            editorInsertKeyComboBox.Text = settings.insertKey;
+            editorPaddingLeftTextBox.Text = settings.editorPaddingLeft;
+            editorOpenLinksWithComboBox.Text = settings.openLinks;
             fontDialog.Font = settings.editorFont;
 
-            chkAutoLock.Checked = settings.autoLock;
-            chkUpdates.Checked = settings.autoCheckUpdate;
-            chkMainMenu.Checked = settings.mainMenuVisible;
-            chkMenuIcons.Checked = settings.menuIcons;
-            chkMinimizeToTray.Checked = settings.minimizeToTray;
-            chkCloseToTray.Checked = settings.closeToTray;
+            autoLockOnMinimizeCheckBox.Checked = settings.autoLock;
+            autoCheckUpdatesCheckBox.Checked = settings.autoCheckUpdate;
+            mainMenuCheckBox.Checked = settings.mainMenuVisible;
+            menuIconsCheckBox.Checked = settings.menuIcons;
+            minimizeToTrayCheckBox.Checked = settings.minimizeToTray;
+            closeToTrayCheckBox.Checked = settings.closeToTray;
 
-            chkIntegrate.Checked = settings.explorerIntegrate;
-            chkAssociate.Checked = settings.explorerAssociate;
-            chkSendTo.Checked = settings.explorerSendTo;
+            integrateCheckBox.Checked = settings.explorerIntegrate;
+            associateCheckBox.Checked = settings.explorerAssociate;
+            sendToCheckBox.Checked = settings.explorerSendTo;
 
-            cboHash.Text = settings.HashAlgorithm;
-            cboKeySize.Text = settings.KeySize;
-            txtPwdIterations.Text = settings.PasswordIterations;
+            hashAlgorithmComboBox.Text = settings.HashAlgorithm;
+            keySizeComboBox.Text = settings.KeySize;
+            passwordIterationsTextBox.Text = settings.PasswordIterations;
 
             searchBackColor.BackColor = settings.searchPanelBackColor;
             searchFontColor.BackColor = settings.searchPanelForeColor;
 
             toolbarBackColor.BackColor = settings.toolbarBackColor;
-            toolbarBorder.Checked = settings.toolbarBorder;
-            toolbarVisible.Checked = settings.toolbarVisible;
-            toolbarOldIcons.Checked = settings.oldToolbarIcons;
+            toolbarBorderCheckBox.Checked = settings.toolbarBorder;
+            toolbarVisibleCheckBox.Checked = settings.toolbarVisible;
+            toolbarOldIconsCheckBox.Checked = settings.oldToolbarIcons;
 
-            statusBackColor.BackColor = settings.statusPanelBackColor;
-            statusFontColor.BackColor = settings.statusPanelFontColor;
-            statusPanelVisible.Checked = settings.statusPanelVisible;
+            statusPanelBackColor.BackColor = settings.statusPanelBackColor;
+            statusPanelFontColor.BackColor = settings.statusPanelFontColor;
+            statusPanelVisibleCheckBox.Checked = settings.statusPanelVisible;
 
-            LNVisibleComboBox.Text = settings.lnVisible;
-            LNBackColor.BackColor = settings.lnBackColor;
-            LNFontColor.BackColor = settings.lnForeColor;
-            BLShowСomboBox.Text = settings.blShow;
-            BLColor.BackColor = settings.blColor;
-            BLStyleComboBox.Text = settings.blStyle;
-            GLShowComboBox.Text = settings.glShow;
-            GLColor.BackColor = settings.glColor;
-            GLStyleComboBox.Text = settings.glStyle;
+            lineNumbersVisibleComboBox.Text = settings.lineNumbersVisible;
+            lineNumbersBackColor.BackColor = settings.lineNumbersBackColor;
+            lineNumbersFontColor.BackColor = settings.lineNumbersForeColor;
+            borderLinesVisibleСomboBox.Text = settings.borderLinesVisible;
+            borderLinesColor.BackColor = settings.borderLinesColor;
+            borderLinesStyleComboBox.Text = settings.borderLinesStyle;
+            gridLinesVisibleComboBox.Text = settings.gridLinesVisible;
+            gridLinesColor.BackColor = settings.gridLinesColor;
+            gridLinesStyleComboBox.Text = settings.gridLinesStyle;
 
-            MLVisibleComboBox.Text = settings.mlVisible;
-            MLColor.BackColor = settings.mlColor;
-            MLStyleComboBox.Text = settings.mlStyle;
-            MLSideComboBox.Text = settings.mlSide;
+            marginLinesVisibleComboBox.Text = settings.marginLinesVisible;
+            marginLinesColor.BackColor = settings.marginLinesColor;
+            marginLinesStyleComboBox.Text = settings.marginLinesStyle;
+            marginLinesSideComboBox.Text = settings.marginLinesSide;
         }
 
         private static void AssociateExtension(string applicationExecutablePath, string extension)
@@ -166,14 +166,14 @@ namespace Crypto_Notepad
             settingsTabControl.Appearance = TabAppearance.FlatButtons;
             settingsTabControl.ItemSize = new Size(0, 1);
             settingsTabControl.SizeMode = TabSizeMode.Fixed;
-            lstSettingsNav.SelectedIndex = 0;
+            settingsNavigation.SelectedIndex = 0;
             TopMost = settings.alwaysOnTop;
             LoadSettings();
         }
 
-        private void TxtPaddingLeft_Click(object sender, EventArgs e)
+        private void EditorPaddingLeftTextBox_Click(object sender, EventArgs e)
         {
-            txtPaddingLeft.SelectAll();
+            editorPaddingLeftTextBox.SelectAll();
         }
 
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -185,7 +185,7 @@ namespace Crypto_Notepad
             {
                 settings.PasswordIterations = "1";
             }
-            if (string.IsNullOrWhiteSpace(txtPaddingLeft.Text))
+            if (string.IsNullOrWhiteSpace(editorPaddingLeftTextBox.Text))
             {
                 settings.editorPaddingLeft = "0";
                 main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
@@ -198,7 +198,7 @@ namespace Crypto_Notepad
         /*Settings Section*/
         private void EditorFontColor_Click(object sender, EventArgs e)
         {
-            colorDialog.Color = pnlEditorFontColor.BackColor;
+            colorDialog.Color = editorFontColor.BackColor;
             using (new CenterWinDialog(this))
             {
                 if (colorDialog.ShowDialog() == DialogResult.OK)
@@ -207,13 +207,13 @@ namespace Crypto_Notepad
                     main.richTextBox.ForeColor = colorDialog.Color;
                     main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
                     settings.editroForeColor = colorDialog.Color;
-                    pnlEditorFontColor.BackColor = colorDialog.Color;
+                    editorFontColor.BackColor = colorDialog.Color;
                 }
             }
         }
-        private void EditorBGColor_Click(object sender, EventArgs e)
+        private void EditorBackColor_Click(object sender, EventArgs e)
         {
-            colorDialog.Color = pnlEditorBackColor.BackColor;
+            colorDialog.Color = editorBackColor.BackColor;
             using (new CenterWinDialog(this))
             {
                 if (colorDialog.ShowDialog() == DialogResult.OK)
@@ -222,74 +222,74 @@ namespace Crypto_Notepad
                     main.richTextBox.BackColor = colorDialog.Color;
                     main.BackColor = colorDialog.Color;
                     settings.editorBackColor = colorDialog.Color;
-                    pnlEditorBackColor.BackColor = colorDialog.Color;
+                    editorBackColor.BackColor = colorDialog.Color;
                 }
             }
         }
 
-        private void LNBackColor_Click(object sender, EventArgs e)
+        private void LineNumbersBackColor_Click(object sender, EventArgs e)
         {
-            colorDialog.Color = LNBackColor.BackColor;
+            colorDialog.Color = lineNumbersBackColor.BackColor;
             using (new CenterWinDialog(this))
             {
                 if (colorDialog.ShowDialog() == DialogResult.OK)
                 {
                     MainForm main = Owner as MainForm;
-                    main.RTBLineNumbers.BackColor = colorDialog.Color;
-                    LNBackColor.BackColor = colorDialog.Color;
-                    settings.lnBackColor = colorDialog.Color;
+                    main.lineNumbers.BackColor = colorDialog.Color;
+                    lineNumbersBackColor.BackColor = colorDialog.Color;
+                    settings.lineNumbersBackColor = colorDialog.Color;
                 }
             }
         }
 
-        private void LNFontColor_Click(object sender, EventArgs e)
+        private void LineNumbersFontColor_Click(object sender, EventArgs e)
         {
-            colorDialog.Color = LNFontColor.BackColor;
+            colorDialog.Color = lineNumbersFontColor.BackColor;
             using (new CenterWinDialog(this))
             {
                 if (colorDialog.ShowDialog() == DialogResult.OK)
                 {
                     MainForm main = Owner as MainForm;
-                    main.RTBLineNumbers.ForeColor = colorDialog.Color;
-                    LNFontColor.BackColor = colorDialog.Color;
-                    settings.lnForeColor = colorDialog.Color;
+                    main.lineNumbers.ForeColor = colorDialog.Color;
+                    lineNumbersFontColor.BackColor = colorDialog.Color;
+                    settings.lineNumbersForeColor = colorDialog.Color;
                 }
             }
         }
 
-        private void BLColor_Click(object sender, EventArgs e)
+        private void BorderLinesColor_Click(object sender, EventArgs e)
         {
-            colorDialog.Color = BLColor.BackColor;
+            colorDialog.Color = borderLinesColor.BackColor;
             using (new CenterWinDialog(this))
             {
                 if (colorDialog.ShowDialog() == DialogResult.OK)
                 {
                     MainForm main = Owner as MainForm;
-                    main.RTBLineNumbers.BorderLines_Color = colorDialog.Color;
-                    BLColor.BackColor = colorDialog.Color;
-                    settings.blColor = colorDialog.Color;
+                    main.lineNumbers.BorderLines_Color = colorDialog.Color;
+                    borderLinesColor.BackColor = colorDialog.Color;
+                    settings.borderLinesColor = colorDialog.Color;
                 }
             }
         }
 
-        private void GLColor_Click(object sender, EventArgs e)
+        private void GridLinesColor_Click(object sender, EventArgs e)
         {
-            colorDialog.Color = GLColor.BackColor;
+            colorDialog.Color = gridLinesColor.BackColor;
             using (new CenterWinDialog(this))
             {
                 if (colorDialog.ShowDialog() == DialogResult.OK)
                 {
                     MainForm main = Owner as MainForm;
-                    main.RTBLineNumbers.GridLines_Color = colorDialog.Color;
-                    GLColor.BackColor = colorDialog.Color;
-                    settings.glColor = colorDialog.Color;
+                    main.lineNumbers.GridLines_Color = colorDialog.Color;
+                    gridLinesColor.BackColor = colorDialog.Color;
+                    settings.gridLinesColor = colorDialog.Color;
                 }
             }
         }
 
-        private void LstSettingsNav_Click(object sender, EventArgs e)
+        private void SettingsNavigation_Click(object sender, EventArgs e)
         {
-            switch (lstSettingsNav.SelectedIndex)
+            switch (settingsNavigation.SelectedIndex)
             {
                 case 0:
                     settingsTabControl.SelectedTab = editorTabPage;
@@ -325,18 +325,18 @@ namespace Crypto_Notepad
             settingsTabControl.Focus();
         }
 
-        private void ToolbarVisible_Click(object sender, EventArgs e)
+        private void ToolbarVisibleCheckBox_Click(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            main.toolbarPanel.Visible = toolbarVisible.Checked;
-            main.RTBLineNumbers.Height = 1;
+            main.toolbarPanel.Visible = toolbarVisibleCheckBox.Checked;
+            main.lineNumbers.Height = 1;
             main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
-            settings.toolbarVisible= toolbarVisible.Checked;
+            settings.toolbarVisible= toolbarVisibleCheckBox.Checked;
         }
 
         private void AssociateCheckBox_Click(object sender, EventArgs e)
         {
-            if (chkAssociate.Checked)
+            if (associateCheckBox.Checked)
             {
                 AssociateExtension(Assembly.GetEntryAssembly().Location, "cnp");
             }
@@ -344,13 +344,13 @@ namespace Crypto_Notepad
             {
                 DissociateExtension(Assembly.GetEntryAssembly().Location, "cnp");
             }
-            settings.explorerAssociate = chkAssociate.Checked;
+            settings.explorerAssociate = associateCheckBox.Checked;
 
         }
 
         private void IntegrateCheckBox_Click(object sender, EventArgs e)
         {
-            if (chkIntegrate.Checked)
+            if (integrateCheckBox.Checked)
             {
                 MenuIntegrate("enable");
             }
@@ -358,26 +358,27 @@ namespace Crypto_Notepad
             {
                 MenuIntegrate("disable");
             }
-            settings.explorerIntegrate = chkIntegrate.Checked;
+            settings.explorerIntegrate = integrateCheckBox.Checked;
         }
 
-        private void TxtPaddingLeft_TextChanged(object sender, EventArgs e)
+        private void EditorPaddingLeftTextBox_TextChanged(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (txtPaddingLeft.Text.Length >= 1)
+            if (editorPaddingLeftTextBox.Text.Length >= 1)
             {
-                if (settings.editorPaddingLeft != txtPaddingLeft.Text)
+                if (settings.editorPaddingLeft != editorPaddingLeftTextBox.Text)
                 {
-                    main.richTextBox.SetInnerMargins(Convert.ToInt32(txtPaddingLeft.Text), 0, 0, 0);
+                    main.richTextBox.SetInnerMargins(Convert.ToInt32(editorPaddingLeftTextBox.Text), 0, 0, 0);
                     main.richTextBox.Refresh();
-                    settings.editorPaddingLeft = txtPaddingLeft.Text;
+                    settings.editorPaddingLeft = editorPaddingLeftTextBox.Text;
                 }
-            }
+            }     
+           
         }
 
         private void SendToCheckBox_Click(object sender, EventArgs e)
         {
-            if (chkSendTo.Checked)
+            if (sendToCheckBox.Checked)
             {
                 SendToShortcut();
             }
@@ -389,35 +390,35 @@ namespace Crypto_Notepad
                     System.IO.File.Delete(shortcutPath);
                 }
             }
-            settings.explorerSendTo = chkSendTo.Checked;
+            settings.explorerSendTo = sendToCheckBox.Checked;
 
         }
 
-        private void InsKeyComboBox_DropDownClosed(object sender, EventArgs e)
+        private void EditorInsertKeyComboBox_DropDownClosed(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (settings.insKey != cbxInsKey.Text)
+            if (settings.insertKey != editorInsertKeyComboBox.Text)
             {
-                if (cbxInsKey.Text == "Disable")
+                if (editorInsertKeyComboBox.Text == "Disable")
                 {
-                    main.insMainMenu.ShortcutKeys = Keys.Insert;
+                    main.insertMainMenu.ShortcutKeys = Keys.Insert;
                 }
                 else
                 {
-                    main.insMainMenu.ShortcutKeys = Keys.None;
+                    main.insertMainMenu.ShortcutKeys = Keys.None;
                 }
-                settings.insKey = cbxInsKey.Text;
+                settings.insertKey = editorInsertKeyComboBox.Text;
             }
         }
 
         private void MenuIconsCheckBox_Click(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            settings.menuIcons = chkMenuIcons.Checked;
-            main.MenuIcons(settings.menuIcons);
+            settings.menuIcons = menuIconsCheckBox.Checked;
+            main.MenuIcons(settings.menuIcons);         
         }
 
-        private void BtnFont_Click(object sender, EventArgs e)
+        private void EditorFontButton_Click(object sender, EventArgs e)
         {
             using (new CenterWinDialog(this))
             {
@@ -425,115 +426,115 @@ namespace Crypto_Notepad
                 {
                     MainForm main = Owner as MainForm;
                     main.richTextBox.Font = fontDialog.Font;
-                    main.RTBLineNumbers.Font = fontDialog.Font;
+                    main.lineNumbers.Font = fontDialog.Font;
                     main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
                 }
             }
         }
 
-        private void LNVisibleComboBox_DropDownClosed(object sender, EventArgs e)
+        private void LineNumbersVisibleComboBox_DropDownClosed(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (settings.lnVisible != LNVisibleComboBox.Text)
+            if (settings.lineNumbersVisible != lineNumbersVisibleComboBox.Text)
             {
-                settings.lnVisible = LNVisibleComboBox.Text;
-                main.RTBLineNumbers.Visible = bool.Parse(settings.lnVisible);
-                main.RTBLineNumbers.Height = 1;
-                settings.lnVisible = LNVisibleComboBox.Text;
+                settings.lineNumbersVisible = lineNumbersVisibleComboBox.Text;
+                main.lineNumbers.Visible = bool.Parse(settings.lineNumbersVisible);
+                main.lineNumbers.Height = 1;
+                settings.lineNumbersVisible = lineNumbersVisibleComboBox.Text;
             }
         }
 
-        private void BLShowСomboBox_DropDownClosed(object sender, EventArgs e)
+        private void BorderLinesVisibleСomboBox_DropDownClosed(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (settings.blShow != BLShowСomboBox.Text)
+            if (settings.borderLinesVisible != borderLinesVisibleСomboBox.Text)
             {
-                settings.blShow = BLShowСomboBox.Text;
-                main.RTBLineNumbers.Show_BorderLines = bool.Parse(settings.blShow);
+                settings.borderLinesVisible = borderLinesVisibleСomboBox.Text;
+                main.lineNumbers.Show_BorderLines = bool.Parse(settings.borderLinesVisible);
             }
         }
 
-        private void BLStyleComboBox_DropDownClosed(object sender, EventArgs e)
+        private void BorderLinesStyleComboBox_DropDownClosed(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (settings.blStyle != BLStyleComboBox.Text)
+            if (settings.borderLinesStyle != borderLinesStyleComboBox.Text)
             {
-                switch (BLStyleComboBox.Text)
+                switch (borderLinesStyleComboBox.Text)
                 {
                     case "Solid":
-                        settings.blStyle = DashStyle.Solid.ToString();
+                        settings.borderLinesStyle = DashStyle.Solid.ToString();
                         break;
                     case "Dash":
-                        settings.blStyle = DashStyle.Dash.ToString();
+                        settings.borderLinesStyle = DashStyle.Dash.ToString();
                         break;
                     case "Dot":
-                        settings.blStyle = DashStyle.Dot.ToString();
+                        settings.borderLinesStyle = DashStyle.Dot.ToString();
                         break;
                     case "DashDot":
-                        settings.blStyle = DashStyle.DashDot.ToString();
+                        settings.borderLinesStyle = DashStyle.DashDot.ToString();
                         break;
                     case "DashDotDot":
-                        settings.blStyle = DashStyle.DashDotDot.ToString();
+                        settings.borderLinesStyle = DashStyle.DashDotDot.ToString();
                         break;
                 }
-                main.RTBLineNumbers.BorderLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.blStyle);
+                main.lineNumbers.BorderLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.borderLinesStyle);
             }
         }
 
-        private void GLShowComboBox_DropDownClosed(object sender, EventArgs e)
+        private void GridLinesVisibleComboBox_DropDownClosed(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (settings.glShow != GLShowComboBox.Text)
+            if (settings.gridLinesVisible != gridLinesVisibleComboBox.Text)
             {
-                settings.glShow = GLShowComboBox.Text;
-                main.RTBLineNumbers.Show_GridLines = bool.Parse(settings.glShow);
+                settings.gridLinesVisible = gridLinesVisibleComboBox.Text;
+                main.lineNumbers.Show_GridLines = bool.Parse(settings.gridLinesVisible);
             }
         }
 
-        private void GLStyleComboBox_DropDownClosed(object sender, EventArgs e)
+        private void GridLinesStyleComboBox_DropDownClosed(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (settings.glStyle.ToString() != GLStyleComboBox.Text)
+            if (settings.gridLinesStyle.ToString() != gridLinesStyleComboBox.Text)
             {
-                switch (GLStyleComboBox.Text)
+                switch (gridLinesStyleComboBox.Text)
                 {
                     case "Solid":
-                        settings.glStyle = DashStyle.Solid.ToString(); ;
+                        settings.gridLinesStyle = DashStyle.Solid.ToString(); ;
                         break;
                     case "Dash":
-                        settings.glStyle = DashStyle.Dash.ToString();
+                        settings.gridLinesStyle = DashStyle.Dash.ToString();
                         break;
                     case "Dot":
-                        settings.glStyle = DashStyle.Dot.ToString();
+                        settings.gridLinesStyle = DashStyle.Dot.ToString();
                         break;
                     case "DashDot":
-                        settings.glStyle = DashStyle.DashDot.ToString();
+                        settings.gridLinesStyle = DashStyle.DashDot.ToString();
                         break;
                     case "DashDotDot":
-                        settings.glStyle = DashStyle.DashDotDot.ToString();
+                        settings.gridLinesStyle = DashStyle.DashDotDot.ToString();
                         break;
                 }
-                main.RTBLineNumbers.GridLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.glStyle);
+                main.lineNumbers.GridLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.gridLinesStyle);
             }
         }
 
         private void KeySizeComboBox_DropDownClosed(object sender, EventArgs e)
         {
-            if (cboKeySize.Text != settings.KeySize)
+            if (keySizeComboBox.Text != settings.KeySize)
             {
-                settings.KeySize = cboKeySize.Text;
+                settings.KeySize = keySizeComboBox.Text;
             }
         }
 
-        private void HashComboBox_DropDownClosed(object sender, EventArgs e)
+        private void HashAlgorithmComboBox_DropDownClosed(object sender, EventArgs e)
         {
-            if (cboHash.Text != settings.HashAlgorithm)
+            if (hashAlgorithmComboBox.Text != settings.HashAlgorithm)
             {
-                settings.HashAlgorithm = cboHash.Text;
+                settings.HashAlgorithm = hashAlgorithmComboBox.Text;
             }
         }
 
-        private void TxtPaddingLeft_KeyPress(object sender, KeyPressEventArgs e)
+        private void EditorPaddingLeftTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
@@ -541,7 +542,7 @@ namespace Crypto_Notepad
             }
         }
 
-        private void PwdIterationsTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void PasswordIterationsTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
@@ -553,37 +554,37 @@ namespace Crypto_Notepad
         {
             MainForm main = Owner as MainForm;
             main.richTextBox.Font = fontDialog.Font;
-            main.RTBLineNumbers.Font = fontDialog.Font;
+            main.lineNumbers.Font = fontDialog.Font;
             main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
             settings.editorFont = fontDialog.Font;
         }
 
-        private void StatusPanelVisible_Click(object sender, EventArgs e)
+        private void StatusPanelVisibleCheckBox_Click(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            main.statusPanel.Visible = statusPanelVisible.Checked;
-            main.richTextBox.SetInnerMargins(Convert.ToInt32(txtPaddingLeft.Text), 0, 0, 0);
-            settings.statusPanelVisible = statusPanelVisible.Checked;
+            main.statusPanel.Visible = statusPanelVisibleCheckBox.Checked;
+            main.richTextBox.SetInnerMargins(Convert.ToInt32(editorPaddingLeftTextBox.Text), 0, 0, 0);
+            settings.statusPanelVisible = statusPanelVisibleCheckBox.Checked;
         }
 
-        private void StatusBackColor_Click(object sender, EventArgs e)
+        private void StatusPanelBackColor_Click(object sender, EventArgs e)
         {
-            colorDialog.Color = statusBackColor.BackColor;
+            colorDialog.Color = statusPanelBackColor.BackColor;
             using (new CenterWinDialog(this))
             {
                 if (colorDialog.ShowDialog() == DialogResult.OK)
                 {
                     MainForm main = Owner as MainForm;
                     main.statusPanel.BackColor = colorDialog.Color;
-                    statusBackColor.BackColor = colorDialog.Color;
+                    statusPanelBackColor.BackColor = colorDialog.Color;
                     settings.statusPanelBackColor = colorDialog.Color;
                 }
             }
         }
 
-        private void StatusFontColor_Click(object sender, EventArgs e)
+        private void StatusPanelFontColor_Click(object sender, EventArgs e)
         {
-            colorDialog.Color = statusFontColor.BackColor;
+            colorDialog.Color = statusPanelFontColor.BackColor;
             using (new CenterWinDialog(this))
             {
                 if (colorDialog.ShowDialog() == DialogResult.OK)
@@ -591,7 +592,7 @@ namespace Crypto_Notepad
                     MainForm main = Owner as MainForm;
                     main.statusPanel.ForeColor = colorDialog.Color;
                     main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
-                    statusFontColor.BackColor = colorDialog.Color;
+                    statusPanelFontColor.BackColor = colorDialog.Color;
                     settings.statusPanelFontColor = colorDialog.Color;
                 }
             }
@@ -612,10 +613,10 @@ namespace Crypto_Notepad
             }
         }    
         
-        private void ToolbarBorder_Click(object sender, EventArgs e)
+        private void ToolbarBorderCheckBox_Click(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (toolbarBorder.Checked)
+            if (toolbarBorderCheckBox.Checked)
             {
                 main.toolbarPanel.BorderStyle = BorderStyle.FixedSingle;
             }
@@ -623,7 +624,7 @@ namespace Crypto_Notepad
             {
                 main.toolbarPanel.BorderStyle = BorderStyle.None;
             }
-            settings.toolbarBorder = toolbarBorder.Checked;
+            settings.toolbarBorder = toolbarBorderCheckBox.Checked;
         }
 
         private void SearchBackColor_Click(object sender, EventArgs e)
@@ -651,9 +652,9 @@ namespace Crypto_Notepad
                 {
                     MainForm main = Owner as MainForm;
                     main.searchTextBox.ForeColor = colorDialog.Color;
-                    main.caseSensitiveCheckBox.ForeColor = colorDialog.Color;
-                    main.wholeWordCheckBox.ForeColor = colorDialog.Color;
-                    main.findNextButton.ForeColor = colorDialog.Color;
+                    main.searchCaseSensitiveCheckBox.ForeColor = colorDialog.Color;
+                    main.searchWholeWordCheckBox.ForeColor = colorDialog.Color;
+                    main.searchFindNextButton.ForeColor = colorDialog.Color;
                     settings.searchPanelForeColor = colorDialog.Color;
                     searchFontColor.BackColor = colorDialog.Color;
                 }
@@ -663,7 +664,7 @@ namespace Crypto_Notepad
         private void MainMenuCheckBox_Click(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (chkMainMenu.Checked)
+            if (mainMenuCheckBox.Checked)
             {
                 main.mainMenu.Visible = true;
             }
@@ -671,147 +672,147 @@ namespace Crypto_Notepad
             {
                 main.mainMenu.Visible = false;
             }
-            settings.mainMenuVisible = chkMainMenu.Checked;
+            settings.mainMenuVisible = mainMenuCheckBox.Checked;
         }
 
-        private void ToolbarOldIcons_Click(object sender, EventArgs e)
+        private void ToolbarOldIconsCheckBox_Click(object sender, EventArgs e)
         {
-            settings.oldToolbarIcons = toolbarOldIcons.Checked;
+            settings.oldToolbarIcons = toolbarOldIconsCheckBox.Checked;
             MainForm main = Owner as MainForm;
             main.Toolbaricons(settings.oldToolbarIcons);
         }
 
-        private void CbxOpenLinks_DropDownClosed(object sender, EventArgs e)
+        private void EditorOpenLinksWithComboBox_DropDownClosed(object sender, EventArgs e)
         {
-            if (settings.openLinks != cbxOpenLinks.Text)
+            if (settings.openLinks != editorOpenLinksWithComboBox.Text)
             {
-                settings.openLinks = cbxOpenLinks.Text;
-            }
-
-        }
-
-        private void AutoLockCheckBox_Click(object sender, EventArgs e)
-        {
-            settings.autoLock = chkAutoLock.Checked;
-        }
-
-        private void UpdatesCheckBox_Click(object sender, EventArgs e)
-        {
-            settings.autoCheckUpdate = chkUpdates.Checked;
-
-        }
-
-        private void PwdIterationsTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (txtPwdIterations.Text != settings.PasswordIterations)
-            {
-                settings.PasswordIterations = txtPwdIterations.Text;
+                settings.openLinks = editorOpenLinksWithComboBox.Text;
             }
         }
 
-        private void MLVisibleComboBox_DropDownClosed(object sender, EventArgs e)
+        private void AutoLockOnMinimizeCheckBox_Click(object sender, EventArgs e)
+        {
+            settings.autoLock = autoLockOnMinimizeCheckBox.Checked;
+        }
+
+        private void AutoCheckUpdatesCheckBox_Click(object sender, EventArgs e)
+        {
+            settings.autoCheckUpdate = autoCheckUpdatesCheckBox.Checked;
+
+        }
+
+        private void PasswordIterationsTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (passwordIterationsTextBox.Text != settings.PasswordIterations)
+            {
+                settings.PasswordIterations = passwordIterationsTextBox.Text;
+            }
+        }
+
+        private void MarginLinesVisibleComboBox_DropDownClosed(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (settings.mlVisible != MLVisibleComboBox.Text)
+            if (settings.marginLinesVisible != marginLinesVisibleComboBox.Text)
             {
-                settings.mlVisible = MLVisibleComboBox.Text;
-                main.RTBLineNumbers.Show_MarginLines = bool.Parse(settings.mlVisible);
+                settings.marginLinesVisible = marginLinesVisibleComboBox.Text;
+                main.lineNumbers.Show_MarginLines = bool.Parse(settings.marginLinesVisible);
             }
         }
 
-        private void MLSideComboBox_DropDownClosed(object sender, EventArgs e)
+        private void MarginLinesSideComboBox_DropDownClosed(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (settings.mlSide.ToString() != MLSideComboBox.Text)
+            if (settings.marginLinesSide.ToString() != marginLinesSideComboBox.Text)
             {
-                switch (MLSideComboBox.Text)
+                switch (marginLinesSideComboBox.Text)
                 {
                     case "None":
-                        settings.mlSide = LineNumbers.LineNumbers.LineNumberDockSide.None.ToString();
+                        settings.marginLinesSide = LineNumbers.LineNumbers.LineNumberDockSide.None.ToString();
                         break;
                     case "Left":
-                        settings.mlSide = LineNumbers.LineNumbers.LineNumberDockSide.Left.ToString();
+                        settings.marginLinesSide = LineNumbers.LineNumbers.LineNumberDockSide.Left.ToString();
                         break;
                     case "Right":
-                        settings.mlSide = LineNumbers.LineNumbers.LineNumberDockSide.Right.ToString();
+                        settings.marginLinesSide = LineNumbers.LineNumbers.LineNumberDockSide.Right.ToString();
                         break;
                     case "Height":
-                        settings.mlSide = LineNumbers.LineNumbers.LineNumberDockSide.Height.ToString();
+                        settings.marginLinesSide = LineNumbers.LineNumbers.LineNumberDockSide.Height.ToString();
                         break;
                 }
-                main.RTBLineNumbers.MarginLines_Side = (LineNumbers.LineNumbers.LineNumberDockSide)Enum.Parse(typeof(LineNumbers.LineNumbers.LineNumberDockSide), settings.mlSide);
+                main.lineNumbers.MarginLines_Side = (LineNumbers.LineNumbers.LineNumberDockSide)Enum.Parse(typeof(LineNumbers.LineNumbers.LineNumberDockSide), settings.marginLinesSide);
             }
         }
 
-        private void MLStyleComboBox_DropDownClosed(object sender, EventArgs e)
+        private void MarginLinesStyleComboBox_DropDownClosed(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (settings.mlStyle != MLStyleComboBox.Text)
+            if (settings.marginLinesStyle != marginLinesStyleComboBox.Text)
             {
-                switch (MLStyleComboBox.Text)
+                switch (marginLinesStyleComboBox.Text)
                 {
                     case "Solid":
-                        settings.mlStyle = DashStyle.Solid.ToString();
+                        settings.marginLinesStyle = DashStyle.Solid.ToString();
                         break;
                     case "Dash":
-                        settings.mlStyle = DashStyle.Dash.ToString();
+                        settings.marginLinesStyle = DashStyle.Dash.ToString();
                         break;
                     case "Dot":
-                        settings.mlStyle = DashStyle.Dot.ToString();
+                        settings.marginLinesStyle = DashStyle.Dot.ToString();
                         break;
                     case "DashDot":
-                        settings.mlStyle = DashStyle.DashDot.ToString();
+                        settings.marginLinesStyle = DashStyle.DashDot.ToString();
                         break;
                     case "DashDotDot":
-                        settings.mlStyle = DashStyle.DashDotDot.ToString();
+                        settings.marginLinesStyle = DashStyle.DashDotDot.ToString();
                         break;
                 }
-                main.RTBLineNumbers.MarginLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.mlStyle);
+                main.lineNumbers.MarginLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.marginLinesStyle);
             }
         }
 
-        private void MLColor_Click(object sender, EventArgs e)
+        private void MarginLinesColor_Click(object sender, EventArgs e)
         {
-            colorDialog.Color = MLColor.BackColor;
+            colorDialog.Color = marginLinesColor.BackColor;
             using (new CenterWinDialog(this))
             {
                 if (colorDialog.ShowDialog() == DialogResult.OK)
                 {
                     MainForm main = Owner as MainForm;
-                    main.RTBLineNumbers.MarginLines_Color = colorDialog.Color;
-                    MLColor.BackColor = colorDialog.Color;
-                    settings.mlColor = colorDialog.Color;
+                    main.lineNumbers.MarginLines_Color = colorDialog.Color;
+                    marginLinesColor.BackColor = colorDialog.Color;
+                    settings.marginLinesColor = colorDialog.Color;
                 }
             }
         }
 
-        private void ChkMinimizeToTray_Click(object sender, EventArgs e)
+        private void MinimizeToTrayCheckBox_Click(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (chkCloseToTray.Checked == false & chkMinimizeToTray.Checked == false)
+            if (closeToTrayCheckBox.Checked == false & minimizeToTrayCheckBox.Checked == false)
             {
                 main.trayIcon.Visible = false;
             }
-            if (chkMinimizeToTray.Checked == true)
+            if (minimizeToTrayCheckBox.Checked == true)
             {
                 main.trayIcon.Visible = true;
             }
-            settings.minimizeToTray = chkMinimizeToTray.Checked;
+            settings.minimizeToTray = minimizeToTrayCheckBox.Checked;
         }
 
-        private void ChkCloseToTray_Click(object sender, EventArgs e)
+        private void CloseToTrayCheckBox_Click(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (chkCloseToTray.Checked == false & chkMinimizeToTray.Checked ==false )
+            if (closeToTrayCheckBox.Checked == false & minimizeToTrayCheckBox.Checked ==false )
             {
                 main.trayIcon.Visible = false;
             }
-            if (chkCloseToTray.Checked == true)
+            if (closeToTrayCheckBox.Checked == true)
             {
                 main.trayIcon.Visible = true;
             }
-            settings.closeToTray = chkCloseToTray.Checked;
+            settings.closeToTray = closeToTrayCheckBox.Checked;
         }
+
         /*Settings Section*/
 
 

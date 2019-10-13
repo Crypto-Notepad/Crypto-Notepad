@@ -28,141 +28,152 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtOldKey = new System.Windows.Forms.TextBox();
-            this.txtNewKey = new System.Windows.Forms.TextBox();
-            this.lblOldKey = new System.Windows.Forms.Label();
-            this.lblNewKey = new System.Windows.Forms.Label();
-            this.btnAccept = new System.Windows.Forms.Button();
-            this.pnlMain = new System.Windows.Forms.Panel();
-            this.picLock = new System.Windows.Forms.PictureBox();
-            this.picNewKey = new System.Windows.Forms.PictureBox();
-            this.picOldKey = new System.Windows.Forms.PictureBox();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.pnlMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picNewKey)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picOldKey)).BeginInit();
+            this.oldKeyTextBox = new System.Windows.Forms.TextBox();
+            this.newKeyTextBox = new System.Windows.Forms.TextBox();
+            this.acceptButton = new System.Windows.Forms.Button();
+            this.mainPanel = new System.Windows.Forms.Panel();
+            this.oldKeyPlaceholder = new System.Windows.Forms.Label();
+            this.newKeyPlaceholder = new System.Windows.Forms.Label();
+            this.statusLabel = new System.Windows.Forms.Label();
+            this.lockPictureBox = new System.Windows.Forms.PictureBox();
+            this.showNewKeyPictureBox = new System.Windows.Forms.PictureBox();
+            this.showOldKeyPictureBox = new System.Windows.Forms.PictureBox();
+            this.mainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lockPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showNewKeyPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showOldKeyPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtOldKey
+            // oldKeyTextBox
             // 
-            this.txtOldKey.Location = new System.Drawing.Point(120, 9);
-            this.txtOldKey.Name = "txtOldKey";
-            this.txtOldKey.Size = new System.Drawing.Size(121, 20);
-            this.txtOldKey.TabIndex = 0;
-            this.txtOldKey.UseSystemPasswordChar = true;
-            this.txtOldKey.TextChanged += new System.EventHandler(this.TxtOldKey_TextChanged);
+            this.oldKeyTextBox.Location = new System.Drawing.Point(63, 12);
+            this.oldKeyTextBox.Name = "oldKeyTextBox";
+            this.oldKeyTextBox.Size = new System.Drawing.Size(177, 22);
+            this.oldKeyTextBox.TabIndex = 0;
+            this.oldKeyTextBox.UseSystemPasswordChar = true;
+            this.oldKeyTextBox.TextChanged += new System.EventHandler(this.OldKeyTextBox_TextChanged);
+            this.oldKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OldKeyTextBox_KeyDown);
             // 
-            // txtNewKey
+            // newKeyTextBox
             // 
-            this.txtNewKey.Location = new System.Drawing.Point(120, 43);
-            this.txtNewKey.Name = "txtNewKey";
-            this.txtNewKey.Size = new System.Drawing.Size(121, 20);
-            this.txtNewKey.TabIndex = 1;
-            this.txtNewKey.UseSystemPasswordChar = true;
-            this.txtNewKey.TextChanged += new System.EventHandler(this.TxtNewKey_TextChanged);
+            this.newKeyTextBox.Location = new System.Drawing.Point(63, 37);
+            this.newKeyTextBox.Name = "newKeyTextBox";
+            this.newKeyTextBox.Size = new System.Drawing.Size(177, 22);
+            this.newKeyTextBox.TabIndex = 1;
+            this.newKeyTextBox.UseSystemPasswordChar = true;
+            this.newKeyTextBox.TextChanged += new System.EventHandler(this.NewKeyTextBox_TextChanged);
+            this.newKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NewKeyTextBox_KeyDown);
+            this.newKeyTextBox.Leave += new System.EventHandler(this.NewKeyTextBox_Leave);
             // 
-            // lblOldKey
+            // acceptButton
             // 
-            this.lblOldKey.AutoSize = true;
-            this.lblOldKey.Location = new System.Drawing.Point(61, 12);
-            this.lblOldKey.Name = "lblOldKey";
-            this.lblOldKey.Size = new System.Drawing.Size(47, 13);
-            this.lblOldKey.TabIndex = 2;
-            this.lblOldKey.Text = "Old Key:";
+            this.acceptButton.Enabled = false;
+            this.acceptButton.Location = new System.Drawing.Point(212, 79);
+            this.acceptButton.Name = "acceptButton";
+            this.acceptButton.Size = new System.Drawing.Size(53, 23);
+            this.acceptButton.TabIndex = 4;
+            this.acceptButton.Text = "Accept";
+            this.acceptButton.UseVisualStyleBackColor = true;
+            this.acceptButton.Click += new System.EventHandler(this.AcceptButton_Click);
             // 
-            // lblNewKey
+            // mainPanel
             // 
-            this.lblNewKey.AutoSize = true;
-            this.lblNewKey.Location = new System.Drawing.Point(61, 46);
-            this.lblNewKey.Name = "lblNewKey";
-            this.lblNewKey.Size = new System.Drawing.Size(53, 13);
-            this.lblNewKey.TabIndex = 3;
-            this.lblNewKey.Text = "New Key:";
+            this.mainPanel.BackColor = System.Drawing.Color.White;
+            this.mainPanel.Controls.Add(this.oldKeyPlaceholder);
+            this.mainPanel.Controls.Add(this.newKeyPlaceholder);
+            this.mainPanel.Controls.Add(this.lockPictureBox);
+            this.mainPanel.Controls.Add(this.showNewKeyPictureBox);
+            this.mainPanel.Controls.Add(this.showOldKeyPictureBox);
+            this.mainPanel.Controls.Add(this.oldKeyTextBox);
+            this.mainPanel.Controls.Add(this.newKeyTextBox);
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.mainPanel.Location = new System.Drawing.Point(0, 0);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(269, 75);
+            this.mainPanel.TabIndex = 6;
             // 
-            // btnAccept
+            // oldKeyPlaceholder
             // 
-            this.btnAccept.Enabled = false;
-            this.btnAccept.Location = new System.Drawing.Point(212, 81);
-            this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(53, 23);
-            this.btnAccept.TabIndex = 4;
-            this.btnAccept.Text = "Accept";
-            this.btnAccept.UseVisualStyleBackColor = true;
-            this.btnAccept.Click += new System.EventHandler(this.BtnAccept_Click);
+            this.oldKeyPlaceholder.AutoSize = true;
+            this.oldKeyPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.oldKeyPlaceholder.ForeColor = System.Drawing.Color.DarkGray;
+            this.oldKeyPlaceholder.Location = new System.Drawing.Point(67, 16);
+            this.oldKeyPlaceholder.Name = "oldKeyPlaceholder";
+            this.oldKeyPlaceholder.Size = new System.Drawing.Size(46, 13);
+            this.oldKeyPlaceholder.TabIndex = 8;
+            this.oldKeyPlaceholder.Text = "Old key";
+            this.oldKeyPlaceholder.Click += new System.EventHandler(this.OldKeyPlaceholder_Click);
             // 
-            // pnlMain
+            // newKeyPlaceholder
             // 
-            this.pnlMain.BackColor = System.Drawing.Color.White;
-            this.pnlMain.Controls.Add(this.picLock);
-            this.pnlMain.Controls.Add(this.picNewKey);
-            this.pnlMain.Controls.Add(this.lblOldKey);
-            this.pnlMain.Controls.Add(this.picOldKey);
-            this.pnlMain.Controls.Add(this.txtOldKey);
-            this.pnlMain.Controls.Add(this.txtNewKey);
-            this.pnlMain.Controls.Add(this.lblNewKey);
-            this.pnlMain.Location = new System.Drawing.Point(0, 0);
-            this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(268, 75);
-            this.pnlMain.TabIndex = 6;
+            this.newKeyPlaceholder.AutoSize = true;
+            this.newKeyPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.newKeyPlaceholder.ForeColor = System.Drawing.Color.DarkGray;
+            this.newKeyPlaceholder.Location = new System.Drawing.Point(67, 41);
+            this.newKeyPlaceholder.Name = "newKeyPlaceholder";
+            this.newKeyPlaceholder.Size = new System.Drawing.Size(50, 13);
+            this.newKeyPlaceholder.TabIndex = 2;
+            this.newKeyPlaceholder.Text = "New key";
+            this.newKeyPlaceholder.Click += new System.EventHandler(this.NewKeyPlaceholder_Click);
             // 
-            // picLock
+            // statusLabel
             // 
-            this.picLock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picLock.Image = global::Crypto_Notepad.Properties.Resources.big_lock;
-            this.picLock.Location = new System.Drawing.Point(8, 12);
-            this.picLock.Name = "picLock";
-            this.picLock.Size = new System.Drawing.Size(47, 47);
-            this.picLock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picLock.TabIndex = 7;
-            this.picLock.TabStop = false;
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.statusLabel.ForeColor = System.Drawing.Color.Black;
+            this.statusLabel.Location = new System.Drawing.Point(5, 81);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(42, 17);
+            this.statusLabel.TabIndex = 7;
+            this.statusLabel.Text = "status";
+            this.statusLabel.Visible = false;
             // 
-            // picNewKey
+            // lockPictureBox
             // 
-            this.picNewKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picNewKey.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picNewKey.Image = global::Crypto_Notepad.Properties.Resources.eye_half;
-            this.picNewKey.Location = new System.Drawing.Point(247, 43);
-            this.picNewKey.Name = "picNewKey";
-            this.picNewKey.Size = new System.Drawing.Size(18, 20);
-            this.picNewKey.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picNewKey.TabIndex = 5;
-            this.picNewKey.TabStop = false;
-            this.picNewKey.Click += new System.EventHandler(this.PicNewKeyEyeIcon_Click);
+            this.lockPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lockPictureBox.Image = global::Crypto_Notepad.Properties.Resources.gnupg_keys;
+            this.lockPictureBox.Location = new System.Drawing.Point(8, 12);
+            this.lockPictureBox.Name = "lockPictureBox";
+            this.lockPictureBox.Size = new System.Drawing.Size(47, 47);
+            this.lockPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.lockPictureBox.TabIndex = 7;
+            this.lockPictureBox.TabStop = false;
             // 
-            // picOldKey
+            // showNewKeyPictureBox
             // 
-            this.picOldKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picOldKey.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picOldKey.Image = global::Crypto_Notepad.Properties.Resources.eye_half;
-            this.picOldKey.Location = new System.Drawing.Point(247, 9);
-            this.picOldKey.Name = "picOldKey";
-            this.picOldKey.Size = new System.Drawing.Size(18, 20);
-            this.picOldKey.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picOldKey.TabIndex = 5;
-            this.picOldKey.TabStop = false;
-            this.picOldKey.Click += new System.EventHandler(this.PicOldKeyEyeIcon_Click);
+            this.showNewKeyPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.showNewKeyPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.showNewKeyPictureBox.Image = global::Crypto_Notepad.Properties.Resources.eye_half;
+            this.showNewKeyPictureBox.Location = new System.Drawing.Point(239, 37);
+            this.showNewKeyPictureBox.Name = "showNewKeyPictureBox";
+            this.showNewKeyPictureBox.Size = new System.Drawing.Size(18, 22);
+            this.showNewKeyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.showNewKeyPictureBox.TabIndex = 5;
+            this.showNewKeyPictureBox.TabStop = false;
+            this.showNewKeyPictureBox.Click += new System.EventHandler(this.ShowNewKeyPictureBox_Click);
             // 
-            // lblStatus
+            // showOldKeyPictureBox
             // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblStatus.Location = new System.Drawing.Point(5, 87);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(43, 16);
-            this.lblStatus.TabIndex = 7;
-            this.lblStatus.Text = "status";
-            this.lblStatus.Visible = false;
+            this.showOldKeyPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.showOldKeyPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.showOldKeyPictureBox.Image = global::Crypto_Notepad.Properties.Resources.eye_half;
+            this.showOldKeyPictureBox.Location = new System.Drawing.Point(239, 12);
+            this.showOldKeyPictureBox.Name = "showOldKeyPictureBox";
+            this.showOldKeyPictureBox.Size = new System.Drawing.Size(18, 22);
+            this.showOldKeyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.showOldKeyPictureBox.TabIndex = 5;
+            this.showOldKeyPictureBox.TabStop = false;
+            this.showOldKeyPictureBox.Click += new System.EventHandler(this.ShowOldKeyPictureBox_Click);
             // 
             // ChangeKeyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 111);
-            this.Controls.Add(this.lblStatus);
-            this.Controls.Add(this.pnlMain);
-            this.Controls.Add(this.btnAccept);
+            this.ClientSize = new System.Drawing.Size(269, 106);
+            this.Controls.Add(this.statusLabel);
+            this.Controls.Add(this.mainPanel);
+            this.Controls.Add(this.acceptButton);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -170,11 +181,11 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Change Key";
-            this.pnlMain.ResumeLayout(false);
-            this.pnlMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picNewKey)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picOldKey)).EndInit();
+            this.mainPanel.ResumeLayout(false);
+            this.mainPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lockPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showNewKeyPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showOldKeyPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,15 +193,15 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtOldKey;
-        private System.Windows.Forms.TextBox txtNewKey;
-        private System.Windows.Forms.Label lblOldKey;
-        private System.Windows.Forms.Label lblNewKey;
-        private System.Windows.Forms.Button btnAccept;
-        private System.Windows.Forms.PictureBox picOldKey;
-        private System.Windows.Forms.PictureBox picNewKey;
-        private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.PictureBox picLock;
-        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.TextBox oldKeyTextBox;
+        private System.Windows.Forms.TextBox newKeyTextBox;
+        private System.Windows.Forms.Button acceptButton;
+        private System.Windows.Forms.PictureBox showOldKeyPictureBox;
+        private System.Windows.Forms.PictureBox showNewKeyPictureBox;
+        private System.Windows.Forms.Panel mainPanel;
+        private System.Windows.Forms.PictureBox lockPictureBox;
+        private System.Windows.Forms.Label statusLabel;
+        private System.Windows.Forms.Label newKeyPlaceholder;
+        private System.Windows.Forms.Label oldKeyPlaceholder;
     }
 }

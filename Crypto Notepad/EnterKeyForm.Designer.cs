@@ -29,92 +29,107 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnterKeyForm));
-            this.txtKey = new System.Windows.Forms.TextBox();
-            this.btnOk = new System.Windows.Forms.Button();
-            this.picShowKey = new System.Windows.Forms.PictureBox();
-            this.pnlMain = new System.Windows.Forms.Panel();
-            this.picLock = new System.Windows.Forms.PictureBox();
-            this.lblFileName = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.picShowKey)).BeginInit();
-            this.pnlMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLock)).BeginInit();
+            this.keyTextBox = new System.Windows.Forms.TextBox();
+            this.okButton = new System.Windows.Forms.Button();
+            this.mainPanel = new System.Windows.Forms.Panel();
+            this.fileNameLabel = new System.Windows.Forms.Label();
+            this.encryptionKeyPlaceholder = new System.Windows.Forms.Label();
+            this.lockPictureBox = new System.Windows.Forms.PictureBox();
+            this.showKeyPictureBox = new System.Windows.Forms.PictureBox();
+            this.mainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lockPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showKeyPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtKey
+            // keyTextBox
             // 
-            this.txtKey.Location = new System.Drawing.Point(64, 39);
-            this.txtKey.Name = "txtKey";
-            this.txtKey.Size = new System.Drawing.Size(177, 20);
-            this.txtKey.TabIndex = 0;
-            this.txtKey.UseSystemPasswordChar = true;
-            this.txtKey.TextChanged += new System.EventHandler(this.TxtKey_TextChanged);
-            this.txtKey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtKey_KeyDown);
+            this.keyTextBox.Location = new System.Drawing.Point(64, 37);
+            this.keyTextBox.Name = "keyTextBox";
+            this.keyTextBox.Size = new System.Drawing.Size(177, 22);
+            this.keyTextBox.TabIndex = 0;
+            this.keyTextBox.UseSystemPasswordChar = true;
+            this.keyTextBox.TextChanged += new System.EventHandler(this.KeyTextBox_TextChanged);
+            this.keyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyTextBox_KeyDown);
             // 
-            // btnOk
+            // okButton
             // 
-            this.btnOk.Enabled = false;
-            this.btnOk.Location = new System.Drawing.Point(190, 79);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 1;
-            this.btnOk.Text = "OK";
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.BtnOk_Click);
+            this.okButton.Enabled = false;
+            this.okButton.Location = new System.Drawing.Point(190, 80);
+            this.okButton.Name = "okButton";
+            this.okButton.Size = new System.Drawing.Size(75, 23);
+            this.okButton.TabIndex = 1;
+            this.okButton.Text = "OK";
+            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
-            // picShowKey
+            // mainPanel
             // 
-            this.picShowKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picShowKey.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picShowKey.Image = global::Crypto_Notepad.Properties.Resources.eye_half;
-            this.picShowKey.InitialImage = global::Crypto_Notepad.Properties.Resources.eye_half;
-            this.picShowKey.Location = new System.Drawing.Point(247, 39);
-            this.picShowKey.Name = "picShowKey";
-            this.picShowKey.Size = new System.Drawing.Size(18, 20);
-            this.picShowKey.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picShowKey.TabIndex = 3;
-            this.picShowKey.TabStop = false;
-            this.picShowKey.Click += new System.EventHandler(this.KeyEyeIcon_Click);
+            this.mainPanel.BackColor = System.Drawing.Color.White;
+            this.mainPanel.Controls.Add(this.encryptionKeyPlaceholder);
+            this.mainPanel.Controls.Add(this.lockPictureBox);
+            this.mainPanel.Controls.Add(this.fileNameLabel);
+            this.mainPanel.Controls.Add(this.keyTextBox);
+            this.mainPanel.Controls.Add(this.showKeyPictureBox);
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.mainPanel.Location = new System.Drawing.Point(0, 0);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(269, 75);
+            this.mainPanel.TabIndex = 5;
             // 
-            // pnlMain
+            // fileNameLabel
             // 
-            this.pnlMain.BackColor = System.Drawing.Color.White;
-            this.pnlMain.Controls.Add(this.picLock);
-            this.pnlMain.Controls.Add(this.lblFileName);
-            this.pnlMain.Controls.Add(this.txtKey);
-            this.pnlMain.Controls.Add(this.picShowKey);
-            this.pnlMain.Location = new System.Drawing.Point(0, 0);
-            this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(269, 73);
-            this.pnlMain.TabIndex = 5;
+            this.fileNameLabel.AutoEllipsis = true;
+            this.fileNameLabel.Location = new System.Drawing.Point(61, 12);
+            this.fileNameLabel.Name = "fileNameLabel";
+            this.fileNameLabel.Size = new System.Drawing.Size(196, 13);
+            this.fileNameLabel.TabIndex = 6;
+            this.fileNameLabel.Text = "File name";
+            this.fileNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // picLock
+            // encryptionKeyPlaceholder
             // 
-            this.picLock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picLock.Image = global::Crypto_Notepad.Properties.Resources.big_lock;
-            this.picLock.Location = new System.Drawing.Point(8, 12);
-            this.picLock.Name = "picLock";
-            this.picLock.Size = new System.Drawing.Size(47, 47);
-            this.picLock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picLock.TabIndex = 6;
-            this.picLock.TabStop = false;
+            this.encryptionKeyPlaceholder.AutoSize = true;
+            this.encryptionKeyPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.encryptionKeyPlaceholder.ForeColor = System.Drawing.Color.DarkGray;
+            this.encryptionKeyPlaceholder.Location = new System.Drawing.Point(68, 40);
+            this.encryptionKeyPlaceholder.Name = "encryptionKeyPlaceholder";
+            this.encryptionKeyPlaceholder.Size = new System.Drawing.Size(82, 13);
+            this.encryptionKeyPlaceholder.TabIndex = 9;
+            this.encryptionKeyPlaceholder.Text = "Encryption key";
             // 
-            // lblFileName
+            // lockPictureBox
             // 
-            this.lblFileName.AutoEllipsis = true;
-            this.lblFileName.Location = new System.Drawing.Point(61, 12);
-            this.lblFileName.Name = "lblFileName";
-            this.lblFileName.Size = new System.Drawing.Size(196, 13);
-            this.lblFileName.TabIndex = 6;
-            this.lblFileName.Text = "Enter the encryption key:";
-            this.lblFileName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lockPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lockPictureBox.Image = global::Crypto_Notepad.Properties.Resources.key_solid;
+            this.lockPictureBox.Location = new System.Drawing.Point(8, 12);
+            this.lockPictureBox.Name = "lockPictureBox";
+            this.lockPictureBox.Size = new System.Drawing.Size(47, 47);
+            this.lockPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.lockPictureBox.TabIndex = 6;
+            this.lockPictureBox.TabStop = false;
+            // 
+            // showKeyPictureBox
+            // 
+            this.showKeyPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.showKeyPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.showKeyPictureBox.Image = global::Crypto_Notepad.Properties.Resources.eye_half;
+            this.showKeyPictureBox.InitialImage = global::Crypto_Notepad.Properties.Resources.eye_half;
+            this.showKeyPictureBox.Location = new System.Drawing.Point(240, 37);
+            this.showKeyPictureBox.Name = "showKeyPictureBox";
+            this.showKeyPictureBox.Size = new System.Drawing.Size(18, 22);
+            this.showKeyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.showKeyPictureBox.TabIndex = 3;
+            this.showKeyPictureBox.TabStop = false;
+            this.showKeyPictureBox.Click += new System.EventHandler(this.ShowKeyPictureBox_Click);
             // 
             // EnterKeyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 107);
-            this.Controls.Add(this.pnlMain);
-            this.Controls.Add(this.btnOk);
+            this.ClientSize = new System.Drawing.Size(269, 106);
+            this.Controls.Add(this.mainPanel);
+            this.Controls.Add(this.okButton);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -125,20 +140,21 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EnterKeyForm_FormClosed);
             this.Load += new System.EventHandler(this.EnterKeyForm_Load);
             this.Shown += new System.EventHandler(this.EnterKeyForm_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.picShowKey)).EndInit();
-            this.pnlMain.ResumeLayout(false);
-            this.pnlMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLock)).EndInit();
+            this.mainPanel.ResumeLayout(false);
+            this.mainPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lockPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showKeyPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.PictureBox picShowKey;
-        private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.Label lblFileName;
-        private System.Windows.Forms.PictureBox picLock;
-        public System.Windows.Forms.TextBox txtKey;
+        private System.Windows.Forms.Button okButton;
+        private System.Windows.Forms.PictureBox showKeyPictureBox;
+        private System.Windows.Forms.Panel mainPanel;
+        private System.Windows.Forms.Label fileNameLabel;
+        private System.Windows.Forms.PictureBox lockPictureBox;
+        public System.Windows.Forms.TextBox keyTextBox;
+        private System.Windows.Forms.Label encryptionKeyPlaceholder;
     }
 }

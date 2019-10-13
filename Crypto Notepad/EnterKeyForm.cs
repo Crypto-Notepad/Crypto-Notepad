@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 
 namespace Crypto_Notepad
@@ -17,27 +17,28 @@ namespace Crypto_Notepad
             MainForm main = Owner as MainForm;
             if (main.Visible == false)
             {
+                main.trayIcon.Visible = false;
                 Environment.Exit(0);
             }
-            txtKey.Focus();
+            keyTextBox.Focus();
         }
 
         private void EnterKeyForm_Load(object sender, EventArgs e)
         {
-            lblFileName.Text = PublicVar.openFileName;
+            fileNameLabel.Text = PublicVar.openFileName;
             Properties.Settings settings = Properties.Settings.Default;
             TopMost = settings.alwaysOnTop;
         }
 
         private void EnterKeyForm_Shown(object sender, EventArgs e)
         {
-            lblFileName.Text = PublicVar.openFileName;
+            fileNameLabel.Text = PublicVar.openFileName;
         }
         /*Form Events*/
 
 
         /*Enter key area*/
-        private void TxtKey_TextChanged(object sender, EventArgs e)
+        private void KeyTextBox_TextChanged(object sender, EventArgs e)
         {
             if (txtKey.Text.Length > 0)
                 btnOk.Enabled = true;
@@ -45,37 +46,38 @@ namespace Crypto_Notepad
                 btnOk.Enabled = false;
         }
 
-        private void TxtKey_KeyDown(object sender, KeyEventArgs e)
+        private void KeyTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && btnOk.Enabled)
+            if (e.KeyCode == Keys.Enter && okButton.Enabled)
             {
-                BtnOk_Click(sender, e);
+                OkButton_Click(sender, e);
             }
         }
 
-        private void KeyEyeIcon_Click(object sender, EventArgs e)
+        private void ShowKeyPictureBox_Click(object sender, EventArgs e)
         {
-            if (txtKey.UseSystemPasswordChar)
+            if (keyTextBox.UseSystemPasswordChar)
             {
-                txtKey.UseSystemPasswordChar = false;
-                picShowKey.Image = Properties.Resources.eye;
+                keyTextBox.UseSystemPasswordChar = false;
+                showKeyPictureBox.Image = Properties.Resources.eye;
             }
             else
             {
-                txtKey.UseSystemPasswordChar = true;
-                picShowKey.Image = Properties.Resources.eye_half;
+                keyTextBox.UseSystemPasswordChar = true;
+                showKeyPictureBox.Image = Properties.Resources.eye_half;
             }
         }
         /*Enter key area*/
 
 
         /*Buttons*/
-        private void BtnOk_Click(object sender, EventArgs e)
+        private void OkButton_Click(object sender, EventArgs e)
         {
-            TypedPassword.Value = txtKey.Text;
-            txtKey.Focus();
+            TypedPassword.Value = keyTextBox.Text;
+            keyTextBox.Focus();
             PublicVar.okPressed = true;
             Hide();
+            
         }
         /*Buttons*/
 

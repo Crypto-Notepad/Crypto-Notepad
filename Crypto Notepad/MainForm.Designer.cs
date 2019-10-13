@@ -69,7 +69,7 @@
             this.aboutMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.debugMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.variablesMainMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.insMainMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.undoContextMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.redoContextMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,11 +85,11 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.searchPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.findNextButton = new System.Windows.Forms.Button();
+            this.searchFindNextButton = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.wholeWordCheckBox = new System.Windows.Forms.CheckBox();
-            this.caseSensitiveCheckBox = new System.Windows.Forms.CheckBox();
-            this.closeSearchPanel = new System.Windows.Forms.PictureBox();
+            this.searchWholeWordCheckBox = new System.Windows.Forms.CheckBox();
+            this.searchCaseSensitiveCheckBox = new System.Windows.Forms.CheckBox();
+            this.searchCloseButton = new System.Windows.Forms.PictureBox();
             this.toolbarPanel = new System.Windows.Forms.TableLayoutPanel();
             this.lockToolbarButton = new System.Windows.Forms.PictureBox();
             this.newToolbarButton = new System.Windows.Forms.PictureBox();
@@ -105,28 +105,28 @@
             this.settingsToolbarButton = new System.Windows.Forms.PictureBox();
             this.alwaysOnTopToolbarButton = new System.Windows.Forms.PictureBox();
             this.statusPanel = new System.Windows.Forms.StatusStrip();
-            this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lengthStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.linesStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lnStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.colStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusPanelLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusPanelLengthLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusPaneLinesLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusPaneLnLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusPaneColLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.mnuTray = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnlEnterKey = new System.Windows.Forms.Panel();
-            this.btnCloseEnterKey = new System.Windows.Forms.Button();
-            this.btnOk = new System.Windows.Forms.Button();
-            this.txtKey = new System.Windows.Forms.TextBox();
-            this.picShowKey = new System.Windows.Forms.PictureBox();
-            this.lblFileName = new System.Windows.Forms.Label();
+            this.trayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.trayMenuShow = new System.Windows.Forms.ToolStripMenuItem();
+            this.trayMenuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileLockedPanel = new System.Windows.Forms.Panel();
+            this.fileLockedCloseButton = new System.Windows.Forms.Button();
+            this.fileLockedOkButton = new System.Windows.Forms.Button();
+            this.fileLockedKeyTextBox = new System.Windows.Forms.TextBox();
+            this.fileLockedShowKey = new System.Windows.Forms.PictureBox();
+            this.fileLockedLabel = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.richTextBox = new Crypto_Notepad.ExRichTextBox();
-            this.RTBLineNumbers = new LineNumbers.LineNumbers();
+            this.lineNumbers = new LineNumbers.LineNumbers();
             this.mainMenu.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.searchPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.closeSearchPanel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchCloseButton)).BeginInit();
             this.toolbarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lockToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newToolbarButton)).BeginInit();
@@ -142,15 +142,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.settingsToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alwaysOnTopToolbarButton)).BeginInit();
             this.statusPanel.SuspendLayout();
-            this.mnuTray.SuspendLayout();
-            this.pnlEnterKey.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picShowKey)).BeginInit();
+            this.trayMenu.SuspendLayout();
+            this.fileLockedPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fileLockedShowKey)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenu
             // 
             this.mainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.mainMenu.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.mainMenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMainMenu,
             this.editMainMenu,
@@ -179,7 +179,7 @@
             this.exitMainMenu});
             this.fileMainMenu.ForeColor = System.Drawing.SystemColors.ControlText;
             this.fileMainMenu.Name = "fileMainMenu";
-            this.fileMainMenu.Size = new System.Drawing.Size(36, 24);
+            this.fileMainMenu.Size = new System.Drawing.Size(37, 24);
             this.fileMainMenu.Text = "File";
             this.fileMainMenu.DropDownOpened += new System.EventHandler(this.fileMainMenu_DropDownOpened);
             // 
@@ -187,7 +187,7 @@
             // 
             this.newMainMenu.Name = "newMainMenu";
             this.newMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newMainMenu.Size = new System.Drawing.Size(202, 22);
+            this.newMainMenu.Size = new System.Drawing.Size(195, 22);
             this.newMainMenu.Text = "New";
             this.newMainMenu.Click += new System.EventHandler(this.NewMainMenu_Click);
             // 
@@ -195,20 +195,20 @@
             // 
             this.openMainMenu.Name = "openMainMenu";
             this.openMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openMainMenu.Size = new System.Drawing.Size(202, 22);
+            this.openMainMenu.Size = new System.Drawing.Size(195, 22);
             this.openMainMenu.Text = "Open...";
             this.openMainMenu.Click += new System.EventHandler(this.OpenMainMenu_Click);
             // 
             // mainMenuSeparator1
             // 
             this.mainMenuSeparator1.Name = "mainMenuSeparator1";
-            this.mainMenuSeparator1.Size = new System.Drawing.Size(199, 6);
+            this.mainMenuSeparator1.Size = new System.Drawing.Size(192, 6);
             // 
             // saveMainMenu
             // 
             this.saveMainMenu.Name = "saveMainMenu";
             this.saveMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveMainMenu.Size = new System.Drawing.Size(202, 22);
+            this.saveMainMenu.Size = new System.Drawing.Size(195, 22);
             this.saveMainMenu.Text = "Save";
             this.saveMainMenu.Click += new System.EventHandler(this.SaveMainMenu_Click);
             // 
@@ -217,39 +217,39 @@
             this.saveAsMainMenu.Name = "saveAsMainMenu";
             this.saveAsMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.S)));
-            this.saveAsMainMenu.Size = new System.Drawing.Size(202, 22);
+            this.saveAsMainMenu.Size = new System.Drawing.Size(195, 22);
             this.saveAsMainMenu.Text = "Save As...";
             this.saveAsMainMenu.Click += new System.EventHandler(this.SaveAsMainMenu_Click);
             // 
             // mainMenuSeparator2
             // 
             this.mainMenuSeparator2.Name = "mainMenuSeparator2";
-            this.mainMenuSeparator2.Size = new System.Drawing.Size(199, 6);
+            this.mainMenuSeparator2.Size = new System.Drawing.Size(192, 6);
             // 
             // fileLocationMainMenu
             // 
             this.fileLocationMainMenu.Name = "fileLocationMainMenu";
-            this.fileLocationMainMenu.Size = new System.Drawing.Size(202, 22);
+            this.fileLocationMainMenu.Size = new System.Drawing.Size(195, 22);
             this.fileLocationMainMenu.Text = "Open File Location";
             this.fileLocationMainMenu.Click += new System.EventHandler(this.FileLocationMainMenu_Click);
             // 
             // deleteFileMainMenu
             // 
             this.deleteFileMainMenu.Name = "deleteFileMainMenu";
-            this.deleteFileMainMenu.Size = new System.Drawing.Size(202, 22);
+            this.deleteFileMainMenu.Size = new System.Drawing.Size(195, 22);
             this.deleteFileMainMenu.Text = "Delete File";
             this.deleteFileMainMenu.Click += new System.EventHandler(this.DeleteFileToolStripMenuItem_Click);
             // 
             // mainMenuSeparator3
             // 
             this.mainMenuSeparator3.Name = "mainMenuSeparator3";
-            this.mainMenuSeparator3.Size = new System.Drawing.Size(199, 6);
+            this.mainMenuSeparator3.Size = new System.Drawing.Size(192, 6);
             // 
             // exitMainMenu
             // 
             this.exitMainMenu.Name = "exitMainMenu";
             this.exitMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.exitMainMenu.Size = new System.Drawing.Size(202, 22);
+            this.exitMainMenu.Size = new System.Drawing.Size(195, 22);
             this.exitMainMenu.Text = "Exit";
             this.exitMainMenu.Click += new System.EventHandler(this.ExitMainMenu_Click);
             // 
@@ -272,7 +272,7 @@
             this.clearMainMenu});
             this.editMainMenu.ForeColor = System.Drawing.SystemColors.ControlText;
             this.editMainMenu.Name = "editMainMenu";
-            this.editMainMenu.Size = new System.Drawing.Size(40, 24);
+            this.editMainMenu.Size = new System.Drawing.Size(39, 24);
             this.editMainMenu.Text = "Edit";
             this.editMainMenu.DropDownOpened += new System.EventHandler(this.EditMainMenu_DropDownOpened);
             // 
@@ -280,7 +280,7 @@
             // 
             this.undoMainMenu.Name = "undoMainMenu";
             this.undoMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.undoMainMenu.Size = new System.Drawing.Size(164, 22);
             this.undoMainMenu.Text = "Undo";
             this.undoMainMenu.Click += new System.EventHandler(this.UndoMainMenu_Click);
             // 
@@ -288,21 +288,21 @@
             // 
             this.redoMainMenu.Name = "redoMainMenu";
             this.redoMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.redoMainMenu.Size = new System.Drawing.Size(164, 22);
             this.redoMainMenu.Text = "Redo";
             this.redoMainMenu.Click += new System.EventHandler(this.RedoMainMenu_Click);
             // 
             // mainMenuSeparator4
             // 
             this.mainMenuSeparator4.Name = "mainMenuSeparator4";
-            this.mainMenuSeparator4.Size = new System.Drawing.Size(162, 6);
+            this.mainMenuSeparator4.Size = new System.Drawing.Size(161, 6);
             // 
             // cutMainMenu
             // 
             this.cutMainMenu.Enabled = false;
             this.cutMainMenu.Name = "cutMainMenu";
             this.cutMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.cutMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.cutMainMenu.Size = new System.Drawing.Size(164, 22);
             this.cutMainMenu.Text = "Cut";
             this.cutMainMenu.Click += new System.EventHandler(this.CutMainMenu_Click);
             // 
@@ -311,7 +311,7 @@
             this.copyMainMenu.Enabled = false;
             this.copyMainMenu.Name = "copyMainMenu";
             this.copyMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copyMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.copyMainMenu.Size = new System.Drawing.Size(164, 22);
             this.copyMainMenu.Text = "Copy";
             this.copyMainMenu.Click += new System.EventHandler(this.CopyMainMenu_Click);
             // 
@@ -319,7 +319,7 @@
             // 
             this.pasteMainMenu.Name = "pasteMainMenu";
             this.pasteMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.pasteMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.pasteMainMenu.Size = new System.Drawing.Size(164, 22);
             this.pasteMainMenu.Text = "Paste";
             this.pasteMainMenu.Click += new System.EventHandler(this.PasteMainMenu_Click);
             // 
@@ -328,34 +328,34 @@
             this.deleteMainMenu.Enabled = false;
             this.deleteMainMenu.Name = "deleteMainMenu";
             this.deleteMainMenu.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.deleteMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.deleteMainMenu.Size = new System.Drawing.Size(164, 22);
             this.deleteMainMenu.Text = "Delete";
             this.deleteMainMenu.Click += new System.EventHandler(this.DeleteMainMenu_Click);
             // 
             // mainMenuSeparator5
             // 
             this.mainMenuSeparator5.Name = "mainMenuSeparator5";
-            this.mainMenuSeparator5.Size = new System.Drawing.Size(162, 6);
+            this.mainMenuSeparator5.Size = new System.Drawing.Size(161, 6);
             // 
             // findMainMenu
             // 
             this.findMainMenu.Name = "findMainMenu";
             this.findMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.findMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.findMainMenu.Size = new System.Drawing.Size(164, 22);
             this.findMainMenu.Text = "Find";
             this.findMainMenu.Click += new System.EventHandler(this.FindMainMenu_Click);
             // 
             // mainMenuSeparator6
             // 
             this.mainMenuSeparator6.Name = "mainMenuSeparator6";
-            this.mainMenuSeparator6.Size = new System.Drawing.Size(162, 6);
+            this.mainMenuSeparator6.Size = new System.Drawing.Size(161, 6);
             // 
             // selectAllMainMenu
             // 
             this.selectAllMainMenu.Name = "selectAllMainMenu";
             this.selectAllMainMenu.ShortcutKeyDisplayString = "";
             this.selectAllMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.selectAllMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.selectAllMainMenu.Size = new System.Drawing.Size(164, 22);
             this.selectAllMainMenu.Text = "Select All";
             this.selectAllMainMenu.Click += new System.EventHandler(this.SelectAllMainMenu_Click);
             // 
@@ -365,20 +365,20 @@
             this.wordWrapMainMenu.CheckOnClick = true;
             this.wordWrapMainMenu.CheckState = System.Windows.Forms.CheckState.Checked;
             this.wordWrapMainMenu.Name = "wordWrapMainMenu";
-            this.wordWrapMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.wordWrapMainMenu.Size = new System.Drawing.Size(164, 22);
             this.wordWrapMainMenu.Text = "Word Wrap";
             this.wordWrapMainMenu.Click += new System.EventHandler(this.WordWrapMainMenu_Click);
             // 
             // mainMenuSeparator7
             // 
             this.mainMenuSeparator7.Name = "mainMenuSeparator7";
-            this.mainMenuSeparator7.Size = new System.Drawing.Size(162, 6);
+            this.mainMenuSeparator7.Size = new System.Drawing.Size(161, 6);
             // 
             // clearMainMenu
             // 
             this.clearMainMenu.Name = "clearMainMenu";
             this.clearMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Delete)));
-            this.clearMainMenu.Size = new System.Drawing.Size(165, 22);
+            this.clearMainMenu.Size = new System.Drawing.Size(164, 22);
             this.clearMainMenu.Text = "Clear";
             this.clearMainMenu.Click += new System.EventHandler(this.ClearMainMenu_Click);
             // 
@@ -391,7 +391,7 @@
             this.settingsMainMenu});
             this.toolsMainMenu.ForeColor = System.Drawing.SystemColors.ControlText;
             this.toolsMainMenu.Name = "toolsMainMenu";
-            this.toolsMainMenu.Size = new System.Drawing.Size(48, 24);
+            this.toolsMainMenu.Size = new System.Drawing.Size(46, 24);
             this.toolsMainMenu.Text = "Tools";
             this.toolsMainMenu.DropDownOpened += new System.EventHandler(this.ToolsMainMenu_DropDownOpened);
             // 
@@ -400,7 +400,7 @@
             this.alwaysOnTopMainMenu.CheckOnClick = true;
             this.alwaysOnTopMainMenu.Name = "alwaysOnTopMainMenu";
             this.alwaysOnTopMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.alwaysOnTopMainMenu.Size = new System.Drawing.Size(202, 22);
+            this.alwaysOnTopMainMenu.Size = new System.Drawing.Size(201, 22);
             this.alwaysOnTopMainMenu.Text = "Always on Top";
             this.alwaysOnTopMainMenu.Click += new System.EventHandler(this.AlwaysOnTopMainMenu_Click);
             // 
@@ -409,7 +409,7 @@
             this.changeKeyMainMenu.Name = "changeKeyMainMenu";
             this.changeKeyMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.K)));
-            this.changeKeyMainMenu.Size = new System.Drawing.Size(202, 22);
+            this.changeKeyMainMenu.Size = new System.Drawing.Size(201, 22);
             this.changeKeyMainMenu.Text = "Change Key";
             this.changeKeyMainMenu.Click += new System.EventHandler(this.ChangeKeyMainMenu_Click);
             // 
@@ -417,7 +417,7 @@
             // 
             this.lockMainMenu.Name = "lockMainMenu";
             this.lockMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.lockMainMenu.Size = new System.Drawing.Size(202, 22);
+            this.lockMainMenu.Size = new System.Drawing.Size(201, 22);
             this.lockMainMenu.Text = "Lock";
             this.lockMainMenu.Click += new System.EventHandler(this.LockMainMenu_Click);
             // 
@@ -426,7 +426,7 @@
             this.settingsMainMenu.Name = "settingsMainMenu";
             this.settingsMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.S)));
-            this.settingsMainMenu.Size = new System.Drawing.Size(202, 22);
+            this.settingsMainMenu.Size = new System.Drawing.Size(201, 22);
             this.settingsMainMenu.Text = "Settings";
             this.settingsMainMenu.Click += new System.EventHandler(this.SettingsMainMenu_Click);
             // 
@@ -439,14 +439,14 @@
             this.aboutMainMenu});
             this.helpMainMenu.ForeColor = System.Drawing.SystemColors.ControlText;
             this.helpMainMenu.Name = "helpMainMenu";
-            this.helpMainMenu.Size = new System.Drawing.Size(43, 24);
+            this.helpMainMenu.Size = new System.Drawing.Size(44, 24);
             this.helpMainMenu.Text = "Help";
             // 
             // docsMainMenu
             // 
             this.docsMainMenu.Name = "docsMainMenu";
             this.docsMainMenu.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.docsMainMenu.Size = new System.Drawing.Size(187, 22);
+            this.docsMainMenu.Size = new System.Drawing.Size(180, 22);
             this.docsMainMenu.Text = "Documentation";
             this.docsMainMenu.Click += new System.EventHandler(this.DocsMainMenu_Click);
             // 
@@ -454,7 +454,7 @@
             // 
             this.updatesMainMenu.Name = "updatesMainMenu";
             this.updatesMainMenu.RightToLeftAutoMirrorImage = true;
-            this.updatesMainMenu.Size = new System.Drawing.Size(187, 22);
+            this.updatesMainMenu.Size = new System.Drawing.Size(180, 22);
             this.updatesMainMenu.Text = "Сheck for Updates...";
             this.updatesMainMenu.Click += new System.EventHandler(this.UpdatesMainMenu_Click);
             // 
@@ -462,14 +462,14 @@
             // 
             this.mainMenuSeparator8.ForeColor = System.Drawing.SystemColors.ControlText;
             this.mainMenuSeparator8.Name = "mainMenuSeparator8";
-            this.mainMenuSeparator8.Size = new System.Drawing.Size(184, 6);
+            this.mainMenuSeparator8.Size = new System.Drawing.Size(177, 6);
             // 
             // aboutMainMenu
             // 
             this.aboutMainMenu.BackColor = System.Drawing.SystemColors.Control;
             this.aboutMainMenu.Name = "aboutMainMenu";
             this.aboutMainMenu.ShortcutKeyDisplayString = "";
-            this.aboutMainMenu.Size = new System.Drawing.Size(187, 22);
+            this.aboutMainMenu.Size = new System.Drawing.Size(180, 22);
             this.aboutMainMenu.Text = "About";
             this.aboutMainMenu.Click += new System.EventHandler(this.AboutMainMenu_Click);
             // 
@@ -478,9 +478,9 @@
             this.debugMainMenu.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.debugMainMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.variablesMainMenu,
-            this.insMainMenu});
+            this.insertMainMenu});
             this.debugMainMenu.Name = "debugMainMenu";
-            this.debugMainMenu.Size = new System.Drawing.Size(55, 24);
+            this.debugMainMenu.Size = new System.Drawing.Size(54, 24);
             this.debugMainMenu.Text = "Debug";
             this.debugMainMenu.Visible = false;
             // 
@@ -488,16 +488,16 @@
             // 
             this.variablesMainMenu.Name = "variablesMainMenu";
             this.variablesMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Space)));
-            this.variablesMainMenu.Size = new System.Drawing.Size(213, 22);
+            this.variablesMainMenu.Size = new System.Drawing.Size(215, 22);
             this.variablesMainMenu.Text = "Main variables";
             this.variablesMainMenu.Click += new System.EventHandler(this.VariablesMainMenu_Click);
             // 
-            // insMainMenu
+            // insertMainMenu
             // 
-            this.insMainMenu.Name = "insMainMenu";
-            this.insMainMenu.Size = new System.Drawing.Size(213, 22);
-            this.insMainMenu.Text = "Insert";
-            this.insMainMenu.Visible = false;
+            this.insertMainMenu.Name = "insertMainMenu";
+            this.insertMainMenu.Size = new System.Drawing.Size(215, 22);
+            this.insertMainMenu.Text = "Insert";
+            this.insertMainMenu.Visible = false;
             // 
             // contextMenu
             // 
@@ -615,16 +615,17 @@
             this.searchPanel.BackColor = System.Drawing.Color.White;
             this.searchPanel.ColumnCount = 5;
             this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104F));
             this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
             this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.searchPanel.Controls.Add(this.findNextButton, 3, 0);
+            this.searchPanel.Controls.Add(this.searchFindNextButton, 3, 0);
             this.searchPanel.Controls.Add(this.searchTextBox, 0, 0);
-            this.searchPanel.Controls.Add(this.wholeWordCheckBox, 2, 0);
-            this.searchPanel.Controls.Add(this.caseSensitiveCheckBox, 1, 0);
-            this.searchPanel.Controls.Add(this.closeSearchPanel, 4, 0);
+            this.searchPanel.Controls.Add(this.searchWholeWordCheckBox, 2, 0);
+            this.searchPanel.Controls.Add(this.searchCaseSensitiveCheckBox, 1, 0);
+            this.searchPanel.Controls.Add(this.searchCloseButton, 4, 0);
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.searchPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.searchPanel.ForeColor = System.Drawing.Color.Black;
             this.searchPanel.Location = new System.Drawing.Point(0, 211);
             this.searchPanel.Name = "searchPanel";
@@ -634,26 +635,26 @@
             this.searchPanel.TabIndex = 17;
             this.searchPanel.Visible = false;
             // 
-            // findNextButton
+            // searchFindNextButton
             // 
-            this.findNextButton.BackColor = System.Drawing.Color.Transparent;
-            this.findNextButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.findNextButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.findNextButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.findNextButton.FlatAppearance.BorderSize = 0;
-            this.findNextButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.findNextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.findNextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.findNextButton.ForeColor = System.Drawing.Color.Black;
-            this.findNextButton.Location = new System.Drawing.Point(395, 3);
-            this.findNextButton.Name = "findNextButton";
-            this.findNextButton.Size = new System.Drawing.Size(64, 22);
-            this.findNextButton.TabIndex = 15;
-            this.findNextButton.TabStop = false;
-            this.findNextButton.Text = "Find Next";
-            this.findNextButton.UseMnemonic = false;
-            this.findNextButton.UseVisualStyleBackColor = false;
-            this.findNextButton.Click += new System.EventHandler(this.FindNextButton_Click);
+            this.searchFindNextButton.BackColor = System.Drawing.Color.Transparent;
+            this.searchFindNextButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.searchFindNextButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchFindNextButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.searchFindNextButton.FlatAppearance.BorderSize = 0;
+            this.searchFindNextButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.searchFindNextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.searchFindNextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchFindNextButton.ForeColor = System.Drawing.Color.Black;
+            this.searchFindNextButton.Location = new System.Drawing.Point(393, 3);
+            this.searchFindNextButton.Name = "searchFindNextButton";
+            this.searchFindNextButton.Size = new System.Drawing.Size(66, 22);
+            this.searchFindNextButton.TabIndex = 15;
+            this.searchFindNextButton.TabStop = false;
+            this.searchFindNextButton.Text = "Find Next";
+            this.searchFindNextButton.UseMnemonic = false;
+            this.searchFindNextButton.UseVisualStyleBackColor = false;
+            this.searchFindNextButton.Click += new System.EventHandler(this.SearchFindNextButton_Click);
             // 
             // searchTextBox
             // 
@@ -661,62 +662,60 @@
             this.searchTextBox.BackColor = System.Drawing.SystemColors.Control;
             this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchTextBox.ForeColor = System.Drawing.Color.Black;
-            this.searchTextBox.Location = new System.Drawing.Point(3, 7);
+            this.searchTextBox.Location = new System.Drawing.Point(3, 6);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(196, 13);
+            this.searchTextBox.Size = new System.Drawing.Size(180, 15);
             this.searchTextBox.TabIndex = 9;
             this.searchTextBox.TabStop = false;
             this.searchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             this.searchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchTextBox_KeyDown);
             // 
-            // wholeWordCheckBox
+            // searchWholeWordCheckBox
             // 
-            this.wholeWordCheckBox.AutoSize = true;
-            this.wholeWordCheckBox.BackColor = System.Drawing.Color.Transparent;
-            this.wholeWordCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wholeWordCheckBox.ForeColor = System.Drawing.Color.Black;
-            this.wholeWordCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.wholeWordCheckBox.Location = new System.Drawing.Point(305, 3);
-            this.wholeWordCheckBox.Name = "wholeWordCheckBox";
-            this.wholeWordCheckBox.Size = new System.Drawing.Size(84, 22);
-            this.wholeWordCheckBox.TabIndex = 12;
-            this.wholeWordCheckBox.Text = "Whole word";
-            this.wholeWordCheckBox.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.wholeWordCheckBox.UseVisualStyleBackColor = false;
-            this.wholeWordCheckBox.CheckedChanged += new System.EventHandler(this.WholeWordCheckBox_CheckedChanged);
+            this.searchWholeWordCheckBox.AutoSize = true;
+            this.searchWholeWordCheckBox.BackColor = System.Drawing.Color.Transparent;
+            this.searchWholeWordCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchWholeWordCheckBox.ForeColor = System.Drawing.Color.Black;
+            this.searchWholeWordCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.searchWholeWordCheckBox.Location = new System.Drawing.Point(293, 3);
+            this.searchWholeWordCheckBox.Name = "searchWholeWordCheckBox";
+            this.searchWholeWordCheckBox.Size = new System.Drawing.Size(94, 22);
+            this.searchWholeWordCheckBox.TabIndex = 12;
+            this.searchWholeWordCheckBox.Text = "Whole word";
+            this.searchWholeWordCheckBox.UseVisualStyleBackColor = false;
+            this.searchWholeWordCheckBox.CheckedChanged += new System.EventHandler(this.SearchWholeWordCheckBox_CheckedChanged);
             // 
-            // caseSensitiveCheckBox
+            // searchCaseSensitiveCheckBox
             // 
-            this.caseSensitiveCheckBox.AutoSize = true;
-            this.caseSensitiveCheckBox.BackColor = System.Drawing.Color.Transparent;
-            this.caseSensitiveCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.caseSensitiveCheckBox.ForeColor = System.Drawing.Color.Black;
-            this.caseSensitiveCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.caseSensitiveCheckBox.Location = new System.Drawing.Point(205, 3);
-            this.caseSensitiveCheckBox.Name = "caseSensitiveCheckBox";
-            this.caseSensitiveCheckBox.Size = new System.Drawing.Size(94, 22);
-            this.caseSensitiveCheckBox.TabIndex = 11;
-            this.caseSensitiveCheckBox.Text = "Case sensitive";
-            this.caseSensitiveCheckBox.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.caseSensitiveCheckBox.UseVisualStyleBackColor = false;
-            this.caseSensitiveCheckBox.CheckedChanged += new System.EventHandler(this.CaseSensitiveCheckBox_CheckedChanged);
+            this.searchCaseSensitiveCheckBox.AutoSize = true;
+            this.searchCaseSensitiveCheckBox.BackColor = System.Drawing.Color.Transparent;
+            this.searchCaseSensitiveCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchCaseSensitiveCheckBox.ForeColor = System.Drawing.Color.Black;
+            this.searchCaseSensitiveCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.searchCaseSensitiveCheckBox.Location = new System.Drawing.Point(189, 3);
+            this.searchCaseSensitiveCheckBox.Name = "searchCaseSensitiveCheckBox";
+            this.searchCaseSensitiveCheckBox.Size = new System.Drawing.Size(98, 22);
+            this.searchCaseSensitiveCheckBox.TabIndex = 11;
+            this.searchCaseSensitiveCheckBox.Text = "Case sensitive";
+            this.searchCaseSensitiveCheckBox.UseVisualStyleBackColor = false;
+            this.searchCaseSensitiveCheckBox.CheckedChanged += new System.EventHandler(this.SearchCaseSensitiveCheckBox_CheckedChanged);
             // 
-            // closeSearchPanel
+            // searchCloseButton
             // 
-            this.closeSearchPanel.BackColor = System.Drawing.Color.Transparent;
-            this.closeSearchPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.closeSearchPanel.Image = ((System.Drawing.Image)(resources.GetObject("closeSearchPanel.Image")));
-            this.closeSearchPanel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.closeSearchPanel.Location = new System.Drawing.Point(465, 3);
-            this.closeSearchPanel.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.closeSearchPanel.Name = "closeSearchPanel";
-            this.closeSearchPanel.Size = new System.Drawing.Size(15, 20);
-            this.closeSearchPanel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.closeSearchPanel.TabIndex = 14;
-            this.closeSearchPanel.TabStop = false;
-            this.closeSearchPanel.Click += new System.EventHandler(this.CloseSearchPanel_Click);
-            this.closeSearchPanel.MouseLeave += new System.EventHandler(this.CloseSearchPanel_MouseLeave);
-            this.closeSearchPanel.MouseHover += new System.EventHandler(this.CloseSearchPanel_MouseHover);
+            this.searchCloseButton.BackColor = System.Drawing.Color.Transparent;
+            this.searchCloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.searchCloseButton.Image = ((System.Drawing.Image)(resources.GetObject("searchCloseButton.Image")));
+            this.searchCloseButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.searchCloseButton.Location = new System.Drawing.Point(465, 3);
+            this.searchCloseButton.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.searchCloseButton.Name = "searchCloseButton";
+            this.searchCloseButton.Size = new System.Drawing.Size(15, 20);
+            this.searchCloseButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.searchCloseButton.TabIndex = 14;
+            this.searchCloseButton.TabStop = false;
+            this.searchCloseButton.Click += new System.EventHandler(this.SearchCloseButton_Click);
+            this.searchCloseButton.MouseLeave += new System.EventHandler(this.SearchCloseButton_MouseLeave);
+            this.searchCloseButton.MouseHover += new System.EventHandler(this.SearchCloseButton_MouseHover);
             // 
             // toolbarPanel
             // 
@@ -950,180 +949,181 @@
             this.statusPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.statusPanel.ForeColor = System.Drawing.Color.Black;
             this.statusPanel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusLabel,
-            this.lengthStatusLabel,
-            this.linesStatusLabel,
-            this.lnStatusLabel,
-            this.colStatusLabel});
+            this.statusPanelLabel,
+            this.statusPanelLengthLabel,
+            this.statusPaneLinesLabel,
+            this.statusPaneLnLabel,
+            this.statusPaneColLabel});
             this.statusPanel.Location = new System.Drawing.Point(0, 239);
             this.statusPanel.Name = "statusPanel";
             this.statusPanel.Size = new System.Drawing.Size(484, 22);
             this.statusPanel.TabIndex = 18;
             // 
-            // statusLabel
+            // statusPanelLabel
             // 
-            this.statusLabel.ActiveLinkColor = System.Drawing.Color.SteelBlue;
-            this.statusLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.statusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-            this.statusLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.statusLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.statusLabel.ImageTransparentColor = System.Drawing.SystemColors.Control;
-            this.statusLabel.LinkColor = System.Drawing.Color.SteelBlue;
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(43, 17);
-            this.statusLabel.Text = "Ready";
-            this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.statusLabel.VisitedLinkColor = System.Drawing.Color.SteelBlue;
-            this.statusLabel.Click += new System.EventHandler(this.StatusLabel_Click);
-            this.statusLabel.TextChanged += new System.EventHandler(this.StatusLabel_TextChanged);
+            this.statusPanelLabel.ActiveLinkColor = System.Drawing.Color.SteelBlue;
+            this.statusPanelLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.statusPanelLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.statusPanelLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.statusPanelLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.statusPanelLabel.ImageTransparentColor = System.Drawing.SystemColors.Control;
+            this.statusPanelLabel.LinkColor = System.Drawing.Color.SteelBlue;
+            this.statusPanelLabel.Name = "statusPanelLabel";
+            this.statusPanelLabel.Size = new System.Drawing.Size(43, 17);
+            this.statusPanelLabel.Text = "Ready";
+            this.statusPanelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.statusPanelLabel.VisitedLinkColor = System.Drawing.Color.SteelBlue;
+            this.statusPanelLabel.Click += new System.EventHandler(this.StatusPanelLabel_Click);
+            this.statusPanelLabel.TextChanged += new System.EventHandler(this.StatusPanelLabel_TextChanged);
             // 
-            // lengthStatusLabel
+            // statusPanelLengthLabel
             // 
-            this.lengthStatusLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.lengthStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-            this.lengthStatusLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.lengthStatusLabel.Name = "lengthStatusLabel";
-            this.lengthStatusLabel.Size = new System.Drawing.Size(59, 17);
-            this.lengthStatusLabel.Text = "Length: 0";
+            this.statusPanelLengthLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.statusPanelLengthLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.statusPanelLengthLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.statusPanelLengthLabel.Name = "statusPanelLengthLabel";
+            this.statusPanelLengthLabel.Size = new System.Drawing.Size(59, 17);
+            this.statusPanelLengthLabel.Text = "Length: 0";
             // 
-            // linesStatusLabel
+            // statusPaneLinesLabel
             // 
-            this.linesStatusLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.linesStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-            this.linesStatusLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.linesStatusLabel.Name = "linesStatusLabel";
-            this.linesStatusLabel.Size = new System.Drawing.Size(49, 17);
-            this.linesStatusLabel.Text = "Lines: 1";
+            this.statusPaneLinesLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.statusPaneLinesLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.statusPaneLinesLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.statusPaneLinesLabel.Name = "statusPaneLinesLabel";
+            this.statusPaneLinesLabel.Size = new System.Drawing.Size(49, 17);
+            this.statusPaneLinesLabel.Text = "Lines: 1";
             // 
-            // lnStatusLabel
+            // statusPaneLnLabel
             // 
-            this.lnStatusLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.lnStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-            this.lnStatusLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.lnStatusLabel.Name = "lnStatusLabel";
-            this.lnStatusLabel.Size = new System.Drawing.Size(35, 17);
-            this.lnStatusLabel.Text = "Ln: 1";
+            this.statusPaneLnLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.statusPaneLnLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.statusPaneLnLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.statusPaneLnLabel.Name = "statusPaneLnLabel";
+            this.statusPaneLnLabel.Size = new System.Drawing.Size(35, 17);
+            this.statusPaneLnLabel.Text = "Ln: 1";
             // 
-            // colStatusLabel
+            // statusPaneColLabel
             // 
-            this.colStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-            this.colStatusLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.colStatusLabel.Name = "colStatusLabel";
-            this.colStatusLabel.Size = new System.Drawing.Size(36, 17);
-            this.colStatusLabel.Text = "Col: 0";
+            this.statusPaneColLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.statusPaneColLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.statusPaneColLabel.Name = "statusPaneColLabel";
+            this.statusPaneColLabel.Size = new System.Drawing.Size(36, 17);
+            this.statusPaneColLabel.Text = "Col: 0";
             // 
             // trayIcon
             // 
-            this.trayIcon.ContextMenuStrip = this.mnuTray;
+            this.trayIcon.ContextMenuStrip = this.trayMenu;
             this.trayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("trayIcon.Icon")));
             this.trayIcon.Text = "Crypto Notepad";
             this.trayIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.TrayIcon_MouseDoubleClick);
             // 
-            // mnuTray
+            // trayMenu
             // 
-            this.mnuTray.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.mnuTray.Name = "mnuTray";
-            this.mnuTray.Size = new System.Drawing.Size(181, 70);
+            this.trayMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.trayMenuShow,
+            this.trayMenuExit});
+            this.trayMenu.Name = "mnuTray";
+            this.trayMenu.Size = new System.Drawing.Size(104, 48);
             // 
-            // showToolStripMenuItem
+            // trayMenuShow
             // 
-            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.showToolStripMenuItem.Text = "Show";
-            this.showToolStripMenuItem.Click += new System.EventHandler(this.ShowToolStripMenuItem_Click);
+            this.trayMenuShow.Name = "trayMenuShow";
+            this.trayMenuShow.Size = new System.Drawing.Size(103, 22);
+            this.trayMenuShow.Text = "Show";
+            this.trayMenuShow.Click += new System.EventHandler(this.TrayMenuShow_Click);
             // 
-            // exitToolStripMenuItem
+            // trayMenuExit
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            this.trayMenuExit.Name = "trayMenuExit";
+            this.trayMenuExit.Size = new System.Drawing.Size(103, 22);
+            this.trayMenuExit.Text = "Exit";
+            this.trayMenuExit.Click += new System.EventHandler(this.TrayMenuExit_Click);
             // 
-            // pnlEnterKey
+            // fileLockedPanel
             // 
-            this.pnlEnterKey.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlEnterKey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.pnlEnterKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlEnterKey.Controls.Add(this.btnCloseEnterKey);
-            this.pnlEnterKey.Controls.Add(this.btnOk);
-            this.pnlEnterKey.Controls.Add(this.txtKey);
-            this.pnlEnterKey.Controls.Add(this.picShowKey);
-            this.pnlEnterKey.Controls.Add(this.lblFileName);
-            this.pnlEnterKey.ForeColor = System.Drawing.Color.Azure;
-            this.pnlEnterKey.Location = new System.Drawing.Point(103, 84);
-            this.pnlEnterKey.Name = "pnlEnterKey";
-            this.pnlEnterKey.Size = new System.Drawing.Size(267, 95);
-            this.pnlEnterKey.TabIndex = 20;
-            this.pnlEnterKey.Visible = false;
-            this.pnlEnterKey.VisibleChanged += new System.EventHandler(this.PnlEnterKey_VisibleChanged);
+            this.fileLockedPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fileLockedPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.fileLockedPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fileLockedPanel.Controls.Add(this.fileLockedCloseButton);
+            this.fileLockedPanel.Controls.Add(this.fileLockedOkButton);
+            this.fileLockedPanel.Controls.Add(this.fileLockedKeyTextBox);
+            this.fileLockedPanel.Controls.Add(this.fileLockedShowKey);
+            this.fileLockedPanel.Controls.Add(this.fileLockedLabel);
+            this.fileLockedPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fileLockedPanel.ForeColor = System.Drawing.Color.Azure;
+            this.fileLockedPanel.Location = new System.Drawing.Point(103, 84);
+            this.fileLockedPanel.Name = "fileLockedPanel";
+            this.fileLockedPanel.Size = new System.Drawing.Size(261, 91);
+            this.fileLockedPanel.TabIndex = 20;
+            this.fileLockedPanel.Visible = false;
+            this.fileLockedPanel.VisibleChanged += new System.EventHandler(this.FileLockedPanel_VisibleChanged);
             // 
-            // btnCloseEnterKey
+            // fileLockedCloseButton
             // 
-            this.btnCloseEnterKey.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCloseEnterKey.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.btnCloseEnterKey.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.btnCloseEnterKey.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.btnCloseEnterKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseEnterKey.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCloseEnterKey.ForeColor = System.Drawing.Color.DimGray;
-            this.btnCloseEnterKey.Location = new System.Drawing.Point(243, 0);
-            this.btnCloseEnterKey.Name = "btnCloseEnterKey";
-            this.btnCloseEnterKey.Size = new System.Drawing.Size(23, 23);
-            this.btnCloseEnterKey.TabIndex = 11;
-            this.btnCloseEnterKey.Text = "X";
-            this.btnCloseEnterKey.UseVisualStyleBackColor = true;
-            this.btnCloseEnterKey.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BtnCloseEnterKey_MouseClick);
-            this.btnCloseEnterKey.MouseEnter += new System.EventHandler(this.BtnCloseEnterKey_MouseEnter);
-            this.btnCloseEnterKey.MouseLeave += new System.EventHandler(this.BtnCloseEnterKey_MouseLeave);
+            this.fileLockedCloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.fileLockedCloseButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.fileLockedCloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.fileLockedCloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.fileLockedCloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fileLockedCloseButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fileLockedCloseButton.ForeColor = System.Drawing.Color.DimGray;
+            this.fileLockedCloseButton.Location = new System.Drawing.Point(239, -2);
+            this.fileLockedCloseButton.Name = "fileLockedCloseButton";
+            this.fileLockedCloseButton.Size = new System.Drawing.Size(23, 23);
+            this.fileLockedCloseButton.TabIndex = 11;
+            this.fileLockedCloseButton.Text = "X";
+            this.fileLockedCloseButton.UseVisualStyleBackColor = true;
+            this.fileLockedCloseButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.FileLockedCloseButton_MouseClick);
+            this.fileLockedCloseButton.MouseEnter += new System.EventHandler(this.FileLockedCloseButton_MouseEnter);
+            this.fileLockedCloseButton.MouseLeave += new System.EventHandler(this.FileLockedCloseButton_MouseLeave);
             // 
-            // btnOk
+            // fileLockedOkButton
             // 
-            this.btnOk.Enabled = false;
-            this.btnOk.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnOk.Location = new System.Drawing.Point(6, 60);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 10;
-            this.btnOk.Text = "OK";
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.BtnOk_Click);
+            this.fileLockedOkButton.Enabled = false;
+            this.fileLockedOkButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.fileLockedOkButton.Location = new System.Drawing.Point(6, 60);
+            this.fileLockedOkButton.Name = "fileLockedOkButton";
+            this.fileLockedOkButton.Size = new System.Drawing.Size(75, 23);
+            this.fileLockedOkButton.TabIndex = 10;
+            this.fileLockedOkButton.Text = "OK";
+            this.fileLockedOkButton.UseVisualStyleBackColor = true;
+            this.fileLockedOkButton.Click += new System.EventHandler(this.FileLockedOkButton_Click);
             // 
-            // txtKey
+            // fileLockedKeyTextBox
             // 
-            this.txtKey.Location = new System.Drawing.Point(6, 34);
-            this.txtKey.Name = "txtKey";
-            this.txtKey.Size = new System.Drawing.Size(231, 20);
-            this.txtKey.TabIndex = 8;
-            this.txtKey.UseSystemPasswordChar = true;
-            this.txtKey.TextChanged += new System.EventHandler(this.TxtKey_TextChanged);
-            this.txtKey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtKey_KeyDown);
+            this.fileLockedKeyTextBox.Location = new System.Drawing.Point(6, 34);
+            this.fileLockedKeyTextBox.Name = "fileLockedKeyTextBox";
+            this.fileLockedKeyTextBox.Size = new System.Drawing.Size(231, 22);
+            this.fileLockedKeyTextBox.TabIndex = 8;
+            this.fileLockedKeyTextBox.UseSystemPasswordChar = true;
+            this.fileLockedKeyTextBox.TextChanged += new System.EventHandler(this.FileLockedKeyTextBox_TextChanged);
+            this.fileLockedKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FileLockedKeyTextBox_KeyDown);
             // 
-            // picShowKey
+            // fileLockedShowKey
             // 
-            this.picShowKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picShowKey.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picShowKey.Image = global::Crypto_Notepad.Properties.Resources.eye_half;
-            this.picShowKey.InitialImage = global::Crypto_Notepad.Properties.Resources.eye_half;
-            this.picShowKey.Location = new System.Drawing.Point(243, 34);
-            this.picShowKey.Name = "picShowKey";
-            this.picShowKey.Size = new System.Drawing.Size(18, 20);
-            this.picShowKey.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picShowKey.TabIndex = 9;
-            this.picShowKey.TabStop = false;
-            this.picShowKey.Click += new System.EventHandler(this.PicShowKey_Click);
+            this.fileLockedShowKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fileLockedShowKey.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.fileLockedShowKey.Image = global::Crypto_Notepad.Properties.Resources.eye_half;
+            this.fileLockedShowKey.InitialImage = global::Crypto_Notepad.Properties.Resources.eye_half;
+            this.fileLockedShowKey.Location = new System.Drawing.Point(239, 34);
+            this.fileLockedShowKey.Name = "fileLockedShowKey";
+            this.fileLockedShowKey.Size = new System.Drawing.Size(18, 22);
+            this.fileLockedShowKey.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.fileLockedShowKey.TabIndex = 9;
+            this.fileLockedShowKey.TabStop = false;
+            this.fileLockedShowKey.Click += new System.EventHandler(this.FileLockedShowKey_Click);
             // 
-            // lblFileName
+            // fileLockedLabel
             // 
-            this.lblFileName.AutoEllipsis = true;
-            this.lblFileName.AutoSize = true;
-            this.lblFileName.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblFileName.Location = new System.Drawing.Point(2, 2);
-            this.lblFileName.Name = "lblFileName";
-            this.lblFileName.Size = new System.Drawing.Size(71, 17);
-            this.lblFileName.TabIndex = 7;
-            this.lblFileName.Text = "File locked";
+            this.fileLockedLabel.AutoEllipsis = true;
+            this.fileLockedLabel.AutoSize = true;
+            this.fileLockedLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fileLockedLabel.Location = new System.Drawing.Point(2, 2);
+            this.fileLockedLabel.Name = "fileLockedLabel";
+            this.fileLockedLabel.Size = new System.Drawing.Size(71, 17);
+            this.fileLockedLabel.TabIndex = 7;
+            this.fileLockedLabel.Text = "File locked";
             // 
             // richTextBox
             // 
@@ -1146,46 +1146,46 @@
             this.richTextBox.TextChanged += new System.EventHandler(this.RichTextBox_TextChanged);
             this.richTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyDown);
             // 
-            // RTBLineNumbers
+            // lineNumbers
             // 
-            this.RTBLineNumbers._SeeThroughMode_ = false;
-            this.RTBLineNumbers.AutoSizing = true;
-            this.RTBLineNumbers.BackColor = System.Drawing.SystemColors.Control;
-            this.RTBLineNumbers.BackgroundGradient_AlphaColor = System.Drawing.Color.Transparent;
-            this.RTBLineNumbers.BackgroundGradient_BetaColor = System.Drawing.Color.Transparent;
-            this.RTBLineNumbers.BackgroundGradient_Direction = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.RTBLineNumbers.BorderLines_Color = System.Drawing.Color.Transparent;
-            this.RTBLineNumbers.BorderLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.RTBLineNumbers.BorderLines_Thickness = 1F;
-            this.RTBLineNumbers.Dock = System.Windows.Forms.DockStyle.Left;
-            this.RTBLineNumbers.DockSide = LineNumbers.LineNumbers.LineNumberDockSide.Left;
-            this.RTBLineNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.RTBLineNumbers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(164)))), ((int)(((byte)(164)))));
-            this.RTBLineNumbers.GridLines_Color = System.Drawing.Color.Transparent;
-            this.RTBLineNumbers.GridLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.RTBLineNumbers.GridLines_Thickness = 1F;
-            this.RTBLineNumbers.LineNrs_Alignment = System.Drawing.ContentAlignment.TopCenter;
-            this.RTBLineNumbers.LineNrs_AntiAlias = true;
-            this.RTBLineNumbers.LineNrs_AsHexadecimal = false;
-            this.RTBLineNumbers.LineNrs_ClippedByItemRectangle = true;
-            this.RTBLineNumbers.LineNrs_LeadingZeroes = false;
-            this.RTBLineNumbers.LineNrs_Offset = new System.Drawing.Size(0, 0);
-            this.RTBLineNumbers.Location = new System.Drawing.Point(0, 48);
-            this.RTBLineNumbers.Margin = new System.Windows.Forms.Padding(0);
-            this.RTBLineNumbers.MarginLines_Color = System.Drawing.Color.DarkGray;
-            this.RTBLineNumbers.MarginLines_Side = LineNumbers.LineNumbers.LineNumberDockSide.None;
-            this.RTBLineNumbers.MarginLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.RTBLineNumbers.MarginLines_Thickness = 1F;
-            this.RTBLineNumbers.Name = "RTBLineNumbers";
-            this.RTBLineNumbers.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.RTBLineNumbers.ParentRichTextBox = this.richTextBox;
-            this.RTBLineNumbers.Show_BackgroundGradient = false;
-            this.RTBLineNumbers.Show_BorderLines = false;
-            this.RTBLineNumbers.Show_GridLines = false;
-            this.RTBLineNumbers.Show_LineNrs = true;
-            this.RTBLineNumbers.Show_MarginLines = false;
-            this.RTBLineNumbers.Size = new System.Drawing.Size(22, 163);
-            this.RTBLineNumbers.TabIndex = 19;
+            this.lineNumbers._SeeThroughMode_ = false;
+            this.lineNumbers.AutoSizing = true;
+            this.lineNumbers.BackColor = System.Drawing.SystemColors.Control;
+            this.lineNumbers.BackgroundGradient_AlphaColor = System.Drawing.Color.Transparent;
+            this.lineNumbers.BackgroundGradient_BetaColor = System.Drawing.Color.Transparent;
+            this.lineNumbers.BackgroundGradient_Direction = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            this.lineNumbers.BorderLines_Color = System.Drawing.Color.Transparent;
+            this.lineNumbers.BorderLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.lineNumbers.BorderLines_Thickness = 1F;
+            this.lineNumbers.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lineNumbers.DockSide = LineNumbers.LineNumbers.LineNumberDockSide.Left;
+            this.lineNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lineNumbers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(164)))), ((int)(((byte)(164)))));
+            this.lineNumbers.GridLines_Color = System.Drawing.Color.Transparent;
+            this.lineNumbers.GridLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.lineNumbers.GridLines_Thickness = 1F;
+            this.lineNumbers.LineNrs_Alignment = System.Drawing.ContentAlignment.TopCenter;
+            this.lineNumbers.LineNrs_AntiAlias = true;
+            this.lineNumbers.LineNrs_AsHexadecimal = false;
+            this.lineNumbers.LineNrs_ClippedByItemRectangle = true;
+            this.lineNumbers.LineNrs_LeadingZeroes = false;
+            this.lineNumbers.LineNrs_Offset = new System.Drawing.Size(0, 0);
+            this.lineNumbers.Location = new System.Drawing.Point(0, 48);
+            this.lineNumbers.Margin = new System.Windows.Forms.Padding(0);
+            this.lineNumbers.MarginLines_Color = System.Drawing.Color.DarkGray;
+            this.lineNumbers.MarginLines_Side = LineNumbers.LineNumbers.LineNumberDockSide.None;
+            this.lineNumbers.MarginLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.lineNumbers.MarginLines_Thickness = 1F;
+            this.lineNumbers.Name = "lineNumbers";
+            this.lineNumbers.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.lineNumbers.ParentRichTextBox = this.richTextBox;
+            this.lineNumbers.Show_BackgroundGradient = false;
+            this.lineNumbers.Show_BorderLines = false;
+            this.lineNumbers.Show_GridLines = false;
+            this.lineNumbers.Show_LineNrs = true;
+            this.lineNumbers.Show_MarginLines = false;
+            this.lineNumbers.Size = new System.Drawing.Size(22, 163);
+            this.lineNumbers.TabIndex = 19;
             // 
             // MainForm
             // 
@@ -1193,9 +1193,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(484, 261);
-            this.Controls.Add(this.pnlEnterKey);
+            this.Controls.Add(this.fileLockedPanel);
             this.Controls.Add(this.richTextBox);
-            this.Controls.Add(this.RTBLineNumbers);
+            this.Controls.Add(this.lineNumbers);
             this.Controls.Add(this.searchPanel);
             this.Controls.Add(this.toolbarPanel);
             this.Controls.Add(this.mainMenu);
@@ -1218,7 +1218,7 @@
             this.contextMenu.ResumeLayout(false);
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.closeSearchPanel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchCloseButton)).EndInit();
             this.toolbarPanel.ResumeLayout(false);
             this.toolbarPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lockToolbarButton)).EndInit();
@@ -1236,10 +1236,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.alwaysOnTopToolbarButton)).EndInit();
             this.statusPanel.ResumeLayout(false);
             this.statusPanel.PerformLayout();
-            this.mnuTray.ResumeLayout(false);
-            this.pnlEnterKey.ResumeLayout(false);
-            this.pnlEnterKey.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picShowKey)).EndInit();
+            this.trayMenu.ResumeLayout(false);
+            this.fileLockedPanel.ResumeLayout(false);
+            this.fileLockedPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fileLockedShowKey)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1309,35 +1309,35 @@
         private System.Windows.Forms.ToolStripMenuItem redoContextMenu;
         private System.Windows.Forms.ToolStripMenuItem debugMainMenu;
         private System.Windows.Forms.ToolStripMenuItem variablesMainMenu;
-        private System.Windows.Forms.ToolStripStatusLabel lengthStatusLabel;
-        private System.Windows.Forms.ToolStripStatusLabel linesStatusLabel;
-        private System.Windows.Forms.ToolStripStatusLabel lnStatusLabel;
-        private System.Windows.Forms.ToolStripStatusLabel colStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel statusPanelLengthLabel;
+        private System.Windows.Forms.ToolStripStatusLabel statusPaneLinesLabel;
+        private System.Windows.Forms.ToolStripStatusLabel statusPaneLnLabel;
+        private System.Windows.Forms.ToolStripStatusLabel statusPaneColLabel;
         public System.Windows.Forms.TableLayoutPanel toolbarPanel;
         public ExRichTextBox richTextBox;
-        public System.Windows.Forms.ToolStripMenuItem insMainMenu;
-        public LineNumbers.LineNumbers RTBLineNumbers;
+        public System.Windows.Forms.ToolStripMenuItem insertMainMenu;
+        public LineNumbers.LineNumbers lineNumbers;
         protected internal System.Windows.Forms.StatusStrip statusPanel;
-        protected internal System.Windows.Forms.ToolStripStatusLabel statusLabel;
+        protected internal System.Windows.Forms.ToolStripStatusLabel statusPanelLabel;
         protected internal System.Windows.Forms.TextBox searchTextBox;
-        protected internal System.Windows.Forms.CheckBox caseSensitiveCheckBox;
-        protected internal System.Windows.Forms.CheckBox wholeWordCheckBox;
-        protected internal System.Windows.Forms.Button findNextButton;
+        protected internal System.Windows.Forms.CheckBox searchCaseSensitiveCheckBox;
+        protected internal System.Windows.Forms.CheckBox searchWholeWordCheckBox;
+        protected internal System.Windows.Forms.Button searchFindNextButton;
         public System.Windows.Forms.TableLayoutPanel searchPanel;
         public System.Windows.Forms.MenuStrip mainMenu;
-        private System.Windows.Forms.PictureBox closeSearchPanel;
+        private System.Windows.Forms.PictureBox searchCloseButton;
         protected internal System.Windows.Forms.NotifyIcon trayIcon;
-        private System.Windows.Forms.Panel pnlEnterKey;
-        private System.Windows.Forms.Label lblFileName;
-        public System.Windows.Forms.TextBox txtKey;
-        private System.Windows.Forms.PictureBox picShowKey;
-        private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.Button btnCloseEnterKey;
+        private System.Windows.Forms.Panel fileLockedPanel;
+        private System.Windows.Forms.Label fileLockedLabel;
+        public System.Windows.Forms.TextBox fileLockedKeyTextBox;
+        private System.Windows.Forms.PictureBox fileLockedShowKey;
+        private System.Windows.Forms.Button fileLockedOkButton;
+        private System.Windows.Forms.Button fileLockedCloseButton;
         private System.Windows.Forms.ToolStripMenuItem alwaysOnTopMainMenu;
         private System.Windows.Forms.PictureBox alwaysOnTopToolbarButton;
         private System.Windows.Forms.ToolTip toolTip;
-        private System.Windows.Forms.ContextMenuStrip mnuTray;
-        private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip trayMenu;
+        private System.Windows.Forms.ToolStripMenuItem trayMenuShow;
+        private System.Windows.Forms.ToolStripMenuItem trayMenuExit;
     }
 }

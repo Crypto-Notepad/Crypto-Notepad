@@ -53,34 +53,34 @@
     <Setting Name="menuIcons" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="lnVisible" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+    <Setting Name="lineNumbersVisible" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="lnBackColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="lineNumbersBackColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">240, 240, 240</Value>
     </Setting>
-    <Setting Name="lnForeColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="lineNumbersForeColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">164, 164, 164</Value>
     </Setting>
-    <Setting Name="blShow" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+    <Setting Name="borderLinesVisible" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="blColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="borderLinesColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">164, 164, 164</Value>
     </Setting>
-    <Setting Name="blStyle" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+    <Setting Name="borderLinesStyle" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">Solid</Value>
     </Setting>
-    <Setting Name="glShow" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+    <Setting Name="gridLinesVisible" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="glColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="gridLinesColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">164, 164, 164</Value>
     </Setting>
-    <Setting Name="glStyle" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+    <Setting Name="gridLinesStyle" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">Solid</Value>
     </Setting>
-    <Setting Name="insKey" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+    <Setting Name="insertKey" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">Enable</Value>
     </Setting>
     <Setting Name="customColor" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
@@ -125,16 +125,16 @@
     <Setting Name="oldToolbarIcons" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="mlVisible" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+    <Setting Name="marginLinesVisible" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="mlColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="marginLinesColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">164, 164, 164</Value>
     </Setting>
-    <Setting Name="mlSide" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+    <Setting Name="marginLinesSide" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">Right</Value>
     </Setting>
-    <Setting Name="mlStyle" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+    <Setting Name="marginLinesStyle" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">Solid</Value>
     </Setting>
     <Setting Name="minimizeToTray" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">

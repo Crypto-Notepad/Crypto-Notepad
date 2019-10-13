@@ -1,4 +1,4 @@
-﻿using Crypto_Notepad.Properties;
+using Crypto_Notepad.Properties;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -422,40 +422,40 @@ namespace Crypto_Notepad
             switch (type)
             {
                 case "save":
-                    if (statusLabel.Text != "File Saved")
+                    if (statusPanelLabel.Text != "File Saved")
                     {
-                        statusLabel.Text = "File Saved";
+                        statusPanelLabel.Text = "File Saved";
                         await Task.Delay(3000);
-                        statusLabel.Text = ready;
+                        statusPanelLabel.Text = ready;
                     }
                     break;
                 case "update-missing":
-                    statusLabel.Text = "Crypto Notepad is up to date";
+                    statusPanelLabel.Text = "Crypto Notepad is up to date";
                     await Task.Delay(3000);
-                    statusLabel.Text = ready;
+                    statusPanelLabel.Text = ready;
                     break;
                 case "update-failed":
-                    statusLabel.Text = "Checking for updates failed";
+                    statusPanelLabel.Text = "Checking for updates failed";
                     await Task.Delay(3000);
-                    statusLabel.Text = ready;
+                    statusPanelLabel.Text = ready;
                     break;
                 case "update-needed":
-                    statusLabel.Text = "New version is available";
+                    statusPanelLabel.Text = "New version is available";
                     break;
                 case "always-top-on":
-                    if (statusLabel.Text != "Always on top ON")
+                    if (statusPanelLabel.Text != "Always on top ON")
                     {
-                        statusLabel.Text = "Always on top ON";
+                        statusPanelLabel.Text = "Always on top ON";
                         await Task.Delay(3000);
-                        statusLabel.Text = ready;
+                        statusPanelLabel.Text = ready;
                     }
                     break;
                 case "always-top-off":
-                    if (statusLabel.Text != "Always on top OFF")
+                    if (statusPanelLabel.Text != "Always on top OFF")
                     {
-                        statusLabel.Text = "Always on top OFF";
+                        statusPanelLabel.Text = "Always on top OFF";
                         await Task.Delay(3000);
-                        statusLabel.Text = ready;
+                        statusPanelLabel.Text = ready;
                     }
                     break;
             }
@@ -475,10 +475,10 @@ namespace Crypto_Notepad
                 linesCount = 1;
             }
 
-            lengthStatusLabel.Text = "Length: " + richTextBox.TextLength;
-            linesStatusLabel.Text = "Lines: " + linesCount;
-            lnStatusLabel.Text = "Ln: " + currentLine;
-            colStatusLabel.Text = "Col: " + currentColumn;
+            statusPanelLengthLabel.Text = "Length: " + richTextBox.TextLength;
+            statusPaneLinesLabel.Text = "Lines: " + linesCount;
+            statusPaneLnLabel.Text = "Ln: " + currentLine;
+            statusPaneColLabel.Text = "Col: " + currentColumn;
         }
 
         private void LockFile()
@@ -505,12 +505,12 @@ namespace Crypto_Notepad
                         DialogResult dialogResult = MessageBox.Show("Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                         if (dialogResult == DialogResult.Retry)
                         {
-                            txtKey.Text = "";
-                            txtKey.Focus();
+                            fileLockedKeyTextBox.Text = "";
+                            fileLockedKeyTextBox.Focus();
                         }
                         if (dialogResult == DialogResult.Cancel)
                         {
-                            pnlEnterKey.Visible = false;
+                            fileLockedPanel.Visible = false;
                             Text = PublicVar.appName;
                             filePath = "";
                             PublicVar.openFileName = null;
@@ -531,17 +531,17 @@ namespace Crypto_Notepad
             else
             {
                 richTextBox.RightToLeft = RightToLeft.No;
-                RTBLineNumbers.Dock = DockStyle.Left;
+                lineNumbers.Dock = DockStyle.Left;
                 rightToLeftContextMenu.Checked = false;
             }
 
-            if (settings.insKey == "Disable")
+            if (settings.insertKey == "Disable")
             {
-                insMainMenu.ShortcutKeys = Keys.Insert;
+                insertMainMenu.ShortcutKeys = Keys.Insert;
             }
             else
             {
-                insMainMenu.ShortcutKeys = Keys.None;
+                insertMainMenu.ShortcutKeys = Keys.None;
             }
 
             if (settings.autoCheckUpdate)
@@ -581,9 +581,9 @@ namespace Crypto_Notepad
             mainMenu.Visible = settings.mainMenuVisible;
             rightToLeftContextMenu.Checked = settings.editorRightToLeft;
 
-            RTBLineNumbers.BackColor = settings.lnBackColor;
-            RTBLineNumbers.Font = settings.editorFont;
-            RTBLineNumbers.ForeColor = settings.lnForeColor;
+            lineNumbers.BackColor = settings.lineNumbersBackColor;
+            lineNumbers.Font = settings.editorFont;
+            lineNumbers.ForeColor = settings.lineNumbersForeColor;
 
             statusPanel.ForeColor = settings.statusPanelFontColor;
             statusPanel.BackColor = settings.statusPanelBackColor;
@@ -599,21 +599,21 @@ namespace Crypto_Notepad
             searchPanel.ForeColor = settings.searchPanelForeColor;
             searchTextBox.BackColor = settings.searchPanelBackColor;
             searchTextBox.ForeColor = settings.searchPanelForeColor;
-            caseSensitiveCheckBox.ForeColor = settings.searchPanelForeColor;
-            wholeWordCheckBox.ForeColor = settings.searchPanelForeColor;
-            findNextButton.ForeColor = settings.searchPanelForeColor;
+            searchCaseSensitiveCheckBox.ForeColor = settings.searchPanelForeColor;
+            searchWholeWordCheckBox.ForeColor = settings.searchPanelForeColor;
+            searchFindNextButton.ForeColor = settings.searchPanelForeColor;
 
-            RTBLineNumbers.Visible = bool.Parse(settings.lnVisible);
-            RTBLineNumbers.Show_BorderLines = bool.Parse(settings.blShow);
-            RTBLineNumbers.Show_GridLines = bool.Parse(settings.glShow);
-            RTBLineNumbers.Show_MarginLines = bool.Parse(settings.mlVisible);
-            RTBLineNumbers.GridLines_Color = settings.glColor;
-            RTBLineNumbers.MarginLines_Color = settings.mlColor;
-            RTBLineNumbers.BorderLines_Color = settings.blColor;
-            RTBLineNumbers.BorderLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.blStyle);
-            RTBLineNumbers.GridLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.glStyle);
-            RTBLineNumbers.MarginLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.mlStyle);
-            RTBLineNumbers.MarginLines_Side = (LineNumbers.LineNumbers.LineNumberDockSide)Enum.Parse(typeof(LineNumbers.LineNumbers.LineNumberDockSide), settings.mlSide);
+            lineNumbers.Visible = bool.Parse(settings.lineNumbersVisible);
+            lineNumbers.Show_BorderLines = bool.Parse(settings.borderLinesVisible);
+            lineNumbers.Show_GridLines = bool.Parse(settings.gridLinesVisible);
+            lineNumbers.Show_MarginLines = bool.Parse(settings.marginLinesVisible);
+            lineNumbers.GridLines_Color = settings.gridLinesColor;
+            lineNumbers.MarginLines_Color = settings.marginLinesColor;
+            lineNumbers.BorderLines_Color = settings.borderLinesColor;
+            lineNumbers.BorderLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.borderLinesStyle);
+            lineNumbers.GridLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.gridLinesStyle);
+            lineNumbers.MarginLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.marginLinesStyle);
+            lineNumbers.MarginLines_Side = (LineNumbers.LineNumbers.LineNumberDockSide)Enum.Parse(typeof(LineNumbers.LineNumbers.LineNumberDockSide), settings.marginLinesSide);
         }
 
         public void MenuIcons(bool menuIcons)
@@ -708,14 +708,14 @@ namespace Crypto_Notepad
 
             if (WindowState == FormWindowState.Minimized & settings.autoLock & PublicVar.encryptionKey.Get() != null)
             {
-                pnlEnterKey.Visible = true;
+                fileLockedPanel.Visible = true;
             }
 
             if (WindowState == FormWindowState.Normal)
             {
-                if (pnlEnterKey.Visible)
+                if (fileLockedPanel.Visible)
                 {
-                    txtKey.Focus();
+                    fileLockedKeyTextBox.Focus();
                 }
             }
         }
@@ -728,7 +728,7 @@ namespace Crypto_Notepad
             {
                 richTextBox.Modified = true;
             }
-            RTBLineNumbers.Refresh();
+            lineNumbers.Refresh();
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -837,7 +837,7 @@ namespace Crypto_Notepad
 
             if (e.KeyCode == Keys.Enter & searchPanel.Visible & searchTextBox.Text != "")
             {
-                FindNextButton_Click(this, new EventArgs());
+                SearchFindNextButton_Click(this, new EventArgs());
                 e.Handled = e.SuppressKeyPress = true;
             }
         }
@@ -1283,7 +1283,7 @@ namespace Crypto_Notepad
         private void LockMainMenu_Click(object sender, EventArgs e)
         {
             SaveMainMenu_Click(this, new EventArgs());
-            pnlEnterKey.Visible = true;
+            fileLockedPanel.Visible = true;
         }
 
         private void SettingsMainMenu_Click(object sender, EventArgs e)
@@ -1389,14 +1389,14 @@ namespace Crypto_Notepad
                     richTextBox.Text = rtbTxt;
                 }
                 settings.editorRightToLeft = true;
-                RTBLineNumbers.Dock = DockStyle.Right;
+                lineNumbers.Dock = DockStyle.Right;
                 richTextBox.Modified = false;
             }
             else
             {
                 richTextBox.RightToLeft = RightToLeft.No;
                 settings.editorRightToLeft = false;
-                RTBLineNumbers.Dock = DockStyle.Left;
+                lineNumbers.Dock = DockStyle.Left;
                 richTextBox.Modified = false;
             }
             settings.Save();
@@ -1550,33 +1550,33 @@ namespace Crypto_Notepad
 
             if (e.KeyCode == Keys.Enter & searchPanel.Visible & searchTextBox.Text != "")
             {
-                FindNextButton_Click(this, new EventArgs());
+                SearchFindNextButton_Click(this, new EventArgs());
                 e.Handled = e.SuppressKeyPress = true;
             }
         }
 
-        private void CloseSearchPanel_Click(object sender, EventArgs e)
+        private void SearchCloseButton_Click(object sender, EventArgs e)
         {
             FindMainMenu_Click(this, new EventArgs());
         }
 
-        private void CloseSearchPanel_MouseHover(object sender, EventArgs e)
+        private void SearchCloseButton_MouseHover(object sender, EventArgs e)
         {
-            closeSearchPanel.Image = Resources.close_b;
+            searchCloseButton.Image = Resources.close_b;
         }
 
-        private void CloseSearchPanel_MouseLeave(object sender, EventArgs e)
+        private void SearchCloseButton_MouseLeave(object sender, EventArgs e)
         {
-            closeSearchPanel.Image = Resources.close_g;
+            searchCloseButton.Image = Resources.close_g;
         }
 
-        private void CaseSensitiveCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void SearchCaseSensitiveCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             findPos = 0;
             richTextBox.DeselectAll();
         }
 
-        private void WholeWordCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void SearchWholeWordCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             findPos = 0;
             richTextBox.DeselectAll();
@@ -1606,27 +1606,27 @@ namespace Crypto_Notepad
             }
         }
 
-        private void FindNextButton_Click(object sender, EventArgs e)
+        private void SearchFindNextButton_Click(object sender, EventArgs e)
         {
-            if ((!wholeWordCheckBox.Checked) & (!caseSensitiveCheckBox.Checked))
+            if ((!searchWholeWordCheckBox.Checked) & (!searchCaseSensitiveCheckBox.Checked))
             {
                 FindText(searchTextBox.Text, RichTextBoxFinds.None);
                 return;
             }
 
-            if (wholeWordCheckBox.Checked & caseSensitiveCheckBox.Checked)
+            if (searchWholeWordCheckBox.Checked & searchCaseSensitiveCheckBox.Checked)
             {
                 FindText(searchTextBox.Text, RichTextBoxFinds.MatchCase | RichTextBoxFinds.WholeWord);
                 return;
             }
 
-            if (caseSensitiveCheckBox.Checked)
+            if (searchCaseSensitiveCheckBox.Checked)
             {
                 FindText(searchTextBox.Text, RichTextBoxFinds.MatchCase);
                 return;
             }
 
-            if (wholeWordCheckBox.Checked)
+            if (searchWholeWordCheckBox.Checked)
             {
                 FindText(searchTextBox.Text, RichTextBoxFinds.WholeWord);
                 return;
@@ -1636,17 +1636,17 @@ namespace Crypto_Notepad
 
 
         #region AutoLock
-        private void TxtKey_TextChanged(object sender, EventArgs e)
+        private void FileLockedKeyTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (txtKey.Text.Length > 0)
-                btnOk.Enabled = true;
+            if (fileLockedKeyTextBox.Text.Length > 0)
+                fileLockedOkButton.Enabled = true;
             else
-                btnOk.Enabled = false;
+                fileLockedOkButton.Enabled = false;
         }
 
-        private void PnlEnterKey_VisibleChanged(object sender, EventArgs e)
+        private void FileLockedPanel_VisibleChanged(object sender, EventArgs e)
         {
-            if (pnlEnterKey.Visible)
+            if (fileLockedPanel.Visible)
             {
                 PublicVar.encryptionKey.Set(null);
                 caretPos = richTextBox.SelectionStart;
@@ -1654,7 +1654,7 @@ namespace Crypto_Notepad
                 toolbarPanel.Enabled = false;
                 mainMenu.Enabled = false;
                 richTextBox.Clear();
-                txtKey.Focus();
+                fileLockedKeyTextBox.Focus();
             }
             else
             {
@@ -1667,49 +1667,49 @@ namespace Crypto_Notepad
 
         }
 
-        private void BtnOk_Click(object sender, EventArgs e)
+        private void FileLockedOkButton_Click(object sender, EventArgs e)
         {
             LockFile();
         }
 
-        private void BtnCloseEnterKey_MouseClick(object sender, MouseEventArgs e)
+        private void FileLockedCloseButton_MouseClick(object sender, MouseEventArgs e)
         {
-            pnlEnterKey.Visible = false;
+            fileLockedPanel.Visible = false;
             Text = PublicVar.appName;
             filePath = null;
-            PublicVar.openFileName = null;
+            PublicVar.openFileName = null;         
         }
 
-        private void PicShowKey_Click(object sender, EventArgs e)
+        private void FileLockedShowKey_Click(object sender, EventArgs e)
         {
-            if (txtKey.UseSystemPasswordChar)
+            if (fileLockedKeyTextBox.UseSystemPasswordChar)
             {
-                txtKey.UseSystemPasswordChar = false;
-                picShowKey.Image = Resources.eye;
+                fileLockedKeyTextBox.UseSystemPasswordChar = false;
+                fileLockedShowKey.Image = Resources.eye;
             }
             else
             {
-                txtKey.UseSystemPasswordChar = true;
-                picShowKey.Image = Resources.eye_half;
-            }
+                fileLockedKeyTextBox.UseSystemPasswordChar = true;
+                fileLockedShowKey.Image = Resources.eye_half;
+            }            
         }
 
-        private void TxtKey_KeyDown(object sender, KeyEventArgs e)
+        private void FileLockedKeyTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter & btnOk.Enabled)
+            if (e.KeyCode == Keys.Enter & fileLockedOkButton.Enabled)
             {
-                BtnOk_Click(sender, e);
+                FileLockedOkButton_Click(sender, e);
             }
         }
 
-        private void BtnCloseEnterKey_MouseEnter(object sender, EventArgs e)
+        private void FileLockedCloseButton_MouseEnter(object sender, EventArgs e)
         {
-            btnCloseEnterKey.ForeColor = Color.Silver;
+            fileLockedCloseButton.ForeColor = Color.Silver;
         }
 
-        private void BtnCloseEnterKey_MouseLeave(object sender, EventArgs e)
+        private void FileLockedCloseButton_MouseLeave(object sender, EventArgs e)
         {
-            btnCloseEnterKey.ForeColor = Color.DimGray;
+            fileLockedCloseButton.ForeColor = Color.DimGray;
         }
         #endregion
 
@@ -1717,21 +1717,19 @@ namespace Crypto_Notepad
         #region Tray
         private void TrayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Show();
-            WindowState = FormWindowState.Normal;
-        }
-        private void ShowToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Show();
-            WindowState = FormWindowState.Normal;
-        }
-        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveConfirm(true);
-            if (settings.closeToTray)
-            {
-                Environment.Exit(0);
+            if (e.Button == MouseButtons.Left) {
+                Show();
+                WindowState = FormWindowState.Normal;
             }
+        }
+        private void TrayMenuShow_Click(object sender, EventArgs e)
+        {
+            Show();
+            WindowState = FormWindowState.Normal;
+        }
+        private void TrayMenuExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
         #endregion
 
@@ -1746,13 +1744,16 @@ namespace Crypto_Notepad
             Debug.WriteLine("filePath: " + filePath);
             Debug.WriteLine("encryptionKey: " + PublicVar.encryptionKey.Get());
             Debug.WriteLine("TypedPassword: " + TypedPassword.Value);
-            Debug.WriteLine("preventExit: " + preventExit);
             Debug.WriteLine("keyChanged: " + PublicVar.keyChanged);
             Debug.WriteLine("okPressed: " + PublicVar.okPressed);
             Debug.WriteLine("RichTextBox.Modified: " + richTextBox.Modified);
             Debug.WriteLine("EditorMenuStrip: " + contextMenu.Enabled);
 #endif
         }
+
+
+
+
         #endregion
 
 
