@@ -1,4 +1,4 @@
-using Crypto_Notepad.Properties;
+﻿using Crypto_Notepad.Properties;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -8,7 +8,6 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,7 +18,7 @@ namespace Crypto_Notepad
     {
         Settings settings = Settings.Default;
         readonly string[] args = Environment.GetCommandLineArgs();
-        bool preventExit = false;
+        bool cancelPressed = false;
         string filePath = "";
         string argsPath = "";
         int findPos = 0;
@@ -258,80 +257,36 @@ namespace Crypto_Notepad
             }
         }
 
-        private void SaveConfirm(bool exit)
+        private void SaveConfirm()
         {
-            if (WindowState == FormWindowState.Normal)
+            if (richTextBox.Modified)
             {
-                settings.windowSize = Size;
-                settings.windowLocation = Location;
-                settings.windowState = WindowState;
-            }
-
-            if (WindowState == FormWindowState.Maximized)
-            {
-                settings.windowState = WindowState;
-            }
-            settings.Save();
-
-            if (!richTextBox.Modified)
-            {
-                if (exit)
-                {
-                    trayIcon.Visible = false;
-                    Application.Exit();
-                }
-            }
-            else
-            {
-                if (PublicVar.openFileName == null)
+                if (PublicVar.openFileName == string.Empty | PublicVar.openFileName == null)
                 {
                     PublicVar.openFileName = "Unnamed.cnp";
                 }
-
-                if (PublicVar.openFileName == String.Empty)
+                string messageBoxText;
+                if (!PublicVar.keyChanged)
                 {
-                    PublicVar.openFileName = "Unnamed.cnp";
+                    messageBoxText = "Save file: " + "\"" + PublicVar.openFileName + "\"" + " ? ";
+                }
+                else
+                {
+                    messageBoxText = "Save file: " + "\"" + PublicVar.openFileName + "\"" + " with a new key? ";
                 }
 
-                if (richTextBox.Text != "")
+                using (new CenterWinDialog(this))
                 {
-                    string messageBoxText;
-                    if (!PublicVar.keyChanged)
-                    {
-                        messageBoxText = "Save file: " + "\"" + PublicVar.openFileName + "\"" + " ? ";
-                    }
-                    else
-                    {
-                        messageBoxText = "Save file: " + "\"" + PublicVar.openFileName + "\"" + " with a new key? ";
-                    }
-
-                    using (new CenterWinDialog(this))
-                    {
                     DialogResult res = MessageBox.Show(this, messageBoxText, PublicVar.appName, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-                        if (res == DialogResult.Yes)
-                        {
-                            SaveMainMenu_Click(this, new EventArgs());
-                            if (exit)
-                            {
-                                trayIcon.Visible = false;
+                    if (res == DialogResult.Yes)
+                    {
+                        trayIcon.Visible = false;
                         SaveMainMenu_Click(this, new EventArgs());
-                            }
-                        }
-
-                        if (res == DialogResult.No)
-                        {
-                            if (exit)
-                            {
-                                trayIcon.Visible = false;
-                                Application.Exit();
-                            }
-                        }
-
-                        if (res == DialogResult.Cancel)
-                        {
-                            preventExit = true;
-                        }
                     }
+                    if (res == DialogResult.Cancel)
+                    {
+                        cancelPressed = true;
+                    }                     
                 }
             }
         }
@@ -414,7 +369,7 @@ namespace Crypto_Notepad
         {
             string ready = "Ready";
 
-            if (statusLabel.Text == "New version is available")
+            if (statusPanelLabel.Text == "New version is available")
             {
                 ready = "New version is available";
             }
@@ -485,10 +440,10 @@ namespace Crypto_Notepad
         {        
             try
             {
-                TypedPassword.Value = txtKey.Text;
+                TypedPassword.Value = fileLockedKeyTextBox.Text;
                 string opnfile = File.ReadAllText(filePath);
                 string de = AES.Decrypt(opnfile, TypedPassword.Value, null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
-                pnlEnterKey.Visible = false;
+                fileLockedPanel.Visible = false;
                 richTextBox.Focus();
                 richTextBox.Text = de;
                 richTextBox.SelectionStart = caretPos;
@@ -525,7 +480,7 @@ namespace Crypto_Notepad
             if (settings.editorRightToLeft)
             {
                 richTextBox.RightToLeft = RightToLeft.Yes;
-                RTBLineNumbers.Dock = DockStyle.Right;
+                lineNumbers.Dock = DockStyle.Right;
                 rightToLeftContextMenu.Checked = true;
             }
             else
@@ -733,28 +688,69 @@ namespace Crypto_Notepad
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (settings.closeToTray)
+            if (WindowState == FormWindowState.Normal)
             {
-                if (settings.autoLock & PublicVar.encryptionKey.Get() != null)
-                {
-                    pnlEnterKey.Visible = true;
-                }
-                Hide();
-                e.Cancel = true;
-                return;
+                settings.windowSize = Size;
+                settings.windowLocation = Location;
+                settings.windowState = WindowState;
             }
 
-            SaveConfirm(true);
-
-            if (preventExit)
+            if (WindowState == FormWindowState.Maximized)
             {
+                settings.windowState = WindowState;
+            }
+            settings.Save();
+
+
+            if (settings.closeToTray)
+            {
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    if (settings.autoLock & PublicVar.encryptionKey.Get() != null)
+                    {
+                        fileLockedPanel.Visible = true;
+                    }
+                    Hide();
+                    e.Cancel = true;
+                    return;
+                }
+            }
+
+            if (richTextBox.Modified)
+            {
+                if (PublicVar.openFileName == string.Empty | PublicVar.openFileName == null)
+                {
+                    PublicVar.openFileName = "Unnamed.cnp";
+                }
+
+                if (richTextBox.Text != "")
+                {
+                    string messageBoxText;
+                    if (!PublicVar.keyChanged)
+                    {
+                        messageBoxText = "Save file: " + "\"" + PublicVar.openFileName + "\"" + " ? ";
+                    }
+                    else
+                    {
+                        messageBoxText = "Save file: " + "\"" + PublicVar.openFileName + "\"" + " with a new key? ";
+                    }
+
+                    using (new CenterWinDialog(this))
+                    {
                         DialogResult res = MessageBox.Show(this, messageBoxText, PublicVar.appName, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                         if (res == DialogResult.Yes)
                         {
                             trayIcon.Visible = false;
                             SaveMainMenu_Click(this, new EventArgs());
-                e.Cancel = true;
-            }
+                        }
+
+                        if (res == DialogResult.Cancel)
+                        {
+                            e.Cancel = true;
+                        }
+                    }
+                }
+            }            
         }
 
         private void MainForm_Shown(object sender, EventArgs e)
@@ -873,7 +869,12 @@ namespace Crypto_Notepad
 
         private void RichTextBox_DragDrop(object sender, DragEventArgs e)
         {
-            SaveConfirm(false);
+            SaveConfirm();
+            if (cancelPressed)
+            {
+                cancelPressed = false;
+                return;
+            }
             string[] FileList = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             foreach (string file in FileList) openFileDialog.FileName = file;
             object fname = e.Data.GetData("FileDrop");
@@ -883,12 +884,6 @@ namespace Crypto_Notepad
                 var list = fname as string[];
                 if (list != null && !string.IsNullOrWhiteSpace(list[0]))
                 {
-                    if (preventExit)
-                    {
-                        preventExit = false;
-                        return;
-                    }
-
                     if (!openFileDialog.FileName.Contains(".cnp"))
                     {
                         string opnfile = File.ReadAllText(openFileDialog.FileName);
@@ -913,21 +908,21 @@ namespace Crypto_Notepad
             StatusPanelTextInfo();
         }
 
-        private void StatusLabel_TextChanged(object sender, EventArgs e)
+        private void StatusPanelLabel_TextChanged(object sender, EventArgs e)
         {
-            if (statusLabel.Text == "New version is available")
+            if (statusPanelLabel.Text == "New version is available")
             {
-                statusLabel.IsLink = true;
+                statusPanelLabel.IsLink = true;
             }
             else
             {
-                statusLabel.IsLink = false;
+                statusPanelLabel.IsLink = false;
             }
         }
 
-        private void StatusLabel_Click(object sender, EventArgs e)
+        private void StatusPanelLabel_Click(object sender, EventArgs e)
         {
-            if (statusLabel.Text == "New version is available")
+            if (statusPanelLabel.Text == "New version is available")
             {
                 string exePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\";
                 using (new CenterWinDialog(this))
@@ -953,7 +948,12 @@ namespace Crypto_Notepad
         /*File*/
         private void NewMainMenu_Click(object sender, EventArgs e)
         {
-            SaveConfirm(false);
+            SaveConfirm();
+            if (cancelPressed)
+            {
+                cancelPressed = false;
+                return;
+            }
             PublicVar.openFileName = "Unnamed.cnp";
             EnterKeyForm enterKeyForm = new EnterKeyForm
             {
@@ -995,15 +995,13 @@ namespace Crypto_Notepad
 
         private void OpenMainMenu_Click(object sender, EventArgs e)
         {
-            openFileDialog.FileName = "";
-            SaveConfirm(false);
-
-            if (preventExit)
+            SaveConfirm();
+            if (cancelPressed)
             {
-                preventExit = false;
+                cancelPressed = false;
                 return;
             }
-
+            openFileDialog.FileName = "";
             if (openFileDialog.ShowDialog() != DialogResult.OK) return;
             {
                 PublicVar.openFileName = Path.GetFileName(openFileDialog.FileName);
@@ -1118,11 +1116,7 @@ namespace Crypto_Notepad
 
         private void ExitMainMenu_Click(object sender, EventArgs e)
         {
-            SaveConfirm(true);
-            if (settings.closeToTray)
-            {
-                Environment.Exit(0);
-            }
+            Application.Exit();
         }
 
         private void fileMainMenu_DropDownOpened(object sender, EventArgs e)
@@ -1667,7 +1661,7 @@ namespace Crypto_Notepad
                 toolbarPanel.Enabled = true;
                 searchPanel.Enabled = true;
                 mainMenu.Enabled = true;
-                txtKey.Text = null;
+                fileLockedKeyTextBox.Text = null;
             }
 
         }
