@@ -1,4 +1,4 @@
-﻿namespace Crypto_Notepad
+namespace Crypto_Notepad
 {
     partial class ChangeKeyForm
     {
@@ -126,7 +126,6 @@
             this.statusLabel.Size = new System.Drawing.Size(42, 17);
             this.statusLabel.TabIndex = 7;
             this.statusLabel.Text = "status";
-            this.statusLabel.Visible = false;
             // 
             // lockPictureBox
             // 

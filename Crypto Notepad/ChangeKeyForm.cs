@@ -34,7 +34,6 @@ namespace Crypto_Notepad
                 SystemSounds.Hand.Play();
                 statusLabel.ForeColor = Color.Red;
                 statusLabel.Text = "Invalid old key";
-                statusLabel.Visible = true;
                 oldKeyTextBox.Text = "";
                 newKeyTextBox.Text = "";
                 await Task.Delay(2000);
@@ -45,7 +44,6 @@ namespace Crypto_Notepad
                 SystemSounds.Hand.Play();
                 statusLabel.ForeColor = Color.Red;
                 statusLabel.Text = "New key is the same as old";
-                statusLabel.Visible = true;
                 oldKeyTextBox.Text = "";
                 newKeyTextBox.Text = "";
                 await Task.Delay(2000);
