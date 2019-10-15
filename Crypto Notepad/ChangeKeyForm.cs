@@ -26,7 +26,7 @@ namespace Crypto_Notepad
                 statusLabel.Text = "Key was successfully changed";
                 oldKeyTextBox.Text = "";
                 newKeyTextBox.Text = "";         
-                await Task.Delay(2000);
+                await Task.Delay(3000);
                 statusLabel.Text = "";
             }
             else if (oldKeyTextBox.Text != PublicVar.encryptionKey.Get())
