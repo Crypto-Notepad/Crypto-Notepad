@@ -31,6 +31,17 @@ namespace Crypto_Notepad
             richTextBox.AllowDrop = true;
         }
 
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_SYSCOMMAND = 0x112;
+            const int SC_MINIMIZE = 0xF020;
+            if (m.Msg == WM_SYSCOMMAND & m.WParam.ToInt32() == SC_MINIMIZE & settings.autoLock & !string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
+            {
+                richTextBox.Visible = false;
+            }
+            base.WndProc(ref m);
+        }
+
         #region Methods
         private void DecryptAES()
         {
