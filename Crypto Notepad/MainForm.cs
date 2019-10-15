@@ -75,7 +75,6 @@ namespace Crypto_Notepad
                     if (dialogResult == DialogResult.Cancel)
                     {
                         PublicVar.openFileName = Path.GetFileName(filePath);
-                        return;
                     }
                 }
             }
