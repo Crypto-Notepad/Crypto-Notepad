@@ -1,4 +1,4 @@
-using Crypto_Notepad.Properties;
+﻿using Crypto_Notepad.Properties;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -1026,6 +1026,11 @@ namespace Crypto_Notepad
             if (string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
             {
                 enterKeyForm.ShowDialog();
+                if (!PublicVar.okPressed)
+                {
+                    PublicVar.openFileName = Path.GetFileName(filePath);
+                    return;
+                }
             }
             if (saveFileDialog.ShowDialog() != DialogResult.OK)
             {
