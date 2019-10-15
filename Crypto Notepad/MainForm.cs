@@ -921,7 +921,6 @@ namespace Crypto_Notepad
                     PublicVar.openFileName = Path.GetFileName(filePath);
                 }
                 TypedPassword.Value = null;
-                return;
             }
             else
             {
