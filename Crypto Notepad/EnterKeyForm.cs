@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 
 namespace Crypto_Notepad
@@ -82,8 +82,7 @@ namespace Crypto_Notepad
             TypedPassword.Value = keyTextBox.Text;
             keyTextBox.Focus();
             PublicVar.okPressed = true;
-            Hide();
-            
+            Hide();           
         }
         /*Buttons*/
 

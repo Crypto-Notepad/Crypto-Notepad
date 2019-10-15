@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Media;
 using System.Threading.Tasks;
@@ -95,7 +95,6 @@ namespace Crypto_Notepad
             {
                 acceptButton.Enabled = false;
             }
-
             if (oldKeyTextBox.Text.Length > 0)
             {
                 oldKeyPlaceholder.Visible = false;
@@ -116,7 +115,6 @@ namespace Crypto_Notepad
             {
                 acceptButton.Enabled = false;
             }
-
             if (newKeyTextBox.Text.Length > 0)
             {
                 newKeyPlaceholder.Visible = false;
