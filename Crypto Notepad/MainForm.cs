@@ -273,13 +273,13 @@ namespace Crypto_Notepad
 
         private void SaveConfirm()
         {
+            string messageBoxText;
             if (richTextBox.Modified)
             {
                 if (string.IsNullOrEmpty(PublicVar.openFileName))
                 {
                     PublicVar.openFileName = "Unnamed.cnp";
                 }
-                string messageBoxText;
                 if (!PublicVar.keyChanged)
                 {
                     messageBoxText = "Save file: " + "\"" + PublicVar.openFileName + "\"" + " ? ";
@@ -453,11 +453,11 @@ namespace Crypto_Notepad
                 string opnfile = File.ReadAllText(filePath);
                 string de = AES.Decrypt(opnfile, TypedPassword.Value, null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
                 fileLockedPanel.Visible = false;
-                richTextBox.Focus();
                 richTextBox.Text = de;
                 richTextBox.SelectionStart = caretPos;
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
                 TypedPassword.Value = null;
+                richTextBox.Focus();
             }
             catch (Exception ex)
             {
