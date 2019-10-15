@@ -780,9 +780,6 @@ namespace Crypto_Notepad
             {
                 ContextMenuEncryptReplace();
             }
-#if DEBUG
-            debugMainMenu.Visible = true;
-#endif
         }
 
         private void RichTextBox_SelectionChanged(object sender, EventArgs e)
