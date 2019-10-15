@@ -31,7 +31,7 @@ namespace Crypto_Notepad
             }
             else if (oldKeyTextBox.Text != PublicVar.encryptionKey.Get())
             {
-                SystemSounds.Beep.Play();
+                SystemSounds.Hand.Play();
                 statusLabel.ForeColor = Color.Red;
                 statusLabel.Text = "Invalid old key";
                 statusLabel.Visible = true;
@@ -42,7 +42,7 @@ namespace Crypto_Notepad
             }
             else if(oldKeyTextBox.Text == newKeyTextBox.Text)
             {
-                SystemSounds.Beep.Play();
+                SystemSounds.Hand.Play();
                 statusLabel.ForeColor = Color.Red;
                 statusLabel.Text = "New key is the same as old";
                 statusLabel.Visible = true;
