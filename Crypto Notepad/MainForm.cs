@@ -530,6 +530,7 @@ namespace Crypto_Notepad
             {
                 trayIcon.Visible = true;
             }
+            richTextBoxPanel.BorderStyle = (BorderStyle)Enum.Parse(typeof(BorderStyle), settings.editorBorder);
             wordWrapMainMenu.Checked = settings.editorWrap;
             toolbarPanel.BackColor = settings.toolbarBackColor;
             toolbarPanel.Visible = settings.toolbarVisible;

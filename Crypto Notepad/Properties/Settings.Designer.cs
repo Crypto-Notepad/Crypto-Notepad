@@ -647,5 +647,18 @@ namespace Crypto_Notepad.Properties {
                 this["alwaysOnTop"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public string editorBorder {
+            get {
+                return ((string)(this["editorBorder"]));
+            }
+            set {
+                this["editorBorder"] = value;
+            }
+        }
     }
 }

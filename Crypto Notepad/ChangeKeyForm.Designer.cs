@@ -1,4 +1,4 @@
-namespace Crypto_Notepad
+﻿namespace Crypto_Notepad
 {
     partial class ChangeKeyForm
     {

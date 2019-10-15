@@ -111,6 +111,8 @@
             this.searchBackColorLabel = new System.Windows.Forms.Label();
             this.settingsNavigation = new System.Windows.Forms.ListBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
+            this.editorBorderComboBox = new System.Windows.Forms.ComboBox();
+            this.editorBorderLabel = new System.Windows.Forms.Label();
             this.settingsTabControl.SuspendLayout();
             this.editorTabPage.SuspendLayout();
             this.applicationTabPage.SuspendLayout();
@@ -164,6 +166,8 @@
             this.editorTabPage.AutoScroll = true;
             this.editorTabPage.BackColor = System.Drawing.SystemColors.Window;
             this.editorTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.editorTabPage.Controls.Add(this.editorBorderLabel);
+            this.editorTabPage.Controls.Add(this.editorBorderComboBox);
             this.editorTabPage.Controls.Add(this.editorOpenLinksWithComboBox);
             this.editorTabPage.Controls.Add(this.editorOpenLinksWithLabel);
             this.editorTabPage.Controls.Add(this.editorFontButton);
@@ -207,7 +211,7 @@
             // 
             // editorFontButton
             // 
-            this.editorFontButton.Location = new System.Drawing.Point(9, 142);
+            this.editorFontButton.Location = new System.Drawing.Point(9, 171);
             this.editorFontButton.Name = "editorFontButton";
             this.editorFontButton.Size = new System.Drawing.Size(223, 23);
             this.editorFontButton.TabIndex = 17;
@@ -894,7 +898,7 @@
             // statusPanelVisibleCheckBox
             // 
             this.statusPanelVisibleCheckBox.AutoSize = true;
-            this.statusPanelVisibleCheckBox.Location = new System.Drawing.Point(6, 55);
+            this.statusPanelVisibleCheckBox.Location = new System.Drawing.Point(9, 66);
             this.statusPanelVisibleCheckBox.Name = "statusPanelVisibleCheckBox";
             this.statusPanelVisibleCheckBox.Size = new System.Drawing.Size(60, 19);
             this.statusPanelVisibleCheckBox.TabIndex = 2;
@@ -972,7 +976,7 @@
             // toolbarBorderCheckBox
             // 
             this.toolbarBorderCheckBox.AutoSize = true;
-            this.toolbarBorderCheckBox.Location = new System.Drawing.Point(9, 41);
+            this.toolbarBorderCheckBox.Location = new System.Drawing.Point(9, 66);
             this.toolbarBorderCheckBox.Name = "toolbarBorderCheckBox";
             this.toolbarBorderCheckBox.Size = new System.Drawing.Size(61, 19);
             this.toolbarBorderCheckBox.TabIndex = 12;
@@ -1003,7 +1007,7 @@
             // toolbarVisibleCheckBox
             // 
             this.toolbarVisibleCheckBox.AutoSize = true;
-            this.toolbarVisibleCheckBox.Location = new System.Drawing.Point(9, 66);
+            this.toolbarVisibleCheckBox.Location = new System.Drawing.Point(9, 41);
             this.toolbarVisibleCheckBox.Name = "toolbarVisibleCheckBox";
             this.toolbarVisibleCheckBox.Size = new System.Drawing.Size(60, 19);
             this.toolbarVisibleCheckBox.TabIndex = 2;
@@ -1099,6 +1103,29 @@
             this.fontDialog.ShowApply = true;
             this.fontDialog.ShowEffects = false;
             this.fontDialog.Apply += new System.EventHandler(this.FontDialog_Apply);
+            // 
+            // editorBorderComboBox
+            // 
+            this.editorBorderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.editorBorderComboBox.FormattingEnabled = true;
+            this.editorBorderComboBox.Items.AddRange(new object[] {
+            "None",
+            "FixedSingle",
+            "Fixed3D"});
+            this.editorBorderComboBox.Location = new System.Drawing.Point(132, 142);
+            this.editorBorderComboBox.Name = "editorBorderComboBox";
+            this.editorBorderComboBox.Size = new System.Drawing.Size(100, 23);
+            this.editorBorderComboBox.TabIndex = 20;
+            this.editorBorderComboBox.DropDownClosed += new System.EventHandler(this.EditorBorderComboBox_DropDownClosed);
+            // 
+            // editorBorderLabel
+            // 
+            this.editorBorderLabel.AutoSize = true;
+            this.editorBorderLabel.Location = new System.Drawing.Point(6, 145);
+            this.editorBorderLabel.Name = "editorBorderLabel";
+            this.editorBorderLabel.Size = new System.Drawing.Size(42, 15);
+            this.editorBorderLabel.TabIndex = 21;
+            this.editorBorderLabel.Text = "Border";
             // 
             // SettingsForm
             // 
@@ -1228,5 +1255,7 @@
         private System.Windows.Forms.GroupBox borderLinesGroupBox;
         private System.Windows.Forms.CheckBox closeToTrayCheckBox;
         private System.Windows.Forms.CheckBox minimizeToTrayCheckBox;
+        private System.Windows.Forms.ComboBox editorBorderComboBox;
+        private System.Windows.Forms.Label editorBorderLabel;
     }
 }

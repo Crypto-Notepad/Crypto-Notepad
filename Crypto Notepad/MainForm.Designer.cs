@@ -124,6 +124,7 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.richTextBox = new Crypto_Notepad.ExRichTextBox();
             this.lineNumbers = new LineNumbers.LineNumbers();
+            this.richTextBoxPanel = new System.Windows.Forms.Panel();
             this.mainMenu.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.searchPanel.SuspendLayout();
@@ -146,6 +147,7 @@
             this.trayMenu.SuspendLayout();
             this.fileLockedPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileLockedShowKey)).BeginInit();
+            this.richTextBoxPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenu
@@ -1026,19 +1028,19 @@
             this.showTrayMenu,
             this.exitTrayMenu});
             this.trayMenu.Name = "mnuTray";
-            this.trayMenu.Size = new System.Drawing.Size(181, 70);
+            this.trayMenu.Size = new System.Drawing.Size(104, 48);
             // 
             // showTrayMenu
             // 
             this.showTrayMenu.Name = "showTrayMenu";
-            this.showTrayMenu.Size = new System.Drawing.Size(180, 22);
+            this.showTrayMenu.Size = new System.Drawing.Size(103, 22);
             this.showTrayMenu.Text = "Show";
             this.showTrayMenu.Click += new System.EventHandler(this.ShowTrayMenu_Click);
             // 
             // exitTrayMenu
             // 
             this.exitTrayMenu.Name = "exitTrayMenu";
-            this.exitTrayMenu.Size = new System.Drawing.Size(180, 22);
+            this.exitTrayMenu.Size = new System.Drawing.Size(103, 22);
             this.exitTrayMenu.Text = "Exit";
             this.exitTrayMenu.Click += new System.EventHandler(this.ExitTrayMenu_Click);
             // 
@@ -1055,7 +1057,7 @@
             this.fileLockedPanel.Controls.Add(this.fileLockedLabel);
             this.fileLockedPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fileLockedPanel.ForeColor = System.Drawing.Color.Azure;
-            this.fileLockedPanel.Location = new System.Drawing.Point(103, 84);
+            this.fileLockedPanel.Location = new System.Drawing.Point(106, 28);
             this.fileLockedPanel.Name = "fileLockedPanel";
             this.fileLockedPanel.Size = new System.Drawing.Size(261, 91);
             this.fileLockedPanel.TabIndex = 20;
@@ -1068,7 +1070,7 @@
             this.encryptionKeyPlaceholder.BackColor = System.Drawing.SystemColors.Window;
             this.encryptionKeyPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.encryptionKeyPlaceholder.ForeColor = System.Drawing.Color.DarkGray;
-            this.encryptionKeyPlaceholder.Location = new System.Drawing.Point(10, 37);
+            this.encryptionKeyPlaceholder.Location = new System.Drawing.Point(11, 37);
             this.encryptionKeyPlaceholder.Name = "encryptionKeyPlaceholder";
             this.encryptionKeyPlaceholder.Size = new System.Drawing.Size(82, 13);
             this.encryptionKeyPlaceholder.TabIndex = 12;
@@ -1087,6 +1089,7 @@
             this.fileLockedCloseButton.Name = "fileLockedCloseButton";
             this.fileLockedCloseButton.Size = new System.Drawing.Size(23, 23);
             this.fileLockedCloseButton.TabIndex = 11;
+            this.fileLockedCloseButton.TabStop = false;
             this.fileLockedCloseButton.Text = "X";
             this.fileLockedCloseButton.UseVisualStyleBackColor = true;
             this.fileLockedCloseButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.FileLockedCloseButton_MouseClick);
@@ -1143,15 +1146,15 @@
             // richTextBox
             // 
             this.richTextBox.AcceptsTab = true;
-            this.richTextBox.BackColor = System.Drawing.Color.White;
+            this.richTextBox.BackColor = System.Drawing.Color.Gainsboro;
             this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox.ContextMenuStrip = this.contextMenu;
             this.richTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.richTextBox.ForeColor = System.Drawing.Color.Black;
-            this.richTextBox.Location = new System.Drawing.Point(22, 48);
+            this.richTextBox.Location = new System.Drawing.Point(0, 0);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(462, 163);
+            this.richTextBox.Size = new System.Drawing.Size(460, 161);
             this.richTextBox.TabIndex = 16;
             this.richTextBox.Text = "";
             this.richTextBox.CursorPositionChanged += new System.EventHandler(this.RichTextBox_CursorPositionChanged);
@@ -1202,14 +1205,24 @@
             this.lineNumbers.Size = new System.Drawing.Size(22, 163);
             this.lineNumbers.TabIndex = 19;
             // 
+            // richTextBoxPanel
+            // 
+            this.richTextBoxPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBoxPanel.Controls.Add(this.fileLockedPanel);
+            this.richTextBoxPanel.Controls.Add(this.richTextBox);
+            this.richTextBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxPanel.Location = new System.Drawing.Point(22, 48);
+            this.richTextBoxPanel.Name = "richTextBoxPanel";
+            this.richTextBoxPanel.Size = new System.Drawing.Size(462, 163);
+            this.richTextBoxPanel.TabIndex = 21;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(484, 261);
-            this.Controls.Add(this.fileLockedPanel);
-            this.Controls.Add(this.richTextBox);
+            this.Controls.Add(this.richTextBoxPanel);
             this.Controls.Add(this.lineNumbers);
             this.Controls.Add(this.searchPanel);
             this.Controls.Add(this.toolbarPanel);
@@ -1255,6 +1268,7 @@
             this.fileLockedPanel.ResumeLayout(false);
             this.fileLockedPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileLockedShowKey)).EndInit();
+            this.richTextBoxPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1344,7 +1358,6 @@
         protected internal System.Windows.Forms.NotifyIcon trayIcon;
         private System.Windows.Forms.Panel fileLockedPanel;
         private System.Windows.Forms.Label fileLockedLabel;
-        public System.Windows.Forms.TextBox fileLockedKeyTextBox;
         private System.Windows.Forms.PictureBox fileLockedShowKey;
         private System.Windows.Forms.Button fileLockedOkButton;
         private System.Windows.Forms.Button fileLockedCloseButton;
@@ -1355,5 +1368,7 @@
         private System.Windows.Forms.ToolStripMenuItem showTrayMenu;
         private System.Windows.Forms.ToolStripMenuItem exitTrayMenu;
         private System.Windows.Forms.Label encryptionKeyPlaceholder;
+        protected internal System.Windows.Forms.TextBox fileLockedKeyTextBox;
+        protected internal System.Windows.Forms.Panel richTextBoxPanel;
     }
 }

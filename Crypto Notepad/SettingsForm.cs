@@ -27,6 +27,7 @@ namespace Crypto_Notepad
             editorInsertKeyComboBox.Text = settings.insertKey;
             editorPaddingLeftTextBox.Text = settings.editorPaddingLeft;
             editorOpenLinksWithComboBox.Text = settings.openLinks;
+            editorBorderComboBox.Text = settings.editorBorder;
             fontDialog.Font = settings.editorFont;
 
             autoLockOnMinimizeCheckBox.Checked = settings.autoLock;
@@ -811,6 +812,13 @@ namespace Crypto_Notepad
                 main.trayIcon.Visible = true;
             }
             settings.closeToTray = closeToTrayCheckBox.Checked;
+        }
+
+        private void EditorBorderComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            MainForm main = Owner as MainForm;
+            main.richTextBoxPanel.BorderStyle = (BorderStyle)Enum.Parse(typeof(BorderStyle), editorBorderComboBox.Text);
+            settings.editorBorder = editorBorderComboBox.Text;
         }
 
         /*Settings Section*/
