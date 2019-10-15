@@ -852,12 +852,11 @@ namespace Crypto_Notepad
             }
             string[] FileList = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             foreach (string file in FileList) openFileDialog.FileName = file;
-            object fname = e.Data.GetData("FileDrop");
+            object fileName = e.Data.GetData("FileDrop");
             PublicVar.openFileName = Path.GetFileName(openFileDialog.FileName);
-            if (fname != null)
+            if (fileName != null)
             {
-                var list = fname as string[];
-                if (list != null && !string.IsNullOrWhiteSpace(list[0]))
+                if (fileName is string[] list && !string.IsNullOrWhiteSpace(list[0]))
                 {
                     if (!openFileDialog.FileName.Contains(".cnp"))
                     {
