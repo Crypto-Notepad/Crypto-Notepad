@@ -11,22 +11,21 @@ namespace Crypto_Notepad
         public ChangeKeyForm()
         {
             InitializeComponent();
+            statusLabel.Text = "";
         }
 
         /*Buttons*/
         private async void AcceptButton_Click(object sender, EventArgs e)
         {
             oldKeyTextBox.Focus();
-            if (oldKeyTextBox.Text == PublicVar.encryptionKey.Get() && oldKeyTextBox.Text != newKeyTextBox.Text)
+            if (oldKeyTextBox.Text == PublicVar.encryptionKey.Get() & oldKeyTextBox.Text != newKeyTextBox.Text)
             {
                 PublicVar.encryptionKey.Set(newKeyTextBox.Text);
                 PublicVar.keyChanged = true;
-                oldKeyTextBox.Text = "";
-                newKeyTextBox.Text = "";
                 statusLabel.ForeColor = Color.Green;
                 statusLabel.Text = "Key was successfully changed";
-                statusLabel.Visible = true;
-                acceptButton.Enabled = false;
+                oldKeyTextBox.Text = "";
+                newKeyTextBox.Text = "";         
                 await Task.Delay(2000);
                 statusLabel.Text = "";
             }

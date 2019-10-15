@@ -251,7 +251,7 @@ namespace Crypto_Notepad
         {
             if (richTextBox.Modified)
             {
-                if (PublicVar.openFileName == string.Empty | PublicVar.openFileName == null)
+                if (string.IsNullOrEmpty(PublicVar.openFileName))
                 {
                     PublicVar.openFileName = "Unnamed.cnp";
                 }
@@ -453,7 +453,7 @@ namespace Crypto_Notepad
                             fileLockedPanel.Visible = false;
                             Text = PublicVar.appName;
                             filePath = "";
-                            PublicVar.openFileName = null;
+                            PublicVar.openFileName = "";
                         }
                     }
                 }
@@ -632,7 +632,7 @@ namespace Crypto_Notepad
                 }
             }
 
-            if (WindowState == FormWindowState.Minimized & settings.autoLock & PublicVar.encryptionKey.Get() != null)
+            if (WindowState == FormWindowState.Minimized & settings.autoLock & !string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
             {
                 fileLockedPanel.Visible = true;
             }
@@ -674,7 +674,7 @@ namespace Crypto_Notepad
             {
                 if (e.CloseReason == CloseReason.UserClosing)
                 {
-                    if (settings.autoLock & PublicVar.encryptionKey.Get() != null)
+                    if (settings.autoLock & !string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
                     {
                         fileLockedPanel.Visible = true;
                     }
@@ -685,12 +685,11 @@ namespace Crypto_Notepad
             }
             if (richTextBox.Modified)
             {
-                if (PublicVar.openFileName == string.Empty | PublicVar.openFileName == null)
+                if (string.IsNullOrEmpty(PublicVar.openFileName))
                 {
                     PublicVar.openFileName = "Unnamed.cnp";
                 }
-
-                if (richTextBox.Text != "")
+                if (!string.IsNullOrEmpty(richTextBox.Text))
                 {
                     string messageBoxText;
                     if (!PublicVar.keyChanged)
@@ -794,7 +793,6 @@ namespace Crypto_Notepad
                 findPos = 0;
             }
             if (e.KeyCode == Keys.Enter & searchPanel.Visible & !string.IsNullOrEmpty(searchTextBox.Text))
-            if (e.KeyCode == Keys.Enter & searchPanel.Visible & searchTextBox.Text != "")
             {
                 SearchFindNextButton_Click(this, new EventArgs());
                 e.Handled = e.SuppressKeyPress = true;
@@ -919,7 +917,7 @@ namespace Crypto_Notepad
 
             if (!PublicVar.okPressed)
             {
-                if (filePath != "")
+                if (!string.IsNullOrEmpty(filePath))
                 {
                     PublicVar.openFileName = Path.GetFileName(filePath);
                 }
@@ -973,10 +971,11 @@ namespace Crypto_Notepad
         }
 
         private void SaveMainMenu_Click(object sender, EventArgs e)
-        {
-            if (PublicVar.encryptionKey.Get() == null)
+        {        
+            if (string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
             {
                 SaveAsMainMenu_Click(this, new EventArgs());
+                return;
             }
             string enc = AES.Encrypt(richTextBox.Text, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
             using (StreamWriter writer = new StreamWriter(filePath))
@@ -991,7 +990,7 @@ namespace Crypto_Notepad
 
         private void SaveAsMainMenu_Click(object sender, EventArgs e)
         {
-            if (filePath != "")
+            if (!string.IsNullOrEmpty(filePath))
             {
                 PublicVar.openFileName = Path.GetFileName(filePath);
                 saveFileDialog.FileName = Path.GetFileName(filePath);
@@ -1039,7 +1038,7 @@ namespace Crypto_Notepad
 
         private void DeleteFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (filePath != "")
+            if (!string.IsNullOrEmpty(filePath))
             {
                 using (new CenterWinDialog(this))
                 {
@@ -1053,7 +1052,7 @@ namespace Crypto_Notepad
                         changeKeyToolbarButton.Enabled = false;
                         lockToolbarButton.Enabled = false;
                         filePath = "";
-                        PublicVar.openFileName = null;
+                        PublicVar.openFileName = "";
                         Text = PublicVar.appName;
                         return;
                     }
@@ -1068,7 +1067,7 @@ namespace Crypto_Notepad
 
         private void FileMainMenu_DropDownOpened(object sender, EventArgs e)
         {
-            if (filePath == null)
+            if (string.IsNullOrEmpty(filePath))
             {
                 openFileLocationMainMenu.Enabled = false;
                 deleteFileMainMenu.Enabled = false;
@@ -1208,7 +1207,7 @@ namespace Crypto_Notepad
 
         private void ToolsMainMenu_DropDownOpened(object sender, EventArgs e)
         {
-            if (PublicVar.encryptionKey.Get() == null)
+            if (string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
             {
                 changeKeyMainMenu.Enabled = false;
                 lockMainMenu.Enabled = false;
@@ -1458,7 +1457,7 @@ namespace Crypto_Notepad
                 copyToolbarButton.Enabled = false;
             }
 
-            if (PublicVar.encryptionKey.Get() == null)
+            if (string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
             {
                 fileLocationToolbarButton.Enabled = false;
                 deleteFileToolbarButton.Enabled = false;
@@ -1494,7 +1493,6 @@ namespace Crypto_Notepad
                 findPos = 0;
             }
             if (e.KeyCode == Keys.Enter & searchPanel.Visible & !string.IsNullOrEmpty(searchTextBox.Text))
-            if (e.KeyCode == Keys.Enter & searchPanel.Visible & searchTextBox.Text != "")
             {
                 SearchFindNextButton_Click(this, new EventArgs());
                 e.Handled = e.SuppressKeyPress = true;
@@ -1628,7 +1626,7 @@ namespace Crypto_Notepad
                 toolbarPanel.Enabled = true;
                 searchPanel.Enabled = true;
                 mainMenu.Enabled = true;
-                fileLockedKeyTextBox.Text = null;
+                fileLockedKeyTextBox.Text = "";
             }
         }
 
@@ -1641,8 +1639,8 @@ namespace Crypto_Notepad
         {
             fileLockedPanel.Visible = false;
             Text = PublicVar.appName;
-            filePath = null;
-            PublicVar.openFileName = null;         
+            filePath = "";
+            PublicVar.openFileName = "";         
         }
 
         private void FileLockedShowKey_Click(object sender, EventArgs e)
