@@ -54,7 +54,11 @@ namespace Crypto_Notepad
 
         private void KeyTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && okButton.Enabled)
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+            }
+            if (e.KeyCode == Keys.Enter & okButton.Enabled)
             {
                 OkButton_Click(sender, e);
             }

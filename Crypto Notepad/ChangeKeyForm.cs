@@ -143,6 +143,10 @@ namespace Crypto_Notepad
 
         private void NewKeyTextBox_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+            }
             if (e.KeyCode == Keys.Enter & acceptButton.Enabled)
             {
                 AcceptButton_Click(sender, e);
@@ -151,6 +155,10 @@ namespace Crypto_Notepad
 
         private void OldKeyTextBox_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+            }
             if (e.KeyCode == Keys.Enter & acceptButton.Enabled)
             {
                 AcceptButton_Click(sender, e);

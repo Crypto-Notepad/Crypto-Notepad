@@ -1661,6 +1661,10 @@ namespace Crypto_Notepad
 
         private void FileLockedKeyTextBox_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+            }
             if (e.KeyCode == Keys.Enter & fileLockedOkButton.Enabled)
             {
                 FileLockedOkButton_Click(sender, e);
