@@ -122,8 +122,15 @@ namespace Crypto_Notepad
                     {
                         OpenAsotiations();
                     }
+                    if (dialogResult == DialogResult.Cancel)
+                    {
+                        if (!Visible)
+                        {
+                            Application.Exit();
                         }
                     }
+                }
+            }
             else
             {
                 string opnfile = File.ReadAllText(args[1]);
@@ -164,8 +171,15 @@ namespace Crypto_Notepad
                     {
                         SendTo();
                     }
+                    if (dialogResult == DialogResult.Cancel)
+                    {
+                        if (!Visible)
+                        {
+                            Application.Exit();
                         }
                     }
+                }
+            }
             else
             {
                 string opnfile = File.ReadAllText(argsPath);
