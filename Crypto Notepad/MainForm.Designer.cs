@@ -122,9 +122,9 @@
             this.fileLockedShowKey = new System.Windows.Forms.PictureBox();
             this.fileLockedLabel = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.richTextBoxPanel = new System.Windows.Forms.Panel();
             this.richTextBox = new Crypto_Notepad.ExRichTextBox();
             this.lineNumbers = new LineNumbers.LineNumbers();
-            this.richTextBoxPanel = new System.Windows.Forms.Panel();
             this.mainMenu.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.searchPanel.SuspendLayout();
@@ -631,11 +631,11 @@
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.searchPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.searchPanel.ForeColor = System.Drawing.Color.Black;
-            this.searchPanel.Location = new System.Drawing.Point(0, 211);
+            this.searchPanel.Location = new System.Drawing.Point(0, 214);
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.RowCount = 1;
             this.searchPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.searchPanel.Size = new System.Drawing.Size(484, 28);
+            this.searchPanel.Size = new System.Drawing.Size(484, 25);
             this.searchPanel.TabIndex = 17;
             this.searchPanel.Visible = false;
             // 
@@ -648,17 +648,19 @@
             this.searchFindNextButton.FlatAppearance.BorderSize = 0;
             this.searchFindNextButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.searchFindNextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.searchFindNextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchFindNextButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.searchFindNextButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.searchFindNextButton.ForeColor = System.Drawing.Color.Black;
             this.searchFindNextButton.Location = new System.Drawing.Point(393, 3);
             this.searchFindNextButton.Name = "searchFindNextButton";
-            this.searchFindNextButton.Size = new System.Drawing.Size(66, 22);
+            this.searchFindNextButton.Size = new System.Drawing.Size(66, 19);
             this.searchFindNextButton.TabIndex = 15;
             this.searchFindNextButton.TabStop = false;
             this.searchFindNextButton.Text = "Find Next";
             this.searchFindNextButton.UseMnemonic = false;
             this.searchFindNextButton.UseVisualStyleBackColor = false;
             this.searchFindNextButton.Click += new System.EventHandler(this.SearchFindNextButton_Click);
+            this.searchFindNextButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SearchFindNextButton_MouseDown);
             // 
             // searchTextBox
             // 
@@ -666,7 +668,7 @@
             this.searchTextBox.BackColor = System.Drawing.SystemColors.Control;
             this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchTextBox.ForeColor = System.Drawing.Color.Black;
-            this.searchTextBox.Location = new System.Drawing.Point(3, 6);
+            this.searchTextBox.Location = new System.Drawing.Point(3, 5);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(180, 15);
             this.searchTextBox.TabIndex = 9;
@@ -683,9 +685,11 @@
             this.searchWholeWordCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.searchWholeWordCheckBox.Location = new System.Drawing.Point(293, 3);
             this.searchWholeWordCheckBox.Name = "searchWholeWordCheckBox";
-            this.searchWholeWordCheckBox.Size = new System.Drawing.Size(94, 22);
+            this.searchWholeWordCheckBox.Size = new System.Drawing.Size(94, 19);
             this.searchWholeWordCheckBox.TabIndex = 12;
+            this.searchWholeWordCheckBox.TabStop = false;
             this.searchWholeWordCheckBox.Text = "Whole word";
+            this.searchWholeWordCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.searchWholeWordCheckBox.UseVisualStyleBackColor = false;
             this.searchWholeWordCheckBox.CheckedChanged += new System.EventHandler(this.SearchWholeWordCheckBox_CheckedChanged);
             // 
@@ -698,9 +702,11 @@
             this.searchCaseSensitiveCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.searchCaseSensitiveCheckBox.Location = new System.Drawing.Point(189, 3);
             this.searchCaseSensitiveCheckBox.Name = "searchCaseSensitiveCheckBox";
-            this.searchCaseSensitiveCheckBox.Size = new System.Drawing.Size(98, 22);
+            this.searchCaseSensitiveCheckBox.Size = new System.Drawing.Size(98, 19);
             this.searchCaseSensitiveCheckBox.TabIndex = 11;
+            this.searchCaseSensitiveCheckBox.TabStop = false;
             this.searchCaseSensitiveCheckBox.Text = "Case sensitive";
+            this.searchCaseSensitiveCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.searchCaseSensitiveCheckBox.UseVisualStyleBackColor = false;
             this.searchCaseSensitiveCheckBox.CheckedChanged += new System.EventHandler(this.SearchCaseSensitiveCheckBox_CheckedChanged);
             // 
@@ -713,7 +719,7 @@
             this.searchCloseButton.Location = new System.Drawing.Point(465, 3);
             this.searchCloseButton.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.searchCloseButton.Name = "searchCloseButton";
-            this.searchCloseButton.Size = new System.Drawing.Size(15, 20);
+            this.searchCloseButton.Size = new System.Drawing.Size(15, 19);
             this.searchCloseButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.searchCloseButton.TabIndex = 14;
             this.searchCloseButton.TabStop = false;
@@ -1057,7 +1063,7 @@
             this.fileLockedPanel.Controls.Add(this.fileLockedLabel);
             this.fileLockedPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fileLockedPanel.ForeColor = System.Drawing.Color.Azure;
-            this.fileLockedPanel.Location = new System.Drawing.Point(106, 28);
+            this.fileLockedPanel.Location = new System.Drawing.Point(106, 30);
             this.fileLockedPanel.Name = "fileLockedPanel";
             this.fileLockedPanel.Size = new System.Drawing.Size(261, 91);
             this.fileLockedPanel.TabIndex = 20;
@@ -1143,6 +1149,17 @@
             this.fileLockedLabel.TabIndex = 7;
             this.fileLockedLabel.Text = "File locked";
             // 
+            // richTextBoxPanel
+            // 
+            this.richTextBoxPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBoxPanel.Controls.Add(this.fileLockedPanel);
+            this.richTextBoxPanel.Controls.Add(this.richTextBox);
+            this.richTextBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxPanel.Location = new System.Drawing.Point(22, 48);
+            this.richTextBoxPanel.Name = "richTextBoxPanel";
+            this.richTextBoxPanel.Size = new System.Drawing.Size(462, 166);
+            this.richTextBoxPanel.TabIndex = 21;
+            // 
             // richTextBox
             // 
             this.richTextBox.AcceptsTab = true;
@@ -1154,7 +1171,7 @@
             this.richTextBox.ForeColor = System.Drawing.Color.Black;
             this.richTextBox.Location = new System.Drawing.Point(0, 0);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(460, 161);
+            this.richTextBox.Size = new System.Drawing.Size(460, 164);
             this.richTextBox.TabIndex = 16;
             this.richTextBox.Text = "";
             this.richTextBox.CursorPositionChanged += new System.EventHandler(this.RichTextBox_CursorPositionChanged);
@@ -1202,19 +1219,8 @@
             this.lineNumbers.Show_GridLines = false;
             this.lineNumbers.Show_LineNrs = true;
             this.lineNumbers.Show_MarginLines = false;
-            this.lineNumbers.Size = new System.Drawing.Size(22, 163);
+            this.lineNumbers.Size = new System.Drawing.Size(22, 166);
             this.lineNumbers.TabIndex = 19;
-            // 
-            // richTextBoxPanel
-            // 
-            this.richTextBoxPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBoxPanel.Controls.Add(this.fileLockedPanel);
-            this.richTextBoxPanel.Controls.Add(this.richTextBox);
-            this.richTextBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxPanel.Location = new System.Drawing.Point(22, 48);
-            this.richTextBoxPanel.Name = "richTextBoxPanel";
-            this.richTextBoxPanel.Size = new System.Drawing.Size(462, 163);
-            this.richTextBoxPanel.TabIndex = 21;
             // 
             // MainForm
             // 

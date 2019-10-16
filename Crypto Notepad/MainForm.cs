@@ -1598,6 +1598,10 @@ namespace Crypto_Notepad
                 return;
             }
         }
+        private void SearchFindNextButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            ActiveControl = null;
+        }
         #endregion
 
 
@@ -1742,6 +1746,9 @@ namespace Crypto_Notepad
             Debug.WriteLine("EditorMenuStrip: " + contextMenu.Enabled);
 #endif
         }
+
+
+
 
 
 
