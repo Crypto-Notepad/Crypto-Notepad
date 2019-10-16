@@ -33,6 +33,8 @@
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.settingsTabControl = new System.Windows.Forms.TabControl();
             this.editorTabPage = new System.Windows.Forms.TabPage();
+            this.editorBorderLabel = new System.Windows.Forms.Label();
+            this.editorBorderComboBox = new System.Windows.Forms.ComboBox();
             this.editorOpenLinksWithComboBox = new System.Windows.Forms.ComboBox();
             this.editorOpenLinksWithLabel = new System.Windows.Forms.Label();
             this.editorFontButton = new System.Windows.Forms.Button();
@@ -111,8 +113,6 @@
             this.searchBackColorLabel = new System.Windows.Forms.Label();
             this.settingsNavigation = new System.Windows.Forms.ListBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
-            this.editorBorderComboBox = new System.Windows.Forms.ComboBox();
-            this.editorBorderLabel = new System.Windows.Forms.Label();
             this.settingsTabControl.SuspendLayout();
             this.editorTabPage.SuspendLayout();
             this.applicationTabPage.SuspendLayout();
@@ -186,6 +186,29 @@
             this.editorTabPage.TabIndex = 0;
             this.editorTabPage.Text = "edt";
             // 
+            // editorBorderLabel
+            // 
+            this.editorBorderLabel.AutoSize = true;
+            this.editorBorderLabel.Location = new System.Drawing.Point(6, 145);
+            this.editorBorderLabel.Name = "editorBorderLabel";
+            this.editorBorderLabel.Size = new System.Drawing.Size(42, 15);
+            this.editorBorderLabel.TabIndex = 21;
+            this.editorBorderLabel.Text = "Border";
+            // 
+            // editorBorderComboBox
+            // 
+            this.editorBorderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.editorBorderComboBox.FormattingEnabled = true;
+            this.editorBorderComboBox.Items.AddRange(new object[] {
+            "None",
+            "FixedSingle",
+            "Fixed3D"});
+            this.editorBorderComboBox.Location = new System.Drawing.Point(132, 142);
+            this.editorBorderComboBox.Name = "editorBorderComboBox";
+            this.editorBorderComboBox.Size = new System.Drawing.Size(100, 23);
+            this.editorBorderComboBox.TabIndex = 3;
+            this.editorBorderComboBox.DropDownClosed += new System.EventHandler(this.EditorBorderComboBox_DropDownClosed);
+            // 
             // editorOpenLinksWithComboBox
             // 
             this.editorOpenLinksWithComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -197,7 +220,7 @@
             this.editorOpenLinksWithComboBox.Location = new System.Drawing.Point(132, 113);
             this.editorOpenLinksWithComboBox.Name = "editorOpenLinksWithComboBox";
             this.editorOpenLinksWithComboBox.Size = new System.Drawing.Size(100, 23);
-            this.editorOpenLinksWithComboBox.TabIndex = 19;
+            this.editorOpenLinksWithComboBox.TabIndex = 2;
             this.editorOpenLinksWithComboBox.DropDownClosed += new System.EventHandler(this.EditorOpenLinksWithComboBox_DropDownClosed);
             // 
             // editorOpenLinksWithLabel
@@ -214,7 +237,7 @@
             this.editorFontButton.Location = new System.Drawing.Point(9, 171);
             this.editorFontButton.Name = "editorFontButton";
             this.editorFontButton.Size = new System.Drawing.Size(223, 23);
-            this.editorFontButton.TabIndex = 17;
+            this.editorFontButton.TabIndex = 4;
             this.editorFontButton.Text = "Font";
             this.editorFontButton.UseVisualStyleBackColor = true;
             this.editorFontButton.Click += new System.EventHandler(this.EditorFontButton_Click);
@@ -225,7 +248,7 @@
             this.editorPaddingLeftTextBox.Location = new System.Drawing.Point(132, 87);
             this.editorPaddingLeftTextBox.Name = "editorPaddingLeftTextBox";
             this.editorPaddingLeftTextBox.Size = new System.Drawing.Size(100, 20);
-            this.editorPaddingLeftTextBox.TabIndex = 16;
+            this.editorPaddingLeftTextBox.TabIndex = 1;
             this.editorPaddingLeftTextBox.Click += new System.EventHandler(this.EditorPaddingLeftTextBox_Click);
             this.editorPaddingLeftTextBox.TextChanged += new System.EventHandler(this.EditorPaddingLeftTextBox_TextChanged);
             this.editorPaddingLeftTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EditorPaddingLeftTextBox_KeyPress);
@@ -249,7 +272,7 @@
             this.editorInsertKeyComboBox.Location = new System.Drawing.Point(132, 58);
             this.editorInsertKeyComboBox.Name = "editorInsertKeyComboBox";
             this.editorInsertKeyComboBox.Size = new System.Drawing.Size(100, 23);
-            this.editorInsertKeyComboBox.TabIndex = 14;
+            this.editorInsertKeyComboBox.TabIndex = 0;
             this.editorInsertKeyComboBox.DropDownClosed += new System.EventHandler(this.EditorInsertKeyComboBox_DropDownClosed);
             // 
             // editorBackColorLabel
@@ -278,7 +301,7 @@
             this.editorBackColor.Location = new System.Drawing.Point(132, 31);
             this.editorBackColor.Name = "editorBackColor";
             this.editorBackColor.Size = new System.Drawing.Size(100, 21);
-            this.editorBackColor.TabIndex = 8;
+            this.editorBackColor.TabIndex = 1;
             this.editorBackColor.Click += new System.EventHandler(this.EditorBackColor_Click);
             // 
             // editorFontColor
@@ -289,7 +312,7 @@
             this.editorFontColor.Location = new System.Drawing.Point(132, 4);
             this.editorFontColor.Name = "editorFontColor";
             this.editorFontColor.Size = new System.Drawing.Size(100, 21);
-            this.editorFontColor.TabIndex = 7;
+            this.editorFontColor.TabIndex = 0;
             this.editorFontColor.Click += new System.EventHandler(this.EditorFontColor_Click);
             // 
             // applicationTabPage
@@ -315,7 +338,7 @@
             this.closeToTrayCheckBox.Location = new System.Drawing.Point(7, 130);
             this.closeToTrayCheckBox.Name = "closeToTrayCheckBox";
             this.closeToTrayCheckBox.Size = new System.Drawing.Size(92, 19);
-            this.closeToTrayCheckBox.TabIndex = 10;
+            this.closeToTrayCheckBox.TabIndex = 5;
             this.closeToTrayCheckBox.Text = "Close to tray";
             this.closeToTrayCheckBox.UseVisualStyleBackColor = true;
             this.closeToTrayCheckBox.Click += new System.EventHandler(this.CloseToTrayCheckBox_Click);
@@ -326,7 +349,7 @@
             this.minimizeToTrayCheckBox.Location = new System.Drawing.Point(7, 105);
             this.minimizeToTrayCheckBox.Name = "minimizeToTrayCheckBox";
             this.minimizeToTrayCheckBox.Size = new System.Drawing.Size(112, 19);
-            this.minimizeToTrayCheckBox.TabIndex = 9;
+            this.minimizeToTrayCheckBox.TabIndex = 4;
             this.minimizeToTrayCheckBox.Text = "Minimize to tray";
             this.minimizeToTrayCheckBox.UseVisualStyleBackColor = true;
             this.minimizeToTrayCheckBox.Click += new System.EventHandler(this.MinimizeToTrayCheckBox_Click);
@@ -337,7 +360,7 @@
             this.mainMenuCheckBox.Location = new System.Drawing.Point(7, 55);
             this.mainMenuCheckBox.Name = "mainMenuCheckBox";
             this.mainMenuCheckBox.Size = new System.Drawing.Size(87, 19);
-            this.mainMenuCheckBox.TabIndex = 8;
+            this.mainMenuCheckBox.TabIndex = 2;
             this.mainMenuCheckBox.Text = "Main menu";
             this.mainMenuCheckBox.UseVisualStyleBackColor = true;
             this.mainMenuCheckBox.Click += new System.EventHandler(this.MainMenuCheckBox_Click);
@@ -348,7 +371,7 @@
             this.menuIconsCheckBox.Location = new System.Drawing.Point(7, 80);
             this.menuIconsCheckBox.Name = "menuIconsCheckBox";
             this.menuIconsCheckBox.Size = new System.Drawing.Size(88, 19);
-            this.menuIconsCheckBox.TabIndex = 7;
+            this.menuIconsCheckBox.TabIndex = 3;
             this.menuIconsCheckBox.Text = "Menu icons";
             this.menuIconsCheckBox.UseVisualStyleBackColor = true;
             this.menuIconsCheckBox.Click += new System.EventHandler(this.MenuIconsCheckBox_Click);
@@ -370,7 +393,7 @@
             this.autoLockOnMinimizeCheckBox.Location = new System.Drawing.Point(7, 7);
             this.autoLockOnMinimizeCheckBox.Name = "autoLockOnMinimizeCheckBox";
             this.autoLockOnMinimizeCheckBox.Size = new System.Drawing.Size(146, 19);
-            this.autoLockOnMinimizeCheckBox.TabIndex = 3;
+            this.autoLockOnMinimizeCheckBox.TabIndex = 0;
             this.autoLockOnMinimizeCheckBox.Text = "Auto lock on minimize";
             this.autoLockOnMinimizeCheckBox.UseVisualStyleBackColor = true;
             this.autoLockOnMinimizeCheckBox.Click += new System.EventHandler(this.AutoLockOnMinimizeCheckBox_Click);
@@ -395,7 +418,7 @@
             this.integrateCheckBox.Location = new System.Drawing.Point(7, 7);
             this.integrateCheckBox.Name = "integrateCheckBox";
             this.integrateCheckBox.Size = new System.Drawing.Size(226, 19);
-            this.integrateCheckBox.TabIndex = 6;
+            this.integrateCheckBox.TabIndex = 0;
             this.integrateCheckBox.Text = "Integrate with windows context menu";
             this.integrateCheckBox.UseVisualStyleBackColor = true;
             this.integrateCheckBox.Click += new System.EventHandler(this.IntegrateCheckBox_Click);
@@ -406,7 +429,7 @@
             this.associateCheckBox.Location = new System.Drawing.Point(7, 30);
             this.associateCheckBox.Name = "associateCheckBox";
             this.associateCheckBox.Size = new System.Drawing.Size(157, 19);
-            this.associateCheckBox.TabIndex = 0;
+            this.associateCheckBox.TabIndex = 1;
             this.associateCheckBox.Text = "Associate with *.cnp files";
             this.associateCheckBox.UseVisualStyleBackColor = true;
             this.associateCheckBox.Click += new System.EventHandler(this.AssociateCheckBox_Click);
@@ -417,7 +440,7 @@
             this.sendToCheckBox.Location = new System.Drawing.Point(7, 53);
             this.sendToCheckBox.Name = "sendToCheckBox";
             this.sendToCheckBox.Size = new System.Drawing.Size(155, 19);
-            this.sendToCheckBox.TabIndex = 5;
+            this.sendToCheckBox.TabIndex = 2;
             this.sendToCheckBox.Text = "Show in \"Send to\" menu";
             this.sendToCheckBox.UseVisualStyleBackColor = true;
             this.sendToCheckBox.Click += new System.EventHandler(this.SendToCheckBox_Click);
@@ -444,7 +467,7 @@
             this.passwordIterationsTextBox.Location = new System.Drawing.Point(132, 62);
             this.passwordIterationsTextBox.Name = "passwordIterationsTextBox";
             this.passwordIterationsTextBox.Size = new System.Drawing.Size(100, 23);
-            this.passwordIterationsTextBox.TabIndex = 7;
+            this.passwordIterationsTextBox.TabIndex = 2;
             this.passwordIterationsTextBox.Text = "1000";
             this.passwordIterationsTextBox.TextChanged += new System.EventHandler(this.PasswordIterationsTextBox_TextChanged);
             this.passwordIterationsTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PasswordIterationsTextBox_KeyPress);
@@ -462,7 +485,7 @@
             this.hashAlgorithmComboBox.Location = new System.Drawing.Point(132, 4);
             this.hashAlgorithmComboBox.Name = "hashAlgorithmComboBox";
             this.hashAlgorithmComboBox.Size = new System.Drawing.Size(100, 23);
-            this.hashAlgorithmComboBox.TabIndex = 5;
+            this.hashAlgorithmComboBox.TabIndex = 0;
             this.hashAlgorithmComboBox.DropDownClosed += new System.EventHandler(this.HashAlgorithmComboBox_DropDownClosed);
             // 
             // passwordIterationsLabel
@@ -504,7 +527,7 @@
             this.keySizeComboBox.Location = new System.Drawing.Point(132, 33);
             this.keySizeComboBox.Name = "keySizeComboBox";
             this.keySizeComboBox.Size = new System.Drawing.Size(100, 23);
-            this.keySizeComboBox.TabIndex = 3;
+            this.keySizeComboBox.TabIndex = 1;
             this.keySizeComboBox.DropDownClosed += new System.EventHandler(this.KeySizeComboBox_DropDownClosed);
             // 
             // lineNumbersTabPage
@@ -538,7 +561,7 @@
             this.marginLinesGroupBox.Location = new System.Drawing.Point(3, 333);
             this.marginLinesGroupBox.Name = "marginLinesGroupBox";
             this.marginLinesGroupBox.Size = new System.Drawing.Size(219, 143);
-            this.marginLinesGroupBox.TabIndex = 7;
+            this.marginLinesGroupBox.TabIndex = 3;
             this.marginLinesGroupBox.TabStop = false;
             this.marginLinesGroupBox.Text = "Margin lines";
             // 
@@ -555,7 +578,7 @@
             this.marginLinesStyleComboBox.Location = new System.Drawing.Point(106, 81);
             this.marginLinesStyleComboBox.Name = "marginLinesStyleComboBox";
             this.marginLinesStyleComboBox.Size = new System.Drawing.Size(100, 23);
-            this.marginLinesStyleComboBox.TabIndex = 35;
+            this.marginLinesStyleComboBox.TabIndex = 6;
             this.marginLinesStyleComboBox.DropDownClosed += new System.EventHandler(this.MarginLinesStyleComboBox_DropDownClosed);
             // 
             // marginLinesStyleLabel
@@ -579,7 +602,7 @@
             this.marginLinesSideComboBox.Location = new System.Drawing.Point(106, 110);
             this.marginLinesSideComboBox.Name = "marginLinesSideComboBox";
             this.marginLinesSideComboBox.Size = new System.Drawing.Size(100, 23);
-            this.marginLinesSideComboBox.TabIndex = 33;
+            this.marginLinesSideComboBox.TabIndex = 7;
             this.marginLinesSideComboBox.DropDownClosed += new System.EventHandler(this.MarginLinesSideComboBox_DropDownClosed);
             // 
             // marginLinesColor
@@ -621,7 +644,7 @@
             this.marginLinesVisibleComboBox.Location = new System.Drawing.Point(106, 25);
             this.marginLinesVisibleComboBox.Name = "marginLinesVisibleComboBox";
             this.marginLinesVisibleComboBox.Size = new System.Drawing.Size(100, 23);
-            this.marginLinesVisibleComboBox.TabIndex = 29;
+            this.marginLinesVisibleComboBox.TabIndex = 5;
             this.marginLinesVisibleComboBox.DropDownClosed += new System.EventHandler(this.MarginLinesVisibleComboBox_DropDownClosed);
             // 
             // marginLinesVisibleLabel
@@ -645,7 +668,7 @@
             this.gridLinesGroupBox.Location = new System.Drawing.Point(3, 223);
             this.gridLinesGroupBox.Name = "gridLinesGroupBox";
             this.gridLinesGroupBox.Size = new System.Drawing.Size(219, 110);
-            this.gridLinesGroupBox.TabIndex = 27;
+            this.gridLinesGroupBox.TabIndex = 2;
             this.gridLinesGroupBox.TabStop = false;
             this.gridLinesGroupBox.Text = "Grid lines";
             // 
@@ -659,7 +682,7 @@
             this.gridLinesVisibleComboBox.Location = new System.Drawing.Point(106, 20);
             this.gridLinesVisibleComboBox.Name = "gridLinesVisibleComboBox";
             this.gridLinesVisibleComboBox.Size = new System.Drawing.Size(100, 23);
-            this.gridLinesVisibleComboBox.TabIndex = 22;
+            this.gridLinesVisibleComboBox.TabIndex = 3;
             this.gridLinesVisibleComboBox.Tag = "False";
             this.gridLinesVisibleComboBox.DropDownClosed += new System.EventHandler(this.GridLinesVisibleComboBox_DropDownClosed);
             // 
@@ -676,7 +699,7 @@
             this.gridLinesStyleComboBox.Location = new System.Drawing.Point(106, 76);
             this.gridLinesStyleComboBox.Name = "gridLinesStyleComboBox";
             this.gridLinesStyleComboBox.Size = new System.Drawing.Size(100, 23);
-            this.gridLinesStyleComboBox.TabIndex = 26;
+            this.gridLinesStyleComboBox.TabIndex = 4;
             this.gridLinesStyleComboBox.DropDownClosed += new System.EventHandler(this.GridLinesStyleComboBox_DropDownClosed);
             // 
             // gridLinesColor
@@ -729,7 +752,7 @@
             this.borderLinesGroupBox.Location = new System.Drawing.Point(3, 113);
             this.borderLinesGroupBox.Name = "borderLinesGroupBox";
             this.borderLinesGroupBox.Size = new System.Drawing.Size(219, 110);
-            this.borderLinesGroupBox.TabIndex = 27;
+            this.borderLinesGroupBox.TabIndex = 1;
             this.borderLinesGroupBox.TabStop = false;
             this.borderLinesGroupBox.Text = "Border lines";
             // 
@@ -743,7 +766,7 @@
             this.borderLinesVisibleСomboBox.Location = new System.Drawing.Point(106, 19);
             this.borderLinesVisibleСomboBox.Name = "borderLinesVisibleСomboBox";
             this.borderLinesVisibleСomboBox.Size = new System.Drawing.Size(100, 23);
-            this.borderLinesVisibleСomboBox.TabIndex = 16;
+            this.borderLinesVisibleСomboBox.TabIndex = 1;
             this.borderLinesVisibleСomboBox.DropDownClosed += new System.EventHandler(this.BorderLinesVisibleСomboBox_DropDownClosed);
             // 
             // borderLinesStyleComboBox
@@ -759,7 +782,7 @@
             this.borderLinesStyleComboBox.Location = new System.Drawing.Point(106, 75);
             this.borderLinesStyleComboBox.Name = "borderLinesStyleComboBox";
             this.borderLinesStyleComboBox.Size = new System.Drawing.Size(100, 23);
-            this.borderLinesStyleComboBox.TabIndex = 20;
+            this.borderLinesStyleComboBox.TabIndex = 2;
             this.borderLinesStyleComboBox.DropDownClosed += new System.EventHandler(this.BorderLinesStyleComboBox_DropDownClosed);
             // 
             // borderLinesColorLabel
@@ -812,7 +835,7 @@
             this.lineNumbersGroupBox.Location = new System.Drawing.Point(3, 3);
             this.lineNumbersGroupBox.Name = "lineNumbersGroupBox";
             this.lineNumbersGroupBox.Size = new System.Drawing.Size(219, 110);
-            this.lineNumbersGroupBox.TabIndex = 27;
+            this.lineNumbersGroupBox.TabIndex = 0;
             this.lineNumbersGroupBox.TabStop = false;
             this.lineNumbersGroupBox.Text = "Line numbers";
             // 
@@ -826,7 +849,7 @@
             this.lineNumbersVisibleComboBox.Location = new System.Drawing.Point(106, 19);
             this.lineNumbersVisibleComboBox.Name = "lineNumbersVisibleComboBox";
             this.lineNumbersVisibleComboBox.Size = new System.Drawing.Size(100, 23);
-            this.lineNumbersVisibleComboBox.TabIndex = 3;
+            this.lineNumbersVisibleComboBox.TabIndex = 0;
             this.lineNumbersVisibleComboBox.DropDownClosed += new System.EventHandler(this.LineNumbersVisibleComboBox_DropDownClosed);
             // 
             // lineNumbersBackColor
@@ -837,7 +860,7 @@
             this.lineNumbersBackColor.Location = new System.Drawing.Point(106, 48);
             this.lineNumbersBackColor.Name = "lineNumbersBackColor";
             this.lineNumbersBackColor.Size = new System.Drawing.Size(100, 21);
-            this.lineNumbersBackColor.TabIndex = 13;
+            this.lineNumbersBackColor.TabIndex = 1;
             this.lineNumbersBackColor.Click += new System.EventHandler(this.LineNumbersBackColor_Click);
             // 
             // lineNumbersVisibleLabel
@@ -857,7 +880,7 @@
             this.lineNumbersFontColor.Location = new System.Drawing.Point(106, 75);
             this.lineNumbersFontColor.Name = "lineNumbersFontColor";
             this.lineNumbersFontColor.Size = new System.Drawing.Size(100, 21);
-            this.lineNumbersFontColor.TabIndex = 14;
+            this.lineNumbersFontColor.TabIndex = 2;
             this.lineNumbersFontColor.Click += new System.EventHandler(this.LineNumbersFontColor_Click);
             // 
             // lineNumbersFontColorLabel
@@ -901,7 +924,7 @@
             this.statusPanelVisibleCheckBox.Location = new System.Drawing.Point(9, 66);
             this.statusPanelVisibleCheckBox.Name = "statusPanelVisibleCheckBox";
             this.statusPanelVisibleCheckBox.Size = new System.Drawing.Size(60, 19);
-            this.statusPanelVisibleCheckBox.TabIndex = 2;
+            this.statusPanelVisibleCheckBox.TabIndex = 0;
             this.statusPanelVisibleCheckBox.Text = "Visible";
             this.statusPanelVisibleCheckBox.UseVisualStyleBackColor = true;
             this.statusPanelVisibleCheckBox.Click += new System.EventHandler(this.StatusPanelVisibleCheckBox_Click);
@@ -968,7 +991,7 @@
             this.toolbarOldIconsCheckBox.Location = new System.Drawing.Point(9, 91);
             this.toolbarOldIconsCheckBox.Name = "toolbarOldIconsCheckBox";
             this.toolbarOldIconsCheckBox.Size = new System.Drawing.Size(76, 19);
-            this.toolbarOldIconsCheckBox.TabIndex = 13;
+            this.toolbarOldIconsCheckBox.TabIndex = 2;
             this.toolbarOldIconsCheckBox.Text = "Old icons";
             this.toolbarOldIconsCheckBox.UseVisualStyleBackColor = true;
             this.toolbarOldIconsCheckBox.Click += new System.EventHandler(this.ToolbarOldIconsCheckBox_Click);
@@ -979,7 +1002,7 @@
             this.toolbarBorderCheckBox.Location = new System.Drawing.Point(9, 66);
             this.toolbarBorderCheckBox.Name = "toolbarBorderCheckBox";
             this.toolbarBorderCheckBox.Size = new System.Drawing.Size(61, 19);
-            this.toolbarBorderCheckBox.TabIndex = 12;
+            this.toolbarBorderCheckBox.TabIndex = 1;
             this.toolbarBorderCheckBox.Text = "Border";
             this.toolbarBorderCheckBox.UseVisualStyleBackColor = true;
             this.toolbarBorderCheckBox.Click += new System.EventHandler(this.ToolbarBorderCheckBox_Click);
@@ -1010,7 +1033,7 @@
             this.toolbarVisibleCheckBox.Location = new System.Drawing.Point(9, 41);
             this.toolbarVisibleCheckBox.Name = "toolbarVisibleCheckBox";
             this.toolbarVisibleCheckBox.Size = new System.Drawing.Size(60, 19);
-            this.toolbarVisibleCheckBox.TabIndex = 2;
+            this.toolbarVisibleCheckBox.TabIndex = 0;
             this.toolbarVisibleCheckBox.Text = "Visible";
             this.toolbarVisibleCheckBox.UseVisualStyleBackColor = true;
             this.toolbarVisibleCheckBox.Click += new System.EventHandler(this.ToolbarVisibleCheckBox_Click);
@@ -1088,6 +1111,7 @@
             this.settingsNavigation.Name = "settingsNavigation";
             this.settingsNavigation.Size = new System.Drawing.Size(102, 276);
             this.settingsNavigation.TabIndex = 6;
+            this.settingsNavigation.TabStop = false;
             this.settingsNavigation.Click += new System.EventHandler(this.SettingsNavigation_Click);
             // 
             // fontDialog
@@ -1103,29 +1127,6 @@
             this.fontDialog.ShowApply = true;
             this.fontDialog.ShowEffects = false;
             this.fontDialog.Apply += new System.EventHandler(this.FontDialog_Apply);
-            // 
-            // editorBorderComboBox
-            // 
-            this.editorBorderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.editorBorderComboBox.FormattingEnabled = true;
-            this.editorBorderComboBox.Items.AddRange(new object[] {
-            "None",
-            "FixedSingle",
-            "Fixed3D"});
-            this.editorBorderComboBox.Location = new System.Drawing.Point(132, 142);
-            this.editorBorderComboBox.Name = "editorBorderComboBox";
-            this.editorBorderComboBox.Size = new System.Drawing.Size(100, 23);
-            this.editorBorderComboBox.TabIndex = 20;
-            this.editorBorderComboBox.DropDownClosed += new System.EventHandler(this.EditorBorderComboBox_DropDownClosed);
-            // 
-            // editorBorderLabel
-            // 
-            this.editorBorderLabel.AutoSize = true;
-            this.editorBorderLabel.Location = new System.Drawing.Point(6, 145);
-            this.editorBorderLabel.Name = "editorBorderLabel";
-            this.editorBorderLabel.Size = new System.Drawing.Size(42, 15);
-            this.editorBorderLabel.TabIndex = 21;
-            this.editorBorderLabel.Text = "Border";
             // 
             // SettingsForm
             // 

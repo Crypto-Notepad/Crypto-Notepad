@@ -163,12 +163,12 @@ namespace Crypto_Notepad
             string custom_colors = settings.customColor;
             int[] array_of_colors = custom_colors.Split(';').Select(n => Convert.ToInt32(n)).ToArray();
             colorDialog.CustomColors = array_of_colors;
-
             settingsTabControl.Appearance = TabAppearance.FlatButtons;
             settingsTabControl.ItemSize = new Size(0, 1);
             settingsTabControl.SizeMode = TabSizeMode.Fixed;
             settingsNavigation.SelectedIndex = 0;
             TopMost = settings.alwaysOnTop;
+            settingsTabControl.TabStop = false;
             LoadSettings();
         }
 
