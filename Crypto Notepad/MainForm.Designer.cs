@@ -908,23 +908,6 @@
             this.toolTip.SetToolTip(this.deleteFileToolbarButton, "Delete file");
             this.deleteFileToolbarButton.Click += new System.EventHandler(this.DeleteFileToolbarButton_Click);
             // 
-            // closeToolbarButton
-            // 
-            this.closeToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.closeToolbarButton.Image = global::Crypto_Notepad.Properties.Resources.close_g;
-            this.closeToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.closeToolbarButton.Location = new System.Drawing.Point(463, 3);
-            this.closeToolbarButton.Margin = new System.Windows.Forms.Padding(3, 3, 2, 3);
-            this.closeToolbarButton.Name = "closeToolbarButton";
-            this.closeToolbarButton.Size = new System.Drawing.Size(15, 18);
-            this.closeToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.closeToolbarButton.TabIndex = 14;
-            this.closeToolbarButton.TabStop = false;
-            this.closeToolbarButton.Visible = false;
-            this.closeToolbarButton.Click += new System.EventHandler(this.CloseToolbarButton_Click);
-            this.closeToolbarButton.MouseEnter += new System.EventHandler(this.CloseToolbarButton_MouseEnter);
-            this.closeToolbarButton.MouseLeave += new System.EventHandler(this.CloseToolbarButton_MouseLeave);
-            // 
             // settingsToolbarButton
             // 
             this.settingsToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
