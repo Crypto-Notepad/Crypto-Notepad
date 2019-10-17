@@ -115,6 +115,7 @@
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.searchBorderLabel = new System.Windows.Forms.Label();
             this.searchBorderComboBox = new System.Windows.Forms.ComboBox();
+            this.toolbarCloseButtonCheckBox = new System.Windows.Forms.CheckBox();
             this.settingsTabControl.SuspendLayout();
             this.editorTabPage.SuspendLayout();
             this.applicationTabPage.SuspendLayout();
@@ -975,6 +976,7 @@
             // 
             this.toolbarTabPage.BackColor = System.Drawing.SystemColors.Window;
             this.toolbarTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolbarTabPage.Controls.Add(this.toolbarCloseButtonCheckBox);
             this.toolbarTabPage.Controls.Add(this.toolbarOldIconsCheckBox);
             this.toolbarTabPage.Controls.Add(this.toolbarBorderCheckBox);
             this.toolbarTabPage.Controls.Add(this.toolbarBackColor);
@@ -1154,6 +1156,17 @@
             this.searchBorderComboBox.TabIndex = 5;
             this.searchBorderComboBox.DropDownClosed += new System.EventHandler(this.SearchBorderComboBox_DropDownClosed);
             // 
+            // toolbarCloseButtonCheckBox
+            // 
+            this.toolbarCloseButtonCheckBox.AutoSize = true;
+            this.toolbarCloseButtonCheckBox.Location = new System.Drawing.Point(9, 116);
+            this.toolbarCloseButtonCheckBox.Name = "toolbarCloseButtonCheckBox";
+            this.toolbarCloseButtonCheckBox.Size = new System.Drawing.Size(94, 19);
+            this.toolbarCloseButtonCheckBox.TabIndex = 12;
+            this.toolbarCloseButtonCheckBox.Text = "Close button";
+            this.toolbarCloseButtonCheckBox.UseVisualStyleBackColor = true;
+            this.toolbarCloseButtonCheckBox.Click += new System.EventHandler(this.ToolbarCloseButtonCheckBox_Click);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1287,5 +1300,6 @@
         private System.Windows.Forms.Label editorBorderLabel;
         private System.Windows.Forms.ComboBox searchBorderComboBox;
         private System.Windows.Forms.Label searchBorderLabel;
+        private System.Windows.Forms.CheckBox toolbarCloseButtonCheckBox;
     }
 }

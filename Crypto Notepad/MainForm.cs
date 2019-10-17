@@ -534,6 +534,7 @@ namespace Crypto_Notepad
             wordWrapMainMenu.Checked = settings.editorWrap;
             toolbarPanel.BackColor = settings.toolbarBackColor;
             toolbarPanel.Visible = settings.toolbarVisible;
+            closeToolbarButton.Visible = settings.toolbarCloseButton;
             mainMenu.Visible = settings.mainMenuVisible;
             rightToLeftContextMenu.Checked = settings.editorRightToLeft;
             lineNumbers.BackColor = settings.lineNumbersBackColor;

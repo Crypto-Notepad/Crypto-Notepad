@@ -1359,7 +1359,7 @@
         protected internal System.Windows.Forms.TextBox fileLockedKeyTextBox;
         protected internal System.Windows.Forms.Panel richTextBoxPanel;
         protected internal System.Windows.Forms.Label searchFindNextButton;
-        private System.Windows.Forms.Label closeToolbarButton;
         protected internal System.Windows.Forms.Label searchCloseButton;
+        protected internal System.Windows.Forms.Label closeToolbarButton;
     }
 }

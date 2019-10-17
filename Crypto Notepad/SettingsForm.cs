@@ -53,6 +53,7 @@ namespace Crypto_Notepad
             toolbarBorderCheckBox.Checked = settings.toolbarBorder;
             toolbarVisibleCheckBox.Checked = settings.toolbarVisible;
             toolbarOldIconsCheckBox.Checked = settings.oldToolbarIcons;
+            toolbarCloseButtonCheckBox.Checked = settings.toolbarCloseButton;
 
             statusPanelBackColor.BackColor = settings.statusPanelBackColor;
             statusPanelFontColor.BackColor = settings.statusPanelFontColor;
@@ -830,6 +831,12 @@ namespace Crypto_Notepad
             settings.searchPanelBorder = searchBorderComboBox.Text;
         }
 
+        private void ToolbarCloseButtonCheckBox_Click(object sender, EventArgs e)
+        {
+            MainForm main = Owner as MainForm;
+            main.closeToolbarButton.Visible = toolbarCloseButtonCheckBox.Checked;
+            settings.toolbarCloseButton = toolbarCloseButtonCheckBox.Checked;
+        }
         /*Settings Section*/
 
 
