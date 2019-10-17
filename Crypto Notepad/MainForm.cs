@@ -1632,6 +1632,11 @@ namespace Crypto_Notepad
                             dropDownItem.Enabled = false;
                         }
                 }
+                if (searchPanel.Visible)
+                {
+                    searchTextBox.Text = "";
+                    searchPanel.Visible = false;
+                }
                 PublicVar.encryptionKey.Set(null);
                 caretPos = richTextBox.SelectionStart;
                 richTextBox.Visible = false;
