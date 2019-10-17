@@ -47,6 +47,7 @@ namespace Crypto_Notepad
 
             searchBackColor.BackColor = settings.searchPanelBackColor;
             searchFontColor.BackColor = settings.searchPanelForeColor;
+            searchBorderComboBox.Text = settings.searchPanelBorder;
 
             toolbarBackColor.BackColor = settings.toolbarBackColor;
             toolbarBorderCheckBox.Checked = settings.toolbarBorder;
@@ -820,6 +821,13 @@ namespace Crypto_Notepad
             MainForm main = Owner as MainForm;
             main.richTextBoxPanel.BorderStyle = (BorderStyle)Enum.Parse(typeof(BorderStyle), editorBorderComboBox.Text);
             settings.editorBorder = editorBorderComboBox.Text;
+        }
+
+        private void SearchBorderComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            MainForm main = Owner as MainForm;
+            main.searchPanel.CellBorderStyle = (TableLayoutPanelCellBorderStyle)Enum.Parse(typeof(TableLayoutPanelCellBorderStyle), searchBorderComboBox.Text);
+            settings.searchPanelBorder = searchBorderComboBox.Text;
         }
 
         /*Settings Section*/

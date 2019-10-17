@@ -555,6 +555,7 @@ namespace Crypto_Notepad
             searchWholeWordCheckBox.ForeColor = settings.searchPanelForeColor;
             searchFindNextButton.ForeColor = settings.searchPanelForeColor;
             searchCloseButton.ForeColor = settings.searchPanelForeColor;
+            searchPanel.CellBorderStyle = (TableLayoutPanelCellBorderStyle)Enum.Parse(typeof(TableLayoutPanelCellBorderStyle), settings.searchPanelBorder);
             lineNumbers.Visible = bool.Parse(settings.lineNumbersVisible);
             lineNumbers.Show_BorderLines = bool.Parse(settings.borderLinesVisible);
             lineNumbers.Show_GridLines = bool.Parse(settings.gridLinesVisible);
@@ -753,7 +754,6 @@ namespace Crypto_Notepad
         private void MainWindow_Load(object sender, EventArgs e)
         {
             Visible = false;
-            searchPanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             LoadSettings();
             DeleteUpdateFiles();
             MenuIcons(settings.menuIcons);

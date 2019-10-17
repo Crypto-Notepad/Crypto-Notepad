@@ -660,5 +660,18 @@ namespace Crypto_Notepad.Properties {
                 this["editorBorder"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Single")]
+        public string searchPanelBorder {
+            get {
+                return ((string)(this["searchPanelBorder"]));
+            }
+            set {
+                this["searchPanelBorder"] = value;
+            }
+        }
     }
 }

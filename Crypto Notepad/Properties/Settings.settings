@@ -149,5 +149,8 @@
     <Setting Name="editorBorder" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">None</Value>
     </Setting>
+    <Setting Name="searchPanelBorder" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Single</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

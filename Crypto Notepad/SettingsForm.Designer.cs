@@ -113,6 +113,8 @@
             this.searchBackColorLabel = new System.Windows.Forms.Label();
             this.settingsNavigation = new System.Windows.Forms.ListBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
+            this.searchBorderLabel = new System.Windows.Forms.Label();
+            this.searchBorderComboBox = new System.Windows.Forms.ComboBox();
             this.settingsTabControl.SuspendLayout();
             this.editorTabPage.SuspendLayout();
             this.applicationTabPage.SuspendLayout();
@@ -1042,6 +1044,8 @@
             // 
             this.searchPanelTabPage.BackColor = System.Drawing.SystemColors.Window;
             this.searchPanelTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchPanelTabPage.Controls.Add(this.searchBorderComboBox);
+            this.searchPanelTabPage.Controls.Add(this.searchBorderLabel);
             this.searchPanelTabPage.Controls.Add(this.searchFontColor);
             this.searchPanelTabPage.Controls.Add(this.searchBackColor);
             this.searchPanelTabPage.Controls.Add(this.searchFontColorLabel);
@@ -1128,6 +1132,28 @@
             this.fontDialog.ShowEffects = false;
             this.fontDialog.Apply += new System.EventHandler(this.FontDialog_Apply);
             // 
+            // searchBorderLabel
+            // 
+            this.searchBorderLabel.AutoSize = true;
+            this.searchBorderLabel.Location = new System.Drawing.Point(6, 61);
+            this.searchBorderLabel.Name = "searchBorderLabel";
+            this.searchBorderLabel.Size = new System.Drawing.Size(42, 15);
+            this.searchBorderLabel.TabIndex = 4;
+            this.searchBorderLabel.Text = "Border";
+            // 
+            // searchBorderComboBox
+            // 
+            this.searchBorderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.searchBorderComboBox.FormattingEnabled = true;
+            this.searchBorderComboBox.Items.AddRange(new object[] {
+            "None",
+            "Single"});
+            this.searchBorderComboBox.Location = new System.Drawing.Point(132, 58);
+            this.searchBorderComboBox.Name = "searchBorderComboBox";
+            this.searchBorderComboBox.Size = new System.Drawing.Size(100, 23);
+            this.searchBorderComboBox.TabIndex = 5;
+            this.searchBorderComboBox.DropDownClosed += new System.EventHandler(this.SearchBorderComboBox_DropDownClosed);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1168,6 +1194,7 @@
             this.toolbarTabPage.ResumeLayout(false);
             this.toolbarTabPage.PerformLayout();
             this.searchPanelTabPage.ResumeLayout(false);
+            this.searchPanelTabPage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1258,5 +1285,7 @@
         private System.Windows.Forms.CheckBox minimizeToTrayCheckBox;
         private System.Windows.Forms.ComboBox editorBorderComboBox;
         private System.Windows.Forms.Label editorBorderLabel;
+        private System.Windows.Forms.ComboBox searchBorderComboBox;
+        private System.Windows.Forms.Label searchBorderLabel;
     }
 }
