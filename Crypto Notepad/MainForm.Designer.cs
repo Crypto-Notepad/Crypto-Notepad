@@ -699,8 +699,6 @@
             this.searchCloseButton.Text = "X";
             this.searchCloseButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.searchCloseButton.Click += new System.EventHandler(this.SearchCloseButton_Click);
-            this.searchCloseButton.MouseEnter += new System.EventHandler(this.SearchCloseButton_MouseEnter);
-            this.searchCloseButton.MouseLeave += new System.EventHandler(this.SearchCloseButton_MouseLeave);
             // 
             // searchFindNextButton
             // 
@@ -1360,8 +1358,8 @@
         private System.Windows.Forms.Label encryptionKeyPlaceholder;
         protected internal System.Windows.Forms.TextBox fileLockedKeyTextBox;
         protected internal System.Windows.Forms.Panel richTextBoxPanel;
-        private System.Windows.Forms.Label searchCloseButton;
         protected internal System.Windows.Forms.Label searchFindNextButton;
         private System.Windows.Forms.Label closeToolbarButton;
+        protected internal System.Windows.Forms.Label searchCloseButton;
     }
 }

@@ -554,6 +554,7 @@ namespace Crypto_Notepad
             searchCaseSensitiveCheckBox.ForeColor = settings.searchPanelForeColor;
             searchWholeWordCheckBox.ForeColor = settings.searchPanelForeColor;
             searchFindNextButton.ForeColor = settings.searchPanelForeColor;
+            searchCloseButton.ForeColor = settings.searchPanelForeColor;
             lineNumbers.Visible = bool.Parse(settings.lineNumbersVisible);
             lineNumbers.Show_BorderLines = bool.Parse(settings.borderLinesVisible);
             lineNumbers.Show_GridLines = bool.Parse(settings.gridLinesVisible);
@@ -1522,16 +1523,6 @@ namespace Crypto_Notepad
                 SearchFindNextButton_Click(this, new EventArgs());
                 e.Handled = e.SuppressKeyPress = true;
             }
-        }
-
-        private void SearchCloseButton_MouseEnter(object sender, EventArgs e)
-        {
-            searchCloseButton.ForeColor = Color.DimGray;
-        }
-
-        private void SearchCloseButton_MouseLeave(object sender, EventArgs e)
-        {
-            searchCloseButton.ForeColor = Color.DarkGray;
         }
 
         private void SearchCloseButton_Click(object sender, EventArgs e)

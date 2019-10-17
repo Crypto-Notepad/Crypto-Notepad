@@ -656,6 +656,7 @@ namespace Crypto_Notepad
                     main.searchCaseSensitiveCheckBox.ForeColor = colorDialog.Color;
                     main.searchWholeWordCheckBox.ForeColor = colorDialog.Color;
                     main.searchFindNextButton.ForeColor = colorDialog.Color;
+                    main.searchCloseButton.ForeColor = colorDialog.Color;
                     settings.searchPanelForeColor = colorDialog.Color;
                     searchFontColor.BackColor = colorDialog.Color;
                 }
