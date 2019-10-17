@@ -85,12 +85,13 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.searchPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.searchFindNextButton = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.searchWholeWordCheckBox = new System.Windows.Forms.CheckBox();
             this.searchCaseSensitiveCheckBox = new System.Windows.Forms.CheckBox();
-            this.searchCloseButton = new System.Windows.Forms.PictureBox();
+            this.searchCloseButton = new System.Windows.Forms.Label();
+            this.searchFindNextButton = new System.Windows.Forms.Label();
             this.toolbarPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.closeToolbarButton = new System.Windows.Forms.Label();
             this.lockToolbarButton = new System.Windows.Forms.PictureBox();
             this.newToolbarButton = new System.Windows.Forms.PictureBox();
             this.changeKeyToolbarButton = new System.Windows.Forms.PictureBox();
@@ -101,7 +102,6 @@
             this.fileLocationToolbarButton = new System.Windows.Forms.PictureBox();
             this.cutToolbarButton = new System.Windows.Forms.PictureBox();
             this.deleteFileToolbarButton = new System.Windows.Forms.PictureBox();
-            this.closeToolbarButton = new System.Windows.Forms.PictureBox();
             this.settingsToolbarButton = new System.Windows.Forms.PictureBox();
             this.alwaysOnTopToolbarButton = new System.Windows.Forms.PictureBox();
             this.statusPanel = new System.Windows.Forms.StatusStrip();
@@ -128,7 +128,6 @@
             this.mainMenu.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.searchPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchCloseButton)).BeginInit();
             this.toolbarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lockToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newToolbarButton)).BeginInit();
@@ -140,7 +139,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.fileLocationToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cutToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deleteFileToolbarButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closeToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alwaysOnTopToolbarButton)).BeginInit();
             this.statusPanel.SuspendLayout();
@@ -623,11 +621,11 @@
             this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
             this.searchPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.searchPanel.Controls.Add(this.searchFindNextButton, 3, 0);
             this.searchPanel.Controls.Add(this.searchTextBox, 0, 0);
             this.searchPanel.Controls.Add(this.searchWholeWordCheckBox, 2, 0);
             this.searchPanel.Controls.Add(this.searchCaseSensitiveCheckBox, 1, 0);
             this.searchPanel.Controls.Add(this.searchCloseButton, 4, 0);
+            this.searchPanel.Controls.Add(this.searchFindNextButton, 3, 0);
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.searchPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.searchPanel.ForeColor = System.Drawing.Color.Black;
@@ -638,29 +636,6 @@
             this.searchPanel.Size = new System.Drawing.Size(484, 25);
             this.searchPanel.TabIndex = 17;
             this.searchPanel.Visible = false;
-            // 
-            // searchFindNextButton
-            // 
-            this.searchFindNextButton.BackColor = System.Drawing.Color.Transparent;
-            this.searchFindNextButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchFindNextButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchFindNextButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.searchFindNextButton.FlatAppearance.BorderSize = 0;
-            this.searchFindNextButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.searchFindNextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.searchFindNextButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.searchFindNextButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchFindNextButton.ForeColor = System.Drawing.Color.Black;
-            this.searchFindNextButton.Location = new System.Drawing.Point(393, 3);
-            this.searchFindNextButton.Name = "searchFindNextButton";
-            this.searchFindNextButton.Size = new System.Drawing.Size(66, 19);
-            this.searchFindNextButton.TabIndex = 15;
-            this.searchFindNextButton.TabStop = false;
-            this.searchFindNextButton.Text = "Find Next";
-            this.searchFindNextButton.UseMnemonic = false;
-            this.searchFindNextButton.UseVisualStyleBackColor = false;
-            this.searchFindNextButton.Click += new System.EventHandler(this.SearchFindNextButton_Click);
-            this.searchFindNextButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SearchFindNextButton_MouseDown);
             // 
             // searchTextBox
             // 
@@ -712,20 +687,34 @@
             // 
             // searchCloseButton
             // 
-            this.searchCloseButton.BackColor = System.Drawing.Color.Transparent;
+            this.searchCloseButton.AutoSize = true;
             this.searchCloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchCloseButton.Image = ((System.Drawing.Image)(resources.GetObject("searchCloseButton.Image")));
-            this.searchCloseButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.searchCloseButton.Location = new System.Drawing.Point(465, 3);
-            this.searchCloseButton.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.searchCloseButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchCloseButton.Font = new System.Drawing.Font("Segoe UI Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.searchCloseButton.ForeColor = System.Drawing.Color.DarkGray;
+            this.searchCloseButton.Location = new System.Drawing.Point(465, 0);
             this.searchCloseButton.Name = "searchCloseButton";
-            this.searchCloseButton.Size = new System.Drawing.Size(15, 19);
-            this.searchCloseButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.searchCloseButton.TabIndex = 14;
-            this.searchCloseButton.TabStop = false;
+            this.searchCloseButton.Size = new System.Drawing.Size(16, 25);
+            this.searchCloseButton.TabIndex = 16;
+            this.searchCloseButton.Text = "X";
+            this.searchCloseButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.searchCloseButton.Click += new System.EventHandler(this.SearchCloseButton_Click);
+            this.searchCloseButton.MouseEnter += new System.EventHandler(this.SearchCloseButton_MouseEnter);
             this.searchCloseButton.MouseLeave += new System.EventHandler(this.SearchCloseButton_MouseLeave);
-            this.searchCloseButton.MouseHover += new System.EventHandler(this.SearchCloseButton_MouseHover);
+            // 
+            // searchFindNextButton
+            // 
+            this.searchFindNextButton.AutoSize = true;
+            this.searchFindNextButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.searchFindNextButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchFindNextButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.searchFindNextButton.Location = new System.Drawing.Point(393, 0);
+            this.searchFindNextButton.Name = "searchFindNextButton";
+            this.searchFindNextButton.Size = new System.Drawing.Size(66, 25);
+            this.searchFindNextButton.TabIndex = 17;
+            this.searchFindNextButton.Text = "Find Next";
+            this.searchFindNextButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.searchFindNextButton.Click += new System.EventHandler(this.SearchFindNextButton_Click);
             // 
             // toolbarPanel
             // 
@@ -745,6 +734,7 @@
             this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.toolbarPanel.Controls.Add(this.closeToolbarButton, 13, 0);
             this.toolbarPanel.Controls.Add(this.lockToolbarButton, 9, 0);
             this.toolbarPanel.Controls.Add(this.newToolbarButton, 0, 0);
             this.toolbarPanel.Controls.Add(this.changeKeyToolbarButton, 8, 0);
@@ -755,7 +745,6 @@
             this.toolbarPanel.Controls.Add(this.fileLocationToolbarButton, 3, 0);
             this.toolbarPanel.Controls.Add(this.cutToolbarButton, 5, 0);
             this.toolbarPanel.Controls.Add(this.deleteFileToolbarButton, 4, 0);
-            this.toolbarPanel.Controls.Add(this.closeToolbarButton, 13, 0);
             this.toolbarPanel.Controls.Add(this.settingsToolbarButton, 11, 0);
             this.toolbarPanel.Controls.Add(this.alwaysOnTopToolbarButton, 10, 0);
             this.toolbarPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -767,6 +756,23 @@
             this.toolbarPanel.Size = new System.Drawing.Size(484, 24);
             this.toolbarPanel.TabIndex = 17;
             this.toolbarPanel.MouseEnter += new System.EventHandler(this.ToolbarPanel_MouseEnter);
+            // 
+            // closeToolbarButton
+            // 
+            this.closeToolbarButton.AutoSize = true;
+            this.closeToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeToolbarButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.closeToolbarButton.Font = new System.Drawing.Font("Segoe UI Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.closeToolbarButton.ForeColor = System.Drawing.Color.DarkGray;
+            this.closeToolbarButton.Location = new System.Drawing.Point(463, 0);
+            this.closeToolbarButton.Name = "closeToolbarButton";
+            this.closeToolbarButton.Size = new System.Drawing.Size(18, 24);
+            this.closeToolbarButton.TabIndex = 17;
+            this.closeToolbarButton.Text = "X";
+            this.closeToolbarButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.closeToolbarButton.Click += new System.EventHandler(this.CloseToolbarButton_Click);
+            this.closeToolbarButton.MouseEnter += new System.EventHandler(this.CloseToolbarButton_MouseEnter);
+            this.closeToolbarButton.MouseLeave += new System.EventHandler(this.CloseToolbarButton_MouseLeave);
             // 
             // lockToolbarButton
             // 
@@ -1235,7 +1241,6 @@
             this.contextMenu.ResumeLayout(false);
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchCloseButton)).EndInit();
             this.toolbarPanel.ResumeLayout(false);
             this.toolbarPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lockToolbarButton)).EndInit();
@@ -1248,7 +1253,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.fileLocationToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cutToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deleteFileToolbarButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closeToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alwaysOnTopToolbarButton)).EndInit();
             this.statusPanel.ResumeLayout(false);
@@ -1319,7 +1323,6 @@
         private System.Windows.Forms.PictureBox pasteToolbarButton;
         private System.Windows.Forms.PictureBox changeKeyToolbarButton;
         private System.Windows.Forms.PictureBox settingsToolbarButton;
-        private System.Windows.Forms.PictureBox closeToolbarButton;
         private System.Windows.Forms.PictureBox lockToolbarButton;
         private System.Windows.Forms.ToolStripMenuItem lockMainMenu;
         private System.Windows.Forms.ToolStripSeparator mainMenuSeparator8;
@@ -1340,10 +1343,8 @@
         protected internal System.Windows.Forms.TextBox searchTextBox;
         protected internal System.Windows.Forms.CheckBox searchCaseSensitiveCheckBox;
         protected internal System.Windows.Forms.CheckBox searchWholeWordCheckBox;
-        protected internal System.Windows.Forms.Button searchFindNextButton;
         public System.Windows.Forms.TableLayoutPanel searchPanel;
         public System.Windows.Forms.MenuStrip mainMenu;
-        private System.Windows.Forms.PictureBox searchCloseButton;
         protected internal System.Windows.Forms.NotifyIcon trayIcon;
         private System.Windows.Forms.Panel fileLockedPanel;
         private System.Windows.Forms.Label fileLockedLabel;
@@ -1359,5 +1360,8 @@
         private System.Windows.Forms.Label encryptionKeyPlaceholder;
         protected internal System.Windows.Forms.TextBox fileLockedKeyTextBox;
         protected internal System.Windows.Forms.Panel richTextBoxPanel;
+        private System.Windows.Forms.Label searchCloseButton;
+        protected internal System.Windows.Forms.Label searchFindNextButton;
+        private System.Windows.Forms.Label closeToolbarButton;
     }
 }

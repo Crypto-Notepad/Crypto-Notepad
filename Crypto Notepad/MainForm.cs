@@ -1443,12 +1443,12 @@ namespace Crypto_Notepad
 
         private void CloseToolbarButton_MouseEnter(object sender, EventArgs e)
         {
-            closeToolbarButton.Image = Resources.close_b;
+            closeToolbarButton.ForeColor = Color.DimGray;
         }
 
         private void CloseToolbarButton_MouseLeave(object sender, EventArgs e)
         {
-            closeToolbarButton.Image = Resources.close_g;
+            closeToolbarButton.ForeColor = Color.DarkGray;
         }
 
         private void AlwaysOnTopToolbarButton_Click(object sender, EventArgs e)
@@ -1524,31 +1524,33 @@ namespace Crypto_Notepad
             }
         }
 
-        private void SearchCloseButton_Click(object sender, EventArgs e)
+        private void SearchCloseButton_MouseEnter(object sender, EventArgs e)
         {
-            FindMainMenu_Click(this, new EventArgs());
-        }
-
-        private void SearchCloseButton_MouseHover(object sender, EventArgs e)
-        {
-            searchCloseButton.Image = Resources.close_b;
+            searchCloseButton.ForeColor = Color.DimGray;
         }
 
         private void SearchCloseButton_MouseLeave(object sender, EventArgs e)
         {
-            searchCloseButton.Image = Resources.close_g;
+            searchCloseButton.ForeColor = Color.DarkGray;
+        }
+
+        private void SearchCloseButton_Click(object sender, EventArgs e)
+        {
+            FindMainMenu_Click(this, new EventArgs());
         }
 
         private void SearchCaseSensitiveCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             findPos = 0;
             richTextBox.DeselectAll();
+            searchTextBox.Focus();
         }
 
         private void SearchWholeWordCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             findPos = 0;
             richTextBox.DeselectAll();
+            searchTextBox.Focus();
         }
 
         private void FindText(string text, RichTextBoxFinds findOptions)
@@ -1597,10 +1599,6 @@ namespace Crypto_Notepad
                 FindText(searchTextBox.Text, RichTextBoxFinds.WholeWord);
                 return;
             }
-        }
-        private void SearchFindNextButton_MouseDown(object sender, MouseEventArgs e)
-        {
-            ActiveControl = null;
         }
         #endregion
 
@@ -1751,16 +1749,7 @@ namespace Crypto_Notepad
             Debug.WriteLine("EditorMenuStrip: " + contextMenu.Enabled);
 #endif
         }
-
-
-
-
-
-
-
         #endregion
-
-
 
 
     }
