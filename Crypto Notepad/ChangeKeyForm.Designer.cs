@@ -34,10 +34,10 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.oldKeyPlaceholder = new System.Windows.Forms.Label();
             this.newKeyPlaceholder = new System.Windows.Forms.Label();
-            this.statusLabel = new System.Windows.Forms.Label();
             this.lockPictureBox = new System.Windows.Forms.PictureBox();
             this.showNewKeyPictureBox = new System.Windows.Forms.PictureBox();
             this.showOldKeyPictureBox = new System.Windows.Forms.PictureBox();
+            this.statusLabel = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lockPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.showNewKeyPictureBox)).BeginInit();
@@ -96,6 +96,7 @@
             // 
             this.oldKeyPlaceholder.AutoSize = true;
             this.oldKeyPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.oldKeyPlaceholder.Enabled = false;
             this.oldKeyPlaceholder.ForeColor = System.Drawing.Color.DarkGray;
             this.oldKeyPlaceholder.Location = new System.Drawing.Point(67, 16);
             this.oldKeyPlaceholder.Name = "oldKeyPlaceholder";
@@ -108,6 +109,7 @@
             // 
             this.newKeyPlaceholder.AutoSize = true;
             this.newKeyPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.newKeyPlaceholder.Enabled = false;
             this.newKeyPlaceholder.ForeColor = System.Drawing.Color.DarkGray;
             this.newKeyPlaceholder.Location = new System.Drawing.Point(67, 41);
             this.newKeyPlaceholder.Name = "newKeyPlaceholder";
@@ -115,17 +117,6 @@
             this.newKeyPlaceholder.TabIndex = 2;
             this.newKeyPlaceholder.Text = "New key";
             this.newKeyPlaceholder.Click += new System.EventHandler(this.NewKeyPlaceholder_Click);
-            // 
-            // statusLabel
-            // 
-            this.statusLabel.AutoSize = true;
-            this.statusLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.statusLabel.ForeColor = System.Drawing.Color.Black;
-            this.statusLabel.Location = new System.Drawing.Point(5, 81);
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(42, 17);
-            this.statusLabel.TabIndex = 7;
-            this.statusLabel.Text = "status";
             // 
             // lockPictureBox
             // 
@@ -163,6 +154,17 @@
             this.showOldKeyPictureBox.TabIndex = 5;
             this.showOldKeyPictureBox.TabStop = false;
             this.showOldKeyPictureBox.Click += new System.EventHandler(this.ShowOldKeyPictureBox_Click);
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.statusLabel.ForeColor = System.Drawing.Color.Black;
+            this.statusLabel.Location = new System.Drawing.Point(5, 81);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(42, 17);
+            this.statusLabel.TabIndex = 7;
+            this.statusLabel.Text = "status";
             // 
             // ChangeKeyForm
             // 

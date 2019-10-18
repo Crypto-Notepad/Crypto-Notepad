@@ -18,9 +18,10 @@ namespace Crypto_Notepad
     {
         Settings settings = Settings.Default;
         readonly string[] args = Environment.GetCommandLineArgs();
-        bool cancelPressed = false;
+        string currentClipboardText;
         string filePath = "";
         string argsPath = "";
+        bool cancelPressed = false;
         int findPos = 0;
         int caretPos;
 
@@ -1588,6 +1589,16 @@ namespace Crypto_Notepad
                 FindText(searchTextBox.Text, RichTextBoxFinds.WholeWord);
             }
         }
+
+        private void SearchFindNextButton_MouseEnter(object sender, EventArgs e)
+        {
+            currentClipboardText = Clipboard.GetText();
+        }
+
+        private void SearchFindNextButton_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Clipboard.SetText(currentClipboardText);
+        }
         #endregion
 
 
@@ -1737,6 +1748,8 @@ namespace Crypto_Notepad
             Debug.WriteLine("EditorMenuStrip: " + contextMenu.Enabled);
 #endif
         }
+
+
 
         #endregion
 

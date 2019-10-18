@@ -32,9 +32,9 @@
             this.keyTextBox = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.fileNameLabel = new System.Windows.Forms.Label();
             this.encryptionKeyPlaceholder = new System.Windows.Forms.Label();
             this.lockPictureBox = new System.Windows.Forms.PictureBox();
+            this.fileNameLabel = new System.Windows.Forms.Label();
             this.showKeyPictureBox = new System.Windows.Forms.PictureBox();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lockPictureBox)).BeginInit();
@@ -76,20 +76,11 @@
             this.mainPanel.Size = new System.Drawing.Size(269, 75);
             this.mainPanel.TabIndex = 5;
             // 
-            // fileNameLabel
-            // 
-            this.fileNameLabel.AutoEllipsis = true;
-            this.fileNameLabel.Location = new System.Drawing.Point(61, 12);
-            this.fileNameLabel.Name = "fileNameLabel";
-            this.fileNameLabel.Size = new System.Drawing.Size(196, 13);
-            this.fileNameLabel.TabIndex = 6;
-            this.fileNameLabel.Text = "File name";
-            this.fileNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // encryptionKeyPlaceholder
             // 
             this.encryptionKeyPlaceholder.AutoSize = true;
             this.encryptionKeyPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.encryptionKeyPlaceholder.Enabled = false;
             this.encryptionKeyPlaceholder.ForeColor = System.Drawing.Color.DarkGray;
             this.encryptionKeyPlaceholder.Location = new System.Drawing.Point(68, 40);
             this.encryptionKeyPlaceholder.Name = "encryptionKeyPlaceholder";
@@ -107,6 +98,16 @@
             this.lockPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.lockPictureBox.TabIndex = 6;
             this.lockPictureBox.TabStop = false;
+            // 
+            // fileNameLabel
+            // 
+            this.fileNameLabel.AutoEllipsis = true;
+            this.fileNameLabel.Location = new System.Drawing.Point(61, 12);
+            this.fileNameLabel.Name = "fileNameLabel";
+            this.fileNameLabel.Size = new System.Drawing.Size(196, 13);
+            this.fileNameLabel.TabIndex = 6;
+            this.fileNameLabel.Text = "File name";
+            this.fileNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // showKeyPictureBox
             // 

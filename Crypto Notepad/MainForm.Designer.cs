@@ -712,6 +712,8 @@
             this.searchFindNextButton.TabIndex = 17;
             this.searchFindNextButton.Text = "Find Next";
             this.searchFindNextButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.searchFindNextButton.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.SearchFindNextButton_MouseDoubleClick);
+            this.searchFindNextButton.MouseEnter += new System.EventHandler(this.SearchFindNextButton_MouseEnter);
             this.searchFindNextButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.SearchFindNextButton_MouseUp);
             // 
             // toolbarPanel
@@ -1062,6 +1064,7 @@
             this.encryptionKeyPlaceholder.AutoSize = true;
             this.encryptionKeyPlaceholder.BackColor = System.Drawing.SystemColors.Window;
             this.encryptionKeyPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.encryptionKeyPlaceholder.Enabled = false;
             this.encryptionKeyPlaceholder.ForeColor = System.Drawing.Color.DarkGray;
             this.encryptionKeyPlaceholder.Location = new System.Drawing.Point(11, 37);
             this.encryptionKeyPlaceholder.Name = "encryptionKeyPlaceholder";
@@ -1076,7 +1079,7 @@
             this.fileLockedCloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.fileLockedCloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.fileLockedCloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fileLockedCloseButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fileLockedCloseButton.Font = new System.Drawing.Font("Segoe UI Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fileLockedCloseButton.ForeColor = System.Drawing.Color.DimGray;
             this.fileLockedCloseButton.Location = new System.Drawing.Point(239, -2);
             this.fileLockedCloseButton.Name = "fileLockedCloseButton";
