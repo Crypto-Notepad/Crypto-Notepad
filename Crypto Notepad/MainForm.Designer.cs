@@ -1130,7 +1130,7 @@
             this.fileLockedLabel.AutoEllipsis = true;
             this.fileLockedLabel.AutoSize = true;
             this.fileLockedLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fileLockedLabel.Location = new System.Drawing.Point(88, 3);
+            this.fileLockedLabel.Location = new System.Drawing.Point(95, 3);
             this.fileLockedLabel.Name = "fileLockedLabel";
             this.fileLockedLabel.Size = new System.Drawing.Size(71, 17);
             this.fileLockedLabel.TabIndex = 7;
