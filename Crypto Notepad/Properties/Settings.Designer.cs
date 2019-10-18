@@ -651,7 +651,7 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        [global::System.Configuration.DefaultSettingValueAttribute("FixedSingle")]
         public string editorBorder {
             get {
                 return ((string)(this["editorBorder"]));
@@ -664,7 +664,7 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Single")]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
         public string searchPanelBorder {
             get {
                 return ((string)(this["searchPanelBorder"]));

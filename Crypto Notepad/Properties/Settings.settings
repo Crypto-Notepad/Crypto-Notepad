@@ -147,10 +147,10 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="editorBorder" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
-      <Value Profile="(Default)">None</Value>
+      <Value Profile="(Default)">FixedSingle</Value>
     </Setting>
     <Setting Name="searchPanelBorder" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Single</Value>
+      <Value Profile="(Default)">None</Value>
     </Setting>
     <Setting Name="toolbarCloseButton" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
