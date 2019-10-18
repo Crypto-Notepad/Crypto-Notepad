@@ -731,7 +731,7 @@
             this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 18F));
             this.toolbarPanel.Controls.Add(this.closeToolbarButton, 13, 0);
             this.toolbarPanel.Controls.Add(this.lockToolbarButton, 9, 0);
             this.toolbarPanel.Controls.Add(this.newToolbarButton, 0, 0);
@@ -762,9 +762,9 @@
             this.closeToolbarButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.closeToolbarButton.Font = new System.Drawing.Font("Segoe UI Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.closeToolbarButton.ForeColor = System.Drawing.Color.DarkGray;
-            this.closeToolbarButton.Location = new System.Drawing.Point(463, 0);
+            this.closeToolbarButton.Location = new System.Drawing.Point(469, 0);
             this.closeToolbarButton.Name = "closeToolbarButton";
-            this.closeToolbarButton.Size = new System.Drawing.Size(18, 24);
+            this.closeToolbarButton.Size = new System.Drawing.Size(12, 24);
             this.closeToolbarButton.TabIndex = 17;
             this.closeToolbarButton.Text = "X";
             this.closeToolbarButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
