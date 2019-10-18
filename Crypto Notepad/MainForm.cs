@@ -1574,22 +1574,18 @@ namespace Crypto_Notepad
             if ((!searchWholeWordCheckBox.Checked) & (!searchCaseSensitiveCheckBox.Checked))
             {
                 FindText(searchTextBox.Text, RichTextBoxFinds.None);
-                return;
             }
-            if (searchWholeWordCheckBox.Checked & searchCaseSensitiveCheckBox.Checked)
+            else if (searchWholeWordCheckBox.Checked & searchCaseSensitiveCheckBox.Checked)
             {
                 FindText(searchTextBox.Text, RichTextBoxFinds.MatchCase | RichTextBoxFinds.WholeWord);
-                return;
             }
-            if (searchCaseSensitiveCheckBox.Checked)
+            else if (searchCaseSensitiveCheckBox.Checked)
             {
                 FindText(searchTextBox.Text, RichTextBoxFinds.MatchCase);
-                return;
             }
-            if (searchWholeWordCheckBox.Checked)
+            else if (searchWholeWordCheckBox.Checked)
             {
                 FindText(searchTextBox.Text, RichTextBoxFinds.WholeWord);
-                return;
             }
         }
         #endregion
