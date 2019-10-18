@@ -683,7 +683,7 @@ namespace Crypto_Notepad
         {
             settings.oldToolbarIcons = toolbarOldIconsCheckBox.Checked;
             MainForm main = Owner as MainForm;
-            main.Toolbaricons(settings.oldToolbarIcons);
+            main.ToolbarIcons(settings.oldToolbarIcons);
         }
 
         private void EditorOpenLinksWithComboBox_DropDownClosed(object sender, EventArgs e)

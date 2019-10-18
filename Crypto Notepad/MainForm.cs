@@ -612,7 +612,7 @@ namespace Crypto_Notepad
             }
         }
 
-        public void Toolbaricons(bool oldIcons)
+        public void ToolbarIcons(bool oldIcons)
         {
             if (oldIcons)
             {
@@ -758,7 +758,7 @@ namespace Crypto_Notepad
             LoadSettings();
             DeleteUpdateFiles();
             MenuIcons(settings.menuIcons);
-            Toolbaricons(settings.oldToolbarIcons);
+            ToolbarIcons(settings.oldToolbarIcons);
             if (args.Length == 2) /*drag & drop to executable*/
             {
                 OpenAsotiations();
