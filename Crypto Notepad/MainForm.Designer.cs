@@ -712,7 +712,7 @@
             this.searchFindNextButton.TabIndex = 17;
             this.searchFindNextButton.Text = "Find Next";
             this.searchFindNextButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.searchFindNextButton.Click += new System.EventHandler(this.SearchFindNextButton_Click);
+            this.searchFindNextButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.SearchFindNextButton_MouseUp);
             // 
             // toolbarPanel
             // 

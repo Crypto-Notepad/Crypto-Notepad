@@ -818,7 +818,7 @@ namespace Crypto_Notepad
             }
             if (e.KeyCode == Keys.Enter & searchPanel.Visible & !string.IsNullOrEmpty(searchTextBox.Text))
             {
-                SearchFindNextButton_Click(this, new EventArgs());
+                SearchFindNextButton_MouseUp(null, null);
                 e.Handled = e.SuppressKeyPress = true;
             }
         }
@@ -1521,7 +1521,7 @@ namespace Crypto_Notepad
             }
             if (e.KeyCode == Keys.Enter & searchPanel.Visible & !string.IsNullOrEmpty(searchTextBox.Text))
             {
-                SearchFindNextButton_Click(this, new EventArgs());
+                SearchFindNextButton_MouseUp(null, null);
                 e.Handled = e.SuppressKeyPress = true;
             }
         }
@@ -1569,7 +1569,7 @@ namespace Crypto_Notepad
             }
         }
 
-        private void SearchFindNextButton_Click(object sender, EventArgs e)
+        private void SearchFindNextButton_MouseUp(object sender, MouseEventArgs e)
         {
             if ((!searchWholeWordCheckBox.Checked) & (!searchCaseSensitiveCheckBox.Checked))
             {
@@ -1741,6 +1741,7 @@ namespace Crypto_Notepad
             Debug.WriteLine("EditorMenuStrip: " + contextMenu.Enabled);
 #endif
         }
+
         #endregion
 
 
