@@ -36,6 +36,7 @@ namespace Crypto_Notepad
             menuIconsCheckBox.Checked = settings.menuIcons;
             minimizeToTrayCheckBox.Checked = settings.minimizeToTray;
             closeToTrayCheckBox.Checked = settings.closeToTray;
+            singleInstanceCheckBox.Checked = settings.singleInstance;
 
             integrateCheckBox.Checked = settings.explorerIntegrate;
             associateCheckBox.Checked = settings.explorerAssociate;
@@ -836,6 +837,11 @@ namespace Crypto_Notepad
             MainForm main = Owner as MainForm;
             main.closeToolbarButton.Visible = toolbarCloseButtonCheckBox.Checked;
             settings.toolbarCloseButton = toolbarCloseButtonCheckBox.Checked;
+        }
+
+        private void SingleInstanceCheckBox_Click(object sender, EventArgs e)
+        {
+            settings.singleInstance = singleInstanceCheckBox.Checked;
         }
         /*Settings Section*/
 

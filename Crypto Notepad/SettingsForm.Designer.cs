@@ -101,21 +101,22 @@
             this.statusPanelFontColorLabel = new System.Windows.Forms.Label();
             this.statusPanelBackColorLabel = new System.Windows.Forms.Label();
             this.toolbarTabPage = new System.Windows.Forms.TabPage();
+            this.toolbarCloseButtonCheckBox = new System.Windows.Forms.CheckBox();
             this.toolbarOldIconsCheckBox = new System.Windows.Forms.CheckBox();
             this.toolbarBorderCheckBox = new System.Windows.Forms.CheckBox();
             this.toolbarBackColor = new System.Windows.Forms.Panel();
             this.toolbarBackColorLabel = new System.Windows.Forms.Label();
             this.toolbarVisibleCheckBox = new System.Windows.Forms.CheckBox();
             this.searchPanelTabPage = new System.Windows.Forms.TabPage();
+            this.searchBorderComboBox = new System.Windows.Forms.ComboBox();
+            this.searchBorderLabel = new System.Windows.Forms.Label();
             this.searchFontColor = new System.Windows.Forms.Panel();
             this.searchBackColor = new System.Windows.Forms.Panel();
             this.searchFontColorLabel = new System.Windows.Forms.Label();
             this.searchBackColorLabel = new System.Windows.Forms.Label();
             this.settingsNavigation = new System.Windows.Forms.ListBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
-            this.searchBorderLabel = new System.Windows.Forms.Label();
-            this.searchBorderComboBox = new System.Windows.Forms.ComboBox();
-            this.toolbarCloseButtonCheckBox = new System.Windows.Forms.CheckBox();
+            this.singleInstanceCheckBox = new System.Windows.Forms.CheckBox();
             this.settingsTabControl.SuspendLayout();
             this.editorTabPage.SuspendLayout();
             this.applicationTabPage.SuspendLayout();
@@ -322,6 +323,7 @@
             // 
             this.applicationTabPage.BackColor = System.Drawing.SystemColors.Window;
             this.applicationTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.applicationTabPage.Controls.Add(this.singleInstanceCheckBox);
             this.applicationTabPage.Controls.Add(this.closeToTrayCheckBox);
             this.applicationTabPage.Controls.Add(this.minimizeToTrayCheckBox);
             this.applicationTabPage.Controls.Add(this.mainMenuCheckBox);
@@ -989,6 +991,17 @@
             this.toolbarTabPage.TabIndex = 6;
             this.toolbarTabPage.Text = "tb";
             // 
+            // toolbarCloseButtonCheckBox
+            // 
+            this.toolbarCloseButtonCheckBox.AutoSize = true;
+            this.toolbarCloseButtonCheckBox.Location = new System.Drawing.Point(9, 116);
+            this.toolbarCloseButtonCheckBox.Name = "toolbarCloseButtonCheckBox";
+            this.toolbarCloseButtonCheckBox.Size = new System.Drawing.Size(94, 19);
+            this.toolbarCloseButtonCheckBox.TabIndex = 12;
+            this.toolbarCloseButtonCheckBox.Text = "Close button";
+            this.toolbarCloseButtonCheckBox.UseVisualStyleBackColor = true;
+            this.toolbarCloseButtonCheckBox.Click += new System.EventHandler(this.ToolbarCloseButtonCheckBox_Click);
+            // 
             // toolbarOldIconsCheckBox
             // 
             this.toolbarOldIconsCheckBox.AutoSize = true;
@@ -1058,6 +1071,28 @@
             this.searchPanelTabPage.Size = new System.Drawing.Size(244, 237);
             this.searchPanelTabPage.TabIndex = 7;
             this.searchPanelTabPage.Text = "srch";
+            // 
+            // searchBorderComboBox
+            // 
+            this.searchBorderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.searchBorderComboBox.FormattingEnabled = true;
+            this.searchBorderComboBox.Items.AddRange(new object[] {
+            "None",
+            "Single"});
+            this.searchBorderComboBox.Location = new System.Drawing.Point(132, 58);
+            this.searchBorderComboBox.Name = "searchBorderComboBox";
+            this.searchBorderComboBox.Size = new System.Drawing.Size(100, 23);
+            this.searchBorderComboBox.TabIndex = 5;
+            this.searchBorderComboBox.DropDownClosed += new System.EventHandler(this.SearchBorderComboBox_DropDownClosed);
+            // 
+            // searchBorderLabel
+            // 
+            this.searchBorderLabel.AutoSize = true;
+            this.searchBorderLabel.Location = new System.Drawing.Point(6, 61);
+            this.searchBorderLabel.Name = "searchBorderLabel";
+            this.searchBorderLabel.Size = new System.Drawing.Size(42, 15);
+            this.searchBorderLabel.TabIndex = 4;
+            this.searchBorderLabel.Text = "Border";
             // 
             // searchFontColor
             // 
@@ -1134,38 +1169,16 @@
             this.fontDialog.ShowEffects = false;
             this.fontDialog.Apply += new System.EventHandler(this.FontDialog_Apply);
             // 
-            // searchBorderLabel
+            // singleInstanceCheckBox
             // 
-            this.searchBorderLabel.AutoSize = true;
-            this.searchBorderLabel.Location = new System.Drawing.Point(6, 61);
-            this.searchBorderLabel.Name = "searchBorderLabel";
-            this.searchBorderLabel.Size = new System.Drawing.Size(42, 15);
-            this.searchBorderLabel.TabIndex = 4;
-            this.searchBorderLabel.Text = "Border";
-            // 
-            // searchBorderComboBox
-            // 
-            this.searchBorderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.searchBorderComboBox.FormattingEnabled = true;
-            this.searchBorderComboBox.Items.AddRange(new object[] {
-            "None",
-            "Single"});
-            this.searchBorderComboBox.Location = new System.Drawing.Point(132, 58);
-            this.searchBorderComboBox.Name = "searchBorderComboBox";
-            this.searchBorderComboBox.Size = new System.Drawing.Size(100, 23);
-            this.searchBorderComboBox.TabIndex = 5;
-            this.searchBorderComboBox.DropDownClosed += new System.EventHandler(this.SearchBorderComboBox_DropDownClosed);
-            // 
-            // toolbarCloseButtonCheckBox
-            // 
-            this.toolbarCloseButtonCheckBox.AutoSize = true;
-            this.toolbarCloseButtonCheckBox.Location = new System.Drawing.Point(9, 116);
-            this.toolbarCloseButtonCheckBox.Name = "toolbarCloseButtonCheckBox";
-            this.toolbarCloseButtonCheckBox.Size = new System.Drawing.Size(94, 19);
-            this.toolbarCloseButtonCheckBox.TabIndex = 12;
-            this.toolbarCloseButtonCheckBox.Text = "Close button";
-            this.toolbarCloseButtonCheckBox.UseVisualStyleBackColor = true;
-            this.toolbarCloseButtonCheckBox.Click += new System.EventHandler(this.ToolbarCloseButtonCheckBox_Click);
+            this.singleInstanceCheckBox.AutoSize = true;
+            this.singleInstanceCheckBox.Location = new System.Drawing.Point(7, 155);
+            this.singleInstanceCheckBox.Name = "singleInstanceCheckBox";
+            this.singleInstanceCheckBox.Size = new System.Drawing.Size(105, 19);
+            this.singleInstanceCheckBox.TabIndex = 6;
+            this.singleInstanceCheckBox.Text = "Single instance";
+            this.singleInstanceCheckBox.UseVisualStyleBackColor = true;
+            this.singleInstanceCheckBox.Click += new System.EventHandler(this.SingleInstanceCheckBox_Click);
             // 
             // SettingsForm
             // 
@@ -1301,5 +1314,6 @@
         private System.Windows.Forms.ComboBox searchBorderComboBox;
         private System.Windows.Forms.Label searchBorderLabel;
         private System.Windows.Forms.CheckBox toolbarCloseButtonCheckBox;
+        private System.Windows.Forms.CheckBox singleInstanceCheckBox;
     }
 }
