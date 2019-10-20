@@ -33,7 +33,10 @@ namespace Crypto_Notepad
                 }
                 else
                 {
-                    DialogResult dialogResult = MessageBox.Show(PublicVar.appName + " is already running.\nDo you still want to open a new copy of the app?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult dialogResult = MessageBox.Show(
+                    PublicVar.appName + " is already running.\nDo you still want to open a new copy of the app?", 
+                    PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, 
+                    MessageBoxDefaultButton.Button2, MessageBoxOptions.DefaultDesktopOnly);
                     if (dialogResult == DialogResult.Yes)
                     {
                         Application.EnableVisualStyles();
