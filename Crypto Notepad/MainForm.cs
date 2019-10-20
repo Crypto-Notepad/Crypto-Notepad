@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Security.Cryptography;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -538,9 +539,6 @@ namespace Crypto_Notepad
             closeToolbarButton.Visible = settings.toolbarCloseButton;
             mainMenu.Visible = settings.mainMenuVisible;
             rightToLeftContextMenu.Checked = settings.editorRightToLeft;
-            lineNumbers.BackColor = settings.lineNumbersBackColor;
-            lineNumbers.Font = settings.editorFont;
-            lineNumbers.ForeColor = settings.lineNumbersForeColor;
             statusPanel.ForeColor = settings.statusPanelFontColor;
             statusPanel.BackColor = settings.statusPanelBackColor;
             statusPanel.Visible = settings.statusPanelVisible;
@@ -558,6 +556,9 @@ namespace Crypto_Notepad
             searchFindNextButton.ForeColor = settings.searchPanelForeColor;
             searchCloseButton.ForeColor = settings.searchPanelForeColor;
             searchPanel.CellBorderStyle = (TableLayoutPanelCellBorderStyle)Enum.Parse(typeof(TableLayoutPanelCellBorderStyle), settings.searchPanelBorder);
+            lineNumbers.BackColor = settings.lineNumbersBackColor;
+            lineNumbers.Font = settings.editorFont;
+            lineNumbers.ForeColor = settings.lineNumbersForeColor;
             lineNumbers.Visible = bool.Parse(settings.lineNumbersVisible);
             lineNumbers.Show_BorderLines = bool.Parse(settings.borderLinesVisible);
             lineNumbers.Show_GridLines = bool.Parse(settings.gridLinesVisible);
@@ -751,6 +752,7 @@ namespace Crypto_Notepad
             Visible = true;
             richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
             richTextBox.Modified = false;
+            lineNumbers.Refresh();
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
