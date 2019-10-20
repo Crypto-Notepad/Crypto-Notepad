@@ -1144,10 +1144,11 @@
             this.richTextBoxPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBoxPanel.Controls.Add(this.fileLockedPanel);
             this.richTextBoxPanel.Controls.Add(this.richTextBox);
+            this.richTextBoxPanel.Controls.Add(this.lineNumbers);
             this.richTextBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxPanel.Location = new System.Drawing.Point(22, 48);
+            this.richTextBoxPanel.Location = new System.Drawing.Point(0, 48);
             this.richTextBoxPanel.Name = "richTextBoxPanel";
-            this.richTextBoxPanel.Size = new System.Drawing.Size(462, 166);
+            this.richTextBoxPanel.Size = new System.Drawing.Size(484, 166);
             this.richTextBoxPanel.TabIndex = 21;
             // 
             // richTextBox
@@ -1159,7 +1160,7 @@
             this.richTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.richTextBox.ForeColor = System.Drawing.Color.Black;
-            this.richTextBox.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox.Location = new System.Drawing.Point(22, 0);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.Size = new System.Drawing.Size(460, 164);
             this.richTextBox.TabIndex = 16;
@@ -1195,7 +1196,7 @@
             this.lineNumbers.LineNrs_ClippedByItemRectangle = true;
             this.lineNumbers.LineNrs_LeadingZeroes = false;
             this.lineNumbers.LineNrs_Offset = new System.Drawing.Size(0, 0);
-            this.lineNumbers.Location = new System.Drawing.Point(0, 48);
+            this.lineNumbers.Location = new System.Drawing.Point(0, 0);
             this.lineNumbers.Margin = new System.Windows.Forms.Padding(0);
             this.lineNumbers.MarginLines_Color = System.Drawing.Color.DarkGray;
             this.lineNumbers.MarginLines_Side = LineNumbers.LineNumbers.LineNumberDockSide.None;
@@ -1203,13 +1204,13 @@
             this.lineNumbers.MarginLines_Thickness = 1F;
             this.lineNumbers.Name = "lineNumbers";
             this.lineNumbers.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.lineNumbers.ParentRichTextBox = this.richTextBox;
+            this.lineNumbers.ParentRichTextBox = null;
             this.lineNumbers.Show_BackgroundGradient = false;
             this.lineNumbers.Show_BorderLines = false;
             this.lineNumbers.Show_GridLines = false;
             this.lineNumbers.Show_LineNrs = true;
             this.lineNumbers.Show_MarginLines = false;
-            this.lineNumbers.Size = new System.Drawing.Size(22, 166);
+            this.lineNumbers.Size = new System.Drawing.Size(22, 216);
             this.lineNumbers.TabIndex = 19;
             // 
             // MainForm
@@ -1219,7 +1220,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(484, 261);
             this.Controls.Add(this.richTextBoxPanel);
-            this.Controls.Add(this.lineNumbers);
             this.Controls.Add(this.searchPanel);
             this.Controls.Add(this.toolbarPanel);
             this.Controls.Add(this.mainMenu);
