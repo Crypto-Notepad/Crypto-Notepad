@@ -296,28 +296,28 @@ namespace Crypto_Notepad
             switch (settingsNavigation.SelectedIndex)
             {
                 case 0:
-                    settingsTabControl.SelectedTab = editorTabPage;
+                    settingsTabControl.SelectedTab = applicationTabPage;
                     break;
                 case 1:
-                    settingsTabControl.SelectedTab = lineNumbersTabPage;
+                    settingsTabControl.SelectedTab = toolbarTabPage;
                     break;
                 case 2:
                     settingsTabControl.SelectedTab = statusPanelTabPage;
                     break;
                 case 3:
-                    settingsTabControl.SelectedTab = toolbarTabPage;
-                    break;
-                case 4:
-                    settingsTabControl.SelectedTab = applicationTabPage;
-                    break;
-                case 5:
                     settingsTabControl.SelectedTab = searchPanelTabPage;
                     break;
+                case 4:
+                    settingsTabControl.SelectedTab = editorTabPage;
+                    break;
+                case 5:
+                    settingsTabControl.SelectedTab = lineNumbersTabPage;
+                    break;
                 case 6:
-                    settingsTabControl.SelectedTab = integrationTabPage;
+                    settingsTabControl.SelectedTab = encryptionTabPage;
                     break;
                 case 7:
-                    settingsTabControl.SelectedTab = encryptionTabPage;
+                    settingsTabControl.SelectedTab = integrationTabPage;
                     break;
             }
 

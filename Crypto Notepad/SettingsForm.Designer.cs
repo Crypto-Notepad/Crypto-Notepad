@@ -46,6 +46,7 @@
             this.editorBackColor = new System.Windows.Forms.Panel();
             this.editorFontColor = new System.Windows.Forms.Panel();
             this.applicationTabPage = new System.Windows.Forms.TabPage();
+            this.singleInstanceCheckBox = new System.Windows.Forms.CheckBox();
             this.closeToTrayCheckBox = new System.Windows.Forms.CheckBox();
             this.minimizeToTrayCheckBox = new System.Windows.Forms.CheckBox();
             this.mainMenuCheckBox = new System.Windows.Forms.CheckBox();
@@ -116,7 +117,6 @@
             this.searchBackColorLabel = new System.Windows.Forms.Label();
             this.settingsNavigation = new System.Windows.Forms.ListBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
-            this.singleInstanceCheckBox = new System.Windows.Forms.CheckBox();
             this.settingsTabControl.SuspendLayout();
             this.editorTabPage.SuspendLayout();
             this.applicationTabPage.SuspendLayout();
@@ -336,6 +336,17 @@
             this.applicationTabPage.Size = new System.Drawing.Size(244, 237);
             this.applicationTabPage.TabIndex = 2;
             this.applicationTabPage.Text = "app";
+            // 
+            // singleInstanceCheckBox
+            // 
+            this.singleInstanceCheckBox.AutoSize = true;
+            this.singleInstanceCheckBox.Location = new System.Drawing.Point(7, 155);
+            this.singleInstanceCheckBox.Name = "singleInstanceCheckBox";
+            this.singleInstanceCheckBox.Size = new System.Drawing.Size(105, 19);
+            this.singleInstanceCheckBox.TabIndex = 6;
+            this.singleInstanceCheckBox.Text = "Single instance";
+            this.singleInstanceCheckBox.UseVisualStyleBackColor = true;
+            this.singleInstanceCheckBox.Click += new System.EventHandler(this.SingleInstanceCheckBox_Click);
             // 
             // closeToTrayCheckBox
             // 
@@ -1140,14 +1151,14 @@
             this.settingsNavigation.FormattingEnabled = true;
             this.settingsNavigation.ItemHeight = 17;
             this.settingsNavigation.Items.AddRange(new object[] {
+            "Application",
+            "Toolbar",
+            "Status Panel",
+            "Search Panel",
             "Editor",
             "Line Numbers",
-            "Status Panel",
-            "Toolbar",
-            "Application",
-            "Search Panel",
-            "Integration",
-            "Encryption"});
+            "Encryption",
+            "Integration"});
             this.settingsNavigation.Location = new System.Drawing.Point(3, 3);
             this.settingsNavigation.Name = "settingsNavigation";
             this.settingsNavigation.Size = new System.Drawing.Size(102, 276);
@@ -1168,17 +1179,6 @@
             this.fontDialog.ShowApply = true;
             this.fontDialog.ShowEffects = false;
             this.fontDialog.Apply += new System.EventHandler(this.FontDialog_Apply);
-            // 
-            // singleInstanceCheckBox
-            // 
-            this.singleInstanceCheckBox.AutoSize = true;
-            this.singleInstanceCheckBox.Location = new System.Drawing.Point(7, 155);
-            this.singleInstanceCheckBox.Name = "singleInstanceCheckBox";
-            this.singleInstanceCheckBox.Size = new System.Drawing.Size(105, 19);
-            this.singleInstanceCheckBox.TabIndex = 6;
-            this.singleInstanceCheckBox.Text = "Single instance";
-            this.singleInstanceCheckBox.UseVisualStyleBackColor = true;
-            this.singleInstanceCheckBox.Click += new System.EventHandler(this.SingleInstanceCheckBox_Click);
             // 
             // SettingsForm
             // 
