@@ -1022,7 +1022,7 @@
             this.lineNumbers.Show_GridLines = false;
             this.lineNumbers.Show_LineNrs = true;
             this.lineNumbers.Show_MarginLines = false;
-            this.lineNumbers.Size = new System.Drawing.Size(22, 216);
+            this.lineNumbers.Size = new System.Drawing.Size(22, 164);
             this.lineNumbers.TabIndex = 19;
             // 
             // fileLockedShowKey
