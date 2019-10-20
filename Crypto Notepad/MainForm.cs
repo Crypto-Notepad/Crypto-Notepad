@@ -430,11 +430,10 @@ namespace Crypto_Notepad
         private void StatusPanelTextInfo()
         {
             int currentColumn = 1 + richTextBox.SelectionStart - richTextBox.GetFirstCharIndexOfCurrentLine();
-            int currentLine = 0;
-            using (RichTextBox rtb = new RichTextBox() { WordWrap = false, Text = richTextBox.Text })
-            {
-                currentLine = 1 + rtb.GetLineFromCharIndex(richTextBox.SelectionStart);
-            }
+            RichTextBox rtb = new RichTextBox();
+            rtb.WordWrap = false;
+            rtb.Text = richTextBox.Text;
+            int currentLine = 1 + rtb.GetLineFromCharIndex(richTextBox.SelectionStart);
             int linesCount = richTextBox.Lines.Count();
             if (linesCount == 0)
             {
@@ -444,6 +443,7 @@ namespace Crypto_Notepad
             statusPaneLinesLabel.Text = "Lines: " + linesCount;
             statusPaneLnLabel.Text = "Ln: " + currentLine;
             statusPaneColLabel.Text = "Col: " + currentColumn;
+            
         }
 
         private void LockFile()
