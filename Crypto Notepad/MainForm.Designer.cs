@@ -1204,7 +1204,7 @@
             this.lineNumbers.MarginLines_Thickness = 1F;
             this.lineNumbers.Name = "lineNumbers";
             this.lineNumbers.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.lineNumbers.ParentRichTextBox = null;
+            this.lineNumbers.ParentRichTextBox = this.richTextBox;
             this.lineNumbers.Show_BackgroundGradient = false;
             this.lineNumbers.Show_BorderLines = false;
             this.lineNumbers.Show_GridLines = false;
