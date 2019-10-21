@@ -652,6 +652,18 @@ namespace Crypto_Notepad
 
 
         #region Event Handlers
+        private void LineNumbers_VisibleChanged(object sender, EventArgs e)
+        {
+            if (lineNumbers.Visible)
+            {
+                lineNumbers.ParentRichTextBox = richTextBox;
+            }
+            else
+            {
+                lineNumbers.ParentRichTextBox = null;
+            }
+        }
+
         private void MainForm_Resize(object sender, EventArgs e)
         {
             if (settings.minimizeToTray)
@@ -1750,9 +1762,6 @@ namespace Crypto_Notepad
             Debug.WriteLine("EditorMenuStrip: " + contextMenu.Enabled);
 #endif
         }
-
-
-
         #endregion
 
 
