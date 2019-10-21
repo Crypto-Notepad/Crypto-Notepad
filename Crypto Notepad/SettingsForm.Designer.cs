@@ -148,8 +148,8 @@
             // 
             // settingsTabControl
             // 
-            this.settingsTabControl.Controls.Add(this.editorTabPage);
             this.settingsTabControl.Controls.Add(this.applicationTabPage);
+            this.settingsTabControl.Controls.Add(this.editorTabPage);
             this.settingsTabControl.Controls.Add(this.integrationTabPage);
             this.settingsTabControl.Controls.Add(this.encryptionTabPage);
             this.settingsTabControl.Controls.Add(this.lineNumbersTabPage);
@@ -183,10 +183,10 @@
             this.editorTabPage.Controls.Add(this.editorBackColor);
             this.editorTabPage.Controls.Add(this.editorFontColorLabel);
             this.editorTabPage.Controls.Add(this.editorFontColor);
-            this.editorTabPage.Location = new System.Drawing.Point(4, 44);
+            this.editorTabPage.Location = new System.Drawing.Point(4, 24);
             this.editorTabPage.Name = "editorTabPage";
             this.editorTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.editorTabPage.Size = new System.Drawing.Size(244, 237);
+            this.editorTabPage.Size = new System.Drawing.Size(244, 257);
             this.editorTabPage.TabIndex = 0;
             this.editorTabPage.Text = "edt";
             // 
@@ -421,10 +421,10 @@
             this.integrationTabPage.Controls.Add(this.integrateCheckBox);
             this.integrationTabPage.Controls.Add(this.associateCheckBox);
             this.integrationTabPage.Controls.Add(this.sendToCheckBox);
-            this.integrationTabPage.Location = new System.Drawing.Point(4, 44);
+            this.integrationTabPage.Location = new System.Drawing.Point(4, 24);
             this.integrationTabPage.Name = "integrationTabPage";
             this.integrationTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.integrationTabPage.Size = new System.Drawing.Size(244, 237);
+            this.integrationTabPage.Size = new System.Drawing.Size(244, 257);
             this.integrationTabPage.TabIndex = 3;
             this.integrationTabPage.Text = "intgr";
             // 
@@ -471,10 +471,10 @@
             this.encryptionTabPage.Controls.Add(this.keySizeLabel);
             this.encryptionTabPage.Controls.Add(this.hashAlgorithmLabel);
             this.encryptionTabPage.Controls.Add(this.keySizeComboBox);
-            this.encryptionTabPage.Location = new System.Drawing.Point(4, 44);
+            this.encryptionTabPage.Location = new System.Drawing.Point(4, 24);
             this.encryptionTabPage.Name = "encryptionTabPage";
             this.encryptionTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.encryptionTabPage.Size = new System.Drawing.Size(244, 237);
+            this.encryptionTabPage.Size = new System.Drawing.Size(244, 257);
             this.encryptionTabPage.TabIndex = 1;
             this.encryptionTabPage.Text = "enc";
             // 
@@ -555,10 +555,10 @@
             this.lineNumbersTabPage.Controls.Add(this.gridLinesGroupBox);
             this.lineNumbersTabPage.Controls.Add(this.borderLinesGroupBox);
             this.lineNumbersTabPage.Controls.Add(this.lineNumbersGroupBox);
-            this.lineNumbersTabPage.Location = new System.Drawing.Point(4, 44);
+            this.lineNumbersTabPage.Location = new System.Drawing.Point(4, 24);
             this.lineNumbersTabPage.Name = "lineNumbersTabPage";
             this.lineNumbersTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.lineNumbersTabPage.Size = new System.Drawing.Size(244, 237);
+            this.lineNumbersTabPage.Size = new System.Drawing.Size(244, 257);
             this.lineNumbersTabPage.TabIndex = 4;
             this.lineNumbersTabPage.Text = "ln";
             // 

@@ -92,26 +92,6 @@
             this.searchFindNextButton = new System.Windows.Forms.Label();
             this.toolbarPanel = new System.Windows.Forms.TableLayoutPanel();
             this.closeToolbarButton = new System.Windows.Forms.Label();
-            this.statusPanel = new System.Windows.Forms.StatusStrip();
-            this.statusPanelLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusPanelLengthLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusPaneLinesLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusPaneLnLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusPaneColLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.trayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showTrayMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileLockedPanel = new System.Windows.Forms.Panel();
-            this.encryptionKeyPlaceholder = new System.Windows.Forms.Label();
-            this.fileLockedCloseButton = new System.Windows.Forms.Button();
-            this.fileLockedOkButton = new System.Windows.Forms.Button();
-            this.fileLockedKeyTextBox = new System.Windows.Forms.TextBox();
-            this.fileLockedLabel = new System.Windows.Forms.Label();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.richTextBoxPanel = new System.Windows.Forms.Panel();
-            this.richTextBox = new Crypto_Notepad.ExRichTextBox();
-            this.lineNumbers = new LineNumbers.LineNumbers();
-            this.fileLockedShowKey = new System.Windows.Forms.PictureBox();
             this.lockToolbarButton = new System.Windows.Forms.PictureBox();
             this.newToolbarButton = new System.Windows.Forms.PictureBox();
             this.changeKeyToolbarButton = new System.Windows.Forms.PictureBox();
@@ -124,16 +104,31 @@
             this.deleteFileToolbarButton = new System.Windows.Forms.PictureBox();
             this.settingsToolbarButton = new System.Windows.Forms.PictureBox();
             this.alwaysOnTopToolbarButton = new System.Windows.Forms.PictureBox();
+            this.statusPanel = new System.Windows.Forms.StatusStrip();
+            this.statusPanelLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusPanelLengthLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusPaneLinesLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusPaneLnLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusPaneColLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.trayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showTrayMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.exitTrayMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileLockedPanel = new System.Windows.Forms.Panel();
+            this.encryptionKeyPlaceholder = new System.Windows.Forms.Label();
+            this.fileLockedCloseButton = new System.Windows.Forms.Button();
+            this.fileLockedOkButton = new System.Windows.Forms.Button();
+            this.fileLockedKeyTextBox = new System.Windows.Forms.TextBox();
+            this.fileLockedShowKey = new System.Windows.Forms.PictureBox();
+            this.fileLockedLabel = new System.Windows.Forms.Label();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.richTextBoxPanel = new System.Windows.Forms.Panel();
+            this.richTextBox = new Crypto_Notepad.ExRichTextBox();
+            this.lineNumbers = new LineNumbers.LineNumbers();
             this.mainMenu.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.searchPanel.SuspendLayout();
             this.toolbarPanel.SuspendLayout();
-            this.statusPanel.SuspendLayout();
-            this.trayMenu.SuspendLayout();
-            this.fileLockedPanel.SuspendLayout();
-            this.richTextBoxPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fileLockedShowKey)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lockToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.changeKeyToolbarButton)).BeginInit();
@@ -146,6 +141,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.deleteFileToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alwaysOnTopToolbarButton)).BeginInit();
+            this.statusPanel.SuspendLayout();
+            this.trayMenu.SuspendLayout();
+            this.fileLockedPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fileLockedShowKey)).BeginInit();
+            this.richTextBoxPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenu
@@ -774,271 +774,6 @@
             this.closeToolbarButton.MouseEnter += new System.EventHandler(this.CloseToolbarButton_MouseEnter);
             this.closeToolbarButton.MouseLeave += new System.EventHandler(this.CloseToolbarButton_MouseLeave);
             // 
-            // statusPanel
-            // 
-            this.statusPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.statusPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.statusPanel.ForeColor = System.Drawing.Color.Black;
-            this.statusPanel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusPanelLabel,
-            this.statusPanelLengthLabel,
-            this.statusPaneLinesLabel,
-            this.statusPaneLnLabel,
-            this.statusPaneColLabel});
-            this.statusPanel.Location = new System.Drawing.Point(0, 239);
-            this.statusPanel.Name = "statusPanel";
-            this.statusPanel.Size = new System.Drawing.Size(484, 22);
-            this.statusPanel.TabIndex = 18;
-            // 
-            // statusPanelLabel
-            // 
-            this.statusPanelLabel.ActiveLinkColor = System.Drawing.Color.SteelBlue;
-            this.statusPanelLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.statusPanelLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-            this.statusPanelLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.statusPanelLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.statusPanelLabel.ImageTransparentColor = System.Drawing.SystemColors.Control;
-            this.statusPanelLabel.LinkColor = System.Drawing.Color.SteelBlue;
-            this.statusPanelLabel.Name = "statusPanelLabel";
-            this.statusPanelLabel.Size = new System.Drawing.Size(43, 17);
-            this.statusPanelLabel.Text = "Ready";
-            this.statusPanelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.statusPanelLabel.VisitedLinkColor = System.Drawing.Color.SteelBlue;
-            this.statusPanelLabel.Click += new System.EventHandler(this.StatusPanelLabel_Click);
-            this.statusPanelLabel.TextChanged += new System.EventHandler(this.StatusPanelLabel_TextChanged);
-            // 
-            // statusPanelLengthLabel
-            // 
-            this.statusPanelLengthLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.statusPanelLengthLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-            this.statusPanelLengthLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.statusPanelLengthLabel.Name = "statusPanelLengthLabel";
-            this.statusPanelLengthLabel.Size = new System.Drawing.Size(59, 17);
-            this.statusPanelLengthLabel.Text = "Length: 0";
-            // 
-            // statusPaneLinesLabel
-            // 
-            this.statusPaneLinesLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.statusPaneLinesLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-            this.statusPaneLinesLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.statusPaneLinesLabel.Name = "statusPaneLinesLabel";
-            this.statusPaneLinesLabel.Size = new System.Drawing.Size(49, 17);
-            this.statusPaneLinesLabel.Text = "Lines: 1";
-            // 
-            // statusPaneLnLabel
-            // 
-            this.statusPaneLnLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.statusPaneLnLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-            this.statusPaneLnLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.statusPaneLnLabel.Name = "statusPaneLnLabel";
-            this.statusPaneLnLabel.Size = new System.Drawing.Size(35, 17);
-            this.statusPaneLnLabel.Text = "Ln: 1";
-            // 
-            // statusPaneColLabel
-            // 
-            this.statusPaneColLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-            this.statusPaneColLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.statusPaneColLabel.Name = "statusPaneColLabel";
-            this.statusPaneColLabel.Size = new System.Drawing.Size(36, 17);
-            this.statusPaneColLabel.Text = "Col: 0";
-            // 
-            // trayIcon
-            // 
-            this.trayIcon.ContextMenuStrip = this.trayMenu;
-            this.trayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("trayIcon.Icon")));
-            this.trayIcon.Text = "Crypto Notepad";
-            this.trayIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.TrayIcon_MouseDoubleClick);
-            // 
-            // trayMenu
-            // 
-            this.trayMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showTrayMenu,
-            this.exitTrayMenu});
-            this.trayMenu.Name = "mnuTray";
-            this.trayMenu.Size = new System.Drawing.Size(104, 48);
-            // 
-            // showTrayMenu
-            // 
-            this.showTrayMenu.Image = global::Crypto_Notepad.Properties.Resources.application;
-            this.showTrayMenu.Name = "showTrayMenu";
-            this.showTrayMenu.Size = new System.Drawing.Size(103, 22);
-            this.showTrayMenu.Text = "Show";
-            this.showTrayMenu.Click += new System.EventHandler(this.ShowTrayMenu_Click);
-            // 
-            // fileLockedPanel
-            // 
-            this.fileLockedPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fileLockedPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.fileLockedPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.fileLockedPanel.Controls.Add(this.encryptionKeyPlaceholder);
-            this.fileLockedPanel.Controls.Add(this.fileLockedCloseButton);
-            this.fileLockedPanel.Controls.Add(this.fileLockedOkButton);
-            this.fileLockedPanel.Controls.Add(this.fileLockedKeyTextBox);
-            this.fileLockedPanel.Controls.Add(this.fileLockedShowKey);
-            this.fileLockedPanel.Controls.Add(this.fileLockedLabel);
-            this.fileLockedPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fileLockedPanel.ForeColor = System.Drawing.Color.Azure;
-            this.fileLockedPanel.Location = new System.Drawing.Point(106, 30);
-            this.fileLockedPanel.Name = "fileLockedPanel";
-            this.fileLockedPanel.Size = new System.Drawing.Size(261, 91);
-            this.fileLockedPanel.TabIndex = 20;
-            this.fileLockedPanel.Visible = false;
-            this.fileLockedPanel.VisibleChanged += new System.EventHandler(this.FileLockedPanel_VisibleChanged);
-            // 
-            // encryptionKeyPlaceholder
-            // 
-            this.encryptionKeyPlaceholder.AutoSize = true;
-            this.encryptionKeyPlaceholder.BackColor = System.Drawing.SystemColors.Window;
-            this.encryptionKeyPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.encryptionKeyPlaceholder.Enabled = false;
-            this.encryptionKeyPlaceholder.ForeColor = System.Drawing.Color.DarkGray;
-            this.encryptionKeyPlaceholder.Location = new System.Drawing.Point(11, 37);
-            this.encryptionKeyPlaceholder.Name = "encryptionKeyPlaceholder";
-            this.encryptionKeyPlaceholder.Size = new System.Drawing.Size(82, 13);
-            this.encryptionKeyPlaceholder.TabIndex = 12;
-            this.encryptionKeyPlaceholder.Text = "Encryption key";
-            // 
-            // fileLockedCloseButton
-            // 
-            this.fileLockedCloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.fileLockedCloseButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.fileLockedCloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.fileLockedCloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.fileLockedCloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fileLockedCloseButton.Font = new System.Drawing.Font("Segoe UI Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fileLockedCloseButton.ForeColor = System.Drawing.Color.DimGray;
-            this.fileLockedCloseButton.Location = new System.Drawing.Point(239, -2);
-            this.fileLockedCloseButton.Name = "fileLockedCloseButton";
-            this.fileLockedCloseButton.Size = new System.Drawing.Size(23, 23);
-            this.fileLockedCloseButton.TabIndex = 11;
-            this.fileLockedCloseButton.TabStop = false;
-            this.fileLockedCloseButton.Text = "X";
-            this.fileLockedCloseButton.UseVisualStyleBackColor = true;
-            this.fileLockedCloseButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.FileLockedCloseButton_MouseClick);
-            this.fileLockedCloseButton.MouseEnter += new System.EventHandler(this.FileLockedCloseButton_MouseEnter);
-            this.fileLockedCloseButton.MouseLeave += new System.EventHandler(this.FileLockedCloseButton_MouseLeave);
-            // 
-            // fileLockedOkButton
-            // 
-            this.fileLockedOkButton.Enabled = false;
-            this.fileLockedOkButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.fileLockedOkButton.Location = new System.Drawing.Point(6, 60);
-            this.fileLockedOkButton.Name = "fileLockedOkButton";
-            this.fileLockedOkButton.Size = new System.Drawing.Size(57, 23);
-            this.fileLockedOkButton.TabIndex = 10;
-            this.fileLockedOkButton.Text = "OK";
-            this.fileLockedOkButton.UseVisualStyleBackColor = true;
-            this.fileLockedOkButton.Click += new System.EventHandler(this.FileLockedOkButton_Click);
-            // 
-            // fileLockedKeyTextBox
-            // 
-            this.fileLockedKeyTextBox.Location = new System.Drawing.Point(6, 34);
-            this.fileLockedKeyTextBox.Name = "fileLockedKeyTextBox";
-            this.fileLockedKeyTextBox.Size = new System.Drawing.Size(231, 22);
-            this.fileLockedKeyTextBox.TabIndex = 8;
-            this.fileLockedKeyTextBox.UseSystemPasswordChar = true;
-            this.fileLockedKeyTextBox.TextChanged += new System.EventHandler(this.FileLockedKeyTextBox_TextChanged);
-            this.fileLockedKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FileLockedKeyTextBox_KeyDown);
-            // 
-            // fileLockedLabel
-            // 
-            this.fileLockedLabel.AutoEllipsis = true;
-            this.fileLockedLabel.AutoSize = true;
-            this.fileLockedLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fileLockedLabel.Location = new System.Drawing.Point(95, 3);
-            this.fileLockedLabel.Name = "fileLockedLabel";
-            this.fileLockedLabel.Size = new System.Drawing.Size(71, 17);
-            this.fileLockedLabel.TabIndex = 7;
-            this.fileLockedLabel.Text = "File locked";
-            // 
-            // richTextBoxPanel
-            // 
-            this.richTextBoxPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBoxPanel.Controls.Add(this.fileLockedPanel);
-            this.richTextBoxPanel.Controls.Add(this.richTextBox);
-            this.richTextBoxPanel.Controls.Add(this.lineNumbers);
-            this.richTextBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxPanel.Location = new System.Drawing.Point(0, 48);
-            this.richTextBoxPanel.Name = "richTextBoxPanel";
-            this.richTextBoxPanel.Size = new System.Drawing.Size(484, 166);
-            this.richTextBoxPanel.TabIndex = 21;
-            // 
-            // richTextBox
-            // 
-            this.richTextBox.AcceptsTab = true;
-            this.richTextBox.BackColor = System.Drawing.Color.Gainsboro;
-            this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox.ContextMenuStrip = this.contextMenu;
-            this.richTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.richTextBox.ForeColor = System.Drawing.Color.Black;
-            this.richTextBox.Location = new System.Drawing.Point(22, 0);
-            this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(460, 164);
-            this.richTextBox.TabIndex = 16;
-            this.richTextBox.Text = "";
-            this.richTextBox.CursorPositionChanged += new System.EventHandler(this.RichTextBox_CursorPositionChanged);
-            this.richTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichTextBox_LinkClicked);
-            this.richTextBox.SelectionChanged += new System.EventHandler(this.RichTextBox_SelectionChanged);
-            this.richTextBox.Click += new System.EventHandler(this.RichTextBox_Click);
-            this.richTextBox.TextChanged += new System.EventHandler(this.RichTextBox_TextChanged);
-            this.richTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyDown);
-            // 
-            // lineNumbers
-            // 
-            this.lineNumbers._SeeThroughMode_ = false;
-            this.lineNumbers.AutoSizing = true;
-            this.lineNumbers.BackColor = System.Drawing.SystemColors.Control;
-            this.lineNumbers.BackgroundGradient_AlphaColor = System.Drawing.Color.Transparent;
-            this.lineNumbers.BackgroundGradient_BetaColor = System.Drawing.Color.Transparent;
-            this.lineNumbers.BackgroundGradient_Direction = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.lineNumbers.BorderLines_Color = System.Drawing.Color.Transparent;
-            this.lineNumbers.BorderLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.lineNumbers.BorderLines_Thickness = 1F;
-            this.lineNumbers.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lineNumbers.DockSide = LineNumbers.LineNumbers.LineNumberDockSide.Left;
-            this.lineNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lineNumbers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(164)))), ((int)(((byte)(164)))));
-            this.lineNumbers.GridLines_Color = System.Drawing.Color.Transparent;
-            this.lineNumbers.GridLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.lineNumbers.GridLines_Thickness = 1F;
-            this.lineNumbers.LineNrs_Alignment = System.Drawing.ContentAlignment.TopCenter;
-            this.lineNumbers.LineNrs_AntiAlias = true;
-            this.lineNumbers.LineNrs_AsHexadecimal = false;
-            this.lineNumbers.LineNrs_ClippedByItemRectangle = true;
-            this.lineNumbers.LineNrs_LeadingZeroes = false;
-            this.lineNumbers.LineNrs_Offset = new System.Drawing.Size(0, 0);
-            this.lineNumbers.Location = new System.Drawing.Point(0, 0);
-            this.lineNumbers.Margin = new System.Windows.Forms.Padding(0);
-            this.lineNumbers.MarginLines_Color = System.Drawing.Color.DarkGray;
-            this.lineNumbers.MarginLines_Side = LineNumbers.LineNumbers.LineNumberDockSide.None;
-            this.lineNumbers.MarginLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.lineNumbers.MarginLines_Thickness = 1F;
-            this.lineNumbers.Name = "lineNumbers";
-            this.lineNumbers.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.lineNumbers.ParentRichTextBox = this.richTextBox;
-            this.lineNumbers.Show_BackgroundGradient = false;
-            this.lineNumbers.Show_BorderLines = false;
-            this.lineNumbers.Show_GridLines = false;
-            this.lineNumbers.Show_LineNrs = true;
-            this.lineNumbers.Show_MarginLines = false;
-            this.lineNumbers.Size = new System.Drawing.Size(22, 164);
-            this.lineNumbers.TabIndex = 19;
-            // 
-            // fileLockedShowKey
-            // 
-            this.fileLockedShowKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.fileLockedShowKey.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.fileLockedShowKey.Image = global::Crypto_Notepad.Properties.Resources.eye_half;
-            this.fileLockedShowKey.InitialImage = global::Crypto_Notepad.Properties.Resources.eye_half;
-            this.fileLockedShowKey.Location = new System.Drawing.Point(239, 34);
-            this.fileLockedShowKey.Name = "fileLockedShowKey";
-            this.fileLockedShowKey.Size = new System.Drawing.Size(18, 22);
-            this.fileLockedShowKey.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.fileLockedShowKey.TabIndex = 9;
-            this.fileLockedShowKey.TabStop = false;
-            this.fileLockedShowKey.Click += new System.EventHandler(this.FileLockedShowKey_Click);
-            // 
             // lockToolbarButton
             // 
             this.lockToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1207,6 +942,97 @@
             this.toolTip.SetToolTip(this.alwaysOnTopToolbarButton, "Always on Top");
             this.alwaysOnTopToolbarButton.Click += new System.EventHandler(this.AlwaysOnTopToolbarButton_Click);
             // 
+            // statusPanel
+            // 
+            this.statusPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.statusPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.statusPanel.ForeColor = System.Drawing.Color.Black;
+            this.statusPanel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusPanelLabel,
+            this.statusPanelLengthLabel,
+            this.statusPaneLinesLabel,
+            this.statusPaneLnLabel,
+            this.statusPaneColLabel});
+            this.statusPanel.Location = new System.Drawing.Point(0, 239);
+            this.statusPanel.Name = "statusPanel";
+            this.statusPanel.Size = new System.Drawing.Size(484, 22);
+            this.statusPanel.TabIndex = 18;
+            // 
+            // statusPanelLabel
+            // 
+            this.statusPanelLabel.ActiveLinkColor = System.Drawing.Color.SteelBlue;
+            this.statusPanelLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.statusPanelLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.statusPanelLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.statusPanelLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.statusPanelLabel.ImageTransparentColor = System.Drawing.SystemColors.Control;
+            this.statusPanelLabel.LinkColor = System.Drawing.Color.SteelBlue;
+            this.statusPanelLabel.Name = "statusPanelLabel";
+            this.statusPanelLabel.Size = new System.Drawing.Size(43, 17);
+            this.statusPanelLabel.Text = "Ready";
+            this.statusPanelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.statusPanelLabel.VisitedLinkColor = System.Drawing.Color.SteelBlue;
+            this.statusPanelLabel.Click += new System.EventHandler(this.StatusPanelLabel_Click);
+            this.statusPanelLabel.TextChanged += new System.EventHandler(this.StatusPanelLabel_TextChanged);
+            // 
+            // statusPanelLengthLabel
+            // 
+            this.statusPanelLengthLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.statusPanelLengthLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.statusPanelLengthLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.statusPanelLengthLabel.Name = "statusPanelLengthLabel";
+            this.statusPanelLengthLabel.Size = new System.Drawing.Size(59, 17);
+            this.statusPanelLengthLabel.Text = "Length: 0";
+            // 
+            // statusPaneLinesLabel
+            // 
+            this.statusPaneLinesLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.statusPaneLinesLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.statusPaneLinesLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.statusPaneLinesLabel.Name = "statusPaneLinesLabel";
+            this.statusPaneLinesLabel.Size = new System.Drawing.Size(49, 17);
+            this.statusPaneLinesLabel.Text = "Lines: 1";
+            // 
+            // statusPaneLnLabel
+            // 
+            this.statusPaneLnLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.statusPaneLnLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.statusPaneLnLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.statusPaneLnLabel.Name = "statusPaneLnLabel";
+            this.statusPaneLnLabel.Size = new System.Drawing.Size(35, 17);
+            this.statusPaneLnLabel.Text = "Ln: 1";
+            // 
+            // statusPaneColLabel
+            // 
+            this.statusPaneColLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.statusPaneColLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.statusPaneColLabel.Name = "statusPaneColLabel";
+            this.statusPaneColLabel.Size = new System.Drawing.Size(36, 17);
+            this.statusPaneColLabel.Text = "Col: 0";
+            // 
+            // trayIcon
+            // 
+            this.trayIcon.ContextMenuStrip = this.trayMenu;
+            this.trayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("trayIcon.Icon")));
+            this.trayIcon.Text = "Crypto Notepad";
+            this.trayIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.TrayIcon_MouseDoubleClick);
+            // 
+            // trayMenu
+            // 
+            this.trayMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showTrayMenu,
+            this.exitTrayMenu});
+            this.trayMenu.Name = "mnuTray";
+            this.trayMenu.Size = new System.Drawing.Size(104, 48);
+            // 
+            // showTrayMenu
+            // 
+            this.showTrayMenu.Image = global::Crypto_Notepad.Properties.Resources.application;
+            this.showTrayMenu.Name = "showTrayMenu";
+            this.showTrayMenu.Size = new System.Drawing.Size(103, 22);
+            this.showTrayMenu.Text = "Show";
+            this.showTrayMenu.Click += new System.EventHandler(this.ShowTrayMenu_Click);
+            // 
             // exitTrayMenu
             // 
             this.exitTrayMenu.Image = global::Crypto_Notepad.Properties.Resources.cross_button;
@@ -1214,6 +1040,181 @@
             this.exitTrayMenu.Size = new System.Drawing.Size(103, 22);
             this.exitTrayMenu.Text = "Exit";
             this.exitTrayMenu.Click += new System.EventHandler(this.ExitTrayMenu_Click);
+            // 
+            // fileLockedPanel
+            // 
+            this.fileLockedPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fileLockedPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.fileLockedPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fileLockedPanel.Controls.Add(this.encryptionKeyPlaceholder);
+            this.fileLockedPanel.Controls.Add(this.fileLockedCloseButton);
+            this.fileLockedPanel.Controls.Add(this.fileLockedOkButton);
+            this.fileLockedPanel.Controls.Add(this.fileLockedKeyTextBox);
+            this.fileLockedPanel.Controls.Add(this.fileLockedShowKey);
+            this.fileLockedPanel.Controls.Add(this.fileLockedLabel);
+            this.fileLockedPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fileLockedPanel.ForeColor = System.Drawing.Color.Azure;
+            this.fileLockedPanel.Location = new System.Drawing.Point(106, 30);
+            this.fileLockedPanel.Name = "fileLockedPanel";
+            this.fileLockedPanel.Size = new System.Drawing.Size(261, 91);
+            this.fileLockedPanel.TabIndex = 20;
+            this.fileLockedPanel.Visible = false;
+            this.fileLockedPanel.VisibleChanged += new System.EventHandler(this.FileLockedPanel_VisibleChanged);
+            // 
+            // encryptionKeyPlaceholder
+            // 
+            this.encryptionKeyPlaceholder.AutoSize = true;
+            this.encryptionKeyPlaceholder.BackColor = System.Drawing.SystemColors.Window;
+            this.encryptionKeyPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.encryptionKeyPlaceholder.Enabled = false;
+            this.encryptionKeyPlaceholder.ForeColor = System.Drawing.Color.DarkGray;
+            this.encryptionKeyPlaceholder.Location = new System.Drawing.Point(11, 37);
+            this.encryptionKeyPlaceholder.Name = "encryptionKeyPlaceholder";
+            this.encryptionKeyPlaceholder.Size = new System.Drawing.Size(82, 13);
+            this.encryptionKeyPlaceholder.TabIndex = 12;
+            this.encryptionKeyPlaceholder.Text = "Encryption key";
+            // 
+            // fileLockedCloseButton
+            // 
+            this.fileLockedCloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.fileLockedCloseButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.fileLockedCloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.fileLockedCloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.fileLockedCloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fileLockedCloseButton.Font = new System.Drawing.Font("Segoe UI Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fileLockedCloseButton.ForeColor = System.Drawing.Color.DimGray;
+            this.fileLockedCloseButton.Location = new System.Drawing.Point(239, -2);
+            this.fileLockedCloseButton.Name = "fileLockedCloseButton";
+            this.fileLockedCloseButton.Size = new System.Drawing.Size(23, 23);
+            this.fileLockedCloseButton.TabIndex = 11;
+            this.fileLockedCloseButton.TabStop = false;
+            this.fileLockedCloseButton.Text = "X";
+            this.fileLockedCloseButton.UseVisualStyleBackColor = true;
+            this.fileLockedCloseButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.FileLockedCloseButton_MouseClick);
+            this.fileLockedCloseButton.MouseEnter += new System.EventHandler(this.FileLockedCloseButton_MouseEnter);
+            this.fileLockedCloseButton.MouseLeave += new System.EventHandler(this.FileLockedCloseButton_MouseLeave);
+            // 
+            // fileLockedOkButton
+            // 
+            this.fileLockedOkButton.Enabled = false;
+            this.fileLockedOkButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.fileLockedOkButton.Location = new System.Drawing.Point(6, 60);
+            this.fileLockedOkButton.Name = "fileLockedOkButton";
+            this.fileLockedOkButton.Size = new System.Drawing.Size(57, 23);
+            this.fileLockedOkButton.TabIndex = 10;
+            this.fileLockedOkButton.Text = "OK";
+            this.fileLockedOkButton.UseVisualStyleBackColor = true;
+            this.fileLockedOkButton.Click += new System.EventHandler(this.FileLockedOkButton_Click);
+            // 
+            // fileLockedKeyTextBox
+            // 
+            this.fileLockedKeyTextBox.Location = new System.Drawing.Point(6, 34);
+            this.fileLockedKeyTextBox.Name = "fileLockedKeyTextBox";
+            this.fileLockedKeyTextBox.Size = new System.Drawing.Size(231, 22);
+            this.fileLockedKeyTextBox.TabIndex = 8;
+            this.fileLockedKeyTextBox.UseSystemPasswordChar = true;
+            this.fileLockedKeyTextBox.TextChanged += new System.EventHandler(this.FileLockedKeyTextBox_TextChanged);
+            this.fileLockedKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FileLockedKeyTextBox_KeyDown);
+            // 
+            // fileLockedShowKey
+            // 
+            this.fileLockedShowKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fileLockedShowKey.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.fileLockedShowKey.Image = global::Crypto_Notepad.Properties.Resources.eye_half;
+            this.fileLockedShowKey.InitialImage = global::Crypto_Notepad.Properties.Resources.eye_half;
+            this.fileLockedShowKey.Location = new System.Drawing.Point(239, 34);
+            this.fileLockedShowKey.Name = "fileLockedShowKey";
+            this.fileLockedShowKey.Size = new System.Drawing.Size(18, 22);
+            this.fileLockedShowKey.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.fileLockedShowKey.TabIndex = 9;
+            this.fileLockedShowKey.TabStop = false;
+            this.fileLockedShowKey.Click += new System.EventHandler(this.FileLockedShowKey_Click);
+            // 
+            // fileLockedLabel
+            // 
+            this.fileLockedLabel.AutoEllipsis = true;
+            this.fileLockedLabel.AutoSize = true;
+            this.fileLockedLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fileLockedLabel.Location = new System.Drawing.Point(95, 3);
+            this.fileLockedLabel.Name = "fileLockedLabel";
+            this.fileLockedLabel.Size = new System.Drawing.Size(71, 17);
+            this.fileLockedLabel.TabIndex = 7;
+            this.fileLockedLabel.Text = "File locked";
+            // 
+            // richTextBoxPanel
+            // 
+            this.richTextBoxPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBoxPanel.Controls.Add(this.fileLockedPanel);
+            this.richTextBoxPanel.Controls.Add(this.richTextBox);
+            this.richTextBoxPanel.Controls.Add(this.lineNumbers);
+            this.richTextBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxPanel.Location = new System.Drawing.Point(0, 48);
+            this.richTextBoxPanel.Name = "richTextBoxPanel";
+            this.richTextBoxPanel.Size = new System.Drawing.Size(484, 166);
+            this.richTextBoxPanel.TabIndex = 21;
+            // 
+            // richTextBox
+            // 
+            this.richTextBox.AcceptsTab = true;
+            this.richTextBox.BackColor = System.Drawing.Color.Gainsboro;
+            this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox.ContextMenuStrip = this.contextMenu;
+            this.richTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.richTextBox.ForeColor = System.Drawing.Color.Black;
+            this.richTextBox.Location = new System.Drawing.Point(22, 0);
+            this.richTextBox.Name = "richTextBox";
+            this.richTextBox.Size = new System.Drawing.Size(460, 164);
+            this.richTextBox.TabIndex = 16;
+            this.richTextBox.Text = "";
+            this.richTextBox.CursorPositionChanged += new System.EventHandler(this.RichTextBox_CursorPositionChanged);
+            this.richTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichTextBox_LinkClicked);
+            this.richTextBox.SelectionChanged += new System.EventHandler(this.RichTextBox_SelectionChanged);
+            this.richTextBox.Click += new System.EventHandler(this.RichTextBox_Click);
+            this.richTextBox.TextChanged += new System.EventHandler(this.RichTextBox_TextChanged);
+            this.richTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyDown);
+            // 
+            // lineNumbers
+            // 
+            this.lineNumbers._SeeThroughMode_ = false;
+            this.lineNumbers.AutoSizing = true;
+            this.lineNumbers.BackColor = System.Drawing.SystemColors.Control;
+            this.lineNumbers.BackgroundGradient_AlphaColor = System.Drawing.Color.Transparent;
+            this.lineNumbers.BackgroundGradient_BetaColor = System.Drawing.Color.Transparent;
+            this.lineNumbers.BackgroundGradient_Direction = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            this.lineNumbers.BorderLines_Color = System.Drawing.Color.Transparent;
+            this.lineNumbers.BorderLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.lineNumbers.BorderLines_Thickness = 1F;
+            this.lineNumbers.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lineNumbers.DockSide = LineNumbers.LineNumbers.LineNumberDockSide.Left;
+            this.lineNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lineNumbers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(164)))), ((int)(((byte)(164)))));
+            this.lineNumbers.GridLines_Color = System.Drawing.Color.Transparent;
+            this.lineNumbers.GridLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.lineNumbers.GridLines_Thickness = 1F;
+            this.lineNumbers.LineNrs_Alignment = System.Drawing.ContentAlignment.TopCenter;
+            this.lineNumbers.LineNrs_AntiAlias = true;
+            this.lineNumbers.LineNrs_AsHexadecimal = false;
+            this.lineNumbers.LineNrs_ClippedByItemRectangle = true;
+            this.lineNumbers.LineNrs_LeadingZeroes = false;
+            this.lineNumbers.LineNrs_Offset = new System.Drawing.Size(0, 0);
+            this.lineNumbers.Location = new System.Drawing.Point(0, 0);
+            this.lineNumbers.Margin = new System.Windows.Forms.Padding(0);
+            this.lineNumbers.MarginLines_Color = System.Drawing.Color.DarkGray;
+            this.lineNumbers.MarginLines_Side = LineNumbers.LineNumbers.LineNumberDockSide.None;
+            this.lineNumbers.MarginLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.lineNumbers.MarginLines_Thickness = 1F;
+            this.lineNumbers.Name = "lineNumbers";
+            this.lineNumbers.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.lineNumbers.ParentRichTextBox = this.richTextBox;
+            this.lineNumbers.Show_BackgroundGradient = false;
+            this.lineNumbers.Show_BorderLines = false;
+            this.lineNumbers.Show_GridLines = false;
+            this.lineNumbers.Show_LineNrs = true;
+            this.lineNumbers.Show_MarginLines = false;
+            this.lineNumbers.Size = new System.Drawing.Size(22, 164);
+            this.lineNumbers.TabIndex = 19;
+            this.lineNumbers.VisibleChanged += new System.EventHandler(this.LineNumbers_VisibleChanged);
             // 
             // MainForm
             // 
@@ -1246,13 +1247,6 @@
             this.searchPanel.PerformLayout();
             this.toolbarPanel.ResumeLayout(false);
             this.toolbarPanel.PerformLayout();
-            this.statusPanel.ResumeLayout(false);
-            this.statusPanel.PerformLayout();
-            this.trayMenu.ResumeLayout(false);
-            this.fileLockedPanel.ResumeLayout(false);
-            this.fileLockedPanel.PerformLayout();
-            this.richTextBoxPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fileLockedShowKey)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lockToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.changeKeyToolbarButton)).EndInit();
@@ -1265,6 +1259,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.deleteFileToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alwaysOnTopToolbarButton)).EndInit();
+            this.statusPanel.ResumeLayout(false);
+            this.statusPanel.PerformLayout();
+            this.trayMenu.ResumeLayout(false);
+            this.fileLockedPanel.ResumeLayout(false);
+            this.fileLockedPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fileLockedShowKey)).EndInit();
+            this.richTextBoxPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
