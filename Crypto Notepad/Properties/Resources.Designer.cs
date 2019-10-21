@@ -63,9 +63,9 @@ namespace Crypto_Notepad.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap application {
+        internal static System.Drawing.Bitmap application_blue {
             get {
-                object obj = ResourceManager.GetObject("application", resourceCulture);
+                object obj = ResourceManager.GetObject("application_blue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

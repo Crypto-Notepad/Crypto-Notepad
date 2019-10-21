@@ -1027,7 +1027,7 @@
             // 
             // showTrayMenu
             // 
-            this.showTrayMenu.Image = global::Crypto_Notepad.Properties.Resources.application;
+            this.showTrayMenu.Image = global::Crypto_Notepad.Properties.Resources.application_blue;
             this.showTrayMenu.Name = "showTrayMenu";
             this.showTrayMenu.Size = new System.Drawing.Size(103, 22);
             this.showTrayMenu.Text = "Show";
