@@ -430,28 +430,25 @@ namespace Crypto_Notepad
 
         private void StatusPanelTextInfo()
         {
-            int currentColumn = 0;
-            int currentLine = 0;
-            int linesCount = 0;
             if (statusPanel.Visible)
             {
-                currentColumn = 1 + richTextBox.SelectionStart - richTextBox.GetFirstCharIndexOfCurrentLine();
+                int currentColumn = 1 + richTextBox.SelectionStart - richTextBox.GetFirstCharIndexOfCurrentLine();
                 RichTextBox rtb = new RichTextBox
                 {
                     WordWrap = false,
                     Text = richTextBox.Text
                 };
-                currentLine = 1 + rtb.GetLineFromCharIndex(richTextBox.SelectionStart);
-                linesCount = richTextBox.Lines.Count();
+                int currentLine = 1 + rtb.GetLineFromCharIndex(richTextBox.SelectionStart);
+                int linesCount = richTextBox.Lines.Count();
                 if (linesCount == 0)
                 {
                     linesCount = 1;
                 }
+                statusPanelLengthLabel.Text = "Length: " + richTextBox.TextLength;
+                statusPaneLinesLabel.Text = "Lines: " + linesCount;
+                statusPaneLnLabel.Text = "Ln: " + currentLine;
+                statusPaneColLabel.Text = "Col: " + currentColumn;
             }
-            statusPanelLengthLabel.Text = "Length: " + richTextBox.TextLength;
-            statusPaneLinesLabel.Text = "Lines: " + linesCount;
-            statusPaneLnLabel.Text = "Ln: " + currentLine;
-            statusPaneColLabel.Text = "Col: " + currentColumn;
         }
 
         private void LockFile()
@@ -659,6 +656,13 @@ namespace Crypto_Notepad
 
 
         #region Event Handlers
+        private void StatusPanel_VisibleChanged(object sender, EventArgs e)
+        {
+            if (statusPanel.Visible)
+            {
+                StatusPanelTextInfo();
+            }
+        }
         private void LineNumbers_VisibleChanged(object sender, EventArgs e)
         {
             if (lineNumbers.Visible)
@@ -1769,6 +1773,7 @@ namespace Crypto_Notepad
             Debug.WriteLine("EditorMenuStrip: " + contextMenu.Enabled);
 #endif
         }
+
         #endregion
 
 

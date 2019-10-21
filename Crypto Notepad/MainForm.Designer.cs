@@ -957,6 +957,7 @@
             this.statusPanel.Name = "statusPanel";
             this.statusPanel.Size = new System.Drawing.Size(484, 22);
             this.statusPanel.TabIndex = 18;
+            this.statusPanel.VisibleChanged += new System.EventHandler(this.StatusPanel_VisibleChanged);
             // 
             // statusPanelLabel
             // 
