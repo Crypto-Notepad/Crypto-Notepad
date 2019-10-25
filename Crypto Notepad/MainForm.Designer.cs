@@ -107,9 +107,9 @@
             this.statusPanel = new System.Windows.Forms.StatusStrip();
             this.statusPanelLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusPanelLengthLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusPaneLinesLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusPaneLnLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusPaneColLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusPanelLinesLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusPanelModifiedLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusPanelSizeLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.trayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showTrayMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -125,6 +125,7 @@
             this.richTextBoxPanel = new System.Windows.Forms.Panel();
             this.richTextBox = new Crypto_Notepad.ExRichTextBox();
             this.lineNumbers = new LineNumbers.LineNumbers();
+            this.statusPanelTimer = new System.Windows.Forms.Timer(this.components);
             this.mainMenu.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.searchPanel.SuspendLayout();
@@ -161,7 +162,7 @@
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
             this.mainMenu.Padding = new System.Windows.Forms.Padding(0);
-            this.mainMenu.Size = new System.Drawing.Size(484, 24);
+            this.mainMenu.Size = new System.Drawing.Size(504, 24);
             this.mainMenu.TabIndex = 0;
             this.mainMenu.Text = "menuStrip1";
             // 
@@ -629,11 +630,11 @@
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.searchPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.searchPanel.ForeColor = System.Drawing.Color.Black;
-            this.searchPanel.Location = new System.Drawing.Point(0, 214);
+            this.searchPanel.Location = new System.Drawing.Point(0, 234);
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.RowCount = 1;
             this.searchPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.searchPanel.Size = new System.Drawing.Size(484, 25);
+            this.searchPanel.Size = new System.Drawing.Size(504, 25);
             this.searchPanel.TabIndex = 17;
             this.searchPanel.Visible = false;
             // 
@@ -645,7 +646,7 @@
             this.searchTextBox.ForeColor = System.Drawing.Color.Black;
             this.searchTextBox.Location = new System.Drawing.Point(3, 5);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(180, 15);
+            this.searchTextBox.Size = new System.Drawing.Size(200, 15);
             this.searchTextBox.TabIndex = 9;
             this.searchTextBox.TabStop = false;
             this.searchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
@@ -658,7 +659,7 @@
             this.searchWholeWordCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchWholeWordCheckBox.ForeColor = System.Drawing.Color.Black;
             this.searchWholeWordCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.searchWholeWordCheckBox.Location = new System.Drawing.Point(293, 3);
+            this.searchWholeWordCheckBox.Location = new System.Drawing.Point(313, 3);
             this.searchWholeWordCheckBox.Name = "searchWholeWordCheckBox";
             this.searchWholeWordCheckBox.Size = new System.Drawing.Size(94, 19);
             this.searchWholeWordCheckBox.TabIndex = 12;
@@ -675,7 +676,7 @@
             this.searchCaseSensitiveCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchCaseSensitiveCheckBox.ForeColor = System.Drawing.Color.Black;
             this.searchCaseSensitiveCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.searchCaseSensitiveCheckBox.Location = new System.Drawing.Point(189, 3);
+            this.searchCaseSensitiveCheckBox.Location = new System.Drawing.Point(209, 3);
             this.searchCaseSensitiveCheckBox.Name = "searchCaseSensitiveCheckBox";
             this.searchCaseSensitiveCheckBox.Size = new System.Drawing.Size(98, 19);
             this.searchCaseSensitiveCheckBox.TabIndex = 11;
@@ -692,7 +693,7 @@
             this.searchCloseButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchCloseButton.Font = new System.Drawing.Font("Segoe UI Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.searchCloseButton.ForeColor = System.Drawing.Color.DarkGray;
-            this.searchCloseButton.Location = new System.Drawing.Point(465, 0);
+            this.searchCloseButton.Location = new System.Drawing.Point(485, 0);
             this.searchCloseButton.Name = "searchCloseButton";
             this.searchCloseButton.Size = new System.Drawing.Size(16, 25);
             this.searchCloseButton.TabIndex = 16;
@@ -706,7 +707,7 @@
             this.searchFindNextButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.searchFindNextButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchFindNextButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchFindNextButton.Location = new System.Drawing.Point(393, 0);
+            this.searchFindNextButton.Location = new System.Drawing.Point(413, 0);
             this.searchFindNextButton.Name = "searchFindNextButton";
             this.searchFindNextButton.Size = new System.Drawing.Size(66, 25);
             this.searchFindNextButton.TabIndex = 17;
@@ -753,7 +754,7 @@
             this.toolbarPanel.Name = "toolbarPanel";
             this.toolbarPanel.RowCount = 1;
             this.toolbarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.toolbarPanel.Size = new System.Drawing.Size(484, 24);
+            this.toolbarPanel.Size = new System.Drawing.Size(504, 24);
             this.toolbarPanel.TabIndex = 17;
             this.toolbarPanel.MouseEnter += new System.EventHandler(this.ToolbarPanel_MouseEnter);
             // 
@@ -764,7 +765,7 @@
             this.closeToolbarButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.closeToolbarButton.Font = new System.Drawing.Font("Segoe UI Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.closeToolbarButton.ForeColor = System.Drawing.Color.DarkGray;
-            this.closeToolbarButton.Location = new System.Drawing.Point(469, 0);
+            this.closeToolbarButton.Location = new System.Drawing.Point(489, 0);
             this.closeToolbarButton.Name = "closeToolbarButton";
             this.closeToolbarButton.Size = new System.Drawing.Size(12, 24);
             this.closeToolbarButton.TabIndex = 17;
@@ -950,12 +951,14 @@
             this.statusPanel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusPanelLabel,
             this.statusPanelLengthLabel,
-            this.statusPaneLinesLabel,
-            this.statusPaneLnLabel,
-            this.statusPaneColLabel});
-            this.statusPanel.Location = new System.Drawing.Point(0, 239);
+            this.statusPanelLinesLabel,
+            this.statusPanelModifiedLabel,
+            this.statusPanelSizeLabel});
+            this.statusPanel.Location = new System.Drawing.Point(0, 259);
             this.statusPanel.Name = "statusPanel";
-            this.statusPanel.Size = new System.Drawing.Size(484, 22);
+            this.statusPanel.ShowItemToolTips = true;
+            this.statusPanel.Size = new System.Drawing.Size(504, 22);
+            this.statusPanel.SizingGrip = false;
             this.statusPanel.TabIndex = 18;
             this.statusPanel.VisibleChanged += new System.EventHandler(this.StatusPanel_VisibleChanged);
             // 
@@ -981,35 +984,44 @@
             this.statusPanelLengthLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
             this.statusPanelLengthLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
             this.statusPanelLengthLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.statusPanelLengthLabel.Margin = new System.Windows.Forms.Padding(-2, 3, 0, 2);
             this.statusPanelLengthLabel.Name = "statusPanelLengthLabel";
-            this.statusPanelLengthLabel.Size = new System.Drawing.Size(59, 17);
+            this.statusPanelLengthLabel.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.statusPanelLengthLabel.Size = new System.Drawing.Size(64, 17);
             this.statusPanelLengthLabel.Text = "Length: 0";
             // 
-            // statusPaneLinesLabel
+            // statusPanelLinesLabel
             // 
-            this.statusPaneLinesLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.statusPaneLinesLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-            this.statusPaneLinesLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.statusPaneLinesLabel.Name = "statusPaneLinesLabel";
-            this.statusPaneLinesLabel.Size = new System.Drawing.Size(49, 17);
-            this.statusPaneLinesLabel.Text = "Lines: 1";
+            this.statusPanelLinesLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.statusPanelLinesLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.statusPanelLinesLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.statusPanelLinesLabel.Margin = new System.Windows.Forms.Padding(-2, 3, 0, 2);
+            this.statusPanelLinesLabel.Name = "statusPanelLinesLabel";
+            this.statusPanelLinesLabel.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.statusPanelLinesLabel.Size = new System.Drawing.Size(54, 17);
+            this.statusPanelLinesLabel.Text = "Lines: 1";
             // 
-            // statusPaneLnLabel
+            // statusPanelModifiedLabel
             // 
-            this.statusPaneLnLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.statusPaneLnLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-            this.statusPaneLnLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.statusPaneLnLabel.Name = "statusPaneLnLabel";
-            this.statusPaneLnLabel.Size = new System.Drawing.Size(35, 17);
-            this.statusPaneLnLabel.Text = "Ln: 1";
+            this.statusPanelModifiedLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.statusPanelModifiedLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.statusPanelModifiedLabel.Margin = new System.Windows.Forms.Padding(-2, 3, 0, 2);
+            this.statusPanelModifiedLabel.Name = "statusPanelModifiedLabel";
+            this.statusPanelModifiedLabel.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.statusPanelModifiedLabel.Size = new System.Drawing.Size(63, 17);
+            this.statusPanelModifiedLabel.Text = "Modified";
             // 
-            // statusPaneColLabel
+            // statusPanelSizeLabel
             // 
-            this.statusPaneColLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-            this.statusPaneColLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.statusPaneColLabel.Name = "statusPaneColLabel";
-            this.statusPaneColLabel.Size = new System.Drawing.Size(36, 17);
-            this.statusPaneColLabel.Text = "Col: 0";
+            this.statusPanelSizeLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.statusPanelSizeLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.statusPanelSizeLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.statusPanelSizeLabel.Margin = new System.Windows.Forms.Padding(-2, 3, 0, 2);
+            this.statusPanelSizeLabel.Name = "statusPanelSizeLabel";
+            this.statusPanelSizeLabel.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.statusPanelSizeLabel.Size = new System.Drawing.Size(36, 17);
+            this.statusPanelSizeLabel.Text = "Size";
+            this.statusPanelSizeLabel.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             // 
             // trayIcon
             // 
@@ -1055,7 +1067,7 @@
             this.fileLockedPanel.Controls.Add(this.fileLockedLabel);
             this.fileLockedPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fileLockedPanel.ForeColor = System.Drawing.Color.Azure;
-            this.fileLockedPanel.Location = new System.Drawing.Point(106, 30);
+            this.fileLockedPanel.Location = new System.Drawing.Point(116, 40);
             this.fileLockedPanel.Name = "fileLockedPanel";
             this.fileLockedPanel.Size = new System.Drawing.Size(261, 91);
             this.fileLockedPanel.TabIndex = 20;
@@ -1151,7 +1163,7 @@
             this.richTextBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBoxPanel.Location = new System.Drawing.Point(0, 48);
             this.richTextBoxPanel.Name = "richTextBoxPanel";
-            this.richTextBoxPanel.Size = new System.Drawing.Size(484, 166);
+            this.richTextBoxPanel.Size = new System.Drawing.Size(504, 186);
             this.richTextBoxPanel.TabIndex = 21;
             // 
             // richTextBox
@@ -1165,13 +1177,11 @@
             this.richTextBox.ForeColor = System.Drawing.Color.Black;
             this.richTextBox.Location = new System.Drawing.Point(22, 0);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(460, 164);
+            this.richTextBox.Size = new System.Drawing.Size(480, 184);
             this.richTextBox.TabIndex = 16;
             this.richTextBox.Text = "";
-            this.richTextBox.CursorPositionChanged += new System.EventHandler(this.RichTextBox_CursorPositionChanged);
             this.richTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichTextBox_LinkClicked);
             this.richTextBox.SelectionChanged += new System.EventHandler(this.RichTextBox_SelectionChanged);
-            this.richTextBox.Click += new System.EventHandler(this.RichTextBox_Click);
             this.richTextBox.TextChanged += new System.EventHandler(this.RichTextBox_TextChanged);
             this.richTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyDown);
             // 
@@ -1194,7 +1204,7 @@
             this.lineNumbers.GridLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
             this.lineNumbers.GridLines_Thickness = 1F;
             this.lineNumbers.LineNrs_Alignment = System.Drawing.ContentAlignment.TopCenter;
-            this.lineNumbers.LineNrs_AntiAlias = true;
+            this.lineNumbers.LineNrs_AntiAlias = false;
             this.lineNumbers.LineNrs_AsHexadecimal = false;
             this.lineNumbers.LineNrs_ClippedByItemRectangle = true;
             this.lineNumbers.LineNrs_LeadingZeroes = false;
@@ -1213,16 +1223,22 @@
             this.lineNumbers.Show_GridLines = false;
             this.lineNumbers.Show_LineNrs = true;
             this.lineNumbers.Show_MarginLines = false;
-            this.lineNumbers.Size = new System.Drawing.Size(22, 164);
+            this.lineNumbers.Size = new System.Drawing.Size(22, 184);
             this.lineNumbers.TabIndex = 19;
+            this.lineNumbers.Visible = false;
             this.lineNumbers.VisibleChanged += new System.EventHandler(this.LineNumbers_VisibleChanged);
+            // 
+            // statusPanelTimer
+            // 
+            this.statusPanelTimer.Interval = 1;
+            this.statusPanelTimer.Tick += new System.EventHandler(this.StatusPanelTimer_Tick);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(484, 261);
+            this.ClientSize = new System.Drawing.Size(504, 281);
             this.Controls.Add(this.richTextBoxPanel);
             this.Controls.Add(this.searchPanel);
             this.Controls.Add(this.toolbarPanel);
@@ -1336,9 +1352,7 @@
         private System.Windows.Forms.ToolStripMenuItem debugMainMenu;
         private System.Windows.Forms.ToolStripMenuItem variablesMainMenu;
         private System.Windows.Forms.ToolStripStatusLabel statusPanelLengthLabel;
-        private System.Windows.Forms.ToolStripStatusLabel statusPaneLinesLabel;
-        private System.Windows.Forms.ToolStripStatusLabel statusPaneLnLabel;
-        private System.Windows.Forms.ToolStripStatusLabel statusPaneColLabel;
+        private System.Windows.Forms.ToolStripStatusLabel statusPanelLinesLabel;
         public System.Windows.Forms.TableLayoutPanel toolbarPanel;
         public ExRichTextBox richTextBox;
         public System.Windows.Forms.ToolStripMenuItem insertMainMenu;
@@ -1368,5 +1382,8 @@
         protected internal System.Windows.Forms.Label searchFindNextButton;
         protected internal System.Windows.Forms.Label searchCloseButton;
         protected internal System.Windows.Forms.Label closeToolbarButton;
+        private System.Windows.Forms.ToolStripStatusLabel statusPanelModifiedLabel;
+        private System.Windows.Forms.ToolStripStatusLabel statusPanelSizeLabel;
+        private System.Windows.Forms.Timer statusPanelTimer;
     }
 }

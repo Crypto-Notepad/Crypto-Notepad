@@ -1,5 +1,6 @@
 ﻿using Crypto_Notepad.Properties;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
@@ -25,7 +26,8 @@ namespace Crypto_Notepad
         bool cancelPressed = false;
         int findPos = 0;
         int caretPos;
-
+        static readonly string[] SizeSuffixes =
+        { "bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
         public MainForm()
         {
             InitializeComponent();
@@ -42,6 +44,21 @@ namespace Crypto_Notepad
                 richTextBox.Visible = false;
             }
             base.WndProc(ref m);
+        }
+
+        static string SizeSuffix(Int64 value)
+        {
+            if (value < 0) { return "-" + SizeSuffix(-value); }
+
+            int i = 0;
+            decimal dValue = (decimal)value;
+            while (Math.Round(dValue / 1024) >= 1)
+            {
+                dValue /= 1024;
+                i++;
+            }
+
+            return string.Format("{0:n1} {1}", dValue, SizeSuffixes[i]);
         }
 
         #region Methods
@@ -74,6 +91,7 @@ namespace Crypto_Notepad
                 PublicVar.openFileName = Path.GetFileName(openFileDialog.FileName);
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
                 TypedPassword.Value = null;
+                StatusPanelFileInfo();
             }
             catch (CryptographicException)
             {
@@ -115,6 +133,7 @@ namespace Crypto_Notepad
                     filePath = args[1];
                     PublicVar.encryptionKey.Set(TypedPassword.Value);
                     TypedPassword.Value = null;
+                    StatusPanelFileInfo();
                 }
                 catch (CryptographicException)
                 {
@@ -138,7 +157,9 @@ namespace Crypto_Notepad
                 string opnfile = File.ReadAllText(args[1]);
                 string NameWithotPath = Path.GetFileName(args[1]);
                 richTextBox.Text = opnfile;
+                filePath = args[1];
                 Text = PublicVar.appName + " – " + NameWithotPath;
+                StatusPanelFileInfo();
             }
         }
 
@@ -164,6 +185,7 @@ namespace Crypto_Notepad
                     filePath = argsPath;
                     PublicVar.encryptionKey.Set(TypedPassword.Value);
                     TypedPassword.Value = null;
+                    StatusPanelFileInfo();
                 }
                 catch (CryptographicException)
                 {
@@ -235,6 +257,7 @@ namespace Crypto_Notepad
                 PublicVar.openFileName = Path.GetFileName(newFile);
                 Text = PublicVar.appName + " – " + PublicVar.openFileName;
                 richTextBox.Text = noenc;
+                StatusPanelFileInfo();
             }
             richTextBox.Modified = false;
         }
@@ -301,7 +324,7 @@ namespace Crypto_Notepad
                     if (res == DialogResult.Cancel)
                     {
                         cancelPressed = true;
-                    }                     
+                    }
                 }
             }
         }
@@ -428,27 +451,34 @@ namespace Crypto_Notepad
             }
         }
 
+        private void StatusPanelFileInfo()
+        {
+            DateTime creation = File.GetLastWriteTime(filePath);
+            statusPanelModifiedLabel.Text = "Modified: " + creation.ToString("dd.MM.yyyy");
+            statusPanelModifiedLabel.ToolTipText = creation.ToString();
+            long length = new FileInfo(filePath).Length;
+            statusPanelSizeLabel.Text = "Size: " + SizeSuffix(length).ToString();
+            StatusPanelTextInfo();
+        }
+
         private void StatusPanelTextInfo()
         {
             if (statusPanel.Visible)
             {
-                int currentColumn = 1 + richTextBox.SelectionStart - richTextBox.GetFirstCharIndexOfCurrentLine();
-                RichTextBox rtb = new RichTextBox
-                {
-                    WordWrap = false,
-                    Text = richTextBox.Text
-                };
-                int currentLine = 1 + rtb.GetLineFromCharIndex(richTextBox.SelectionStart);
-                int linesCount = richTextBox.Lines.Count();
+                int linesCount = richTextBox.Lines.Length;
+
                 if (linesCount == 0)
                 {
                     linesCount = 1;
                 }
                 statusPanelLengthLabel.Text = "Length: " + richTextBox.TextLength;
-                statusPaneLinesLabel.Text = "Lines: " + linesCount;
-                statusPaneLnLabel.Text = "Ln: " + currentLine;
-                statusPaneColLabel.Text = "Col: " + currentColumn;
+                statusPanelLinesLabel.Text = "Lines: " + linesCount;
             }
+        }
+        private void StatusPanelTimer_Tick(object sender, EventArgs e)
+        {
+            StatusPanelTextInfo();
+            statusPanelTimer.Stop();
         }
 
         private void UnlockFile()
@@ -464,6 +494,7 @@ namespace Crypto_Notepad
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
                 TypedPassword.Value = null;
                 richTextBox.Focus();
+                StatusPanelFileInfo();
             }
             catch (Exception ex)
             {
@@ -684,12 +715,10 @@ namespace Crypto_Notepad
                     Hide();
                 }
             }
-
             if (WindowState == FormWindowState.Minimized & settings.autoLock & !string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
             {
                 fileLockedPanel.Visible = true;
             }
-
             if (WindowState == FormWindowState.Normal)
             {
                 if (fileLockedPanel.Visible)
@@ -767,7 +796,7 @@ namespace Crypto_Notepad
                         }
                     }
                 }
-            }            
+            }
         }
 
         private void MainForm_Shown(object sender, EventArgs e)
@@ -823,12 +852,6 @@ namespace Crypto_Notepad
                 cutToolbarButton.Enabled = false;
                 copyToolbarButton.Enabled = false;
             }
-            StatusPanelTextInfo();
-        }
-
-        private void RichTextBox_Click(object sender, EventArgs e)
-        {
-            StatusPanelTextInfo();
         }
 
         private void RichTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -894,6 +917,7 @@ namespace Crypto_Notepad
                         richTextBox.Text = opnfile;
                         Text = PublicVar.appName + " – " + NameWithotPath;
                         filePath = openFileDialog.FileName;
+                        StatusPanelFileInfo();
                         return;
                     }
                     DecryptAES();
@@ -903,12 +927,7 @@ namespace Crypto_Notepad
 
         private void RichTextBox_TextChanged(object sender, EventArgs e)
         {
-            StatusPanelTextInfo();
-        }
-
-        private void RichTextBox_CursorPositionChanged(object sender, EventArgs e)
-        {
-            StatusPanelTextInfo();
+            statusPanelTimer.Start();
         }
 
         private void StatusPanelLabel_TextChanged(object sender, EventArgs e)
@@ -1011,6 +1030,8 @@ namespace Crypto_Notepad
                     string NameWithotPath = Path.GetFileName(openFileDialog.FileName);
                     richTextBox.Text = opnfile;
                     Text = PublicVar.appName + " – " + NameWithotPath;
+                    filePath = openFileDialog.FileName;
+                    StatusPanelFileInfo();
                     return;
                 }
                 DecryptAES();
@@ -1019,7 +1040,7 @@ namespace Crypto_Notepad
         }
 
         private void SaveMainMenu_Click(object sender, EventArgs e)
-        {        
+        {
             if (string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
             {
                 SaveAsMainMenu_Click(this, new EventArgs());
@@ -1034,6 +1055,7 @@ namespace Crypto_Notepad
             richTextBox.Modified = false;
             PublicVar.keyChanged = false;
             StatusPanelMessage("save");
+            StatusPanelFileInfo();
         }
 
         private void SaveAsMainMenu_Click(object sender, EventArgs e)
@@ -1082,6 +1104,7 @@ namespace Crypto_Notepad
             TypedPassword.Value = null;
             PublicVar.openFileName = Path.GetFileName(saveFileDialog.FileName);
             StatusPanelMessage("save");
+            StatusPanelFileInfo();
         }
 
         private void OpenFileLocationMainMenu_Click(object sender, EventArgs e)
@@ -1107,7 +1130,10 @@ namespace Crypto_Notepad
                         filePath = "";
                         PublicVar.openFileName = "";
                         Text = PublicVar.appName;
-                        return;
+                        StatusPanelTextInfo();
+                        statusPanelModifiedLabel.Text = "Created";
+                        statusPanelSizeLabel.Text = "Size";
+                        statusPanelModifiedLabel.ToolTipText = null;
                     }
                 }
             }
@@ -1191,7 +1217,7 @@ namespace Crypto_Notepad
         private void FindMainMenu_Click(object sender, EventArgs e)
         {
             if (!richTextBox.Visible) return;
-            
+
             if (searchPanel.Visible)
             {
                 searchTextBox.Text = "";
@@ -1343,7 +1369,7 @@ namespace Crypto_Notepad
 
         private void CutContextMenu_Click(object sender, EventArgs e)
         {
-            CutMainMenu_Click(this, new EventArgs());     
+            CutMainMenu_Click(this, new EventArgs());
         }
 
         private void CopyContextMenu_Click(object sender, EventArgs e)
@@ -1665,6 +1691,9 @@ namespace Crypto_Notepad
                 toolbarPanel.Enabled = false;
                 mainMenu.Enabled = false;
                 richTextBox.Clear();
+                StatusPanelTextInfo();
+                statusPanelModifiedLabel.Text = "Created";
+                statusPanelSizeLabel.Text = "Size";
                 fileLockedKeyTextBox.Focus();
             }
             else
@@ -1696,7 +1725,7 @@ namespace Crypto_Notepad
             fileLockedPanel.Visible = false;
             Text = PublicVar.appName;
             filePath = "";
-            PublicVar.openFileName = "";         
+            PublicVar.openFileName = "";
         }
 
         private void FileLockedShowKey_Click(object sender, EventArgs e)
@@ -1710,7 +1739,7 @@ namespace Crypto_Notepad
             {
                 fileLockedKeyTextBox.UseSystemPasswordChar = true;
                 fileLockedShowKey.Image = Resources.eye_half;
-            }         
+            }
         }
 
         private void FileLockedKeyTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -1740,7 +1769,8 @@ namespace Crypto_Notepad
         #region Tray
         private void TrayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left) {
+            if (e.Button == MouseButtons.Left)
+            {
                 Show();
                 WindowState = FormWindowState.Normal;
             }
@@ -1773,6 +1803,7 @@ namespace Crypto_Notepad
             Debug.WriteLine("EditorMenuStrip: " + contextMenu.Enabled);
 #endif
         }
+
 
         #endregion
 
