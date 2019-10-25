@@ -990,18 +990,18 @@ namespace Crypto_Notepad
                     PublicVar.openFileName = Path.GetFileName(filePath);
                 }
                 TypedPassword.Value = null;
+                PublicVar.okPressed = false;
             }
             else
             {
-                saveFileDialog.FileName = "Unnamed.cnp";
-                PublicVar.encryptionKey.Set(TypedPassword.Value);
-                PublicVar.okPressed = false;
                 if (saveFileDialog.ShowDialog() != DialogResult.OK)
                 {
                     TypedPassword.Value = null;
                     return;
                 }
                 richTextBox.Clear();
+                saveFileDialog.FileName = "Unnamed.cnp";
+                PublicVar.encryptionKey.Set(TypedPassword.Value);
                 StreamWriter sw = new StreamWriter(saveFileDialog.FileName);
                 string NameWithotPath = Path.GetFileName(saveFileDialog.FileName);
                 Text = PublicVar.appName + " – " + NameWithotPath;
