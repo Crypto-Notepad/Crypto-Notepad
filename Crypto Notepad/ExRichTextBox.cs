@@ -32,6 +32,7 @@ namespace Crypto_Notepad
                 }
                 return;
             }
+            
             base.WndProc(ref m);
         }
 
@@ -43,23 +44,7 @@ namespace Crypto_Notepad
                 AutoWordSelection = true;
                 AutoWordSelection = false;
             }
-        }
-
-        public event EventHandler CursorPositionChanged;
-
-        protected virtual void OnCursorPositionChanged(EventArgs e)
-        {
-            if (CursorPositionChanged != null)
-                CursorPositionChanged(this, e);
-        }
-
-        protected override void OnSelectionChanged(EventArgs e)
-        {
-            if (SelectionLength == 0)
-                OnCursorPositionChanged(e);
-            else
-                base.OnSelectionChanged(e);
-        }
+        }    
     }
     public static class RichTextBoxPadding
     {
