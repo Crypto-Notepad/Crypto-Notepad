@@ -451,8 +451,8 @@ namespace Crypto_Notepad
             }
         }
 
-        private void LockFile()
-        {        
+        private void UnlockFile()
+        {
             try
             {
                 TypedPassword.Value = fileLockedKeyTextBox.Text;
@@ -1688,7 +1688,7 @@ namespace Crypto_Notepad
 
         private void FileLockedOkButton_Click(object sender, EventArgs e)
         {
-            LockFile();
+            UnlockFile();
         }
 
         private void FileLockedCloseButton_MouseClick(object sender, MouseEventArgs e)
