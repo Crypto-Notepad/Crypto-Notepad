@@ -1,16 +1,13 @@
 ﻿using Crypto_Notepad.Properties;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Security.Cryptography;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -526,13 +523,11 @@ namespace Crypto_Notepad
             if (settings.editorRightToLeft)
             {
                 richTextBox.RightToLeft = RightToLeft.Yes;
-                lineNumbers.Dock = DockStyle.Right;
                 rightToLeftContextMenu.Checked = true;
             }
             else
             {
                 richTextBox.RightToLeft = RightToLeft.No;
-                lineNumbers.Dock = DockStyle.Left;
                 rightToLeftContextMenu.Checked = false;
             }
             if (settings.insertKey == "Disable")
@@ -591,20 +586,6 @@ namespace Crypto_Notepad
             searchFindNextButton.ForeColor = settings.searchPanelForeColor;
             searchCloseButton.ForeColor = settings.searchPanelForeColor;
             searchPanel.CellBorderStyle = (TableLayoutPanelCellBorderStyle)Enum.Parse(typeof(TableLayoutPanelCellBorderStyle), settings.searchPanelBorder);
-            lineNumbers.BackColor = settings.lineNumbersBackColor;
-            lineNumbers.Font = settings.editorFont;
-            lineNumbers.ForeColor = settings.lineNumbersForeColor;
-            lineNumbers.Visible = bool.Parse(settings.lineNumbersVisible);
-            lineNumbers.Show_BorderLines = bool.Parse(settings.borderLinesVisible);
-            lineNumbers.Show_GridLines = bool.Parse(settings.gridLinesVisible);
-            lineNumbers.Show_MarginLines = bool.Parse(settings.marginLinesVisible);
-            lineNumbers.GridLines_Color = settings.gridLinesColor;
-            lineNumbers.MarginLines_Color = settings.marginLinesColor;
-            lineNumbers.BorderLines_Color = settings.borderLinesColor;
-            lineNumbers.BorderLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.borderLinesStyle);
-            lineNumbers.GridLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.gridLinesStyle);
-            lineNumbers.MarginLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.marginLinesStyle);
-            lineNumbers.MarginLines_Side = (LineNumbers.LineNumbers.LineNumberDockSide)Enum.Parse(typeof(LineNumbers.LineNumbers.LineNumberDockSide), settings.marginLinesSide);
         }
 
         public void MenuIcons(bool menuIcons)
@@ -694,17 +675,6 @@ namespace Crypto_Notepad
                 StatusPanelTextInfo();
             }
         }
-        private void LineNumbers_VisibleChanged(object sender, EventArgs e)
-        {
-            if (lineNumbers.Visible)
-            {
-                lineNumbers.ParentRichTextBox = richTextBox;
-            }
-            else
-            {
-                lineNumbers.ParentRichTextBox = null;
-            }
-        }
 
         private void MainForm_Resize(object sender, EventArgs e)
         {
@@ -736,7 +706,6 @@ namespace Crypto_Notepad
             {
                 richTextBox.Modified = true;
             }
-            lineNumbers.Refresh();
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -804,7 +773,6 @@ namespace Crypto_Notepad
             Visible = true;
             richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
             richTextBox.Modified = false;
-            lineNumbers.Refresh();
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -1413,14 +1381,12 @@ namespace Crypto_Notepad
                     richTextBox.Text = rtbTxt;
                 }
                 settings.editorRightToLeft = true;
-                lineNumbers.Dock = DockStyle.Right;
                 richTextBox.Modified = false;
             }
             else
             {
                 richTextBox.RightToLeft = RightToLeft.No;
                 settings.editorRightToLeft = false;
-                lineNumbers.Dock = DockStyle.Left;
                 richTextBox.Modified = false;
             }
             settings.Save();

@@ -104,9 +104,6 @@
       <DependentUpon>ChangeKeyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EncryptedString.cs" />
-    <Compile Include="LineNumbers.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

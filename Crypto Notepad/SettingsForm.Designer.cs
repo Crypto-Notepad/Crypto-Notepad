@@ -32,6 +32,14 @@
             this.editorFontColorLabel = new System.Windows.Forms.Label();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.settingsTabControl = new System.Windows.Forms.TabControl();
+            this.applicationTabPage = new System.Windows.Forms.TabPage();
+            this.singleInstanceCheckBox = new System.Windows.Forms.CheckBox();
+            this.closeToTrayCheckBox = new System.Windows.Forms.CheckBox();
+            this.minimizeToTrayCheckBox = new System.Windows.Forms.CheckBox();
+            this.mainMenuCheckBox = new System.Windows.Forms.CheckBox();
+            this.menuIconsCheckBox = new System.Windows.Forms.CheckBox();
+            this.autoCheckUpdatesCheckBox = new System.Windows.Forms.CheckBox();
+            this.autoLockOnMinimizeCheckBox = new System.Windows.Forms.CheckBox();
             this.editorTabPage = new System.Windows.Forms.TabPage();
             this.editorBorderLabel = new System.Windows.Forms.Label();
             this.editorBorderComboBox = new System.Windows.Forms.ComboBox();
@@ -45,14 +53,6 @@
             this.editorInsertKeyLabel = new System.Windows.Forms.Label();
             this.editorBackColor = new System.Windows.Forms.Panel();
             this.editorFontColor = new System.Windows.Forms.Panel();
-            this.applicationTabPage = new System.Windows.Forms.TabPage();
-            this.singleInstanceCheckBox = new System.Windows.Forms.CheckBox();
-            this.closeToTrayCheckBox = new System.Windows.Forms.CheckBox();
-            this.minimizeToTrayCheckBox = new System.Windows.Forms.CheckBox();
-            this.mainMenuCheckBox = new System.Windows.Forms.CheckBox();
-            this.menuIconsCheckBox = new System.Windows.Forms.CheckBox();
-            this.autoCheckUpdatesCheckBox = new System.Windows.Forms.CheckBox();
-            this.autoLockOnMinimizeCheckBox = new System.Windows.Forms.CheckBox();
             this.integrationTabPage = new System.Windows.Forms.TabPage();
             this.integrateCheckBox = new System.Windows.Forms.CheckBox();
             this.associateCheckBox = new System.Windows.Forms.CheckBox();
@@ -64,37 +64,6 @@
             this.keySizeLabel = new System.Windows.Forms.Label();
             this.hashAlgorithmLabel = new System.Windows.Forms.Label();
             this.keySizeComboBox = new System.Windows.Forms.ComboBox();
-            this.lineNumbersTabPage = new System.Windows.Forms.TabPage();
-            this.marginLinesGroupBox = new System.Windows.Forms.GroupBox();
-            this.marginLinesStyleComboBox = new System.Windows.Forms.ComboBox();
-            this.marginLinesStyleLabel = new System.Windows.Forms.Label();
-            this.marginLinesSideComboBox = new System.Windows.Forms.ComboBox();
-            this.marginLinesColor = new System.Windows.Forms.Panel();
-            this.marginLinesSideLabel = new System.Windows.Forms.Label();
-            this.marginLinesColorLabel = new System.Windows.Forms.Label();
-            this.marginLinesVisibleComboBox = new System.Windows.Forms.ComboBox();
-            this.marginLinesVisibleLabel = new System.Windows.Forms.Label();
-            this.gridLinesGroupBox = new System.Windows.Forms.GroupBox();
-            this.gridLinesVisibleComboBox = new System.Windows.Forms.ComboBox();
-            this.gridLinesStyleComboBox = new System.Windows.Forms.ComboBox();
-            this.gridLinesColor = new System.Windows.Forms.Panel();
-            this.gridLinesVisibleLabel = new System.Windows.Forms.Label();
-            this.gridLinesStyleLabel = new System.Windows.Forms.Label();
-            this.gridLinesColorLabel = new System.Windows.Forms.Label();
-            this.borderLinesGroupBox = new System.Windows.Forms.GroupBox();
-            this.borderLinesVisibleСomboBox = new System.Windows.Forms.ComboBox();
-            this.borderLinesStyleComboBox = new System.Windows.Forms.ComboBox();
-            this.borderLinesColorLabel = new System.Windows.Forms.Label();
-            this.borderLinesStyleLabel = new System.Windows.Forms.Label();
-            this.borderLinesVisibleLabel = new System.Windows.Forms.Label();
-            this.borderLinesColor = new System.Windows.Forms.Panel();
-            this.lineNumbersGroupBox = new System.Windows.Forms.GroupBox();
-            this.lineNumbersVisibleComboBox = new System.Windows.Forms.ComboBox();
-            this.lineNumbersBackColor = new System.Windows.Forms.Panel();
-            this.lineNumbersVisibleLabel = new System.Windows.Forms.Label();
-            this.lineNumbersFontColor = new System.Windows.Forms.Panel();
-            this.lineNumbersFontColorLabel = new System.Windows.Forms.Label();
-            this.lineNumbersBackColorLabel = new System.Windows.Forms.Label();
             this.statusPanelTabPage = new System.Windows.Forms.TabPage();
             this.statusPanelVisibleCheckBox = new System.Windows.Forms.CheckBox();
             this.statusPanelBackColor = new System.Windows.Forms.Panel();
@@ -118,15 +87,10 @@
             this.settingsNavigation = new System.Windows.Forms.ListBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.settingsTabControl.SuspendLayout();
-            this.editorTabPage.SuspendLayout();
             this.applicationTabPage.SuspendLayout();
+            this.editorTabPage.SuspendLayout();
             this.integrationTabPage.SuspendLayout();
             this.encryptionTabPage.SuspendLayout();
-            this.lineNumbersTabPage.SuspendLayout();
-            this.marginLinesGroupBox.SuspendLayout();
-            this.gridLinesGroupBox.SuspendLayout();
-            this.borderLinesGroupBox.SuspendLayout();
-            this.lineNumbersGroupBox.SuspendLayout();
             this.statusPanelTabPage.SuspendLayout();
             this.toolbarTabPage.SuspendLayout();
             this.searchPanelTabPage.SuspendLayout();
@@ -152,7 +116,6 @@
             this.settingsTabControl.Controls.Add(this.editorTabPage);
             this.settingsTabControl.Controls.Add(this.integrationTabPage);
             this.settingsTabControl.Controls.Add(this.encryptionTabPage);
-            this.settingsTabControl.Controls.Add(this.lineNumbersTabPage);
             this.settingsTabControl.Controls.Add(this.statusPanelTabPage);
             this.settingsTabControl.Controls.Add(this.toolbarTabPage);
             this.settingsTabControl.Controls.Add(this.searchPanelTabPage);
@@ -164,6 +127,101 @@
             this.settingsTabControl.Size = new System.Drawing.Size(252, 285);
             this.settingsTabControl.TabIndex = 4;
             this.settingsTabControl.SelectedIndexChanged += new System.EventHandler(this.SettingsTabControl_SelectedIndexChanged);
+            // 
+            // applicationTabPage
+            // 
+            this.applicationTabPage.BackColor = System.Drawing.SystemColors.Window;
+            this.applicationTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.applicationTabPage.Controls.Add(this.singleInstanceCheckBox);
+            this.applicationTabPage.Controls.Add(this.closeToTrayCheckBox);
+            this.applicationTabPage.Controls.Add(this.minimizeToTrayCheckBox);
+            this.applicationTabPage.Controls.Add(this.mainMenuCheckBox);
+            this.applicationTabPage.Controls.Add(this.menuIconsCheckBox);
+            this.applicationTabPage.Controls.Add(this.autoCheckUpdatesCheckBox);
+            this.applicationTabPage.Controls.Add(this.autoLockOnMinimizeCheckBox);
+            this.applicationTabPage.Location = new System.Drawing.Point(4, 44);
+            this.applicationTabPage.Name = "applicationTabPage";
+            this.applicationTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.applicationTabPage.Size = new System.Drawing.Size(244, 237);
+            this.applicationTabPage.TabIndex = 2;
+            this.applicationTabPage.Text = "app";
+            // 
+            // singleInstanceCheckBox
+            // 
+            this.singleInstanceCheckBox.AutoSize = true;
+            this.singleInstanceCheckBox.Location = new System.Drawing.Point(7, 155);
+            this.singleInstanceCheckBox.Name = "singleInstanceCheckBox";
+            this.singleInstanceCheckBox.Size = new System.Drawing.Size(105, 19);
+            this.singleInstanceCheckBox.TabIndex = 6;
+            this.singleInstanceCheckBox.Text = "Single instance";
+            this.singleInstanceCheckBox.UseVisualStyleBackColor = true;
+            this.singleInstanceCheckBox.Click += new System.EventHandler(this.SingleInstanceCheckBox_Click);
+            // 
+            // closeToTrayCheckBox
+            // 
+            this.closeToTrayCheckBox.AutoSize = true;
+            this.closeToTrayCheckBox.Location = new System.Drawing.Point(7, 130);
+            this.closeToTrayCheckBox.Name = "closeToTrayCheckBox";
+            this.closeToTrayCheckBox.Size = new System.Drawing.Size(92, 19);
+            this.closeToTrayCheckBox.TabIndex = 5;
+            this.closeToTrayCheckBox.Text = "Close to tray";
+            this.closeToTrayCheckBox.UseVisualStyleBackColor = true;
+            this.closeToTrayCheckBox.Click += new System.EventHandler(this.CloseToTrayCheckBox_Click);
+            // 
+            // minimizeToTrayCheckBox
+            // 
+            this.minimizeToTrayCheckBox.AutoSize = true;
+            this.minimizeToTrayCheckBox.Location = new System.Drawing.Point(7, 105);
+            this.minimizeToTrayCheckBox.Name = "minimizeToTrayCheckBox";
+            this.minimizeToTrayCheckBox.Size = new System.Drawing.Size(112, 19);
+            this.minimizeToTrayCheckBox.TabIndex = 4;
+            this.minimizeToTrayCheckBox.Text = "Minimize to tray";
+            this.minimizeToTrayCheckBox.UseVisualStyleBackColor = true;
+            this.minimizeToTrayCheckBox.Click += new System.EventHandler(this.MinimizeToTrayCheckBox_Click);
+            // 
+            // mainMenuCheckBox
+            // 
+            this.mainMenuCheckBox.AutoSize = true;
+            this.mainMenuCheckBox.Location = new System.Drawing.Point(7, 55);
+            this.mainMenuCheckBox.Name = "mainMenuCheckBox";
+            this.mainMenuCheckBox.Size = new System.Drawing.Size(87, 19);
+            this.mainMenuCheckBox.TabIndex = 2;
+            this.mainMenuCheckBox.Text = "Main menu";
+            this.mainMenuCheckBox.UseVisualStyleBackColor = true;
+            this.mainMenuCheckBox.Click += new System.EventHandler(this.MainMenuCheckBox_Click);
+            // 
+            // menuIconsCheckBox
+            // 
+            this.menuIconsCheckBox.AutoSize = true;
+            this.menuIconsCheckBox.Location = new System.Drawing.Point(7, 80);
+            this.menuIconsCheckBox.Name = "menuIconsCheckBox";
+            this.menuIconsCheckBox.Size = new System.Drawing.Size(88, 19);
+            this.menuIconsCheckBox.TabIndex = 3;
+            this.menuIconsCheckBox.Text = "Menu icons";
+            this.menuIconsCheckBox.UseVisualStyleBackColor = true;
+            this.menuIconsCheckBox.Click += new System.EventHandler(this.MenuIconsCheckBox_Click);
+            // 
+            // autoCheckUpdatesCheckBox
+            // 
+            this.autoCheckUpdatesCheckBox.AutoSize = true;
+            this.autoCheckUpdatesCheckBox.Location = new System.Drawing.Point(7, 30);
+            this.autoCheckUpdatesCheckBox.Name = "autoCheckUpdatesCheckBox";
+            this.autoCheckUpdatesCheckBox.Size = new System.Drawing.Size(131, 19);
+            this.autoCheckUpdatesCheckBox.TabIndex = 1;
+            this.autoCheckUpdatesCheckBox.Text = "Auto check updates";
+            this.autoCheckUpdatesCheckBox.UseVisualStyleBackColor = true;
+            this.autoCheckUpdatesCheckBox.Click += new System.EventHandler(this.AutoCheckUpdatesCheckBox_Click);
+            // 
+            // autoLockOnMinimizeCheckBox
+            // 
+            this.autoLockOnMinimizeCheckBox.AutoSize = true;
+            this.autoLockOnMinimizeCheckBox.Location = new System.Drawing.Point(7, 7);
+            this.autoLockOnMinimizeCheckBox.Name = "autoLockOnMinimizeCheckBox";
+            this.autoLockOnMinimizeCheckBox.Size = new System.Drawing.Size(146, 19);
+            this.autoLockOnMinimizeCheckBox.TabIndex = 0;
+            this.autoLockOnMinimizeCheckBox.Text = "Auto lock on minimize";
+            this.autoLockOnMinimizeCheckBox.UseVisualStyleBackColor = true;
+            this.autoLockOnMinimizeCheckBox.Click += new System.EventHandler(this.AutoLockOnMinimizeCheckBox_Click);
             // 
             // editorTabPage
             // 
@@ -183,10 +241,10 @@
             this.editorTabPage.Controls.Add(this.editorBackColor);
             this.editorTabPage.Controls.Add(this.editorFontColorLabel);
             this.editorTabPage.Controls.Add(this.editorFontColor);
-            this.editorTabPage.Location = new System.Drawing.Point(4, 24);
+            this.editorTabPage.Location = new System.Drawing.Point(4, 44);
             this.editorTabPage.Name = "editorTabPage";
             this.editorTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.editorTabPage.Size = new System.Drawing.Size(244, 257);
+            this.editorTabPage.Size = new System.Drawing.Size(244, 237);
             this.editorTabPage.TabIndex = 0;
             this.editorTabPage.Text = "edt";
             // 
@@ -319,101 +377,6 @@
             this.editorFontColor.TabIndex = 0;
             this.editorFontColor.Click += new System.EventHandler(this.EditorFontColor_Click);
             // 
-            // applicationTabPage
-            // 
-            this.applicationTabPage.BackColor = System.Drawing.SystemColors.Window;
-            this.applicationTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.applicationTabPage.Controls.Add(this.singleInstanceCheckBox);
-            this.applicationTabPage.Controls.Add(this.closeToTrayCheckBox);
-            this.applicationTabPage.Controls.Add(this.minimizeToTrayCheckBox);
-            this.applicationTabPage.Controls.Add(this.mainMenuCheckBox);
-            this.applicationTabPage.Controls.Add(this.menuIconsCheckBox);
-            this.applicationTabPage.Controls.Add(this.autoCheckUpdatesCheckBox);
-            this.applicationTabPage.Controls.Add(this.autoLockOnMinimizeCheckBox);
-            this.applicationTabPage.Location = new System.Drawing.Point(4, 44);
-            this.applicationTabPage.Name = "applicationTabPage";
-            this.applicationTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.applicationTabPage.Size = new System.Drawing.Size(244, 237);
-            this.applicationTabPage.TabIndex = 2;
-            this.applicationTabPage.Text = "app";
-            // 
-            // singleInstanceCheckBox
-            // 
-            this.singleInstanceCheckBox.AutoSize = true;
-            this.singleInstanceCheckBox.Location = new System.Drawing.Point(7, 155);
-            this.singleInstanceCheckBox.Name = "singleInstanceCheckBox";
-            this.singleInstanceCheckBox.Size = new System.Drawing.Size(105, 19);
-            this.singleInstanceCheckBox.TabIndex = 6;
-            this.singleInstanceCheckBox.Text = "Single instance";
-            this.singleInstanceCheckBox.UseVisualStyleBackColor = true;
-            this.singleInstanceCheckBox.Click += new System.EventHandler(this.SingleInstanceCheckBox_Click);
-            // 
-            // closeToTrayCheckBox
-            // 
-            this.closeToTrayCheckBox.AutoSize = true;
-            this.closeToTrayCheckBox.Location = new System.Drawing.Point(7, 130);
-            this.closeToTrayCheckBox.Name = "closeToTrayCheckBox";
-            this.closeToTrayCheckBox.Size = new System.Drawing.Size(92, 19);
-            this.closeToTrayCheckBox.TabIndex = 5;
-            this.closeToTrayCheckBox.Text = "Close to tray";
-            this.closeToTrayCheckBox.UseVisualStyleBackColor = true;
-            this.closeToTrayCheckBox.Click += new System.EventHandler(this.CloseToTrayCheckBox_Click);
-            // 
-            // minimizeToTrayCheckBox
-            // 
-            this.minimizeToTrayCheckBox.AutoSize = true;
-            this.minimizeToTrayCheckBox.Location = new System.Drawing.Point(7, 105);
-            this.minimizeToTrayCheckBox.Name = "minimizeToTrayCheckBox";
-            this.minimizeToTrayCheckBox.Size = new System.Drawing.Size(112, 19);
-            this.minimizeToTrayCheckBox.TabIndex = 4;
-            this.minimizeToTrayCheckBox.Text = "Minimize to tray";
-            this.minimizeToTrayCheckBox.UseVisualStyleBackColor = true;
-            this.minimizeToTrayCheckBox.Click += new System.EventHandler(this.MinimizeToTrayCheckBox_Click);
-            // 
-            // mainMenuCheckBox
-            // 
-            this.mainMenuCheckBox.AutoSize = true;
-            this.mainMenuCheckBox.Location = new System.Drawing.Point(7, 55);
-            this.mainMenuCheckBox.Name = "mainMenuCheckBox";
-            this.mainMenuCheckBox.Size = new System.Drawing.Size(87, 19);
-            this.mainMenuCheckBox.TabIndex = 2;
-            this.mainMenuCheckBox.Text = "Main menu";
-            this.mainMenuCheckBox.UseVisualStyleBackColor = true;
-            this.mainMenuCheckBox.Click += new System.EventHandler(this.MainMenuCheckBox_Click);
-            // 
-            // menuIconsCheckBox
-            // 
-            this.menuIconsCheckBox.AutoSize = true;
-            this.menuIconsCheckBox.Location = new System.Drawing.Point(7, 80);
-            this.menuIconsCheckBox.Name = "menuIconsCheckBox";
-            this.menuIconsCheckBox.Size = new System.Drawing.Size(88, 19);
-            this.menuIconsCheckBox.TabIndex = 3;
-            this.menuIconsCheckBox.Text = "Menu icons";
-            this.menuIconsCheckBox.UseVisualStyleBackColor = true;
-            this.menuIconsCheckBox.Click += new System.EventHandler(this.MenuIconsCheckBox_Click);
-            // 
-            // autoCheckUpdatesCheckBox
-            // 
-            this.autoCheckUpdatesCheckBox.AutoSize = true;
-            this.autoCheckUpdatesCheckBox.Location = new System.Drawing.Point(7, 30);
-            this.autoCheckUpdatesCheckBox.Name = "autoCheckUpdatesCheckBox";
-            this.autoCheckUpdatesCheckBox.Size = new System.Drawing.Size(131, 19);
-            this.autoCheckUpdatesCheckBox.TabIndex = 1;
-            this.autoCheckUpdatesCheckBox.Text = "Auto check updates";
-            this.autoCheckUpdatesCheckBox.UseVisualStyleBackColor = true;
-            this.autoCheckUpdatesCheckBox.Click += new System.EventHandler(this.AutoCheckUpdatesCheckBox_Click);
-            // 
-            // autoLockOnMinimizeCheckBox
-            // 
-            this.autoLockOnMinimizeCheckBox.AutoSize = true;
-            this.autoLockOnMinimizeCheckBox.Location = new System.Drawing.Point(7, 7);
-            this.autoLockOnMinimizeCheckBox.Name = "autoLockOnMinimizeCheckBox";
-            this.autoLockOnMinimizeCheckBox.Size = new System.Drawing.Size(146, 19);
-            this.autoLockOnMinimizeCheckBox.TabIndex = 0;
-            this.autoLockOnMinimizeCheckBox.Text = "Auto lock on minimize";
-            this.autoLockOnMinimizeCheckBox.UseVisualStyleBackColor = true;
-            this.autoLockOnMinimizeCheckBox.Click += new System.EventHandler(this.AutoLockOnMinimizeCheckBox_Click);
-            // 
             // integrationTabPage
             // 
             this.integrationTabPage.BackColor = System.Drawing.SystemColors.Window;
@@ -421,10 +384,10 @@
             this.integrationTabPage.Controls.Add(this.integrateCheckBox);
             this.integrationTabPage.Controls.Add(this.associateCheckBox);
             this.integrationTabPage.Controls.Add(this.sendToCheckBox);
-            this.integrationTabPage.Location = new System.Drawing.Point(4, 24);
+            this.integrationTabPage.Location = new System.Drawing.Point(4, 44);
             this.integrationTabPage.Name = "integrationTabPage";
             this.integrationTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.integrationTabPage.Size = new System.Drawing.Size(244, 257);
+            this.integrationTabPage.Size = new System.Drawing.Size(244, 237);
             this.integrationTabPage.TabIndex = 3;
             this.integrationTabPage.Text = "intgr";
             // 
@@ -471,10 +434,10 @@
             this.encryptionTabPage.Controls.Add(this.keySizeLabel);
             this.encryptionTabPage.Controls.Add(this.hashAlgorithmLabel);
             this.encryptionTabPage.Controls.Add(this.keySizeComboBox);
-            this.encryptionTabPage.Location = new System.Drawing.Point(4, 24);
+            this.encryptionTabPage.Location = new System.Drawing.Point(4, 44);
             this.encryptionTabPage.Name = "encryptionTabPage";
             this.encryptionTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.encryptionTabPage.Size = new System.Drawing.Size(244, 257);
+            this.encryptionTabPage.Size = new System.Drawing.Size(244, 237);
             this.encryptionTabPage.TabIndex = 1;
             this.encryptionTabPage.Text = "enc";
             // 
@@ -545,378 +508,6 @@
             this.keySizeComboBox.Size = new System.Drawing.Size(100, 23);
             this.keySizeComboBox.TabIndex = 1;
             this.keySizeComboBox.DropDownClosed += new System.EventHandler(this.KeySizeComboBox_DropDownClosed);
-            // 
-            // lineNumbersTabPage
-            // 
-            this.lineNumbersTabPage.AutoScroll = true;
-            this.lineNumbersTabPage.BackColor = System.Drawing.SystemColors.Window;
-            this.lineNumbersTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lineNumbersTabPage.Controls.Add(this.marginLinesGroupBox);
-            this.lineNumbersTabPage.Controls.Add(this.gridLinesGroupBox);
-            this.lineNumbersTabPage.Controls.Add(this.borderLinesGroupBox);
-            this.lineNumbersTabPage.Controls.Add(this.lineNumbersGroupBox);
-            this.lineNumbersTabPage.Location = new System.Drawing.Point(4, 24);
-            this.lineNumbersTabPage.Name = "lineNumbersTabPage";
-            this.lineNumbersTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.lineNumbersTabPage.Size = new System.Drawing.Size(244, 257);
-            this.lineNumbersTabPage.TabIndex = 4;
-            this.lineNumbersTabPage.Text = "ln";
-            // 
-            // marginLinesGroupBox
-            // 
-            this.marginLinesGroupBox.BackColor = System.Drawing.Color.Transparent;
-            this.marginLinesGroupBox.Controls.Add(this.marginLinesStyleComboBox);
-            this.marginLinesGroupBox.Controls.Add(this.marginLinesStyleLabel);
-            this.marginLinesGroupBox.Controls.Add(this.marginLinesSideComboBox);
-            this.marginLinesGroupBox.Controls.Add(this.marginLinesColor);
-            this.marginLinesGroupBox.Controls.Add(this.marginLinesSideLabel);
-            this.marginLinesGroupBox.Controls.Add(this.marginLinesColorLabel);
-            this.marginLinesGroupBox.Controls.Add(this.marginLinesVisibleComboBox);
-            this.marginLinesGroupBox.Controls.Add(this.marginLinesVisibleLabel);
-            this.marginLinesGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.marginLinesGroupBox.Location = new System.Drawing.Point(3, 333);
-            this.marginLinesGroupBox.Name = "marginLinesGroupBox";
-            this.marginLinesGroupBox.Size = new System.Drawing.Size(219, 143);
-            this.marginLinesGroupBox.TabIndex = 3;
-            this.marginLinesGroupBox.TabStop = false;
-            this.marginLinesGroupBox.Text = "Margin lines";
-            // 
-            // marginLinesStyleComboBox
-            // 
-            this.marginLinesStyleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.marginLinesStyleComboBox.FormattingEnabled = true;
-            this.marginLinesStyleComboBox.Items.AddRange(new object[] {
-            "Solid",
-            "Dash",
-            "Dot",
-            "DashDot",
-            "DashDotDot"});
-            this.marginLinesStyleComboBox.Location = new System.Drawing.Point(106, 81);
-            this.marginLinesStyleComboBox.Name = "marginLinesStyleComboBox";
-            this.marginLinesStyleComboBox.Size = new System.Drawing.Size(100, 23);
-            this.marginLinesStyleComboBox.TabIndex = 6;
-            this.marginLinesStyleComboBox.DropDownClosed += new System.EventHandler(this.MarginLinesStyleComboBox_DropDownClosed);
-            // 
-            // marginLinesStyleLabel
-            // 
-            this.marginLinesStyleLabel.AutoSize = true;
-            this.marginLinesStyleLabel.Location = new System.Drawing.Point(10, 84);
-            this.marginLinesStyleLabel.Name = "marginLinesStyleLabel";
-            this.marginLinesStyleLabel.Size = new System.Drawing.Size(32, 15);
-            this.marginLinesStyleLabel.TabIndex = 34;
-            this.marginLinesStyleLabel.Text = "Style";
-            // 
-            // marginLinesSideComboBox
-            // 
-            this.marginLinesSideComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.marginLinesSideComboBox.FormattingEnabled = true;
-            this.marginLinesSideComboBox.Items.AddRange(new object[] {
-            "None",
-            "Left",
-            "Right",
-            "Height"});
-            this.marginLinesSideComboBox.Location = new System.Drawing.Point(106, 110);
-            this.marginLinesSideComboBox.Name = "marginLinesSideComboBox";
-            this.marginLinesSideComboBox.Size = new System.Drawing.Size(100, 23);
-            this.marginLinesSideComboBox.TabIndex = 7;
-            this.marginLinesSideComboBox.DropDownClosed += new System.EventHandler(this.MarginLinesSideComboBox_DropDownClosed);
-            // 
-            // marginLinesColor
-            // 
-            this.marginLinesColor.BackColor = System.Drawing.SystemColors.Control;
-            this.marginLinesColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.marginLinesColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.marginLinesColor.Location = new System.Drawing.Point(106, 54);
-            this.marginLinesColor.Name = "marginLinesColor";
-            this.marginLinesColor.Size = new System.Drawing.Size(100, 21);
-            this.marginLinesColor.TabIndex = 32;
-            this.marginLinesColor.Click += new System.EventHandler(this.MarginLinesColor_Click);
-            // 
-            // marginLinesSideLabel
-            // 
-            this.marginLinesSideLabel.AutoSize = true;
-            this.marginLinesSideLabel.Location = new System.Drawing.Point(10, 113);
-            this.marginLinesSideLabel.Name = "marginLinesSideLabel";
-            this.marginLinesSideLabel.Size = new System.Drawing.Size(29, 15);
-            this.marginLinesSideLabel.TabIndex = 31;
-            this.marginLinesSideLabel.Text = "Side";
-            // 
-            // marginLinesColorLabel
-            // 
-            this.marginLinesColorLabel.Location = new System.Drawing.Point(10, 54);
-            this.marginLinesColorLabel.Name = "marginLinesColorLabel";
-            this.marginLinesColorLabel.Size = new System.Drawing.Size(45, 21);
-            this.marginLinesColorLabel.TabIndex = 30;
-            this.marginLinesColorLabel.Text = "Color";
-            this.marginLinesColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // marginLinesVisibleComboBox
-            // 
-            this.marginLinesVisibleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.marginLinesVisibleComboBox.FormattingEnabled = true;
-            this.marginLinesVisibleComboBox.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.marginLinesVisibleComboBox.Location = new System.Drawing.Point(106, 25);
-            this.marginLinesVisibleComboBox.Name = "marginLinesVisibleComboBox";
-            this.marginLinesVisibleComboBox.Size = new System.Drawing.Size(100, 23);
-            this.marginLinesVisibleComboBox.TabIndex = 5;
-            this.marginLinesVisibleComboBox.DropDownClosed += new System.EventHandler(this.MarginLinesVisibleComboBox_DropDownClosed);
-            // 
-            // marginLinesVisibleLabel
-            // 
-            this.marginLinesVisibleLabel.AutoSize = true;
-            this.marginLinesVisibleLabel.Location = new System.Drawing.Point(10, 28);
-            this.marginLinesVisibleLabel.Name = "marginLinesVisibleLabel";
-            this.marginLinesVisibleLabel.Size = new System.Drawing.Size(41, 15);
-            this.marginLinesVisibleLabel.TabIndex = 28;
-            this.marginLinesVisibleLabel.Text = "Visible";
-            // 
-            // gridLinesGroupBox
-            // 
-            this.gridLinesGroupBox.Controls.Add(this.gridLinesVisibleComboBox);
-            this.gridLinesGroupBox.Controls.Add(this.gridLinesStyleComboBox);
-            this.gridLinesGroupBox.Controls.Add(this.gridLinesColor);
-            this.gridLinesGroupBox.Controls.Add(this.gridLinesVisibleLabel);
-            this.gridLinesGroupBox.Controls.Add(this.gridLinesStyleLabel);
-            this.gridLinesGroupBox.Controls.Add(this.gridLinesColorLabel);
-            this.gridLinesGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gridLinesGroupBox.Location = new System.Drawing.Point(3, 223);
-            this.gridLinesGroupBox.Name = "gridLinesGroupBox";
-            this.gridLinesGroupBox.Size = new System.Drawing.Size(219, 110);
-            this.gridLinesGroupBox.TabIndex = 2;
-            this.gridLinesGroupBox.TabStop = false;
-            this.gridLinesGroupBox.Text = "Grid lines";
-            // 
-            // gridLinesVisibleComboBox
-            // 
-            this.gridLinesVisibleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gridLinesVisibleComboBox.FormattingEnabled = true;
-            this.gridLinesVisibleComboBox.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.gridLinesVisibleComboBox.Location = new System.Drawing.Point(106, 20);
-            this.gridLinesVisibleComboBox.Name = "gridLinesVisibleComboBox";
-            this.gridLinesVisibleComboBox.Size = new System.Drawing.Size(100, 23);
-            this.gridLinesVisibleComboBox.TabIndex = 3;
-            this.gridLinesVisibleComboBox.Tag = "False";
-            this.gridLinesVisibleComboBox.DropDownClosed += new System.EventHandler(this.GridLinesVisibleComboBox_DropDownClosed);
-            // 
-            // gridLinesStyleComboBox
-            // 
-            this.gridLinesStyleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gridLinesStyleComboBox.FormattingEnabled = true;
-            this.gridLinesStyleComboBox.Items.AddRange(new object[] {
-            "Solid",
-            "Dash",
-            "Dot",
-            "DashDot",
-            "DashDotDot"});
-            this.gridLinesStyleComboBox.Location = new System.Drawing.Point(106, 76);
-            this.gridLinesStyleComboBox.Name = "gridLinesStyleComboBox";
-            this.gridLinesStyleComboBox.Size = new System.Drawing.Size(100, 23);
-            this.gridLinesStyleComboBox.TabIndex = 4;
-            this.gridLinesStyleComboBox.DropDownClosed += new System.EventHandler(this.GridLinesStyleComboBox_DropDownClosed);
-            // 
-            // gridLinesColor
-            // 
-            this.gridLinesColor.BackColor = System.Drawing.SystemColors.Control;
-            this.gridLinesColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.gridLinesColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.gridLinesColor.Location = new System.Drawing.Point(106, 49);
-            this.gridLinesColor.Name = "gridLinesColor";
-            this.gridLinesColor.Size = new System.Drawing.Size(100, 21);
-            this.gridLinesColor.TabIndex = 24;
-            this.gridLinesColor.Click += new System.EventHandler(this.GridLinesColor_Click);
-            // 
-            // gridLinesVisibleLabel
-            // 
-            this.gridLinesVisibleLabel.AutoSize = true;
-            this.gridLinesVisibleLabel.Location = new System.Drawing.Point(10, 23);
-            this.gridLinesVisibleLabel.Name = "gridLinesVisibleLabel";
-            this.gridLinesVisibleLabel.Size = new System.Drawing.Size(41, 15);
-            this.gridLinesVisibleLabel.TabIndex = 21;
-            this.gridLinesVisibleLabel.Text = "Visible";
-            // 
-            // gridLinesStyleLabel
-            // 
-            this.gridLinesStyleLabel.AutoSize = true;
-            this.gridLinesStyleLabel.Location = new System.Drawing.Point(10, 79);
-            this.gridLinesStyleLabel.Name = "gridLinesStyleLabel";
-            this.gridLinesStyleLabel.Size = new System.Drawing.Size(32, 15);
-            this.gridLinesStyleLabel.TabIndex = 25;
-            this.gridLinesStyleLabel.Text = "Style";
-            // 
-            // gridLinesColorLabel
-            // 
-            this.gridLinesColorLabel.Location = new System.Drawing.Point(10, 49);
-            this.gridLinesColorLabel.Name = "gridLinesColorLabel";
-            this.gridLinesColorLabel.Size = new System.Drawing.Size(61, 21);
-            this.gridLinesColorLabel.TabIndex = 23;
-            this.gridLinesColorLabel.Text = "Color";
-            this.gridLinesColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // borderLinesGroupBox
-            // 
-            this.borderLinesGroupBox.Controls.Add(this.borderLinesVisibleСomboBox);
-            this.borderLinesGroupBox.Controls.Add(this.borderLinesStyleComboBox);
-            this.borderLinesGroupBox.Controls.Add(this.borderLinesColorLabel);
-            this.borderLinesGroupBox.Controls.Add(this.borderLinesStyleLabel);
-            this.borderLinesGroupBox.Controls.Add(this.borderLinesVisibleLabel);
-            this.borderLinesGroupBox.Controls.Add(this.borderLinesColor);
-            this.borderLinesGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.borderLinesGroupBox.Location = new System.Drawing.Point(3, 113);
-            this.borderLinesGroupBox.Name = "borderLinesGroupBox";
-            this.borderLinesGroupBox.Size = new System.Drawing.Size(219, 110);
-            this.borderLinesGroupBox.TabIndex = 1;
-            this.borderLinesGroupBox.TabStop = false;
-            this.borderLinesGroupBox.Text = "Border lines";
-            // 
-            // borderLinesVisibleСomboBox
-            // 
-            this.borderLinesVisibleСomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.borderLinesVisibleСomboBox.FormattingEnabled = true;
-            this.borderLinesVisibleСomboBox.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.borderLinesVisibleСomboBox.Location = new System.Drawing.Point(106, 19);
-            this.borderLinesVisibleСomboBox.Name = "borderLinesVisibleСomboBox";
-            this.borderLinesVisibleСomboBox.Size = new System.Drawing.Size(100, 23);
-            this.borderLinesVisibleСomboBox.TabIndex = 1;
-            this.borderLinesVisibleСomboBox.DropDownClosed += new System.EventHandler(this.BorderLinesVisibleСomboBox_DropDownClosed);
-            // 
-            // borderLinesStyleComboBox
-            // 
-            this.borderLinesStyleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.borderLinesStyleComboBox.FormattingEnabled = true;
-            this.borderLinesStyleComboBox.Items.AddRange(new object[] {
-            "Solid",
-            "Dash",
-            "Dot",
-            "DashDot",
-            "DashDotDot"});
-            this.borderLinesStyleComboBox.Location = new System.Drawing.Point(106, 75);
-            this.borderLinesStyleComboBox.Name = "borderLinesStyleComboBox";
-            this.borderLinesStyleComboBox.Size = new System.Drawing.Size(100, 23);
-            this.borderLinesStyleComboBox.TabIndex = 2;
-            this.borderLinesStyleComboBox.DropDownClosed += new System.EventHandler(this.BorderLinesStyleComboBox_DropDownClosed);
-            // 
-            // borderLinesColorLabel
-            // 
-            this.borderLinesColorLabel.Location = new System.Drawing.Point(10, 48);
-            this.borderLinesColorLabel.Name = "borderLinesColorLabel";
-            this.borderLinesColorLabel.Size = new System.Drawing.Size(45, 21);
-            this.borderLinesColorLabel.TabIndex = 17;
-            this.borderLinesColorLabel.Text = "Color";
-            this.borderLinesColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // borderLinesStyleLabel
-            // 
-            this.borderLinesStyleLabel.AutoSize = true;
-            this.borderLinesStyleLabel.Location = new System.Drawing.Point(10, 78);
-            this.borderLinesStyleLabel.Name = "borderLinesStyleLabel";
-            this.borderLinesStyleLabel.Size = new System.Drawing.Size(32, 15);
-            this.borderLinesStyleLabel.TabIndex = 19;
-            this.borderLinesStyleLabel.Text = "Style";
-            // 
-            // borderLinesVisibleLabel
-            // 
-            this.borderLinesVisibleLabel.AutoSize = true;
-            this.borderLinesVisibleLabel.Location = new System.Drawing.Point(10, 22);
-            this.borderLinesVisibleLabel.Name = "borderLinesVisibleLabel";
-            this.borderLinesVisibleLabel.Size = new System.Drawing.Size(41, 15);
-            this.borderLinesVisibleLabel.TabIndex = 15;
-            this.borderLinesVisibleLabel.Text = "Visible";
-            // 
-            // borderLinesColor
-            // 
-            this.borderLinesColor.BackColor = System.Drawing.SystemColors.Control;
-            this.borderLinesColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.borderLinesColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.borderLinesColor.Location = new System.Drawing.Point(106, 48);
-            this.borderLinesColor.Name = "borderLinesColor";
-            this.borderLinesColor.Size = new System.Drawing.Size(100, 21);
-            this.borderLinesColor.TabIndex = 18;
-            this.borderLinesColor.Click += new System.EventHandler(this.BorderLinesColor_Click);
-            // 
-            // lineNumbersGroupBox
-            // 
-            this.lineNumbersGroupBox.Controls.Add(this.lineNumbersVisibleComboBox);
-            this.lineNumbersGroupBox.Controls.Add(this.lineNumbersBackColor);
-            this.lineNumbersGroupBox.Controls.Add(this.lineNumbersVisibleLabel);
-            this.lineNumbersGroupBox.Controls.Add(this.lineNumbersFontColor);
-            this.lineNumbersGroupBox.Controls.Add(this.lineNumbersFontColorLabel);
-            this.lineNumbersGroupBox.Controls.Add(this.lineNumbersBackColorLabel);
-            this.lineNumbersGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lineNumbersGroupBox.Location = new System.Drawing.Point(3, 3);
-            this.lineNumbersGroupBox.Name = "lineNumbersGroupBox";
-            this.lineNumbersGroupBox.Size = new System.Drawing.Size(219, 110);
-            this.lineNumbersGroupBox.TabIndex = 0;
-            this.lineNumbersGroupBox.TabStop = false;
-            this.lineNumbersGroupBox.Text = "Line numbers";
-            // 
-            // lineNumbersVisibleComboBox
-            // 
-            this.lineNumbersVisibleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.lineNumbersVisibleComboBox.FormattingEnabled = true;
-            this.lineNumbersVisibleComboBox.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.lineNumbersVisibleComboBox.Location = new System.Drawing.Point(106, 19);
-            this.lineNumbersVisibleComboBox.Name = "lineNumbersVisibleComboBox";
-            this.lineNumbersVisibleComboBox.Size = new System.Drawing.Size(100, 23);
-            this.lineNumbersVisibleComboBox.TabIndex = 0;
-            this.lineNumbersVisibleComboBox.DropDownClosed += new System.EventHandler(this.LineNumbersVisibleComboBox_DropDownClosed);
-            // 
-            // lineNumbersBackColor
-            // 
-            this.lineNumbersBackColor.BackColor = System.Drawing.SystemColors.Control;
-            this.lineNumbersBackColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lineNumbersBackColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lineNumbersBackColor.Location = new System.Drawing.Point(106, 48);
-            this.lineNumbersBackColor.Name = "lineNumbersBackColor";
-            this.lineNumbersBackColor.Size = new System.Drawing.Size(100, 21);
-            this.lineNumbersBackColor.TabIndex = 1;
-            this.lineNumbersBackColor.Click += new System.EventHandler(this.LineNumbersBackColor_Click);
-            // 
-            // lineNumbersVisibleLabel
-            // 
-            this.lineNumbersVisibleLabel.AutoSize = true;
-            this.lineNumbersVisibleLabel.Location = new System.Drawing.Point(10, 22);
-            this.lineNumbersVisibleLabel.Name = "lineNumbersVisibleLabel";
-            this.lineNumbersVisibleLabel.Size = new System.Drawing.Size(41, 15);
-            this.lineNumbersVisibleLabel.TabIndex = 0;
-            this.lineNumbersVisibleLabel.Text = "Visible";
-            // 
-            // lineNumbersFontColor
-            // 
-            this.lineNumbersFontColor.BackColor = System.Drawing.SystemColors.Control;
-            this.lineNumbersFontColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lineNumbersFontColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lineNumbersFontColor.Location = new System.Drawing.Point(106, 75);
-            this.lineNumbersFontColor.Name = "lineNumbersFontColor";
-            this.lineNumbersFontColor.Size = new System.Drawing.Size(100, 21);
-            this.lineNumbersFontColor.TabIndex = 2;
-            this.lineNumbersFontColor.Click += new System.EventHandler(this.LineNumbersFontColor_Click);
-            // 
-            // lineNumbersFontColorLabel
-            // 
-            this.lineNumbersFontColorLabel.Location = new System.Drawing.Point(10, 75);
-            this.lineNumbersFontColorLabel.Name = "lineNumbersFontColorLabel";
-            this.lineNumbersFontColorLabel.Size = new System.Drawing.Size(61, 21);
-            this.lineNumbersFontColorLabel.TabIndex = 2;
-            this.lineNumbersFontColorLabel.Text = "Font color";
-            this.lineNumbersFontColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lineNumbersBackColorLabel
-            // 
-            this.lineNumbersBackColorLabel.BackColor = System.Drawing.SystemColors.Window;
-            this.lineNumbersBackColorLabel.Location = new System.Drawing.Point(10, 48);
-            this.lineNumbersBackColorLabel.Name = "lineNumbersBackColorLabel";
-            this.lineNumbersBackColorLabel.Size = new System.Drawing.Size(69, 21);
-            this.lineNumbersBackColorLabel.TabIndex = 1;
-            this.lineNumbersBackColorLabel.Text = "Back Color";
-            this.lineNumbersBackColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // statusPanelTabPage
             // 
@@ -1156,7 +747,6 @@
             "Status Panel",
             "Search Panel",
             "Editor",
-            "Line Numbers",
             "Encryption",
             "Integration"});
             this.settingsNavigation.Location = new System.Drawing.Point(3, 3);
@@ -1198,23 +788,14 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SettingsForm_FormClosed);
             this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.settingsTabControl.ResumeLayout(false);
-            this.editorTabPage.ResumeLayout(false);
-            this.editorTabPage.PerformLayout();
             this.applicationTabPage.ResumeLayout(false);
             this.applicationTabPage.PerformLayout();
+            this.editorTabPage.ResumeLayout(false);
+            this.editorTabPage.PerformLayout();
             this.integrationTabPage.ResumeLayout(false);
             this.integrationTabPage.PerformLayout();
             this.encryptionTabPage.ResumeLayout(false);
             this.encryptionTabPage.PerformLayout();
-            this.lineNumbersTabPage.ResumeLayout(false);
-            this.marginLinesGroupBox.ResumeLayout(false);
-            this.marginLinesGroupBox.PerformLayout();
-            this.gridLinesGroupBox.ResumeLayout(false);
-            this.gridLinesGroupBox.PerformLayout();
-            this.borderLinesGroupBox.ResumeLayout(false);
-            this.borderLinesGroupBox.PerformLayout();
-            this.lineNumbersGroupBox.ResumeLayout(false);
-            this.lineNumbersGroupBox.PerformLayout();
             this.statusPanelTabPage.ResumeLayout(false);
             this.statusPanelTabPage.PerformLayout();
             this.toolbarTabPage.ResumeLayout(false);
@@ -1250,30 +831,11 @@
         private System.Windows.Forms.CheckBox integrateCheckBox;
         private System.Windows.Forms.CheckBox menuIconsCheckBox;
         private System.Windows.Forms.TabPage integrationTabPage;
-        private System.Windows.Forms.Label lineNumbersFontColorLabel;
-        private System.Windows.Forms.Label lineNumbersBackColorLabel;
-        private System.Windows.Forms.Label lineNumbersVisibleLabel;
-        private System.Windows.Forms.ComboBox lineNumbersVisibleComboBox;
-        private System.Windows.Forms.Panel lineNumbersFontColor;
-        private System.Windows.Forms.Panel lineNumbersBackColor;
-        private System.Windows.Forms.ComboBox borderLinesStyleComboBox;
-        private System.Windows.Forms.Label borderLinesStyleLabel;
-        private System.Windows.Forms.Panel borderLinesColor;
-        private System.Windows.Forms.Label borderLinesColorLabel;
-        private System.Windows.Forms.ComboBox borderLinesVisibleСomboBox;
-        private System.Windows.Forms.Label borderLinesVisibleLabel;
-        private System.Windows.Forms.ComboBox gridLinesStyleComboBox;
-        private System.Windows.Forms.Label gridLinesStyleLabel;
-        private System.Windows.Forms.Panel gridLinesColor;
-        private System.Windows.Forms.Label gridLinesColorLabel;
-        private System.Windows.Forms.ComboBox gridLinesVisibleComboBox;
-        private System.Windows.Forms.Label gridLinesVisibleLabel;
         private System.Windows.Forms.ComboBox editorInsertKeyComboBox;
         private System.Windows.Forms.Label editorInsertKeyLabel;
         private System.Windows.Forms.TextBox editorPaddingLeftTextBox;
         private System.Windows.Forms.Label editorPaddingLeftLabel;
         private System.Windows.Forms.ListBox settingsNavigation;
-        private System.Windows.Forms.TabPage lineNumbersTabPage;
         private System.Windows.Forms.Button editorFontButton;
         private System.Windows.Forms.FontDialog fontDialog;
         private System.Windows.Forms.TabPage statusPanelTabPage;
@@ -1295,18 +857,6 @@
         private System.Windows.Forms.Label editorOpenLinksWithLabel;
         private System.Windows.Forms.CheckBox mainMenuCheckBox;
         private System.Windows.Forms.CheckBox toolbarOldIconsCheckBox;
-        private System.Windows.Forms.Label marginLinesVisibleLabel;
-        private System.Windows.Forms.GroupBox marginLinesGroupBox;
-        private System.Windows.Forms.ComboBox marginLinesVisibleComboBox;
-        private System.Windows.Forms.Label marginLinesColorLabel;
-        private System.Windows.Forms.ComboBox marginLinesSideComboBox;
-        private System.Windows.Forms.Panel marginLinesColor;
-        private System.Windows.Forms.Label marginLinesSideLabel;
-        private System.Windows.Forms.ComboBox marginLinesStyleComboBox;
-        private System.Windows.Forms.Label marginLinesStyleLabel;
-        private System.Windows.Forms.GroupBox lineNumbersGroupBox;
-        private System.Windows.Forms.GroupBox gridLinesGroupBox;
-        private System.Windows.Forms.GroupBox borderLinesGroupBox;
         private System.Windows.Forms.CheckBox closeToTrayCheckBox;
         private System.Windows.Forms.CheckBox minimizeToTrayCheckBox;
         private System.Windows.Forms.ComboBox editorBorderComboBox;

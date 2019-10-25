@@ -2,7 +2,6 @@
 using Microsoft.Win32;
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -59,21 +58,6 @@ namespace Crypto_Notepad
             statusPanelBackColor.BackColor = settings.statusPanelBackColor;
             statusPanelFontColor.BackColor = settings.statusPanelFontColor;
             statusPanelVisibleCheckBox.Checked = settings.statusPanelVisible;
-
-            lineNumbersVisibleComboBox.Text = settings.lineNumbersVisible;
-            lineNumbersBackColor.BackColor = settings.lineNumbersBackColor;
-            lineNumbersFontColor.BackColor = settings.lineNumbersForeColor;
-            borderLinesVisibleСomboBox.Text = settings.borderLinesVisible;
-            borderLinesColor.BackColor = settings.borderLinesColor;
-            borderLinesStyleComboBox.Text = settings.borderLinesStyle;
-            gridLinesVisibleComboBox.Text = settings.gridLinesVisible;
-            gridLinesColor.BackColor = settings.gridLinesColor;
-            gridLinesStyleComboBox.Text = settings.gridLinesStyle;
-
-            marginLinesVisibleComboBox.Text = settings.marginLinesVisible;
-            marginLinesColor.BackColor = settings.marginLinesColor;
-            marginLinesStyleComboBox.Text = settings.marginLinesStyle;
-            marginLinesSideComboBox.Text = settings.marginLinesSide;
         }
 
         private static void AssociateExtension(string applicationExecutablePath, string extension)
@@ -231,66 +215,6 @@ namespace Crypto_Notepad
             }
         }
 
-        private void LineNumbersBackColor_Click(object sender, EventArgs e)
-        {
-            colorDialog.Color = lineNumbersBackColor.BackColor;
-            using (new CenterWinDialog(this))
-            {
-                if (colorDialog.ShowDialog() == DialogResult.OK)
-                {
-                    MainForm main = Owner as MainForm;
-                    main.lineNumbers.BackColor = colorDialog.Color;
-                    lineNumbersBackColor.BackColor = colorDialog.Color;
-                    settings.lineNumbersBackColor = colorDialog.Color;
-                }
-            }
-        }
-
-        private void LineNumbersFontColor_Click(object sender, EventArgs e)
-        {
-            colorDialog.Color = lineNumbersFontColor.BackColor;
-            using (new CenterWinDialog(this))
-            {
-                if (colorDialog.ShowDialog() == DialogResult.OK)
-                {
-                    MainForm main = Owner as MainForm;
-                    main.lineNumbers.ForeColor = colorDialog.Color;
-                    lineNumbersFontColor.BackColor = colorDialog.Color;
-                    settings.lineNumbersForeColor = colorDialog.Color;
-                }
-            }
-        }
-
-        private void BorderLinesColor_Click(object sender, EventArgs e)
-        {
-            colorDialog.Color = borderLinesColor.BackColor;
-            using (new CenterWinDialog(this))
-            {
-                if (colorDialog.ShowDialog() == DialogResult.OK)
-                {
-                    MainForm main = Owner as MainForm;
-                    main.lineNumbers.BorderLines_Color = colorDialog.Color;
-                    borderLinesColor.BackColor = colorDialog.Color;
-                    settings.borderLinesColor = colorDialog.Color;
-                }
-            }
-        }
-
-        private void GridLinesColor_Click(object sender, EventArgs e)
-        {
-            colorDialog.Color = gridLinesColor.BackColor;
-            using (new CenterWinDialog(this))
-            {
-                if (colorDialog.ShowDialog() == DialogResult.OK)
-                {
-                    MainForm main = Owner as MainForm;
-                    main.lineNumbers.GridLines_Color = colorDialog.Color;
-                    gridLinesColor.BackColor = colorDialog.Color;
-                    settings.gridLinesColor = colorDialog.Color;
-                }
-            }
-        }
-
         private void SettingsNavigation_Click(object sender, EventArgs e)
         {
             switch (settingsNavigation.SelectedIndex)
@@ -311,12 +235,9 @@ namespace Crypto_Notepad
                     settingsTabControl.SelectedTab = editorTabPage;
                     break;
                 case 5:
-                    settingsTabControl.SelectedTab = lineNumbersTabPage;
-                    break;
-                case 6:
                     settingsTabControl.SelectedTab = encryptionTabPage;
                     break;
-                case 7:
+                case 6:
                     settingsTabControl.SelectedTab = integrationTabPage;
                     break;
             }
@@ -333,7 +254,6 @@ namespace Crypto_Notepad
         {
             MainForm main = Owner as MainForm;
             main.toolbarPanel.Visible = toolbarVisibleCheckBox.Checked;
-            main.lineNumbers.Height = 1;
             main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
             settings.toolbarVisible= toolbarVisibleCheckBox.Checked;
         }
@@ -430,95 +350,8 @@ namespace Crypto_Notepad
                 {
                     MainForm main = Owner as MainForm;
                     main.richTextBox.Font = fontDialog.Font;
-                    main.lineNumbers.Font = fontDialog.Font;
                     main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
                 }
-            }
-        }
-
-        private void LineNumbersVisibleComboBox_DropDownClosed(object sender, EventArgs e)
-        {
-            MainForm main = Owner as MainForm;
-            if (settings.lineNumbersVisible != lineNumbersVisibleComboBox.Text)
-            {
-                settings.lineNumbersVisible = lineNumbersVisibleComboBox.Text;
-                main.lineNumbers.Visible = bool.Parse(settings.lineNumbersVisible);
-                main.lineNumbers.Height = 1;
-                settings.lineNumbersVisible = lineNumbersVisibleComboBox.Text;
-            }
-        }
-
-        private void BorderLinesVisibleСomboBox_DropDownClosed(object sender, EventArgs e)
-        {
-            MainForm main = Owner as MainForm;
-            if (settings.borderLinesVisible != borderLinesVisibleСomboBox.Text)
-            {
-                settings.borderLinesVisible = borderLinesVisibleСomboBox.Text;
-                main.lineNumbers.Show_BorderLines = bool.Parse(settings.borderLinesVisible);
-            }
-        }
-
-        private void BorderLinesStyleComboBox_DropDownClosed(object sender, EventArgs e)
-        {
-            MainForm main = Owner as MainForm;
-            if (settings.borderLinesStyle != borderLinesStyleComboBox.Text)
-            {
-                switch (borderLinesStyleComboBox.Text)
-                {
-                    case "Solid":
-                        settings.borderLinesStyle = DashStyle.Solid.ToString();
-                        break;
-                    case "Dash":
-                        settings.borderLinesStyle = DashStyle.Dash.ToString();
-                        break;
-                    case "Dot":
-                        settings.borderLinesStyle = DashStyle.Dot.ToString();
-                        break;
-                    case "DashDot":
-                        settings.borderLinesStyle = DashStyle.DashDot.ToString();
-                        break;
-                    case "DashDotDot":
-                        settings.borderLinesStyle = DashStyle.DashDotDot.ToString();
-                        break;
-                }
-                main.lineNumbers.BorderLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.borderLinesStyle);
-            }
-        }
-
-        private void GridLinesVisibleComboBox_DropDownClosed(object sender, EventArgs e)
-        {
-            MainForm main = Owner as MainForm;
-            if (settings.gridLinesVisible != gridLinesVisibleComboBox.Text)
-            {
-                settings.gridLinesVisible = gridLinesVisibleComboBox.Text;
-                main.lineNumbers.Show_GridLines = bool.Parse(settings.gridLinesVisible);
-            }
-        }
-
-        private void GridLinesStyleComboBox_DropDownClosed(object sender, EventArgs e)
-        {
-            MainForm main = Owner as MainForm;
-            if (settings.gridLinesStyle.ToString() != gridLinesStyleComboBox.Text)
-            {
-                switch (gridLinesStyleComboBox.Text)
-                {
-                    case "Solid":
-                        settings.gridLinesStyle = DashStyle.Solid.ToString(); ;
-                        break;
-                    case "Dash":
-                        settings.gridLinesStyle = DashStyle.Dash.ToString();
-                        break;
-                    case "Dot":
-                        settings.gridLinesStyle = DashStyle.Dot.ToString();
-                        break;
-                    case "DashDot":
-                        settings.gridLinesStyle = DashStyle.DashDot.ToString();
-                        break;
-                    case "DashDotDot":
-                        settings.gridLinesStyle = DashStyle.DashDotDot.ToString();
-                        break;
-                }
-                main.lineNumbers.GridLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.gridLinesStyle);
             }
         }
 
@@ -558,7 +391,6 @@ namespace Crypto_Notepad
         {
             MainForm main = Owner as MainForm;
             main.richTextBox.Font = fontDialog.Font;
-            main.lineNumbers.Font = fontDialog.Font;
             main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
             settings.editorFont = fontDialog.Font;
         }
@@ -712,83 +544,7 @@ namespace Crypto_Notepad
             {
                 settings.PasswordIterations = passwordIterationsTextBox.Text;
             }
-        }
-
-        private void MarginLinesVisibleComboBox_DropDownClosed(object sender, EventArgs e)
-        {
-            MainForm main = Owner as MainForm;
-            if (settings.marginLinesVisible != marginLinesVisibleComboBox.Text)
-            {
-                settings.marginLinesVisible = marginLinesVisibleComboBox.Text;
-                main.lineNumbers.Show_MarginLines = bool.Parse(settings.marginLinesVisible);
-            }
-        }
-
-        private void MarginLinesSideComboBox_DropDownClosed(object sender, EventArgs e)
-        {
-            MainForm main = Owner as MainForm;
-            if (settings.marginLinesSide.ToString() != marginLinesSideComboBox.Text)
-            {
-                switch (marginLinesSideComboBox.Text)
-                {
-                    case "None":
-                        settings.marginLinesSide = LineNumbers.LineNumbers.LineNumberDockSide.None.ToString();
-                        break;
-                    case "Left":
-                        settings.marginLinesSide = LineNumbers.LineNumbers.LineNumberDockSide.Left.ToString();
-                        break;
-                    case "Right":
-                        settings.marginLinesSide = LineNumbers.LineNumbers.LineNumberDockSide.Right.ToString();
-                        break;
-                    case "Height":
-                        settings.marginLinesSide = LineNumbers.LineNumbers.LineNumberDockSide.Height.ToString();
-                        break;
-                }
-                main.lineNumbers.MarginLines_Side = (LineNumbers.LineNumbers.LineNumberDockSide)Enum.Parse(typeof(LineNumbers.LineNumbers.LineNumberDockSide), settings.marginLinesSide);
-            }
-        }
-
-        private void MarginLinesStyleComboBox_DropDownClosed(object sender, EventArgs e)
-        {
-            MainForm main = Owner as MainForm;
-            if (settings.marginLinesStyle != marginLinesStyleComboBox.Text)
-            {
-                switch (marginLinesStyleComboBox.Text)
-                {
-                    case "Solid":
-                        settings.marginLinesStyle = DashStyle.Solid.ToString();
-                        break;
-                    case "Dash":
-                        settings.marginLinesStyle = DashStyle.Dash.ToString();
-                        break;
-                    case "Dot":
-                        settings.marginLinesStyle = DashStyle.Dot.ToString();
-                        break;
-                    case "DashDot":
-                        settings.marginLinesStyle = DashStyle.DashDot.ToString();
-                        break;
-                    case "DashDotDot":
-                        settings.marginLinesStyle = DashStyle.DashDotDot.ToString();
-                        break;
-                }
-                main.lineNumbers.MarginLines_Style = (DashStyle)Enum.Parse(typeof(DashStyle), settings.marginLinesStyle);
-            }
-        }
-
-        private void MarginLinesColor_Click(object sender, EventArgs e)
-        {
-            colorDialog.Color = marginLinesColor.BackColor;
-            using (new CenterWinDialog(this))
-            {
-                if (colorDialog.ShowDialog() == DialogResult.OK)
-                {
-                    MainForm main = Owner as MainForm;
-                    main.lineNumbers.MarginLines_Color = colorDialog.Color;
-                    marginLinesColor.BackColor = colorDialog.Color;
-                    settings.marginLinesColor = colorDialog.Color;
-                }
-            }
-        }
+        }      
 
         private void MinimizeToTrayCheckBox_Click(object sender, EventArgs e)
         {

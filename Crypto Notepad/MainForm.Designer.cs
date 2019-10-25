@@ -124,7 +124,6 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.richTextBoxPanel = new System.Windows.Forms.Panel();
             this.richTextBox = new Crypto_Notepad.ExRichTextBox();
-            this.lineNumbers = new LineNumbers.LineNumbers();
             this.statusPanelTimer = new System.Windows.Forms.Timer(this.components);
             this.mainMenu.SuspendLayout();
             this.contextMenu.SuspendLayout();
@@ -1159,7 +1158,6 @@
             this.richTextBoxPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBoxPanel.Controls.Add(this.fileLockedPanel);
             this.richTextBoxPanel.Controls.Add(this.richTextBox);
-            this.richTextBoxPanel.Controls.Add(this.lineNumbers);
             this.richTextBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBoxPanel.Location = new System.Drawing.Point(0, 48);
             this.richTextBoxPanel.Name = "richTextBoxPanel";
@@ -1175,58 +1173,15 @@
             this.richTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.richTextBox.ForeColor = System.Drawing.Color.Black;
-            this.richTextBox.Location = new System.Drawing.Point(22, 0);
+            this.richTextBox.Location = new System.Drawing.Point(0, 0);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(480, 184);
+            this.richTextBox.Size = new System.Drawing.Size(502, 184);
             this.richTextBox.TabIndex = 16;
             this.richTextBox.Text = "";
             this.richTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichTextBox_LinkClicked);
             this.richTextBox.SelectionChanged += new System.EventHandler(this.RichTextBox_SelectionChanged);
             this.richTextBox.TextChanged += new System.EventHandler(this.RichTextBox_TextChanged);
             this.richTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyDown);
-            // 
-            // lineNumbers
-            // 
-            this.lineNumbers._SeeThroughMode_ = false;
-            this.lineNumbers.AutoSizing = true;
-            this.lineNumbers.BackColor = System.Drawing.SystemColors.Control;
-            this.lineNumbers.BackgroundGradient_AlphaColor = System.Drawing.Color.Transparent;
-            this.lineNumbers.BackgroundGradient_BetaColor = System.Drawing.Color.Transparent;
-            this.lineNumbers.BackgroundGradient_Direction = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.lineNumbers.BorderLines_Color = System.Drawing.Color.Transparent;
-            this.lineNumbers.BorderLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.lineNumbers.BorderLines_Thickness = 1F;
-            this.lineNumbers.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lineNumbers.DockSide = LineNumbers.LineNumbers.LineNumberDockSide.Left;
-            this.lineNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lineNumbers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(164)))), ((int)(((byte)(164)))));
-            this.lineNumbers.GridLines_Color = System.Drawing.Color.Transparent;
-            this.lineNumbers.GridLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.lineNumbers.GridLines_Thickness = 1F;
-            this.lineNumbers.LineNrs_Alignment = System.Drawing.ContentAlignment.TopCenter;
-            this.lineNumbers.LineNrs_AntiAlias = false;
-            this.lineNumbers.LineNrs_AsHexadecimal = false;
-            this.lineNumbers.LineNrs_ClippedByItemRectangle = true;
-            this.lineNumbers.LineNrs_LeadingZeroes = false;
-            this.lineNumbers.LineNrs_Offset = new System.Drawing.Size(0, 0);
-            this.lineNumbers.Location = new System.Drawing.Point(0, 0);
-            this.lineNumbers.Margin = new System.Windows.Forms.Padding(0);
-            this.lineNumbers.MarginLines_Color = System.Drawing.Color.DarkGray;
-            this.lineNumbers.MarginLines_Side = LineNumbers.LineNumbers.LineNumberDockSide.None;
-            this.lineNumbers.MarginLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.lineNumbers.MarginLines_Thickness = 1F;
-            this.lineNumbers.Name = "lineNumbers";
-            this.lineNumbers.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.lineNumbers.ParentRichTextBox = this.richTextBox;
-            this.lineNumbers.Show_BackgroundGradient = false;
-            this.lineNumbers.Show_BorderLines = false;
-            this.lineNumbers.Show_GridLines = false;
-            this.lineNumbers.Show_LineNrs = true;
-            this.lineNumbers.Show_MarginLines = false;
-            this.lineNumbers.Size = new System.Drawing.Size(22, 184);
-            this.lineNumbers.TabIndex = 19;
-            this.lineNumbers.Visible = false;
-            this.lineNumbers.VisibleChanged += new System.EventHandler(this.LineNumbers_VisibleChanged);
             // 
             // statusPanelTimer
             // 
@@ -1356,7 +1311,6 @@
         public System.Windows.Forms.TableLayoutPanel toolbarPanel;
         public ExRichTextBox richTextBox;
         public System.Windows.Forms.ToolStripMenuItem insertMainMenu;
-        public LineNumbers.LineNumbers lineNumbers;
         protected internal System.Windows.Forms.StatusStrip statusPanel;
         protected internal System.Windows.Forms.ToolStripStatusLabel statusPanelLabel;
         protected internal System.Windows.Forms.TextBox searchTextBox;
