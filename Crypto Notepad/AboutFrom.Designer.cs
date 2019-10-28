@@ -172,7 +172,7 @@
             this.rtbThirdPartyDev.RightMargin = 700;
             this.rtbThirdPartyDev.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedHorizontal;
             this.rtbThirdPartyDev.ShowSelectionMargin = true;
-            this.rtbThirdPartyDev.Size = new System.Drawing.Size(414, 101);
+            this.rtbThirdPartyDev.Size = new System.Drawing.Size(414, 99);
             this.rtbThirdPartyDev.TabIndex = 10;
             this.rtbThirdPartyDev.Text = resources.GetString("rtbThirdPartyDev.Text");
             this.rtbThirdPartyDev.WordWrap = false;
@@ -183,7 +183,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(411, 300);
+            this.ClientSize = new System.Drawing.Size(411, 298);
             this.Controls.Add(this.rtbContributors);
             this.Controls.Add(this.rtbThirdPartyDev);
             this.Controls.Add(this.lblGithub);

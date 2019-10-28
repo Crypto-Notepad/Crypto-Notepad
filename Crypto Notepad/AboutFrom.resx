@@ -368,7 +368,7 @@
 </value>
   </data>
   <data name="rtbThirdPartyDev.Text" xml:space="preserve">
-    <value>Line Numbers for RichTextBox: https://www.codeproject.com/Articles/38858/Line-Numbers-for-RichText-Control-in-C
+    <value>Custom TextBox with Watermark: https://www.codeproject.com/Articles/319910/Custom-TextBox-with-watermark
 CustomSettingsProvider: http://www.codeproject.com/Articles/20917/Settings-Provider
 MsgBoxCenterParent: http://stackoverflow.com/a/2576220/4430027
 DotNetZip: https://www.nuget.org/packages/DotNetZip/
