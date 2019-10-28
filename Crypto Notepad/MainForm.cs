@@ -1625,11 +1625,9 @@ namespace Crypto_Notepad
             if (fileLockedKeyTextBox.Text.Length > 0)
             {
                 fileLockedOkButton.Enabled = true;
-                encryptionKeyPlaceholder.Visible = false;
             }
             else
             {
-                encryptionKeyPlaceholder.Visible = true;
                 fileLockedOkButton.Enabled = false;
             }
         }

@@ -91,15 +91,7 @@ namespace Crypto_Notepad
             else
             {
                 acceptButton.Enabled = false;
-            }
-            if (oldKeyTextBox.Text.Length > 0)
-            {
-                oldKeyPlaceholder.Visible = false;
-            }
-            else
-            {
-                oldKeyPlaceholder.Visible = true;
-            }
+            }          
         }
 
         private void NewKeyTextBox_TextChanged(object sender, EventArgs e)
@@ -111,15 +103,7 @@ namespace Crypto_Notepad
             else
             {
                 acceptButton.Enabled = false;
-            }
-            if (newKeyTextBox.Text.Length > 0)
-            {
-                newKeyPlaceholder.Visible = false;
-            }
-            else
-            {
-                newKeyPlaceholder.Visible = true;
-            }
+            }           
         }
 
         private void NewKeyPlaceholder_Click(object sender, EventArgs e)
@@ -129,13 +113,6 @@ namespace Crypto_Notepad
         private void OldKeyPlaceholder_Click(object sender, EventArgs e)
         {
             oldKeyTextBox.Focus();
-        }
-        private void NewKeyTextBox_Leave(object sender, EventArgs e)
-        {
-            if (newKeyTextBox.Text.Length == 0)
-            {
-                newKeyPlaceholder.Visible = true;
-            }
         }
 
         private void NewKeyTextBox_KeyDown(object sender, KeyEventArgs e)

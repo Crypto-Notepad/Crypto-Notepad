@@ -29,27 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnterKeyForm));
-            this.keyTextBox = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.encryptionKeyPlaceholder = new System.Windows.Forms.Label();
             this.lockPictureBox = new System.Windows.Forms.PictureBox();
             this.fileNameLabel = new System.Windows.Forms.Label();
             this.showKeyPictureBox = new System.Windows.Forms.PictureBox();
+            this.keyTextBox = new System.Windows.Forms.PlaceholderTextBox();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lockPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.showKeyPictureBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // keyTextBox
-            // 
-            this.keyTextBox.Location = new System.Drawing.Point(64, 37);
-            this.keyTextBox.Name = "keyTextBox";
-            this.keyTextBox.Size = new System.Drawing.Size(177, 22);
-            this.keyTextBox.TabIndex = 0;
-            this.keyTextBox.UseSystemPasswordChar = true;
-            this.keyTextBox.TextChanged += new System.EventHandler(this.KeyTextBox_TextChanged);
-            this.keyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyTextBox_KeyDown);
             // 
             // okButton
             // 
@@ -65,7 +54,6 @@
             // mainPanel
             // 
             this.mainPanel.BackColor = System.Drawing.Color.White;
-            this.mainPanel.Controls.Add(this.encryptionKeyPlaceholder);
             this.mainPanel.Controls.Add(this.lockPictureBox);
             this.mainPanel.Controls.Add(this.fileNameLabel);
             this.mainPanel.Controls.Add(this.keyTextBox);
@@ -75,18 +63,6 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(269, 75);
             this.mainPanel.TabIndex = 5;
-            // 
-            // encryptionKeyPlaceholder
-            // 
-            this.encryptionKeyPlaceholder.AutoSize = true;
-            this.encryptionKeyPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.encryptionKeyPlaceholder.Enabled = false;
-            this.encryptionKeyPlaceholder.ForeColor = System.Drawing.Color.DarkGray;
-            this.encryptionKeyPlaceholder.Location = new System.Drawing.Point(68, 40);
-            this.encryptionKeyPlaceholder.Name = "encryptionKeyPlaceholder";
-            this.encryptionKeyPlaceholder.Size = new System.Drawing.Size(82, 13);
-            this.encryptionKeyPlaceholder.TabIndex = 9;
-            this.encryptionKeyPlaceholder.Text = "Encryption key";
             // 
             // lockPictureBox
             // 
@@ -123,6 +99,20 @@
             this.showKeyPictureBox.TabStop = false;
             this.showKeyPictureBox.Click += new System.EventHandler(this.ShowKeyPictureBox_Click);
             // 
+            // keyTextBox
+            // 
+            this.keyTextBox.Location = new System.Drawing.Point(64, 37);
+            this.keyTextBox.Name = "keyTextBox";
+            this.keyTextBox.Size = new System.Drawing.Size(177, 22);
+            this.keyTextBox.TabIndex = 0;
+            this.keyTextBox.UseSystemPasswordChar = true;
+            this.keyTextBox.Placeholder = "Encryption key";
+            this.keyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
+            this.keyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.keyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.keyTextBox.TextChanged += new System.EventHandler(this.KeyTextBox_TextChanged);
+            this.keyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyTextBox_KeyDown);
+            // 
             // EnterKeyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,7 +145,6 @@
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Label fileNameLabel;
         private System.Windows.Forms.PictureBox lockPictureBox;
-        public System.Windows.Forms.TextBox keyTextBox;
-        private System.Windows.Forms.Label encryptionKeyPlaceholder;
+        public System.Windows.Forms.PlaceholderTextBox keyTextBox;
     }
 }

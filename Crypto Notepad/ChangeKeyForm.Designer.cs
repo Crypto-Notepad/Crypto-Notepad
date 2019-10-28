@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.oldKeyTextBox = new System.Windows.Forms.TextBox();
-            this.newKeyTextBox = new System.Windows.Forms.TextBox();
+            this.oldKeyTextBox = new System.Windows.Forms.PlaceholderTextBox();
+            this.newKeyTextBox = new System.Windows.Forms.PlaceholderTextBox();
             this.acceptButton = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.oldKeyPlaceholder = new System.Windows.Forms.Label();
-            this.newKeyPlaceholder = new System.Windows.Forms.Label();
             this.lockPictureBox = new System.Windows.Forms.PictureBox();
             this.showNewKeyPictureBox = new System.Windows.Forms.PictureBox();
             this.showOldKeyPictureBox = new System.Windows.Forms.PictureBox();
@@ -51,6 +49,10 @@
             this.oldKeyTextBox.Size = new System.Drawing.Size(177, 22);
             this.oldKeyTextBox.TabIndex = 0;
             this.oldKeyTextBox.UseSystemPasswordChar = true;
+            this.oldKeyTextBox.Placeholder = "Old key";
+            this.oldKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
+            this.oldKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.oldKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
             this.oldKeyTextBox.TextChanged += new System.EventHandler(this.OldKeyTextBox_TextChanged);
             this.oldKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OldKeyTextBox_KeyDown);
             // 
@@ -61,9 +63,12 @@
             this.newKeyTextBox.Size = new System.Drawing.Size(177, 22);
             this.newKeyTextBox.TabIndex = 1;
             this.newKeyTextBox.UseSystemPasswordChar = true;
+            this.newKeyTextBox.Placeholder = "New key";
+            this.newKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
+            this.newKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.newKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
             this.newKeyTextBox.TextChanged += new System.EventHandler(this.NewKeyTextBox_TextChanged);
             this.newKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NewKeyTextBox_KeyDown);
-            this.newKeyTextBox.Leave += new System.EventHandler(this.NewKeyTextBox_Leave);
             // 
             // acceptButton
             // 
@@ -79,8 +84,6 @@
             // mainPanel
             // 
             this.mainPanel.BackColor = System.Drawing.Color.White;
-            this.mainPanel.Controls.Add(this.oldKeyPlaceholder);
-            this.mainPanel.Controls.Add(this.newKeyPlaceholder);
             this.mainPanel.Controls.Add(this.lockPictureBox);
             this.mainPanel.Controls.Add(this.showNewKeyPictureBox);
             this.mainPanel.Controls.Add(this.showOldKeyPictureBox);
@@ -91,32 +94,6 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(269, 75);
             this.mainPanel.TabIndex = 6;
-            // 
-            // oldKeyPlaceholder
-            // 
-            this.oldKeyPlaceholder.AutoSize = true;
-            this.oldKeyPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.oldKeyPlaceholder.Enabled = false;
-            this.oldKeyPlaceholder.ForeColor = System.Drawing.Color.DarkGray;
-            this.oldKeyPlaceholder.Location = new System.Drawing.Point(67, 16);
-            this.oldKeyPlaceholder.Name = "oldKeyPlaceholder";
-            this.oldKeyPlaceholder.Size = new System.Drawing.Size(46, 13);
-            this.oldKeyPlaceholder.TabIndex = 8;
-            this.oldKeyPlaceholder.Text = "Old key";
-            this.oldKeyPlaceholder.Click += new System.EventHandler(this.OldKeyPlaceholder_Click);
-            // 
-            // newKeyPlaceholder
-            // 
-            this.newKeyPlaceholder.AutoSize = true;
-            this.newKeyPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.newKeyPlaceholder.Enabled = false;
-            this.newKeyPlaceholder.ForeColor = System.Drawing.Color.DarkGray;
-            this.newKeyPlaceholder.Location = new System.Drawing.Point(67, 41);
-            this.newKeyPlaceholder.Name = "newKeyPlaceholder";
-            this.newKeyPlaceholder.Size = new System.Drawing.Size(50, 13);
-            this.newKeyPlaceholder.TabIndex = 2;
-            this.newKeyPlaceholder.Text = "New key";
-            this.newKeyPlaceholder.Click += new System.EventHandler(this.NewKeyPlaceholder_Click);
             // 
             // lockPictureBox
             // 
@@ -194,15 +171,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox oldKeyTextBox;
-        private System.Windows.Forms.TextBox newKeyTextBox;
+        private System.Windows.Forms.PlaceholderTextBox oldKeyTextBox;
+        private System.Windows.Forms.PlaceholderTextBox newKeyTextBox;
         private System.Windows.Forms.Button acceptButton;
         private System.Windows.Forms.PictureBox showOldKeyPictureBox;
         private System.Windows.Forms.PictureBox showNewKeyPictureBox;
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.PictureBox lockPictureBox;
         private System.Windows.Forms.Label statusLabel;
-        private System.Windows.Forms.Label newKeyPlaceholder;
-        private System.Windows.Forms.Label oldKeyPlaceholder;
     }
 }

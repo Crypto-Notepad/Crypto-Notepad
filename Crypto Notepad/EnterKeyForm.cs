@@ -43,12 +43,10 @@ namespace Crypto_Notepad
             if (keyTextBox.Text.Length > 0)
             {
                 okButton.Enabled = true;
-                encryptionKeyPlaceholder.Visible = false;
             }
             else
             {
                 okButton.Enabled = false;
-                encryptionKeyPlaceholder.Visible = true;
             }
         }
 

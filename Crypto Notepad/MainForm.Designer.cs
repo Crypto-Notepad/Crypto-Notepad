@@ -115,10 +115,9 @@
             this.showTrayMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.exitTrayMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.fileLockedPanel = new System.Windows.Forms.Panel();
-            this.encryptionKeyPlaceholder = new System.Windows.Forms.Label();
             this.fileLockedCloseButton = new System.Windows.Forms.Button();
             this.fileLockedOkButton = new System.Windows.Forms.Button();
-            this.fileLockedKeyTextBox = new System.Windows.Forms.TextBox();
+            this.fileLockedKeyTextBox = new System.Windows.Forms.PlaceholderTextBox();
             this.fileLockedShowKey = new System.Windows.Forms.PictureBox();
             this.fileLockedLabel = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -1058,7 +1057,6 @@
             this.fileLockedPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.fileLockedPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.fileLockedPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.fileLockedPanel.Controls.Add(this.encryptionKeyPlaceholder);
             this.fileLockedPanel.Controls.Add(this.fileLockedCloseButton);
             this.fileLockedPanel.Controls.Add(this.fileLockedOkButton);
             this.fileLockedPanel.Controls.Add(this.fileLockedKeyTextBox);
@@ -1072,19 +1070,6 @@
             this.fileLockedPanel.TabIndex = 20;
             this.fileLockedPanel.Visible = false;
             this.fileLockedPanel.VisibleChanged += new System.EventHandler(this.FileLockedPanel_VisibleChanged);
-            // 
-            // encryptionKeyPlaceholder
-            // 
-            this.encryptionKeyPlaceholder.AutoSize = true;
-            this.encryptionKeyPlaceholder.BackColor = System.Drawing.SystemColors.Window;
-            this.encryptionKeyPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.encryptionKeyPlaceholder.Enabled = false;
-            this.encryptionKeyPlaceholder.ForeColor = System.Drawing.Color.DarkGray;
-            this.encryptionKeyPlaceholder.Location = new System.Drawing.Point(11, 37);
-            this.encryptionKeyPlaceholder.Name = "encryptionKeyPlaceholder";
-            this.encryptionKeyPlaceholder.Size = new System.Drawing.Size(82, 13);
-            this.encryptionKeyPlaceholder.TabIndex = 12;
-            this.encryptionKeyPlaceholder.Text = "Encryption key";
             // 
             // fileLockedCloseButton
             // 
@@ -1125,6 +1110,10 @@
             this.fileLockedKeyTextBox.Size = new System.Drawing.Size(231, 22);
             this.fileLockedKeyTextBox.TabIndex = 8;
             this.fileLockedKeyTextBox.UseSystemPasswordChar = true;
+            this.fileLockedKeyTextBox.Placeholder = "Encryption key";
+            this.fileLockedKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
+            this.fileLockedKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.fileLockedKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
             this.fileLockedKeyTextBox.TextChanged += new System.EventHandler(this.FileLockedKeyTextBox_TextChanged);
             this.fileLockedKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FileLockedKeyTextBox_KeyDown);
             // 
@@ -1330,8 +1319,7 @@
         private System.Windows.Forms.ContextMenuStrip trayMenu;
         private System.Windows.Forms.ToolStripMenuItem showTrayMenu;
         private System.Windows.Forms.ToolStripMenuItem exitTrayMenu;
-        private System.Windows.Forms.Label encryptionKeyPlaceholder;
-        protected internal System.Windows.Forms.TextBox fileLockedKeyTextBox;
+        protected internal System.Windows.Forms.PlaceholderTextBox fileLockedKeyTextBox;
         protected internal System.Windows.Forms.Panel richTextBoxPanel;
         protected internal System.Windows.Forms.Label searchFindNextButton;
         protected internal System.Windows.Forms.Label searchCloseButton;
