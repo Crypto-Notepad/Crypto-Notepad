@@ -9,4 +9,4 @@ community_bridge: # Replace with a single Community Bridge project-name e.g., cl
 liberapay: sigmanor
 issuehunt: #
 otechie: # Replace with a single Otechie username
-custom: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AK9FYCBAHV4U8&source=url
+custom: paypal.me/sigmanor
