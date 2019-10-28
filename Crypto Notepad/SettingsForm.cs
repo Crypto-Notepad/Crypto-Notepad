@@ -351,6 +351,7 @@ namespace Crypto_Notepad
                     MainForm main = Owner as MainForm;
                     main.richTextBox.Font = fontDialog.Font;
                     main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
+                    settings.editorFont = fontDialog.Font;
                 }
             }
         }
