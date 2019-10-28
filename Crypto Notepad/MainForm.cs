@@ -36,9 +36,16 @@ namespace Crypto_Notepad
         {
             const int WM_SYSCOMMAND = 0x112;
             const int SC_MINIMIZE = 0xF020;
-            if (m.Msg == WM_SYSCOMMAND & m.WParam.ToInt32() == SC_MINIMIZE & settings.autoLock & !string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
+            try
             {
-                richTextBox.Visible = false;
+                if (m.Msg == WM_SYSCOMMAND & m.WParam.ToInt32() == SC_MINIMIZE & settings.autoLock & !string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
+                {
+                    richTextBox.Visible = false;
+                }
+            }
+            catch (OverflowException)
+            {
+
             }
             base.WndProc(ref m);
         }
