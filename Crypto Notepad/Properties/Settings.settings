@@ -53,33 +53,6 @@
     <Setting Name="menuIcons" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="lineNumbersVisible" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="lineNumbersBackColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">240, 240, 240</Value>
-    </Setting>
-    <Setting Name="lineNumbersForeColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">164, 164, 164</Value>
-    </Setting>
-    <Setting Name="borderLinesVisible" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="borderLinesColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">164, 164, 164</Value>
-    </Setting>
-    <Setting Name="borderLinesStyle" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Solid</Value>
-    </Setting>
-    <Setting Name="gridLinesVisible" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="gridLinesColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">164, 164, 164</Value>
-    </Setting>
-    <Setting Name="gridLinesStyle" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Solid</Value>
-    </Setting>
     <Setting Name="insertKey" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">Enable</Value>
     </Setting>
@@ -124,18 +97,6 @@
     </Setting>
     <Setting Name="oldToolbarIcons" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="marginLinesVisible" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="marginLinesColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">164, 164, 164</Value>
-    </Setting>
-    <Setting Name="marginLinesSide" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Right</Value>
-    </Setting>
-    <Setting Name="marginLinesStyle" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Solid</Value>
     </Setting>
     <Setting Name="minimizeToTray" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
