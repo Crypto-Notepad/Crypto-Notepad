@@ -18,7 +18,7 @@ namespace Crypto_Notepad
         }
 
 
-        /*Methods*/
+        #region Methods
         private void LoadSettings()
         {
             editorFontColor.BackColor = settings.editroForeColor;
@@ -28,7 +28,6 @@ namespace Crypto_Notepad
             editorOpenLinksWithComboBox.Text = settings.openLinks;
             editorBorderComboBox.Text = settings.editorBorder;
             fontDialog.Font = settings.editorFont;
-
             autoLockOnMinimizeCheckBox.Checked = settings.autoLock;
             autoCheckUpdatesCheckBox.Checked = settings.autoCheckUpdate;
             mainMenuCheckBox.Checked = settings.mainMenuVisible;
@@ -36,25 +35,20 @@ namespace Crypto_Notepad
             minimizeToTrayCheckBox.Checked = settings.minimizeToTray;
             closeToTrayCheckBox.Checked = settings.closeToTray;
             singleInstanceCheckBox.Checked = settings.singleInstance;
-
             integrateCheckBox.Checked = settings.explorerIntegrate;
             associateCheckBox.Checked = settings.explorerAssociate;
             sendToCheckBox.Checked = settings.explorerSendTo;
-
             hashAlgorithmComboBox.Text = settings.HashAlgorithm;
             keySizeComboBox.Text = settings.KeySize;
             passwordIterationsTextBox.Text = settings.PasswordIterations;
-
             searchBackColor.BackColor = settings.searchPanelBackColor;
             searchFontColor.BackColor = settings.searchPanelForeColor;
             searchBorderComboBox.Text = settings.searchPanelBorder;
-
             toolbarBackColor.BackColor = settings.toolbarBackColor;
             toolbarBorderCheckBox.Checked = settings.toolbarBorder;
             toolbarVisibleCheckBox.Checked = settings.toolbarVisible;
             toolbarOldIconsCheckBox.Checked = settings.oldToolbarIcons;
             toolbarCloseButtonCheckBox.Checked = settings.toolbarCloseButton;
-
             statusPanelBackColor.BackColor = settings.statusPanelBackColor;
             statusPanelFontColor.BackColor = settings.statusPanelFontColor;
             statusPanelVisibleCheckBox.Checked = settings.statusPanelVisible;
@@ -113,7 +107,6 @@ namespace Crypto_Notepad
                     key.CreateSubKey(@"Crypto Notepad\shell\cmd2\command").SetValue(string.Empty, "\"" + appExePath + "\" \"%1\" /o");
 
                 }
-
                 if (action == "disable")
                 {
                     RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Classes\*\shell\", true);
@@ -141,10 +134,10 @@ namespace Crypto_Notepad
             shortcut.Arguments = "/s";
             shortcut.Save();
         }
-        /*Methods*/
+        #endregion
 
 
-        /*Form Events*/
+        #region Form Events
         private void SettingsForm_Load(object sender, EventArgs e)
         {
             string custom_colors = settings.customColor;
@@ -180,10 +173,25 @@ namespace Crypto_Notepad
             }
             settings.Save();
         }
-        /*Form Events*/
+
+        private void EditorPaddingLeftTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void PasswordIterationsTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        #endregion
 
 
-        /*Settings Section*/
+        #region Settings Section
         private void EditorFontColor_Click(object sender, EventArgs e)
         {
             colorDialog.Color = editorFontColor.BackColor;
@@ -240,9 +248,7 @@ namespace Crypto_Notepad
                 case 6:
                     settingsTabControl.SelectedTab = integrationTabPage;
                     break;
-            }
-
-            
+            }            
         }
 
         private void SettingsTabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -269,7 +275,6 @@ namespace Crypto_Notepad
                 DissociateExtension(Assembly.GetEntryAssembly().Location, "cnp");
             }
             settings.explorerAssociate = associateCheckBox.Checked;
-
         }
 
         private void IntegrateCheckBox_Click(object sender, EventArgs e)
@@ -296,8 +301,7 @@ namespace Crypto_Notepad
                     main.richTextBox.Refresh();
                     settings.editorPaddingLeft = editorPaddingLeftTextBox.Text;
                 }
-            }     
-           
+            }               
         }
 
         private void SendToCheckBox_Click(object sender, EventArgs e)
@@ -315,7 +319,6 @@ namespace Crypto_Notepad
                 }
             }
             settings.explorerSendTo = sendToCheckBox.Checked;
-
         }
 
         private void EditorInsertKeyComboBox_DropDownClosed(object sender, EventArgs e)
@@ -369,22 +372,6 @@ namespace Crypto_Notepad
             if (hashAlgorithmComboBox.Text != settings.HashAlgorithm)
             {
                 settings.HashAlgorithm = hashAlgorithmComboBox.Text;
-            }
-        }
-
-        private void EditorPaddingLeftTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void PasswordIterationsTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
             }
         }
 
@@ -600,7 +587,7 @@ namespace Crypto_Notepad
         {
             settings.singleInstance = singleInstanceCheckBox.Checked;
         }
-        /*Settings Section*/
+        #endregion
 
 
     }
