@@ -50,7 +50,7 @@ namespace Crypto_Notepad
             base.WndProc(ref m);
         }
 
-        static string SizeSuffix(Int64 value)
+        static string SizeSuffix(long value)
         {
             if (value < 0) { return "-" + SizeSuffix(-value); }
 
