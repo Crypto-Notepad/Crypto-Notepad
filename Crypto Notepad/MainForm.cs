@@ -50,6 +50,7 @@ namespace Crypto_Notepad
             base.WndProc(ref m);
         }
 
+        #region Methods
         static string SizeSuffix(long value)
         {
             if (value < 0) { return "-" + SizeSuffix(-value); }
@@ -65,7 +66,6 @@ namespace Crypto_Notepad
             return string.Format("{0:n1} {1}", dValue, SizeSuffixes[i]);
         }
 
-        #region Methods
         private void DecryptAES()
         {
             EnterKeyForm enterKeyForm = new EnterKeyForm
@@ -1774,8 +1774,6 @@ namespace Crypto_Notepad
             Debug.WriteLine("EditorMenuStrip: " + contextMenu.Enabled);
 #endif
         }
-
-
         #endregion
 
 
