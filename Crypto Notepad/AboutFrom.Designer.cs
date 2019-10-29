@@ -29,154 +29,154 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutFrom));
-            this.lblAppVersion = new System.Windows.Forms.Label();
-            this.picLogo = new System.Windows.Forms.PictureBox();
-            this.lblThirdPartyDev = new System.Windows.Forms.Label();
-            this.lblAuthor = new System.Windows.Forms.LinkLabel();
-            this.lblLicense = new System.Windows.Forms.LinkLabel();
-            this.lblGithub = new System.Windows.Forms.LinkLabel();
-            this.lblContributors = new System.Windows.Forms.Label();
-            this.rtbContributors = new Crypto_Notepad.ExRichTextBox();
-            this.rtbThirdPartyDev = new Crypto_Notepad.ExRichTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            this.appVersionLabel = new System.Windows.Forms.Label();
+            this.appLogoPictureBox = new System.Windows.Forms.PictureBox();
+            this.thirdPartyDevLabel = new System.Windows.Forms.Label();
+            this.appInfoLabel1 = new System.Windows.Forms.LinkLabel();
+            this.appInfoLabel2 = new System.Windows.Forms.LinkLabel();
+            this.appInfoLabel3 = new System.Windows.Forms.LinkLabel();
+            this.contributorsLabel = new System.Windows.Forms.Label();
+            this.contributorsRichTextBox = new Crypto_Notepad.ExRichTextBox();
+            this.thirdPartyDevRichTextBox = new Crypto_Notepad.ExRichTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.appLogoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblAppVersion
+            // appVersionLabel
             // 
-            this.lblAppVersion.AutoSize = true;
-            this.lblAppVersion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblAppVersion.Font = new System.Drawing.Font("Consolas", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblAppVersion.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblAppVersion.Location = new System.Drawing.Point(5, 9);
-            this.lblAppVersion.Name = "lblAppVersion";
-            this.lblAppVersion.Size = new System.Drawing.Size(220, 22);
-            this.lblAppVersion.TabIndex = 0;
-            this.lblAppVersion.Text = "Crypto Notepad v1.0.0";
-            this.lblAppVersion.Click += new System.EventHandler(this.LblAppVersion_Click);
+            this.appVersionLabel.AutoSize = true;
+            this.appVersionLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.appVersionLabel.Font = new System.Drawing.Font("Consolas", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.appVersionLabel.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.appVersionLabel.Location = new System.Drawing.Point(5, 9);
+            this.appVersionLabel.Name = "appVersionLabel";
+            this.appVersionLabel.Size = new System.Drawing.Size(220, 22);
+            this.appVersionLabel.TabIndex = 0;
+            this.appVersionLabel.Text = "Crypto Notepad v1.0.0";
+            this.appVersionLabel.Click += new System.EventHandler(this.AppVersionLabel_Click);
             // 
-            // picLogo
+            // appLogoPictureBox
             // 
-            this.picLogo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picLogo.Image = ((System.Drawing.Image)(resources.GetObject("picLogo.Image")));
-            this.picLogo.Location = new System.Drawing.Point(341, 2);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(77, 68);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLogo.TabIndex = 1;
-            this.picLogo.TabStop = false;
-            this.picLogo.Click += new System.EventHandler(this.PicLogo_Click);
+            this.appLogoPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.appLogoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("appLogoPictureBox.Image")));
+            this.appLogoPictureBox.Location = new System.Drawing.Point(341, 2);
+            this.appLogoPictureBox.Name = "appLogoPictureBox";
+            this.appLogoPictureBox.Size = new System.Drawing.Size(77, 68);
+            this.appLogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.appLogoPictureBox.TabIndex = 1;
+            this.appLogoPictureBox.TabStop = false;
+            this.appLogoPictureBox.Click += new System.EventHandler(this.AppLogoPictureBox_Click);
             // 
-            // lblThirdPartyDev
+            // thirdPartyDevLabel
             // 
-            this.lblThirdPartyDev.AutoSize = true;
-            this.lblThirdPartyDev.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblThirdPartyDev.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblThirdPartyDev.Location = new System.Drawing.Point(5, 178);
-            this.lblThirdPartyDev.Name = "lblThirdPartyDev";
-            this.lblThirdPartyDev.Size = new System.Drawing.Size(200, 18);
-            this.lblThirdPartyDev.TabIndex = 4;
-            this.lblThirdPartyDev.Text = "Third-party developments";
+            this.thirdPartyDevLabel.AutoSize = true;
+            this.thirdPartyDevLabel.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.thirdPartyDevLabel.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.thirdPartyDevLabel.Location = new System.Drawing.Point(5, 178);
+            this.thirdPartyDevLabel.Name = "thirdPartyDevLabel";
+            this.thirdPartyDevLabel.Size = new System.Drawing.Size(200, 18);
+            this.thirdPartyDevLabel.TabIndex = 4;
+            this.thirdPartyDevLabel.Text = "Third-party developments";
             // 
-            // lblAuthor
+            // appInfoLabel1
             // 
-            this.lblAuthor.ActiveLinkColor = System.Drawing.Color.White;
-            this.lblAuthor.AutoSize = true;
-            this.lblAuthor.DisabledLinkColor = System.Drawing.Color.White;
-            this.lblAuthor.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblAuthor.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblAuthor.LinkArea = new System.Windows.Forms.LinkArea(38, 8);
-            this.lblAuthor.LinkColor = System.Drawing.Color.White;
-            this.lblAuthor.Location = new System.Drawing.Point(8, 38);
-            this.lblAuthor.Name = "lblAuthor";
-            this.lblAuthor.Size = new System.Drawing.Size(317, 19);
-            this.lblAuthor.TabIndex = 9;
-            this.lblAuthor.TabStop = true;
-            this.lblAuthor.Text = "This is an open-source app created by Sigmanor";
-            this.lblAuthor.UseCompatibleTextRendering = true;
-            this.lblAuthor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblAuthor_LinkClicked);
+            this.appInfoLabel1.ActiveLinkColor = System.Drawing.Color.White;
+            this.appInfoLabel1.AutoSize = true;
+            this.appInfoLabel1.DisabledLinkColor = System.Drawing.Color.White;
+            this.appInfoLabel1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.appInfoLabel1.ForeColor = System.Drawing.SystemColors.Control;
+            this.appInfoLabel1.LinkArea = new System.Windows.Forms.LinkArea(38, 8);
+            this.appInfoLabel1.LinkColor = System.Drawing.Color.White;
+            this.appInfoLabel1.Location = new System.Drawing.Point(8, 38);
+            this.appInfoLabel1.Name = "appInfoLabel1";
+            this.appInfoLabel1.Size = new System.Drawing.Size(317, 19);
+            this.appInfoLabel1.TabIndex = 9;
+            this.appInfoLabel1.TabStop = true;
+            this.appInfoLabel1.Text = "This is an open-source app created by Sigmanor";
+            this.appInfoLabel1.UseCompatibleTextRendering = true;
+            this.appInfoLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.AppInfoLabel1_LinkClicked);
             // 
-            // lblLicense
+            // appInfoLabel2
             // 
-            this.lblLicense.ActiveLinkColor = System.Drawing.Color.White;
-            this.lblLicense.AutoSize = true;
-            this.lblLicense.DisabledLinkColor = System.Drawing.Color.White;
-            this.lblLicense.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblLicense.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblLicense.LinkArea = new System.Windows.Forms.LinkArea(18, 3);
-            this.lblLicense.LinkColor = System.Drawing.Color.White;
-            this.lblLicense.Location = new System.Drawing.Point(8, 57);
-            this.lblLicense.Name = "lblLicense";
-            this.lblLicense.Size = new System.Drawing.Size(202, 19);
-            this.lblLicense.TabIndex = 9;
-            this.lblLicense.TabStop = true;
-            this.lblLicense.Text = "Distributed under MIT license";
-            this.lblLicense.UseCompatibleTextRendering = true;
-            this.lblLicense.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblLicense_LinkClicked);
+            this.appInfoLabel2.ActiveLinkColor = System.Drawing.Color.White;
+            this.appInfoLabel2.AutoSize = true;
+            this.appInfoLabel2.DisabledLinkColor = System.Drawing.Color.White;
+            this.appInfoLabel2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.appInfoLabel2.ForeColor = System.Drawing.SystemColors.Control;
+            this.appInfoLabel2.LinkArea = new System.Windows.Forms.LinkArea(18, 3);
+            this.appInfoLabel2.LinkColor = System.Drawing.Color.White;
+            this.appInfoLabel2.Location = new System.Drawing.Point(8, 57);
+            this.appInfoLabel2.Name = "appInfoLabel2";
+            this.appInfoLabel2.Size = new System.Drawing.Size(202, 19);
+            this.appInfoLabel2.TabIndex = 9;
+            this.appInfoLabel2.TabStop = true;
+            this.appInfoLabel2.Text = "Distributed under MIT license";
+            this.appInfoLabel2.UseCompatibleTextRendering = true;
+            this.appInfoLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.AppInfoLabel1_LinkClicked);
             // 
-            // lblGithub
+            // appInfoLabel3
             // 
-            this.lblGithub.ActiveLinkColor = System.Drawing.Color.White;
-            this.lblGithub.AutoSize = true;
-            this.lblGithub.DisabledLinkColor = System.Drawing.Color.White;
-            this.lblGithub.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblGithub.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblGithub.LinkArea = new System.Windows.Forms.LinkArea(52, 6);
-            this.lblGithub.LinkColor = System.Drawing.Color.White;
-            this.lblGithub.Location = new System.Drawing.Point(8, 75);
-            this.lblGithub.Name = "lblGithub";
-            this.lblGithub.Size = new System.Drawing.Size(399, 19);
-            this.lblGithub.TabIndex = 9;
-            this.lblGithub.TabStop = true;
-            this.lblGithub.Text = "The source code, issues and documentation posted on GitHub";
-            this.lblGithub.UseCompatibleTextRendering = true;
-            this.lblGithub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblGithub_LinkClicked);
+            this.appInfoLabel3.ActiveLinkColor = System.Drawing.Color.White;
+            this.appInfoLabel3.AutoSize = true;
+            this.appInfoLabel3.DisabledLinkColor = System.Drawing.Color.White;
+            this.appInfoLabel3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.appInfoLabel3.ForeColor = System.Drawing.SystemColors.Control;
+            this.appInfoLabel3.LinkArea = new System.Windows.Forms.LinkArea(52, 6);
+            this.appInfoLabel3.LinkColor = System.Drawing.Color.White;
+            this.appInfoLabel3.Location = new System.Drawing.Point(8, 75);
+            this.appInfoLabel3.Name = "appInfoLabel3";
+            this.appInfoLabel3.Size = new System.Drawing.Size(399, 19);
+            this.appInfoLabel3.TabIndex = 9;
+            this.appInfoLabel3.TabStop = true;
+            this.appInfoLabel3.Text = "The source code, issues and documentation posted on GitHub";
+            this.appInfoLabel3.UseCompatibleTextRendering = true;
+            this.appInfoLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.AppInfoLabel3_LinkClicked);
             // 
-            // lblContributors
+            // contributorsLabel
             // 
-            this.lblContributors.AutoSize = true;
-            this.lblContributors.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblContributors.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblContributors.Location = new System.Drawing.Point(5, 105);
-            this.lblContributors.Name = "lblContributors";
-            this.lblContributors.Size = new System.Drawing.Size(168, 18);
-            this.lblContributors.TabIndex = 4;
-            this.lblContributors.Text = "Contributors/testers";
+            this.contributorsLabel.AutoSize = true;
+            this.contributorsLabel.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.contributorsLabel.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.contributorsLabel.Location = new System.Drawing.Point(5, 105);
+            this.contributorsLabel.Name = "contributorsLabel";
+            this.contributorsLabel.Size = new System.Drawing.Size(168, 18);
+            this.contributorsLabel.TabIndex = 4;
+            this.contributorsLabel.Text = "Contributors/testers";
             // 
-            // rtbContributors
+            // contributorsRichTextBox
             // 
-            this.rtbContributors.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.rtbContributors.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbContributors.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rtbContributors.ForeColor = System.Drawing.SystemColors.Control;
-            this.rtbContributors.Location = new System.Drawing.Point(-1, 126);
-            this.rtbContributors.Name = "rtbContributors";
-            this.rtbContributors.ReadOnly = true;
-            this.rtbContributors.RightMargin = 700;
-            this.rtbContributors.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtbContributors.ShowSelectionMargin = true;
-            this.rtbContributors.Size = new System.Drawing.Size(414, 50);
-            this.rtbContributors.TabIndex = 11;
-            this.rtbContributors.Text = "h5p9sl https://github.com/h5p9sl\nsmaragdus https://github.com/smaragdus";
-            this.rtbContributors.WordWrap = false;
-            this.rtbContributors.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RtbContributors_LinkClicked);
+            this.contributorsRichTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.contributorsRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.contributorsRichTextBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.contributorsRichTextBox.ForeColor = System.Drawing.SystemColors.Control;
+            this.contributorsRichTextBox.Location = new System.Drawing.Point(-1, 126);
+            this.contributorsRichTextBox.Name = "contributorsRichTextBox";
+            this.contributorsRichTextBox.ReadOnly = true;
+            this.contributorsRichTextBox.RightMargin = 700;
+            this.contributorsRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.contributorsRichTextBox.ShowSelectionMargin = true;
+            this.contributorsRichTextBox.Size = new System.Drawing.Size(414, 50);
+            this.contributorsRichTextBox.TabIndex = 11;
+            this.contributorsRichTextBox.Text = "h5p9sl https://github.com/h5p9sl\nsmaragdus https://github.com/smaragdus";
+            this.contributorsRichTextBox.WordWrap = false;
+            this.contributorsRichTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.ContributorsRichTextBox_LinkClicked);
             // 
-            // rtbThirdPartyDev
+            // thirdPartyDevRichTextBox
             // 
-            this.rtbThirdPartyDev.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.rtbThirdPartyDev.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbThirdPartyDev.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rtbThirdPartyDev.ForeColor = System.Drawing.SystemColors.Control;
-            this.rtbThirdPartyDev.Location = new System.Drawing.Point(-1, 199);
-            this.rtbThirdPartyDev.Name = "rtbThirdPartyDev";
-            this.rtbThirdPartyDev.ReadOnly = true;
-            this.rtbThirdPartyDev.RightMargin = 700;
-            this.rtbThirdPartyDev.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedHorizontal;
-            this.rtbThirdPartyDev.ShowSelectionMargin = true;
-            this.rtbThirdPartyDev.Size = new System.Drawing.Size(414, 99);
-            this.rtbThirdPartyDev.TabIndex = 10;
-            this.rtbThirdPartyDev.Text = resources.GetString("rtbThirdPartyDev.Text");
-            this.rtbThirdPartyDev.WordWrap = false;
-            this.rtbThirdPartyDev.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RtbThirdPartyDev_LinkClicked);
+            this.thirdPartyDevRichTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.thirdPartyDevRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.thirdPartyDevRichTextBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.thirdPartyDevRichTextBox.ForeColor = System.Drawing.SystemColors.Control;
+            this.thirdPartyDevRichTextBox.Location = new System.Drawing.Point(-1, 199);
+            this.thirdPartyDevRichTextBox.Name = "thirdPartyDevRichTextBox";
+            this.thirdPartyDevRichTextBox.ReadOnly = true;
+            this.thirdPartyDevRichTextBox.RightMargin = 700;
+            this.thirdPartyDevRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedHorizontal;
+            this.thirdPartyDevRichTextBox.ShowSelectionMargin = true;
+            this.thirdPartyDevRichTextBox.Size = new System.Drawing.Size(414, 99);
+            this.thirdPartyDevRichTextBox.TabIndex = 10;
+            this.thirdPartyDevRichTextBox.Text = resources.GetString("thirdPartyDevRichTextBox.Text");
+            this.thirdPartyDevRichTextBox.WordWrap = false;
+            this.thirdPartyDevRichTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.ThirdPartyDevRichTextBox_LinkClicked);
             // 
             // AboutFrom
             // 
@@ -184,15 +184,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(411, 298);
-            this.Controls.Add(this.rtbContributors);
-            this.Controls.Add(this.rtbThirdPartyDev);
-            this.Controls.Add(this.lblGithub);
-            this.Controls.Add(this.lblLicense);
-            this.Controls.Add(this.lblAuthor);
-            this.Controls.Add(this.picLogo);
-            this.Controls.Add(this.lblAppVersion);
-            this.Controls.Add(this.lblContributors);
-            this.Controls.Add(this.lblThirdPartyDev);
+            this.Controls.Add(this.contributorsRichTextBox);
+            this.Controls.Add(this.thirdPartyDevRichTextBox);
+            this.Controls.Add(this.appInfoLabel3);
+            this.Controls.Add(this.appInfoLabel2);
+            this.Controls.Add(this.appInfoLabel1);
+            this.Controls.Add(this.appLogoPictureBox);
+            this.Controls.Add(this.appVersionLabel);
+            this.Controls.Add(this.contributorsLabel);
+            this.Controls.Add(this.thirdPartyDevLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -204,7 +204,7 @@
             this.Text = "About";
             this.Load += new System.EventHandler(this.AboutWindow_Load);
             this.Click += new System.EventHandler(this.AboutFrom_Click);
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appLogoPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,14 +212,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblAppVersion;
-        private System.Windows.Forms.PictureBox picLogo;
-        private System.Windows.Forms.Label lblThirdPartyDev;
-        private System.Windows.Forms.LinkLabel lblAuthor;
-        private System.Windows.Forms.LinkLabel lblLicense;
-        private System.Windows.Forms.LinkLabel lblGithub;
-        private System.Windows.Forms.Label lblContributors;
-        private ExRichTextBox rtbThirdPartyDev;
-        private ExRichTextBox rtbContributors;
+        private System.Windows.Forms.Label appVersionLabel;
+        private System.Windows.Forms.PictureBox appLogoPictureBox;
+        private System.Windows.Forms.Label thirdPartyDevLabel;
+        private System.Windows.Forms.LinkLabel appInfoLabel1;
+        private System.Windows.Forms.LinkLabel appInfoLabel2;
+        private System.Windows.Forms.LinkLabel appInfoLabel3;
+        private System.Windows.Forms.Label contributorsLabel;
+        private ExRichTextBox thirdPartyDevRichTextBox;
+        private ExRichTextBox contributorsRichTextBox;
     }
 }

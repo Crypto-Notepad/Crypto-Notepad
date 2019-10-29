@@ -16,12 +16,12 @@ namespace Crypto_Notepad
         private void AboutWindow_Load(object sender, EventArgs e)
         {
             Version vrs = new Version(Application.ProductVersion);
-            lblAppVersion.Text = string.Format(PublicVar.appName + " {0}.{1}.{2}", vrs.Major, vrs.Minor, vrs.Build);
+            appVersionLabel.Text = string.Format(PublicVar.appName + " {0}.{1}.{2}", vrs.Major, vrs.Minor, vrs.Build);
         }
 
         private void AboutFrom_Click(object sender, EventArgs e)
         {
-            picLogo.Focus();
+            appLogoPictureBox.Focus();
         }
 
         protected override bool ProcessDialogKey(Keys keyData)
@@ -37,27 +37,27 @@ namespace Crypto_Notepad
 
 
         /*Main Information*/
-        private void LblAppVersion_Click(object sender, EventArgs e)
+        private void AppVersionLabel_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Release-Notes");
         }
 
-        private void LblAuthor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void AppInfoLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://sigmanor.github.io/");
         }
 
-        private void LblLicense_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void AppInfoLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/Crypto-Notepad/Crypto-Notepad/blob/master/LICENSE");
         }
 
-        private void LblGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void AppInfoLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/Crypto-Notepad/Crypto-Notepad");
         }
 
-        private void PicLogo_Click(object sender, EventArgs e)
+        private void AppLogoPictureBox_Click(object sender, EventArgs e)
         {
             Process.Start("https://crypto-notepad.github.io/");
         }
@@ -65,12 +65,12 @@ namespace Crypto_Notepad
 
 
         /*Perform open links*/
-        private void RtbThirdPartyDev_LinkClicked(object sender, LinkClickedEventArgs e)
+        private void ThirdPartyDevRichTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             Process.Start(e.LinkText);
         }
 
-        private void RtbContributors_LinkClicked(object sender, LinkClickedEventArgs e)
+        private void ContributorsRichTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             Process.Start(e.LinkText);
         }
