@@ -7,11 +7,11 @@ using System.Runtime.InteropServices;
 // связанные со сборкой.
 [assembly: AssemblyTitle("Crypto Notepad")]
 [assembly: AssemblyDescription("Simple editor with encryption features")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyConfiguration("Release")]
+[assembly: AssemblyCompany("Crypto Notepad")]
 [assembly: AssemblyProduct("Crypto Notepad")]
 [assembly: AssemblyCopyright("Sigmanor")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("Crypto Notepad")]
 [assembly: AssemblyCulture("")]
 
 // Параметр ComVisible со значением FALSE делает типы в сборке невидимыми 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("969df047-1cd0-4744-aeed-8d8877b6c909")]
+[assembly: Guid("969df047-1cd0-4744-deed-8d8877b6c909")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

@@ -780,6 +780,18 @@ namespace Crypto_Notepad
             Visible = true;
             richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
             richTextBox.Modified = false;
+
+            if (!File.Exists("Crypto Notepad.settings"))
+            {
+                using (new CenterWinDialog(this))
+                {
+                    DialogResult res = MessageBox.Show(this, "Enable automatic update check?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (res == DialogResult.Yes)
+                    {
+                        settings.autoCheckUpdate = true;
+                    }
+                }
+            }
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
