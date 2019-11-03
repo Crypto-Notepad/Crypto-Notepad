@@ -1118,7 +1118,7 @@ namespace Crypto_Notepad
                         PublicVar.openFileName = "";
                         Text = PublicVar.appName;
                         StatusPanelTextInfo();
-                        statusPanelModifiedLabel.Text = "Created";
+                        statusPanelModifiedLabel.Text = "Modified";
                         statusPanelSizeLabel.Text = "Size";
                         statusPanelModifiedLabel.ToolTipText = null;
                     }
@@ -1675,7 +1675,7 @@ namespace Crypto_Notepad
                 mainMenu.Enabled = false;
                 richTextBox.Clear();
                 StatusPanelTextInfo();
-                statusPanelModifiedLabel.Text = "Created";
+                statusPanelModifiedLabel.Text = "Modified";
                 statusPanelSizeLabel.Text = "Size";
                 fileLockedKeyTextBox.Focus();
             }
