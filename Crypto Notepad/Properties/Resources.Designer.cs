@@ -133,6 +133,16 @@ namespace Crypto_Notepad.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap disk__minus {
+            get {
+                object obj = ResourceManager.GetObject("disk__minus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap disk_return_black {
             get {
                 object obj = ResourceManager.GetObject("disk_return_black", resourceCulture);

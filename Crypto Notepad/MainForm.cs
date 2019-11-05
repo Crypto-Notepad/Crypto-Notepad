@@ -625,6 +625,7 @@ namespace Crypto_Notepad
                 checkForUpdatesMainMenu.Image = Resources.upload_cloud;
                 aboutMainMenu.Image = Resources.information;
                 alwaysOnTopMainMenu.Image = Resources.applications_blue;
+                saveCloseFileMainMenu.Image = Resources.disk__minus;
             }
             else
             {
@@ -1104,6 +1105,23 @@ namespace Crypto_Notepad
             StatusPanelFileInfo();
         }
 
+        private async void SaveCloseFileMainMenu_Click(object sender, EventArgs e)
+        {
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                writer.Write(AES.Encrypt(richTextBox.Text, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)));
+                writer.Close();
+            }
+            PublicVar.encryptionKey.Set(null);
+            richTextBox.Clear();
+            PublicVar.openFileName = "";
+            filePath = "";
+            Text = PublicVar.appName;
+            statusPanelModifiedLabel.Text = "Modified";
+            statusPanelModifiedLabel.ToolTipText = null;
+            statusPanelSizeLabel.Text = "Size";
+        }
+
         private void OpenFileLocationMainMenu_Click(object sender, EventArgs e)
         {
             Process.Start("explorer.exe", @"/select, " + filePath);
@@ -1147,11 +1165,13 @@ namespace Crypto_Notepad
             {
                 openFileLocationMainMenu.Enabled = false;
                 deleteFileMainMenu.Enabled = false;
+                saveCloseFileMainMenu.Enabled = false;
             }
             else
             {
                 openFileLocationMainMenu.Enabled = true;
                 deleteFileMainMenu.Enabled = true;
+                saveCloseFileMainMenu.Enabled = true;
             }
         }
         /*File*/

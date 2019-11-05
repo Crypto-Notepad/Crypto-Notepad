@@ -37,6 +37,7 @@
             this.mainMenuSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.saveMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsMainMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveCloseFileMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.openFileLocationMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteFileMainMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -172,6 +173,7 @@
             this.mainMenuSeparator1,
             this.saveMainMenu,
             this.saveAsMainMenu,
+            this.saveCloseFileMainMenu,
             this.mainMenuSeparator2,
             this.openFileLocationMainMenu,
             this.deleteFileMainMenu,
@@ -187,7 +189,7 @@
             // 
             this.newMainMenu.Name = "newMainMenu";
             this.newMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newMainMenu.Size = new System.Drawing.Size(195, 22);
+            this.newMainMenu.Size = new System.Drawing.Size(232, 22);
             this.newMainMenu.Text = "New";
             this.newMainMenu.Click += new System.EventHandler(this.NewMainMenu_Click);
             // 
@@ -195,20 +197,20 @@
             // 
             this.openMainMenu.Name = "openMainMenu";
             this.openMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openMainMenu.Size = new System.Drawing.Size(195, 22);
+            this.openMainMenu.Size = new System.Drawing.Size(232, 22);
             this.openMainMenu.Text = "Open...";
             this.openMainMenu.Click += new System.EventHandler(this.OpenMainMenu_Click);
             // 
             // mainMenuSeparator1
             // 
             this.mainMenuSeparator1.Name = "mainMenuSeparator1";
-            this.mainMenuSeparator1.Size = new System.Drawing.Size(192, 6);
+            this.mainMenuSeparator1.Size = new System.Drawing.Size(229, 6);
             // 
             // saveMainMenu
             // 
             this.saveMainMenu.Name = "saveMainMenu";
             this.saveMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveMainMenu.Size = new System.Drawing.Size(195, 22);
+            this.saveMainMenu.Size = new System.Drawing.Size(232, 22);
             this.saveMainMenu.Text = "Save";
             this.saveMainMenu.Click += new System.EventHandler(this.SaveMainMenu_Click);
             // 
@@ -217,39 +219,48 @@
             this.saveAsMainMenu.Name = "saveAsMainMenu";
             this.saveAsMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.S)));
-            this.saveAsMainMenu.Size = new System.Drawing.Size(195, 22);
+            this.saveAsMainMenu.Size = new System.Drawing.Size(232, 22);
             this.saveAsMainMenu.Text = "Save As...";
             this.saveAsMainMenu.Click += new System.EventHandler(this.SaveAsMainMenu_Click);
+            // 
+            // saveCloseFileMainMenu
+            // 
+            this.saveCloseFileMainMenu.Name = "saveCloseFileMainMenu";
+            this.saveCloseFileMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
+            this.saveCloseFileMainMenu.Size = new System.Drawing.Size(232, 22);
+            this.saveCloseFileMainMenu.Text = "Save && Close File";
+            this.saveCloseFileMainMenu.Click += new System.EventHandler(this.SaveCloseFileMainMenu_Click);
             // 
             // mainMenuSeparator2
             // 
             this.mainMenuSeparator2.Name = "mainMenuSeparator2";
-            this.mainMenuSeparator2.Size = new System.Drawing.Size(192, 6);
+            this.mainMenuSeparator2.Size = new System.Drawing.Size(229, 6);
             // 
             // openFileLocationMainMenu
             // 
             this.openFileLocationMainMenu.Name = "openFileLocationMainMenu";
-            this.openFileLocationMainMenu.Size = new System.Drawing.Size(195, 22);
+            this.openFileLocationMainMenu.Size = new System.Drawing.Size(232, 22);
             this.openFileLocationMainMenu.Text = "Open File Location";
             this.openFileLocationMainMenu.Click += new System.EventHandler(this.OpenFileLocationMainMenu_Click);
             // 
             // deleteFileMainMenu
             // 
             this.deleteFileMainMenu.Name = "deleteFileMainMenu";
-            this.deleteFileMainMenu.Size = new System.Drawing.Size(195, 22);
+            this.deleteFileMainMenu.Size = new System.Drawing.Size(232, 22);
             this.deleteFileMainMenu.Text = "Delete File";
             this.deleteFileMainMenu.Click += new System.EventHandler(this.DeleteFileToolStripMenuItem_Click);
             // 
             // mainMenuSeparator3
             // 
             this.mainMenuSeparator3.Name = "mainMenuSeparator3";
-            this.mainMenuSeparator3.Size = new System.Drawing.Size(192, 6);
+            this.mainMenuSeparator3.Size = new System.Drawing.Size(229, 6);
             // 
             // exitMainMenu
             // 
             this.exitMainMenu.Name = "exitMainMenu";
             this.exitMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.exitMainMenu.Size = new System.Drawing.Size(195, 22);
+            this.exitMainMenu.Size = new System.Drawing.Size(232, 22);
             this.exitMainMenu.Text = "Exit";
             this.exitMainMenu.Click += new System.EventHandler(this.ExitMainMenu_Click);
             // 
@@ -1327,5 +1338,6 @@
         private System.Windows.Forms.ToolStripStatusLabel statusPanelModifiedLabel;
         private System.Windows.Forms.ToolStripStatusLabel statusPanelSizeLabel;
         private System.Windows.Forms.Timer statusPanelTimer;
+        private System.Windows.Forms.ToolStripMenuItem saveCloseFileMainMenu;
     }
 }
