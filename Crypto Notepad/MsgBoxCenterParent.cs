@@ -3,6 +3,7 @@ using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Crypto_Notepad;
 
 class CenterWinDialog : IDisposable
 {
@@ -11,8 +12,11 @@ class CenterWinDialog : IDisposable
 
     public CenterWinDialog(Form owner)
     {
-        mOwner = owner;
-        owner.BeginInvoke(new MethodInvoker(FindDialog));
+        if (PublicVar.messageBoxCenterParent)
+        {
+            mOwner = owner;
+            owner.BeginInvoke(new MethodInvoker(FindDialog));
+        }
     }
 
     private void FindDialog()

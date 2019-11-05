@@ -33,6 +33,15 @@ namespace Crypto_Notepad
         private void EnterKeyForm_Shown(object sender, EventArgs e)
         {
             fileNameLabel.Text = PublicVar.openFileName;
+            MainForm main = Owner as MainForm;
+            if (main.Visible)
+            {
+                CenterToParent();
+            }
+            else
+            {
+                CenterToScreen();
+            }
         }
         /*Form Events*/
 

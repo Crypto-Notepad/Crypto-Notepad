@@ -65,6 +65,7 @@ namespace Crypto_Notepad
         public static EncryptedString encryptionKey = new EncryptedString();
         public static bool keyChanged = false;
         public static bool okPressed = false;
+        public static bool messageBoxCenterParent = false;       
         public const string appName = "Crypto Notepad";
         public static string openFileName;
     }

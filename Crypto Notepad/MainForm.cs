@@ -106,6 +106,7 @@ namespace Crypto_Notepad
                     if (dialogResult == DialogResult.Retry)
                     {
                         DecryptAES();
+                        PublicVar.messageBoxCenterParent = true;
                     }
                     if (dialogResult == DialogResult.Cancel)
                     {
@@ -505,6 +506,7 @@ namespace Crypto_Notepad
                 if (ex is CryptographicException)
                 {
                     TypedPassword.Value = null;
+                    PublicVar.messageBoxCenterParent = true;
                     using (new CenterWinDialog(this))
                     {
                         DialogResult dialogResult = MessageBox.Show(this, "Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
@@ -758,6 +760,10 @@ namespace Crypto_Notepad
                     {
                         messageBoxText = "Save file: " + "\"" + PublicVar.openFileName + "\"" + " with a new key? ";
                     }
+                    if (Visible)
+                    {
+                        PublicVar.messageBoxCenterParent = true;
+                    }
                     using (new CenterWinDialog(this))
                     {
                         DialogResult res = MessageBox.Show(this, messageBoxText, PublicVar.appName, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
@@ -906,6 +912,10 @@ namespace Crypto_Notepad
                         filePath = openFileDialog.FileName;
                         StatusPanelFileInfo();
                         return;
+                        if (Visible)
+                        {
+                            PublicVar.messageBoxCenterParent = true;
+                        }
                     }
                     DecryptAES();
                 }
