@@ -620,7 +620,7 @@
             // 
             // saveFileDialog
             // 
-            this.saveFileDialog.Filter = "Crypto Notepad (*.cnp)|*.cnp";
+            this.saveFileDialog.Filter = "Crypto Notepad (*.cnp)|*.cnp|Normal text file (*.txt)|*.txt|All Files (*.*)|*.*";
             // 
             // searchPanel
             // 
@@ -1118,13 +1118,13 @@
             // 
             this.fileLockedKeyTextBox.Location = new System.Drawing.Point(6, 34);
             this.fileLockedKeyTextBox.Name = "fileLockedKeyTextBox";
-            this.fileLockedKeyTextBox.Size = new System.Drawing.Size(231, 22);
-            this.fileLockedKeyTextBox.TabIndex = 8;
-            this.fileLockedKeyTextBox.UseSystemPasswordChar = true;
             this.fileLockedKeyTextBox.Placeholder = "Encryption key";
             this.fileLockedKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
             this.fileLockedKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
             this.fileLockedKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.fileLockedKeyTextBox.Size = new System.Drawing.Size(231, 22);
+            this.fileLockedKeyTextBox.TabIndex = 8;
+            this.fileLockedKeyTextBox.UseSystemPasswordChar = true;
             this.fileLockedKeyTextBox.TextChanged += new System.EventHandler(this.FileLockedKeyTextBox_TextChanged);
             this.fileLockedKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FileLockedKeyTextBox_KeyDown);
             // 
@@ -1180,6 +1180,7 @@
             this.richTextBox.Text = "";
             this.richTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichTextBox_LinkClicked);
             this.richTextBox.SelectionChanged += new System.EventHandler(this.RichTextBox_SelectionChanged);
+            this.richTextBox.ModifiedChanged += new System.EventHandler(this.RichTextBox_ModifiedChanged);
             this.richTextBox.TextChanged += new System.EventHandler(this.RichTextBox_TextChanged);
             this.richTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyDown);
             // 

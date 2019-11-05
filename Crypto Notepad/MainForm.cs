@@ -125,47 +125,22 @@ namespace Crypto_Notepad
             };
             string fileExtension = Path.GetExtension(args[1]);
             PublicVar.openFileName = Path.GetFileName(args[1]);
-            if (fileExtension == ".cnp")
+            openFileDialog.FileName = Path.GetFullPath(args[1]);
+            if (fileExtension != ".cnp")
             {
-                try
-                {
-                    string NameWithotPath = Path.GetFileName(args[1]);
-                    string opnfile = File.ReadAllText(args[1]);
-                    enterKeyForm.ShowDialog();
-                    string de = AES.Decrypt(opnfile, TypedPassword.Value, null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
-                    richTextBox.Text = de;
-                    Text = PublicVar.appName + " – " + NameWithotPath;
-                    filePath = args[1];
-                    PublicVar.encryptionKey.Set(TypedPassword.Value);
-                    TypedPassword.Value = null;
-                    StatusPanelFileInfo();
-                }
-                catch (CryptographicException)
-                {
-                    TypedPassword.Value = null;
-                    DialogResult dialogResult = MessageBox.Show(this, "Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                    if (dialogResult == DialogResult.Retry)
+                DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName + "\" file?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (res == DialogResult.No)
                     {
-                        OpenAsotiations();
+                        string opnfile = File.ReadAllText(args[1]);
+                        string NameWithotPath = Path.GetFileName(args[1]);
+                        richTextBox.Text = opnfile;
+                        filePath = args[1];
+                        Text = PublicVar.appName + " – " + NameWithotPath;
+                        StatusPanelFileInfo();
+                        return;
                     }
-                    if (dialogResult == DialogResult.Cancel)
-                    {
-                        if (!Visible)
-                        {
-                            Application.Exit();
-                        }
-                    }
-                }
             }
-            else
-            {
-                string opnfile = File.ReadAllText(args[1]);
-                string NameWithotPath = Path.GetFileName(args[1]);
-                richTextBox.Text = opnfile;
-                filePath = args[1];
-                Text = PublicVar.appName + " – " + NameWithotPath;
-                StatusPanelFileInfo();
-            }
+            DecryptAES();
         }
 
         private void SendTo()
@@ -176,108 +151,58 @@ namespace Crypto_Notepad
                 StartPosition = FormStartPosition.CenterScreen
             };
             string fileExtension = Path.GetExtension(argsPath);
-            if (fileExtension == ".cnp")
+            openFileDialog.FileName = Path.GetFullPath(argsPath);
+            PublicVar.openFileName = Path.GetFileName(argsPath);
+            if (fileExtension != ".cnp")
             {
-                try
+                DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName  + "\" file?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (res == DialogResult.No)
                 {
-                    string NameWithotPath = Path.GetFileName(argsPath);
                     string opnfile = File.ReadAllText(argsPath);
-                    PublicVar.openFileName = Path.GetFileName(argsPath);
-                    enterKeyForm.ShowDialog();
-                    string de = AES.Decrypt(opnfile, TypedPassword.Value, null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
-                    richTextBox.Text = de;
-                    Text = PublicVar.appName + " – " + NameWithotPath;
+                    string NameWithotPath = Path.GetFileName(argsPath);
+                    richTextBox.Text = opnfile;
                     filePath = argsPath;
-                    PublicVar.encryptionKey.Set(TypedPassword.Value);
-                    TypedPassword.Value = null;
+                    Text = PublicVar.appName + " – " + NameWithotPath;
                     StatusPanelFileInfo();
-                }
-                catch (CryptographicException)
-                {
-                    TypedPassword.Value = null;
-                    DialogResult dialogResult = MessageBox.Show(this, "Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                    if (dialogResult == DialogResult.Retry)
-                    {
-                        SendTo();
-                    }
-                    if (dialogResult == DialogResult.Cancel)
-                    {
-                        if (!Visible)
-                        {
-                            Application.Exit();
-                        }
-                    }
+                    return;
                 }
             }
-            else
-            {
-                string opnfile = File.ReadAllText(argsPath);
-                string NameWithotPath = Path.GetFileName(argsPath);
-                richTextBox.Text = opnfile;
-                Text = PublicVar.appName + " – " + NameWithotPath;
-            }
+            DecryptAES();
         }
 
         private void ContextMenuEncryptReplace()
         {
-            if (args[1].Contains(".cnp"))
-            {
-                MessageBox.Show(this, "Looks like this file is already encrypted", PublicVar.appName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             DialogResult res = MessageBox.Show(this, "This action will delete the source file and replace it with encrypted version", PublicVar.appName, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (res == DialogResult.Cancel)
             {
                 Environment.Exit(0);
             }
-            if (!args[1].Contains(".cnp"))
+            string opnfile = File.ReadAllText(args[1]);
+            richTextBox.Text = opnfile;
+            PublicVar.openFileName = Path.GetFileName(args[1]);
+            string newFile = Path.GetDirectoryName(args[1]) + @"\" + Path.GetFileNameWithoutExtension(args[1]) + ".cnp";
+            EnterKeyForm enterKeyForm = new EnterKeyForm
             {
-                string opnfile = File.ReadAllText(args[1]);
-                richTextBox.Text = opnfile;
-                PublicVar.openFileName = Path.GetFileName(args[1]);
-                string newFile = Path.GetDirectoryName(args[1]) + @"\" + Path.GetFileNameWithoutExtension(args[1]) + ".cnp";
-                EnterKeyForm enterKeyForm = new EnterKeyForm
-                {
-                    Owner = this
-                };
-                enterKeyForm.ShowDialog();
-                File.Delete(args[1]);
-                string noenc = richTextBox.Text;
-                string en;
-                en = AES.Encrypt(richTextBox.Text, TypedPassword.Value, null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
-                richTextBox.Text = en;
-                StreamWriter sw = new StreamWriter(newFile);
-                int i = richTextBox.Lines.Count();
-                int j = 0;
-                i = i - 1;
-                while (j <= i)
-                {
-                    sw.WriteLine(richTextBox.Lines.GetValue(j).ToString());
-                    j = j + 1;
-                }
-                sw.Close();
-                PublicVar.encryptionKey.Set(TypedPassword.Value);
-                TypedPassword.Value = null;
-                filePath = newFile;
-                PublicVar.openFileName = Path.GetFileName(newFile);
-                Text = PublicVar.appName + " – " + PublicVar.openFileName;
-                richTextBox.Text = noenc;
-                StatusPanelFileInfo();
-            }
-            richTextBox.Modified = false;
-        }
-
-        private void ContextMenuEncrypt()
-        {
-            if (!args[1].Contains(".cnp"))
+                Owner = this
+            };
+            enterKeyForm.ShowDialog();
+            File.Delete(args[1]);
+            string noenc = richTextBox.Text;
+            string en;
+            en = AES.Encrypt(richTextBox.Text, TypedPassword.Value, null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
+            richTextBox.Text = en;
+            using (StreamWriter writer = new StreamWriter(newFile))
             {
-                string opnfile = File.ReadAllText(args[1]);
-                string NameWithotPath = Path.GetFileName(args[1]);
-                richTextBox.Text = opnfile;
-                Text = PublicVar.appName + NameWithotPath;
-                PublicVar.openFileName = Path.GetFileName(args[1]);
-                filePath = openFileDialog.FileName;
+                writer.Write(richTextBox.Text);
+                writer.Close();
             }
+            PublicVar.encryptionKey.Set(TypedPassword.Value);
+            TypedPassword.Value = null;
+            filePath = newFile;
+            PublicVar.openFileName = Path.GetFileName(newFile);
+            Text = PublicVar.appName + " – " + PublicVar.openFileName;
+            richTextBox.Text = noenc;
+            StatusPanelFileInfo();
             richTextBox.Modified = false;
         }
 
@@ -906,16 +831,23 @@ namespace Crypto_Notepad
                 {
                     if (!openFileDialog.FileName.Contains(".cnp"))
                     {
-                        string opnfile = File.ReadAllText(openFileDialog.FileName);
-                        string NameWithotPath = Path.GetFileName(openFileDialog.FileName);
-                        richTextBox.Text = opnfile;
-                        Text = PublicVar.appName + " – " + NameWithotPath;
-                        filePath = openFileDialog.FileName;
-                        StatusPanelFileInfo();
-                        return;
                         if (Visible)
                         {
                             PublicVar.messageBoxCenterParent = true;
+                        }
+                        using (new CenterWinDialog(this))
+                        {
+                            DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName + "\" file?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                            if (res == DialogResult.No)
+                            {
+                                string opnfile = File.ReadAllText(openFileDialog.FileName);
+                                string NameWithotPath = Path.GetFileName(openFileDialog.FileName);
+                                richTextBox.Text = opnfile;
+                                Text = PublicVar.appName + " – " + NameWithotPath;
+                                filePath = openFileDialog.FileName;
+                                StatusPanelFileInfo();
+                                return;
+                            }
                         }
                     }
                     DecryptAES();
@@ -1024,13 +956,20 @@ namespace Crypto_Notepad
                 PublicVar.openFileName = Path.GetFileName(openFileDialog.FileName);
                 if (!openFileDialog.FileName.Contains(".cnp"))
                 {
-                    string opnfile = File.ReadAllText(openFileDialog.FileName);
-                    string NameWithotPath = Path.GetFileName(openFileDialog.FileName);
-                    richTextBox.Text = opnfile;
-                    Text = PublicVar.appName + " – " + NameWithotPath;
-                    filePath = openFileDialog.FileName;
-                    StatusPanelFileInfo();
-                    return;
+                    using (new CenterWinDialog(this))
+                    {
+                        DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName + "\" file?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        if (res == DialogResult.No)
+                        {
+                            string opnfile = File.ReadAllText(openFileDialog.FileName);
+                            string NameWithotPath = Path.GetFileName(openFileDialog.FileName);
+                            richTextBox.Text = opnfile;
+                            Text = PublicVar.appName + " – " + NameWithotPath;
+                            filePath = openFileDialog.FileName;
+                            StatusPanelFileInfo();
+                            return;
+                        }
+                    }
                 }
                 DecryptAES();
                 richTextBox.Modified = false;
