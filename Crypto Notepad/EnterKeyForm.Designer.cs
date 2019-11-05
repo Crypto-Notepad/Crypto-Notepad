@@ -126,7 +126,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EnterKeyForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Crypto Notepad";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EnterKeyForm_FormClosed);
             this.Load += new System.EventHandler(this.EnterKeyForm_Load);
