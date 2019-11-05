@@ -603,6 +603,16 @@ namespace Crypto_Notepad
 
 
         #region Event Handlers
+        private void RichTextBox_ModifiedChanged(object sender, EventArgs e)
+        {
+            if (richTextBox.Modified == false)
+            {
+                if (Text.Contains("*"))
+                {
+                    Text = Text.Substring(0, Text.Length - 1);
+                }
+            }
+        }
         private void StatusPanel_VisibleChanged(object sender, EventArgs e)
         {
             if (statusPanel.Visible)
@@ -854,6 +864,29 @@ namespace Crypto_Notepad
         private void RichTextBox_TextChanged(object sender, EventArgs e)
         {
             statusPanelTimer.Start();
+
+            if (richTextBox.Modified)
+            {
+                if (!Text.Contains("*"))
+                {
+                    Text += "*";
+                }
+
+            }
+            else
+            {
+                if (Text.Contains("*"))
+                {
+                    Text = Text.Substring(0, Text.Length - 1);
+                }
+            }
+            if (richTextBox.TextLength == 0)
+            {
+                if (Text.Contains("*"))
+                {
+                    Text = Text.Substring(0, Text.Length - 1);
+                }
+            }
         }
 
         private void StatusPanelLabel_TextChanged(object sender, EventArgs e)
