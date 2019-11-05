@@ -723,7 +723,7 @@ namespace Crypto_Notepad
             richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
             richTextBox.Modified = false;
 
-            if (!File.Exists("Crypto Notepad.settings"))
+            if (!File.Exists(AppDomain.CurrentDomain.BaseDirectory + "Crypto Notepad.settings"))
             {
                 using (new CenterWinDialog(this))
                 {
