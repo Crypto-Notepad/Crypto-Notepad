@@ -749,10 +749,6 @@ namespace Crypto_Notepad
             {
                 OpenAsotiations();
             }
-            if (args.Contains("/e")) /*encrypt*/
-            {
-                ContextMenuEncrypt();
-            }
             if (args.Contains("/er")) /*encrypt and replace*/
             {
                 ContextMenuEncryptReplace();
