@@ -1674,6 +1674,7 @@ namespace Crypto_Notepad
                 richTextBox.Clear();
                 StatusPanelTextInfo();
                 statusPanelModifiedLabel.Text = "Modified";
+                statusPanelModifiedLabel.ToolTipText = null;
                 statusPanelSizeLabel.Text = "Size";
                 fileLockedKeyTextBox.Focus();
             }
