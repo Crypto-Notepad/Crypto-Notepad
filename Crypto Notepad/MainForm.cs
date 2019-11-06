@@ -66,17 +66,21 @@ namespace Crypto_Notepad
             return string.Format("{0:n1} {1}", dValue, SizeSuffixes[i]);
         }
 
-        private void DecryptAES()
+        private async Task DecryptAES()
         {
-            EnterKeyForm enterKeyForm = new EnterKeyForm
-            {
-                Owner = this
-            };
+            EnterKeyForm enterKeyForm = new EnterKeyForm();
+            enterKeyForm.Owner = this;
             enterKeyForm.ShowDialog();
-
+            richTextBox.SuspendDrawing();
+            UseWaitCursor = true;
             if (!PublicVar.okPressed)
             {
                 PublicVar.openFileName = Path.GetFileName(filePath);
+                mainMenu.Enabled = true;
+                toolbarPanel.Enabled = true;
+                richTextBox.ReadOnly = false;
+                UseWaitCursor = false;
+                richTextBox.ResumeDrawing();
                 return;
             }
             if (searchPanel.Visible)
@@ -85,38 +89,65 @@ namespace Crypto_Notepad
             }
             try
             {
-                string opnfile = File.ReadAllText(openFileDialog.FileName);
+                using (StreamReader reader = File.OpenText(openFileDialog.FileName))
+                {
+                    mainMenu.Enabled = false;
+                    toolbarPanel.Enabled = false;
+                    richTextBox.ReadOnly = true;
+                    string openedFileText = await reader.ReadToEndAsync();
+                    richTextBox.Text = await AES.Decrypt(openedFileText, TypedPassword.Value, null, settings.HashAlgorithm,
+                        Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)); ;
+                }
+
                 string NameWithotPath = Path.GetFileName(openFileDialog.FileName);
-                string de;
-                de = AES.Decrypt(opnfile, TypedPassword.Value, null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
-                richTextBox.Text = de;
                 Text = PublicVar.appName + " – " + NameWithotPath;
                 filePath = openFileDialog.FileName;
                 PublicVar.openFileName = Path.GetFileName(openFileDialog.FileName);
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
                 TypedPassword.Value = null;
                 StatusPanelFileInfo();
+                mainMenu.Enabled = true;
+                toolbarPanel.Enabled = true;
+                richTextBox.ReadOnly = false;
+                UseWaitCursor = false;
+                richTextBox.ResumeDrawing();
             }
-            catch (CryptographicException)
+            catch (Exception ex)
             {
-                using (new CenterWinDialog(this))
+                if (ex is FormatException | ex is CryptographicException)
                 {
-                    TypedPassword.Value = null;
-                    DialogResult dialogResult = MessageBox.Show(this, "Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                    if (dialogResult == DialogResult.Retry)
+                    PublicVar.okPressed = false;
+                    if (Visible)
                     {
-                        DecryptAES();
                         PublicVar.messageBoxCenterParent = true;
                     }
-                    if (dialogResult == DialogResult.Cancel)
+                    using (new CenterWinDialog(this))
                     {
-                        PublicVar.openFileName = Path.GetFileName(filePath);
+                        TypedPassword.Value = null;
+                        DialogResult dialogResult = MessageBox.Show(this, "Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                        if (dialogResult == DialogResult.Retry)
+                        {
+                            await DecryptAES();
+                        }
+                        if (dialogResult == DialogResult.Cancel)
+                        {
+                            PublicVar.openFileName = Path.GetFileName(filePath);
+                            mainMenu.Enabled = true;
+                            toolbarPanel.Enabled = true;
+                            richTextBox.ReadOnly = false;
+                            UseWaitCursor = false;
+                            richTextBox.ResumeDrawing();
+                            if (!Visible)
+                            {
+                                Application.Exit();
+                            }
+                        }
                     }
                 }
             }
         }
 
-        private void OpenAsotiations()
+        private async void OpenAsotiations()
         {
             EnterKeyForm enterKeyForm = new EnterKeyForm
             {
@@ -128,7 +159,8 @@ namespace Crypto_Notepad
             openFileDialog.FileName = Path.GetFullPath(args[1]);
             if (fileExtension != ".cnp")
             {
-                DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName + "\" file?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName + "\" file?", PublicVar.appName, 
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (res == DialogResult.No)
                     {
                         string opnfile = File.ReadAllText(args[1]);
@@ -140,10 +172,10 @@ namespace Crypto_Notepad
                         return;
                     }
             }
-            DecryptAES();
+            await DecryptAES();
         }
 
-        private void SendTo()
+        private async void SendTo()
         {
             EnterKeyForm enterKeyForm = new EnterKeyForm
             {
@@ -155,7 +187,8 @@ namespace Crypto_Notepad
             PublicVar.openFileName = Path.GetFileName(argsPath);
             if (fileExtension != ".cnp")
             {
-                DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName  + "\" file?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName  + "\" file?", PublicVar.appName, 
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (res == DialogResult.No)
                 {
                     string opnfile = File.ReadAllText(argsPath);
@@ -167,41 +200,40 @@ namespace Crypto_Notepad
                     return;
                 }
             }
-            DecryptAES();
+            await DecryptAES();
         }
 
-        private void ContextMenuEncryptReplace()
+        private async void ContextMenuEncryptReplace()
         {
-            DialogResult res = MessageBox.Show(this, "This action will delete the source file and replace it with encrypted version", PublicVar.appName, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult res = MessageBox.Show(this, "This action will delete the source file and replace it with encrypted version", PublicVar.appName, 
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (res == DialogResult.Cancel)
             {
                 Environment.Exit(0);
             }
-            string opnfile = File.ReadAllText(args[1]);
-            richTextBox.Text = opnfile;
+            richTextBox.Text = File.ReadAllText(args[1]);
             PublicVar.openFileName = Path.GetFileName(args[1]);
-            string newFile = Path.GetDirectoryName(args[1]) + @"\" + Path.GetFileNameWithoutExtension(args[1]) + ".cnp";
+            string newFileName = Path.GetDirectoryName(args[1]) + @"\" + Path.GetFileNameWithoutExtension(args[1]) + ".cnp";
             EnterKeyForm enterKeyForm = new EnterKeyForm
             {
                 Owner = this
             };
             enterKeyForm.ShowDialog();
             File.Delete(args[1]);
-            string noenc = richTextBox.Text;
-            string en;
-            en = AES.Encrypt(richTextBox.Text, TypedPassword.Value, null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
-            richTextBox.Text = en;
-            using (StreamWriter writer = new StreamWriter(newFile))
+            string unencryptedText = richTextBox.Text;
+            string encryptedText = await AES.Encrypt(richTextBox.Text, TypedPassword.Value, null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), 
+                Convert.ToInt32(settings.KeySize));
+            using (StreamWriter writer = new StreamWriter(newFileName))
             {
-                writer.Write(richTextBox.Text);
+                writer.Write(encryptedText);
                 writer.Close();
             }
             PublicVar.encryptionKey.Set(TypedPassword.Value);
             TypedPassword.Value = null;
-            filePath = newFile;
-            PublicVar.openFileName = Path.GetFileName(newFile);
+            filePath = newFileName;
+            PublicVar.openFileName = Path.GetFileName(newFileName);
             Text = PublicVar.appName + " – " + PublicVar.openFileName;
-            richTextBox.Text = noenc;
+            richTextBox.Text = unencryptedText;
             StatusPanelFileInfo();
             richTextBox.Modified = false;
         }
@@ -243,6 +275,10 @@ namespace Crypto_Notepad
                 {
                     messageBoxText = "Save file: " + "\"" + PublicVar.openFileName + "\"" + " with a new key? ";
                 }
+                if (Visible)
+                {
+                    PublicVar.messageBoxCenterParent = true;
+                }
                 using (new CenterWinDialog(this))
                 {
                     DialogResult res = MessageBox.Show(this, messageBoxText, PublicVar.appName, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
@@ -280,7 +316,8 @@ namespace Crypto_Notepad
                     {
                         using (new CenterWinDialog(this))
                         {
-                            DialogResult res = MessageBox.Show(this, "New version is available. Install it now?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                            DialogResult res = MessageBox.Show(this, "New version is available. Install it now?", PublicVar.appName, 
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                             if (res == DialogResult.Yes)
                             {
                                 File.WriteAllBytes(exePath + "Ionic.Zip.dll", Resources.Ionic_Zip);
@@ -324,7 +361,8 @@ namespace Crypto_Notepad
                             }
                             else
                             {
-                                MessageBox.Show(this, "Checking for updates failed:\nConnection lost or the server is busy.", PublicVar.appName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show(this, "Checking for updates failed:\nConnection lost or the server is busy.", PublicVar.appName, 
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                     });
@@ -411,20 +449,33 @@ namespace Crypto_Notepad
             statusPanelTimer.Stop();
         }
 
-        private void UnlockFile()
+        private async Task UnlockFile()
         {
             try
             {
+                richTextBox.SuspendDrawing();
+                UseWaitCursor = true;
+                fileLockedPanel.Enabled = false;
                 TypedPassword.Value = fileLockedKeyTextBox.Text;
-                string opnfile = File.ReadAllText(filePath);
-                string de = AES.Decrypt(opnfile, TypedPassword.Value, null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
+                mainMenu.Enabled = false;
+                toolbarPanel.Enabled = false;
+                using (StreamReader reader = File.OpenText(openFileDialog.FileName))
+                {
+                    string openedFileText = await reader.ReadToEndAsync();
+                    richTextBox.Text = await AES.Decrypt(openedFileText, TypedPassword.Value, null, settings.HashAlgorithm,
+                        Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)); ;
+                }
                 fileLockedPanel.Visible = false;
-                richTextBox.Text = de;
                 richTextBox.SelectionStart = caretPos;
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
                 TypedPassword.Value = null;
                 richTextBox.Focus();
                 StatusPanelFileInfo();
+                richTextBox.ResumeDrawing();
+                UseWaitCursor = false;
+                fileLockedPanel.Enabled = true;
+                mainMenu.Enabled = true;
+                toolbarPanel.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -437,6 +488,9 @@ namespace Crypto_Notepad
                         DialogResult dialogResult = MessageBox.Show(this, "Invalid key!", PublicVar.appName, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                         if (dialogResult == DialogResult.Retry)
                         {
+                            UseWaitCursor = false;
+                            richTextBox.ResumeDrawing();
+                            fileLockedPanel.Enabled = true;
                             fileLockedKeyTextBox.Text = "";
                             fileLockedKeyTextBox.Focus();
                         }
@@ -446,6 +500,9 @@ namespace Crypto_Notepad
                             Text = PublicVar.appName;
                             filePath = "";
                             PublicVar.openFileName = "";
+                            UseWaitCursor = false;
+                            richTextBox.ResumeDrawing();
+                            fileLockedPanel.Enabled = true;
                         }
                     }
                 }
@@ -705,8 +762,15 @@ namespace Crypto_Notepad
                         DialogResult res = MessageBox.Show(this, messageBoxText, PublicVar.appName, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                         if (res == DialogResult.Yes)
                         {
+                            Hide();
                             trayIcon.Visible = false;
-                            SaveMainMenu_Click(this, new EventArgs());
+                            using (StreamWriter writer = new StreamWriter(filePath))
+                            {
+                                string enc = "";
+                                Task.Run(async () => { enc = await AES.Encrypt(richTextBox.Text, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)); }).Wait();
+                                writer.Write(enc);
+                                writer.Close();
+                            }
                         }
                         if (res == DialogResult.Cancel)
                         {
@@ -725,6 +789,10 @@ namespace Crypto_Notepad
 
             if (!File.Exists(AppDomain.CurrentDomain.BaseDirectory + "Crypto Notepad.settings"))
             {
+                if (Visible)
+                {
+                    PublicVar.messageBoxCenterParent = true;
+                }
                 using (new CenterWinDialog(this))
                 {
                     DialogResult res = MessageBox.Show(this, "Enable automatic update check?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -819,7 +887,7 @@ namespace Crypto_Notepad
             }
         }
 
-        private void RichTextBox_DragDrop(object sender, DragEventArgs e)
+        private async void RichTextBox_DragDrop(object sender, DragEventArgs e)
         {
             SaveConfirm();
             if (cancelPressed)
@@ -843,7 +911,8 @@ namespace Crypto_Notepad
                         }
                         using (new CenterWinDialog(this))
                         {
-                            DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName + "\" file?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                            DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName + "\" file?", PublicVar.appName, 
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                             if (res == DialogResult.No)
                             {
                                 string opnfile = File.ReadAllText(openFileDialog.FileName);
@@ -856,7 +925,7 @@ namespace Crypto_Notepad
                             }
                         }
                     }
-                    DecryptAES();
+                    await DecryptAES();
                 }
             }
         }
@@ -908,7 +977,8 @@ namespace Crypto_Notepad
                 string exePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\";
                 using (new CenterWinDialog(this))
                 {
-                    DialogResult res = MessageBox.Show(this, "New version is available. Install it now?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    DialogResult res = MessageBox.Show(this, "New version is available. Install it now?", PublicVar.appName, 
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (res == DialogResult.Yes)
                     {
                         File.WriteAllBytes(exePath + "Ionic.Zip.dll", Resources.Ionic_Zip);
@@ -971,7 +1041,7 @@ namespace Crypto_Notepad
             TypedPassword.Value = null;
         }
 
-        private void OpenMainMenu_Click(object sender, EventArgs e)
+        private async void OpenMainMenu_Click(object sender, EventArgs e)
         {
             SaveConfirm();
             if (cancelPressed)
@@ -985,9 +1055,14 @@ namespace Crypto_Notepad
                 PublicVar.openFileName = Path.GetFileName(openFileDialog.FileName);
                 if (!openFileDialog.FileName.Contains(".cnp"))
                 {
+                                        if (Visible)
+                    {
+                        PublicVar.messageBoxCenterParent = true;
+                    }
                     using (new CenterWinDialog(this))
                     {
-                        DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName + "\" file?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName + "\" file?", PublicVar.appName, 
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                         if (res == DialogResult.No)
                         {
                             string opnfile = File.ReadAllText(openFileDialog.FileName);
@@ -1000,31 +1075,41 @@ namespace Crypto_Notepad
                         }
                     }
                 }
-                DecryptAES();
+                await DecryptAES();
                 richTextBox.Modified = false;
             }
         }
 
-        private void SaveMainMenu_Click(object sender, EventArgs e)
+        private async void SaveMainMenu_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
             {
                 SaveAsMainMenu_Click(this, new EventArgs());
                 return;
             }
-            string enc = AES.Encrypt(richTextBox.Text, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
+            mainMenu.Enabled = false;
+            toolbarPanel.Enabled = false;
+            richTextBox.ReadOnly = true;
+            richTextBox.SuspendDrawing();
+            UseWaitCursor = true;
             using (StreamWriter writer = new StreamWriter(filePath))
             {
-                writer.Write(enc);
+                writer.Write(await AES.Encrypt(richTextBox.Text, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm, 
+                    Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)));
                 writer.Close();
             }
             richTextBox.Modified = false;
             PublicVar.keyChanged = false;
             StatusPanelMessage("save");
             StatusPanelFileInfo();
+            richTextBox.ResumeDrawing();
+            UseWaitCursor = false;
+            mainMenu.Enabled = true;
+            toolbarPanel.Enabled = true;
+            richTextBox.ReadOnly = false;
         }
 
-        private void SaveAsMainMenu_Click(object sender, EventArgs e)
+        private async void SaveAsMainMenu_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(filePath))
             {
@@ -1058,7 +1143,8 @@ namespace Crypto_Notepad
                 TypedPassword.Value = PublicVar.encryptionKey.Get();
             }
             filePath = saveFileDialog.FileName;
-            string enc = AES.Encrypt(richTextBox.Text, TypedPassword.Value, null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
+            string enc = await AES.Encrypt(richTextBox.Text, TypedPassword.Value, null, settings.HashAlgorithm, 
+                Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
             using (StreamWriter writer = new StreamWriter(filePath))
             {
                 writer.Write(enc);
@@ -1075,11 +1161,28 @@ namespace Crypto_Notepad
 
         private async void SaveCloseFileMainMenu_Click(object sender, EventArgs e)
         {
+            //using (StreamWriter writer = new StreamWriter(filePath))
+            //{
+            //    writer.Write(AES.Encrypt(richTextBox.Text, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm, 
+            //        Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)));
+            //    writer.Close();
+            //}
+
+            mainMenu.Enabled = false;
+            toolbarPanel.Enabled = false;
+            richTextBox.SuspendDrawing();
+            UseWaitCursor = true;
             using (StreamWriter writer = new StreamWriter(filePath))
             {
-                writer.Write(AES.Encrypt(richTextBox.Text, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)));
+                writer.Write(await AES.Encrypt(richTextBox.Text, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm,
+                    Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)));
                 writer.Close();
             }
+            richTextBox.ResumeDrawing();
+            UseWaitCursor = false;
+            mainMenu.Enabled = true;
+            toolbarPanel.Enabled = true;
+            richTextBox.ReadOnly = false;
             PublicVar.encryptionKey.Set(null);
             richTextBox.Clear();
             PublicVar.openFileName = "";
@@ -1101,7 +1204,8 @@ namespace Crypto_Notepad
             {
                 using (new CenterWinDialog(this))
                 {
-                    if (MessageBox.Show(this, "Delete file: " + "\"" + filePath + "\"" + " ?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show(this, "Delete file: " + "\"" + filePath + "\"" + " ?", PublicVar.appName, 
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         File.Delete(filePath);
                         richTextBox.Clear();
@@ -1289,9 +1393,21 @@ namespace Crypto_Notepad
             changeKeyForm.ShowDialog(this);
         }
 
-        private void LockMainMenu_Click(object sender, EventArgs e)
+        private async void LockMainMenu_Click(object sender, EventArgs e)
         {
-            SaveMainMenu_Click(this, new EventArgs());
+            //SaveMainMenu_Click(this, new EventArgs());
+            mainMenu.Enabled = false;
+            toolbarPanel.Enabled = false;
+            richTextBox.SuspendDrawing();
+            UseWaitCursor = true;
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                writer.Write(await AES.Encrypt(richTextBox.Text, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm,
+                    Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)));
+                writer.Close();
+            }
+            richTextBox.ResumeDrawing();
+            UseWaitCursor = false;
             fileLockedPanel.Visible = true;
         }
 
@@ -1696,9 +1812,9 @@ namespace Crypto_Notepad
             }
         }
 
-        private void FileLockedOkButton_Click(object sender, EventArgs e)
+        private async void FileLockedOkButton_Click(object sender, EventArgs e)
         {
-            UnlockFile();
+            await UnlockFile();
         }
 
         private void FileLockedCloseButton_MouseClick(object sender, MouseEventArgs e)
