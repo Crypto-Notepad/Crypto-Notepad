@@ -444,7 +444,7 @@ namespace Crypto_Notepad
             }
         }
 
-        private void StatusPanelTextInfo()
+        protected internal void StatusPanelTextInfo()
         {
             if (statusPanel.Visible)
             {
