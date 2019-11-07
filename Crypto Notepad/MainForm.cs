@@ -100,7 +100,7 @@ namespace Crypto_Notepad
                 }
 
                 string NameWithotPath = Path.GetFileName(openFileDialog.FileName);
-                Text = PublicVar.appName + " – " + NameWithotPath;
+                Text = NameWithotPath + " – " + PublicVar.appName;
                 filePath = openFileDialog.FileName;
                 PublicVar.openFileName = Path.GetFileName(openFileDialog.FileName);
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
@@ -162,15 +162,7 @@ namespace Crypto_Notepad
                 DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName + "\" file?", PublicVar.appName, 
                     MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (res == DialogResult.No)
-                    {
-                        string opnfile = File.ReadAllText(args[1]);
-                        string NameWithotPath = Path.GetFileName(args[1]);
-                        richTextBox.Text = opnfile;
-                        filePath = args[1];
-                        Text = PublicVar.appName + " – " + NameWithotPath;
-                        StatusPanelFileInfo();
-                        return;
-                    }
+                    Text = NameWithotPath + " – " + PublicVar.appName;
             }
             await DecryptAES();
         }
@@ -195,7 +187,7 @@ namespace Crypto_Notepad
                     string NameWithotPath = Path.GetFileName(argsPath);
                     richTextBox.Text = opnfile;
                     filePath = argsPath;
-                    Text = PublicVar.appName + " – " + NameWithotPath;
+                    Text = NameWithotPath + " – " + PublicVar.appName;
                     StatusPanelFileInfo();
                     return;
                 }
@@ -465,6 +457,7 @@ namespace Crypto_Notepad
                     richTextBox.Text = await AES.Decrypt(openedFileText, TypedPassword.Value, null, settings.HashAlgorithm,
                         Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)); ;
                 }
+                richTextBox.Modified = false;
                 fileLockedPanel.Visible = false;
                 richTextBox.SelectionStart = caretPos;
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
@@ -666,7 +659,7 @@ namespace Crypto_Notepad
             {
                 if (Text.Contains("*"))
                 {
-                    Text = Text.Substring(0, Text.Length - 1);
+                    Text = Text.Replace("*", string.Empty);
                 }
             }
         }
@@ -918,7 +911,7 @@ namespace Crypto_Notepad
                                 string opnfile = File.ReadAllText(openFileDialog.FileName);
                                 string NameWithotPath = Path.GetFileName(openFileDialog.FileName);
                                 richTextBox.Text = opnfile;
-                                Text = PublicVar.appName + " – " + NameWithotPath;
+                                Text = NameWithotPath + " – " + PublicVar.appName;
                                 filePath = openFileDialog.FileName;
                                 StatusPanelFileInfo();
                                 return;
@@ -938,22 +931,20 @@ namespace Crypto_Notepad
             {
                 if (!Text.Contains("*"))
                 {
-                    Text += "*";
                 }
-
             }
             else
             {
                 if (Text.Contains("*"))
                 {
-                    Text = Text.Substring(0, Text.Length - 1);
+                    Text = Text.Replace("*", string.Empty);
                 }
             }
             if (richTextBox.TextLength == 0)
             {
                 if (Text.Contains("*"))
                 {
-                    Text = Text.Substring(0, Text.Length - 1);
+                    Text = Text.Replace("*", string.Empty);
                 }
             }
         }
@@ -1033,7 +1024,7 @@ namespace Crypto_Notepad
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
                 StreamWriter sw = new StreamWriter(saveFileDialog.FileName);
                 string NameWithotPath = Path.GetFileName(saveFileDialog.FileName);
-                Text = PublicVar.appName + " – " + NameWithotPath;
+                Text = NameWithotPath + " – " + PublicVar.appName;
                 filePath = saveFileDialog.FileName;
                 PublicVar.openFileName = Path.GetFileName(saveFileDialog.FileName);
                 sw.Close();
@@ -1068,7 +1059,7 @@ namespace Crypto_Notepad
                             string opnfile = File.ReadAllText(openFileDialog.FileName);
                             string NameWithotPath = Path.GetFileName(openFileDialog.FileName);
                             richTextBox.Text = opnfile;
-                            Text = PublicVar.appName + " – " + NameWithotPath;
+                            Text = NameWithotPath + " – " + PublicVar.appName;
                             filePath = openFileDialog.FileName;
                             StatusPanelFileInfo();
                             return;
