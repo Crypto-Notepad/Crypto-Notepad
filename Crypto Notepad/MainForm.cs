@@ -419,14 +419,29 @@ namespace Crypto_Notepad
             }
         }
 
-        private void StatusPanelFileInfo()
+        protected internal void StatusPanelFileInfo()
         {
-            DateTime creation = File.GetLastWriteTime(filePath);
-            statusPanelModifiedLabel.Text = "Modified: " + creation.ToString("dd.MM.yyyy");
-            statusPanelModifiedLabel.ToolTipText = creation.ToString();
-            long length = new FileInfo(filePath).Length;
-            statusPanelSizeLabel.Text = "Size: " + SizeSuffix(length).ToString();
-            StatusPanelTextInfo();
+            if (statusPanel.Visible)
+            {
+                if (statusPanelModifiedLabel.Visible)
+                {
+                    if (!string.IsNullOrEmpty(filePath))
+                    {
+                        DateTime creation = File.GetLastWriteTime(filePath);
+                        statusPanelModifiedLabel.Text = "Modified: " + creation.ToString("dd.MM.yyyy");
+                        statusPanelModifiedLabel.ToolTipText = creation.ToString();
+                    }
+                }
+                if (statusPanelSizeLabel.Visible)
+                {
+                    if (!string.IsNullOrEmpty(filePath))
+                    {
+                        long length = new FileInfo(filePath).Length;
+                        statusPanelSizeLabel.Text = "Size: " + SizeSuffix(length).ToString();
+                        StatusPanelTextInfo();
+                    }
+                }
+            }
         }
 
         private void StatusPanelTextInfo()
