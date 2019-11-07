@@ -16,14 +16,14 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 * Integrate with windows context menu
 * Drag and Drop support
 * Detecting links in editor
-* Сustomizable editor 
+* Сustomizable interface
 * Сustomizable encryption options (hash algorithm, key size, password iterations)  
 * Associate own file type with application
 * Portable
 
 ## System requirements
-* Windows Vista SP2 and higher
-* .NET Framework 4.5
+* Windows 7 SP1 and higher
+* .NET Framework 4.7.2
 
 ## Contributing
 Want to help make the project better? You can find a complete guide in [here](https://github.com/Crypto-Notepad/Crypto-Notepad/blob/master/CONTRIBUTING.md). Welcome! :octocat:
