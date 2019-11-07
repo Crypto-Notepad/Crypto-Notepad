@@ -16,7 +16,7 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 * Integrate with windows context menu
 * Drag and Drop support
 * Detecting links in editor
-* Сustomizable editor 
+* Сustomizable interface
 * Сustomizable encryption options (hash algorithm, key size, password iterations)  
 * Associate own file type with application
 * Portable
