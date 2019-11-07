@@ -478,7 +478,7 @@ namespace Crypto_Notepad
                 {
                     string openedFileText = await reader.ReadToEndAsync();
                     richTextBox.Text = await AES.Decrypt(openedFileText, TypedPassword.Value, null, settings.HashAlgorithm,
-                        Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)); ;
+                        Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
                 }
                 richTextBox.Modified = false;
                 fileLockedPanel.Visible = false;
