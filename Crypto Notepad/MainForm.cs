@@ -162,7 +162,15 @@ namespace Crypto_Notepad
                 DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName + "\" file?", PublicVar.appName, 
                     MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (res == DialogResult.No)
+                {
+                    string opnfile = File.ReadAllText(args[1]);
+                    string NameWithotPath = Path.GetFileName(args[1]);
+                    richTextBox.Text = opnfile;
+                    filePath = args[1];
                     Text = NameWithotPath + " – " + PublicVar.appName;
+                    StatusPanelFileInfo();
+                    return;
+                }
             }
             await DecryptAES();
         }
