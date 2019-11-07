@@ -959,6 +959,7 @@ namespace Crypto_Notepad
             {
                 if (!Text.Contains("*"))
                 {
+                    Text = Text.Insert(0, "*");
                 }
             }
             else
