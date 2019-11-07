@@ -448,16 +448,22 @@ namespace Crypto_Notepad
         {
             if (statusPanel.Visible)
             {
-                int linesCount = richTextBox.Lines.Length;
-
-                if (linesCount == 0)
+                if (statusPanelLinesLabel.Visible)
                 {
-                    linesCount = 1;
+                    int linesCount = richTextBox.Lines.Length;
+                    if (linesCount == 0)
+                    {
+                        linesCount = 1;
+                    }
+                    statusPanelLinesLabel.Text = "Lines: " + linesCount;
                 }
-                statusPanelLengthLabel.Text = "Length: " + richTextBox.TextLength;
-                statusPanelLinesLabel.Text = "Lines: " + linesCount;
+                if (statusPanelLengthLabel.Visible)
+                {
+                    statusPanelLengthLabel.Text = "Length: " + richTextBox.TextLength;
+                }
             }
         }
+
         private void StatusPanelTimer_Tick(object sender, EventArgs e)
         {
             StatusPanelTextInfo();
@@ -969,6 +975,7 @@ namespace Crypto_Notepad
                     Text = Text.Replace("*", string.Empty);
                 }
             }
+
             if (richTextBox.TextLength == 0)
             {
                 if (Text.Contains("*"))
@@ -1075,13 +1082,13 @@ namespace Crypto_Notepad
                 PublicVar.openFileName = Path.GetFileName(openFileDialog.FileName);
                 if (!openFileDialog.FileName.Contains(".cnp"))
                 {
-                                        if (Visible)
+                    if (Visible)
                     {
                         PublicVar.messageBoxCenterParent = true;
                     }
                     using (new CenterWinDialog(this))
                     {
-                        DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName + "\" file?", PublicVar.appName, 
+                        DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName + "\" file?", PublicVar.appName,
                             MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                         if (res == DialogResult.No)
                         {
