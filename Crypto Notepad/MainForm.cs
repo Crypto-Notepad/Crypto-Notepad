@@ -773,6 +773,10 @@ namespace Crypto_Notepad
                     {
                         PublicVar.messageBoxCenterParent = true;
                     }
+                    else
+                    {
+                        PublicVar.messageBoxCenterParent = false;
+                    }
                     using (new CenterWinDialog(this))
                     {
                         DialogResult res = MessageBox.Show(this, messageBoxText, PublicVar.appName, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
