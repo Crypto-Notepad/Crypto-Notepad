@@ -600,6 +600,7 @@ namespace Crypto_Notepad
             MainForm main = Owner as MainForm;
             main.statusPanelLengthLabel.Visible = statusPanelLengthCheckBox.Checked;
             settings.statusPanelLength = statusPanelLengthCheckBox.Checked;
+            main.StatusPanelTextInfo();
         }
 
         private void StatusPanelLinesCheckBox_Click(object sender, EventArgs e)
@@ -607,6 +608,7 @@ namespace Crypto_Notepad
             MainForm main = Owner as MainForm;
             main.statusPanelLinesLabel.Visible = statusPanelLinesCheckBox.Checked;
             settings.statusPanelLines = statusPanelLinesCheckBox.Checked;
+            main.StatusPanelTextInfo();
         }
 
         private void StatusPanelModifiedCheckBox_Click(object sender, EventArgs e)
