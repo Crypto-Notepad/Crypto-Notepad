@@ -786,9 +786,10 @@ namespace Crypto_Notepad
                             trayIcon.Visible = false;
                             using (StreamWriter writer = new StreamWriter(filePath))
                             {
-                                string enc = "";
-                                Task.Run(async () => { enc = await AES.Encrypt(richTextBox.Text, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)); }).Wait();
-                                writer.Write(enc);
+                                string encryptedText = richTextBox.Text;
+                                Task.Run(async () => { encryptedText =  await AES.Encrypt(encryptedText, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm, 
+                                    Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)); }).Wait();
+                                writer.Write(encryptedText);
                                 writer.Close();
                             }
                         }
