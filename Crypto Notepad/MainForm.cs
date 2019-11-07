@@ -585,6 +585,10 @@ namespace Crypto_Notepad
             statusPanel.ForeColor = settings.statusPanelFontColor;
             statusPanel.BackColor = settings.statusPanelBackColor;
             statusPanel.Visible = settings.statusPanelVisible;
+            statusPanelLengthLabel.Visible = settings.statusPanelLength;
+            statusPanelLinesLabel.Visible = settings.statusPanelLines;
+            statusPanelModifiedLabel.Visible = settings.statusPanelModified;
+            statusPanelSizeLabel.Visible = settings.statusPanelSize;
             richTextBox.WordWrap = settings.editorWrap;
             richTextBox.ForeColor = settings.editroForeColor;
             richTextBox.BackColor = settings.editorBackColor;

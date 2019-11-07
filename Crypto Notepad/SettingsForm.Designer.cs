@@ -65,6 +65,11 @@
             this.hashAlgorithmLabel = new System.Windows.Forms.Label();
             this.keySizeComboBox = new System.Windows.Forms.ComboBox();
             this.statusPanelTabPage = new System.Windows.Forms.TabPage();
+            this.statusPanelLabelsGroupBox = new System.Windows.Forms.GroupBox();
+            this.statusPanelLengthCheckBox = new System.Windows.Forms.CheckBox();
+            this.statusPanelSizeCheckBox = new System.Windows.Forms.CheckBox();
+            this.statusPanelLinesCheckBox = new System.Windows.Forms.CheckBox();
+            this.statusPanelModifiedCheckBox = new System.Windows.Forms.CheckBox();
             this.statusPanelVisibleCheckBox = new System.Windows.Forms.CheckBox();
             this.statusPanelBackColor = new System.Windows.Forms.Panel();
             this.statusPanelFontColor = new System.Windows.Forms.Panel();
@@ -92,6 +97,7 @@
             this.integrationTabPage.SuspendLayout();
             this.encryptionTabPage.SuspendLayout();
             this.statusPanelTabPage.SuspendLayout();
+            this.statusPanelLabelsGroupBox.SuspendLayout();
             this.toolbarTabPage.SuspendLayout();
             this.searchPanelTabPage.SuspendLayout();
             this.SuspendLayout();
@@ -513,6 +519,7 @@
             // 
             this.statusPanelTabPage.BackColor = System.Drawing.SystemColors.Window;
             this.statusPanelTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.statusPanelTabPage.Controls.Add(this.statusPanelLabelsGroupBox);
             this.statusPanelTabPage.Controls.Add(this.statusPanelVisibleCheckBox);
             this.statusPanelTabPage.Controls.Add(this.statusPanelBackColor);
             this.statusPanelTabPage.Controls.Add(this.statusPanelFontColor);
@@ -524,6 +531,63 @@
             this.statusPanelTabPage.Size = new System.Drawing.Size(244, 237);
             this.statusPanelTabPage.TabIndex = 5;
             this.statusPanelTabPage.Text = "stat";
+            // 
+            // statusPanelLabelsGroupBox
+            // 
+            this.statusPanelLabelsGroupBox.Controls.Add(this.statusPanelLengthCheckBox);
+            this.statusPanelLabelsGroupBox.Controls.Add(this.statusPanelSizeCheckBox);
+            this.statusPanelLabelsGroupBox.Controls.Add(this.statusPanelLinesCheckBox);
+            this.statusPanelLabelsGroupBox.Controls.Add(this.statusPanelModifiedCheckBox);
+            this.statusPanelLabelsGroupBox.Location = new System.Drawing.Point(9, 96);
+            this.statusPanelLabelsGroupBox.Name = "statusPanelLabelsGroupBox";
+            this.statusPanelLabelsGroupBox.Size = new System.Drawing.Size(223, 129);
+            this.statusPanelLabelsGroupBox.TabIndex = 8;
+            this.statusPanelLabelsGroupBox.TabStop = false;
+            this.statusPanelLabelsGroupBox.Text = "Status panel labels";
+            // 
+            // statusPanelLengthCheckBox
+            // 
+            this.statusPanelLengthCheckBox.AutoSize = true;
+            this.statusPanelLengthCheckBox.Location = new System.Drawing.Point(6, 22);
+            this.statusPanelLengthCheckBox.Name = "statusPanelLengthCheckBox";
+            this.statusPanelLengthCheckBox.Size = new System.Drawing.Size(63, 19);
+            this.statusPanelLengthCheckBox.TabIndex = 4;
+            this.statusPanelLengthCheckBox.Text = "Length";
+            this.statusPanelLengthCheckBox.UseVisualStyleBackColor = true;
+            this.statusPanelLengthCheckBox.Click += new System.EventHandler(this.StatusPanelLengthCheckBox_Click);
+            // 
+            // statusPanelSizeCheckBox
+            // 
+            this.statusPanelSizeCheckBox.AutoSize = true;
+            this.statusPanelSizeCheckBox.Location = new System.Drawing.Point(6, 97);
+            this.statusPanelSizeCheckBox.Name = "statusPanelSizeCheckBox";
+            this.statusPanelSizeCheckBox.Size = new System.Drawing.Size(46, 19);
+            this.statusPanelSizeCheckBox.TabIndex = 7;
+            this.statusPanelSizeCheckBox.Text = "Size";
+            this.statusPanelSizeCheckBox.UseVisualStyleBackColor = true;
+            this.statusPanelSizeCheckBox.Click += new System.EventHandler(this.statusPanelSizeCheckBox_Click);
+            // 
+            // statusPanelLinesCheckBox
+            // 
+            this.statusPanelLinesCheckBox.AutoSize = true;
+            this.statusPanelLinesCheckBox.Location = new System.Drawing.Point(6, 47);
+            this.statusPanelLinesCheckBox.Name = "statusPanelLinesCheckBox";
+            this.statusPanelLinesCheckBox.Size = new System.Drawing.Size(53, 19);
+            this.statusPanelLinesCheckBox.TabIndex = 5;
+            this.statusPanelLinesCheckBox.Text = "Lines";
+            this.statusPanelLinesCheckBox.UseVisualStyleBackColor = true;
+            this.statusPanelLinesCheckBox.Click += new System.EventHandler(this.StatusPanelLinesCheckBox_Click);
+            // 
+            // statusPanelModifiedCheckBox
+            // 
+            this.statusPanelModifiedCheckBox.AutoSize = true;
+            this.statusPanelModifiedCheckBox.Location = new System.Drawing.Point(6, 72);
+            this.statusPanelModifiedCheckBox.Name = "statusPanelModifiedCheckBox";
+            this.statusPanelModifiedCheckBox.Size = new System.Drawing.Size(74, 19);
+            this.statusPanelModifiedCheckBox.TabIndex = 6;
+            this.statusPanelModifiedCheckBox.Text = "Modified";
+            this.statusPanelModifiedCheckBox.UseVisualStyleBackColor = true;
+            this.statusPanelModifiedCheckBox.Click += new System.EventHandler(this.StatusPanelModifiedCheckBox_Click);
             // 
             // statusPanelVisibleCheckBox
             // 
@@ -798,6 +862,8 @@
             this.encryptionTabPage.PerformLayout();
             this.statusPanelTabPage.ResumeLayout(false);
             this.statusPanelTabPage.PerformLayout();
+            this.statusPanelLabelsGroupBox.ResumeLayout(false);
+            this.statusPanelLabelsGroupBox.PerformLayout();
             this.toolbarTabPage.ResumeLayout(false);
             this.toolbarTabPage.PerformLayout();
             this.searchPanelTabPage.ResumeLayout(false);
@@ -865,5 +931,10 @@
         private System.Windows.Forms.Label searchBorderLabel;
         private System.Windows.Forms.CheckBox toolbarCloseButtonCheckBox;
         private System.Windows.Forms.CheckBox singleInstanceCheckBox;
+        private System.Windows.Forms.CheckBox statusPanelLengthCheckBox;
+        private System.Windows.Forms.CheckBox statusPanelLinesCheckBox;
+        private System.Windows.Forms.CheckBox statusPanelModifiedCheckBox;
+        private System.Windows.Forms.CheckBox statusPanelSizeCheckBox;
+        private System.Windows.Forms.GroupBox statusPanelLabelsGroupBox;
     }
 }

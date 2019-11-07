@@ -530,5 +530,57 @@ namespace Crypto_Notepad.Properties {
                 this["singleInstance"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool statusPanelLength {
+            get {
+                return ((bool)(this["statusPanelLength"]));
+            }
+            set {
+                this["statusPanelLength"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool statusPanelLines {
+            get {
+                return ((bool)(this["statusPanelLines"]));
+            }
+            set {
+                this["statusPanelLines"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool statusPanelModified {
+            get {
+                return ((bool)(this["statusPanelModified"]));
+            }
+            set {
+                this["statusPanelModified"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool statusPanelSize {
+            get {
+                return ((bool)(this["statusPanelSize"]));
+            }
+            set {
+                this["statusPanelSize"] = value;
+            }
+        }
     }
 }

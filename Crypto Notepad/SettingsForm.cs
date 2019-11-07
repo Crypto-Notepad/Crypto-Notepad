@@ -52,6 +52,11 @@ namespace Crypto_Notepad
             statusPanelBackColor.BackColor = settings.statusPanelBackColor;
             statusPanelFontColor.BackColor = settings.statusPanelFontColor;
             statusPanelVisibleCheckBox.Checked = settings.statusPanelVisible;
+            statusPanelLengthCheckBox.Checked = settings.statusPanelLength;
+            statusPanelLinesCheckBox.Checked = settings.statusPanelLines;
+            statusPanelModifiedCheckBox.Checked = settings.statusPanelModified;
+            statusPanelSizeCheckBox.Checked = settings.statusPanelSize;
+            statusPanelLabelsGroupBox.Visible = settings.statusPanelVisible;
         }
 
         private static void AssociateExtension(string applicationExecutablePath, string extension)
@@ -137,7 +142,7 @@ namespace Crypto_Notepad
         #endregion
 
 
-        #region Form Events
+        #region Event Handlers
         private void SettingsForm_Load(object sender, EventArgs e)
         {
             string custom_colors = settings.customColor;
@@ -191,7 +196,7 @@ namespace Crypto_Notepad
         #endregion
 
 
-        #region Settings Section
+        #region Settings Events
         private void EditorFontColor_Click(object sender, EventArgs e)
         {
             colorDialog.Color = editorFontColor.BackColor;
@@ -385,9 +390,11 @@ namespace Crypto_Notepad
 
         private void StatusPanelVisibleCheckBox_Click(object sender, EventArgs e)
         {
+            statusPanelLabelsGroupBox.Visible = statusPanelVisibleCheckBox.Checked;
+            Application.DoEvents();
             MainForm main = Owner as MainForm;
             main.statusPanel.Visible = statusPanelVisibleCheckBox.Checked;
-            main.richTextBox.SetInnerMargins(Convert.ToInt32(editorPaddingLeftTextBox.Text), 0, 0, 0);
+            //main.richTextBox.SetInnerMargins(Convert.ToInt32(editorPaddingLeftTextBox.Text), 0, 0, 0);
             settings.statusPanelVisible = statusPanelVisibleCheckBox.Checked;
         }
 
@@ -586,6 +593,36 @@ namespace Crypto_Notepad
         private void SingleInstanceCheckBox_Click(object sender, EventArgs e)
         {
             settings.singleInstance = singleInstanceCheckBox.Checked;
+        }
+
+        private void StatusPanelLengthCheckBox_Click(object sender, EventArgs e)
+        {
+            MainForm main = Owner as MainForm;
+            main.statusPanelLengthLabel.Visible = statusPanelLengthCheckBox.Checked;
+            settings.statusPanelLength = statusPanelLengthCheckBox.Checked;
+        }
+
+        private void StatusPanelLinesCheckBox_Click(object sender, EventArgs e)
+        {
+            MainForm main = Owner as MainForm;
+            main.statusPanelLinesLabel.Visible = statusPanelLinesCheckBox.Checked;
+            settings.statusPanelLines = statusPanelLinesCheckBox.Checked;
+        }
+
+        private void StatusPanelModifiedCheckBox_Click(object sender, EventArgs e)
+        {
+            MainForm main = Owner as MainForm;
+            main.statusPanelModifiedLabel.Visible = statusPanelModifiedCheckBox.Checked;
+            settings.statusPanelModified = statusPanelModifiedCheckBox.Checked;
+            main.StatusPanelFileInfo();
+        }
+
+        private void statusPanelSizeCheckBox_Click(object sender, EventArgs e)
+        {
+            MainForm main = Owner as MainForm;
+            main.statusPanelSizeLabel.Visible = statusPanelSizeCheckBox.Checked;
+            settings.statusPanelSize = statusPanelSizeCheckBox.Checked;
+            main.StatusPanelFileInfo();
         }
         #endregion
 
