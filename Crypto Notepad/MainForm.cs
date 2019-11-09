@@ -312,6 +312,7 @@ namespace Crypto_Notepad
                     if (statusPanel.Visible)
                     {
                         StatusPanelMessage("update-needed");
+                        return;
                     }
                     else
                     {
