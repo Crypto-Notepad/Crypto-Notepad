@@ -1174,13 +1174,22 @@ namespace Crypto_Notepad
                 TypedPassword.Value = PublicVar.encryptionKey.Get();
             }
             filePath = saveFileDialog.FileName;
-            string enc = await AES.Encrypt(richTextBox.Text, TypedPassword.Value, null, settings.HashAlgorithm, 
-                Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
+            mainMenu.Enabled = false;
+            toolbarPanel.Enabled = false;
+            richTextBox.ReadOnly = true;
+            richTextBox.SuspendDrawing();
+            UseWaitCursor = true;
             using (StreamWriter writer = new StreamWriter(filePath))
             {
-                writer.Write(enc);
+                writer.Write(await AES.Encrypt(richTextBox.Text, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm,
+                    Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)));
                 writer.Close();
             }
+            richTextBox.ResumeDrawing();
+            UseWaitCursor = false;
+            mainMenu.Enabled = true;
+            toolbarPanel.Enabled = true;
+            richTextBox.ReadOnly = false;
             richTextBox.Modified = false;
             Text = PublicVar.appName + " – " + Path.GetFileName(filePath);
             PublicVar.encryptionKey.Set(TypedPassword.Value);
