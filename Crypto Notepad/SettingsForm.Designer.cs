@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.editorFontColorLabel = new System.Windows.Forms.Label();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
@@ -58,6 +59,7 @@
             this.associateCheckBox = new System.Windows.Forms.CheckBox();
             this.sendToCheckBox = new System.Windows.Forms.CheckBox();
             this.encryptionTabPage = new System.Windows.Forms.TabPage();
+            this.encryptionToolTipLabel = new System.Windows.Forms.Label();
             this.passwordIterationsTextBox = new System.Windows.Forms.TextBox();
             this.hashAlgorithmComboBox = new System.Windows.Forms.ComboBox();
             this.passwordIterationsLabel = new System.Windows.Forms.Label();
@@ -91,6 +93,7 @@
             this.searchBackColorLabel = new System.Windows.Forms.Label();
             this.settingsNavigation = new System.Windows.Forms.ListBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
+            this.settingsToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.settingsTabControl.SuspendLayout();
             this.applicationTabPage.SuspendLayout();
             this.editorTabPage.SuspendLayout();
@@ -434,6 +437,7 @@
             // 
             this.encryptionTabPage.BackColor = System.Drawing.SystemColors.Window;
             this.encryptionTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.encryptionTabPage.Controls.Add(this.encryptionToolTipLabel);
             this.encryptionTabPage.Controls.Add(this.passwordIterationsTextBox);
             this.encryptionTabPage.Controls.Add(this.hashAlgorithmComboBox);
             this.encryptionTabPage.Controls.Add(this.passwordIterationsLabel);
@@ -446,6 +450,18 @@
             this.encryptionTabPage.Size = new System.Drawing.Size(244, 237);
             this.encryptionTabPage.TabIndex = 1;
             this.encryptionTabPage.Text = "enc";
+            // 
+            // encryptionToolTipLabel
+            // 
+            this.encryptionToolTipLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.encryptionToolTipLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.encryptionToolTipLabel.Location = new System.Drawing.Point(9, 140);
+            this.encryptionToolTipLabel.Name = "encryptionToolTipLabel";
+            this.encryptionToolTipLabel.Size = new System.Drawing.Size(223, 96);
+            this.encryptionToolTipLabel.TabIndex = 7;
+            this.encryptionToolTipLabel.Text = resources.GetString("encryptionToolTipLabel.Text");
+            this.settingsToolTip.SetToolTip(this.encryptionToolTipLabel, "Left click to permanently hide this tooltip");
+            this.encryptionToolTipLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.EncryptionToolTipLabel_MouseClick);
             // 
             // passwordIterationsTextBox
             // 
@@ -565,7 +581,7 @@
             this.statusPanelSizeCheckBox.TabIndex = 7;
             this.statusPanelSizeCheckBox.Text = "Size";
             this.statusPanelSizeCheckBox.UseVisualStyleBackColor = true;
-            this.statusPanelSizeCheckBox.Click += new System.EventHandler(this.statusPanelSizeCheckBox_Click);
+            this.statusPanelSizeCheckBox.Click += new System.EventHandler(this.StatusPanelSizeCheckBox_Click);
             // 
             // statusPanelLinesCheckBox
             // 
@@ -936,5 +952,7 @@
         private System.Windows.Forms.CheckBox statusPanelModifiedCheckBox;
         private System.Windows.Forms.CheckBox statusPanelSizeCheckBox;
         private System.Windows.Forms.GroupBox statusPanelLabelsGroupBox;
+        private System.Windows.Forms.Label encryptionToolTipLabel;
+        private System.Windows.Forms.ToolTip settingsToolTip;
     }
 }

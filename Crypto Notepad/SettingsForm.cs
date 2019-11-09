@@ -57,6 +57,7 @@ namespace Crypto_Notepad
             statusPanelModifiedCheckBox.Checked = settings.statusPanelModified;
             statusPanelSizeCheckBox.Checked = settings.statusPanelSize;
             statusPanelLabelsGroupBox.Visible = settings.statusPanelVisible;
+            encryptionToolTipLabel.Visible = settings.encryptionToolTip;
         }
 
         private static void AssociateExtension(string applicationExecutablePath, string extension)
@@ -619,15 +620,23 @@ namespace Crypto_Notepad
             main.StatusPanelFileInfo();
         }
 
-        private void statusPanelSizeCheckBox_Click(object sender, EventArgs e)
+        private void StatusPanelSizeCheckBox_Click(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
             main.statusPanelSizeLabel.Visible = statusPanelSizeCheckBox.Checked;
             settings.statusPanelSize = statusPanelSizeCheckBox.Checked;
             main.StatusPanelFileInfo();
         }
+
         #endregion
 
-
+        private void EncryptionToolTipLabel_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                encryptionToolTipLabel.Visible = false;
+                settings.encryptionToolTip = false;
+            }
+        }
     }
 }

@@ -582,5 +582,18 @@ namespace Crypto_Notepad.Properties {
                 this["statusPanelSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool encryptionToolTip {
+            get {
+                return ((bool)(this["encryptionToolTip"]));
+            }
+            set {
+                this["encryptionToolTip"] = value;
+            }
+        }
     }
 }
