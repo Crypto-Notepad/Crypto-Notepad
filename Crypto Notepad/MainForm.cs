@@ -1193,7 +1193,7 @@ namespace Crypto_Notepad
             toolbarPanel.Enabled = true;
             richTextBox.ReadOnly = false;
             richTextBox.Modified = false;
-            Text = PublicVar.appName + " – " + Path.GetFileName(filePath);
+            Text = Path.GetFileName(filePath) + " – " + PublicVar.appName;
             PublicVar.encryptionKey.Set(TypedPassword.Value);
             TypedPassword.Value = null;
             PublicVar.openFileName = Path.GetFileName(saveFileDialog.FileName);
