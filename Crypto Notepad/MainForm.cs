@@ -308,6 +308,7 @@ namespace Crypto_Notepad
                 int appVersion = Convert.ToInt32(version.Replace(".", "")), serverVersion = Convert.ToInt32(content.Replace(".", ""));
                 if (serverVersion > appVersion)
                 {
+                    PublicVar.messageBoxCenterParent = true;
                     if (statusPanel.Visible)
                     {
                         StatusPanelMessage("update-needed");
