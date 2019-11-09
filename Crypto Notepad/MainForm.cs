@@ -98,9 +98,7 @@ namespace Crypto_Notepad
                     richTextBox.Text = await AES.Decrypt(openedFileText, TypedPassword.Value, null, settings.HashAlgorithm,
                         Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)); ;
                 }
-
-                string NameWithotPath = Path.GetFileName(openFileDialog.FileName);
-                Text = NameWithotPath + " – " + PublicVar.appName;
+                Text = Path.GetFileName(openFileDialog.FileName) + " – " + PublicVar.appName;
                 filePath = openFileDialog.FileName;
                 PublicVar.openFileName = Path.GetFileName(openFileDialog.FileName);
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
@@ -163,11 +161,9 @@ namespace Crypto_Notepad
                     MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (res == DialogResult.No)
                 {
-                    string opnfile = File.ReadAllText(args[1]);
-                    string NameWithotPath = Path.GetFileName(args[1]);
-                    richTextBox.Text = opnfile;
+                    richTextBox.Text = File.ReadAllText(args[1]); ;
                     filePath = args[1];
-                    Text = NameWithotPath + " – " + PublicVar.appName;
+                    Text = Path.GetFileName(args[1]) + " – " + PublicVar.appName;
                     StatusPanelFileInfo();
                     return;
                 }
@@ -191,11 +187,9 @@ namespace Crypto_Notepad
                     MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (res == DialogResult.No)
                 {
-                    string opnfile = File.ReadAllText(argsPath);
-                    string NameWithotPath = Path.GetFileName(argsPath);
-                    richTextBox.Text = opnfile;
+                    richTextBox.Text = File.ReadAllText(argsPath);
                     filePath = argsPath;
-                    Text = NameWithotPath + " – " + PublicVar.appName;
+                    Text = Path.GetFileName(argsPath) + " – " + PublicVar.appName;
                     StatusPanelFileInfo();
                     return;
                 }
@@ -948,10 +942,8 @@ namespace Crypto_Notepad
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                             if (res == DialogResult.No)
                             {
-                                string opnfile = File.ReadAllText(openFileDialog.FileName);
-                                string NameWithotPath = Path.GetFileName(openFileDialog.FileName);
-                                richTextBox.Text = opnfile;
-                                Text = NameWithotPath + " – " + PublicVar.appName;
+                                richTextBox.Text = File.ReadAllText(openFileDialog.FileName);
+                                Text = Path.GetFileName(openFileDialog.FileName) + " – " + PublicVar.appName;
                                 filePath = openFileDialog.FileName;
                                 StatusPanelFileInfo();
                                 return;
@@ -1065,8 +1057,7 @@ namespace Crypto_Notepad
                 saveFileDialog.FileName = "Unnamed.cnp";
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
                 StreamWriter sw = new StreamWriter(saveFileDialog.FileName);
-                string NameWithotPath = Path.GetFileName(saveFileDialog.FileName);
-                Text = NameWithotPath + " – " + PublicVar.appName;
+                Text = Path.GetFileName(saveFileDialog.FileName) + " – " + PublicVar.appName;
                 filePath = saveFileDialog.FileName;
                 PublicVar.openFileName = Path.GetFileName(saveFileDialog.FileName);
                 sw.Close();
@@ -1098,10 +1089,8 @@ namespace Crypto_Notepad
                             MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                         if (res == DialogResult.No)
                         {
-                            string opnfile = File.ReadAllText(openFileDialog.FileName);
-                            string NameWithotPath = Path.GetFileName(openFileDialog.FileName);
-                            richTextBox.Text = opnfile;
-                            Text = NameWithotPath + " – " + PublicVar.appName;
+                            richTextBox.Text = File.ReadAllText(openFileDialog.FileName);
+                            Text = Path.GetFileName(openFileDialog.FileName) + " – " + PublicVar.appName;
                             filePath = openFileDialog.FileName;
                             StatusPanelFileInfo();
                             return;
