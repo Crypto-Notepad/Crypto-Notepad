@@ -120,7 +120,7 @@
   <metadata name="colorDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="encryptionToolTipLabel.Text" xml:space="preserve">
+  <data name="encryptionHintLabel.Text" xml:space="preserve">
     <value>For the best balance of performance &amp;&amp; security is recommended to use SHA512 Hash / 256 Key size / above 2000000 Password iterations. But caution, if you change this parameters you will not able to decrypt previously encrypted files with old parameters.</value>
   </data>
   <metadata name="settingsToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

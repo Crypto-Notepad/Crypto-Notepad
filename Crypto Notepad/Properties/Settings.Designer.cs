@@ -587,12 +587,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool encryptionToolTip {
+        public bool encryptionHint {
             get {
-                return ((bool)(this["encryptionToolTip"]));
+                return ((bool)(this["encryptionHint"]));
             }
             set {
-                this["encryptionToolTip"] = value;
+                this["encryptionHint"] = value;
             }
         }
     }

@@ -59,7 +59,7 @@
             this.associateCheckBox = new System.Windows.Forms.CheckBox();
             this.sendToCheckBox = new System.Windows.Forms.CheckBox();
             this.encryptionTabPage = new System.Windows.Forms.TabPage();
-            this.encryptionToolTipLabel = new System.Windows.Forms.Label();
+            this.encryptionHintLabel = new System.Windows.Forms.Label();
             this.passwordIterationsTextBox = new System.Windows.Forms.TextBox();
             this.hashAlgorithmComboBox = new System.Windows.Forms.ComboBox();
             this.passwordIterationsLabel = new System.Windows.Forms.Label();
@@ -437,7 +437,7 @@
             // 
             this.encryptionTabPage.BackColor = System.Drawing.SystemColors.Window;
             this.encryptionTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.encryptionTabPage.Controls.Add(this.encryptionToolTipLabel);
+            this.encryptionTabPage.Controls.Add(this.encryptionHintLabel);
             this.encryptionTabPage.Controls.Add(this.passwordIterationsTextBox);
             this.encryptionTabPage.Controls.Add(this.hashAlgorithmComboBox);
             this.encryptionTabPage.Controls.Add(this.passwordIterationsLabel);
@@ -451,17 +451,17 @@
             this.encryptionTabPage.TabIndex = 1;
             this.encryptionTabPage.Text = "enc";
             // 
-            // encryptionToolTipLabel
+            // encryptionHintLabel
             // 
-            this.encryptionToolTipLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.encryptionToolTipLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.encryptionToolTipLabel.Location = new System.Drawing.Point(9, 140);
-            this.encryptionToolTipLabel.Name = "encryptionToolTipLabel";
-            this.encryptionToolTipLabel.Size = new System.Drawing.Size(223, 96);
-            this.encryptionToolTipLabel.TabIndex = 7;
-            this.encryptionToolTipLabel.Text = resources.GetString("encryptionToolTipLabel.Text");
-            this.settingsToolTip.SetToolTip(this.encryptionToolTipLabel, "Left click to permanently hide this tooltip");
-            this.encryptionToolTipLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.EncryptionToolTipLabel_MouseClick);
+            this.encryptionHintLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.encryptionHintLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.encryptionHintLabel.Location = new System.Drawing.Point(9, 140);
+            this.encryptionHintLabel.Name = "encryptionHintLabel";
+            this.encryptionHintLabel.Size = new System.Drawing.Size(223, 96);
+            this.encryptionHintLabel.TabIndex = 7;
+            this.encryptionHintLabel.Text = resources.GetString("encryptionHintLabel.Text");
+            this.settingsToolTip.SetToolTip(this.encryptionHintLabel, "Left click to permanently hide this tooltip");
+            this.encryptionHintLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.EncryptionHintLabel_MouseClick);
             // 
             // passwordIterationsTextBox
             // 
@@ -952,7 +952,7 @@
         private System.Windows.Forms.CheckBox statusPanelModifiedCheckBox;
         private System.Windows.Forms.CheckBox statusPanelSizeCheckBox;
         private System.Windows.Forms.GroupBox statusPanelLabelsGroupBox;
-        private System.Windows.Forms.Label encryptionToolTipLabel;
+        private System.Windows.Forms.Label encryptionHintLabel;
         private System.Windows.Forms.ToolTip settingsToolTip;
     }
 }
