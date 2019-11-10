@@ -460,7 +460,7 @@
             this.encryptionHintLabel.Size = new System.Drawing.Size(223, 96);
             this.encryptionHintLabel.TabIndex = 7;
             this.encryptionHintLabel.Text = resources.GetString("encryptionHintLabel.Text");
-            this.settingsToolTip.SetToolTip(this.encryptionHintLabel, "Left click to permanently hide this tooltip");
+            this.settingsToolTip.SetToolTip(this.encryptionHintLabel, "Left click to permanently hide this hint");
             this.encryptionHintLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.EncryptionHintLabel_MouseClick);
             // 
             // passwordIterationsTextBox
