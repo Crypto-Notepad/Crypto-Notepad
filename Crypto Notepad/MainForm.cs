@@ -1144,6 +1144,10 @@ namespace Crypto_Notepad
                 PublicVar.openFileName = "Unnamed.cnp";
                 saveFileDialog.FileName = "Unnamed.cnp";
             }
+            if (saveFileDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
             EnterKeyForm enterKeyForm = new EnterKeyForm
             {
                 Owner = this
@@ -1157,14 +1161,7 @@ namespace Crypto_Notepad
                     return;
                 }
             }
-            if (saveFileDialog.ShowDialog() != DialogResult.OK)
-            {
-                return;
-            }
-            if (TypedPassword.Value == null)
-            {
-                TypedPassword.Value = PublicVar.encryptionKey.Get();
-            }
+            PublicVar.encryptionKey.Set(TypedPassword.Value);
             filePath = saveFileDialog.FileName;
             mainMenu.Enabled = false;
             toolbarPanel.Enabled = false;
@@ -1184,7 +1181,6 @@ namespace Crypto_Notepad
             richTextBox.ReadOnly = false;
             richTextBox.Modified = false;
             Text = Path.GetFileName(filePath) + " – " + PublicVar.appName;
-            PublicVar.encryptionKey.Set(TypedPassword.Value);
             TypedPassword.Value = null;
             PublicVar.openFileName = Path.GetFileName(saveFileDialog.FileName);
             StatusPanelMessage("save");
