@@ -71,7 +71,7 @@
             this.thirdPartyDevLabel.AutoSize = true;
             this.thirdPartyDevLabel.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.thirdPartyDevLabel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.thirdPartyDevLabel.Location = new System.Drawing.Point(5, 178);
+            this.thirdPartyDevLabel.Location = new System.Drawing.Point(5, 173);
             this.thirdPartyDevLabel.Name = "thirdPartyDevLabel";
             this.thirdPartyDevLabel.Size = new System.Drawing.Size(200, 18);
             this.thirdPartyDevLabel.TabIndex = 4;
@@ -154,7 +154,7 @@
             this.contributorsRichTextBox.RightMargin = 700;
             this.contributorsRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.contributorsRichTextBox.ShowSelectionMargin = true;
-            this.contributorsRichTextBox.Size = new System.Drawing.Size(414, 50);
+            this.contributorsRichTextBox.Size = new System.Drawing.Size(414, 40);
             this.contributorsRichTextBox.TabIndex = 11;
             this.contributorsRichTextBox.Text = "h5p9sl https://github.com/h5p9sl\nsmaragdus https://github.com/smaragdus";
             this.contributorsRichTextBox.WordWrap = false;
@@ -166,13 +166,13 @@
             this.thirdPartyDevRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.thirdPartyDevRichTextBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.thirdPartyDevRichTextBox.ForeColor = System.Drawing.SystemColors.Control;
-            this.thirdPartyDevRichTextBox.Location = new System.Drawing.Point(-1, 199);
+            this.thirdPartyDevRichTextBox.Location = new System.Drawing.Point(-1, 194);
             this.thirdPartyDevRichTextBox.Name = "thirdPartyDevRichTextBox";
             this.thirdPartyDevRichTextBox.ReadOnly = true;
             this.thirdPartyDevRichTextBox.RightMargin = 700;
             this.thirdPartyDevRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedHorizontal;
             this.thirdPartyDevRichTextBox.ShowSelectionMargin = true;
-            this.thirdPartyDevRichTextBox.Size = new System.Drawing.Size(414, 99);
+            this.thirdPartyDevRichTextBox.Size = new System.Drawing.Size(414, 141);
             this.thirdPartyDevRichTextBox.TabIndex = 10;
             this.thirdPartyDevRichTextBox.Text = resources.GetString("thirdPartyDevRichTextBox.Text");
             this.thirdPartyDevRichTextBox.WordWrap = false;
@@ -183,7 +183,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(411, 298);
+            this.ClientSize = new System.Drawing.Size(411, 335);
             this.Controls.Add(this.contributorsRichTextBox);
             this.Controls.Add(this.thirdPartyDevRichTextBox);
             this.Controls.Add(this.appInfoLabel3);

@@ -370,9 +370,12 @@
   <data name="thirdPartyDevRichTextBox.Text" xml:space="preserve">
     <value>Custom TextBox with Watermark: https://www.codeproject.com/Articles/319910/Custom-TextBox-with-watermark
 CustomSettingsProvider: http://www.codeproject.com/Articles/20917/Settings-Provider
+Farm-Fresh Web Icons: https://www.fatcow.com/free-icons
 MsgBoxCenterParent: http://stackoverflow.com/a/2576220/4430027
+PasswordGenerator: https://github.com/prjseal/PasswordGenerator/ 
+Fugue Icons: https://p.yusukekamiyamane.com/
 DotNetZip: https://www.nuget.org/packages/DotNetZip/
-Icons: http://p.yusukekamiyamane.com/   http://www.fatcow.com/free-icons
+Fody: https://github.com/Fody/Fody
 AES: http://www.codeproject.com/Answers/391219/AES#answer2</value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
