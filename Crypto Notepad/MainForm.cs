@@ -789,6 +789,28 @@ namespace Crypto_Notepad
                         DialogResult res = MessageBox.Show(this, messageBoxText, PublicVar.appName, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                         if (res == DialogResult.Yes)
                         {
+                            if (string.IsNullOrEmpty(filePath))
+                            {
+                                saveFileDialog.FileName = "Unnamed.cnp";
+                                if (saveFileDialog.ShowDialog() != DialogResult.OK)
+                                {
+                                    e.Cancel = true;
+                                    return;
+                                }
+                                EnterKeyForm enterKeyForm = new EnterKeyForm
+                                {
+                                    Owner = this
+                                };
+                                enterKeyForm.ShowDialog();
+                                if (!PublicVar.okPressed)
+                                {
+                                    PublicVar.openFileName = Path.GetFileName(filePath);
+                                    e.Cancel = true;
+                                    return;
+                                }
+                                PublicVar.encryptionKey.Set(TypedPassword.Value);
+                                filePath = saveFileDialog.FileName;
+                            }
                             Hide();
                             trayIcon.Visible = false;
                             using (StreamWriter writer = new StreamWriter(filePath))
