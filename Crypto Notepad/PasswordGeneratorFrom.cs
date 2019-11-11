@@ -67,11 +67,9 @@ namespace Crypto_Notepad
             }
         }
 
-        private void PasswordGeneratorFrom_Shown(object sender, EventArgs e)
+        private void PasswordGeneratorFrom_Load(object sender, EventArgs e)
         {
             CenterToParent();
         }
-
-
     }
 }
