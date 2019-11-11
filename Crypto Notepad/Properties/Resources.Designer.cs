@@ -303,6 +303,16 @@ namespace Crypto_Notepad.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap key__plus {
+            get {
+                object obj = ResourceManager.GetObject("key__plus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap key_solid {
             get {
                 object obj = ResourceManager.GetObject("key_solid", resourceCulture);

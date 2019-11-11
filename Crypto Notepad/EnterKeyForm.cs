@@ -95,6 +95,16 @@ namespace Crypto_Notepad
             PublicVar.okPressed = true;
             Hide();           
         }
+
+        private void PasswordGeneratorButton_Click(object sender, EventArgs e)
+        {
+            ActiveControl = null;
+            PasswordGeneratorFrom passwordGeneratorFrom = new PasswordGeneratorFrom();
+            if ((Application.OpenForms["PasswordGeneratorFrom"] as PasswordGeneratorFrom) == null)
+            {
+                passwordGeneratorFrom.Show(this);
+            }
+        }
         /*Buttons*/
 
 

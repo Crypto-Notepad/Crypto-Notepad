@@ -630,6 +630,7 @@ namespace Crypto_Notepad
                 aboutMainMenu.Image = Resources.information;
                 alwaysOnTopMainMenu.Image = Resources.applications_blue;
                 saveCloseFileMainMenu.Image = Resources.disk__minus;
+                passwordGeneratorMainMenu.Image = Resources.key__plus;            
             }
             else
             {
@@ -1402,6 +1403,12 @@ namespace Crypto_Notepad
                 StatusPanelMessage("always-top-off");
             }
 
+        }
+
+        private void PasswordGeneratorMainMenu_Click(object sender, EventArgs e)
+        {
+            PasswordGeneratorFrom passwordGeneratorFrom = new PasswordGeneratorFrom();
+            passwordGeneratorFrom.ShowDialog(this);
         }
 
         private void ToolsMainMenu_DropDownOpened(object sender, EventArgs e)

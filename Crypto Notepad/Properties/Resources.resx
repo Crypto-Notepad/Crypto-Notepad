@@ -1027,17 +1027,19 @@
   </data>
   <data name="disk__minus" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAB6klEQVQ4T6XOXUhTcRjH8Wdn
-        u5f0IoiIontljqDbiKCii0CWKLZy5egi6ibwIkmhF3VtbcJsZqQW5VbD6AhR24qWCydSF2VFRvaCURkD
-        X/BlMNiv/+/gotgYRgc+HPj/n+9zjgD4L+I0+xT/MeWivbXVtRacZRMS9TSqBYp3cnBBLQRyRYy7XIja
-        bL/pW6zol3U/BkWuyGGzl3wTA2lkczlkstkCkepqrDgcBXpEnsshs4e6Xvb9xJIanlteLnDX6cRlq9UQ
-        VMv8m6vQIuUz5/gHDrObAi96v2E2k8H3+fmSOMNZNie1XSINWjsFx4PTmFFf+5ROl8QZzrJhK/XaeepN
-        BT7j49Qcvi4ulsQZzrJhK3XaWbqW9H9ArH1iTTjLhq3Uam00kPBOovPADXTYrxfFu7yx7i9gw1bs2hm6
-        +ajzDTx1t5BKjWFkJPkXnvHuTnMSvoYwnnVNgQ1bqdFOUzh64RX8B28jHk+gZU+3YXj4gYFnvOOC4NF7
-        eHrpPdiwlf1aMw3FO14j0DgEXY8ZbwqHdUP+jAv6jz/EE887sGErFaaNst1Us2Ov6USsbffV2Ugkip4m
-        3RAK3Tfkz7ggdCqBx+634DxbPpuUyq2y7chOaRq1WCzuYnj3J5vs61ttpUxZr2z4R6qRsl9qPVVwJqmK
-        bwAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHqSURBVDhPpc5dSFNxGMfxZ2e7l/QiiIiie2WOoNuI
+        oKKLQJYotnLl6CLqJvAiSaEXdW1twmxmpBblVsPoCFHbipYLJ1IXZUVG9oJRGQNf8GUw2K//7+Ci2BhG
+        Bz4c+P+f73OOAPgv4jT7FP8x5aK9tdW1FpxlExL1NKoFindycEEtBHJFjLtciNpsv+lbrOiXdT8GRa7I
+        YbOXfBMDaWRzOWSy2QKR6mqsOBwFekSeyyGzh7pe9v3EkhqeW14ucNfpxGWr1RBUy/ybq9Ai5TPn+AcO
+        s5sCL3q/YTaTwff5+ZI4w1k2J7VdIg1aOwXHg9OYUV/7lE6XxBnOsmEr9dp56k0FPuPj1By+Li6WxBnO
+        smErddpZupb0f0CsfWJNOMuGrdRqbTSQ8E6i88ANdNivF8W7vLHuL2DDVuzaGbr5qPMNPHW3kEqNYWQk
+        +Ree8e5OcxK+hjCedU2BDVup0U5TOHrhFfwHbyMeT6BlT7dhePiBgWe844Lg0Xt4euk92LCV/VozDcU7
+        XiPQOARdjxlvCod1Q/6MC/qPP8QTzzuwYSsVpo2y3VSzY6/pRKxt99XZSCSKnibdEArdN+TPuCB0KoHH
+        7rfgPFs+m5TKrbLtyE5pGrVYLO5iePcnm+zrW22lTFmvbPhHqpGyX2o9VXAmqYpvAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="key__plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\key--plus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -50,6 +50,16 @@ namespace Crypto_Notepad
                 statusLabel.Text = "";
             }
         }
+
+        private void PasswordGeneratorButton_Click(object sender, EventArgs e)
+        {
+            ActiveControl = null;
+            PasswordGeneratorFrom passwordGeneratorFrom = new PasswordGeneratorFrom();
+            if ((Application.OpenForms["PasswordGeneratorFrom"] as PasswordGeneratorFrom) == null)
+            {
+                passwordGeneratorFrom.Show(this);
+            }
+        }
         /*Buttons*/
 
 
