@@ -1159,6 +1159,7 @@ namespace Crypto_Notepad
             {
                 return;
             }
+            PublicVar.openFileName = Path.GetFileName(saveFileDialog.FileName);
             EnterKeyForm enterKeyForm = new EnterKeyForm
             {
                 Owner = this
@@ -1171,6 +1172,10 @@ namespace Crypto_Notepad
                     PublicVar.openFileName = Path.GetFileName(filePath);
                     return;
                 }
+            }
+            if (TypedPassword.Value == null)
+            {
+                TypedPassword.Value = PublicVar.encryptionKey.Get();
             }
             PublicVar.encryptionKey.Set(TypedPassword.Value);
             filePath = saveFileDialog.FileName;
