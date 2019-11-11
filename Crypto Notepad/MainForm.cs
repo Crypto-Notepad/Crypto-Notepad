@@ -981,10 +981,6 @@ namespace Crypto_Notepad
         private void RichTextBox_TextChanged(object sender, EventArgs e)
         {
             statusPanelTimer.Start();
-            //if (string.IsNullOrEmpty(PublicVar.openFileName))
-            //{
-            //    Text = "Unnamed.cnp" + " – " + PublicVar.appName;
-            //}
             if (richTextBox.Modified)
             {
                 if (!Text.Contains("*"))
