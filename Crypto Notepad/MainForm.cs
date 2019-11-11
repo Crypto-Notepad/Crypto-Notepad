@@ -1189,13 +1189,6 @@ namespace Crypto_Notepad
 
         private async void SaveCloseFileMainMenu_Click(object sender, EventArgs e)
         {
-            //using (StreamWriter writer = new StreamWriter(filePath))
-            //{
-            //    writer.Write(AES.Encrypt(richTextBox.Text, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm, 
-            //        Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)));
-            //    writer.Close();
-            //}
-
             mainMenu.Enabled = false;
             toolbarPanel.Enabled = false;
             richTextBox.SuspendDrawing();
