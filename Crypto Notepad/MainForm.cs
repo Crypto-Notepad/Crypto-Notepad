@@ -986,21 +986,11 @@ namespace Crypto_Notepad
                 if (!Text.Contains("*"))
                 {
                     Text = Text.Insert(0, "*");
-                }
-            }
-            else
-            {
-                if (Text.Contains("*"))
-                {
-                    Text = Text.Replace("*", string.Empty);
-                }
-            }
-
-            if (richTextBox.TextLength == 0)
-            {
-                if (Text.Contains("*"))
-                {
-                    Text = Text.Replace("*", string.Empty);
+                    if (string.IsNullOrEmpty(PublicVar.openFileName) & richTextBox.TextLength > 0)
+                    {
+                        Text = "Unnamed.cnp" + " – " + PublicVar.appName;
+                        Text = Text.Insert(0, "*");
+                    }
                 }
             }
         }
