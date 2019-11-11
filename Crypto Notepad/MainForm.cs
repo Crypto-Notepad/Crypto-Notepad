@@ -1049,13 +1049,13 @@ namespace Crypto_Notepad
             }
             else
             {
+                saveFileDialog.FileName = "Unnamed.cnp";
                 if (saveFileDialog.ShowDialog() != DialogResult.OK)
                 {
                     TypedPassword.Value = null;
                     return;
                 }
                 richTextBox.Clear();
-                saveFileDialog.FileName = "Unnamed.cnp";
                 PublicVar.encryptionKey.Set(TypedPassword.Value);
                 StreamWriter sw = new StreamWriter(saveFileDialog.FileName);
                 Text = Path.GetFileName(saveFileDialog.FileName) + " – " + PublicVar.appName;
