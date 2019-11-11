@@ -1444,7 +1444,6 @@ namespace Crypto_Notepad
 
         private async void LockMainMenu_Click(object sender, EventArgs e)
         {
-            //SaveMainMenu_Click(this, new EventArgs());
             mainMenu.Enabled = false;
             toolbarPanel.Enabled = false;
             richTextBox.SuspendDrawing();
