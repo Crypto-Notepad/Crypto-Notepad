@@ -28,11 +28,6 @@ namespace Crypto_Notepad
             fileNameLabel.Text = PublicVar.openFileName;
             Properties.Settings settings = Properties.Settings.Default;
             TopMost = settings.alwaysOnTop;
-        }
-
-        private void EnterKeyForm_Shown(object sender, EventArgs e)
-        {
-            fileNameLabel.Text = PublicVar.openFileName;
             MainForm main = Owner as MainForm;
             if (main.Visible)
             {
@@ -42,6 +37,11 @@ namespace Crypto_Notepad
             {
                 CenterToScreen();
             }
+        }
+
+        private void EnterKeyForm_Shown(object sender, EventArgs e)
+        {
+            fileNameLabel.Text = PublicVar.openFileName;
         }
         /*Form Events*/
 

@@ -34,10 +34,10 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.lockPictureBox = new System.Windows.Forms.PictureBox();
             this.fileNameLabel = new System.Windows.Forms.Label();
-            this.keyTextBox = new System.Windows.Forms.PlaceholderTextBox();
             this.showKeyPictureBox = new System.Windows.Forms.PictureBox();
             this.enterKeyFormToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.passwordGeneratorButton = new System.Windows.Forms.Button();
+            this.keyTextBox = new System.Windows.Forms.PlaceholderTextBox();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lockPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.showKeyPictureBox)).BeginInit();
@@ -89,20 +89,6 @@
             this.fileNameLabel.Text = "File name";
             this.fileNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // keyTextBox
-            // 
-            this.keyTextBox.Location = new System.Drawing.Point(64, 39);
-            this.keyTextBox.Name = "keyTextBox";
-            this.keyTextBox.Placeholder = "Encryption key";
-            this.keyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
-            this.keyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.keyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.keyTextBox.Size = new System.Drawing.Size(206, 22);
-            this.keyTextBox.TabIndex = 0;
-            this.keyTextBox.UseSystemPasswordChar = true;
-            this.keyTextBox.TextChanged += new System.EventHandler(this.KeyTextBox_TextChanged);
-            this.keyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyTextBox_KeyDown);
-            // 
             // showKeyPictureBox
             // 
             this.showKeyPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -128,6 +114,20 @@
             this.passwordGeneratorButton.UseVisualStyleBackColor = true;
             this.passwordGeneratorButton.Click += new System.EventHandler(this.PasswordGeneratorButton_Click);
             // 
+            // keyTextBox
+            // 
+            this.keyTextBox.Location = new System.Drawing.Point(64, 39);
+            this.keyTextBox.Name = "keyTextBox";
+            this.keyTextBox.Placeholder = "Encryption key";
+            this.keyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
+            this.keyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.keyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.keyTextBox.Size = new System.Drawing.Size(206, 22);
+            this.keyTextBox.TabIndex = 0;
+            this.keyTextBox.UseSystemPasswordChar = true;
+            this.keyTextBox.TextChanged += new System.EventHandler(this.KeyTextBox_TextChanged);
+            this.keyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyTextBox_KeyDown);
+            // 
             // EnterKeyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,7 +142,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EnterKeyForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Crypto Notepad";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EnterKeyForm_FormClosed);
             this.Load += new System.EventHandler(this.EnterKeyForm_Load);
