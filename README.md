@@ -22,7 +22,7 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 * Portable
 
 ## System requirements
-* Windows 7 SP1 and higher
+* Windows 7 SP1 / 8.1 / 10
 * .NET Framework 4.7.2
 
 ## Contributing
