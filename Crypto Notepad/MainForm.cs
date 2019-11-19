@@ -1051,6 +1051,7 @@ namespace Crypto_Notepad
 
             if (!PublicVar.okPressed)
             {
+                PublicVar.openFileName = "";
                 if (!string.IsNullOrEmpty(filePath))
                 {
                     PublicVar.openFileName = Path.GetFileName(filePath);
