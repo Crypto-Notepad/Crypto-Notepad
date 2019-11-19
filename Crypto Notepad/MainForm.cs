@@ -1239,6 +1239,7 @@ namespace Crypto_Notepad
         {
             if (!string.IsNullOrEmpty(filePath))
             {
+                PublicVar.messageBoxCenterParent = true;
                 using (new CenterWinDialog(this))
                 {
                     if (MessageBox.Show(this, "Delete file: " + "\"" + filePath + "\"" + " ?", PublicVar.appName, 
