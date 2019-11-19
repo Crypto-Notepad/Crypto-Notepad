@@ -198,6 +198,14 @@ namespace Crypto_Notepad
 
 
         #region Settings Events
+        private void EncryptionHintLabel_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                encryptionHintLabel.Visible = false;
+                settings.encryptionHint = false;
+            }
+        }
         private void EditorFontColor_Click(object sender, EventArgs e)
         {
             colorDialog.Color = editorFontColor.BackColor;
@@ -627,16 +635,8 @@ namespace Crypto_Notepad
             settings.statusPanelSize = statusPanelSizeCheckBox.Checked;
             main.StatusPanelFileInfo();
         }
-
         #endregion
 
-        private void EncryptionHintLabel_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                encryptionHintLabel.Visible = false;
-                settings.encryptionHint = false;
-            }
-        }
+
     }
 }
