@@ -35,6 +35,19 @@ namespace Crypto_Notepad
             
             base.WndProc(ref m);
         }
+        [DllImport("kernel32.dll", EntryPoint = "LoadLibraryW",
+        CharSet = CharSet.Unicode, SetLastError = true)]
+        private static extern IntPtr LoadLibraryW(string s_File);
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                var cp = base.CreateParams;
+                LoadLibraryW("MsftEdit.dll");
+                cp.ClassName = "RichEdit50W";
+                return cp;
+            }
+        }
 
         protected override void OnHandleCreated(EventArgs e)
         {
@@ -44,8 +57,9 @@ namespace Crypto_Notepad
                 AutoWordSelection = true;
                 AutoWordSelection = false;
             }
-        }    
+        }
     }
+
     public static class RichTextBoxPadding
     {
         public static void SetInnerMargins(this TextBoxBase textBox, int left, int top, int right, int bottom)
@@ -117,6 +131,5 @@ namespace Crypto_Notepad
             richTextBox.Invalidate();
         }
     }
-
 }
 
