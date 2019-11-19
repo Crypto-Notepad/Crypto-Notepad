@@ -120,6 +120,9 @@
   <metadata name="acceptButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="mainPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="lockPictureBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -144,4 +147,32 @@
   <metadata name="passwordGeneratorButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
+        AAD///8A////AP///wAAAAACAAAADAAAABoAGjFZAC1XvQAYLmAAAAArAAAAHgAAABAAAAAE////AP//
+        /wD///8A////AP///wD///8AAAAAAQAAAAYAAAANADNdqIXO5v8AM12pACM+TwAAAA8AAAAIAAAAAv//
+        /wD///8A////AP///wD///8A////AAAAAAAAAAAAAC9PAAA+aKGDzOX/fcrk/wA+aaIAL08AAAAAAAAA
+        AAD///8A////AP///wD///8A////AP///wAAAAAAADlZAABLdgAAS3apg8zl/wBLdqkAS3YuAEp0AAAV
+        IAAAAAAA////AP///wD///8A////AP///wD///8AAFR/AABUfwAAVH8AAFR/toPM5f92wtz2AFR/tgBU
+        fwAAVH8AAD9gAP///wD///8A////AP///wD///8A////AABVgAAAVYAAAFWAAABVgLWDzOX/AFWAtQBV
+        gC4AVYAAAFaBAABXgwD///8A////AP///wD///8A////AP///wAAWYUAAFaBAABVgAAAVYCxg8zl/2a4
+        1f8AVYCxAFWAAABWgQAAWYUA////AP///wD///8A////AP///wD///8AAFmFAABWgQUAVYBBAFWArIPM
+        5f9hs9L/AFWArABVgEEAVoEFAFmFAP///wD///8A////AP///wD///8A////AABZhQcAWIRtPo6xxXzD
+        4OtyvNr/W67O/1ev0usshq3FAFiEbQBZhQf///8A////AP///wD///8A////AP///wABXoxLVKTFzJba
+        9v+IzO7/Z7LT/0yixf9Nr9f/Ysbt/zuZwswBXoxL////AP///wD///8A////AP///wD///8AAWOUhZnf
+        9/ea3vj/ltr1/4HK5f9uvdr/asPk/2nK8P9pzfT3AWOUhf///wD///8A////AP///wD///8A////AAJq
+        npKh5f7/EJixzgCQqMkAkKjJAJCoyQCQqMkJlrDObtP6/wJqnpL///8A////AP///wD///8A////AP//
+        /wACcKhxjNfx60Wry90AhqSCAImlGQCJpRkAhqSCKaLH3WrK7+sCcKhx////AP///wD///8A////AP//
+        /wD///8AAnawLyeRw6Sd4fn/RaHG1g96pboLeKK6KZS81nfR8/8ij8KkAnawL////wD///8A////AP//
+        /wD///8A////AAN7twEDfLlMKZbJoX7O7d2N1ez/gMzm/23E5d0llMmhA3y5TAN7twH///8A////AP//
+        /wD///8A////AP///wADe7cAA369AQOAvy0DgL9pA4C/gwOAv4MDgL9pA4C/LQN+vQEDe7cA////AP//
+        /wD///8A4AcAAOAHAAD8PwAA/D8AAPw/AAD8PwAA/D8AAPAPAADgBwAA4AcAAOAHAADgBwAA4AcAAOAH
+        AADgBwAA8A8AAA==
+</value>
+  </data>
 </root>
