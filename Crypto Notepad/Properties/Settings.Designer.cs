@@ -595,5 +595,70 @@ namespace Crypto_Notepad.Properties {
                 this["encryptionHint"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool passwordGeneratorLowercase {
+            get {
+                return ((bool)(this["passwordGeneratorLowercase"]));
+            }
+            set {
+                this["passwordGeneratorLowercase"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool passwordGeneratorUppercase {
+            get {
+                return ((bool)(this["passwordGeneratorUppercase"]));
+            }
+            set {
+                this["passwordGeneratorUppercase"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool passwordGeneratorNumeric {
+            get {
+                return ((bool)(this["passwordGeneratorNumeric"]));
+            }
+            set {
+                this["passwordGeneratorNumeric"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool passwordGeneratorSpecial {
+            get {
+                return ((bool)(this["passwordGeneratorSpecial"]));
+            }
+            set {
+                this["passwordGeneratorSpecial"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("40")]
+        public string passwordGeneratorLength {
+            get {
+                return ((string)(this["passwordGeneratorLength"]));
+            }
+            set {
+                this["passwordGeneratorLength"] = value;
+            }
+        }
     }
 }
