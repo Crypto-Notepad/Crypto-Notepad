@@ -65,9 +65,9 @@
             this.copyToClipboardLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.copyToClipboardLabel.Location = new System.Drawing.Point(214, 15);
             this.copyToClipboardLabel.Name = "copyToClipboardLabel";
-            this.copyToClipboardLabel.Size = new System.Drawing.Size(81, 14);
+            this.copyToClipboardLabel.Size = new System.Drawing.Size(33, 14);
             this.copyToClipboardLabel.TabIndex = 3;
-            this.copyToClipboardLabel.Text = "copied to clipboard";
+            this.copyToClipboardLabel.Text = "copied";
             this.copyToClipboardLabel.Visible = false;
             // 
             // appInfoRichTextBox
