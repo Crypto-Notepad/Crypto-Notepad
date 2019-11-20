@@ -17,6 +17,7 @@ namespace Crypto_Notepad
             InitializeComponent();
         }
 
+        #region Methods
         private static string CheckFor45DotVersion(int releaseKey)
         {
             if (releaseKey >= 461808)
@@ -101,9 +102,10 @@ namespace Crypto_Notepad
             await Task.Delay(3000);
             copyToClipboardLabel.Visible = false;
         }
+        #endregion
 
 
-        /*Event Handlers*/
+        #region Event Handlers
         private void AboutWindow_Load(object sender, EventArgs e)
         {
             Version vrs = new Version(Application.ProductVersion);
@@ -125,16 +127,16 @@ namespace Crypto_Notepad
             Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
             appVersionLabel.ForeColor = randomColor;
         }
-        /*Event Handlers*/
+        #endregion
 
 
-        /*Main*/
+        #region Main
         private void AppInfoRichTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             Process.Start(e.LinkText);
         }
 
-        private void appVersionLabel_MouseClick(object sender, MouseEventArgs e)
+        private void AppVersionLabel_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -153,7 +155,8 @@ namespace Crypto_Notepad
                 }
             }
         }
-        /*Main*/
+        #endregion
+
 
     }
 }

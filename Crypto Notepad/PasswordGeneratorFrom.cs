@@ -15,6 +15,7 @@ namespace Crypto_Notepad
             InitializeComponent();
         }
 
+        #region Methods
         private string GeneratePassword()
         {
             var pwd = new Password(
@@ -36,7 +37,10 @@ namespace Crypto_Notepad
                 passwordLength: int.Parse(passwordLengthTextBox.Text));
             return pwd.NextGroup(11);
         }
+        #endregion
 
+
+        #region Event Handlers
         private void GenerateButton_Click(object sender, EventArgs e)
         {
             passwordsList.AppendLine(GeneratePassword());
@@ -126,6 +130,7 @@ namespace Crypto_Notepad
                 generateButton.Enabled = false;
             }
         }
+        #endregion
 
 
     }
