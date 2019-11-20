@@ -61,7 +61,7 @@
             this.copyToClipboardLabel.AutoSize = true;
             this.copyToClipboardLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.copyToClipboardLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.copyToClipboardLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.copyToClipboardLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.copyToClipboardLabel.Location = new System.Drawing.Point(214, 15);
             this.copyToClipboardLabel.Name = "copyToClipboardLabel";
             this.copyToClipboardLabel.Size = new System.Drawing.Size(81, 14);
