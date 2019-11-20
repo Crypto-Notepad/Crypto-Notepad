@@ -215,9 +215,9 @@
             this.autoCheckUpdatesCheckBox.AutoSize = true;
             this.autoCheckUpdatesCheckBox.Location = new System.Drawing.Point(7, 30);
             this.autoCheckUpdatesCheckBox.Name = "autoCheckUpdatesCheckBox";
-            this.autoCheckUpdatesCheckBox.Size = new System.Drawing.Size(131, 19);
+            this.autoCheckUpdatesCheckBox.Size = new System.Drawing.Size(184, 19);
             this.autoCheckUpdatesCheckBox.TabIndex = 1;
-            this.autoCheckUpdatesCheckBox.Text = "Auto check updates";
+            this.autoCheckUpdatesCheckBox.Text = "Auto check updates at startup";
             this.autoCheckUpdatesCheckBox.UseVisualStyleBackColor = true;
             this.autoCheckUpdatesCheckBox.Click += new System.EventHandler(this.AutoCheckUpdatesCheckBox_Click);
             // 
