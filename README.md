@@ -23,7 +23,7 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 
 ## System requirements
 * Windows 7 SP1 and higher
-* .NET Framework 4.7.2
+* .NET Framework 4.6.1 and higher
 
 ## Contributing
 Want to help make the project better? You can find a complete guide in [here](https://github.com/Crypto-Notepad/Crypto-Notepad/blob/master/CONTRIBUTING.md). Welcome! :octocat:
