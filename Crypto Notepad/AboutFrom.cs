@@ -127,6 +127,14 @@ namespace Crypto_Notepad
             Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
             appVersionLabel.ForeColor = randomColor;
         }
+
+        private void AppVersionLabel_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                GetDebugInfo();
+            }
+        }
         #endregion
 
 
