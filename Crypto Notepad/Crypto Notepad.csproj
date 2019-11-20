@@ -115,6 +115,9 @@
       <DependentUpon>ChangeKeyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EncryptedString.cs" />
+    <Compile Include="HideCaretRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +134,7 @@
     <Compile Include="ExRichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="OSVersionInfoClass.cs" />
     <Compile Include="PasswordGeneratorFrom.cs">
       <SubType>Form</SubType>
     </Compile>

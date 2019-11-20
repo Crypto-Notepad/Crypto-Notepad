@@ -8,9 +8,14 @@ namespace Crypto_Notepad
     public class ExRichTextBox : RichTextBox
     {
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
-        static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+        private static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+
+        [DllImport("kernel32.dll", EntryPoint = "LoadLibraryW", CharSet = CharSet.Unicode, SetLastError = true)]
+        private static extern IntPtr LoadLibraryW(string s_File);
+
         private const int WM_VSCROLL = 0x115;
         private const int WM_MOUSEWHEEL = 0x20A;
+
         protected override void WndProc(ref Message m)
         {
             if (m.Msg == WM_MOUSEWHEEL)
@@ -32,12 +37,9 @@ namespace Crypto_Notepad
                 }
                 return;
             }
-            
             base.WndProc(ref m);
         }
-        [DllImport("kernel32.dll", EntryPoint = "LoadLibraryW",
-        CharSet = CharSet.Unicode, SetLastError = true)]
-        private static extern IntPtr LoadLibraryW(string s_File);
+      
         protected override CreateParams CreateParams
         {
             get
