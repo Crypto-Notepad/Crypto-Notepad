@@ -33,8 +33,8 @@
             this.appVersionLabel = new System.Windows.Forms.Label();
             this.randomColorTimer = new System.Windows.Forms.Timer(this.components);
             this.copyToClipboardLabel = new System.Windows.Forms.Label();
-            this.appInfoRichTextBox = new Crypto_Notepad.HideCaretRichTextBox();
             this.aboutToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.appInfoRichTextBox = new Crypto_Notepad.HideCaretRichTextBox();
             this.SuspendLayout();
             // 
             // appVersionLabel
@@ -50,6 +50,7 @@
             this.appVersionLabel.Text = "Crypto Notepad 1.0.0";
             this.aboutToolTip.SetToolTip(this.appVersionLabel, "Left click to copy debug info to the clipboard");
             this.appVersionLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AppVersionLabel_MouseClick);
+            this.appVersionLabel.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.AppVersionLabel_MouseDoubleClick);
             // 
             // randomColorTimer
             // 
