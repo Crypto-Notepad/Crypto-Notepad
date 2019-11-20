@@ -845,7 +845,7 @@ namespace Crypto_Notepad
                 }
                 using (new CenterWinDialog(this))
                 {
-                    DialogResult res = MessageBox.Show(this, "Enable automatic update check?", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    DialogResult res = MessageBox.Show(this, "Enable automatic update check at startup?\nThis action can be undone in settings.", PublicVar.appName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (res == DialogResult.Yes)
                     {
                         settings.autoCheckUpdate = true;
