@@ -76,19 +76,8 @@ namespace Crypto_Notepad
             sb.AppendLine();
             sb.AppendLine("Operation System Information");
             sb.AppendLine("----------------------------");
-            sb.AppendLine(string.Format("Name = {0}", OSVersionInfo.Name));
-            if (!string.IsNullOrEmpty(OSVersionInfo.Edition))
-                sb.AppendLine(string.Format("Edition = {0}", OSVersionInfo.Edition));
-            else
-                sb.AppendLine(string.Format("Edition = None"));
-            if (!string.IsNullOrEmpty(OSVersionInfo.ServicePack))
-                sb.AppendLine(string.Format("Service Pack = {0}", OSVersionInfo.ServicePack));
-            else
-                sb.AppendLine("Service Pack = None");
+            sb.AppendLine(string.Format("Name = {0}", OSVersionInfo.Name + " " + OSVersionInfo.ServicePack));
             sb.AppendLine(string.Format("Version = {0}", OSVersionInfo.VersionString));
-            sb.AppendLine(string.Format("OSBits = {0}", OSVersionInfo.OSBits));
-            sb.AppendLine(string.Format("ProcessorBits = {0}", OSVersionInfo.ProcessorBits));
-            sb.AppendLine(string.Format("ProgramBits = {0}", OSVersionInfo.ProgramBits));
 
             sb.AppendLine();
             sb.AppendLine(".Net Framework Information");
