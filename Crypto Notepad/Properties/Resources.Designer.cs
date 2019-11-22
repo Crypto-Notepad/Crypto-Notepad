@@ -293,9 +293,9 @@ namespace Crypto_Notepad.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap key__plus {
+        internal static System.Drawing.Bitmap key_plus {
             get {
-                object obj = ResourceManager.GetObject("key__plus", resourceCulture);
+                object obj = ResourceManager.GetObject("key_plus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

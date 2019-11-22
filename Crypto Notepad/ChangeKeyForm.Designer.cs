@@ -150,7 +150,7 @@
             // 
             // passwordGeneratorButton
             // 
-            this.passwordGeneratorButton.Image = global::Crypto_Notepad.Properties.Resources.key__plus;
+            this.passwordGeneratorButton.Image = global::Crypto_Notepad.Properties.Resources.key_plus;
             this.passwordGeneratorButton.Location = new System.Drawing.Point(266, 80);
             this.passwordGeneratorButton.Name = "passwordGeneratorButton";
             this.passwordGeneratorButton.Size = new System.Drawing.Size(25, 25);
