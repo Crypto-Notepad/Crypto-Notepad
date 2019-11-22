@@ -284,14 +284,16 @@ namespace Crypto_Notepad
             }
         }
 
-        private void CheckForUpdates(bool autoCheck)
+        private async Task CheckForUpdates(bool autoCheck)
         {
             try
             {
+                PublicVar.messageBoxCenterParent = true;
                 WebClient client = new WebClient();
-                Stream stream = client.OpenRead("https://raw.githubusercontent.com/Crypto-Notepad/Crypto-Notepad/master/version.txt");
+                Uri updateUrl = new Uri("https://raw.githubusercontent.com/Crypto-Notepad/Crypto-Notepad/master/version.txt", UriKind.Absolute);
+                Stream stream = await client.OpenReadTaskAsync(updateUrl);
                 StreamReader reader = new StreamReader(stream);
-                string content = reader.ReadToEnd();
+                string content = await reader.ReadToEndAsync();
                 string version = Application.ProductVersion;
                 string exePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\";
                 int appVersion = Convert.ToInt32(version.Replace(".", "")), serverVersion = Convert.ToInt32(content.Replace(".", ""));
@@ -541,10 +543,6 @@ namespace Crypto_Notepad
             {
                 insertMainMenu.ShortcutKeys = Keys.None;
             }
-            if (settings.autoCheckUpdate)
-            {
-                CheckForUpdates(false);
-            }
             if (settings.windowLocation.ToString() != "{X=0,Y=0}")
             {
                 Location = settings.windowLocation;
@@ -624,7 +622,7 @@ namespace Crypto_Notepad
                 aboutMainMenu.Image = Resources.information;
                 alwaysOnTopMainMenu.Image = Resources.applications_blue;
                 saveCloseFileMainMenu.Image = Resources.disk__minus;
-                passwordGeneratorMainMenu.Image = Resources.key__plus;            
+                passwordGeneratorMainMenu.Image = Resources.key_plus;            
             }
             else
             {
@@ -848,7 +846,7 @@ namespace Crypto_Notepad
             }
         }
 
-        private void MainWindow_Load(object sender, EventArgs e)
+        private async void MainWindow_Load(object sender, EventArgs e)
         {
             Visible = false;
             LoadSettings();
@@ -874,6 +872,10 @@ namespace Crypto_Notepad
             if (args.Contains("/er")) /*encrypt and replace*/
             {
                 ContextMenuEncryptReplace();
+            }
+            if (settings.autoCheckUpdate)
+            {
+                await CheckForUpdates(false);
             }
         }
 
@@ -1464,9 +1466,9 @@ namespace Crypto_Notepad
             Process.Start("https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Documentation");
         }
 
-        private void CheckForUpdatesMainMenu_Click(object sender, EventArgs e)
+        private async void CheckForUpdatesMainMenu_Click(object sender, EventArgs e)
         {
-            CheckForUpdates(true);
+            await CheckForUpdates(true);
         }
 
         private void AboutMainMenu_Click(object sender, EventArgs e)
