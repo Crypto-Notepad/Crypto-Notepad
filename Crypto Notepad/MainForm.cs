@@ -237,7 +237,6 @@ namespace Crypto_Notepad
             string exePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\";
             string UpdaterExe = exePath + "Updater.exe";
             string UpdateZip = exePath + "Crypto-Notepad-Update.zip";
-            string ZipDll = exePath + "Ionic.Zip.dll";
             if (File.Exists(UpdaterExe))
             {
                 File.Delete(UpdaterExe);
@@ -245,10 +244,6 @@ namespace Crypto_Notepad
             if (File.Exists(UpdateZip))
             {
                 File.Delete(UpdateZip);
-            }
-            if (File.Exists(ZipDll))
-            {
-                File.Delete(ZipDll);
             }
         }
 
@@ -316,7 +311,6 @@ namespace Crypto_Notepad
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                             if (res == DialogResult.Yes)
                             {
-                                File.WriteAllBytes(exePath + "Ionic.Zip.dll", Resources.Ionic_Zip);
                                 File.WriteAllBytes(exePath + "Updater.exe", Resources.Updater);
                                 var pr = new Process();
                                 pr.StartInfo.FileName = exePath + "Updater.exe";
@@ -1018,7 +1012,6 @@ namespace Crypto_Notepad
                         MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (res == DialogResult.Yes)
                     {
-                        File.WriteAllBytes(exePath + "Ionic.Zip.dll", Resources.Ionic_Zip);
                         File.WriteAllBytes(exePath + "Updater.exe", Resources.Updater);
                         var pr = new Process();
                         pr.StartInfo.FileName = exePath + "Updater.exe";
