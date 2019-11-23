@@ -130,18 +130,18 @@
     <Compile Include="EnterKeyForm.Designer.cs">
       <DependentUpon>EnterKeyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MsgBoxCenterParent.cs" />
+    <Compile Include="External Libraries\MsgBoxCenterParent.cs" />
     <Compile Include="ExRichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="OSVersionInfoClass.cs" />
+    <Compile Include="External Libraries\OSVersionInfoClass.cs" />
     <Compile Include="PasswordGeneratorFrom.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PasswordGeneratorFrom.Designer.cs">
       <DependentUpon>PasswordGeneratorFrom.cs</DependentUpon>
     </Compile>
-    <Compile Include="PortableSettingsProvider.cs" />
+    <Compile Include="External Libraries\PortableSettingsProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
