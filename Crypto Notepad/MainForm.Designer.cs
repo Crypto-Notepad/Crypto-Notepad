@@ -119,13 +119,13 @@
             this.fileLockedPanel = new System.Windows.Forms.Panel();
             this.fileLockedCloseButton = new System.Windows.Forms.Button();
             this.fileLockedOkButton = new System.Windows.Forms.Button();
+            this.fileLockedKeyTextBox = new System.Windows.Forms.PlaceholderTextBox();
             this.fileLockedShowKey = new System.Windows.Forms.PictureBox();
             this.fileLockedLabel = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.richTextBoxPanel = new System.Windows.Forms.Panel();
-            this.statusPanelTimer = new System.Windows.Forms.Timer(this.components);
-            this.fileLockedKeyTextBox = new System.Windows.Forms.PlaceholderTextBox();
             this.richTextBox = new Crypto_Notepad.ExRichTextBox();
+            this.statusPanelTimer = new System.Windows.Forms.Timer(this.components);
             this.mainMenu.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.searchPanel.SuspendLayout();
@@ -1124,6 +1124,20 @@
             this.fileLockedOkButton.UseVisualStyleBackColor = true;
             this.fileLockedOkButton.Click += new System.EventHandler(this.FileLockedOkButton_Click);
             // 
+            // fileLockedKeyTextBox
+            // 
+            this.fileLockedKeyTextBox.Location = new System.Drawing.Point(6, 34);
+            this.fileLockedKeyTextBox.Name = "fileLockedKeyTextBox";
+            this.fileLockedKeyTextBox.Placeholder = "Encryption key";
+            this.fileLockedKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
+            this.fileLockedKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.fileLockedKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.fileLockedKeyTextBox.Size = new System.Drawing.Size(231, 22);
+            this.fileLockedKeyTextBox.TabIndex = 8;
+            this.fileLockedKeyTextBox.UseSystemPasswordChar = true;
+            this.fileLockedKeyTextBox.TextChanged += new System.EventHandler(this.FileLockedKeyTextBox_TextChanged);
+            this.fileLockedKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FileLockedKeyTextBox_KeyDown);
+            // 
             // fileLockedShowKey
             // 
             this.fileLockedShowKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1166,25 +1180,6 @@
             this.richTextBoxPanel.Size = new System.Drawing.Size(504, 186);
             this.richTextBoxPanel.TabIndex = 21;
             // 
-            // statusPanelTimer
-            // 
-            this.statusPanelTimer.Interval = 1;
-            this.statusPanelTimer.Tick += new System.EventHandler(this.StatusPanelTimer_Tick);
-            // 
-            // fileLockedKeyTextBox
-            // 
-            this.fileLockedKeyTextBox.Location = new System.Drawing.Point(6, 34);
-            this.fileLockedKeyTextBox.Name = "fileLockedKeyTextBox";
-            this.fileLockedKeyTextBox.Placeholder = "Encryption key";
-            this.fileLockedKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
-            this.fileLockedKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.fileLockedKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.fileLockedKeyTextBox.Size = new System.Drawing.Size(231, 22);
-            this.fileLockedKeyTextBox.TabIndex = 8;
-            this.fileLockedKeyTextBox.UseSystemPasswordChar = true;
-            this.fileLockedKeyTextBox.TextChanged += new System.EventHandler(this.FileLockedKeyTextBox_TextChanged);
-            this.fileLockedKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FileLockedKeyTextBox_KeyDown);
-            // 
             // richTextBox
             // 
             this.richTextBox.AcceptsTab = true;
@@ -1204,6 +1199,11 @@
             this.richTextBox.ModifiedChanged += new System.EventHandler(this.RichTextBox_ModifiedChanged);
             this.richTextBox.TextChanged += new System.EventHandler(this.RichTextBox_TextChanged);
             this.richTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyDown);
+            // 
+            // statusPanelTimer
+            // 
+            this.statusPanelTimer.Interval = 1;
+            this.statusPanelTimer.Tick += new System.EventHandler(this.StatusPanelTimer_Tick);
             // 
             // MainForm
             // 
@@ -1261,101 +1261,101 @@
         }
 
         #endregion
-        private System.Windows.Forms.ToolStripMenuItem fileMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem editMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem helpMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem saveAsMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem exitMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem aboutMainMenu;
-        private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog;
-        private System.Windows.Forms.ToolStripMenuItem newMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem toolsMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem clearMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem openMainMenu;
-        private System.Windows.Forms.ToolStripSeparator mainMenuSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem saveMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem selectAllMainMenu;
-        private System.Windows.Forms.ToolStripSeparator mainMenuSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem cutMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem copyMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem pasteMainMenu;
-        private System.Windows.Forms.ToolStripSeparator mainMenuSeparator6;
-        private System.Windows.Forms.ToolStripMenuItem deleteFileMainMenu;
-        private System.Windows.Forms.ToolStripSeparator mainMenuSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem openFileLocationMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem wordWrapMainMenu;
-        private System.Windows.Forms.ContextMenuStrip contextMenu;
-        private System.Windows.Forms.ToolStripMenuItem undoContextMenu;
-        private System.Windows.Forms.ToolStripMenuItem undoMainMenu;
-        private System.Windows.Forms.ToolStripSeparator mainMenuSeparator7;
-        private System.Windows.Forms.ToolStripSeparator contextMenuSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem cutContextMenu;
-        private System.Windows.Forms.ToolStripMenuItem copyContextMenu;
-        private System.Windows.Forms.ToolStripMenuItem pasteContextMenu;
-        private System.Windows.Forms.ToolStripMenuItem deleteMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem deleteContextMenu;
-        private System.Windows.Forms.ToolStripSeparator contextMenuSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem selectAllContextMenu;
-        private System.Windows.Forms.ToolStripMenuItem rightToLeftContextMenu;
-        private System.Windows.Forms.ToolStripMenuItem clearContextMenu;
-        private System.Windows.Forms.ToolStripSeparator mainMenuSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem changeKeyMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem checkForUpdatesMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem documentationMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem settingsMainMenu;
-        private System.Windows.Forms.ToolStripSeparator mainMenuSeparator5;
-        private System.Windows.Forms.ToolStripMenuItem findMainMenu;
-        private System.Windows.Forms.PictureBox newToolbarButton;
-        private System.Windows.Forms.PictureBox openToolbarButton;
-        private System.Windows.Forms.PictureBox saveToolbarButton;
-        private System.Windows.Forms.PictureBox fileLocationToolbarButton;
-        private System.Windows.Forms.PictureBox deleteFileToolbarButton;
-        private System.Windows.Forms.PictureBox cutToolbarButton;
-        private System.Windows.Forms.PictureBox copyToolbarButton;
-        private System.Windows.Forms.PictureBox pasteToolbarButton;
-        private System.Windows.Forms.PictureBox changeKeyToolbarButton;
-        private System.Windows.Forms.PictureBox settingsToolbarButton;
-        private System.Windows.Forms.PictureBox lockToolbarButton;
-        private System.Windows.Forms.ToolStripMenuItem lockMainMenu;
-        private System.Windows.Forms.ToolStripSeparator mainMenuSeparator8;
-        private System.Windows.Forms.ToolStripMenuItem redoMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem redoContextMenu;
-        private System.Windows.Forms.ToolStripMenuItem debugMainMenu;
-        private System.Windows.Forms.ToolStripMenuItem variablesMainMenu;
-        public System.Windows.Forms.TableLayoutPanel toolbarPanel;
-        public ExRichTextBox richTextBox;
-        public System.Windows.Forms.ToolStripMenuItem insertMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem editMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem helpMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem saveAsMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem exitMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem aboutMainMenu;
+        protected internal System.Windows.Forms.OpenFileDialog openFileDialog;
+        protected internal System.Windows.Forms.SaveFileDialog saveFileDialog;
+        protected internal System.Windows.Forms.ToolStripMenuItem toolsMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem clearMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem openMainMenu;
+        protected internal System.Windows.Forms.ToolStripSeparator mainMenuSeparator3;
+        protected internal System.Windows.Forms.ToolStripMenuItem saveMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem selectAllMainMenu;
+        protected internal System.Windows.Forms.ToolStripSeparator mainMenuSeparator4;
+        protected internal System.Windows.Forms.ToolStripMenuItem cutMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem copyMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem pasteMainMenu;
+        protected internal System.Windows.Forms.ToolStripSeparator mainMenuSeparator6;
+        protected internal System.Windows.Forms.ToolStripMenuItem deleteFileMainMenu;
+        protected internal System.Windows.Forms.ToolStripSeparator mainMenuSeparator2;
+        protected internal System.Windows.Forms.ToolStripMenuItem openFileLocationMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem wordWrapMainMenu;
+        protected internal System.Windows.Forms.ContextMenuStrip contextMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem undoContextMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem undoMainMenu;
+        protected internal System.Windows.Forms.ToolStripSeparator mainMenuSeparator7;
+        protected internal System.Windows.Forms.ToolStripSeparator contextMenuSeparator2;
+        protected internal System.Windows.Forms.ToolStripMenuItem cutContextMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem copyContextMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem pasteContextMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem deleteMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem deleteContextMenu;
+        protected internal System.Windows.Forms.ToolStripSeparator contextMenuSeparator1;
+        protected internal System.Windows.Forms.ToolStripMenuItem selectAllContextMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem rightToLeftContextMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem clearContextMenu;
+        protected internal System.Windows.Forms.ToolStripSeparator mainMenuSeparator1;
+        protected internal System.Windows.Forms.ToolStripMenuItem changeKeyMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem checkForUpdatesMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem documentationMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem settingsMainMenu;
+        protected internal System.Windows.Forms.ToolStripSeparator mainMenuSeparator5;
+        protected internal System.Windows.Forms.ToolStripMenuItem findMainMenu;
+        protected internal System.Windows.Forms.PictureBox openToolbarButton;
+        protected internal System.Windows.Forms.PictureBox saveToolbarButton;
+        protected internal System.Windows.Forms.PictureBox fileLocationToolbarButton;
+        protected internal System.Windows.Forms.PictureBox deleteFileToolbarButton;
+        protected internal System.Windows.Forms.PictureBox cutToolbarButton;
+        protected internal System.Windows.Forms.PictureBox copyToolbarButton;
+        protected internal System.Windows.Forms.PictureBox pasteToolbarButton;
+        protected internal System.Windows.Forms.PictureBox changeKeyToolbarButton;
+        protected internal System.Windows.Forms.PictureBox settingsToolbarButton;
+        protected internal System.Windows.Forms.PictureBox lockToolbarButton;
+        protected internal System.Windows.Forms.ToolStripMenuItem lockMainMenu;
+        protected internal System.Windows.Forms.ToolStripSeparator mainMenuSeparator8;
+        protected internal System.Windows.Forms.ToolStripMenuItem redoMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem redoContextMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem debugMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem variablesMainMenu;
+        protected internal System.Windows.Forms.TableLayoutPanel toolbarPanel;
+        protected internal ExRichTextBox richTextBox;
+        protected internal System.Windows.Forms.ToolStripMenuItem insertMainMenu;
         protected internal System.Windows.Forms.StatusStrip statusPanel;
         protected internal System.Windows.Forms.ToolStripStatusLabel statusPanelLabel;
         protected internal System.Windows.Forms.TextBox searchTextBox;
         protected internal System.Windows.Forms.CheckBox searchCaseSensitiveCheckBox;
         protected internal System.Windows.Forms.CheckBox searchWholeWordCheckBox;
-        public System.Windows.Forms.TableLayoutPanel searchPanel;
-        public System.Windows.Forms.MenuStrip mainMenu;
+        protected internal System.Windows.Forms.TableLayoutPanel searchPanel;
+        protected internal System.Windows.Forms.MenuStrip mainMenu;
         protected internal System.Windows.Forms.NotifyIcon trayIcon;
-        private System.Windows.Forms.Panel fileLockedPanel;
-        private System.Windows.Forms.Label fileLockedLabel;
-        private System.Windows.Forms.PictureBox fileLockedShowKey;
-        private System.Windows.Forms.Button fileLockedOkButton;
-        private System.Windows.Forms.Button fileLockedCloseButton;
-        private System.Windows.Forms.ToolStripMenuItem alwaysOnTopMainMenu;
-        private System.Windows.Forms.PictureBox alwaysOnTopToolbarButton;
-        private System.Windows.Forms.ToolTip toolTip;
-        private System.Windows.Forms.ContextMenuStrip trayMenu;
-        private System.Windows.Forms.ToolStripMenuItem showTrayMenu;
-        private System.Windows.Forms.ToolStripMenuItem exitTrayMenu;
+        protected internal System.Windows.Forms.Panel fileLockedPanel;
+        protected internal System.Windows.Forms.Label fileLockedLabel;
+        protected internal System.Windows.Forms.PictureBox fileLockedShowKey;
+        protected internal System.Windows.Forms.Button fileLockedOkButton;
+        protected internal System.Windows.Forms.Button fileLockedCloseButton;
+        protected internal System.Windows.Forms.ToolStripMenuItem alwaysOnTopMainMenu;
+        protected internal System.Windows.Forms.PictureBox alwaysOnTopToolbarButton;
+        protected internal System.Windows.Forms.ToolTip toolTip;
+        protected internal System.Windows.Forms.ContextMenuStrip trayMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem showTrayMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem exitTrayMenu;
         protected internal System.Windows.Forms.PlaceholderTextBox fileLockedKeyTextBox;
         protected internal System.Windows.Forms.Panel richTextBoxPanel;
         protected internal System.Windows.Forms.Label searchFindNextButton;
         protected internal System.Windows.Forms.Label searchCloseButton;
         protected internal System.Windows.Forms.Label closeToolbarButton;
-        private System.Windows.Forms.Timer statusPanelTimer;
-        private System.Windows.Forms.ToolStripMenuItem saveCloseFileMainMenu;
+        protected internal System.Windows.Forms.Timer statusPanelTimer;
+        protected internal System.Windows.Forms.ToolStripMenuItem saveCloseFileMainMenu;
         protected internal System.Windows.Forms.ToolStripStatusLabel statusPanelLengthLabel;
         protected internal System.Windows.Forms.ToolStripStatusLabel statusPanelLinesLabel;
         protected internal System.Windows.Forms.ToolStripStatusLabel statusPanelModifiedLabel;
         protected internal System.Windows.Forms.ToolStripStatusLabel statusPanelSizeLabel;
-        private System.Windows.Forms.ToolStripMenuItem passwordGeneratorMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem passwordGeneratorMainMenu;
+        protected internal System.Windows.Forms.PictureBox newToolbarButton;
+        protected internal System.Windows.Forms.ToolStripMenuItem newMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem fileMainMenu;
     }
 }
