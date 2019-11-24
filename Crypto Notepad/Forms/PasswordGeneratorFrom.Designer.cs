@@ -217,7 +217,7 @@
             // passwordGeneratorToolTip
             // 
             this.passwordGeneratorToolTip.AutoPopDelay = 1000;
-            this.passwordGeneratorToolTip.InitialDelay = 500;
+            this.passwordGeneratorToolTip.InitialDelay = 1;
             this.passwordGeneratorToolTip.ReshowDelay = 100;
             // 
             // PasswordGeneratorFrom
