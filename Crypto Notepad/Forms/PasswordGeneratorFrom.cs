@@ -137,13 +137,13 @@ namespace Crypto_Notepad
         private void CopyAllButton_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(passwordsListTextBox.Text);
-            passwordGeneratorToolTip.Show("Copied", copyAllButton, 0, -20, 1000);
+            passwordGeneratorToolTip.SetToolTip(copyAllButton, "Copied");
         }
 
         private void CopyLastButton_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(passwordsListTextBox.Lines[passwordsListTextBox.Lines.Length - 1]);
-            passwordGeneratorToolTip.Show("Copied", copyLastButton, 0, -20, 1000);
+            passwordGeneratorToolTip.SetToolTip(copyLastButton, "Copied");
         }
 
         private void PasswordsListTextBox_TextChanged(object sender, EventArgs e)
@@ -159,8 +159,17 @@ namespace Crypto_Notepad
                 copyAllButton.Enabled = true;
             }
         }
+
         #endregion
 
+        private void CopyLastButton_MouseEnter(object sender, EventArgs e)
+        {
+            passwordGeneratorToolTip.SetToolTip(copyLastButton, null);
+        }
 
+        private void CopyAllButton_MouseEnter(object sender, EventArgs e)
+        {
+            passwordGeneratorToolTip.SetToolTip(copyAllButton, null);
+        }
     }
 }

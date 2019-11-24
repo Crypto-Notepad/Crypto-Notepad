@@ -50,11 +50,22 @@
             this.aboutToolTip.SetToolTip(this.appVersionLabel, "Left click to copy debug info to the clipboard");
             this.appVersionLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AppVersionLabel_MouseClick);
             this.appVersionLabel.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.AppVersionLabel_MouseDoubleClick);
+            this.appVersionLabel.MouseEnter += new System.EventHandler(this.appVersionLabel_MouseEnter);
             // 
             // randomColorTimer
             // 
             this.randomColorTimer.Interval = 200;
             this.randomColorTimer.Tick += new System.EventHandler(this.RandomColorTimer_Tick);
+            // 
+            // aboutToolTip
+            // 
+            this.aboutToolTip.AutoPopDelay = 1000;
+            this.aboutToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(68)))));
+            this.aboutToolTip.ForeColor = System.Drawing.Color.DarkGray;
+            this.aboutToolTip.InitialDelay = 500;
+            this.aboutToolTip.OwnerDraw = true;
+            this.aboutToolTip.ReshowDelay = 100;
+            this.aboutToolTip.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.AboutToolTip_Draw);
             // 
             // appInfoRichTextBox
             // 

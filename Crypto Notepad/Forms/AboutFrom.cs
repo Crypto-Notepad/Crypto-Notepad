@@ -26,7 +26,7 @@ namespace Crypto_Notepad
             sb.AppendLine(string.Format("OS version = {0}", OSVersionInfo.VersionString));
             sb.AppendLine(".Net Framework = " + Methods.GetDotNetVersion());
             Clipboard.SetText(sb.ToString());
-            aboutToolTip.Show("Copied", appVersionLabel, 210, 1, 1000);
+            aboutToolTip.SetToolTip(appVersionLabel, "Copied");
         }
         #endregion
 
@@ -85,6 +85,18 @@ namespace Crypto_Notepad
                     randomColorTimer.Start();
                 }
             }
+        }
+
+        private void AboutToolTip_Draw(object sender, DrawToolTipEventArgs e)
+        {
+            e.DrawBackground();
+            e.DrawBorder();
+            e.DrawText();
+        }
+
+        private void appVersionLabel_MouseEnter(object sender, EventArgs e)
+        {
+            aboutToolTip.SetToolTip(appVersionLabel, "Left click to copy debug info to the clipboard");
         }
         #endregion
 

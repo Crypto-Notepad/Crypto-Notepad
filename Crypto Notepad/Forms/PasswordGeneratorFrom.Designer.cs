@@ -200,6 +200,7 @@
             this.copyAllButton.Text = "Copy All";
             this.copyAllButton.UseVisualStyleBackColor = true;
             this.copyAllButton.Click += new System.EventHandler(this.CopyAllButton_Click);
+            this.copyAllButton.MouseEnter += new System.EventHandler(this.CopyAllButton_MouseEnter);
             // 
             // copyLastButton
             // 
@@ -211,6 +212,13 @@
             this.copyLastButton.Text = "Copy Last";
             this.copyLastButton.UseVisualStyleBackColor = true;
             this.copyLastButton.Click += new System.EventHandler(this.CopyLastButton_Click);
+            this.copyLastButton.MouseEnter += new System.EventHandler(this.CopyLastButton_MouseEnter);
+            // 
+            // passwordGeneratorToolTip
+            // 
+            this.passwordGeneratorToolTip.AutoPopDelay = 1000;
+            this.passwordGeneratorToolTip.InitialDelay = 500;
+            this.passwordGeneratorToolTip.ReshowDelay = 100;
             // 
             // PasswordGeneratorFrom
             // 

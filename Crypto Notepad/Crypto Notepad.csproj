@@ -101,44 +101,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutFrom.cs">
+    <Compile Include="Forms\AboutFrom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutFrom.Designer.cs">
+    <Compile Include="Forms\AboutFrom.Designer.cs">
       <DependentUpon>AboutFrom.cs</DependentUpon>
     </Compile>
-    <Compile Include="AES.cs" />
-    <Compile Include="ChangeKeyForm.cs">
+    <Compile Include="External Libraries\AES.cs" />
+    <Compile Include="Forms\ChangeKeyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChangeKeyForm.Designer.cs">
+    <Compile Include="Forms\ChangeKeyForm.Designer.cs">
       <DependentUpon>ChangeKeyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EncryptedString.cs" />
-    <Compile Include="HideCaretRichTextBox.cs">
+    <Compile Include="External Libraries\EncryptedString.cs" />
+    <Compile Include="External Libraries\HideCaretRichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EnterKeyForm.cs">
+    <Compile Include="Forms\EnterKeyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EnterKeyForm.Designer.cs">
+    <Compile Include="Forms\EnterKeyForm.Designer.cs">
       <DependentUpon>EnterKeyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External Libraries\MsgBoxCenterParent.cs" />
-    <Compile Include="ExRichTextBox.cs">
+    <Compile Include="External Libraries\ExRichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="External Libraries\OSVersionInfoClass.cs" />
-    <Compile Include="PasswordGeneratorFrom.cs">
+    <Compile Include="Forms\PasswordGeneratorFrom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PasswordGeneratorFrom.Designer.cs">
+    <Compile Include="Forms\PasswordGeneratorFrom.Designer.cs">
       <DependentUpon>PasswordGeneratorFrom.cs</DependentUpon>
     </Compile>
     <Compile Include="External Libraries\PortableSettingsProvider.cs" />
@@ -149,29 +149,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SettingsForm.cs">
+    <Compile Include="Forms\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SettingsForm.Designer.cs">
+    <Compile Include="Forms\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PlaceholderTextBox.cs">
+    <Compile Include="External Libraries\PlaceholderTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Methods.cs" />
-    <EmbeddedResource Include="AboutFrom.resx">
+    <Compile Include="External Libraries\Methods.cs" />
+    <EmbeddedResource Include="Forms\AboutFrom.resx">
       <DependentUpon>AboutFrom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChangeKeyForm.resx">
+    <EmbeddedResource Include="Forms\ChangeKeyForm.resx">
       <DependentUpon>ChangeKeyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EnterKeyForm.resx">
+    <EmbeddedResource Include="Forms\EnterKeyForm.resx">
       <DependentUpon>EnterKeyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PasswordGeneratorFrom.resx">
+    <EmbeddedResource Include="Forms\PasswordGeneratorFrom.resx">
       <DependentUpon>PasswordGeneratorFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -179,7 +179,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
