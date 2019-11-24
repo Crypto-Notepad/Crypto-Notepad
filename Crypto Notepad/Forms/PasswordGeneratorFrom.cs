@@ -160,8 +160,6 @@ namespace Crypto_Notepad
             }
         }
 
-        #endregion
-
         private void CopyLastButton_MouseEnter(object sender, EventArgs e)
         {
             passwordGeneratorToolTip.SetToolTip(copyLastButton, null);
@@ -171,5 +169,8 @@ namespace Crypto_Notepad
         {
             passwordGeneratorToolTip.SetToolTip(copyAllButton, null);
         }
+        #endregion
+
+
     }
 }
