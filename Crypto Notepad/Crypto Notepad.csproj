@@ -158,7 +158,7 @@
     <Compile Include="PlaceholderTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WinFormsExtensions.cs" />
+    <Compile Include="Methods.cs" />
     <EmbeddedResource Include="AboutFrom.resx">
       <DependentUpon>AboutFrom.cs</DependentUpon>
     </EmbeddedResource>

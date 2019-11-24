@@ -58,88 +58,7 @@ namespace Crypto_Notepad
             statusPanelSizeCheckBox.Checked = settings.statusPanelSize;
             statusPanelLabelsGroupBox.Visible = settings.statusPanelVisible;
             encryptionHintLabel.Visible = settings.encryptionHint;
-        }
-
-        private static void AssociateExtension(string applicationExecutablePath, string extension)
-        {
-            try
-            {
-                RegistryKey key = Registry.CurrentUser.OpenSubKey("Software\\Classes", true);
-                key.CreateSubKey("." + extension).SetValue(string.Empty, extension + "_auto_file");
-                key = key.CreateSubKey(extension + "_auto_file");
-                key.CreateSubKey("DefaultIcon").SetValue(string.Empty, applicationExecutablePath + ",0");
-                key = key.CreateSubKey("Shell");
-                key.SetValue(string.Empty, "Open");
-                key = key.CreateSubKey("Open");
-                key.CreateSubKey("Command").SetValue(string.Empty, "\"" + applicationExecutablePath + "\" \"%1\" /o");
-                key.CreateSubKey("ddeexec\\Topic").SetValue(string.Empty, "System");
-            }
-            catch (Exception)
-            {
-
-            }
-        }
-
-        private static void DissociateExtension(string applicationExecutablePath, string extension)
-        {
-            try
-            {
-                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Classes", true);
-                RegistryKey subKeyTree = Registry.CurrentUser.OpenSubKey(@"Software\Classes\" + extension + "_auto_file", true);
-                if (subKeyTree != null)
-                {
-                    key.DeleteSubKeyTree(extension + "_auto_file");
-                    key.DeleteSubKeyTree("." + extension);
-                }
-            }
-            catch { }
-        }
-
-        private static void MenuIntegrate(string action)
-        {
-            string appExePath = Assembly.GetEntryAssembly().Location;
-            try
-            {
-                if (action == "enable")
-                {
-                    RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Classes\*\", true);
-                    key = key.CreateSubKey("shell");
-                    key.CreateSubKey("Crypto Notepad").SetValue("icon", appExePath);
-                    key.CreateSubKey("Crypto Notepad").SetValue("SubCommands", "");
-                    key.CreateSubKey(@"Crypto Notepad\shell");
-                    key.CreateSubKey(@"Crypto Notepad\shell\cmd1\").SetValue("MUIVerb", "Encrypt");
-                    key.CreateSubKey(@"Crypto Notepad\shell\cmd1\command").SetValue(string.Empty, "\"" + appExePath + "\" \"%1\" /er");
-                    key.CreateSubKey(@"Crypto Notepad\shell\cmd2\").SetValue("MUIVerb", "Decrypt");
-                    key.CreateSubKey(@"Crypto Notepad\shell\cmd2\command").SetValue(string.Empty, "\"" + appExePath + "\" \"%1\" /o");
-
-                }
-                if (action == "disable")
-                {
-                    RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Classes\*\shell\", true);
-                    RegistryKey subKeyTree = Registry.CurrentUser.OpenSubKey(@"Software\Classes\*\shell\Crypto Notepad", true);
-                    if (subKeyTree != null)
-                    {
-                        key.DeleteSubKeyTree("Crypto Notepad");
-                    }
-                }
-            }
-            catch { }
-        }
-
-        private void SendToShortcut()
-        {
-            string shortcutPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Microsoft\Windows\SendTo";
-            string shortcutName = PublicVar.appName + ".lnk";
-            string shortcutLocation = Path.Combine(shortcutPath, shortcutName);
-            string targetFileLocation = Assembly.GetEntryAssembly().Location;
-            WshShell shell = new WshShell();
-            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutLocation);
-            shortcut.Description = PublicVar.appName;
-            shortcut.IconLocation = targetFileLocation;
-            shortcut.TargetPath = targetFileLocation;
-            shortcut.Arguments = "/s";
-            shortcut.Save();
-        }
+        }     
         #endregion
 
 
@@ -282,11 +201,11 @@ namespace Crypto_Notepad
         {
             if (associateCheckBox.Checked)
             {
-                AssociateExtension(Assembly.GetEntryAssembly().Location, "cnp");
+                Methods.AssociateExtension(Assembly.GetEntryAssembly().Location, "cnp");
             }
             else
             {
-                DissociateExtension(Assembly.GetEntryAssembly().Location, "cnp");
+                Methods.DissociateExtension(Assembly.GetEntryAssembly().Location, "cnp");
             }
             settings.explorerAssociate = associateCheckBox.Checked;
         }
@@ -295,11 +214,11 @@ namespace Crypto_Notepad
         {
             if (integrateCheckBox.Checked)
             {
-                MenuIntegrate("enable");
+                Methods.MenuIntegrate("enable");
             }
             else
             {
-                MenuIntegrate("disable");
+                Methods.MenuIntegrate("disable");
             }
             settings.explorerIntegrate = integrateCheckBox.Checked;
         }
@@ -322,7 +241,7 @@ namespace Crypto_Notepad
         {
             if (sendToCheckBox.Checked)
             {
-                SendToShortcut();
+                Methods.SendToShortcut();
             }
             else
             {

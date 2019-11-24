@@ -23,8 +23,6 @@ namespace Crypto_Notepad
         bool cancelPressed = false;
         int findPos = 0;
         int caretPos;
-        static readonly string[] SizeSuffixes =
-        { "bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
         public MainForm()
         {
             InitializeComponent();
@@ -51,21 +49,6 @@ namespace Crypto_Notepad
         }
 
         #region Methods
-        static string SizeSuffix(long value)
-        {
-            if (value < 0) { return "-" + SizeSuffix(-value); }
-
-            int i = 0;
-            decimal dValue = (decimal)value;
-            while (Math.Round(dValue / 1024) >= 1)
-            {
-                dValue /= 1024;
-                i++;
-            }
-
-            return string.Format("{0:n1} {1}", dValue, SizeSuffixes[i]);
-        }
-
         private async Task DecryptAES()
         {
             EnterKeyForm enterKeyForm = new EnterKeyForm();
@@ -230,21 +213,6 @@ namespace Crypto_Notepad
             richTextBox.Text = unencryptedText;
             StatusPanelFileInfo();
             richTextBox.Modified = false;
-        }
-
-        private void DeleteUpdateFiles()
-        {
-            string exePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\";
-            string UpdaterExe = exePath + "Updater.exe";
-            string UpdateZip = exePath + "Crypto-Notepad-Update.zip";
-            if (File.Exists(UpdaterExe))
-            {
-                File.Delete(UpdaterExe);
-            }
-            if (File.Exists(UpdateZip))
-            {
-                File.Delete(UpdateZip);
-            }
         }
 
         private void SaveConfirm()
@@ -429,7 +397,7 @@ namespace Crypto_Notepad
                     if (!string.IsNullOrEmpty(filePath))
                     {
                         long length = new FileInfo(filePath).Length;
-                        statusPanelSizeLabel.Text = "Size: " + SizeSuffix(length).ToString();
+                        statusPanelSizeLabel.Text = "Size: " + Methods.SizeSuffix(length).ToString();
                         StatusPanelTextInfo();
                     }
                 }
@@ -850,7 +818,7 @@ namespace Crypto_Notepad
         {
             Visible = false;
             LoadSettings();
-            DeleteUpdateFiles();
+            Methods.DeleteUpdateFiles();
             MenuIcons(settings.menuIcons);
             ToolbarIcons(settings.oldToolbarIcons);
             if (args.Length == 2) /*drag & drop to executable*/
