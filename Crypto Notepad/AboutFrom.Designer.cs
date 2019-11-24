@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutFrom));
             this.appVersionLabel = new System.Windows.Forms.Label();
             this.randomColorTimer = new System.Windows.Forms.Timer(this.components);
-            this.copyToClipboardLabel = new System.Windows.Forms.Label();
             this.aboutToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.appInfoRichTextBox = new Crypto_Notepad.HideCaretRichTextBox();
             this.SuspendLayout();
@@ -57,19 +56,6 @@
             this.randomColorTimer.Interval = 200;
             this.randomColorTimer.Tick += new System.EventHandler(this.RandomColorTimer_Tick);
             // 
-            // copyToClipboardLabel
-            // 
-            this.copyToClipboardLabel.AutoSize = true;
-            this.copyToClipboardLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.copyToClipboardLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.copyToClipboardLabel.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.copyToClipboardLabel.Location = new System.Drawing.Point(214, 15);
-            this.copyToClipboardLabel.Name = "copyToClipboardLabel";
-            this.copyToClipboardLabel.Size = new System.Drawing.Size(33, 14);
-            this.copyToClipboardLabel.TabIndex = 3;
-            this.copyToClipboardLabel.Text = "copied";
-            this.copyToClipboardLabel.Visible = false;
-            // 
             // appInfoRichTextBox
             // 
             this.appInfoRichTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
@@ -83,7 +69,7 @@
             this.appInfoRichTextBox.RightMargin = 700;
             this.appInfoRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.appInfoRichTextBox.ShowSelectionMargin = true;
-            this.appInfoRichTextBox.Size = new System.Drawing.Size(439, 303);
+            this.appInfoRichTextBox.Size = new System.Drawing.Size(439, 285);
             this.appInfoRichTextBox.TabIndex = 2;
             this.appInfoRichTextBox.TabStop = false;
             this.appInfoRichTextBox.Text = resources.GetString("appInfoRichTextBox.Text");
@@ -96,7 +82,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(435, 323);
-            this.Controls.Add(this.copyToClipboardLabel);
             this.Controls.Add(this.appInfoRichTextBox);
             this.Controls.Add(this.appVersionLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -119,7 +104,6 @@
         private System.Windows.Forms.Label appVersionLabel;
         private HideCaretRichTextBox appInfoRichTextBox;
         private System.Windows.Forms.Timer randomColorTimer;
-        private System.Windows.Forms.Label copyToClipboardLabel;
         private System.Windows.Forms.ToolTip aboutToolTip;
     }
 }

@@ -26,8 +26,7 @@ namespace Crypto_Notepad
             sb.AppendLine(string.Format("OS version = {0}", OSVersionInfo.VersionString));
             sb.AppendLine(".Net Framework = " + Methods.GetDotNetVersion());
             Clipboard.SetText(sb.ToString());
-            await Task.Delay(3000);
-            copyToClipboardLabel.Visible = false;
+            aboutToolTip.Show("Copied", appVersionLabel, 210, 1, 1000);
         }
         #endregion
 
