@@ -22,7 +22,7 @@ namespace Crypto_Notepad
             Version vrs = new Version(Application.ProductVersion);
             StringBuilder sb = new StringBuilder(string.Empty);
             sb.AppendLine("App version = " + vrs);
-            sb.AppendLine(string.Format("OS name = {0}", OSVersionInfo.Name + " " + OSVersionInfo.ServicePack));
+            sb.AppendLine(string.Format("OS name = {0}", OSVersionInfo.Name));
             sb.AppendLine(string.Format("OS version = {0}", OSVersionInfo.VersionString));
             sb.AppendLine(".Net Framework = " + Methods.GetDotNetVersion());
             Clipboard.SetText(sb.ToString());

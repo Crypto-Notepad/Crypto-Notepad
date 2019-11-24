@@ -410,29 +410,6 @@ namespace JCS
 
         #endregion PINVOKE
 
-        #region SERVICE PACK
-        /// <summary>
-        /// Gets the service pack information of the operating system running on this computer.
-        /// </summary>
-        static public string ServicePack
-        {
-            get
-            {
-                string servicePack = String.Empty;
-                OSVERSIONINFOEX osVersionInfo = new OSVERSIONINFOEX();
-
-                osVersionInfo.dwOSVersionInfoSize = Marshal.SizeOf(typeof(OSVERSIONINFOEX));
-
-                if (GetVersionEx(ref osVersionInfo))
-                {
-                    servicePack = osVersionInfo.szCSDVersion;
-                }
-
-                return servicePack;
-            }
-        }
-        #endregion SERVICE PACK
-
         #region VERSION
         #region BUILD
         /// <summary>
