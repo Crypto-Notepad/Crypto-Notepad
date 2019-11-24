@@ -277,7 +277,7 @@ namespace Crypto_Notepad
                     {
                         using (new CenterWinDialog(this))
                         {
-                            DialogResult res = MessageBox.Show(this, "New version is available. Install it now?", PublicVar.appName, 
+                            DialogResult res = MessageBox.Show(this, "New version is available. Install it now?", PublicVar.appName,
                                 MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                             if (res == DialogResult.Yes)
                             {
@@ -311,21 +311,19 @@ namespace Crypto_Notepad
             {
                 if (autoCheck)
                 {
-                    mainMenu.Invoke((Action)delegate
+                    using (new CenterWinDialog(this))
                     {
-                        using (new CenterWinDialog(this))
+                        if (statusPanel.Visible)
                         {
-                            if (statusPanel.Visible)
-                            {
-                                StatusPanelMessage("update-failed");
-                            }
-                            else
-                            {
-                                MessageBox.Show(this, "Checking for updates failed:\nConnection lost or the server is busy.", PublicVar.appName, 
-                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
+                            StatusPanelMessage("update-failed");
                         }
-                    });
+                        else
+                        {
+                            MessageBox.Show(this, "Checking for updates failed:\nConnection lost or the server is busy.", PublicVar.appName,
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
                 }
             }
         }
