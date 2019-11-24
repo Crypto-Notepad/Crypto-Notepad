@@ -59,7 +59,7 @@
             // 
             // aboutToolTip
             // 
-            this.aboutToolTip.AutoPopDelay = 1000;
+            this.aboutToolTip.AutoPopDelay = 5000;
             this.aboutToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(68)))));
             this.aboutToolTip.ForeColor = System.Drawing.Color.DarkGray;
             this.aboutToolTip.InitialDelay = 500;
