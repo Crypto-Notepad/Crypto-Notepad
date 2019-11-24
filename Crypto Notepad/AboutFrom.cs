@@ -4,7 +4,6 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Crypto_Notepad
@@ -22,25 +21,10 @@ namespace Crypto_Notepad
         {
             Version vrs = new Version(Application.ProductVersion);
             StringBuilder sb = new StringBuilder(string.Empty);
-
-            sb.AppendLine("App Information");
-            sb.AppendLine("----------------------------");
-            sb.AppendLine("Version = " + vrs);
-
-            sb.AppendLine();
-            sb.AppendLine("Operation System Information");
-            sb.AppendLine("----------------------------");
-            sb.AppendLine(string.Format("Name = {0}", OSVersionInfo.Name + " " + OSVersionInfo.ServicePack));
-            sb.AppendLine(string.Format("Version = {0}", OSVersionInfo.VersionString));
-
-            sb.AppendLine();
-            sb.AppendLine(".Net Framework Information");
-            sb.AppendLine("----------------------------");
-            using (RegistryKey ndpKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey("SOFTWARE\\Microsoft\\NET Framework Setup\\NDP\\v4\\Full\\"))
-            {
-                int releaseKey = Convert.ToInt32(ndpKey.GetValue("Release"));
-                sb.AppendLine("Version = " + CheckFor45DotVersion(releaseKey));
-            }
+            sb.AppendLine("App version = " + vrs);
+            sb.AppendLine(string.Format("OS name = {0}", OSVersionInfo.Name + " " + OSVersionInfo.ServicePack));
+            sb.AppendLine(string.Format("OS version = {0}", OSVersionInfo.VersionString));
+            sb.AppendLine(".Net Framework = " + Methods.GetDotNetVersion());
             Clipboard.SetText(sb.ToString());
             await Task.Delay(3000);
             copyToClipboardLabel.Visible = false;
@@ -78,10 +62,7 @@ namespace Crypto_Notepad
                 GetDebugInfo();
             }
         }
-        #endregion
 
-
-        #region Main
         private void AppInfoRichTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             Process.Start(e.LinkText);
