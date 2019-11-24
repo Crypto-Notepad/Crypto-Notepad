@@ -16,17 +16,6 @@ namespace Crypto_Notepad
         }
 
         #region Methods
-        private string GeneratePassword()
-        {
-            var pwd = new Password(
-                includeLowercase: lowercaseCheckBox.Checked,
-                includeUppercase: uppercaseCheckBox.Checked,
-                includeNumeric: numericCheckBox.Checked,
-                includeSpecial: specialCheckBox.Checked,
-                passwordLength: int.Parse(passwordLengthTextBox.Text));
-            return pwd.Next();
-        }
-
         private IEnumerable<string> GeneratePasswordGroup()
         {
             var pwd = new Password(
@@ -35,7 +24,7 @@ namespace Crypto_Notepad
                 includeNumeric: numericCheckBox.Checked,
                 includeSpecial: specialCheckBox.Checked,
                 passwordLength: int.Parse(passwordLengthTextBox.Text));
-            return pwd.NextGroup(11);
+            return pwd.NextGroup(Convert.ToInt32(numberOfStringsTextBox.Text));
         }
         #endregion
 
@@ -43,12 +32,12 @@ namespace Crypto_Notepad
         #region Event Handlers
         private void GenerateButton_Click(object sender, EventArgs e)
         {
-            passwordsList.AppendLine(GeneratePassword());
+            passwordsListTextBox.AppendLine(string.Join(Environment.NewLine, GeneratePasswordGroup().ToArray()));
         }
 
         private void ClearPasswordsListButton_Click(object sender, EventArgs e)
         {
-            passwordsList.Clear();
+            passwordsListTextBox.Clear();
         }
 
         private void PasswordLengthTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -67,7 +56,8 @@ namespace Crypto_Notepad
             numericCheckBox.Checked = settings.passwordGeneratorNumeric;
             specialCheckBox.Checked = settings.passwordGeneratorSpecial;
             passwordLengthTextBox.Text = settings.passwordGeneratorLength;
-            passwordsList.Text = string.Join(Environment.NewLine, GeneratePasswordGroup().ToArray());
+            numberOfStringsTextBox.Text = settings.passwordGeneratorNumberOfStrings;
+            passwordsListTextBox.Text = string.Join(Environment.NewLine, GeneratePasswordGroup().ToArray());
         }
 
         private void LowercaseCheckBox_Click(object sender, EventArgs e)
@@ -101,22 +91,34 @@ namespace Crypto_Notepad
             {
                 settings.passwordGeneratorLowercase = true;
             }
-            if (passwordLengthTextBox.Text.Length >= 1)
+            try
             {
-                if (int.Parse(passwordLengthTextBox.Text) >= 8 & int.Parse(passwordLengthTextBox.Text) <= 128)
+                if (Enumerable.Range(8, 128).Contains(int.Parse(passwordLengthTextBox.Text)))
                 {
                     settings.passwordGeneratorLength = passwordLengthTextBox.Text;
                 }
+                if (Enumerable.Range(1, 1000).Contains(int.Parse(numberOfStringsTextBox.Text)))
+                {
+                    settings.passwordGeneratorNumberOfStrings = numberOfStringsTextBox.Text;
+                }
+            }
+            catch
+            {
             }
             settings.Save();
         }
 
         private void PasswordValidation(object sender, EventArgs e)
         {
-            if (passwordLengthTextBox.Text.Length >= 1)
+            try
             {
-                if (int.Parse(passwordLengthTextBox.Text) < 8 | int.Parse(passwordLengthTextBox.Text) > 128 | !lowercaseCheckBox.Checked 
-                    & !uppercaseCheckBox.Checked & !numericCheckBox.Checked & !specialCheckBox.Checked)
+                if (!Enumerable.Range(1, 1000).Contains(int.Parse(numberOfStringsTextBox.Text)) |
+                    !Enumerable.Range(8, 128).Contains(int.Parse(passwordLengthTextBox.Text)) |
+                    !lowercaseCheckBox.Checked &
+                    !uppercaseCheckBox.Checked &
+                    !numericCheckBox.Checked &
+                    !specialCheckBox.Checked |
+                    string.IsNullOrWhiteSpace(numberOfStringsTextBox.Text.Trim('0')))
                 {
                     generateButton.Enabled = false;
                 }
@@ -124,10 +126,37 @@ namespace Crypto_Notepad
                 {
                     generateButton.Enabled = true;
                 }
+
+            }
+            catch
+            {
+                generateButton.Enabled = false;
+            }
+        }
+
+        private void CopyAllButton_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(passwordsListTextBox.Text);
+            passwordGeneratorToolTip.Show("Copied", copyAllButton, 0, -20, 1000);
+        }
+
+        private void CopyLastButton_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(passwordsListTextBox.Lines[passwordsListTextBox.Lines.Length - 1]);
+            passwordGeneratorToolTip.Show("Copied", copyLastButton, 0, -20, 1000);
+        }
+
+        private void PasswordsListTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(passwordsListTextBox.Text))
+            {
+                copyLastButton.Enabled = false;
+                copyAllButton.Enabled = false;
             }
             else
             {
-                generateButton.Enabled = false;
+                copyLastButton.Enabled = true;
+                copyAllButton.Enabled = true;
             }
         }
         #endregion
