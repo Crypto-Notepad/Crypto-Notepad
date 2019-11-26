@@ -117,11 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="aboutToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>176, 17</value>
-  </metadata>
   <metadata name="randomColorTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>21, 17</value>
+  </metadata>
+  <metadata name="aboutToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>176, 17</value>
   </metadata>
   <data name="appInfoRichTextBox.Text" xml:space="preserve">
     <value>This is an open-source app created by Sigmanor and licensed under MIT.
@@ -137,7 +137,7 @@ h5p9sl https://github.com/h5p9sl
 
 External libraries:
 
-CustomSettingsProvider: http://www.codeproject.com/Articles/20917/1
+CustomSettingsProvider: https://www.codeproject.com/Articles/20917/1
 TextBox Placeholder: https://www.codeproject.com/Articles/319910/0
 PasswordGenerator: https://github.com/prjseal/PasswordGenerator/ 
 OS Version Info: https://www.codeproject.com/Articles/73000/2

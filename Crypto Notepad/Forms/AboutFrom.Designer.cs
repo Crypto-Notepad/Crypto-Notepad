@@ -47,7 +47,6 @@
             this.appVersionLabel.Size = new System.Drawing.Size(210, 22);
             this.appVersionLabel.TabIndex = 1;
             this.appVersionLabel.Text = "Crypto Notepad 1.0.0";
-            this.aboutToolTip.SetToolTip(this.appVersionLabel, "Left click to copy debug info to the clipboard");
             this.appVersionLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AppVersionLabel_MouseClick);
             this.appVersionLabel.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.AppVersionLabel_MouseDoubleClick);
             this.appVersionLabel.MouseEnter += new System.EventHandler(this.appVersionLabel_MouseEnter);

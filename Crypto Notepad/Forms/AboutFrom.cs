@@ -1,5 +1,4 @@
 ﻿using JCS;
-using Microsoft.Win32;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -98,7 +97,7 @@ namespace Crypto_Notepad
         private void appVersionLabel_MouseEnter(object sender, EventArgs e)
         {
             aboutToolTip.AutoPopDelay = 5000;
-            aboutToolTip.SetToolTip(appVersionLabel, "Left click to copy debug info to the clipboard");
+            aboutToolTip.SetToolTip(appVersionLabel, "Left click for copy debug info to the clipboard");
         }
         #endregion
 
