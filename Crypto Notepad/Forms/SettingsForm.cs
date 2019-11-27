@@ -205,7 +205,7 @@ namespace Crypto_Notepad
             }
             else
             {
-                Methods.DissociateExtension(Assembly.GetEntryAssembly().Location, "cnp");
+                Methods.DissociateExtension("cnp");
             }
             settings.explorerAssociate = associateCheckBox.Checked;
         }

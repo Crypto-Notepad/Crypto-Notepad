@@ -111,7 +111,7 @@ namespace Crypto_Notepad
             }
         }
 
-        public static void DissociateExtension(string applicationExecutablePath, string extension)
+        public static void DissociateExtension(string extension)
         {
             try
             {
