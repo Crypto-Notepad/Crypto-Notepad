@@ -662,6 +662,7 @@ namespace Crypto_Notepad.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public string passwordGeneratorNumberOfStrings {
@@ -670,6 +671,19 @@ namespace Crypto_Notepad.Properties {
             }
             set {
                 this["passwordGeneratorNumberOfStrings"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TheSalt {
+            get {
+                return ((string)(this["TheSalt"]));
+            }
+            set {
+                this["TheSalt"] = value;
             }
         }
     }

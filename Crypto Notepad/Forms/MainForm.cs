@@ -78,8 +78,30 @@ namespace Crypto_Notepad
                     toolbarPanel.Enabled = false;
                     richTextBox.ReadOnly = true;
                     string openedFileText = await reader.ReadToEndAsync();
-                    richTextBox.Text = await AES.Decrypt(openedFileText, TypedPassword.Value, null, settings.HashAlgorithm,
-                        Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)); ;
+                    if (string.IsNullOrEmpty(settings.TheSalt))
+                    {
+                        richTextBox.Text = await AES.Decrypt(openedFileText, TypedPassword.Value, null, settings.HashAlgorithm,
+                        Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
+                    }
+                    else
+                    {
+                        string currentRichTextBoxText = richTextBox.Text;
+                        richTextBox.Text = await AES.Decrypt(openedFileText, TypedPassword.Value, settings.TheSalt, settings.HashAlgorithm,
+                        Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
+                        if (PublicVar.metadataCorrupt)
+                        {
+                            PublicVar.openFileName = Path.GetFileName(filePath);
+                            PublicVar.metadataCorrupt = false;
+                            mainMenu.Enabled = true;
+                            toolbarPanel.Enabled = true;
+                            richTextBox.ReadOnly = false;
+                            UseWaitCursor = false;
+                            richTextBox.ResumeDrawing();
+                            richTextBox.Text = currentRichTextBoxText;
+                            richTextBox.Modified = false;
+                            return;
+                        }
+                    }
                 }
                 Text = Path.GetFileName(openFileDialog.FileName) + " – " + PublicVar.appName;
                 filePath = openFileDialog.FileName;
@@ -1904,6 +1926,7 @@ namespace Crypto_Notepad
             Debug.WriteLine("okPressed: " + PublicVar.okPressed);
             Debug.WriteLine("RichTextBox.Modified: " + richTextBox.Modified);
             Debug.WriteLine("EditorMenuStrip: " + contextMenu.Enabled);
+            Debug.WriteLine("metadataCorrupt: " + PublicVar.metadataCorrupt);
 #endif
         }
         #endregion

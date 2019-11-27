@@ -68,6 +68,7 @@ namespace Crypto_Notepad
         public static bool messageBoxCenterParent = false;       
         public const string appName = "Crypto Notepad";
         public static string openFileName;
+        public static bool metadataCorrupt = false;
     }
 
     static class TypedPassword

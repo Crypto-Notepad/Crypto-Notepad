@@ -149,8 +149,11 @@
     <Setting Name="passwordGeneratorLength" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">40</Value>
     </Setting>
-    <Setting Name="passwordGeneratorNumberOfStrings" Type="System.String" Scope="User">
+    <Setting Name="passwordGeneratorNumberOfStrings" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="TheSalt" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

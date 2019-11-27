@@ -204,16 +204,19 @@ namespace Crypto_Notepad
                 {
                     // Metadata parsing error
                     DialogResult result = MessageBox.Show("Unable to parse file metadata.\nAttempt to open anyway?\n(May result in a \'Incorrect Key\' error if the salt is wrong.)",
-                    "Missing or Corrupted Metadata", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Asterisk);
+                    "Missing or Corrupted Metadata", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                     if (result == DialogResult.Yes)
                     {
                         // Default initialization vector from builds v1.1.2 and older
                         const string default_IV = "16CHARSLONG12345";
-
                         initialVectorBytes = Encoding.ASCII.GetBytes(default_IV);
                         saltValueBytes = Encoding.ASCII.GetBytes(salt);
                     }
-                    else { return null; }
+                    else 
+                    {
+                        PublicVar.metadataCorrupt = true;
+                        return null; 
+                    }
                 }
                 else
                 {
