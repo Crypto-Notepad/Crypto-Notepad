@@ -240,7 +240,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "PasswordGeneratorFrom";
-            this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Password Generator";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PasswordGeneratorFrom_FormClosing);
