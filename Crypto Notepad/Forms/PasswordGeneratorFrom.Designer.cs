@@ -197,7 +197,7 @@
             this.copyAllButton.Name = "copyAllButton";
             this.copyAllButton.Size = new System.Drawing.Size(66, 23);
             this.copyAllButton.TabIndex = 3;
-            this.copyAllButton.Text = "Copy All";
+            this.copyAllButton.Text = "Copy all";
             this.copyAllButton.UseVisualStyleBackColor = true;
             this.copyAllButton.Click += new System.EventHandler(this.CopyAllButton_Click);
             this.copyAllButton.MouseEnter += new System.EventHandler(this.CopyAllButton_MouseEnter);
@@ -209,7 +209,7 @@
             this.copyLastButton.Name = "copyLastButton";
             this.copyLastButton.Size = new System.Drawing.Size(66, 23);
             this.copyLastButton.TabIndex = 2;
-            this.copyLastButton.Text = "Copy Last";
+            this.copyLastButton.Text = "Copy last";
             this.copyLastButton.UseVisualStyleBackColor = true;
             this.copyLastButton.Click += new System.EventHandler(this.CopyLastButton_Click);
             this.copyLastButton.MouseEnter += new System.EventHandler(this.CopyLastButton_MouseEnter);
