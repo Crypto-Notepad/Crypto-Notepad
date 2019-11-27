@@ -204,7 +204,7 @@ namespace Crypto_Notepad
 
         private async void ContextMenuEncryptReplace()
         {
-            DialogResult res = MessageBox.Show(this, "This action will delete the source file and replace it with encrypted version", PublicVar.appName, 
+            DialogResult res = MessageBox.Show(this, "This action will delete the source file and replace it with encrypted version. File must be in UTF-8 Encoding.", PublicVar.appName, 
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (res == DialogResult.Cancel)
             {
