@@ -61,7 +61,7 @@
             this.aboutToolTip.AutoPopDelay = 5000;
             this.aboutToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(68)))));
             this.aboutToolTip.ForeColor = System.Drawing.Color.DarkGray;
-            this.aboutToolTip.InitialDelay = 500;
+            this.aboutToolTip.InitialDelay = 100;
             this.aboutToolTip.OwnerDraw = true;
             this.aboutToolTip.ReshowDelay = 100;
             this.aboutToolTip.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.AboutToolTip_Draw);
