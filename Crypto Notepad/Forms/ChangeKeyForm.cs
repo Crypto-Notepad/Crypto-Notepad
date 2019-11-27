@@ -14,40 +14,38 @@ namespace Crypto_Notepad
             statusLabel.Text = "";
         }
 
-        /*Buttons*/
-        private async void AcceptButton_Click(object sender, EventArgs e)
+        #region Methods
+        private async void ChangePasswordStatus(string message, Color color)
+        {
+            statusLabel.ForeColor = color;
+            statusLabel.Text = message;
+            oldKeyTextBox.Text = "";
+            newKeyTextBox.Text = "";
+            await Task.Delay(2500);
+            statusLabel.Text = "";
+        }
+        #endregion
+
+
+        #region Event Handlers
+        private void AcceptButton_Click(object sender, EventArgs e)
         {
             oldKeyTextBox.Focus();
             if (oldKeyTextBox.Text == PublicVar.password.Get() & oldKeyTextBox.Text != newKeyTextBox.Text)
             {
                 PublicVar.password.Set(newKeyTextBox.Text);
                 PublicVar.passwordChanged = true;
-                statusLabel.ForeColor = Color.Green;
-                statusLabel.Text = "Password was successfully changed";
-                oldKeyTextBox.Text = "";
-                newKeyTextBox.Text = "";         
-                await Task.Delay(3000);
-                statusLabel.Text = "";
+                ChangePasswordStatus("Password was successfully changed", Color.Green);
             }
             else if (oldKeyTextBox.Text != PublicVar.password.Get())
             {
                 SystemSounds.Hand.Play();
-                statusLabel.ForeColor = Color.Red;
-                statusLabel.Text = "Invalid old password";
-                oldKeyTextBox.Text = "";
-                newKeyTextBox.Text = "";
-                await Task.Delay(2000);
-                statusLabel.Text = "";
+                ChangePasswordStatus("Invalid old password", Color.Red);
             }
-            else if(oldKeyTextBox.Text == newKeyTextBox.Text)
+            else if (oldKeyTextBox.Text == newKeyTextBox.Text)
             {
                 SystemSounds.Hand.Play();
-                statusLabel.ForeColor = Color.Red;
-                statusLabel.Text = "New password is the same as old";
-                oldKeyTextBox.Text = "";
-                newKeyTextBox.Text = "";
-                await Task.Delay(2000);
-                statusLabel.Text = "";
+                ChangePasswordStatus("New password is the same as old", Color.Red);
             }
         }
 
@@ -60,10 +58,7 @@ namespace Crypto_Notepad
                 passwordGeneratorFrom.Show(this);
             }
         }
-        /*Buttons*/
 
-
-        /*Enter keys area*/
         private void ShowOldKeyPictureBox_Click(object sender, EventArgs e)
         {
             if (oldKeyTextBox.UseSystemPasswordChar)
@@ -148,7 +143,7 @@ namespace Crypto_Notepad
                 AcceptButton_Click(sender, e);
             }
         }
-        /*Enter keys area*/
+        #endregion
 
 
     }
