@@ -133,7 +133,8 @@ namespace Crypto_Notepad
             {
                 if (action == "enable")
                 {
-                    RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Classes\*\", true);
+                    RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Classes\", true);
+                    key = key.CreateSubKey("*");
                     key = key.CreateSubKey("shell");
                     key.CreateSubKey("Crypto Notepad").SetValue("icon", appExePath);
                     key.CreateSubKey("Crypto Notepad").SetValue("SubCommands", "");
