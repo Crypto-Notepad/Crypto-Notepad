@@ -169,6 +169,11 @@ namespace Crypto_Notepad
         {
             passwordGeneratorToolTip.SetToolTip(copyAllButton, null);
         }
+
+        private void PasswordGeneratorFrom_Deactivate(object sender, EventArgs e)
+        {
+            PasswordGeneratorFrom_FormClosing(null, null);
+        }
         #endregion
 
 

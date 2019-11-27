@@ -242,6 +242,7 @@
             this.Name = "PasswordGeneratorFrom";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Password Generator";
+            this.Deactivate += new System.EventHandler(this.PasswordGeneratorFrom_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PasswordGeneratorFrom_FormClosing);
             this.Load += new System.EventHandler(this.PasswordGeneratorFrom_Load);
             this.groupBox1.ResumeLayout(false);
