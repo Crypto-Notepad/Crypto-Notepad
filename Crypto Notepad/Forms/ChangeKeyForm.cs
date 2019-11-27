@@ -18,22 +18,22 @@ namespace Crypto_Notepad
         private async void AcceptButton_Click(object sender, EventArgs e)
         {
             oldKeyTextBox.Focus();
-            if (oldKeyTextBox.Text == PublicVar.encryptionKey.Get() & oldKeyTextBox.Text != newKeyTextBox.Text)
+            if (oldKeyTextBox.Text == PublicVar.password.Get() & oldKeyTextBox.Text != newKeyTextBox.Text)
             {
-                PublicVar.encryptionKey.Set(newKeyTextBox.Text);
-                PublicVar.keyChanged = true;
+                PublicVar.password.Set(newKeyTextBox.Text);
+                PublicVar.passwordChanged = true;
                 statusLabel.ForeColor = Color.Green;
-                statusLabel.Text = "Key was successfully changed";
+                statusLabel.Text = "Password was successfully changed";
                 oldKeyTextBox.Text = "";
                 newKeyTextBox.Text = "";         
                 await Task.Delay(3000);
                 statusLabel.Text = "";
             }
-            else if (oldKeyTextBox.Text != PublicVar.encryptionKey.Get())
+            else if (oldKeyTextBox.Text != PublicVar.password.Get())
             {
                 SystemSounds.Hand.Play();
                 statusLabel.ForeColor = Color.Red;
-                statusLabel.Text = "Invalid old key";
+                statusLabel.Text = "Invalid old password";
                 oldKeyTextBox.Text = "";
                 newKeyTextBox.Text = "";
                 await Task.Delay(2000);
@@ -43,7 +43,7 @@ namespace Crypto_Notepad
             {
                 SystemSounds.Hand.Play();
                 statusLabel.ForeColor = Color.Red;
-                statusLabel.Text = "New key is the same as old";
+                statusLabel.Text = "New password is the same as old";
                 oldKeyTextBox.Text = "";
                 newKeyTextBox.Text = "";
                 await Task.Delay(2000);

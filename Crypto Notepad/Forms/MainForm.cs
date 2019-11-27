@@ -36,7 +36,7 @@ namespace Crypto_Notepad
             const int SC_MINIMIZE = 0xF020;
             try
             {
-                if (m.Msg == WM_SYSCOMMAND & m.WParam.ToInt32() == SC_MINIMIZE & settings.autoLock & !string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
+                if (m.Msg == WM_SYSCOMMAND & m.WParam.ToInt32() == SC_MINIMIZE & settings.autoLock & !string.IsNullOrEmpty(PublicVar.password.Get()))
                 {
                     richTextBox.Visible = false;
                 }
@@ -106,7 +106,7 @@ namespace Crypto_Notepad
                 Text = Path.GetFileName(openFileDialog.FileName) + " – " + PublicVar.appName;
                 filePath = openFileDialog.FileName;
                 PublicVar.openFileName = Path.GetFileName(openFileDialog.FileName);
-                PublicVar.encryptionKey.Set(TypedPassword.Value);
+                PublicVar.password.Set(TypedPassword.Value);
                 TypedPassword.Value = null;
                 StatusPanelFileInfo();
                 mainMenu.Enabled = true;
@@ -227,7 +227,7 @@ namespace Crypto_Notepad
                 writer.Write(encryptedText);
                 writer.Close();
             }
-            PublicVar.encryptionKey.Set(TypedPassword.Value);
+            PublicVar.password.Set(TypedPassword.Value);
             TypedPassword.Value = null;
             filePath = newFileName;
             PublicVar.openFileName = Path.GetFileName(newFileName);
@@ -246,7 +246,7 @@ namespace Crypto_Notepad
                 {
                     PublicVar.openFileName = "Unnamed.cnp";
                 }
-                if (!PublicVar.keyChanged)
+                if (!PublicVar.passwordChanged)
                 {
                     messageBoxText = "Save file: " + "\"" + PublicVar.openFileName + "\"" + " ? ";
                 }
@@ -469,7 +469,7 @@ namespace Crypto_Notepad
                 richTextBox.Modified = false;
                 fileLockedPanel.Visible = false;
                 richTextBox.SelectionStart = caretPos;
-                PublicVar.encryptionKey.Set(TypedPassword.Value);
+                PublicVar.password.Set(TypedPassword.Value);
                 TypedPassword.Value = null;
                 richTextBox.Focus();
                 StatusPanelFileInfo();
@@ -690,7 +690,7 @@ namespace Crypto_Notepad
                     Hide();
                 }
             }
-            if (WindowState == FormWindowState.Minimized & settings.autoLock & !string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
+            if (WindowState == FormWindowState.Minimized & settings.autoLock & !string.IsNullOrEmpty(PublicVar.password.Get()))
             {
                 fileLockedPanel.Visible = true;
             }
@@ -707,7 +707,7 @@ namespace Crypto_Notepad
         {
             richTextBox.Focus();
 
-            if (PublicVar.keyChanged)
+            if (PublicVar.passwordChanged)
             {
                 richTextBox.Modified = true;
             }
@@ -730,7 +730,7 @@ namespace Crypto_Notepad
             {
                 if (e.CloseReason == CloseReason.UserClosing)
                 {
-                    if (settings.autoLock & !string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
+                    if (settings.autoLock & !string.IsNullOrEmpty(PublicVar.password.Get()))
                     {
                         fileLockedPanel.Visible = true;
                     }
@@ -748,13 +748,13 @@ namespace Crypto_Notepad
                 if (!string.IsNullOrEmpty(richTextBox.Text))
                 {
                     string messageBoxText;
-                    if (!PublicVar.keyChanged)
+                    if (!PublicVar.passwordChanged)
                     {
                         messageBoxText = "Save file: " + "\"" + PublicVar.openFileName + "\"" + " ? ";
                     }
                     else
                     {
-                        messageBoxText = "Save file: " + "\"" + PublicVar.openFileName + "\"" + " with a new key? ";
+                        messageBoxText = "Save file: " + "\"" + PublicVar.openFileName + "\"" + " with a new password? ";
                     }
                     if (Visible)
                     {
@@ -788,7 +788,7 @@ namespace Crypto_Notepad
                                     e.Cancel = true;
                                     return;
                                 }
-                                PublicVar.encryptionKey.Set(TypedPassword.Value);
+                                PublicVar.password.Set(TypedPassword.Value);
                                 filePath = saveFileDialog.FileName;
                             }
                             Hide();
@@ -796,7 +796,7 @@ namespace Crypto_Notepad
                             using (StreamWriter writer = new StreamWriter(filePath))
                             {
                                 string encryptedText = richTextBox.Text;
-                                Task.Run(async () => { encryptedText =  await AES.Encrypt(encryptedText, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm, 
+                                Task.Run(async () => { encryptedText =  await AES.Encrypt(encryptedText, PublicVar.password.Get(), null, settings.HashAlgorithm, 
                                     Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)); }).Wait();
                                 writer.Write(encryptedText);
                                 writer.Close();
@@ -1051,7 +1051,7 @@ namespace Crypto_Notepad
                     return;
                 }
                 richTextBox.Clear();
-                PublicVar.encryptionKey.Set(TypedPassword.Value);
+                PublicVar.password.Set(TypedPassword.Value);
                 StreamWriter sw = new StreamWriter(saveFileDialog.FileName);
                 Text = Path.GetFileName(saveFileDialog.FileName) + " – " + PublicVar.appName;
                 filePath = saveFileDialog.FileName;
@@ -1100,7 +1100,7 @@ namespace Crypto_Notepad
 
         private async void SaveMainMenu_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
+            if (string.IsNullOrEmpty(PublicVar.password.Get()))
             {
                 SaveAsMainMenu_Click(this, new EventArgs());
                 return;
@@ -1112,12 +1112,12 @@ namespace Crypto_Notepad
             UseWaitCursor = true;
             using (StreamWriter writer = new StreamWriter(filePath))
             {
-                writer.Write(await AES.Encrypt(richTextBox.Text, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm, 
+                writer.Write(await AES.Encrypt(richTextBox.Text, PublicVar.password.Get(), null, settings.HashAlgorithm, 
                     Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)));
                 writer.Close();
             }
             richTextBox.Modified = false;
-            PublicVar.keyChanged = false;
+            PublicVar.passwordChanged = false;
             StatusPanelMessage("save");
             StatusPanelFileInfo();
             richTextBox.ResumeDrawing();
@@ -1148,7 +1148,7 @@ namespace Crypto_Notepad
             {
                 Owner = this
             };
-            if (string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
+            if (string.IsNullOrEmpty(PublicVar.password.Get()))
             {
                 enterKeyForm.ShowDialog();
                 if (!PublicVar.okPressed)
@@ -1159,9 +1159,9 @@ namespace Crypto_Notepad
             }
             if (TypedPassword.Value == null)
             {
-                TypedPassword.Value = PublicVar.encryptionKey.Get();
+                TypedPassword.Value = PublicVar.password.Get();
             }
-            PublicVar.encryptionKey.Set(TypedPassword.Value);
+            PublicVar.password.Set(TypedPassword.Value);
             filePath = saveFileDialog.FileName;
             mainMenu.Enabled = false;
             toolbarPanel.Enabled = false;
@@ -1170,7 +1170,7 @@ namespace Crypto_Notepad
             UseWaitCursor = true;
             using (StreamWriter writer = new StreamWriter(filePath))
             {
-                writer.Write(await AES.Encrypt(richTextBox.Text, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm,
+                writer.Write(await AES.Encrypt(richTextBox.Text, PublicVar.password.Get(), null, settings.HashAlgorithm,
                     Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)));
                 writer.Close();
             }
@@ -1195,7 +1195,7 @@ namespace Crypto_Notepad
             UseWaitCursor = true;
             using (StreamWriter writer = new StreamWriter(filePath))
             {
-                writer.Write(await AES.Encrypt(richTextBox.Text, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm,
+                writer.Write(await AES.Encrypt(richTextBox.Text, PublicVar.password.Get(), null, settings.HashAlgorithm,
                     Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)));
                 writer.Close();
             }
@@ -1204,7 +1204,7 @@ namespace Crypto_Notepad
             mainMenu.Enabled = true;
             toolbarPanel.Enabled = true;
             richTextBox.ReadOnly = false;
-            PublicVar.encryptionKey.Set(null);
+            PublicVar.password.Set(null);
             richTextBox.Clear();
             PublicVar.openFileName = "";
             filePath = "";
@@ -1231,7 +1231,7 @@ namespace Crypto_Notepad
                     {
                         File.Delete(filePath);
                         richTextBox.Clear();
-                        PublicVar.encryptionKey.Set(null);
+                        PublicVar.password.Set(null);
                         fileLocationToolbarButton.Enabled = false;
                         deleteFileToolbarButton.Enabled = false;
                         changeKeyToolbarButton.Enabled = false;
@@ -1403,7 +1403,7 @@ namespace Crypto_Notepad
 
         private void ToolsMainMenu_DropDownOpened(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
+            if (string.IsNullOrEmpty(PublicVar.password.Get()))
             {
                 changeKeyMainMenu.Enabled = false;
                 lockMainMenu.Enabled = false;
@@ -1429,7 +1429,7 @@ namespace Crypto_Notepad
             UseWaitCursor = true;
             using (StreamWriter writer = new StreamWriter(filePath))
             {
-                writer.Write(await AES.Encrypt(richTextBox.Text, PublicVar.encryptionKey.Get(), null, settings.HashAlgorithm,
+                writer.Write(await AES.Encrypt(richTextBox.Text, PublicVar.password.Get(), null, settings.HashAlgorithm,
                     Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)));
                 writer.Close();
             }
@@ -1662,7 +1662,7 @@ namespace Crypto_Notepad
                 copyToolbarButton.Enabled = false;
             }
 
-            if (string.IsNullOrEmpty(PublicVar.encryptionKey.Get()))
+            if (string.IsNullOrEmpty(PublicVar.password.Get()))
             {
                 fileLocationToolbarButton.Enabled = false;
                 deleteFileToolbarButton.Enabled = false;
@@ -1809,7 +1809,7 @@ namespace Crypto_Notepad
                     searchTextBox.Text = "";
                     searchPanel.Visible = false;
                 }
-                PublicVar.encryptionKey.Set(null);
+                PublicVar.password.Set(null);
                 caretPos = richTextBox.SelectionStart;
                 richTextBox.Visible = false;
                 toolbarPanel.Enabled = false;
@@ -1920,9 +1920,9 @@ namespace Crypto_Notepad
             Debug.WriteLine("\nTime: " + formattedTime);
             Debug.WriteLine("PublicVar.openFileName: " + PublicVar.openFileName);
             Debug.WriteLine("filePath: " + filePath);
-            Debug.WriteLine("encryptionKey: " + PublicVar.encryptionKey.Get());
+            Debug.WriteLine("encryptionKey: " + PublicVar.password.Get());
             Debug.WriteLine("TypedPassword: " + TypedPassword.Value);
-            Debug.WriteLine("keyChanged: " + PublicVar.keyChanged);
+            Debug.WriteLine("keyChanged: " + PublicVar.passwordChanged);
             Debug.WriteLine("okPressed: " + PublicVar.okPressed);
             Debug.WriteLine("RichTextBox.Modified: " + richTextBox.Modified);
             Debug.WriteLine("EditorMenuStrip: " + contextMenu.Enabled);

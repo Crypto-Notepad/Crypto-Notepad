@@ -413,7 +413,7 @@
             this.alwaysOnTopMainMenu.CheckOnClick = true;
             this.alwaysOnTopMainMenu.Name = "alwaysOnTopMainMenu";
             this.alwaysOnTopMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.alwaysOnTopMainMenu.Size = new System.Drawing.Size(220, 22);
+            this.alwaysOnTopMainMenu.Size = new System.Drawing.Size(261, 22);
             this.alwaysOnTopMainMenu.Text = "Always on Top";
             this.alwaysOnTopMainMenu.Click += new System.EventHandler(this.AlwaysOnTopMainMenu_Click);
             // 
@@ -421,7 +421,7 @@
             // 
             this.passwordGeneratorMainMenu.Name = "passwordGeneratorMainMenu";
             this.passwordGeneratorMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.passwordGeneratorMainMenu.Size = new System.Drawing.Size(220, 22);
+            this.passwordGeneratorMainMenu.Size = new System.Drawing.Size(261, 22);
             this.passwordGeneratorMainMenu.Text = "Password Generator";
             this.passwordGeneratorMainMenu.Click += new System.EventHandler(this.PasswordGeneratorMainMenu_Click);
             // 
@@ -430,15 +430,15 @@
             this.changeKeyMainMenu.Name = "changeKeyMainMenu";
             this.changeKeyMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.K)));
-            this.changeKeyMainMenu.Size = new System.Drawing.Size(220, 22);
-            this.changeKeyMainMenu.Text = "Change Key";
+            this.changeKeyMainMenu.Size = new System.Drawing.Size(232, 22);
+            this.changeKeyMainMenu.Text = "Change Password";
             this.changeKeyMainMenu.Click += new System.EventHandler(this.ChangeKeyMainMenu_Click);
             // 
             // lockMainMenu
             // 
             this.lockMainMenu.Name = "lockMainMenu";
             this.lockMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.lockMainMenu.Size = new System.Drawing.Size(220, 22);
+            this.lockMainMenu.Size = new System.Drawing.Size(261, 22);
             this.lockMainMenu.Text = "Lock";
             this.lockMainMenu.Click += new System.EventHandler(this.LockMainMenu_Click);
             // 
@@ -448,7 +448,7 @@
             this.settingsMainMenu.ShortcutKeyDisplayString = "";
             this.settingsMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.S)));
-            this.settingsMainMenu.Size = new System.Drawing.Size(220, 22);
+            this.settingsMainMenu.Size = new System.Drawing.Size(261, 22);
             this.settingsMainMenu.Text = "Settings";
             this.settingsMainMenu.Click += new System.EventHandler(this.SettingsMainMenu_Click);
             // 
@@ -833,7 +833,7 @@
             this.changeKeyToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.changeKeyToolbarButton.TabIndex = 15;
             this.changeKeyToolbarButton.TabStop = false;
-            this.toolTip.SetToolTip(this.changeKeyToolbarButton, "Change key");
+            this.toolTip.SetToolTip(this.changeKeyToolbarButton, "Change password");
             this.changeKeyToolbarButton.Click += new System.EventHandler(this.ChangeKeyToolbarButton_Click);
             // 
             // openToolbarButton
@@ -959,7 +959,7 @@
             this.alwaysOnTopToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.alwaysOnTopToolbarButton.TabIndex = 15;
             this.alwaysOnTopToolbarButton.TabStop = false;
-            this.toolTip.SetToolTip(this.alwaysOnTopToolbarButton, "Always on Top");
+            this.toolTip.SetToolTip(this.alwaysOnTopToolbarButton, "Always on top");
             this.alwaysOnTopToolbarButton.Click += new System.EventHandler(this.AlwaysOnTopToolbarButton_Click);
             // 
             // statusPanel
@@ -1128,7 +1128,7 @@
             // 
             this.fileLockedKeyTextBox.Location = new System.Drawing.Point(6, 34);
             this.fileLockedKeyTextBox.Name = "fileLockedKeyTextBox";
-            this.fileLockedKeyTextBox.Placeholder = "Encryption key";
+            this.fileLockedKeyTextBox.Placeholder = "Password";
             this.fileLockedKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
             this.fileLockedKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
             this.fileLockedKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;

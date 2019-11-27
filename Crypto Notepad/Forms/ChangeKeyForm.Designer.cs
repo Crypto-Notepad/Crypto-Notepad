@@ -113,7 +113,7 @@
             // 
             this.oldKeyTextBox.Location = new System.Drawing.Point(64, 14);
             this.oldKeyTextBox.Name = "oldKeyTextBox";
-            this.oldKeyTextBox.Placeholder = "Old key";
+            this.oldKeyTextBox.Placeholder = "Old password";
             this.oldKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
             this.oldKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
             this.oldKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
@@ -127,7 +127,7 @@
             // 
             this.newKeyTextBox.Location = new System.Drawing.Point(64, 39);
             this.newKeyTextBox.Name = "newKeyTextBox";
-            this.newKeyTextBox.Placeholder = "New key";
+            this.newKeyTextBox.Placeholder = "New password";
             this.newKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
             this.newKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
             this.newKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
@@ -140,11 +140,11 @@
             // statusLabel
             // 
             this.statusLabel.AutoSize = true;
-            this.statusLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.statusLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.statusLabel.ForeColor = System.Drawing.Color.Black;
-            this.statusLabel.Location = new System.Drawing.Point(3, 83);
+            this.statusLabel.Location = new System.Drawing.Point(2, 85);
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(42, 17);
+            this.statusLabel.Size = new System.Drawing.Size(38, 15);
             this.statusLabel.TabIndex = 7;
             this.statusLabel.Text = "status";
             // 
@@ -176,7 +176,7 @@
             this.Name = "ChangeKeyForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Change Key";
+            this.Text = "Change Password";
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lockPictureBox)).EndInit();

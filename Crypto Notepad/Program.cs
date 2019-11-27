@@ -62,8 +62,8 @@ namespace Crypto_Notepad
 
     static class PublicVar
     {
-        public static EncryptedString encryptionKey = new EncryptedString();
-        public static bool keyChanged = false;
+        public static EncryptedString password = new EncryptedString();
+        public static bool passwordChanged = false;
         public static bool okPressed = false;
         public static bool messageBoxCenterParent = false;       
         public const string appName = "Crypto Notepad";
