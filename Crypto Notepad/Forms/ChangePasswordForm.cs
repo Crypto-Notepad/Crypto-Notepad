@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace Crypto_Notepad
 {
-    public partial class ChangeKeyForm : Form
+    public partial class ChangePasswordForm : Form
     {
-        public ChangeKeyForm()
+        public ChangePasswordForm()
         {
             InitializeComponent();
             statusLabel.Text = "";
