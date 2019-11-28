@@ -1,4 +1,4 @@
-﻿using Crypto_Notepad.Properties;
+using Crypto_Notepad.Properties;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -152,11 +152,6 @@ namespace Crypto_Notepad
 
         private async void OpenAsotiations()
         {
-            EnterKeyForm enterKeyForm = new EnterKeyForm
-            {
-                Owner = this,
-                StartPosition = FormStartPosition.CenterScreen
-            };
             string fileExtension = Path.GetExtension(args[1]);
             PublicVar.openFileName = Path.GetFileName(args[1]);
             openFileDialog.FileName = Path.GetFullPath(args[1]);
@@ -178,11 +173,6 @@ namespace Crypto_Notepad
 
         private async void SendTo()
         {
-            EnterKeyForm enterKeyForm = new EnterKeyForm
-            {
-                Owner = this,
-                StartPosition = FormStartPosition.CenterScreen
-            };
             string fileExtension = Path.GetExtension(argsPath);
             openFileDialog.FileName = Path.GetFullPath(argsPath);
             PublicVar.openFileName = Path.GetFileName(argsPath);
