@@ -61,7 +61,7 @@
             this.toolsMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.alwaysOnTopMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordGeneratorMainMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.changeKeyMainMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.lockMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMainMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,7 +96,7 @@
             this.closeToolbarButton = new System.Windows.Forms.Label();
             this.lockToolbarButton = new System.Windows.Forms.PictureBox();
             this.newToolbarButton = new System.Windows.Forms.PictureBox();
-            this.changeKeyToolbarButton = new System.Windows.Forms.PictureBox();
+            this.changePasswordToolbarButton = new System.Windows.Forms.PictureBox();
             this.openToolbarButton = new System.Windows.Forms.PictureBox();
             this.pasteToolbarButton = new System.Windows.Forms.PictureBox();
             this.saveToolbarButton = new System.Windows.Forms.PictureBox();
@@ -132,7 +132,7 @@
             this.toolbarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lockToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newToolbarButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.changeKeyToolbarButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.changePasswordToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.openToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pasteToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveToolbarButton)).BeginInit();
@@ -399,7 +399,7 @@
             this.toolsMainMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.alwaysOnTopMainMenu,
             this.passwordGeneratorMainMenu,
-            this.changeKeyMainMenu,
+            this.changePasswordMainMenu,
             this.lockMainMenu,
             this.settingsMainMenu});
             this.toolsMainMenu.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -413,7 +413,7 @@
             this.alwaysOnTopMainMenu.CheckOnClick = true;
             this.alwaysOnTopMainMenu.Name = "alwaysOnTopMainMenu";
             this.alwaysOnTopMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.alwaysOnTopMainMenu.Size = new System.Drawing.Size(261, 22);
+            this.alwaysOnTopMainMenu.Size = new System.Drawing.Size(232, 22);
             this.alwaysOnTopMainMenu.Text = "Always on Top";
             this.alwaysOnTopMainMenu.Click += new System.EventHandler(this.AlwaysOnTopMainMenu_Click);
             // 
@@ -421,24 +421,24 @@
             // 
             this.passwordGeneratorMainMenu.Name = "passwordGeneratorMainMenu";
             this.passwordGeneratorMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.passwordGeneratorMainMenu.Size = new System.Drawing.Size(261, 22);
+            this.passwordGeneratorMainMenu.Size = new System.Drawing.Size(232, 22);
             this.passwordGeneratorMainMenu.Text = "Password Generator";
             this.passwordGeneratorMainMenu.Click += new System.EventHandler(this.PasswordGeneratorMainMenu_Click);
             // 
-            // changeKeyMainMenu
+            // changePasswordMainMenu
             // 
-            this.changeKeyMainMenu.Name = "changeKeyMainMenu";
-            this.changeKeyMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            this.changePasswordMainMenu.Name = "changePasswordMainMenu";
+            this.changePasswordMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.K)));
-            this.changeKeyMainMenu.Size = new System.Drawing.Size(232, 22);
-            this.changeKeyMainMenu.Text = "Change Password";
-            this.changeKeyMainMenu.Click += new System.EventHandler(this.ChangeKeyMainMenu_Click);
+            this.changePasswordMainMenu.Size = new System.Drawing.Size(232, 22);
+            this.changePasswordMainMenu.Text = "Change Password";
+            this.changePasswordMainMenu.Click += new System.EventHandler(this.ChangePasswordMainMenu_Click);
             // 
             // lockMainMenu
             // 
             this.lockMainMenu.Name = "lockMainMenu";
             this.lockMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.lockMainMenu.Size = new System.Drawing.Size(261, 22);
+            this.lockMainMenu.Size = new System.Drawing.Size(232, 22);
             this.lockMainMenu.Text = "Lock";
             this.lockMainMenu.Click += new System.EventHandler(this.LockMainMenu_Click);
             // 
@@ -448,7 +448,7 @@
             this.settingsMainMenu.ShortcutKeyDisplayString = "";
             this.settingsMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.S)));
-            this.settingsMainMenu.Size = new System.Drawing.Size(261, 22);
+            this.settingsMainMenu.Size = new System.Drawing.Size(232, 22);
             this.settingsMainMenu.Text = "Settings";
             this.settingsMainMenu.Click += new System.EventHandler(this.SettingsMainMenu_Click);
             // 
@@ -757,7 +757,7 @@
             this.toolbarPanel.Controls.Add(this.closeToolbarButton, 13, 0);
             this.toolbarPanel.Controls.Add(this.lockToolbarButton, 9, 0);
             this.toolbarPanel.Controls.Add(this.newToolbarButton, 0, 0);
-            this.toolbarPanel.Controls.Add(this.changeKeyToolbarButton, 8, 0);
+            this.toolbarPanel.Controls.Add(this.changePasswordToolbarButton, 8, 0);
             this.toolbarPanel.Controls.Add(this.openToolbarButton, 1, 0);
             this.toolbarPanel.Controls.Add(this.pasteToolbarButton, 7, 0);
             this.toolbarPanel.Controls.Add(this.saveToolbarButton, 2, 0);
@@ -822,19 +822,19 @@
             this.toolTip.SetToolTip(this.newToolbarButton, "New");
             this.newToolbarButton.Click += new System.EventHandler(this.NewToolbarButton_Click);
             // 
-            // changeKeyToolbarButton
+            // changePasswordToolbarButton
             // 
-            this.changeKeyToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.changeKeyToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("changeKeyToolbarButton.Image")));
-            this.changeKeyToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.changeKeyToolbarButton.Location = new System.Drawing.Point(195, 3);
-            this.changeKeyToolbarButton.Name = "changeKeyToolbarButton";
-            this.changeKeyToolbarButton.Size = new System.Drawing.Size(16, 16);
-            this.changeKeyToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.changeKeyToolbarButton.TabIndex = 15;
-            this.changeKeyToolbarButton.TabStop = false;
-            this.toolTip.SetToolTip(this.changeKeyToolbarButton, "Change password");
-            this.changeKeyToolbarButton.Click += new System.EventHandler(this.ChangeKeyToolbarButton_Click);
+            this.changePasswordToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.changePasswordToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("changePasswordToolbarButton.Image")));
+            this.changePasswordToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.changePasswordToolbarButton.Location = new System.Drawing.Point(195, 3);
+            this.changePasswordToolbarButton.Name = "changePasswordToolbarButton";
+            this.changePasswordToolbarButton.Size = new System.Drawing.Size(16, 16);
+            this.changePasswordToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.changePasswordToolbarButton.TabIndex = 15;
+            this.changePasswordToolbarButton.TabStop = false;
+            this.toolTip.SetToolTip(this.changePasswordToolbarButton, "Change password");
+            this.changePasswordToolbarButton.Click += new System.EventHandler(this.ChangePasswordToolbarButton_Click);
             // 
             // openToolbarButton
             // 
@@ -1238,7 +1238,7 @@
             this.toolbarPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lockToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newToolbarButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.changeKeyToolbarButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.changePasswordToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.openToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pasteToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveToolbarButton)).EndInit();
@@ -1298,7 +1298,7 @@
         protected internal System.Windows.Forms.ToolStripMenuItem rightToLeftContextMenu;
         protected internal System.Windows.Forms.ToolStripMenuItem clearContextMenu;
         protected internal System.Windows.Forms.ToolStripSeparator mainMenuSeparator1;
-        protected internal System.Windows.Forms.ToolStripMenuItem changeKeyMainMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem changePasswordMainMenu;
         protected internal System.Windows.Forms.ToolStripMenuItem checkForUpdatesMainMenu;
         protected internal System.Windows.Forms.ToolStripMenuItem documentationMainMenu;
         protected internal System.Windows.Forms.ToolStripMenuItem settingsMainMenu;
@@ -1311,7 +1311,7 @@
         protected internal System.Windows.Forms.PictureBox cutToolbarButton;
         protected internal System.Windows.Forms.PictureBox copyToolbarButton;
         protected internal System.Windows.Forms.PictureBox pasteToolbarButton;
-        protected internal System.Windows.Forms.PictureBox changeKeyToolbarButton;
+        protected internal System.Windows.Forms.PictureBox changePasswordToolbarButton;
         protected internal System.Windows.Forms.PictureBox settingsToolbarButton;
         protected internal System.Windows.Forms.PictureBox lockToolbarButton;
         protected internal System.Windows.Forms.ToolStripMenuItem lockMainMenu;

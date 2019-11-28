@@ -111,11 +111,11 @@
       <DependentUpon>AboutFrom.cs</DependentUpon>
     </Compile>
     <Compile Include="External Libraries\AES.cs" />
-    <Compile Include="Forms\ChangeKeyForm.cs">
+    <Compile Include="Forms\ChangePasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ChangeKeyForm.Designer.cs">
-      <DependentUpon>ChangeKeyForm.cs</DependentUpon>
+    <Compile Include="Forms\ChangePasswordForm.Designer.cs">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External Libraries\EncryptedString.cs" />
     <Compile Include="External Libraries\HideCaretRichTextBox.cs">
@@ -165,8 +165,8 @@
     <EmbeddedResource Include="Forms\AboutFrom.resx">
       <DependentUpon>AboutFrom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ChangeKeyForm.resx">
-      <DependentUpon>ChangeKeyForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ChangePasswordForm.resx">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

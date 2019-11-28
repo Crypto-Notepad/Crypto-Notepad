@@ -592,7 +592,7 @@ namespace Crypto_Notepad
                 selectAllMainMenu.Image = Resources.selection_input;
                 wordWrapMainMenu.Image = Resources.wrap_option;
                 clearMainMenu.Image = Resources.document;
-                changeKeyMainMenu.Image = Resources.key;
+                changePasswordMainMenu.Image = Resources.key;
                 lockMainMenu.Image = Resources.lock_warning;
                 settingsMainMenu.Image = Resources.gear;
                 documentationMainMenu.Image = Resources.document_text;
@@ -627,7 +627,7 @@ namespace Crypto_Notepad
                 cutToolbarButton.Image = Resources.old_cut_red;
                 copyToolbarButton.Image = Resources.old_page_white_copy;
                 pasteToolbarButton.Image = Resources.old_paste_plain;
-                changeKeyToolbarButton.Image = Resources.old_page_white_key;
+                changePasswordToolbarButton.Image = Resources.old_page_white_key;
                 lockToolbarButton.Image = Resources.old_lock;
                 settingsToolbarButton.Image = Resources.old_setting_tools;
                 alwaysOnTopToolbarButton.Image = Resources.old_application_double;
@@ -642,7 +642,7 @@ namespace Crypto_Notepad
                 cutToolbarButton.Image = Resources.scissors;
                 copyToolbarButton.Image = Resources.document_copy;
                 pasteToolbarButton.Image = Resources.clipboard;
-                changeKeyToolbarButton.Image = Resources.key;
+                changePasswordToolbarButton.Image = Resources.key;
                 lockToolbarButton.Image = Resources.lock_warning;
                 settingsToolbarButton.Image = Resources.gear;
                 alwaysOnTopToolbarButton.Image = Resources.applications_blue;
@@ -1224,7 +1224,7 @@ namespace Crypto_Notepad
                         PublicVar.password.Set(null);
                         fileLocationToolbarButton.Enabled = false;
                         deleteFileToolbarButton.Enabled = false;
-                        changeKeyToolbarButton.Enabled = false;
+                        changePasswordToolbarButton.Enabled = false;
                         lockToolbarButton.Enabled = false;
                         filePath = "";
                         PublicVar.openFileName = "";
@@ -1395,20 +1395,20 @@ namespace Crypto_Notepad
         {
             if (string.IsNullOrEmpty(PublicVar.password.Get()))
             {
-                changeKeyMainMenu.Enabled = false;
+                changePasswordMainMenu.Enabled = false;
                 lockMainMenu.Enabled = false;
             }
             else
             {
-                changeKeyMainMenu.Enabled = true;
+                changePasswordMainMenu.Enabled = true;
                 lockMainMenu.Enabled = true;
             }
         }
 
-        private void ChangeKeyMainMenu_Click(object sender, EventArgs e)
+        private void ChangePasswordMainMenu_Click(object sender, EventArgs e)
         {
-            ChangeKeyForm changeKeyForm = new ChangeKeyForm();
-            changeKeyForm.ShowDialog(this);
+            ChangePasswordForm changePasswordForm = new ChangePasswordForm();
+            changePasswordForm.ShowDialog(this);
         }
 
         private async void LockMainMenu_Click(object sender, EventArgs e)
@@ -1590,9 +1590,9 @@ namespace Crypto_Notepad
             PasteMainMenu_Click(this, new EventArgs());
         }
 
-        private void ChangeKeyToolbarButton_Click(object sender, EventArgs e)
+        private void ChangePasswordToolbarButton_Click(object sender, EventArgs e)
         {
-            ChangeKeyMainMenu_Click(this, new EventArgs());
+            ChangePasswordMainMenu_Click(this, new EventArgs());
         }
 
         private void SettingsToolbarButton_Click(object sender, EventArgs e)
@@ -1656,14 +1656,14 @@ namespace Crypto_Notepad
             {
                 fileLocationToolbarButton.Enabled = false;
                 deleteFileToolbarButton.Enabled = false;
-                changeKeyToolbarButton.Enabled = false;
+                changePasswordToolbarButton.Enabled = false;
                 lockToolbarButton.Enabled = false;
             }
             else
             {
                 fileLocationToolbarButton.Enabled = true;
                 deleteFileToolbarButton.Enabled = true;
-                changeKeyToolbarButton.Enabled = true;
+                changePasswordToolbarButton.Enabled = true;
                 lockToolbarButton.Enabled = true;
             }
         }

@@ -1,6 +1,6 @@
 ﻿namespace Crypto_Notepad
 {
-    partial class ChangeKeyForm
+    partial class ChangePasswordForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangeKeyForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangePasswordForm));
             this.acceptButton = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.lockPictureBox = new System.Windows.Forms.PictureBox();
@@ -159,7 +159,7 @@
             this.passwordGeneratorButton.UseVisualStyleBackColor = true;
             this.passwordGeneratorButton.Click += new System.EventHandler(this.PasswordGeneratorButton_Click);
             // 
-            // ChangeKeyForm
+            // ChangePasswordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -173,7 +173,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ChangeKeyForm";
+            this.Name = "ChangePasswordForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Change Password";
