@@ -1,6 +1,6 @@
 ﻿namespace Crypto_Notepad
 {
-    partial class EnterKeyForm
+    partial class EnterPasswordForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnterKeyForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnterPasswordForm));
             this.okButton = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.lockPictureBox = new System.Windows.Forms.PictureBox();
@@ -128,7 +128,7 @@
             this.passwordGeneratorButton.UseVisualStyleBackColor = true;
             this.passwordGeneratorButton.Click += new System.EventHandler(this.PasswordGeneratorButton_Click);
             // 
-            // EnterKeyForm
+            // EnterPasswordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -141,11 +141,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "EnterKeyForm";
+            this.Name = "EnterPasswordForm";
             this.Text = "Crypto Notepad";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EnterKeyForm_FormClosed);
-            this.Load += new System.EventHandler(this.EnterKeyForm_Load);
-            this.Shown += new System.EventHandler(this.EnterKeyForm_Shown);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EnterPasswordForm_FormClosed);
+            this.Load += new System.EventHandler(this.EnterPasswordForm_Load);
+            this.Shown += new System.EventHandler(this.EnterPasswordForm_Shown);
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lockPictureBox)).EndInit();

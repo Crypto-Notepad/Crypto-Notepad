@@ -1,4 +1,4 @@
-using Crypto_Notepad.Properties;
+﻿using Crypto_Notepad.Properties;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -51,9 +51,9 @@ namespace Crypto_Notepad
         #region Methods
         private async Task DecryptAES()
         {
-            EnterKeyForm enterKeyForm = new EnterKeyForm();
-            enterKeyForm.Owner = this;
-            enterKeyForm.ShowDialog();
+            EnterPasswordForm enterPasswordForm = new EnterPasswordForm();
+            enterPasswordForm.Owner = this;
+            enterPasswordForm.ShowDialog();
             richTextBox.SuspendDrawing();
             UseWaitCursor = true;
             if (!PublicVar.okPressed)
@@ -203,11 +203,11 @@ namespace Crypto_Notepad
             richTextBox.Text = File.ReadAllText(args[1]);
             PublicVar.openFileName = Path.GetFileName(args[1]);
             string newFileName = Path.GetDirectoryName(args[1]) + @"\" + Path.GetFileNameWithoutExtension(args[1]) + ".cnp";
-            EnterKeyForm enterKeyForm = new EnterKeyForm
+            EnterPasswordForm enterPasswordForm = new EnterPasswordForm
             {
                 Owner = this
             };
-            enterKeyForm.ShowDialog();
+            enterPasswordForm.ShowDialog();
             File.Delete(args[1]);
             string unencryptedText = richTextBox.Text;
             string encryptedText = await AES.Encrypt(richTextBox.Text, TypedPassword.Value, null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), 
@@ -767,7 +767,7 @@ namespace Crypto_Notepad
                                     e.Cancel = true;
                                     return;
                                 }
-                                EnterKeyForm enterKeyForm = new EnterKeyForm
+                                EnterPasswordForm enterKeyForm = new EnterPasswordForm
                                 {
                                     Owner = this
                                 };
@@ -1016,7 +1016,7 @@ namespace Crypto_Notepad
                 return;
             }
             PublicVar.openFileName = "Unnamed.cnp";
-            EnterKeyForm enterKeyForm = new EnterKeyForm
+            EnterPasswordForm enterKeyForm = new EnterPasswordForm
             {
                 Owner = this
             };
@@ -1134,7 +1134,7 @@ namespace Crypto_Notepad
                 return;
             }
             PublicVar.openFileName = Path.GetFileName(saveFileDialog.FileName);
-            EnterKeyForm enterKeyForm = new EnterKeyForm
+            EnterPasswordForm enterKeyForm = new EnterPasswordForm
             {
                 Owner = this
             };

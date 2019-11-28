@@ -127,11 +127,11 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EnterKeyForm.cs">
+    <Compile Include="Forms\EnterPasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EnterKeyForm.Designer.cs">
-      <DependentUpon>EnterKeyForm.cs</DependentUpon>
+    <Compile Include="Forms\EnterPasswordForm.Designer.cs">
+      <DependentUpon>EnterPasswordForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External Libraries\MsgBoxCenterParent.cs" />
     <Compile Include="External Libraries\ExRichTextBox.cs">
@@ -171,8 +171,8 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EnterKeyForm.resx">
-      <DependentUpon>EnterKeyForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EnterPasswordForm.resx">
+      <DependentUpon>EnterPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PasswordGeneratorFrom.resx">
       <DependentUpon>PasswordGeneratorFrom.cs</DependentUpon>

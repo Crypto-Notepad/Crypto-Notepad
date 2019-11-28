@@ -3,16 +3,16 @@ using System.Windows.Forms;
 
 namespace Crypto_Notepad
 {
-    public partial class EnterKeyForm : Form
+    public partial class EnterPasswordForm : Form
     {
-        public EnterKeyForm()
+        public EnterPasswordForm()
         {
             PublicVar.okPressed = false;
             InitializeComponent();
         }
 
         /*Form Events*/
-        private void EnterKeyForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void EnterPasswordForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             MainForm main = Owner as MainForm;
             if (main.Visible == false)
@@ -23,7 +23,7 @@ namespace Crypto_Notepad
             keyTextBox.Focus();
         }
 
-        private void EnterKeyForm_Load(object sender, EventArgs e)
+        private void EnterPasswordForm_Load(object sender, EventArgs e)
         {
             fileNameLabel.Text = PublicVar.openFileName;
             Properties.Settings settings = Properties.Settings.Default;
@@ -39,7 +39,7 @@ namespace Crypto_Notepad
             }
         }
 
-        private void EnterKeyForm_Shown(object sender, EventArgs e)
+        private void EnterPasswordForm_Shown(object sender, EventArgs e)
         {
             fileNameLabel.Text = PublicVar.openFileName;
         }
