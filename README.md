@@ -12,12 +12,12 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 
 ## Features
 
-* Including all the features of the default Windows Notepad
+* All the features of the default Windows Notepad
 * Integrate with windows context menu
 * Drag and Drop support
 * Detecting links in editor
 * Сustomizable interface
-* Сustomizable encryption options (hash algorithm, key size, password iterations)  
+* Сustomizable encryption options
 * Associate own file type with application
 * Portable
 
