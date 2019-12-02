@@ -1,5 +1,5 @@
 > First off, thanks for taking the time to contribute :relaxed:
-Before starting, make sure that you visited the [todo](https://github.com/Sigmanor/Crypto-Notepad/wiki/TODO) list, [projects](https://github.com/Crypto-Notepad/Crypto-Notepad/projects) and opened/closed [issues](https://github.com/Sigmanor/Crypto-Notepad/issues) to be sure that your idea is not already planned or canceled. Checked out? Well then, let's start!
+Before starting, make sure that you visited the [projects](https://github.com/Crypto-Notepad/Crypto-Notepad/projects) and the opened/closed [issues](https://github.com/Sigmanor/Crypto-Notepad/issues) to be sure that your idea is not already planned or canceled. Checked out? Well then, let's start!
 
 ## How to contribute to Crypto Notepad
 
