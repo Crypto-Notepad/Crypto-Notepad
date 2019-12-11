@@ -36,16 +36,18 @@
             this.lowercaseCheckBox = new System.Windows.Forms.CheckBox();
             this.uppercaseCheckBox = new System.Windows.Forms.CheckBox();
             this.numericCheckBox = new System.Windows.Forms.CheckBox();
-            this.specialCheckBox = new System.Windows.Forms.CheckBox();
             this.passwordLengthLabel = new System.Windows.Forms.Label();
             this.numberOfStringsLabel = new System.Windows.Forms.Label();
             this.passwordLengthTextBox = new System.Windows.Forms.TextBox();
             this.numberOfStringsTextBox = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.copyAllButton = new System.Windows.Forms.Button();
             this.copyLastButton = new System.Windows.Forms.Button();
             this.passwordGeneratorToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox1.SuspendLayout();
+            this.specialCheckBox = new System.Windows.Forms.CheckBox();
+            this.additionalCheckBox = new System.Windows.Forms.CheckBox();
+            this.bracketsCheckBox = new System.Windows.Forms.CheckBox();
+            this.specialGroupBox = new System.Windows.Forms.GroupBox();
+            this.specialGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // generateButton
@@ -61,7 +63,7 @@
             // 
             // passwordsListTextBox
             // 
-            this.passwordsListTextBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.passwordsListTextBox.Font = new System.Drawing.Font("Consolas", 8.25F);
             this.passwordsListTextBox.Location = new System.Drawing.Point(9, 161);
             this.passwordsListTextBox.Multiline = true;
             this.passwordsListTextBox.Name = "passwordsListTextBox";
@@ -75,7 +77,7 @@
             // clearPasswordsListButton
             // 
             this.clearPasswordsListButton.AutoSize = true;
-            this.clearPasswordsListButton.Location = new System.Drawing.Point(227, 132);
+            this.clearPasswordsListButton.Location = new System.Drawing.Point(225, 132);
             this.clearPasswordsListButton.Name = "clearPasswordsListButton";
             this.clearPasswordsListButton.Size = new System.Drawing.Size(66, 23);
             this.clearPasswordsListButton.TabIndex = 4;
@@ -88,7 +90,7 @@
             this.lowercaseCheckBox.AutoSize = true;
             this.lowercaseCheckBox.Checked = true;
             this.lowercaseCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.lowercaseCheckBox.Location = new System.Drawing.Point(12, 30);
+            this.lowercaseCheckBox.Location = new System.Drawing.Point(55, 21);
             this.lowercaseCheckBox.Name = "lowercaseCheckBox";
             this.lowercaseCheckBox.Size = new System.Drawing.Size(41, 17);
             this.lowercaseCheckBox.TabIndex = 7;
@@ -102,7 +104,7 @@
             this.uppercaseCheckBox.AutoSize = true;
             this.uppercaseCheckBox.Checked = true;
             this.uppercaseCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.uppercaseCheckBox.Location = new System.Drawing.Point(59, 30);
+            this.uppercaseCheckBox.Location = new System.Drawing.Point(6, 21);
             this.uppercaseCheckBox.Name = "uppercaseCheckBox";
             this.uppercaseCheckBox.Size = new System.Drawing.Size(43, 17);
             this.uppercaseCheckBox.TabIndex = 8;
@@ -116,7 +118,7 @@
             this.numericCheckBox.AutoSize = true;
             this.numericCheckBox.Checked = true;
             this.numericCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.numericCheckBox.Location = new System.Drawing.Point(108, 30);
+            this.numericCheckBox.Location = new System.Drawing.Point(102, 21);
             this.numericCheckBox.Name = "numericCheckBox";
             this.numericCheckBox.Size = new System.Drawing.Size(42, 17);
             this.numericCheckBox.TabIndex = 9;
@@ -125,20 +127,6 @@
             this.numericCheckBox.CheckedChanged += new System.EventHandler(this.PasswordValidation);
             this.numericCheckBox.Click += new System.EventHandler(this.NumericCheckBox_Click);
             // 
-            // specialCheckBox
-            // 
-            this.specialCheckBox.AutoSize = true;
-            this.specialCheckBox.Checked = true;
-            this.specialCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.specialCheckBox.Location = new System.Drawing.Point(156, 30);
-            this.specialCheckBox.Name = "specialCheckBox";
-            this.specialCheckBox.Size = new System.Drawing.Size(117, 17);
-            this.specialCheckBox.TabIndex = 10;
-            this.specialCheckBox.Text = "Special characters";
-            this.specialCheckBox.UseVisualStyleBackColor = true;
-            this.specialCheckBox.CheckedChanged += new System.EventHandler(this.PasswordValidation);
-            this.specialCheckBox.Click += new System.EventHandler(this.SpecialCheckBox_Click);
-            // 
             // passwordLengthLabel
             // 
             this.passwordLengthLabel.AutoSize = true;
@@ -146,7 +134,7 @@
             this.passwordLengthLabel.Name = "passwordLengthLabel";
             this.passwordLengthLabel.Size = new System.Drawing.Size(130, 13);
             this.passwordLengthLabel.TabIndex = 8;
-            this.passwordLengthLabel.Text = "Password length [8-128]";
+            this.passwordLengthLabel.Text = "Password length [4-256]";
             // 
             // numberOfStringsLabel
             // 
@@ -176,19 +164,6 @@
             this.numberOfStringsTextBox.Text = "10";
             this.numberOfStringsTextBox.TextChanged += new System.EventHandler(this.PasswordValidation);
             this.numberOfStringsTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PasswordLengthTextBox_KeyPress);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.specialCheckBox);
-            this.groupBox1.Controls.Add(this.lowercaseCheckBox);
-            this.groupBox1.Controls.Add(this.uppercaseCheckBox);
-            this.groupBox1.Controls.Add(this.numericCheckBox);
-            this.groupBox1.Location = new System.Drawing.Point(9, 62);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(282, 64);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Use characters";
             // 
             // copyAllButton
             // 
@@ -220,14 +195,71 @@
             this.passwordGeneratorToolTip.InitialDelay = 1;
             this.passwordGeneratorToolTip.ReshowDelay = 100;
             // 
+            // specialCheckBox
+            // 
+            this.specialCheckBox.AutoSize = true;
+            this.specialCheckBox.Location = new System.Drawing.Point(150, 21);
+            this.specialCheckBox.Name = "specialCheckBox";
+            this.specialCheckBox.Size = new System.Drawing.Size(117, 17);
+            this.specialCheckBox.TabIndex = 13;
+            this.specialCheckBox.Text = "Special characters";
+            this.passwordGeneratorToolTip.SetToolTip(this.specialCheckBox, "/ \\ ! ? @ # & $ % №");
+            this.specialCheckBox.UseVisualStyleBackColor = true;
+            this.specialCheckBox.CheckedChanged += new System.EventHandler(this.PasswordValidation);
+            this.specialCheckBox.Click += new System.EventHandler(this.SpecialCheckBox_Click);
+            this.specialCheckBox.MouseEnter += new System.EventHandler(this.SpecialCheckBox_MouseEnter);
+            // 
+            // additionalCheckBox
+            // 
+            this.additionalCheckBox.AutoSize = true;
+            this.additionalCheckBox.Location = new System.Drawing.Point(80, 41);
+            this.additionalCheckBox.Name = "additionalCheckBox";
+            this.additionalCheckBox.Size = new System.Drawing.Size(80, 17);
+            this.additionalCheckBox.TabIndex = 13;
+            this.additionalCheckBox.Text = "Additional";
+            this.passwordGeneratorToolTip.SetToolTip(this.additionalCheckBox, "\" ; _ - . = * + : ^ , | \'");
+            this.additionalCheckBox.UseVisualStyleBackColor = true;
+            this.additionalCheckBox.CheckedChanged += new System.EventHandler(this.PasswordValidation);
+            this.additionalCheckBox.Click += new System.EventHandler(this.additionalCheckBox_Click);
+            this.additionalCheckBox.MouseEnter += new System.EventHandler(this.SpecialCheckBox_MouseEnter);
+            // 
+            // bracketsCheckBox
+            // 
+            this.bracketsCheckBox.AutoSize = true;
+            this.bracketsCheckBox.Location = new System.Drawing.Point(6, 41);
+            this.bracketsCheckBox.Name = "bracketsCheckBox";
+            this.bracketsCheckBox.Size = new System.Drawing.Size(68, 17);
+            this.bracketsCheckBox.TabIndex = 13;
+            this.bracketsCheckBox.Text = "Brackets";
+            this.passwordGeneratorToolTip.SetToolTip(this.bracketsCheckBox, "( ) { } [ ] < >");
+            this.bracketsCheckBox.UseVisualStyleBackColor = true;
+            this.bracketsCheckBox.CheckedChanged += new System.EventHandler(this.PasswordValidation);
+            this.bracketsCheckBox.Click += new System.EventHandler(this.BracketsCheckBox_Click);
+            this.bracketsCheckBox.MouseEnter += new System.EventHandler(this.SpecialCheckBox_MouseEnter);
+            // 
+            // specialGroupBox
+            // 
+            this.specialGroupBox.Controls.Add(this.bracketsCheckBox);
+            this.specialGroupBox.Controls.Add(this.additionalCheckBox);
+            this.specialGroupBox.Controls.Add(this.uppercaseCheckBox);
+            this.specialGroupBox.Controls.Add(this.lowercaseCheckBox);
+            this.specialGroupBox.Controls.Add(this.numericCheckBox);
+            this.specialGroupBox.Controls.Add(this.specialCheckBox);
+            this.specialGroupBox.Location = new System.Drawing.Point(9, 62);
+            this.specialGroupBox.Name = "specialGroupBox";
+            this.specialGroupBox.Size = new System.Drawing.Size(282, 64);
+            this.specialGroupBox.TabIndex = 12;
+            this.specialGroupBox.TabStop = false;
+            this.specialGroupBox.Text = "Use characters";
+            // 
             // PasswordGeneratorFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 344);
+            this.ClientSize = new System.Drawing.Size(298, 344);
+            this.Controls.Add(this.specialGroupBox);
             this.Controls.Add(this.copyLastButton);
             this.Controls.Add(this.copyAllButton);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.numberOfStringsTextBox);
             this.Controls.Add(this.passwordLengthTextBox);
             this.Controls.Add(this.numberOfStringsLabel);
@@ -235,7 +267,7 @@
             this.Controls.Add(this.clearPasswordsListButton);
             this.Controls.Add(this.passwordsListTextBox);
             this.Controls.Add(this.generateButton);
-            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -245,8 +277,8 @@
             this.Deactivate += new System.EventHandler(this.PasswordGeneratorFrom_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PasswordGeneratorFrom_FormClosing);
             this.Load += new System.EventHandler(this.PasswordGeneratorFrom_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.specialGroupBox.ResumeLayout(false);
+            this.specialGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,14 +292,16 @@
         private System.Windows.Forms.CheckBox lowercaseCheckBox;
         private System.Windows.Forms.CheckBox uppercaseCheckBox;
         private System.Windows.Forms.CheckBox numericCheckBox;
-        private System.Windows.Forms.CheckBox specialCheckBox;
         private System.Windows.Forms.Label passwordLengthLabel;
         private System.Windows.Forms.Label numberOfStringsLabel;
         private System.Windows.Forms.TextBox passwordLengthTextBox;
         private System.Windows.Forms.TextBox numberOfStringsTextBox;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button copyAllButton;
         private System.Windows.Forms.Button copyLastButton;
         private System.Windows.Forms.ToolTip passwordGeneratorToolTip;
+        private System.Windows.Forms.GroupBox specialGroupBox;
+        private System.Windows.Forms.CheckBox specialCheckBox;
+        private System.Windows.Forms.CheckBox additionalCheckBox;
+        private System.Windows.Forms.CheckBox bracketsCheckBox;
     }
 }

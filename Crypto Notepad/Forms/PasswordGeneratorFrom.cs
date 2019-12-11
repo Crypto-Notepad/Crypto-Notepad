@@ -18,12 +18,48 @@ namespace Crypto_Notepad
         #region Methods
         private IEnumerable<string> GeneratePasswordGroup()
         {
-            var pwd = new Password(
+            IPassword pwd;
+            bool includeSpecial = true;
+            string main = @"/\!?@#&$%№";
+            string additional = "\";_-.=*+:^,|'";
+            string brackets = "(){}[]<>";
+
+            if (!specialCheckBox.Checked)
+            {
+                main = "";
+            }
+            if (!additionalCheckBox.Checked)
+            {
+                additional = "";
+            }
+            if (!bracketsCheckBox.Checked)
+            {
+                brackets = "";
+            }
+
+            if (!specialCheckBox.Checked & !additionalCheckBox.Checked & !bracketsCheckBox.Checked)
+            {
+                includeSpecial = false;
+            }
+
+            if (includeSpecial)
+            {
+                pwd = new Password(
                 includeLowercase: lowercaseCheckBox.Checked,
                 includeUppercase: uppercaseCheckBox.Checked,
                 includeNumeric: numericCheckBox.Checked,
-                includeSpecial: specialCheckBox.Checked,
+                includeSpecial: false,
+                passwordLength: int.Parse(passwordLengthTextBox.Text)).IncludeSpecial(main + additional + brackets);
+            }
+            else
+            {
+                pwd = new Password(
+                includeLowercase: lowercaseCheckBox.Checked,
+                includeUppercase: uppercaseCheckBox.Checked,
+                includeNumeric: numericCheckBox.Checked,
+                includeSpecial: false,
                 passwordLength: int.Parse(passwordLengthTextBox.Text));
+            }
             return pwd.NextGroup(Convert.ToInt32(numberOfStringsTextBox.Text));
         }
         #endregion
@@ -55,6 +91,8 @@ namespace Crypto_Notepad
             uppercaseCheckBox.Checked = settings.passwordGeneratorUppercase;
             numericCheckBox.Checked = settings.passwordGeneratorNumeric;
             specialCheckBox.Checked = settings.passwordGeneratorSpecial;
+            bracketsCheckBox.Checked = settings.passwordGeneratorBrackets;
+            additionalCheckBox.Checked = settings.passwordGeneratorAdditional;
             passwordLengthTextBox.Text = settings.passwordGeneratorLength;
             numberOfStringsTextBox.Text = settings.passwordGeneratorNumberOfStrings;
             passwordsListTextBox.Text = string.Join(Environment.NewLine, GeneratePasswordGroup().ToArray());
@@ -117,7 +155,9 @@ namespace Crypto_Notepad
                     !lowercaseCheckBox.Checked &
                     !uppercaseCheckBox.Checked &
                     !numericCheckBox.Checked &
-                    !specialCheckBox.Checked |
+                    !specialCheckBox.Checked &
+                    !additionalCheckBox.Checked &
+                    !bracketsCheckBox.Checked |
                     string.IsNullOrWhiteSpace(numberOfStringsTextBox.Text.Trim('0')))
                 {
                     generateButton.Enabled = false;
@@ -162,11 +202,13 @@ namespace Crypto_Notepad
 
         private void CopyLastButton_MouseEnter(object sender, EventArgs e)
         {
+            passwordGeneratorToolTip.AutoPopDelay = 1000;
             passwordGeneratorToolTip.SetToolTip(copyLastButton, null);
         }
 
         private void CopyAllButton_MouseEnter(object sender, EventArgs e)
         {
+            passwordGeneratorToolTip.AutoPopDelay = 1000;
             passwordGeneratorToolTip.SetToolTip(copyAllButton, null);
         }
 
@@ -174,8 +216,24 @@ namespace Crypto_Notepad
         {
             PasswordGeneratorFrom_FormClosing(null, null);
         }
+
         #endregion
 
+        private void SpecialCheckBox_MouseEnter(object sender, EventArgs e)
+        {
+            passwordGeneratorToolTip.AutoPopDelay = 10000;
+        }
 
+        private void BracketsCheckBox_Click(object sender, EventArgs e)
+        {
+            settings.passwordGeneratorBrackets = bracketsCheckBox.Checked;
+            settings.Save();
+        }
+
+        private void additionalCheckBox_Click(object sender, EventArgs e)
+        {
+            settings.passwordGeneratorAdditional = additionalCheckBox.Checked;
+            settings.Save();
+        }
     }
 }

@@ -686,5 +686,31 @@ namespace Crypto_Notepad.Properties {
                 this["TheSalt"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool passwordGeneratorBrackets {
+            get {
+                return ((bool)(this["passwordGeneratorBrackets"]));
+            }
+            set {
+                this["passwordGeneratorBrackets"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool passwordGeneratorAdditional {
+            get {
+                return ((bool)(this["passwordGeneratorAdditional"]));
+            }
+            set {
+                this["passwordGeneratorAdditional"] = value;
+            }
+        }
     }
 }
