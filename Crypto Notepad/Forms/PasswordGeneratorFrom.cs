@@ -131,7 +131,7 @@ namespace Crypto_Notepad
             }
             try
             {
-                if (Enumerable.Range(8, 128).Contains(int.Parse(passwordLengthTextBox.Text)))
+                if (Enumerable.Range(4, 256).Contains(int.Parse(passwordLengthTextBox.Text)))
                 {
                     settings.passwordGeneratorLength = passwordLengthTextBox.Text;
                 }
@@ -151,7 +151,7 @@ namespace Crypto_Notepad
             try
             {
                 if (!Enumerable.Range(1, 1000).Contains(int.Parse(numberOfStringsTextBox.Text)) |
-                    !Enumerable.Range(8, 128).Contains(int.Parse(passwordLengthTextBox.Text)) |
+                    !Enumerable.Range(4, 256).Contains(int.Parse(passwordLengthTextBox.Text)) |
                     !lowercaseCheckBox.Checked &
                     !uppercaseCheckBox.Checked &
                     !numericCheckBox.Checked &
