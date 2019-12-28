@@ -34,11 +34,16 @@ namespace Crypto_Notepad
         {
             const int WM_SYSCOMMAND = 0x112;
             const int SC_MINIMIZE = 0xF020;
+            const int SC_RESTORE = 0xF120;
             try
             {
-                if (m.Msg == WM_SYSCOMMAND & m.WParam.ToInt32() == SC_MINIMIZE & settings.autoLock & !string.IsNullOrEmpty(PublicVar.password.Get()))
+                if (m.Msg == WM_SYSCOMMAND & m.WParam.ToInt32() == SC_MINIMIZE)
                 {
                     richTextBox.Visible = false;
+                }
+                if (m.Msg == WM_SYSCOMMAND & m.WParam.ToInt32() == SC_RESTORE & !fileLockedPanel.Visible)
+                {
+                    richTextBox.Visible = true;
                 }
             }
             catch (OverflowException)
