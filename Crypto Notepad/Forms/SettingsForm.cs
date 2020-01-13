@@ -1,8 +1,5 @@
-﻿using IWshRuntimeLibrary;
-using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
@@ -60,7 +57,6 @@ namespace Crypto_Notepad
             statusPanelSizeCheckBox.Checked = settings.statusPanelSize;
             statusPanelReadonlyCheckBox.Checked = settings.statusPanelReadonly;
             statusPanelWordwrapCheckBox.Checked = settings.statusPanelWordWrap;
-            //statusPanelLabelsGroupBox.Visible = settings.statusPanelVisible;
             encryptionHintLabel.Visible = settings.encryptionHint;
         }     
         #endregion
@@ -336,11 +332,9 @@ namespace Crypto_Notepad
 
         private void StatusPanelVisibleCheckBox_Click(object sender, EventArgs e)
         {
-            //statusPanelLabelsGroupBox.Visible = statusPanelVisibleCheckBox.Checked;
             Application.DoEvents();
             MainForm main = Owner as MainForm;
             main.statusPanel.Visible = statusPanelVisibleCheckBox.Checked;
-            //main.richTextBox.SetInnerMargins(Convert.ToInt32(editorPaddingLeftTextBox.Text), 0, 0, 0);
             settings.statusPanelVisible = statusPanelVisibleCheckBox.Checked;
         }
 
