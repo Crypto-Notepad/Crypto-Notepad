@@ -67,6 +67,8 @@
             this.hashAlgorithmLabel = new System.Windows.Forms.Label();
             this.keySizeComboBox = new System.Windows.Forms.ComboBox();
             this.statusPanelTabPage = new System.Windows.Forms.TabPage();
+            this.lockTimeoutTextBox = new System.Windows.Forms.PlaceholderTextBox();
+            this.lockTimeoutLabel = new System.Windows.Forms.Label();
             this.statusPanelLabelsGroupBox = new System.Windows.Forms.GroupBox();
             this.statusPanelLengthCheckBox = new System.Windows.Forms.CheckBox();
             this.statusPanelSizeCheckBox = new System.Windows.Forms.CheckBox();
@@ -188,6 +190,27 @@
             this.minimizeToTrayCheckBox.UseVisualStyleBackColor = true;
             this.minimizeToTrayCheckBox.Click += new System.EventHandler(this.MinimizeToTrayCheckBox_Click);
             // 
+            // lockTimeoutTextBox
+            // 
+            this.lockTimeoutTextBox.Location = new System.Drawing.Point(134, 45);
+            this.lockTimeoutTextBox.Name = "lockTimeoutTextBox";
+            this.lockTimeoutTextBox.Placeholder = "";
+            this.lockTimeoutTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
+            this.lockTimeoutTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.lockTimeoutTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.lockTimeoutTextBox.Size = new System.Drawing.Size(44, 23);
+            this.lockTimeoutTextBox.TabIndex = 8;
+            this.lockTimeoutTextBox.TextChanged += new System.EventHandler(this.LockTimeoutTextBox_TextChanged);
+            this.lockTimeoutTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LockTimeoutTextBox_KeyPress);
+            // 
+            // lockTimeoutLabel
+            // 
+            this.lockTimeoutLabel.AutoSize = true;
+            this.lockTimeoutLabel.Location = new System.Drawing.Point(3, 48);
+            this.lockTimeoutLabel.Name = "lockTimeoutLabel";
+            this.lockTimeoutLabel.Size = new System.Drawing.Size(125, 15);
+            this.lockTimeoutLabel.TabIndex = 7;
+            this.lockTimeoutLabel.Text = "If the app is inactive in";
             // mainMenuCheckBox
             // 
             this.mainMenuCheckBox.AutoSize = true;
@@ -954,5 +977,7 @@
         private System.Windows.Forms.GroupBox statusPanelLabelsGroupBox;
         private System.Windows.Forms.Label encryptionHintLabel;
         private System.Windows.Forms.ToolTip settingsToolTip;
+        private System.Windows.Forms.PlaceholderTextBox lockTimeoutTextBox;
+        private System.Windows.Forms.Label lockTimeoutLabel;
     }
 }

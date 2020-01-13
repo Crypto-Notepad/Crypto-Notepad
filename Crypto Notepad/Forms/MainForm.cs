@@ -446,6 +446,12 @@ namespace Crypto_Notepad
             statusPanelTimer.Stop();
         }
 
+        private void LockTimer_Tick(object sender, EventArgs e)
+        {
+            LockMainMenu_Click(this, new EventArgs());
+            lockTimer.Enabled = false;
+        }
+
         private async Task UnlockFile()
         {
             try
@@ -708,6 +714,16 @@ namespace Crypto_Notepad
             if (PublicVar.passwordChanged)
             {
                 richTextBox.Modified = true;
+            }
+            lockTimer.Enabled = false;
+        }
+
+        private void MainForm_Deactivate(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(settings.lockTimeout) & settings.lockTimeout != "0" & !string.IsNullOrEmpty(PublicVar.password.Get()))
+            {
+                lockTimer.Interval = int.Parse(settings.lockTimeout) * 60000;
+                lockTimer.Enabled = true;
             }
         }
 

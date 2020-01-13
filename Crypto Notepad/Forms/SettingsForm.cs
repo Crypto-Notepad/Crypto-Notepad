@@ -28,6 +28,7 @@ namespace Crypto_Notepad
             editorOpenLinksWithComboBox.Text = settings.openLinks;
             editorBorderComboBox.Text = settings.editorBorder;
             fontDialog.Font = settings.editorFont;
+            lockTimeoutTextBox.Text = settings.lockTimeout;
             autoLockOnMinimizeCheckBox.Checked = settings.autoLock;
             autoCheckUpdatesCheckBox.Checked = settings.autoCheckUpdate;
             mainMenuCheckBox.Checked = settings.mainMenuVisible;
@@ -108,6 +109,14 @@ namespace Crypto_Notepad
             }
         }
         private void PasswordIterationsTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void LockTimeoutTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
@@ -236,6 +245,20 @@ namespace Crypto_Notepad
                     settings.editorPaddingLeft = editorPaddingLeftTextBox.Text;
                 }
             }               
+        }
+
+        private void LockTimeoutTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (lockTimeoutTextBox.Text != settings.lockTimeout)
+            {
+                settings.lockTimeout = lockTimeoutTextBox.Text;
+            }
+
+            if (string.IsNullOrEmpty(lockTimeoutTextBox.Text) | lockTimeoutTextBox.Text == "0")
+            {
+                MainForm main = Owner as MainForm;
+                main.lockTimer.Enabled = false;
+            }
         }
 
         private void SendToCheckBox_Click(object sender, EventArgs e)

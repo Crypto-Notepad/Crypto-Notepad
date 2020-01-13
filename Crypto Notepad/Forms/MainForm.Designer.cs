@@ -127,6 +127,7 @@
             this.richTextBoxPanel = new System.Windows.Forms.Panel();
             this.richTextBox = new Crypto_Notepad.ExRichTextBox();
             this.statusPanelTimer = new System.Windows.Forms.Timer(this.components);
+            this.lockTimer = new System.Windows.Forms.Timer(this.components);
             this.mainMenu.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.searchPanel.SuspendLayout();
@@ -1191,6 +1192,8 @@
             this.richTextBoxPanel.Size = new System.Drawing.Size(504, 186);
             this.richTextBoxPanel.TabIndex = 21;
             // 
+            // lockTimer
+            this.lockTimer.Tick += new System.EventHandler(this.LockTimer_Tick);
             // richTextBox
             // 
             this.richTextBox.AcceptsTab = true;
