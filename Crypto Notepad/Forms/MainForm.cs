@@ -416,6 +416,7 @@ namespace Crypto_Notepad
                         StatusPanelTextInfo();
                     }
                 }
+                statusPanelReadonlyLabel.Text = "Readonly: " + readOnlyMainMenu.Checked.ToString();
             }
         }
 
@@ -560,6 +561,7 @@ namespace Crypto_Notepad
             statusPanelLinesLabel.Visible = settings.statusPanelLines;
             statusPanelModifiedLabel.Visible = settings.statusPanelModified;
             statusPanelSizeLabel.Visible = settings.statusPanelSize;
+            statusPanelReadonlyLabel.Visible = settings.statusPanelReadonly;
             richTextBox.WordWrap = settings.editorWrap;
             richTextBox.ForeColor = settings.editroForeColor;
             richTextBox.BackColor = settings.editorBackColor;
@@ -596,6 +598,7 @@ namespace Crypto_Notepad
                 findMainMenu.Image = Resources.magnifier;
                 selectAllMainMenu.Image = Resources.selection_input;
                 wordWrapMainMenu.Image = Resources.wrap_option;
+                readOnlyMainMenu.Image = Resources.document__pencil;
                 clearMainMenu.Image = Resources.document;
                 changePasswordMainMenu.Image = Resources.key;
                 lockMainMenu.Image = Resources.lock_warning;
@@ -836,6 +839,7 @@ namespace Crypto_Notepad
             Methods.DeleteUpdateFiles();
             MenuIcons(settings.menuIcons);
             ToolbarIcons(settings.oldToolbarIcons);
+            statusPanelReadonlyLabel.Text = "Readonly: " + readOnlyMainMenu.Checked.ToString();
             if (args.Length == 2) /*drag & drop to executable*/
             {
                 OpenAsotiations();
@@ -1350,6 +1354,12 @@ namespace Crypto_Notepad
             }
         }
 
+        private void ReadOnlyMainMenu_Click(object sender, EventArgs e)
+        {
+            richTextBox.ReadOnly = readOnlyMainMenu.Checked;
+            statusPanelReadonlyLabel.Text = "Readonly: " + readOnlyMainMenu.Checked.ToString();
+        }
+
         private void WordWrapMainMenu_Click(object sender, EventArgs e)
         {
             if (wordWrapMainMenu.Checked)
@@ -1363,12 +1373,16 @@ namespace Crypto_Notepad
             settings.menuWrap = wordWrapMainMenu.Checked;
             settings.editorWrap = richTextBox.WordWrap;
             settings.Save();
+            statusPanelWordwrapLabel.Text = "Word Wrap: " + wordWrapMainMenu.Checked.ToString();
         }
 
         private void ClearMainMenu_Click(object sender, EventArgs e)
         {
-            richTextBox.SelectAll();
-            richTextBox.SelectedText = " ";
+            if (!readOnlyMainMenu.Checked)
+            {
+                richTextBox.SelectAll();
+                richTextBox.SelectedText = " ";
+            }
         }
         /*Edit*/
 
@@ -1549,7 +1563,10 @@ namespace Crypto_Notepad
 
         private void ClearContextMenu_Click(object sender, EventArgs e)
         {
-            ClearMainMenu_Click(this, new EventArgs());
+            if (!readOnlyMainMenu.Checked)
+            {
+                ClearMainMenu_Click(this, new EventArgs());
+            }
         }
         #endregion
 
@@ -1924,6 +1941,8 @@ namespace Crypto_Notepad
             Debug.WriteLine("metadataCorrupt: " + PublicVar.metadataCorrupt);
 #endif
         }
+
+
         #endregion
 
 

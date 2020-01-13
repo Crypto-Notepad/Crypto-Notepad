@@ -56,6 +56,7 @@
             this.mainMenuSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.wordWrapMainMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.readOnlyMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.clearMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMainMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -280,6 +281,7 @@
             this.mainMenuSeparator6,
             this.selectAllMainMenu,
             this.wordWrapMainMenu,
+            this.readOnlyMainMenu,
             this.mainMenuSeparator7,
             this.clearMainMenu});
             this.editMainMenu.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -380,6 +382,15 @@
             this.wordWrapMainMenu.Size = new System.Drawing.Size(164, 22);
             this.wordWrapMainMenu.Text = "Word Wrap";
             this.wordWrapMainMenu.Click += new System.EventHandler(this.WordWrapMainMenu_Click);
+            // 
+            // readOnlyMainMenu
+            // 
+            this.readOnlyMainMenu.CheckOnClick = true;
+            this.readOnlyMainMenu.Name = "readOnlyMainMenu";
+            this.readOnlyMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.readOnlyMainMenu.Size = new System.Drawing.Size(180, 22);
+            this.readOnlyMainMenu.Text = "Readonly";
+            this.readOnlyMainMenu.Click += new System.EventHandler(this.ReadOnlyMainMenu_Click);
             // 
             // mainMenuSeparator7
             // 
@@ -1357,5 +1368,6 @@
         protected internal System.Windows.Forms.PictureBox newToolbarButton;
         protected internal System.Windows.Forms.ToolStripMenuItem newMainMenu;
         protected internal System.Windows.Forms.ToolStripMenuItem fileMainMenu;
+        private System.Windows.Forms.ToolStripMenuItem readOnlyMainMenu;
     }
 }

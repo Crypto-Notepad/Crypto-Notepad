@@ -712,5 +712,17 @@ namespace Crypto_Notepad.Properties {
                 this["passwordGeneratorAdditional"] = value;
             }
         }
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool statusPanelReadonly {
+            get {
+                return ((bool)(this["statusPanelReadonly"]));
+            }
+            set {
+                this["statusPanelReadonly"] = value;
+            }
+        }
     }
 }

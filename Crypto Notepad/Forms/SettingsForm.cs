@@ -57,6 +57,7 @@ namespace Crypto_Notepad
             statusPanelModifiedCheckBox.Checked = settings.statusPanelModified;
             statusPanelSizeCheckBox.Checked = settings.statusPanelSize;
             statusPanelLabelsGroupBox.Visible = settings.statusPanelVisible;
+            statusPanelReadonlyCheckBox.Checked = settings.statusPanelReadonly;
             encryptionHintLabel.Visible = settings.encryptionHint;
         }     
         #endregion
@@ -556,6 +557,13 @@ namespace Crypto_Notepad
         }
         #endregion
 
+        private void StatusPanelReadonlyCheckBox_Click(object sender, EventArgs e)
+        {
+            MainForm main = Owner as MainForm;
+            main.statusPanelReadonlyLabel.Visible = statusPanelReadonlyCheckBox.Checked;
+            settings.statusPanelReadonly = statusPanelReadonlyCheckBox.Checked;
+            main.StatusPanelFileInfo();
+        }
 
     }
 }

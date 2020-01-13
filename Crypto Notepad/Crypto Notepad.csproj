@@ -199,6 +199,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\document--pencil.png" />
     <None Include="Resources\Updater.exe" />
     <Content Include="Notepad_Lock.ico" />
   </ItemGroup>
