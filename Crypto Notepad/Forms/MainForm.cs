@@ -417,6 +417,7 @@ namespace Crypto_Notepad
                     }
                 }
                 statusPanelReadonlyLabel.Text = "Readonly: " + readOnlyMainMenu.Checked.ToString();
+                statusPanelWordwrapLabel.Text = "Word Wrap: " + wordWrapMainMenu.Checked.ToString();
             }
         }
 
@@ -568,6 +569,7 @@ namespace Crypto_Notepad
             statusPanelModifiedLabel.Visible = settings.statusPanelModified;
             statusPanelSizeLabel.Visible = settings.statusPanelSize;
             statusPanelReadonlyLabel.Visible = settings.statusPanelReadonly;
+            statusPanelWordwrapLabel.Visible = settings.statusPanelWordWrap;
             richTextBox.WordWrap = settings.editorWrap;
             richTextBox.ForeColor = settings.editroForeColor;
             richTextBox.BackColor = settings.editorBackColor;
@@ -710,7 +712,6 @@ namespace Crypto_Notepad
         private void MainWindow_Activated(object sender, EventArgs e)
         {
             richTextBox.Focus();
-
             if (PublicVar.passwordChanged)
             {
                 richTextBox.Modified = true;
@@ -856,6 +857,7 @@ namespace Crypto_Notepad
             MenuIcons(settings.menuIcons);
             ToolbarIcons(settings.oldToolbarIcons);
             statusPanelReadonlyLabel.Text = "Readonly: " + readOnlyMainMenu.Checked.ToString();
+            statusPanelWordwrapLabel.Text = "Word Wrap: " + wordWrapMainMenu.Checked.ToString();
             if (args.Length == 2) /*drag & drop to executable*/
             {
                 OpenAsotiations();
@@ -1378,14 +1380,7 @@ namespace Crypto_Notepad
 
         private void WordWrapMainMenu_Click(object sender, EventArgs e)
         {
-            if (wordWrapMainMenu.Checked)
-            {
-                richTextBox.WordWrap = true;
-            }
-            else
-            {
-                richTextBox.WordWrap = false;
-            }
+            richTextBox.WordWrap = wordWrapMainMenu.Checked;
             settings.menuWrap = wordWrapMainMenu.Checked;
             settings.editorWrap = richTextBox.WordWrap;
             settings.Save();
@@ -1487,6 +1482,7 @@ namespace Crypto_Notepad
         private void AboutMainMenu_Click(object sender, EventArgs e)
         {
             AboutFrom aboutFrom = new AboutFrom();
+            aboutFrom.Owner = this;
             aboutFrom.ShowDialog(this);
         }
         /*Help*/

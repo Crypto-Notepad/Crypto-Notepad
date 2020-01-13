@@ -28,6 +28,7 @@ namespace Crypto_Notepad
             editorOpenLinksWithComboBox.Text = settings.openLinks;
             editorBorderComboBox.Text = settings.editorBorder;
             fontDialog.Font = settings.editorFont;
+            editorFontLabel.Text = settings.editorFont.Name.ToString() + " " + settings.editorFont.Size.ToString();
             lockTimeoutTextBox.Text = settings.lockTimeout;
             autoLockOnMinimizeCheckBox.Checked = settings.autoLock;
             autoCheckUpdatesCheckBox.Checked = settings.autoCheckUpdate;
@@ -57,8 +58,9 @@ namespace Crypto_Notepad
             statusPanelLinesCheckBox.Checked = settings.statusPanelLines;
             statusPanelModifiedCheckBox.Checked = settings.statusPanelModified;
             statusPanelSizeCheckBox.Checked = settings.statusPanelSize;
-            statusPanelLabelsGroupBox.Visible = settings.statusPanelVisible;
             statusPanelReadonlyCheckBox.Checked = settings.statusPanelReadonly;
+            statusPanelWordwrapCheckBox.Checked = settings.statusPanelWordWrap;
+            //statusPanelLabelsGroupBox.Visible = settings.statusPanelVisible;
             encryptionHintLabel.Visible = settings.encryptionHint;
         }     
         #endregion
@@ -171,26 +173,17 @@ namespace Crypto_Notepad
             switch (settingsNavigation.SelectedIndex)
             {
                 case 0:
-                    settingsTabControl.SelectedTab = applicationTabPage;
+                    settingsTabControl.SelectedTab = generalTabPage;
                     break;
                 case 1:
-                    settingsTabControl.SelectedTab = toolbarTabPage;
+                    settingsTabControl.SelectedTab = interfaceTabPage;
                     break;
                 case 2:
-                    settingsTabControl.SelectedTab = statusPanelTabPage;
-                    break;
-                case 3:
-                    settingsTabControl.SelectedTab = searchPanelTabPage;
-                    break;
-                case 4:
                     settingsTabControl.SelectedTab = editorTabPage;
                     break;
-                case 5:
+                case 3:
                     settingsTabControl.SelectedTab = encryptionTabPage;
-                    break;
-                case 6:
-                    settingsTabControl.SelectedTab = integrationTabPage;
-                    break;
+                    break;             
             }            
         }
 
@@ -302,7 +295,7 @@ namespace Crypto_Notepad
             main.MenuIcons(settings.menuIcons);         
         }
 
-        private void EditorFontButton_Click(object sender, EventArgs e)
+        private void EditorFontLabel_Click(object sender, EventArgs e)
         {
             using (new CenterWinDialog(this))
             {
@@ -312,6 +305,7 @@ namespace Crypto_Notepad
                     main.richTextBox.Font = fontDialog.Font;
                     main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
                     settings.editorFont = fontDialog.Font;
+                    editorFontLabel.Text = settings.editorFont.Name.ToString() + " " + settings.editorFont.Size.ToString();
                 }
             }
         }
@@ -342,7 +336,7 @@ namespace Crypto_Notepad
 
         private void StatusPanelVisibleCheckBox_Click(object sender, EventArgs e)
         {
-            statusPanelLabelsGroupBox.Visible = statusPanelVisibleCheckBox.Checked;
+            //statusPanelLabelsGroupBox.Visible = statusPanelVisibleCheckBox.Checked;
             Application.DoEvents();
             MainForm main = Owner as MainForm;
             main.statusPanel.Visible = statusPanelVisibleCheckBox.Checked;
@@ -491,7 +485,8 @@ namespace Crypto_Notepad
             {
                 settings.PasswordIterations = passwordIterationsTextBox.Text;
             }
-        }      
+        }    
+        
 
         private void MinimizeToTrayCheckBox_Click(object sender, EventArgs e)
         {
@@ -578,6 +573,7 @@ namespace Crypto_Notepad
             settings.statusPanelSize = statusPanelSizeCheckBox.Checked;
             main.StatusPanelFileInfo();
         }
+
         #endregion
 
         private void StatusPanelReadonlyCheckBox_Click(object sender, EventArgs e)
@@ -588,5 +584,12 @@ namespace Crypto_Notepad
             main.StatusPanelFileInfo();
         }
 
+        private void StatusPanelWordwrapCheckBox_Click(object sender, EventArgs e)
+        {
+            MainForm main = Owner as MainForm;
+            main.statusPanelWordwrapLabel.Visible = statusPanelWordwrapCheckBox.Checked;
+            settings.statusPanelWordWrap = statusPanelWordwrapCheckBox.Checked;
+            main.StatusPanelFileInfo();
+        }
     }
 }

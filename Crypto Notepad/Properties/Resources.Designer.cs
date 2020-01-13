@@ -173,6 +173,16 @@ namespace Crypto_Notepad.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap document__pencil {
+            get {
+                object obj = ResourceManager.GetObject("document__pencil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap document_copy {
             get {
                 object obj = ResourceManager.GetObject("document_copy", resourceCulture);
