@@ -130,6 +130,7 @@
             this.statusPanelWordwrapLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.fileLockedKeyTextBox = new System.Windows.Forms.PlaceholderTextBox();
             this.richTextBox = new Crypto_Notepad.ExRichTextBox();
+            this.clearClipboardMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenu.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.searchPanel.SuspendLayout();
@@ -287,6 +288,7 @@
             this.findMainMenu,
             this.mainMenuSeparator6,
             this.selectAllMainMenu,
+            this.clearClipboardMainMenu,
             this.wordWrapMainMenu,
             this.readOnlyMainMenu,
             this.mainMenuSeparator7,
@@ -1253,6 +1255,15 @@
             this.richTextBox.TextChanged += new System.EventHandler(this.RichTextBox_TextChanged);
             this.richTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyDown);
             // 
+            // clearClipboardMainMenu
+            // 
+            this.clearClipboardMainMenu.Name = "clearClipboardMainMenu";
+            this.clearClipboardMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.C)));
+            this.clearClipboardMainMenu.Size = new System.Drawing.Size(221, 22);
+            this.clearClipboardMainMenu.Text = "Clear Clipboard";
+            this.clearClipboardMainMenu.Click += new System.EventHandler(this.ClearClipboardMainMenu_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1410,5 +1421,6 @@
         private System.Windows.Forms.ToolStripMenuItem readOnlyMainMenu;
         protected internal System.Windows.Forms.ToolStripStatusLabel statusPanelReadonlyLabel;
         protected internal System.Windows.Forms.ToolStripStatusLabel statusPanelWordwrapLabel;
+        private System.Windows.Forms.ToolStripMenuItem clearClipboardMainMenu;
     }
 }

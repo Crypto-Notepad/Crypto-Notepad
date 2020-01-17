@@ -1372,6 +1372,11 @@ namespace Crypto_Notepad
             }
         }
 
+        private void ClearClipboardMainMenu_Click(object sender, EventArgs e)
+        {
+            Clipboard.Clear();
+        }
+
         private void ReadOnlyMainMenu_Click(object sender, EventArgs e)
         {
             richTextBox.ReadOnly = readOnlyMainMenu.Checked;
