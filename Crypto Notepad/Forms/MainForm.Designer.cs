@@ -55,6 +55,7 @@
             this.findMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllMainMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearClipboardMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.wordWrapMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.readOnlyMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -114,6 +115,8 @@
             this.statusPanelModifiedLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusPanelSizeLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusPanelReadonlyLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusPanelWordwrapLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusPanelClipboardProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.trayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showTrayMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -121,16 +124,15 @@
             this.fileLockedPanel = new System.Windows.Forms.Panel();
             this.fileLockedCloseButton = new System.Windows.Forms.Button();
             this.fileLockedOkButton = new System.Windows.Forms.Button();
+            this.fileLockedKeyTextBox = new System.Windows.Forms.PlaceholderTextBox();
             this.fileLockedShowKey = new System.Windows.Forms.PictureBox();
             this.fileLockedLabel = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.richTextBoxPanel = new System.Windows.Forms.Panel();
+            this.richTextBox = new Crypto_Notepad.ExRichTextBox();
             this.statusPanelTimer = new System.Windows.Forms.Timer(this.components);
             this.lockTimer = new System.Windows.Forms.Timer(this.components);
-            this.statusPanelWordwrapLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.fileLockedKeyTextBox = new System.Windows.Forms.PlaceholderTextBox();
-            this.richTextBox = new Crypto_Notepad.ExRichTextBox();
-            this.clearClipboardMainMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.clipboardTimer = new System.Windows.Forms.Timer(this.components);
             this.mainMenu.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.searchPanel.SuspendLayout();
@@ -167,7 +169,7 @@
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
             this.mainMenu.Padding = new System.Windows.Forms.Padding(0);
-            this.mainMenu.Size = new System.Drawing.Size(504, 24);
+            this.mainMenu.Size = new System.Drawing.Size(544, 24);
             this.mainMenu.TabIndex = 0;
             this.mainMenu.Text = "menuStrip1";
             // 
@@ -303,7 +305,7 @@
             // 
             this.undoMainMenu.Name = "undoMainMenu";
             this.undoMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoMainMenu.Size = new System.Drawing.Size(180, 22);
+            this.undoMainMenu.Size = new System.Drawing.Size(221, 22);
             this.undoMainMenu.Text = "Undo";
             this.undoMainMenu.Click += new System.EventHandler(this.UndoMainMenu_Click);
             // 
@@ -311,21 +313,21 @@
             // 
             this.redoMainMenu.Name = "redoMainMenu";
             this.redoMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoMainMenu.Size = new System.Drawing.Size(180, 22);
+            this.redoMainMenu.Size = new System.Drawing.Size(221, 22);
             this.redoMainMenu.Text = "Redo";
             this.redoMainMenu.Click += new System.EventHandler(this.RedoMainMenu_Click);
             // 
             // mainMenuSeparator4
             // 
             this.mainMenuSeparator4.Name = "mainMenuSeparator4";
-            this.mainMenuSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.mainMenuSeparator4.Size = new System.Drawing.Size(218, 6);
             // 
             // cutMainMenu
             // 
             this.cutMainMenu.Enabled = false;
             this.cutMainMenu.Name = "cutMainMenu";
             this.cutMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.cutMainMenu.Size = new System.Drawing.Size(180, 22);
+            this.cutMainMenu.Size = new System.Drawing.Size(221, 22);
             this.cutMainMenu.Text = "Cut";
             this.cutMainMenu.Click += new System.EventHandler(this.CutMainMenu_Click);
             // 
@@ -334,7 +336,7 @@
             this.copyMainMenu.Enabled = false;
             this.copyMainMenu.Name = "copyMainMenu";
             this.copyMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copyMainMenu.Size = new System.Drawing.Size(180, 22);
+            this.copyMainMenu.Size = new System.Drawing.Size(221, 22);
             this.copyMainMenu.Text = "Copy";
             this.copyMainMenu.Click += new System.EventHandler(this.CopyMainMenu_Click);
             // 
@@ -342,7 +344,7 @@
             // 
             this.pasteMainMenu.Name = "pasteMainMenu";
             this.pasteMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.pasteMainMenu.Size = new System.Drawing.Size(180, 22);
+            this.pasteMainMenu.Size = new System.Drawing.Size(221, 22);
             this.pasteMainMenu.Text = "Paste";
             this.pasteMainMenu.Click += new System.EventHandler(this.PasteMainMenu_Click);
             // 
@@ -351,36 +353,45 @@
             this.deleteMainMenu.Enabled = false;
             this.deleteMainMenu.Name = "deleteMainMenu";
             this.deleteMainMenu.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.deleteMainMenu.Size = new System.Drawing.Size(180, 22);
+            this.deleteMainMenu.Size = new System.Drawing.Size(221, 22);
             this.deleteMainMenu.Text = "Delete";
             this.deleteMainMenu.Click += new System.EventHandler(this.DeleteMainMenu_Click);
             // 
             // mainMenuSeparator5
             // 
             this.mainMenuSeparator5.Name = "mainMenuSeparator5";
-            this.mainMenuSeparator5.Size = new System.Drawing.Size(177, 6);
+            this.mainMenuSeparator5.Size = new System.Drawing.Size(218, 6);
             // 
             // findMainMenu
             // 
             this.findMainMenu.Name = "findMainMenu";
             this.findMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.findMainMenu.Size = new System.Drawing.Size(180, 22);
+            this.findMainMenu.Size = new System.Drawing.Size(221, 22);
             this.findMainMenu.Text = "Find";
             this.findMainMenu.Click += new System.EventHandler(this.FindMainMenu_Click);
             // 
             // mainMenuSeparator6
             // 
             this.mainMenuSeparator6.Name = "mainMenuSeparator6";
-            this.mainMenuSeparator6.Size = new System.Drawing.Size(177, 6);
+            this.mainMenuSeparator6.Size = new System.Drawing.Size(218, 6);
             // 
             // selectAllMainMenu
             // 
             this.selectAllMainMenu.Name = "selectAllMainMenu";
             this.selectAllMainMenu.ShortcutKeyDisplayString = "";
             this.selectAllMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.selectAllMainMenu.Size = new System.Drawing.Size(180, 22);
+            this.selectAllMainMenu.Size = new System.Drawing.Size(221, 22);
             this.selectAllMainMenu.Text = "Select All";
             this.selectAllMainMenu.Click += new System.EventHandler(this.SelectAllMainMenu_Click);
+            // 
+            // clearClipboardMainMenu
+            // 
+            this.clearClipboardMainMenu.Name = "clearClipboardMainMenu";
+            this.clearClipboardMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.C)));
+            this.clearClipboardMainMenu.Size = new System.Drawing.Size(221, 22);
+            this.clearClipboardMainMenu.Text = "Clear Clipboard";
+            this.clearClipboardMainMenu.Click += new System.EventHandler(this.ClearClipboardMainMenu_Click);
             // 
             // wordWrapMainMenu
             // 
@@ -389,7 +400,7 @@
             this.wordWrapMainMenu.CheckState = System.Windows.Forms.CheckState.Checked;
             this.wordWrapMainMenu.Name = "wordWrapMainMenu";
             this.wordWrapMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
-            this.wordWrapMainMenu.Size = new System.Drawing.Size(180, 22);
+            this.wordWrapMainMenu.Size = new System.Drawing.Size(221, 22);
             this.wordWrapMainMenu.Text = "Word Wrap";
             this.wordWrapMainMenu.Click += new System.EventHandler(this.WordWrapMainMenu_Click);
             // 
@@ -398,20 +409,20 @@
             this.readOnlyMainMenu.CheckOnClick = true;
             this.readOnlyMainMenu.Name = "readOnlyMainMenu";
             this.readOnlyMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.readOnlyMainMenu.Size = new System.Drawing.Size(180, 22);
+            this.readOnlyMainMenu.Size = new System.Drawing.Size(221, 22);
             this.readOnlyMainMenu.Text = "Readonly";
             this.readOnlyMainMenu.Click += new System.EventHandler(this.ReadOnlyMainMenu_Click);
             // 
             // mainMenuSeparator7
             // 
             this.mainMenuSeparator7.Name = "mainMenuSeparator7";
-            this.mainMenuSeparator7.Size = new System.Drawing.Size(177, 6);
+            this.mainMenuSeparator7.Size = new System.Drawing.Size(218, 6);
             // 
             // clearMainMenu
             // 
             this.clearMainMenu.Name = "clearMainMenu";
             this.clearMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Delete)));
-            this.clearMainMenu.Size = new System.Drawing.Size(180, 22);
+            this.clearMainMenu.Size = new System.Drawing.Size(221, 22);
             this.clearMainMenu.Text = "Clear";
             this.clearMainMenu.Click += new System.EventHandler(this.ClearMainMenu_Click);
             // 
@@ -673,11 +684,11 @@
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.searchPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.searchPanel.ForeColor = System.Drawing.Color.Black;
-            this.searchPanel.Location = new System.Drawing.Point(0, 234);
+            this.searchPanel.Location = new System.Drawing.Point(0, 274);
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.RowCount = 1;
             this.searchPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.searchPanel.Size = new System.Drawing.Size(504, 25);
+            this.searchPanel.Size = new System.Drawing.Size(544, 25);
             this.searchPanel.TabIndex = 17;
             this.searchPanel.Visible = false;
             // 
@@ -689,7 +700,7 @@
             this.searchTextBox.ForeColor = System.Drawing.Color.Black;
             this.searchTextBox.Location = new System.Drawing.Point(3, 5);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(200, 15);
+            this.searchTextBox.Size = new System.Drawing.Size(240, 15);
             this.searchTextBox.TabIndex = 9;
             this.searchTextBox.TabStop = false;
             this.searchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
@@ -702,7 +713,7 @@
             this.searchWholeWordCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchWholeWordCheckBox.ForeColor = System.Drawing.Color.Black;
             this.searchWholeWordCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.searchWholeWordCheckBox.Location = new System.Drawing.Point(313, 3);
+            this.searchWholeWordCheckBox.Location = new System.Drawing.Point(353, 3);
             this.searchWholeWordCheckBox.Name = "searchWholeWordCheckBox";
             this.searchWholeWordCheckBox.Size = new System.Drawing.Size(94, 19);
             this.searchWholeWordCheckBox.TabIndex = 12;
@@ -719,7 +730,7 @@
             this.searchCaseSensitiveCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchCaseSensitiveCheckBox.ForeColor = System.Drawing.Color.Black;
             this.searchCaseSensitiveCheckBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.searchCaseSensitiveCheckBox.Location = new System.Drawing.Point(209, 3);
+            this.searchCaseSensitiveCheckBox.Location = new System.Drawing.Point(249, 3);
             this.searchCaseSensitiveCheckBox.Name = "searchCaseSensitiveCheckBox";
             this.searchCaseSensitiveCheckBox.Size = new System.Drawing.Size(98, 19);
             this.searchCaseSensitiveCheckBox.TabIndex = 11;
@@ -736,7 +747,7 @@
             this.searchCloseButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchCloseButton.Font = new System.Drawing.Font("Segoe UI Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.searchCloseButton.ForeColor = System.Drawing.Color.DarkGray;
-            this.searchCloseButton.Location = new System.Drawing.Point(485, 0);
+            this.searchCloseButton.Location = new System.Drawing.Point(525, 0);
             this.searchCloseButton.Name = "searchCloseButton";
             this.searchCloseButton.Size = new System.Drawing.Size(16, 25);
             this.searchCloseButton.TabIndex = 16;
@@ -750,7 +761,7 @@
             this.searchFindNextButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.searchFindNextButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchFindNextButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchFindNextButton.Location = new System.Drawing.Point(413, 0);
+            this.searchFindNextButton.Location = new System.Drawing.Point(453, 0);
             this.searchFindNextButton.Name = "searchFindNextButton";
             this.searchFindNextButton.Size = new System.Drawing.Size(66, 25);
             this.searchFindNextButton.TabIndex = 17;
@@ -797,7 +808,7 @@
             this.toolbarPanel.Name = "toolbarPanel";
             this.toolbarPanel.RowCount = 1;
             this.toolbarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.toolbarPanel.Size = new System.Drawing.Size(504, 24);
+            this.toolbarPanel.Size = new System.Drawing.Size(544, 24);
             this.toolbarPanel.TabIndex = 17;
             this.toolbarPanel.MouseEnter += new System.EventHandler(this.ToolbarPanel_MouseEnter);
             // 
@@ -808,7 +819,7 @@
             this.closeToolbarButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.closeToolbarButton.Font = new System.Drawing.Font("Segoe UI Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.closeToolbarButton.ForeColor = System.Drawing.Color.DarkGray;
-            this.closeToolbarButton.Location = new System.Drawing.Point(489, 0);
+            this.closeToolbarButton.Location = new System.Drawing.Point(529, 0);
             this.closeToolbarButton.Name = "closeToolbarButton";
             this.closeToolbarButton.Size = new System.Drawing.Size(12, 24);
             this.closeToolbarButton.TabIndex = 17;
@@ -998,11 +1009,13 @@
             this.statusPanelModifiedLabel,
             this.statusPanelSizeLabel,
             this.statusPanelReadonlyLabel,
-            this.statusPanelWordwrapLabel});
-            this.statusPanel.Location = new System.Drawing.Point(0, 259);
+            this.statusPanelWordwrapLabel,
+            this.statusPanelClipboardProgressBar});
+            this.statusPanel.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.statusPanel.Location = new System.Drawing.Point(0, 299);
             this.statusPanel.Name = "statusPanel";
             this.statusPanel.ShowItemToolTips = true;
-            this.statusPanel.Size = new System.Drawing.Size(504, 22);
+            this.statusPanel.Size = new System.Drawing.Size(544, 22);
             this.statusPanel.SizingGrip = false;
             this.statusPanel.TabIndex = 18;
             this.statusPanel.VisibleChanged += new System.EventHandler(this.StatusPanel_VisibleChanged);
@@ -1078,6 +1091,23 @@
             this.statusPanelReadonlyLabel.Size = new System.Drawing.Size(64, 17);
             this.statusPanelReadonlyLabel.Text = "Readonly";
             // 
+            // statusPanelWordwrapLabel
+            // 
+            this.statusPanelWordwrapLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.statusPanelWordwrapLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.statusPanelWordwrapLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.statusPanelWordwrapLabel.Name = "statusPanelWordwrapLabel";
+            this.statusPanelWordwrapLabel.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.statusPanelWordwrapLabel.Size = new System.Drawing.Size(76, 17);
+            this.statusPanelWordwrapLabel.Text = "Word Wrap";
+            // 
+            // statusPanelClipboardProgressBar
+            // 
+            this.statusPanelClipboardProgressBar.Name = "statusPanelClipboardProgressBar";
+            this.statusPanelClipboardProgressBar.Size = new System.Drawing.Size(100, 16);
+            this.statusPanelClipboardProgressBar.Value = 100;
+            this.statusPanelClipboardProgressBar.Visible = false;
+            // 
             // trayIcon
             // 
             this.trayIcon.ContextMenuStrip = this.trayMenu;
@@ -1121,7 +1151,7 @@
             this.fileLockedPanel.Controls.Add(this.fileLockedLabel);
             this.fileLockedPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fileLockedPanel.ForeColor = System.Drawing.Color.Azure;
-            this.fileLockedPanel.Location = new System.Drawing.Point(116, 40);
+            this.fileLockedPanel.Location = new System.Drawing.Point(136, 49);
             this.fileLockedPanel.Name = "fileLockedPanel";
             this.fileLockedPanel.Size = new System.Drawing.Size(261, 91);
             this.fileLockedPanel.TabIndex = 20;
@@ -1159,6 +1189,20 @@
             this.fileLockedOkButton.Text = "OK";
             this.fileLockedOkButton.UseVisualStyleBackColor = true;
             this.fileLockedOkButton.Click += new System.EventHandler(this.FileLockedOkButton_Click);
+            // 
+            // fileLockedKeyTextBox
+            // 
+            this.fileLockedKeyTextBox.Location = new System.Drawing.Point(6, 34);
+            this.fileLockedKeyTextBox.Name = "fileLockedKeyTextBox";
+            this.fileLockedKeyTextBox.Placeholder = "Password";
+            this.fileLockedKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
+            this.fileLockedKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.fileLockedKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.fileLockedKeyTextBox.Size = new System.Drawing.Size(231, 22);
+            this.fileLockedKeyTextBox.TabIndex = 8;
+            this.fileLockedKeyTextBox.UseSystemPasswordChar = true;
+            this.fileLockedKeyTextBox.TextChanged += new System.EventHandler(this.FileLockedKeyTextBox_TextChanged);
+            this.fileLockedKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FileLockedKeyTextBox_KeyDown);
             // 
             // fileLockedShowKey
             // 
@@ -1199,41 +1243,8 @@
             this.richTextBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBoxPanel.Location = new System.Drawing.Point(0, 48);
             this.richTextBoxPanel.Name = "richTextBoxPanel";
-            this.richTextBoxPanel.Size = new System.Drawing.Size(504, 186);
+            this.richTextBoxPanel.Size = new System.Drawing.Size(544, 226);
             this.richTextBoxPanel.TabIndex = 21;
-            // 
-            // statusPanelTimer
-            // 
-            this.statusPanelTimer.Interval = 1;
-            this.statusPanelTimer.Tick += new System.EventHandler(this.StatusPanelTimer_Tick);
-            // 
-            // lockTimer
-            // 
-            this.lockTimer.Tick += new System.EventHandler(this.LockTimer_Tick);
-            // 
-            // statusPanelWordwrapLabel
-            // 
-            this.statusPanelWordwrapLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.statusPanelWordwrapLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-            this.statusPanelWordwrapLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.statusPanelWordwrapLabel.Name = "statusPanelWordwrapLabel";
-            this.statusPanelWordwrapLabel.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.statusPanelWordwrapLabel.Size = new System.Drawing.Size(76, 17);
-            this.statusPanelWordwrapLabel.Text = "Word Wrap";
-            // 
-            // fileLockedKeyTextBox
-            // 
-            this.fileLockedKeyTextBox.Location = new System.Drawing.Point(6, 34);
-            this.fileLockedKeyTextBox.Name = "fileLockedKeyTextBox";
-            this.fileLockedKeyTextBox.Placeholder = "Password";
-            this.fileLockedKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
-            this.fileLockedKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.fileLockedKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.fileLockedKeyTextBox.Size = new System.Drawing.Size(231, 22);
-            this.fileLockedKeyTextBox.TabIndex = 8;
-            this.fileLockedKeyTextBox.UseSystemPasswordChar = true;
-            this.fileLockedKeyTextBox.TextChanged += new System.EventHandler(this.FileLockedKeyTextBox_TextChanged);
-            this.fileLockedKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FileLockedKeyTextBox_KeyDown);
             // 
             // richTextBox
             // 
@@ -1246,7 +1257,7 @@
             this.richTextBox.ForeColor = System.Drawing.Color.Black;
             this.richTextBox.Location = new System.Drawing.Point(0, 0);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(502, 184);
+            this.richTextBox.Size = new System.Drawing.Size(542, 224);
             this.richTextBox.TabIndex = 16;
             this.richTextBox.Text = "";
             this.richTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichTextBox_LinkClicked);
@@ -1255,21 +1266,26 @@
             this.richTextBox.TextChanged += new System.EventHandler(this.RichTextBox_TextChanged);
             this.richTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyDown);
             // 
-            // clearClipboardMainMenu
+            // statusPanelTimer
             // 
-            this.clearClipboardMainMenu.Name = "clearClipboardMainMenu";
-            this.clearClipboardMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
-            | System.Windows.Forms.Keys.C)));
-            this.clearClipboardMainMenu.Size = new System.Drawing.Size(221, 22);
-            this.clearClipboardMainMenu.Text = "Clear Clipboard";
-            this.clearClipboardMainMenu.Click += new System.EventHandler(this.ClearClipboardMainMenu_Click);
+            this.statusPanelTimer.Interval = 1;
+            this.statusPanelTimer.Tick += new System.EventHandler(this.StatusPanelTimer_Tick);
+            // 
+            // lockTimer
+            // 
+            this.lockTimer.Tick += new System.EventHandler(this.LockTimer_Tick);
+            // 
+            // clipboardTimer
+            // 
+            this.clipboardTimer.Interval = 50;
+            this.clipboardTimer.Tick += new System.EventHandler(this.ClipboardTimer_Tick);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(504, 281);
+            this.ClientSize = new System.Drawing.Size(544, 321);
             this.Controls.Add(this.richTextBoxPanel);
             this.Controls.Add(this.searchPanel);
             this.Controls.Add(this.toolbarPanel);
@@ -1421,6 +1437,8 @@
         private System.Windows.Forms.ToolStripMenuItem readOnlyMainMenu;
         protected internal System.Windows.Forms.ToolStripStatusLabel statusPanelReadonlyLabel;
         protected internal System.Windows.Forms.ToolStripStatusLabel statusPanelWordwrapLabel;
+        private System.Windows.Forms.ToolStripProgressBar statusPanelClipboardProgressBar;
+        private System.Windows.Forms.Timer clipboardTimer;
         private System.Windows.Forms.ToolStripMenuItem clearClipboardMainMenu;
     }
 }

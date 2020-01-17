@@ -44,13 +44,14 @@
             this.closeToTrayCheckBox = new System.Windows.Forms.CheckBox();
             this.minimizeToTrayCheckBox = new System.Windows.Forms.CheckBox();
             this.autoLockGroupBox = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.autoLockMinutesLabel = new System.Windows.Forms.Label();
             this.autoLockOnMinimizeCheckBox = new System.Windows.Forms.CheckBox();
             this.lockTimeoutTextBox = new System.Windows.Forms.PlaceholderTextBox();
             this.lockTimeoutLabel = new System.Windows.Forms.Label();
             this.interfaceTabPage = new System.Windows.Forms.TabPage();
             this.statusPanelGroupBox = new System.Windows.Forms.GroupBox();
             this.statusPanelLabelsGroupBox = new System.Windows.Forms.GroupBox();
+            this.statusPanelClipboardCheckBox = new System.Windows.Forms.CheckBox();
             this.statusPanelWordwrapCheckBox = new System.Windows.Forms.CheckBox();
             this.statusPanelReadonlyCheckBox = new System.Windows.Forms.CheckBox();
             this.statusPanelSizeCheckBox = new System.Windows.Forms.CheckBox();
@@ -80,6 +81,8 @@
             this.searchFontColor = new System.Windows.Forms.Panel();
             this.searchBackColor = new System.Windows.Forms.Panel();
             this.editorTabPage = new System.Windows.Forms.TabPage();
+            this.clearClipboardTextBox = new System.Windows.Forms.TextBox();
+            this.clearClipboardLabel = new System.Windows.Forms.Label();
             this.editorFontLabel = new System.Windows.Forms.Label();
             this.fontStyleLabel = new System.Windows.Forms.Label();
             this.editorFontColor = new System.Windows.Forms.Panel();
@@ -266,7 +269,7 @@
             // 
             // autoLockGroupBox
             // 
-            this.autoLockGroupBox.Controls.Add(this.label1);
+            this.autoLockGroupBox.Controls.Add(this.autoLockMinutesLabel);
             this.autoLockGroupBox.Controls.Add(this.autoLockOnMinimizeCheckBox);
             this.autoLockGroupBox.Controls.Add(this.lockTimeoutTextBox);
             this.autoLockGroupBox.Controls.Add(this.lockTimeoutLabel);
@@ -277,14 +280,14 @@
             this.autoLockGroupBox.TabStop = false;
             this.autoLockGroupBox.Text = "Auto lock";
             // 
-            // label1
+            // autoLockMinutesLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(184, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "minutes";
+            this.autoLockMinutesLabel.AutoSize = true;
+            this.autoLockMinutesLabel.Location = new System.Drawing.Point(184, 48);
+            this.autoLockMinutesLabel.Name = "autoLockMinutesLabel";
+            this.autoLockMinutesLabel.Size = new System.Drawing.Size(50, 15);
+            this.autoLockMinutesLabel.TabIndex = 0;
+            this.autoLockMinutesLabel.Text = "minutes";
             // 
             // autoLockOnMinimizeCheckBox
             // 
@@ -352,6 +355,7 @@
             // 
             // statusPanelLabelsGroupBox
             // 
+            this.statusPanelLabelsGroupBox.Controls.Add(this.statusPanelClipboardCheckBox);
             this.statusPanelLabelsGroupBox.Controls.Add(this.statusPanelWordwrapCheckBox);
             this.statusPanelLabelsGroupBox.Controls.Add(this.statusPanelReadonlyCheckBox);
             this.statusPanelLabelsGroupBox.Controls.Add(this.statusPanelSizeCheckBox);
@@ -364,6 +368,17 @@
             this.statusPanelLabelsGroupBox.TabIndex = 9;
             this.statusPanelLabelsGroupBox.TabStop = false;
             this.statusPanelLabelsGroupBox.Text = "Labels";
+            // 
+            // statusPanelClipboardCheckBox
+            // 
+            this.statusPanelClipboardCheckBox.AutoSize = true;
+            this.statusPanelClipboardCheckBox.Location = new System.Drawing.Point(185, 47);
+            this.statusPanelClipboardCheckBox.Name = "statusPanelClipboardCheckBox";
+            this.statusPanelClipboardCheckBox.Size = new System.Drawing.Size(78, 19);
+            this.statusPanelClipboardCheckBox.TabIndex = 14;
+            this.statusPanelClipboardCheckBox.Text = "Clipboard";
+            this.statusPanelClipboardCheckBox.UseVisualStyleBackColor = true;
+            this.statusPanelClipboardCheckBox.Click += new System.EventHandler(this.StatusPanelClipboardCheckBox_Click);
             // 
             // statusPanelWordwrapCheckBox
             // 
@@ -676,6 +691,8 @@
             this.editorTabPage.AutoScroll = true;
             this.editorTabPage.BackColor = System.Drawing.SystemColors.Window;
             this.editorTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.editorTabPage.Controls.Add(this.clearClipboardTextBox);
+            this.editorTabPage.Controls.Add(this.clearClipboardLabel);
             this.editorTabPage.Controls.Add(this.editorFontLabel);
             this.editorTabPage.Controls.Add(this.fontStyleLabel);
             this.editorTabPage.Controls.Add(this.editorFontColor);
@@ -696,6 +713,24 @@
             this.editorTabPage.Size = new System.Drawing.Size(326, 291);
             this.editorTabPage.TabIndex = 0;
             this.editorTabPage.Text = "edt";
+            // 
+            // clearClipboardTextBox
+            // 
+            this.clearClipboardTextBox.Location = new System.Drawing.Point(178, 210);
+            this.clearClipboardTextBox.Name = "clearClipboardTextBox";
+            this.clearClipboardTextBox.Size = new System.Drawing.Size(140, 23);
+            this.clearClipboardTextBox.TabIndex = 25;
+            this.settingsToolTip.SetToolTip(this.clearClipboardTextBox, "Time in seconds");
+            this.clearClipboardTextBox.TextChanged += new System.EventHandler(this.ClearClipboardTextBox_TextChanged);
+            // 
+            // clearClipboardLabel
+            // 
+            this.clearClipboardLabel.AutoSize = true;
+            this.clearClipboardLabel.Location = new System.Drawing.Point(6, 213);
+            this.clearClipboardLabel.Name = "clearClipboardLabel";
+            this.clearClipboardLabel.Size = new System.Drawing.Size(143, 15);
+            this.clearClipboardLabel.TabIndex = 24;
+            this.clearClipboardLabel.Text = "Clipboard auto-clear time";
             // 
             // editorFontLabel
             // 
@@ -1084,8 +1119,11 @@
         private System.Windows.Forms.GroupBox toolbarGroupBox;
         private System.Windows.Forms.GroupBox searchPanelGroupBox;
         private System.Windows.Forms.Label editorFontLabel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label autoLockMinutesLabel;
         private System.Windows.Forms.CheckBox statusPanelWordwrapCheckBox;
         private System.Windows.Forms.CheckBox statusPanelReadonlyCheckBox;
+        private System.Windows.Forms.TextBox clearClipboardTextBox;
+        private System.Windows.Forms.Label clearClipboardLabel;
+        private System.Windows.Forms.CheckBox statusPanelClipboardCheckBox;
     }
 }

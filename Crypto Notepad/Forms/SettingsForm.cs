@@ -21,6 +21,10 @@ namespace Crypto_Notepad
             editorFontColor.BackColor = settings.editroForeColor;
             editorBackColor.BackColor = settings.editorBackColor;
             editorInsertKeyComboBox.Text = settings.insertKey;
+            if (settings.clipboardClearTime != "")
+            {
+                clearClipboardTextBox.Text = settings.clipboardClearTime.Remove(settings.clipboardClearTime.Length - 1);
+            }
             editorPaddingLeftTextBox.Text = settings.editorPaddingLeft;
             editorOpenLinksWithComboBox.Text = settings.openLinks;
             editorBorderComboBox.Text = settings.editorBorder;
@@ -57,6 +61,7 @@ namespace Crypto_Notepad
             statusPanelSizeCheckBox.Checked = settings.statusPanelSize;
             statusPanelReadonlyCheckBox.Checked = settings.statusPanelReadonly;
             statusPanelWordwrapCheckBox.Checked = settings.statusPanelWordWrap;
+            statusPanelClipboardCheckBox.Checked = settings.statusPanelClipboard;
             encryptionHintLabel.Visible = settings.encryptionHint;
         }     
         #endregion
@@ -585,5 +590,23 @@ namespace Crypto_Notepad
             settings.statusPanelWordWrap = statusPanelWordwrapCheckBox.Checked;
             main.StatusPanelFileInfo();
         }
+        private void StatusPanelClipboardCheckBox_Click(object sender, EventArgs e)
+        {
+            settings.statusPanelClipboard = statusPanelClipboardCheckBox.Checked;
+        }
+
+        private void ClearClipboardTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (clearClipboardTextBox.Text == "" || clearClipboardTextBox.Text == "0")
+            {
+                settings.clipboardClearTime = "";
+            }
+            else
+            {
+                settings.clipboardClearTime = clearClipboardTextBox.Text + 0;
+            }
+        }
+
+
     }
 }

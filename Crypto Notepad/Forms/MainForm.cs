@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -391,6 +392,14 @@ namespace Crypto_Notepad
                         statusPanelLabel.Text = ready;
                     }
                     break;
+                case "clipboard-clear":
+                    if (statusPanelLabel.Text != "Clipboard cleared")
+                    {
+                        statusPanelLabel.Text = "Clipboard cleared";
+                        await Task.Delay(3000);
+                        statusPanelLabel.Text = ready;
+                    }
+                    break;
             }
         }
 
@@ -605,8 +614,9 @@ namespace Crypto_Notepad
                 deleteMainMenu.Image = Resources.minus;
                 findMainMenu.Image = Resources.magnifier;
                 selectAllMainMenu.Image = Resources.selection_input;
+                clearClipboardMainMenu.Image = Resources.clipboard_minus;
                 wordWrapMainMenu.Image = Resources.wrap_option;
-                readOnlyMainMenu.Image = Resources.document__pencil;
+                readOnlyMainMenu.Image = Resources.document_pencil;
                 clearMainMenu.Image = Resources.document;
                 changePasswordMainMenu.Image = Resources.key;
                 lockMainMenu.Image = Resources.lock_warning;
@@ -615,7 +625,7 @@ namespace Crypto_Notepad
                 checkForUpdatesMainMenu.Image = Resources.upload_cloud;
                 aboutMainMenu.Image = Resources.information;
                 alwaysOnTopMainMenu.Image = Resources.applications_blue;
-                saveCloseFileMainMenu.Image = Resources.disk__minus;
+                saveCloseFileMainMenu.Image = Resources.disk_minus;
                 passwordGeneratorMainMenu.Image = Resources.key_plus;            
             }
             else
@@ -664,6 +674,19 @@ namespace Crypto_Notepad
                 alwaysOnTopToolbarButton.Image = Resources.applications_blue;
             }
 
+        }
+
+        public void ClipboardProgressbar()
+        {
+            if (richTextBox.SelectionLength != 0)
+            {
+                if (!string.IsNullOrEmpty(settings.clipboardClearTime))
+                {
+                    statusPanelClipboardProgressBar.Value = 100;
+                    clipboardTimer.Interval = int.Parse(settings.clipboardClearTime);
+                    clipboardTimer.Start();
+                }
+            }
         }
         #endregion
 
@@ -914,6 +937,11 @@ namespace Crypto_Notepad
                 SearchFindNextButton_MouseUp(null, null);
                 e.Handled = e.SuppressKeyPress = true;
             }
+
+            if (e.Control && e.KeyCode == Keys.C || e.Control && e.KeyCode == Keys.X)
+            {
+                ClipboardProgressbar();
+            }
         }
 
         private void RichTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
@@ -1027,6 +1055,24 @@ namespace Crypto_Notepad
                         Application.Exit();
                     }
                 }
+            }
+        }
+
+        private void ClipboardTimer_Tick(object sender, EventArgs e)
+        {
+            if (settings.statusPanelClipboard)
+            {
+                statusPanelClipboardProgressBar.Visible = true;
+            }
+            statusPanelClipboardProgressBar.Value--;
+            if (statusPanelClipboardProgressBar.Value == 0)
+            {
+                Clipboard.Clear();
+                if (settings.statusPanelClipboard)
+                {
+                    statusPanelClipboardProgressBar.Visible = false;
+                }
+                clipboardTimer.Stop();
             }
         }
         #endregion
@@ -1318,11 +1364,13 @@ namespace Crypto_Notepad
         private void CutMainMenu_Click(object sender, EventArgs e)
         {
             richTextBox.Cut();
+            ClipboardProgressbar();
         }
 
         private void CopyMainMenu_Click(object sender, EventArgs e)
         {
             richTextBox.Copy();
+            ClipboardProgressbar();
         }
 
         private void PasteMainMenu_Click(object sender, EventArgs e)
@@ -1375,6 +1423,12 @@ namespace Crypto_Notepad
         private void ClearClipboardMainMenu_Click(object sender, EventArgs e)
         {
             Clipboard.Clear();
+            if (statusPanelClipboardProgressBar.Visible)
+            {
+                statusPanelClipboardProgressBar.Visible = false;
+                clipboardTimer.Stop();
+            }
+            StatusPanelMessage("clipboard-clear");
         }
 
         private void ReadOnlyMainMenu_Click(object sender, EventArgs e)
@@ -1958,8 +2012,6 @@ namespace Crypto_Notepad
             Debug.WriteLine("metadataCorrupt: " + PublicVar.metadataCorrupt);
 #endif
         }
-
-
         #endregion
 
 
