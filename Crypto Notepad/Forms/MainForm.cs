@@ -638,6 +638,72 @@ namespace Crypto_Notepad
                             dropDownItem.Image = null;
                         }
                 }
+            } 
+        }
+
+        protected internal void ShortcutKeys(bool shortcutKeys)
+        {
+            if (shortcutKeys)
+            {
+                newMainMenu.ShortcutKeys = Keys.Control | Keys.N;
+                openMainMenu.ShortcutKeys = Keys.Control | Keys.O;
+                saveMainMenu.ShortcutKeys = Keys.Control | Keys.S;
+                saveAsMainMenu.ShortcutKeys = Keys.Control | Keys.Shift | Keys.S;
+                saveCloseFileMainMenu.ShortcutKeys = Keys.Alt | Keys.Shift | Keys.S;
+                openFileLocationMainMenu.ShortcutKeys = Keys.Control | Keys.Shift | Keys.O;
+                deleteFileMainMenu.ShortcutKeys = Keys.Control | Keys.Shift | Keys.D;
+                exitMainMenu.ShortcutKeys = Keys.Control | Keys.Q;
+                undoMainMenu.ShortcutKeys = Keys.Control | Keys.Z;
+                redoMainMenu.ShortcutKeys = Keys.Control | Keys.Y;
+                cutMainMenu.ShortcutKeys = Keys.Control | Keys.X;
+                copyMainMenu.ShortcutKeys = Keys.Control | Keys.C;
+                pasteMainMenu.ShortcutKeys = Keys.Control | Keys.V;
+                deleteMainMenu.ShortcutKeys = Keys.Delete;
+                findMainMenu.ShortcutKeys = Keys.Control | Keys.F;
+                selectAllMainMenu.ShortcutKeys = Keys.Control | Keys.A;
+                clearClipboardMainMenu.ShortcutKeys = Keys.Control | Keys.Shift | Keys.C;
+                wordWrapMainMenu.ShortcutKeys = Keys.Control | Keys.W;
+                readOnlyMainMenu.ShortcutKeys = Keys.Control | Keys.R;
+                clearMainMenu.ShortcutKeys = Keys.Control | Keys.Delete;
+                alwaysOnTopMainMenu.ShortcutKeys = Keys.Control | Keys.T;
+                passwordGeneratorMainMenu.ShortcutKeys = Keys.Control | Keys.P;
+                changePasswordMainMenu.ShortcutKeys = Keys.Control | Keys.Shift | Keys.P;
+                lockMainMenu.ShortcutKeys = Keys.Control | Keys.L;
+                settingsMainMenu.ShortcutKeys = Keys.Control | Keys.Shift | Keys.T;
+                documentationMainMenu.ShortcutKeys = Keys.Control | Keys.F1;
+                checkForUpdatesMainMenu.ShortcutKeys = Keys.Control | Keys.U;
+                aboutMainMenu.ShortcutKeys = Keys.Control | Keys.Shift | Keys.A;
+            }
+            else
+            {
+                newMainMenu.ShortcutKeys = Keys.None;
+                openMainMenu.ShortcutKeys = Keys.None;
+                saveMainMenu.ShortcutKeys = Keys.None;
+                saveAsMainMenu.ShortcutKeys = Keys.None;
+                saveCloseFileMainMenu.ShortcutKeys = Keys.None;
+                openFileLocationMainMenu.ShortcutKeys = Keys.None;
+                deleteFileMainMenu.ShortcutKeys = Keys.None;
+                exitMainMenu.ShortcutKeys = Keys.None;
+                undoMainMenu.ShortcutKeys = Keys.None;
+                redoMainMenu.ShortcutKeys = Keys.None;
+                cutMainMenu.ShortcutKeys = Keys.None;
+                copyMainMenu.ShortcutKeys = Keys.None;
+                pasteMainMenu.ShortcutKeys = Keys.None;
+                deleteMainMenu.ShortcutKeys = Keys.None;
+                findMainMenu.ShortcutKeys = Keys.None;
+                selectAllMainMenu.ShortcutKeys = Keys.None;
+                clearClipboardMainMenu.ShortcutKeys = Keys.None;
+                wordWrapMainMenu.ShortcutKeys = Keys.None;
+                readOnlyMainMenu.ShortcutKeys = Keys.None;
+                clearMainMenu.ShortcutKeys = Keys.None;
+                alwaysOnTopMainMenu.ShortcutKeys = Keys.None;
+                passwordGeneratorMainMenu.ShortcutKeys = Keys.None;
+                changePasswordMainMenu.ShortcutKeys = Keys.None;
+                lockMainMenu.ShortcutKeys = Keys.None;
+                settingsMainMenu.ShortcutKeys = Keys.None;
+                documentationMainMenu.ShortcutKeys = Keys.None;
+                checkForUpdatesMainMenu.ShortcutKeys = Keys.None;
+                aboutMainMenu.ShortcutKeys = Keys.None;
             }
         }
 
@@ -879,6 +945,7 @@ namespace Crypto_Notepad
             Methods.DeleteUpdateFiles();
             MenuIcons(settings.menuIcons);
             ToolbarIcons(settings.oldToolbarIcons);
+            ShortcutKeys(settings.shortcutKeys);
             statusPanelReadonlyLabel.Text = "Readonly: " + readOnlyMainMenu.Checked.ToString();
             statusPanelWordwrapLabel.Text = "Word Wrap: " + wordWrapMainMenu.Checked.ToString();
             if (args.Length == 2) /*drag & drop to executable*/

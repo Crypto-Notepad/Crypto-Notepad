@@ -777,5 +777,17 @@ namespace Crypto_Notepad.Properties {
                 this["statusPanelClipboard"] = value;
             }
         }
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool shortcutKeys {
+            get {
+                return ((bool)(this["shortcutKeys"]));
+            }
+            set {
+                this["shortcutKeys"] = value;
+            }
+        }
     }
 }

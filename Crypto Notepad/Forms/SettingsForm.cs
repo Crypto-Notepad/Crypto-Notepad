@@ -35,6 +35,7 @@ namespace Crypto_Notepad
             autoCheckUpdatesCheckBox.Checked = settings.autoCheckUpdate;
             mainMenuCheckBox.Checked = settings.mainMenuVisible;
             menuIconsCheckBox.Checked = settings.menuIcons;
+            shortcutKeysCheckBox.Checked = settings.shortcutKeys;
             minimizeToTrayCheckBox.Checked = settings.minimizeToTray;
             closeToTrayCheckBox.Checked = settings.closeToTray;
             singleInstanceCheckBox.Checked = settings.singleInstance;
@@ -608,5 +609,11 @@ namespace Crypto_Notepad
         }
 
 
+        private void ShortcutKeysCheckBox_Click(object sender, EventArgs e)
+        {
+            MainForm main = Owner as MainForm;
+            settings.shortcutKeys = shortcutKeysCheckBox.Checked;
+            main.ShortcutKeys(settings.shortcutKeys);
+        }
     }
 }

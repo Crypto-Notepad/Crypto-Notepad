@@ -107,6 +107,7 @@
             this.settingsNavigation = new System.Windows.Forms.ListBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.settingsToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.shortcutKeysCheckBox = new System.Windows.Forms.CheckBox();
             this.settingsTabControl.SuspendLayout();
             this.generalTabPage.SuspendLayout();
             this.integrationGroupBox.SuspendLayout();
@@ -499,6 +500,7 @@
             // 
             // mainMenuGroupBox
             // 
+            this.mainMenuGroupBox.Controls.Add(this.shortcutKeysCheckBox);
             this.mainMenuGroupBox.Controls.Add(this.mainMenuCheckBox);
             this.mainMenuGroupBox.Controls.Add(this.menuIconsCheckBox);
             this.mainMenuGroupBox.Location = new System.Drawing.Point(6, 6);
@@ -1002,6 +1004,17 @@
             this.fontDialog.ShowEffects = false;
             this.fontDialog.Apply += new System.EventHandler(this.FontDialog_Apply);
             // 
+            // shortcutKeysCheckBox
+            // 
+            this.shortcutKeysCheckBox.AutoSize = true;
+            this.shortcutKeysCheckBox.Location = new System.Drawing.Point(166, 22);
+            this.shortcutKeysCheckBox.Name = "shortcutKeysCheckBox";
+            this.shortcutKeysCheckBox.Size = new System.Drawing.Size(97, 19);
+            this.shortcutKeysCheckBox.TabIndex = 3;
+            this.shortcutKeysCheckBox.Text = "Shortcut keys";
+            this.shortcutKeysCheckBox.UseVisualStyleBackColor = true;
+            this.shortcutKeysCheckBox.Click += new System.EventHandler(this.ShortcutKeysCheckBox_Click);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1125,5 +1138,6 @@
         private System.Windows.Forms.TextBox clearClipboardTextBox;
         private System.Windows.Forms.Label clearClipboardLabel;
         private System.Windows.Forms.CheckBox statusPanelClipboardCheckBox;
+        private System.Windows.Forms.CheckBox shortcutKeysCheckBox;
     }
 }
