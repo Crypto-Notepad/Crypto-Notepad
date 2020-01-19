@@ -7,7 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -626,7 +625,7 @@ namespace Crypto_Notepad
                 aboutMainMenu.Image = Resources.information;
                 alwaysOnTopMainMenu.Image = Resources.applications_blue;
                 saveCloseFileMainMenu.Image = Resources.disk_minus;
-                passwordGeneratorMainMenu.Image = Resources.key_plus;            
+                passwordGeneratorMainMenu.Image = Resources.key_plus;
             }
             else
             {
@@ -984,6 +983,7 @@ namespace Crypto_Notepad
             {
                 await CheckForUpdates(false);
             }
+
         }
 
         private void RichTextBox_SelectionChanged(object sender, EventArgs e)

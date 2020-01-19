@@ -295,7 +295,7 @@ namespace Crypto_Notepad
         {
             MainForm main = Owner as MainForm;
             settings.menuIcons = menuIconsCheckBox.Checked;
-            main.MenuIcons(settings.menuIcons);         
+            main.MenuIcons(settings.menuIcons);
         }
 
         private void EditorFontLabel_Click(object sender, EventArgs e)
