@@ -39,6 +39,7 @@
             this.associateCheckBox = new System.Windows.Forms.CheckBox();
             this.sendToCheckBox = new System.Windows.Forms.CheckBox();
             this.applicationGroupBox = new System.Windows.Forms.GroupBox();
+            this.clearClipboardCheckBox = new System.Windows.Forms.CheckBox();
             this.autoCheckUpdatesCheckBox = new System.Windows.Forms.CheckBox();
             this.singleInstanceCheckBox = new System.Windows.Forms.CheckBox();
             this.closeToTrayCheckBox = new System.Windows.Forms.CheckBox();
@@ -171,7 +172,7 @@
             this.integrationGroupBox.Controls.Add(this.integrateCheckBox);
             this.integrationGroupBox.Controls.Add(this.associateCheckBox);
             this.integrationGroupBox.Controls.Add(this.sendToCheckBox);
-            this.integrationGroupBox.Location = new System.Drawing.Point(6, 87);
+            this.integrationGroupBox.Location = new System.Drawing.Point(6, 109);
             this.integrationGroupBox.Name = "integrationGroupBox";
             this.integrationGroupBox.Size = new System.Drawing.Size(312, 102);
             this.integrationGroupBox.TabIndex = 2;
@@ -213,16 +214,28 @@
             // 
             // applicationGroupBox
             // 
+            this.applicationGroupBox.Controls.Add(this.clearClipboardCheckBox);
             this.applicationGroupBox.Controls.Add(this.autoCheckUpdatesCheckBox);
             this.applicationGroupBox.Controls.Add(this.singleInstanceCheckBox);
             this.applicationGroupBox.Controls.Add(this.closeToTrayCheckBox);
             this.applicationGroupBox.Controls.Add(this.minimizeToTrayCheckBox);
             this.applicationGroupBox.Location = new System.Drawing.Point(6, 6);
             this.applicationGroupBox.Name = "applicationGroupBox";
-            this.applicationGroupBox.Size = new System.Drawing.Size(312, 75);
+            this.applicationGroupBox.Size = new System.Drawing.Size(312, 97);
             this.applicationGroupBox.TabIndex = 1;
             this.applicationGroupBox.TabStop = false;
             this.applicationGroupBox.Text = "Application";
+            // 
+            // clearClipboardCheckBox
+            // 
+            this.clearClipboardCheckBox.AutoSize = true;
+            this.clearClipboardCheckBox.Location = new System.Drawing.Point(6, 72);
+            this.clearClipboardCheckBox.Name = "clearClipboardCheckBox";
+            this.clearClipboardCheckBox.Size = new System.Drawing.Size(168, 19);
+            this.clearClipboardCheckBox.TabIndex = 4;
+            this.clearClipboardCheckBox.Text = "Clear clipboard on app exit";
+            this.clearClipboardCheckBox.UseVisualStyleBackColor = true;
+            this.clearClipboardCheckBox.Click += new System.EventHandler(this.ClearClipboardCheckBox_Click);
             // 
             // autoCheckUpdatesCheckBox
             // 
@@ -274,7 +287,7 @@
             this.autoLockGroupBox.Controls.Add(this.autoLockOnMinimizeCheckBox);
             this.autoLockGroupBox.Controls.Add(this.lockTimeoutTextBox);
             this.autoLockGroupBox.Controls.Add(this.lockTimeoutLabel);
-            this.autoLockGroupBox.Location = new System.Drawing.Point(6, 195);
+            this.autoLockGroupBox.Location = new System.Drawing.Point(6, 217);
             this.autoLockGroupBox.Name = "autoLockGroupBox";
             this.autoLockGroupBox.Size = new System.Drawing.Size(312, 75);
             this.autoLockGroupBox.TabIndex = 3;
@@ -1138,6 +1151,7 @@
         private System.Windows.Forms.TextBox clearClipboardTextBox;
         private System.Windows.Forms.Label clearClipboardLabel;
         private System.Windows.Forms.CheckBox statusPanelClipboardCheckBox;
+        private System.Windows.Forms.CheckBox clearClipboardCheckBox;
         private System.Windows.Forms.CheckBox shortcutKeysCheckBox;
     }
 }
