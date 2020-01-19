@@ -1427,6 +1427,15 @@ namespace Crypto_Notepad
                 copyMainMenu.Enabled = false;
                 deleteMainMenu.Enabled = false;
             }
+
+            if  (Clipboard.ContainsText())
+            {
+                clearClipboardMainMenu.Enabled = true;
+            }
+            else
+            {
+                clearClipboardMainMenu.Enabled = false;
+            }
         }
 
         private void UndoMainMenu_Click(object sender, EventArgs e)
