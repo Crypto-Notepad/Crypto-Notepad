@@ -174,7 +174,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="statusPanelClipboard" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="clearClipboardAtClose" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
