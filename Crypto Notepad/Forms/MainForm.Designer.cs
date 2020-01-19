@@ -196,6 +196,7 @@
             // newMainMenu
             // 
             this.newMainMenu.Name = "newMainMenu";
+            this.newMainMenu.ShortcutKeyDisplayString = "";
             this.newMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.newMainMenu.Size = new System.Drawing.Size(248, 22);
             this.newMainMenu.Text = "New";
@@ -386,10 +387,11 @@
             // 
             // clearClipboardMainMenu
             // 
+            this.clearClipboardMainMenu.Enabled = false;
             this.clearClipboardMainMenu.Name = "clearClipboardMainMenu";
-            this.clearClipboardMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            this.clearClipboardMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.C)));
-            this.clearClipboardMainMenu.Size = new System.Drawing.Size(221, 22);
+            this.clearClipboardMainMenu.Size = new System.Drawing.Size(230, 22);
             this.clearClipboardMainMenu.Text = "Clear Clipboard";
             this.clearClipboardMainMenu.Click += new System.EventHandler(this.ClearClipboardMainMenu_Click);
             // 
@@ -460,9 +462,9 @@
             // changePasswordMainMenu
             // 
             this.changePasswordMainMenu.Name = "changePasswordMainMenu";
-            this.changePasswordMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
-            | System.Windows.Forms.Keys.K)));
-            this.changePasswordMainMenu.Size = new System.Drawing.Size(232, 22);
+            this.changePasswordMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.P)));
+            this.changePasswordMainMenu.Size = new System.Drawing.Size(241, 22);
             this.changePasswordMainMenu.Text = "Change Password";
             this.changePasswordMainMenu.Click += new System.EventHandler(this.ChangePasswordMainMenu_Click);
             // 
@@ -478,9 +480,9 @@
             // 
             this.settingsMainMenu.Name = "settingsMainMenu";
             this.settingsMainMenu.ShortcutKeyDisplayString = "";
-            this.settingsMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
-            | System.Windows.Forms.Keys.S)));
-            this.settingsMainMenu.Size = new System.Drawing.Size(232, 22);
+            this.settingsMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.T)));
+            this.settingsMainMenu.Size = new System.Drawing.Size(241, 22);
             this.settingsMainMenu.Text = "Settings";
             this.settingsMainMenu.Click += new System.EventHandler(this.SettingsMainMenu_Click);
             // 
@@ -1302,6 +1304,7 @@
             this.Activated += new System.EventHandler(this.MainWindow_Activated);
             this.Deactivate += new System.EventHandler(this.MainForm_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
