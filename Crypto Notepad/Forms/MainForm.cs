@@ -905,6 +905,10 @@ namespace Crypto_Notepad
                                 writer.Write(encryptedText);
                                 writer.Close();
                             }
+                            if (settings.clearClipboardAtClose)
+                            {
+                                Clipboard.Clear();
+                            }
                         }
                         if (res == DialogResult.Cancel)
                         {
@@ -912,6 +916,14 @@ namespace Crypto_Notepad
                         }
                     }
                 }
+            }
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (settings.clearClipboardAtClose)
+            {
+                Clipboard.Clear();
             }
         }
 

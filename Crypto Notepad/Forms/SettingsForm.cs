@@ -39,6 +39,7 @@ namespace Crypto_Notepad
             minimizeToTrayCheckBox.Checked = settings.minimizeToTray;
             closeToTrayCheckBox.Checked = settings.closeToTray;
             singleInstanceCheckBox.Checked = settings.singleInstance;
+            clearClipboardCheckBox.Checked = settings.clearClipboardAtClose;
             integrateCheckBox.Checked = settings.explorerIntegrate;
             associateCheckBox.Checked = settings.explorerAssociate;
             sendToCheckBox.Checked = settings.explorerSendTo;
@@ -608,6 +609,10 @@ namespace Crypto_Notepad
             }
         }
 
+        private void ClearClipboardCheckBox_Click(object sender, EventArgs e)
+        {
+            settings.clearClipboardAtClose = clearClipboardCheckBox.Checked;
+        }
 
         private void ShortcutKeysCheckBox_Click(object sender, EventArgs e)
         {
