@@ -660,7 +660,7 @@ namespace Crypto_Notepad
                 deleteMainMenu.ShortcutKeys = Keys.Delete;
                 findMainMenu.ShortcutKeys = Keys.Control | Keys.F;
                 selectAllMainMenu.ShortcutKeys = Keys.Control | Keys.A;
-                clearClipboardMainMenu.ShortcutKeys = Keys.Control | Keys.Shift | Keys.C;
+                clearClipboardMainMenu.ShortcutKeys = Keys.Control | Keys.D;
                 wordWrapMainMenu.ShortcutKeys = Keys.Control | Keys.W;
                 readOnlyMainMenu.ShortcutKeys = Keys.Control | Keys.R;
                 clearMainMenu.ShortcutKeys = Keys.Control | Keys.Delete;
@@ -1331,6 +1331,11 @@ namespace Crypto_Notepad
 
         private async void SaveCloseFileMainMenu_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(filePath))
+            {
+                return;
+            }
+
             mainMenu.Enabled = false;
             toolbarPanel.Enabled = false;
             richTextBox.SuspendDrawing();
@@ -1358,7 +1363,10 @@ namespace Crypto_Notepad
 
         private void OpenFileLocationMainMenu_Click(object sender, EventArgs e)
         {
-            Process.Start("explorer.exe", @"/select, " + filePath);
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                Process.Start("explorer.exe", @"/select, " + filePath);
+            }
         }
 
         private void DeleteFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1394,22 +1402,6 @@ namespace Crypto_Notepad
         {
             Application.Exit();
         }
-
-        private void FileMainMenu_DropDownOpened(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(filePath))
-            {
-                openFileLocationMainMenu.Enabled = false;
-                deleteFileMainMenu.Enabled = false;
-                saveCloseFileMainMenu.Enabled = false;
-            }
-            else
-            {
-                openFileLocationMainMenu.Enabled = true;
-                deleteFileMainMenu.Enabled = true;
-                saveCloseFileMainMenu.Enabled = true;
-            }
-        }
         /*File*/
 
         /*Edit*/
@@ -1426,15 +1418,6 @@ namespace Crypto_Notepad
                 cutMainMenu.Enabled = false;
                 copyMainMenu.Enabled = false;
                 deleteMainMenu.Enabled = false;
-            }
-
-            if  (Clipboard.ContainsText())
-            {
-                clearClipboardMainMenu.Enabled = true;
-            }
-            else
-            {
-                clearClipboardMainMenu.Enabled = false;
             }
         }
 
@@ -1510,6 +1493,11 @@ namespace Crypto_Notepad
 
         private void ClearClipboardMainMenu_Click(object sender, EventArgs e)
         {
+            if (!Clipboard.ContainsText())
+            {
+                return;
+            }
+
             Clipboard.Clear();
             if (statusPanelClipboardProgressBar.Visible)
             {
@@ -1568,28 +1556,22 @@ namespace Crypto_Notepad
             passwordGeneratorFrom.ShowDialog(this);
         }
 
-        private void ToolsMainMenu_DropDownOpened(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(PublicVar.password.Get()))
-            {
-                changePasswordMainMenu.Enabled = false;
-                lockMainMenu.Enabled = false;
-            }
-            else
-            {
-                changePasswordMainMenu.Enabled = true;
-                lockMainMenu.Enabled = true;
-            }
-        }
-
         private void ChangePasswordMainMenu_Click(object sender, EventArgs e)
         {
-            ChangePasswordForm changePasswordForm = new ChangePasswordForm();
-            changePasswordForm.ShowDialog(this);
+            if (!string.IsNullOrEmpty(PublicVar.password.Get()))
+            {
+                ChangePasswordForm changePasswordForm = new ChangePasswordForm();
+                changePasswordForm.ShowDialog(this);
+            }
         }
 
         private async void LockMainMenu_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(PublicVar.password.Get()))
+            {
+                return;
+            }
+
             mainMenu.Enabled = false;
             toolbarPanel.Enabled = false;
             richTextBox.SuspendDrawing();

@@ -191,7 +191,6 @@
             this.fileMainMenu.Name = "fileMainMenu";
             this.fileMainMenu.Size = new System.Drawing.Size(37, 24);
             this.fileMainMenu.Text = "File";
-            this.fileMainMenu.DropDownOpened += new System.EventHandler(this.FileMainMenu_DropDownOpened);
             // 
             // newMainMenu
             // 
@@ -387,11 +386,9 @@
             // 
             // clearClipboardMainMenu
             // 
-            this.clearClipboardMainMenu.Enabled = false;
             this.clearClipboardMainMenu.Name = "clearClipboardMainMenu";
-            this.clearClipboardMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.C)));
-            this.clearClipboardMainMenu.Size = new System.Drawing.Size(230, 22);
+            this.clearClipboardMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.clearClipboardMainMenu.Size = new System.Drawing.Size(198, 22);
             this.clearClipboardMainMenu.Text = "Clear Clipboard";
             this.clearClipboardMainMenu.Click += new System.EventHandler(this.ClearClipboardMainMenu_Click);
             // 
@@ -440,7 +437,6 @@
             this.toolsMainMenu.Name = "toolsMainMenu";
             this.toolsMainMenu.Size = new System.Drawing.Size(46, 24);
             this.toolsMainMenu.Text = "Tools";
-            this.toolsMainMenu.DropDownOpened += new System.EventHandler(this.ToolsMainMenu_DropDownOpened);
             // 
             // alwaysOnTopMainMenu
             // 
@@ -472,7 +468,7 @@
             // 
             this.lockMainMenu.Name = "lockMainMenu";
             this.lockMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.lockMainMenu.Size = new System.Drawing.Size(232, 22);
+            this.lockMainMenu.Size = new System.Drawing.Size(241, 22);
             this.lockMainMenu.Text = "Lock";
             this.lockMainMenu.Click += new System.EventHandler(this.LockMainMenu_Click);
             // 
