@@ -30,7 +30,3 @@ Want to help make the project better? Check out [CONTRIBUTING.md](https://github
 
 ## Build
 App was created in Visual Studio Community, you can run the *.sln file and simply build a project
-
-## Partners
-![FileHorse](http://i.imgur.com/o5hgnav.png) [FileHorse](http://filehorse.com/download-crypto-notepad/) | ![Softpedia](http://i.imgur.com/mPpwppP.png)[Softpedia](http://softpedia.com/get/Office-tools/Text-editors/Crypto-Notepad.shtml) | ![Oszone](https://i.imgur.com/Jo5hP0X.jpg) [Oldergeeks](https://www.oldergeeks.com/downloads/file.php?id=2665) | ![Portablefreeware](http://i.imgur.com/7v2GHXE.png) [Portablefreeware](https://portablefreeware.com/index.php?id=2873) | ![Majorgeeks](http://i.imgur.com/qQr5IZv.png) [Majorgeeks](http://www.majorgeeks.com/files/details/crypto_notepad.html) | ![Download.hr](https://i.imgur.com/aBhf1Si.png) [Download.hr](https://www.download.hr/software-crypto-notepad.html)
---- | --- | --- | --- | --- | ---
