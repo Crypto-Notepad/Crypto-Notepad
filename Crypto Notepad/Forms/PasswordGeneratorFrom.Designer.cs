@@ -77,7 +77,7 @@
             // clearPasswordsListButton
             // 
             this.clearPasswordsListButton.AutoSize = true;
-            this.clearPasswordsListButton.Location = new System.Drawing.Point(225, 132);
+            this.clearPasswordsListButton.Location = new System.Drawing.Point(81, 132);
             this.clearPasswordsListButton.Name = "clearPasswordsListButton";
             this.clearPasswordsListButton.Size = new System.Drawing.Size(66, 23);
             this.clearPasswordsListButton.TabIndex = 4;
@@ -168,7 +168,7 @@
             // copyAllButton
             // 
             this.copyAllButton.AutoSize = true;
-            this.copyAllButton.Location = new System.Drawing.Point(153, 132);
+            this.copyAllButton.Location = new System.Drawing.Point(225, 132);
             this.copyAllButton.Name = "copyAllButton";
             this.copyAllButton.Size = new System.Drawing.Size(66, 23);
             this.copyAllButton.TabIndex = 3;
@@ -180,7 +180,7 @@
             // copyLastButton
             // 
             this.copyLastButton.AutoSize = true;
-            this.copyLastButton.Location = new System.Drawing.Point(81, 132);
+            this.copyLastButton.Location = new System.Drawing.Point(153, 132);
             this.copyLastButton.Name = "copyLastButton";
             this.copyLastButton.Size = new System.Drawing.Size(66, 23);
             this.copyLastButton.TabIndex = 2;
