@@ -34,6 +34,7 @@ namespace Crypto_Notepad
         {
             const int WM_SYSCOMMAND = 0x112;
             const int SC_MINIMIZE = 0xF020;
+            const int SC_MAXIMIZE = 0xF030;
             const int SC_RESTORE = 0xF120;
             try
             {
@@ -41,7 +42,7 @@ namespace Crypto_Notepad
                 {
                     richTextBox.Visible = false;
                 }
-                if (m.Msg == WM_SYSCOMMAND & m.WParam.ToInt32() == SC_RESTORE & !fileLockedPanel.Visible)
+                if (m.Msg == WM_SYSCOMMAND & m.WParam.ToInt32() == SC_RESTORE | m.WParam.ToInt32() == SC_MAXIMIZE & !fileLockedPanel.Visible)
                 {
                     richTextBox.Visible = true;
                 }
