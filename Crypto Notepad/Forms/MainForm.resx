@@ -130,24 +130,6 @@
     <value>260, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lockToolbarButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIdSURBVDhPlZPdS5NRHMd/5zkQeNtFF0H9A9aVBF12
-        4U10ZXCKDFaIyjaqi0HT1rTFtDfFFAdlU9LMqJVrs1Zt2laDqIYtTXMXMXvDlwoqoosw6tf5Pu4RE4N1
-        4MP5vX2/5zzPw0NYmzcKOllp0K16g+54JCV9sizlky7N6QIu1NDDDGahMZcltIgdkVvSrRuCn541vh2P
-        OT8CxKiht3wWWgq5jJV45p54Z4fObH15aq/oAIhRQ2/FLFHELZfocRjg3OzTpl+BmjXxtn2CAGLU0MNM
-        +LCkmwXowXFpktJE6yS17xf9rxJuDlSLoQt2vBttoOP8SD2jh1OHGyXdP7bIcgNHokGePbGHro6Gavh8
-        rRjsdohr/t2UQRzr2MHoRdxGUBscXM2ghT8M8MLrbv6eC/DnbCvPP/Zz7raNpxM2nk/b+FvGxj+nqlgb
-        tK9q8Humj39MdfLXbAvPPfLzm6SHn19XnIsqfh9X/OWh4oVx278NMqFazt6w84vIAZ6IHuKxsJNTPYrT
-        vYozA4ontNn0vcq/DYYbpEVbsY9w1yM740clAep3GhbBYm/Qazcu9unPCah5p2FxqdgbNFUYl5srtEZD
-        QgiLsFKK811lJohBV125mWO3aiFFoxoqXbf4O1gGI/xuO3O+nL1en0lysMrMsVs1zMBgSazXWs0m3za6
-        goY2mgS7SsUYcuxWrXAyZkLQFLRUooHf+v9Ea6jkD7YQxEPE9EcrAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>969, 17</value>
-  </metadata>
   <data name="newToolbarButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
@@ -163,21 +145,9 @@
         ls8mjzluOrP5k2QAWNYAQ/B729ITVjwAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="changePasswordToolbarButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIfSURBVDhPfYxdSJNhFMfPu/VJhd4E5UVEETFyk+gq
-        gkUX3qjhjbVGFJaQbaBUxIoym81JgX0oY2RQ8I4JkzSdUpk4gq0ZW28vpKgwWh/gvFn2QeWqi07nyFbP
-        08Ue+PE85zn//w8Q8S+PLxoh0mpUnrqNZsJBePLw28w7zogdaaCl8qTFWJPwm9QFvTX9Yfo6zmtuzDxr
-        Sid821TecUbsSIIhl6Ei1rU9+PP9XZxQK2d6L5SMBc6vGRv3mWa+vjqH0ZtbgpwRO5IgdMpw+stsZ/bF
-        /cp0sAOu9F6DjQy/nwdM6U9JZ5YzYkcS3HMaun9nVAzfLtVDtyAhMuRfrf+aakbOiB1J4GtQvLm3Pbkf
-        b+7g95QfM8k2TEWacS7mxM9JB3576chxRuxIgs6jSnU8WKctUvmjdhWnhhsxHqjB2cH9uDBxHKM9ezTO
-        iB1J4LXDyvZD0BS+YY2/i7VkU+NnUH9wGCcHbdmBjvI47zgjdv4XQNtBWO4+APuI/ozmwcmRY8hv/uMd
-        Z8SONOQFQGEmzILp0RMsCPMf74oK8sUCD1nAN2HhPxZ4bEUEl+tA5BELXkddi/wu/NfvLSLgY98N4Kpe
-        oo8FfBOWs1UAm9cvReSONORPbQXASSuoLJhLXkKHFQL8VzhSRxoAFGIFse7ILgjN616ku8+6FWrpr4RY
-        RRikjjTQklhLlO0sA7vNDBHLBqineQexiSgllv3rIPwBd+IjYDkT9I0AAAAASUVORK5CYII=
-</value>
-  </data>
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>969, 17</value>
+  </metadata>
   <data name="openToolbarButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
@@ -272,6 +242,36 @@
         IwpvUR5KXgTlksvJSQ6azRrnFgsfGAyPEr46Itqn+s5OarbbgQ8vrShTlEtOJJQaH//GnkgwBNVardRg
         sy1DgCqXnDkcvCsSsCd4KypC6xLexARSBqGq2mrdKOW1wnWwEywWIvxivJOMfKMXmVKWjEKToa5uobKx
         ces/oBcZIjJ+Aga8g1BwXIV5AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="changePasswordToolbarButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIfSURBVDhPfYxdSJNhFMfPu/VJhd4E5UVEETFyk+gq
+        gkUX3qjhjbVGFJaQbaBUxIoym81JgX0oY2RQ8I4JkzSdUpk4gq0ZW28vpKgwWh/gvFn2QeWqi07nyFbP
+        08Ue+PE85zn//w8Q8S+PLxoh0mpUnrqNZsJBePLw28w7zogdaaCl8qTFWJPwm9QFvTX9Yfo6zmtuzDxr
+        Sid821TecUbsSIIhl6Ei1rU9+PP9XZxQK2d6L5SMBc6vGRv3mWa+vjqH0ZtbgpwRO5IgdMpw+stsZ/bF
+        /cp0sAOu9F6DjQy/nwdM6U9JZ5YzYkcS3HMaun9nVAzfLtVDtyAhMuRfrf+aakbOiB1J4GtQvLm3Pbkf
+        b+7g95QfM8k2TEWacS7mxM9JB3576chxRuxIgs6jSnU8WKctUvmjdhWnhhsxHqjB2cH9uDBxHKM9ezTO
+        iB1J4LXDyvZD0BS+YY2/i7VkU+NnUH9wGCcHbdmBjvI47zgjdv4XQNtBWO4+APuI/ozmwcmRY8hv/uMd
+        Z8SONOQFQGEmzILp0RMsCPMf74oK8sUCD1nAN2HhPxZ4bEUEl+tA5BELXkddi/wu/NfvLSLgY98N4Kpe
+        oo8FfBOWs1UAm9cvReSONORPbQXASSuoLJhLXkKHFQL8VzhSRxoAFGIFse7ILgjN616ku8+6FWrpr4RY
+        RRikjjTQklhLlO0sA7vNDBHLBqineQexiSgllv3rIPwBd+IjYDkT9I0AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="lockToolbarButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIdSURBVDhPlZPdS5NRHMd/5zkQeNtFF0H9A9aVBF12
+        4U10ZXCKDFaIyjaqi0HT1rTFtDfFFAdlU9LMqJVrs1Zt2laDqIYtTXMXMXvDlwoqoosw6tf5Pu4RE4N1
+        4MP5vX2/5zzPw0NYmzcKOllp0K16g+54JCV9sizlky7N6QIu1NDDDGahMZcltIgdkVvSrRuCn541vh2P
+        OT8CxKiht3wWWgq5jJV45p54Z4fObH15aq/oAIhRQ2/FLFHELZfocRjg3OzTpl+BmjXxtn2CAGLU0MNM
+        +LCkmwXowXFpktJE6yS17xf9rxJuDlSLoQt2vBttoOP8SD2jh1OHGyXdP7bIcgNHokGePbGHro6Gavh8
+        rRjsdohr/t2UQRzr2MHoRdxGUBscXM2ghT8M8MLrbv6eC/DnbCvPP/Zz7raNpxM2nk/b+FvGxj+nqlgb
+        tK9q8Humj39MdfLXbAvPPfLzm6SHn19XnIsqfh9X/OWh4oVx278NMqFazt6w84vIAZ6IHuKxsJNTPYrT
+        vYozA4ontNn0vcq/DYYbpEVbsY9w1yM740clAep3GhbBYm/Qazcu9unPCah5p2FxqdgbNFUYl5srtEZD
+        QgiLsFKK811lJohBV125mWO3aiFFoxoqXbf4O1gGI/xuO3O+nL1en0lysMrMsVs1zMBgSazXWs0m3za6
+        goY2mgS7SsUYcuxWrXAyZkLQFLRUooHf+v9Ea6jkD7YQxEPE9EcrAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="settingsToolbarButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

@@ -46,6 +46,7 @@ namespace Crypto_Notepad
             hashAlgorithmComboBox.Text = settings.HashAlgorithm;
             keySizeComboBox.Text = settings.KeySize;
             passwordIterationsTextBox.Text = settings.PasswordIterations;
+            openTxtUnencryptedCheckBox.Checked = settings.openTxtUnencrypted;
             searchBackColor.BackColor = settings.searchPanelBackColor;
             searchFontColor.BackColor = settings.searchPanelForeColor;
             searchBorderComboBox.Text = settings.searchPanelBorder;
@@ -619,6 +620,12 @@ namespace Crypto_Notepad
             MainForm main = Owner as MainForm;
             settings.shortcutKeys = shortcutKeysCheckBox.Checked;
             main.ShortcutKeys(settings.shortcutKeys);
+        }
+
+        private void OpenTxtUnencryptedCheckBox_Click(object sender, EventArgs e)
+        {
+            settings.openTxtUnencrypted = openTxtUnencryptedCheckBox.Checked;
+
         }
     }
 }

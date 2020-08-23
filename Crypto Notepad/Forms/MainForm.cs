@@ -65,6 +65,7 @@ namespace Crypto_Notepad
             if (!PublicVar.okPressed)
             {
                 PublicVar.openFileName = Path.GetFileName(filePath);
+                openFileDialog.FileName = filePath;
                 mainMenu.Enabled = true;
                 toolbarPanel.Enabled = true;
                 richTextBox.ReadOnly = false;
@@ -156,46 +157,62 @@ namespace Crypto_Notepad
             }
         }
 
-        private async void OpenAsotiations()
+        private async void TryToDecryptMessage(string openedFilePath)
         {
-            string fileExtension = Path.GetExtension(args[1]);
-            PublicVar.openFileName = Path.GetFileName(args[1]);
-            openFileDialog.FileName = Path.GetFullPath(args[1]);
-            if (fileExtension != ".cnp")
+            if (Visible)
             {
-                DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName + "\" file?", PublicVar.appName, 
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (res == DialogResult.No)
+                PublicVar.messageBoxCenterParent = true;
+            }
+
+            PublicVar.password.Set(null);
+
+            if (Path.GetExtension(openedFilePath) != ".cnp")
+            {
+                if (settings.openTxtUnencrypted)
                 {
-                    richTextBox.Text = File.ReadAllText(args[1]); ;
-                    filePath = args[1];
-                    Text = Path.GetFileName(args[1]) + " – " + PublicVar.appName;
+                    richTextBox.Text = File.ReadAllText(openedFilePath);
+                    Text = Path.GetFileName(openedFilePath) + " – " + PublicVar.appName;
+                    filePath = openedFilePath;
                     StatusPanelFileInfo();
-                    return;
+                }
+                else
+                {
+                    using (new CenterWinDialog(this))
+                    {
+                        DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName + "\" file?", PublicVar.appName,
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        if (res == DialogResult.No)
+                        {
+                            richTextBox.Text = File.ReadAllText(openedFilePath);
+                            Text = Path.GetFileName(openedFilePath) + " – " + PublicVar.appName;
+                            filePath = openedFilePath;
+                            StatusPanelFileInfo();
+                        }
+                        else
+                        {
+                            await DecryptAES();
+                        }
+                    }
                 }
             }
-            await DecryptAES();
+            else
+            {
+                await DecryptAES();
+            }
         }
 
-        private async void SendTo()
+        private void OpenAsotiations()
         {
-            string fileExtension = Path.GetExtension(argsPath);
-            openFileDialog.FileName = Path.GetFullPath(argsPath);
+            PublicVar.openFileName = Path.GetFileName(args[1]);
+            openFileDialog.FileName = Path.GetFullPath(args[1]);
+            TryToDecryptMessage(args[1]);
+        }
+
+        private void SendTo()
+        {
             PublicVar.openFileName = Path.GetFileName(argsPath);
-            if (fileExtension != ".cnp")
-            {
-                DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName  + "\" file?", PublicVar.appName, 
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (res == DialogResult.No)
-                {
-                    richTextBox.Text = File.ReadAllText(argsPath);
-                    filePath = argsPath;
-                    Text = Path.GetFileName(argsPath) + " – " + PublicVar.appName;
-                    StatusPanelFileInfo();
-                    return;
-                }
-            }
-            await DecryptAES();
+            openFileDialog.FileName = Path.GetFullPath(argsPath);
+            TryToDecryptMessage(argsPath);
         }
 
         private async void ContextMenuEncryptReplace()
@@ -605,6 +622,7 @@ namespace Crypto_Notepad
                 saveAsMainMenu.Image = Resources.disks_black;
                 openFileLocationMainMenu.Image = Resources.folder_horizontal;
                 deleteFileMainMenu.Image = Resources.document_minus;
+                tryToDecryptMainMenu.Image = Resources.lock_pencil;
                 exitMainMenu.Image = Resources.cross_button;
                 undoMainMenu.Image = Resources.arrow_left;
                 redoMainMenu.Image = Resources.arrow_right;
@@ -652,6 +670,7 @@ namespace Crypto_Notepad
                 saveCloseFileMainMenu.ShortcutKeys = Keys.Alt | Keys.Shift | Keys.S;
                 openFileLocationMainMenu.ShortcutKeys = Keys.Control | Keys.Shift | Keys.O;
                 deleteFileMainMenu.ShortcutKeys = Keys.Control | Keys.Shift | Keys.D;
+                tryToDecryptMainMenu.ShortcutKeys = Keys.Control | Keys.Shift | Keys.E;
                 exitMainMenu.ShortcutKeys = Keys.Control | Keys.Q;
                 undoMainMenu.ShortcutKeys = Keys.Control | Keys.Z;
                 redoMainMenu.ShortcutKeys = Keys.Control | Keys.Y;
@@ -683,6 +702,7 @@ namespace Crypto_Notepad
                 saveCloseFileMainMenu.ShortcutKeys = Keys.None;
                 openFileLocationMainMenu.ShortcutKeys = Keys.None;
                 deleteFileMainMenu.ShortcutKeys = Keys.None;
+                tryToDecryptMainMenu.ShortcutKeys = Keys.None;
                 exitMainMenu.ShortcutKeys = Keys.None;
                 undoMainMenu.ShortcutKeys = Keys.None;
                 redoMainMenu.ShortcutKeys = Keys.None;
@@ -721,6 +741,7 @@ namespace Crypto_Notepad
                 pasteToolbarButton.Image = Resources.old_paste_plain;
                 changePasswordToolbarButton.Image = Resources.old_page_white_key;
                 lockToolbarButton.Image = Resources.old_lock;
+                tryToDecryptToolbarButton.Image = Resources.old_lock_edit;
                 settingsToolbarButton.Image = Resources.old_setting_tools;
                 alwaysOnTopToolbarButton.Image = Resources.old_application_double;
             }
@@ -736,6 +757,7 @@ namespace Crypto_Notepad
                 pasteToolbarButton.Image = Resources.clipboard;
                 changePasswordToolbarButton.Image = Resources.key;
                 lockToolbarButton.Image = Resources.lock_warning;
+                tryToDecryptToolbarButton.Image = Resources.lock_pencil;
                 settingsToolbarButton.Image = Resources.gear;
                 alwaysOnTopToolbarButton.Image = Resources.applications_blue;
             }
@@ -972,9 +994,11 @@ namespace Crypto_Notepad
                 }
                 SendTo();
             }
-            if (args.Contains("/o"))  /*decrypt & open cnp*/
+            if (args.Contains("/o"))  /*decrypt & open*/
             {
-                OpenAsotiations();
+                PublicVar.openFileName = Path.GetFileName(args[1]);
+                openFileDialog.FileName = Path.GetFullPath(args[1]);
+                await DecryptAES();
             }
             if (args.Contains("/er")) /*encrypt and replace*/
             {
@@ -1046,7 +1070,7 @@ namespace Crypto_Notepad
             }
         }
 
-        private async void RichTextBox_DragDrop(object sender, DragEventArgs e)
+        private void RichTextBox_DragDrop(object sender, DragEventArgs e)
         {
             SaveConfirm();
             if (cancelPressed)
@@ -1062,27 +1086,7 @@ namespace Crypto_Notepad
             {
                 if (fileName is string[] list && !string.IsNullOrWhiteSpace(list[0]))
                 {
-                    if (!openFileDialog.FileName.Contains(".cnp"))
-                    {
-                        if (Visible)
-                        {
-                            PublicVar.messageBoxCenterParent = true;
-                        }
-                        using (new CenterWinDialog(this))
-                        {
-                            DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName + "\" file?", PublicVar.appName, 
-                                MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                            if (res == DialogResult.No)
-                            {
-                                richTextBox.Text = File.ReadAllText(openFileDialog.FileName);
-                                Text = Path.GetFileName(openFileDialog.FileName) + " – " + PublicVar.appName;
-                                filePath = openFileDialog.FileName;
-                                StatusPanelFileInfo();
-                                return;
-                            }
-                        }
-                    }
-                    await DecryptAES();
+                    TryToDecryptMessage(openFileDialog.FileName);
                 }
             }
         }
@@ -1204,7 +1208,7 @@ namespace Crypto_Notepad
             TypedPassword.Value = null;
         }
 
-        private async void OpenMainMenu_Click(object sender, EventArgs e)
+        private void OpenMainMenu_Click(object sender, EventArgs e)
         {
             SaveConfirm();
             if (cancelPressed)
@@ -1216,27 +1220,7 @@ namespace Crypto_Notepad
             if (openFileDialog.ShowDialog() != DialogResult.OK) return;
             {
                 PublicVar.openFileName = Path.GetFileName(openFileDialog.FileName);
-                if (!openFileDialog.FileName.Contains(".cnp"))
-                {
-                    if (Visible)
-                    {
-                        PublicVar.messageBoxCenterParent = true;
-                    }
-                    using (new CenterWinDialog(this))
-                    {
-                        DialogResult res = MessageBox.Show(this, "Try to decrypt \"" + PublicVar.openFileName + "\" file?", PublicVar.appName,
-                            MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                        if (res == DialogResult.No)
-                        {
-                            richTextBox.Text = File.ReadAllText(openFileDialog.FileName);
-                            Text = Path.GetFileName(openFileDialog.FileName) + " – " + PublicVar.appName;
-                            filePath = openFileDialog.FileName;
-                            StatusPanelFileInfo();
-                            return;
-                        }
-                    }
-                }
-                await DecryptAES();
+                TryToDecryptMessage(openFileDialog.FileName);
                 richTextBox.Modified = false;
             }
         }
@@ -1332,11 +1316,6 @@ namespace Crypto_Notepad
 
         private async void SaveCloseFileMainMenu_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(filePath))
-            {
-                return;
-            }
-
             mainMenu.Enabled = false;
             toolbarPanel.Enabled = false;
             richTextBox.SuspendDrawing();
@@ -1399,6 +1378,14 @@ namespace Crypto_Notepad
             }
         }
 
+        private async void TryToDecryptMainMenu_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                await DecryptAES();
+            }
+        }
+
         private void ExitMainMenu_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -1407,6 +1394,43 @@ namespace Crypto_Notepad
 
         /*Edit*/
         private void EditMainMenu_DropDownOpened(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FileMainMenu_DropDownOpening(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                deleteFileMainMenu.Enabled = true;
+                openFileLocationMainMenu.Enabled = true;
+            }
+            else
+            {
+                deleteFileMainMenu.Enabled = false;
+                openFileLocationMainMenu.Enabled = false;
+            }
+
+            if (!string.IsNullOrEmpty(PublicVar.password.Get()) && !string.IsNullOrEmpty(filePath))
+            {
+                saveCloseFileMainMenu.Enabled = true;
+            }
+            else
+            {
+                saveCloseFileMainMenu.Enabled = false;
+            }
+
+            if (string.IsNullOrEmpty(PublicVar.password.Get()) && richTextBox.TextLength > 0 && !string.IsNullOrEmpty(filePath))
+            {
+                tryToDecryptMainMenu.Enabled = true;
+            }
+            else
+            {
+                tryToDecryptMainMenu.Enabled = false;
+            }
+        }
+
+        private void EditMainMenu_DropDownOpening(object sender, EventArgs e)
         {
             if (richTextBox.SelectionLength != 0)
             {
@@ -1419,6 +1443,20 @@ namespace Crypto_Notepad
                 cutMainMenu.Enabled = false;
                 copyMainMenu.Enabled = false;
                 deleteMainMenu.Enabled = false;
+            }
+        }
+
+        private void ToolsMainMenu_DropDownOpening(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(PublicVar.password.Get()))
+            {
+                changePasswordMainMenu.Enabled = false;
+                lockMainMenu.Enabled = false;
+            }
+            else
+            {
+                changePasswordMainMenu.Enabled = true;
+                lockMainMenu.Enabled = true;
             }
         }
 
@@ -1769,6 +1807,11 @@ namespace Crypto_Notepad
             LockMainMenu_Click(this, new EventArgs());
         }
 
+        private void TryToDecryptToolbarButton_Click(object sender, EventArgs e)
+        {
+            TryToDecryptMainMenu_Click(this, new EventArgs());
+        }
+
         private void CloseToolbarButton_Click(object sender, EventArgs e)
         {
             toolbarPanel.Visible = false;
@@ -1830,6 +1873,16 @@ namespace Crypto_Notepad
                 changePasswordToolbarButton.Enabled = true;
                 lockToolbarButton.Enabled = true;
             }
+
+            if (string.IsNullOrEmpty(PublicVar.password.Get()) && richTextBox.TextLength > 0 && !string.IsNullOrEmpty(filePath))
+            {
+                tryToDecryptToolbarButton.Enabled = true;
+            }
+            else
+            {
+                tryToDecryptToolbarButton.Enabled = false;
+            }
+
         }
         #endregion
 
@@ -2073,6 +2126,7 @@ namespace Crypto_Notepad
             string formattedTime = DateTime.Now.ToString("yyyy.MM.dd hh:mm:ss");
             Debug.WriteLine("\nTime: " + formattedTime);
             Debug.WriteLine("PublicVar.openFileName: " + PublicVar.openFileName);
+            Debug.WriteLine("openFileDialog.FileName " + openFileDialog.FileName);        
             Debug.WriteLine("filePath: " + filePath);
             Debug.WriteLine("encryptionKey: " + PublicVar.password.Get());
             Debug.WriteLine("TypedPassword: " + TypedPassword.Value);

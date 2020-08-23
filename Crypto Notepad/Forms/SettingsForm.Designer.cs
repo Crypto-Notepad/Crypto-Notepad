@@ -65,6 +65,7 @@
             this.statusPanelBackColor = new System.Windows.Forms.Panel();
             this.statusPanelFontColor = new System.Windows.Forms.Panel();
             this.mainMenuGroupBox = new System.Windows.Forms.GroupBox();
+            this.shortcutKeysCheckBox = new System.Windows.Forms.CheckBox();
             this.mainMenuCheckBox = new System.Windows.Forms.CheckBox();
             this.menuIconsCheckBox = new System.Windows.Forms.CheckBox();
             this.toolbarGroupBox = new System.Windows.Forms.GroupBox();
@@ -108,7 +109,7 @@
             this.settingsNavigation = new System.Windows.Forms.ListBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.settingsToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.shortcutKeysCheckBox = new System.Windows.Forms.CheckBox();
+            this.openTxtUnencryptedCheckBox = new System.Windows.Forms.CheckBox();
             this.settingsTabControl.SuspendLayout();
             this.generalTabPage.SuspendLayout();
             this.integrationGroupBox.SuspendLayout();
@@ -157,12 +158,12 @@
             // 
             this.generalTabPage.BackColor = System.Drawing.SystemColors.Window;
             this.generalTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.generalTabPage.Controls.Add(this.autoLockGroupBox);
             this.generalTabPage.Controls.Add(this.integrationGroupBox);
             this.generalTabPage.Controls.Add(this.applicationGroupBox);
-            this.generalTabPage.Controls.Add(this.autoLockGroupBox);
             this.generalTabPage.Location = new System.Drawing.Point(4, 24);
             this.generalTabPage.Name = "generalTabPage";
-            this.generalTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.generalTabPage.Padding = new System.Windows.Forms.Padding(6, 6, 6, 3);
             this.generalTabPage.Size = new System.Drawing.Size(326, 291);
             this.generalTabPage.TabIndex = 2;
             this.generalTabPage.Text = "gen";
@@ -172,7 +173,8 @@
             this.integrationGroupBox.Controls.Add(this.integrateCheckBox);
             this.integrationGroupBox.Controls.Add(this.associateCheckBox);
             this.integrationGroupBox.Controls.Add(this.sendToCheckBox);
-            this.integrationGroupBox.Location = new System.Drawing.Point(6, 109);
+            this.integrationGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.integrationGroupBox.Location = new System.Drawing.Point(6, 128);
             this.integrationGroupBox.Name = "integrationGroupBox";
             this.integrationGroupBox.Size = new System.Drawing.Size(312, 102);
             this.integrationGroupBox.TabIndex = 2;
@@ -214,14 +216,16 @@
             // 
             // applicationGroupBox
             // 
+            this.applicationGroupBox.Controls.Add(this.openTxtUnencryptedCheckBox);
             this.applicationGroupBox.Controls.Add(this.clearClipboardCheckBox);
             this.applicationGroupBox.Controls.Add(this.autoCheckUpdatesCheckBox);
             this.applicationGroupBox.Controls.Add(this.singleInstanceCheckBox);
             this.applicationGroupBox.Controls.Add(this.closeToTrayCheckBox);
             this.applicationGroupBox.Controls.Add(this.minimizeToTrayCheckBox);
+            this.applicationGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.applicationGroupBox.Location = new System.Drawing.Point(6, 6);
             this.applicationGroupBox.Name = "applicationGroupBox";
-            this.applicationGroupBox.Size = new System.Drawing.Size(312, 97);
+            this.applicationGroupBox.Size = new System.Drawing.Size(312, 122);
             this.applicationGroupBox.TabIndex = 1;
             this.applicationGroupBox.TabStop = false;
             this.applicationGroupBox.Text = "Application";
@@ -229,7 +233,7 @@
             // clearClipboardCheckBox
             // 
             this.clearClipboardCheckBox.AutoSize = true;
-            this.clearClipboardCheckBox.Location = new System.Drawing.Point(6, 72);
+            this.clearClipboardCheckBox.Location = new System.Drawing.Point(6, 97);
             this.clearClipboardCheckBox.Name = "clearClipboardCheckBox";
             this.clearClipboardCheckBox.Size = new System.Drawing.Size(168, 19);
             this.clearClipboardCheckBox.TabIndex = 4;
@@ -287,7 +291,8 @@
             this.autoLockGroupBox.Controls.Add(this.autoLockOnMinimizeCheckBox);
             this.autoLockGroupBox.Controls.Add(this.lockTimeoutTextBox);
             this.autoLockGroupBox.Controls.Add(this.lockTimeoutLabel);
-            this.autoLockGroupBox.Location = new System.Drawing.Point(6, 217);
+            this.autoLockGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.autoLockGroupBox.Location = new System.Drawing.Point(6, 230);
             this.autoLockGroupBox.Name = "autoLockGroupBox";
             this.autoLockGroupBox.Size = new System.Drawing.Size(312, 75);
             this.autoLockGroupBox.TabIndex = 3;
@@ -342,12 +347,12 @@
             this.interfaceTabPage.BackColor = System.Drawing.SystemColors.Window;
             this.interfaceTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.interfaceTabPage.Controls.Add(this.statusPanelGroupBox);
-            this.interfaceTabPage.Controls.Add(this.mainMenuGroupBox);
-            this.interfaceTabPage.Controls.Add(this.toolbarGroupBox);
             this.interfaceTabPage.Controls.Add(this.searchPanelGroupBox);
+            this.interfaceTabPage.Controls.Add(this.toolbarGroupBox);
+            this.interfaceTabPage.Controls.Add(this.mainMenuGroupBox);
             this.interfaceTabPage.Location = new System.Drawing.Point(4, 24);
             this.interfaceTabPage.Name = "interfaceTabPage";
-            this.interfaceTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.interfaceTabPage.Padding = new System.Windows.Forms.Padding(6, 6, 6, 3);
             this.interfaceTabPage.Size = new System.Drawing.Size(326, 291);
             this.interfaceTabPage.TabIndex = 5;
             this.interfaceTabPage.Text = "intf";
@@ -360,9 +365,10 @@
             this.statusPanelGroupBox.Controls.Add(this.statusPanelFontColorLabel);
             this.statusPanelGroupBox.Controls.Add(this.statusPanelBackColor);
             this.statusPanelGroupBox.Controls.Add(this.statusPanelFontColor);
-            this.statusPanelGroupBox.Location = new System.Drawing.Point(6, 281);
+            this.statusPanelGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.statusPanelGroupBox.Location = new System.Drawing.Point(6, 263);
             this.statusPanelGroupBox.Name = "statusPanelGroupBox";
-            this.statusPanelGroupBox.Size = new System.Drawing.Size(295, 180);
+            this.statusPanelGroupBox.Size = new System.Drawing.Size(298, 180);
             this.statusPanelGroupBox.TabIndex = 4;
             this.statusPanelGroupBox.TabStop = false;
             this.statusPanelGroupBox.Text = "Status Panel";
@@ -516,12 +522,24 @@
             this.mainMenuGroupBox.Controls.Add(this.shortcutKeysCheckBox);
             this.mainMenuGroupBox.Controls.Add(this.mainMenuCheckBox);
             this.mainMenuGroupBox.Controls.Add(this.menuIconsCheckBox);
+            this.mainMenuGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.mainMenuGroupBox.Location = new System.Drawing.Point(6, 6);
             this.mainMenuGroupBox.Name = "mainMenuGroupBox";
-            this.mainMenuGroupBox.Size = new System.Drawing.Size(295, 49);
+            this.mainMenuGroupBox.Size = new System.Drawing.Size(298, 49);
             this.mainMenuGroupBox.TabIndex = 1;
             this.mainMenuGroupBox.TabStop = false;
             this.mainMenuGroupBox.Text = "Main menu";
+            // 
+            // shortcutKeysCheckBox
+            // 
+            this.shortcutKeysCheckBox.AutoSize = true;
+            this.shortcutKeysCheckBox.Location = new System.Drawing.Point(166, 22);
+            this.shortcutKeysCheckBox.Name = "shortcutKeysCheckBox";
+            this.shortcutKeysCheckBox.Size = new System.Drawing.Size(97, 19);
+            this.shortcutKeysCheckBox.TabIndex = 3;
+            this.shortcutKeysCheckBox.Text = "Shortcut keys";
+            this.shortcutKeysCheckBox.UseVisualStyleBackColor = true;
+            this.shortcutKeysCheckBox.Click += new System.EventHandler(this.ShortcutKeysCheckBox_Click);
             // 
             // mainMenuCheckBox
             // 
@@ -553,9 +571,10 @@
             this.toolbarGroupBox.Controls.Add(this.toolbarBackColorLabel);
             this.toolbarGroupBox.Controls.Add(this.toolbarBackColor);
             this.toolbarGroupBox.Controls.Add(this.toolbarVisibleCheckBox);
-            this.toolbarGroupBox.Location = new System.Drawing.Point(6, 61);
+            this.toolbarGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.toolbarGroupBox.Location = new System.Drawing.Point(6, 55);
             this.toolbarGroupBox.Name = "toolbarGroupBox";
-            this.toolbarGroupBox.Size = new System.Drawing.Size(295, 98);
+            this.toolbarGroupBox.Size = new System.Drawing.Size(298, 98);
             this.toolbarGroupBox.TabIndex = 2;
             this.toolbarGroupBox.TabStop = false;
             this.toolbarGroupBox.Text = "Toolbar";
@@ -574,7 +593,7 @@
             // toolbarBorderCheckBox
             // 
             this.toolbarBorderCheckBox.AutoSize = true;
-            this.toolbarBorderCheckBox.Location = new System.Drawing.Point(91, 47);
+            this.toolbarBorderCheckBox.Location = new System.Drawing.Point(91, 49);
             this.toolbarBorderCheckBox.Name = "toolbarBorderCheckBox";
             this.toolbarBorderCheckBox.Size = new System.Drawing.Size(61, 19);
             this.toolbarBorderCheckBox.TabIndex = 4;
@@ -632,9 +651,10 @@
             this.searchPanelGroupBox.Controls.Add(this.searchFontColorLabel);
             this.searchPanelGroupBox.Controls.Add(this.searchFontColor);
             this.searchPanelGroupBox.Controls.Add(this.searchBackColor);
-            this.searchPanelGroupBox.Location = new System.Drawing.Point(6, 165);
+            this.searchPanelGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchPanelGroupBox.Location = new System.Drawing.Point(6, 153);
             this.searchPanelGroupBox.Name = "searchPanelGroupBox";
-            this.searchPanelGroupBox.Size = new System.Drawing.Size(295, 110);
+            this.searchPanelGroupBox.Size = new System.Drawing.Size(298, 110);
             this.searchPanelGroupBox.TabIndex = 3;
             this.searchPanelGroupBox.TabStop = false;
             this.searchPanelGroupBox.Text = "Search Panel";
@@ -910,7 +930,7 @@
             this.encryptionHintLabel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.encryptionHintLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.encryptionHintLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.encryptionHintLabel.Location = new System.Drawing.Point(9, 102);
+            this.encryptionHintLabel.Location = new System.Drawing.Point(9, 101);
             this.encryptionHintLabel.Name = "encryptionHintLabel";
             this.encryptionHintLabel.Size = new System.Drawing.Size(309, 70);
             this.encryptionHintLabel.TabIndex = 7;
@@ -1017,16 +1037,16 @@
             this.fontDialog.ShowEffects = false;
             this.fontDialog.Apply += new System.EventHandler(this.FontDialog_Apply);
             // 
-            // shortcutKeysCheckBox
+            // openTxtUnencryptedCheckBox
             // 
-            this.shortcutKeysCheckBox.AutoSize = true;
-            this.shortcutKeysCheckBox.Location = new System.Drawing.Point(166, 22);
-            this.shortcutKeysCheckBox.Name = "shortcutKeysCheckBox";
-            this.shortcutKeysCheckBox.Size = new System.Drawing.Size(97, 19);
-            this.shortcutKeysCheckBox.TabIndex = 3;
-            this.shortcutKeysCheckBox.Text = "Shortcut keys";
-            this.shortcutKeysCheckBox.UseVisualStyleBackColor = true;
-            this.shortcutKeysCheckBox.Click += new System.EventHandler(this.ShortcutKeysCheckBox_Click);
+            this.openTxtUnencryptedCheckBox.AutoSize = true;
+            this.openTxtUnencryptedCheckBox.Location = new System.Drawing.Point(6, 72);
+            this.openTxtUnencryptedCheckBox.Name = "openTxtUnencryptedCheckBox";
+            this.openTxtUnencryptedCheckBox.Size = new System.Drawing.Size(254, 19);
+            this.openTxtUnencryptedCheckBox.TabIndex = 9;
+            this.openTxtUnencryptedCheckBox.Text = "Open all files except *.cnp like unencrypted";
+            this.openTxtUnencryptedCheckBox.UseVisualStyleBackColor = true;
+            this.openTxtUnencryptedCheckBox.Click += new System.EventHandler(this.OpenTxtUnencryptedCheckBox_Click);
             // 
             // SettingsForm
             // 
@@ -1153,5 +1173,6 @@
         private System.Windows.Forms.CheckBox statusPanelClipboardCheckBox;
         private System.Windows.Forms.CheckBox clearClipboardCheckBox;
         private System.Windows.Forms.CheckBox shortcutKeysCheckBox;
+        private System.Windows.Forms.CheckBox openTxtUnencryptedCheckBox;
     }
 }

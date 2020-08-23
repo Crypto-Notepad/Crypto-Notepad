@@ -333,6 +333,16 @@ namespace Crypto_Notepad.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lock_pencil {
+            get {
+                object obj = ResourceManager.GetObject("lock_pencil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lock_warning {
             get {
                 object obj = ResourceManager.GetObject("lock_warning", resourceCulture);
@@ -426,6 +436,16 @@ namespace Crypto_Notepad.Properties {
         internal static System.Drawing.Bitmap old_lock {
             get {
                 object obj = ResourceManager.GetObject("old_lock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap old_lock_edit {
+            get {
+                object obj = ResourceManager.GetObject("old_lock_edit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

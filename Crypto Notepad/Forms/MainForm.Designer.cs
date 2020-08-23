@@ -41,6 +41,7 @@
             this.mainMenuSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.openFileLocationMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteFileMainMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.tryToDecryptMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exitMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.editMainMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,9 +97,7 @@
             this.searchFindNextButton = new System.Windows.Forms.Label();
             this.toolbarPanel = new System.Windows.Forms.TableLayoutPanel();
             this.closeToolbarButton = new System.Windows.Forms.Label();
-            this.lockToolbarButton = new System.Windows.Forms.PictureBox();
             this.newToolbarButton = new System.Windows.Forms.PictureBox();
-            this.changePasswordToolbarButton = new System.Windows.Forms.PictureBox();
             this.openToolbarButton = new System.Windows.Forms.PictureBox();
             this.pasteToolbarButton = new System.Windows.Forms.PictureBox();
             this.saveToolbarButton = new System.Windows.Forms.PictureBox();
@@ -106,8 +105,11 @@
             this.fileLocationToolbarButton = new System.Windows.Forms.PictureBox();
             this.cutToolbarButton = new System.Windows.Forms.PictureBox();
             this.deleteFileToolbarButton = new System.Windows.Forms.PictureBox();
-            this.settingsToolbarButton = new System.Windows.Forms.PictureBox();
+            this.tryToDecryptToolbarButton = new System.Windows.Forms.PictureBox();
+            this.changePasswordToolbarButton = new System.Windows.Forms.PictureBox();
+            this.lockToolbarButton = new System.Windows.Forms.PictureBox();
             this.alwaysOnTopToolbarButton = new System.Windows.Forms.PictureBox();
+            this.settingsToolbarButton = new System.Windows.Forms.PictureBox();
             this.statusPanel = new System.Windows.Forms.StatusStrip();
             this.statusPanelLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusPanelLengthLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -137,9 +139,7 @@
             this.contextMenu.SuspendLayout();
             this.searchPanel.SuspendLayout();
             this.toolbarPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lockToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newToolbarButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.changePasswordToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.openToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pasteToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveToolbarButton)).BeginInit();
@@ -147,8 +147,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.fileLocationToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cutToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deleteFileToolbarButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.settingsToolbarButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tryToDecryptToolbarButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.changePasswordToolbarButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lockToolbarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alwaysOnTopToolbarButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settingsToolbarButton)).BeginInit();
             this.statusPanel.SuspendLayout();
             this.trayMenu.SuspendLayout();
             this.fileLockedPanel.SuspendLayout();
@@ -185,12 +188,14 @@
             this.mainMenuSeparator2,
             this.openFileLocationMainMenu,
             this.deleteFileMainMenu,
+            this.tryToDecryptMainMenu,
             this.mainMenuSeparator3,
             this.exitMainMenu});
             this.fileMainMenu.ForeColor = System.Drawing.SystemColors.ControlText;
             this.fileMainMenu.Name = "fileMainMenu";
             this.fileMainMenu.Size = new System.Drawing.Size(37, 24);
             this.fileMainMenu.Text = "File";
+            this.fileMainMenu.DropDownOpening += new System.EventHandler(this.FileMainMenu_DropDownOpening);
             // 
             // newMainMenu
             // 
@@ -263,6 +268,15 @@
             this.deleteFileMainMenu.Text = "Delete File";
             this.deleteFileMainMenu.Click += new System.EventHandler(this.DeleteFileToolStripMenuItem_Click);
             // 
+            // tryToDecryptMainMenu
+            // 
+            this.tryToDecryptMainMenu.Name = "tryToDecryptMainMenu";
+            this.tryToDecryptMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.E)));
+            this.tryToDecryptMainMenu.Size = new System.Drawing.Size(248, 22);
+            this.tryToDecryptMainMenu.Text = "Try to Decrypt";
+            this.tryToDecryptMainMenu.Click += new System.EventHandler(this.TryToDecryptMainMenu_Click);
+            // 
             // mainMenuSeparator3
             // 
             this.mainMenuSeparator3.Name = "mainMenuSeparator3";
@@ -299,13 +313,14 @@
             this.editMainMenu.Name = "editMainMenu";
             this.editMainMenu.Size = new System.Drawing.Size(39, 24);
             this.editMainMenu.Text = "Edit";
+            this.editMainMenu.DropDownOpening += new System.EventHandler(this.EditMainMenu_DropDownOpening);
             this.editMainMenu.DropDownOpened += new System.EventHandler(this.EditMainMenu_DropDownOpened);
             // 
             // undoMainMenu
             // 
             this.undoMainMenu.Name = "undoMainMenu";
             this.undoMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoMainMenu.Size = new System.Drawing.Size(221, 22);
+            this.undoMainMenu.Size = new System.Drawing.Size(198, 22);
             this.undoMainMenu.Text = "Undo";
             this.undoMainMenu.Click += new System.EventHandler(this.UndoMainMenu_Click);
             // 
@@ -313,21 +328,21 @@
             // 
             this.redoMainMenu.Name = "redoMainMenu";
             this.redoMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoMainMenu.Size = new System.Drawing.Size(221, 22);
+            this.redoMainMenu.Size = new System.Drawing.Size(198, 22);
             this.redoMainMenu.Text = "Redo";
             this.redoMainMenu.Click += new System.EventHandler(this.RedoMainMenu_Click);
             // 
             // mainMenuSeparator4
             // 
             this.mainMenuSeparator4.Name = "mainMenuSeparator4";
-            this.mainMenuSeparator4.Size = new System.Drawing.Size(218, 6);
+            this.mainMenuSeparator4.Size = new System.Drawing.Size(195, 6);
             // 
             // cutMainMenu
             // 
             this.cutMainMenu.Enabled = false;
             this.cutMainMenu.Name = "cutMainMenu";
             this.cutMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.cutMainMenu.Size = new System.Drawing.Size(221, 22);
+            this.cutMainMenu.Size = new System.Drawing.Size(198, 22);
             this.cutMainMenu.Text = "Cut";
             this.cutMainMenu.Click += new System.EventHandler(this.CutMainMenu_Click);
             // 
@@ -336,7 +351,7 @@
             this.copyMainMenu.Enabled = false;
             this.copyMainMenu.Name = "copyMainMenu";
             this.copyMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copyMainMenu.Size = new System.Drawing.Size(221, 22);
+            this.copyMainMenu.Size = new System.Drawing.Size(198, 22);
             this.copyMainMenu.Text = "Copy";
             this.copyMainMenu.Click += new System.EventHandler(this.CopyMainMenu_Click);
             // 
@@ -344,7 +359,7 @@
             // 
             this.pasteMainMenu.Name = "pasteMainMenu";
             this.pasteMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.pasteMainMenu.Size = new System.Drawing.Size(221, 22);
+            this.pasteMainMenu.Size = new System.Drawing.Size(198, 22);
             this.pasteMainMenu.Text = "Paste";
             this.pasteMainMenu.Click += new System.EventHandler(this.PasteMainMenu_Click);
             // 
@@ -353,34 +368,34 @@
             this.deleteMainMenu.Enabled = false;
             this.deleteMainMenu.Name = "deleteMainMenu";
             this.deleteMainMenu.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.deleteMainMenu.Size = new System.Drawing.Size(221, 22);
+            this.deleteMainMenu.Size = new System.Drawing.Size(198, 22);
             this.deleteMainMenu.Text = "Delete";
             this.deleteMainMenu.Click += new System.EventHandler(this.DeleteMainMenu_Click);
             // 
             // mainMenuSeparator5
             // 
             this.mainMenuSeparator5.Name = "mainMenuSeparator5";
-            this.mainMenuSeparator5.Size = new System.Drawing.Size(218, 6);
+            this.mainMenuSeparator5.Size = new System.Drawing.Size(195, 6);
             // 
             // findMainMenu
             // 
             this.findMainMenu.Name = "findMainMenu";
             this.findMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.findMainMenu.Size = new System.Drawing.Size(221, 22);
+            this.findMainMenu.Size = new System.Drawing.Size(198, 22);
             this.findMainMenu.Text = "Find";
             this.findMainMenu.Click += new System.EventHandler(this.FindMainMenu_Click);
             // 
             // mainMenuSeparator6
             // 
             this.mainMenuSeparator6.Name = "mainMenuSeparator6";
-            this.mainMenuSeparator6.Size = new System.Drawing.Size(218, 6);
+            this.mainMenuSeparator6.Size = new System.Drawing.Size(195, 6);
             // 
             // selectAllMainMenu
             // 
             this.selectAllMainMenu.Name = "selectAllMainMenu";
             this.selectAllMainMenu.ShortcutKeyDisplayString = "";
             this.selectAllMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.selectAllMainMenu.Size = new System.Drawing.Size(221, 22);
+            this.selectAllMainMenu.Size = new System.Drawing.Size(198, 22);
             this.selectAllMainMenu.Text = "Select All";
             this.selectAllMainMenu.Click += new System.EventHandler(this.SelectAllMainMenu_Click);
             // 
@@ -399,7 +414,7 @@
             this.wordWrapMainMenu.CheckState = System.Windows.Forms.CheckState.Checked;
             this.wordWrapMainMenu.Name = "wordWrapMainMenu";
             this.wordWrapMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
-            this.wordWrapMainMenu.Size = new System.Drawing.Size(221, 22);
+            this.wordWrapMainMenu.Size = new System.Drawing.Size(198, 22);
             this.wordWrapMainMenu.Text = "Word Wrap";
             this.wordWrapMainMenu.Click += new System.EventHandler(this.WordWrapMainMenu_Click);
             // 
@@ -408,20 +423,20 @@
             this.readOnlyMainMenu.CheckOnClick = true;
             this.readOnlyMainMenu.Name = "readOnlyMainMenu";
             this.readOnlyMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.readOnlyMainMenu.Size = new System.Drawing.Size(221, 22);
+            this.readOnlyMainMenu.Size = new System.Drawing.Size(198, 22);
             this.readOnlyMainMenu.Text = "Readonly";
             this.readOnlyMainMenu.Click += new System.EventHandler(this.ReadOnlyMainMenu_Click);
             // 
             // mainMenuSeparator7
             // 
             this.mainMenuSeparator7.Name = "mainMenuSeparator7";
-            this.mainMenuSeparator7.Size = new System.Drawing.Size(218, 6);
+            this.mainMenuSeparator7.Size = new System.Drawing.Size(195, 6);
             // 
             // clearMainMenu
             // 
             this.clearMainMenu.Name = "clearMainMenu";
             this.clearMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Delete)));
-            this.clearMainMenu.Size = new System.Drawing.Size(221, 22);
+            this.clearMainMenu.Size = new System.Drawing.Size(198, 22);
             this.clearMainMenu.Text = "Clear";
             this.clearMainMenu.Click += new System.EventHandler(this.ClearMainMenu_Click);
             // 
@@ -437,13 +452,14 @@
             this.toolsMainMenu.Name = "toolsMainMenu";
             this.toolsMainMenu.Size = new System.Drawing.Size(46, 24);
             this.toolsMainMenu.Text = "Tools";
+            this.toolsMainMenu.DropDownOpening += new System.EventHandler(this.ToolsMainMenu_DropDownOpening);
             // 
             // alwaysOnTopMainMenu
             // 
             this.alwaysOnTopMainMenu.CheckOnClick = true;
             this.alwaysOnTopMainMenu.Name = "alwaysOnTopMainMenu";
             this.alwaysOnTopMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.alwaysOnTopMainMenu.Size = new System.Drawing.Size(232, 22);
+            this.alwaysOnTopMainMenu.Size = new System.Drawing.Size(241, 22);
             this.alwaysOnTopMainMenu.Text = "Always on Top";
             this.alwaysOnTopMainMenu.Click += new System.EventHandler(this.AlwaysOnTopMainMenu_Click);
             // 
@@ -451,7 +467,7 @@
             // 
             this.passwordGeneratorMainMenu.Name = "passwordGeneratorMainMenu";
             this.passwordGeneratorMainMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.passwordGeneratorMainMenu.Size = new System.Drawing.Size(232, 22);
+            this.passwordGeneratorMainMenu.Size = new System.Drawing.Size(241, 22);
             this.passwordGeneratorMainMenu.Text = "Password Generator";
             this.passwordGeneratorMainMenu.Click += new System.EventHandler(this.PasswordGeneratorMainMenu_Click);
             // 
@@ -788,9 +804,7 @@
             this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.toolbarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 18F));
             this.toolbarPanel.Controls.Add(this.closeToolbarButton, 13, 0);
-            this.toolbarPanel.Controls.Add(this.lockToolbarButton, 9, 0);
             this.toolbarPanel.Controls.Add(this.newToolbarButton, 0, 0);
-            this.toolbarPanel.Controls.Add(this.changePasswordToolbarButton, 8, 0);
             this.toolbarPanel.Controls.Add(this.openToolbarButton, 1, 0);
             this.toolbarPanel.Controls.Add(this.pasteToolbarButton, 7, 0);
             this.toolbarPanel.Controls.Add(this.saveToolbarButton, 2, 0);
@@ -798,8 +812,11 @@
             this.toolbarPanel.Controls.Add(this.fileLocationToolbarButton, 3, 0);
             this.toolbarPanel.Controls.Add(this.cutToolbarButton, 5, 0);
             this.toolbarPanel.Controls.Add(this.deleteFileToolbarButton, 4, 0);
-            this.toolbarPanel.Controls.Add(this.settingsToolbarButton, 11, 0);
-            this.toolbarPanel.Controls.Add(this.alwaysOnTopToolbarButton, 10, 0);
+            this.toolbarPanel.Controls.Add(this.tryToDecryptToolbarButton, 8, 0);
+            this.toolbarPanel.Controls.Add(this.changePasswordToolbarButton, 9, 0);
+            this.toolbarPanel.Controls.Add(this.lockToolbarButton, 10, 0);
+            this.toolbarPanel.Controls.Add(this.alwaysOnTopToolbarButton, 11, 0);
+            this.toolbarPanel.Controls.Add(this.settingsToolbarButton, 12, 0);
             this.toolbarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.toolbarPanel.ForeColor = System.Drawing.SystemColors.Control;
             this.toolbarPanel.Location = new System.Drawing.Point(0, 24);
@@ -827,20 +844,6 @@
             this.closeToolbarButton.MouseEnter += new System.EventHandler(this.CloseToolbarButton_MouseEnter);
             this.closeToolbarButton.MouseLeave += new System.EventHandler(this.CloseToolbarButton_MouseLeave);
             // 
-            // lockToolbarButton
-            // 
-            this.lockToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lockToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("lockToolbarButton.Image")));
-            this.lockToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lockToolbarButton.Location = new System.Drawing.Point(219, 3);
-            this.lockToolbarButton.Name = "lockToolbarButton";
-            this.lockToolbarButton.Size = new System.Drawing.Size(16, 16);
-            this.lockToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.lockToolbarButton.TabIndex = 15;
-            this.lockToolbarButton.TabStop = false;
-            this.toolTip.SetToolTip(this.lockToolbarButton, "Lock");
-            this.lockToolbarButton.Click += new System.EventHandler(this.LockToolbarButton_Click);
-            // 
             // newToolbarButton
             // 
             this.newToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -854,20 +857,6 @@
             this.newToolbarButton.TabStop = false;
             this.toolTip.SetToolTip(this.newToolbarButton, "New");
             this.newToolbarButton.Click += new System.EventHandler(this.NewToolbarButton_Click);
-            // 
-            // changePasswordToolbarButton
-            // 
-            this.changePasswordToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.changePasswordToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("changePasswordToolbarButton.Image")));
-            this.changePasswordToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.changePasswordToolbarButton.Location = new System.Drawing.Point(195, 3);
-            this.changePasswordToolbarButton.Name = "changePasswordToolbarButton";
-            this.changePasswordToolbarButton.Size = new System.Drawing.Size(16, 16);
-            this.changePasswordToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.changePasswordToolbarButton.TabIndex = 15;
-            this.changePasswordToolbarButton.TabStop = false;
-            this.toolTip.SetToolTip(this.changePasswordToolbarButton, "Change password");
-            this.changePasswordToolbarButton.Click += new System.EventHandler(this.ChangePasswordToolbarButton_Click);
             // 
             // openToolbarButton
             // 
@@ -967,26 +956,53 @@
             this.toolTip.SetToolTip(this.deleteFileToolbarButton, "Delete file");
             this.deleteFileToolbarButton.Click += new System.EventHandler(this.DeleteFileToolbarButton_Click);
             // 
-            // settingsToolbarButton
+            // tryToDecryptToolbarButton
             // 
-            this.settingsToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.settingsToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("settingsToolbarButton.Image")));
-            this.settingsToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.settingsToolbarButton.Location = new System.Drawing.Point(267, 3);
-            this.settingsToolbarButton.Name = "settingsToolbarButton";
-            this.settingsToolbarButton.Size = new System.Drawing.Size(16, 16);
-            this.settingsToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.settingsToolbarButton.TabIndex = 15;
-            this.settingsToolbarButton.TabStop = false;
-            this.toolTip.SetToolTip(this.settingsToolbarButton, "Settings");
-            this.settingsToolbarButton.Click += new System.EventHandler(this.SettingsToolbarButton_Click);
+            this.tryToDecryptToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tryToDecryptToolbarButton.Image = global::Crypto_Notepad.Properties.Resources.lock_pencil;
+            this.tryToDecryptToolbarButton.Location = new System.Drawing.Point(195, 3);
+            this.tryToDecryptToolbarButton.Name = "tryToDecryptToolbarButton";
+            this.tryToDecryptToolbarButton.Size = new System.Drawing.Size(16, 16);
+            this.tryToDecryptToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.tryToDecryptToolbarButton.TabIndex = 18;
+            this.tryToDecryptToolbarButton.TabStop = false;
+            this.toolTip.SetToolTip(this.tryToDecryptToolbarButton, "Try to decrypt");
+            this.tryToDecryptToolbarButton.Click += new System.EventHandler(this.TryToDecryptToolbarButton_Click);
+            // 
+            // changePasswordToolbarButton
+            // 
+            this.changePasswordToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.changePasswordToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("changePasswordToolbarButton.Image")));
+            this.changePasswordToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.changePasswordToolbarButton.Location = new System.Drawing.Point(219, 3);
+            this.changePasswordToolbarButton.Name = "changePasswordToolbarButton";
+            this.changePasswordToolbarButton.Size = new System.Drawing.Size(16, 16);
+            this.changePasswordToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.changePasswordToolbarButton.TabIndex = 15;
+            this.changePasswordToolbarButton.TabStop = false;
+            this.toolTip.SetToolTip(this.changePasswordToolbarButton, "Change password");
+            this.changePasswordToolbarButton.Click += new System.EventHandler(this.ChangePasswordToolbarButton_Click);
+            // 
+            // lockToolbarButton
+            // 
+            this.lockToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lockToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("lockToolbarButton.Image")));
+            this.lockToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lockToolbarButton.Location = new System.Drawing.Point(243, 3);
+            this.lockToolbarButton.Name = "lockToolbarButton";
+            this.lockToolbarButton.Size = new System.Drawing.Size(16, 16);
+            this.lockToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.lockToolbarButton.TabIndex = 15;
+            this.lockToolbarButton.TabStop = false;
+            this.toolTip.SetToolTip(this.lockToolbarButton, "Lock");
+            this.lockToolbarButton.Click += new System.EventHandler(this.LockToolbarButton_Click);
             // 
             // alwaysOnTopToolbarButton
             // 
             this.alwaysOnTopToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.alwaysOnTopToolbarButton.Image = global::Crypto_Notepad.Properties.Resources.applications_blue;
             this.alwaysOnTopToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.alwaysOnTopToolbarButton.Location = new System.Drawing.Point(243, 3);
+            this.alwaysOnTopToolbarButton.Location = new System.Drawing.Point(267, 3);
             this.alwaysOnTopToolbarButton.Name = "alwaysOnTopToolbarButton";
             this.alwaysOnTopToolbarButton.Size = new System.Drawing.Size(16, 16);
             this.alwaysOnTopToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -994,6 +1010,20 @@
             this.alwaysOnTopToolbarButton.TabStop = false;
             this.toolTip.SetToolTip(this.alwaysOnTopToolbarButton, "Always on top");
             this.alwaysOnTopToolbarButton.Click += new System.EventHandler(this.AlwaysOnTopToolbarButton_Click);
+            // 
+            // settingsToolbarButton
+            // 
+            this.settingsToolbarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.settingsToolbarButton.Image = ((System.Drawing.Image)(resources.GetObject("settingsToolbarButton.Image")));
+            this.settingsToolbarButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.settingsToolbarButton.Location = new System.Drawing.Point(291, 3);
+            this.settingsToolbarButton.Name = "settingsToolbarButton";
+            this.settingsToolbarButton.Size = new System.Drawing.Size(16, 16);
+            this.settingsToolbarButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.settingsToolbarButton.TabIndex = 15;
+            this.settingsToolbarButton.TabStop = false;
+            this.toolTip.SetToolTip(this.settingsToolbarButton, "Settings");
+            this.settingsToolbarButton.Click += new System.EventHandler(this.SettingsToolbarButton_Click);
             // 
             // statusPanel
             // 
@@ -1231,7 +1261,8 @@
             // 
             this.toolTip.AutoPopDelay = 5000;
             this.toolTip.InitialDelay = 500;
-            this.toolTip.ReshowDelay = 19000;
+            this.toolTip.ReshowDelay = 500;
+            this.toolTip.ShowAlways = true;
             // 
             // richTextBoxPanel
             // 
@@ -1311,9 +1342,7 @@
             this.searchPanel.PerformLayout();
             this.toolbarPanel.ResumeLayout(false);
             this.toolbarPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lockToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newToolbarButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.changePasswordToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.openToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pasteToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveToolbarButton)).EndInit();
@@ -1321,8 +1350,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.fileLocationToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cutToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deleteFileToolbarButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.settingsToolbarButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tryToDecryptToolbarButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.changePasswordToolbarButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lockToolbarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alwaysOnTopToolbarButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settingsToolbarButton)).EndInit();
             this.statusPanel.ResumeLayout(false);
             this.statusPanel.PerformLayout();
             this.trayMenu.ResumeLayout(false);
@@ -1439,5 +1471,7 @@
         private System.Windows.Forms.ToolStripProgressBar statusPanelClipboardProgressBar;
         private System.Windows.Forms.Timer clipboardTimer;
         private System.Windows.Forms.ToolStripMenuItem clearClipboardMainMenu;
+        private System.Windows.Forms.ToolStripMenuItem tryToDecryptMainMenu;
+        private System.Windows.Forms.PictureBox tryToDecryptToolbarButton;
     }
 }
