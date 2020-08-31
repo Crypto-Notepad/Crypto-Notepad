@@ -4,7 +4,7 @@
 [![license](https://img.shields.io/github/license/Crypto-Notepad/Crypto-Notepad.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/blob/master/LICENSE)
 [![release](https://img.shields.io/github/release/Crypto-Notepad/Crypto-Notepad.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Release-Notes)
 [![documentation](https://img.shields.io/badge/documentation-wiki-yellowgreen.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Documentation)
-[![status](https://img.shields.io/badge/project_status-suspended-orange.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/wiki/Project-status)
+[![last-commi](https://img.shields.io/github/last-commit/Crypto-Notepad/Crypto-Notepad?color=C734A5)](https://github.com/Crypto-Notepad/Crypto-Notepad/commits/master)
 
 Notepad-like simple text editor for Windows, where files are saved and loaded encrypted with AES algorithms.
 
