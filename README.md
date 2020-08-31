@@ -1,4 +1,4 @@
-# Crypto Notepad [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Simple%20notepad%20for%20Windows%20with%20encryption%20features.%20Download%20for%20free:%20https://crypto-notepad.info/&hashtags=notepad,encryption,windows,opensource,csharp)
+# Crypto Notepad [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Simple%20notepad%20for%20Windows%20with%20encryption%20features.%20Download%20for%20free:%20https://crypto-notepad.github.io/&hashtags=notepad,encryption,windows,opensource,csharp)
 
 [![downloads](https://img.shields.io/github/downloads/Crypto-Notepad/Crypto-Notepad/total.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/releases/latest)
 [![license](https://img.shields.io/github/license/Crypto-Notepad/Crypto-Notepad.svg?color=6DAAAE)](https://github.com/Crypto-Notepad/Crypto-Notepad/blob/master/LICENSE)
