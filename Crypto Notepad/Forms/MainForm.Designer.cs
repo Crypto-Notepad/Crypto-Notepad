@@ -126,15 +126,15 @@
             this.fileLockedPanel = new System.Windows.Forms.Panel();
             this.fileLockedCloseButton = new System.Windows.Forms.Button();
             this.fileLockedOkButton = new System.Windows.Forms.Button();
-            this.fileLockedKeyTextBox = new System.Windows.Forms.PlaceholderTextBox();
             this.fileLockedShowKey = new System.Windows.Forms.PictureBox();
             this.fileLockedLabel = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.richTextBoxPanel = new System.Windows.Forms.Panel();
-            this.richTextBox = new Crypto_Notepad.ExRichTextBox();
             this.statusPanelTimer = new System.Windows.Forms.Timer(this.components);
             this.lockTimer = new System.Windows.Forms.Timer(this.components);
             this.clipboardTimer = new System.Windows.Forms.Timer(this.components);
+            this.fileLockedKeyTextBox = new System.Windows.Forms.PlaceholderTextBox();
+            this.richTextBox = new Crypto_Notepad.ExRichTextBox();
             this.mainMenu.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.searchPanel.SuspendLayout();
@@ -1218,20 +1218,6 @@
             this.fileLockedOkButton.UseVisualStyleBackColor = true;
             this.fileLockedOkButton.Click += new System.EventHandler(this.FileLockedOkButton_Click);
             // 
-            // fileLockedKeyTextBox
-            // 
-            this.fileLockedKeyTextBox.Location = new System.Drawing.Point(6, 34);
-            this.fileLockedKeyTextBox.Name = "fileLockedKeyTextBox";
-            this.fileLockedKeyTextBox.Placeholder = "Password";
-            this.fileLockedKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
-            this.fileLockedKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.fileLockedKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.fileLockedKeyTextBox.Size = new System.Drawing.Size(231, 22);
-            this.fileLockedKeyTextBox.TabIndex = 8;
-            this.fileLockedKeyTextBox.UseSystemPasswordChar = true;
-            this.fileLockedKeyTextBox.TextChanged += new System.EventHandler(this.FileLockedKeyTextBox_TextChanged);
-            this.fileLockedKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FileLockedKeyTextBox_KeyDown);
-            // 
             // fileLockedShowKey
             // 
             this.fileLockedShowKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1275,6 +1261,34 @@
             this.richTextBoxPanel.Size = new System.Drawing.Size(544, 226);
             this.richTextBoxPanel.TabIndex = 21;
             // 
+            // statusPanelTimer
+            // 
+            this.statusPanelTimer.Interval = 1;
+            this.statusPanelTimer.Tick += new System.EventHandler(this.StatusPanelTimer_Tick);
+            // 
+            // lockTimer
+            // 
+            this.lockTimer.Tick += new System.EventHandler(this.LockTimer_Tick);
+            // 
+            // clipboardTimer
+            // 
+            this.clipboardTimer.Interval = 50;
+            this.clipboardTimer.Tick += new System.EventHandler(this.ClipboardTimer_Tick);
+            // 
+            // fileLockedKeyTextBox
+            // 
+            this.fileLockedKeyTextBox.Location = new System.Drawing.Point(6, 34);
+            this.fileLockedKeyTextBox.Name = "fileLockedKeyTextBox";
+            this.fileLockedKeyTextBox.Placeholder = "Password";
+            this.fileLockedKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
+            this.fileLockedKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.fileLockedKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.fileLockedKeyTextBox.Size = new System.Drawing.Size(231, 22);
+            this.fileLockedKeyTextBox.TabIndex = 8;
+            this.fileLockedKeyTextBox.UseSystemPasswordChar = true;
+            this.fileLockedKeyTextBox.TextChanged += new System.EventHandler(this.FileLockedKeyTextBox_TextChanged);
+            this.fileLockedKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FileLockedKeyTextBox_KeyDown);
+            // 
             // richTextBox
             // 
             this.richTextBox.AcceptsTab = true;
@@ -1294,20 +1308,6 @@
             this.richTextBox.ModifiedChanged += new System.EventHandler(this.RichTextBox_ModifiedChanged);
             this.richTextBox.TextChanged += new System.EventHandler(this.RichTextBox_TextChanged);
             this.richTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyDown);
-            // 
-            // statusPanelTimer
-            // 
-            this.statusPanelTimer.Interval = 1;
-            this.statusPanelTimer.Tick += new System.EventHandler(this.StatusPanelTimer_Tick);
-            // 
-            // lockTimer
-            // 
-            this.lockTimer.Tick += new System.EventHandler(this.LockTimer_Tick);
-            // 
-            // clipboardTimer
-            // 
-            this.clipboardTimer.Interval = 50;
-            this.clipboardTimer.Tick += new System.EventHandler(this.ClipboardTimer_Tick);
             // 
             // MainForm
             // 
