@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Crypto_Notepad.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="editroForeColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="editorForeColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Black</Value>
     </Setting>
     <Setting Name="editorBackColor" Provider="PortableSettingsProvider" Type="System.Drawing.Color" Scope="User">
@@ -183,6 +183,9 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="openTxtUnencrypted" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="trayMenu" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>

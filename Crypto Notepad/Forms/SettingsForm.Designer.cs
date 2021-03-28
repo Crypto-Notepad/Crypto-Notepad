@@ -34,21 +34,22 @@
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.settingsTabControl = new System.Windows.Forms.TabControl();
             this.generalTabPage = new System.Windows.Forms.TabPage();
+            this.autoLockGroupBox = new System.Windows.Forms.GroupBox();
+            this.autoLockMinutesLabel = new System.Windows.Forms.Label();
+            this.autoLockOnMinimizeCheckBox = new System.Windows.Forms.CheckBox();
+            this.lockTimeoutLabel = new System.Windows.Forms.Label();
             this.integrationGroupBox = new System.Windows.Forms.GroupBox();
             this.integrateCheckBox = new System.Windows.Forms.CheckBox();
             this.associateCheckBox = new System.Windows.Forms.CheckBox();
             this.sendToCheckBox = new System.Windows.Forms.CheckBox();
             this.applicationGroupBox = new System.Windows.Forms.GroupBox();
+            this.trayMenuCheckBox = new System.Windows.Forms.CheckBox();
+            this.openTxtUnencryptedCheckBox = new System.Windows.Forms.CheckBox();
             this.clearClipboardCheckBox = new System.Windows.Forms.CheckBox();
             this.autoCheckUpdatesCheckBox = new System.Windows.Forms.CheckBox();
             this.singleInstanceCheckBox = new System.Windows.Forms.CheckBox();
             this.closeToTrayCheckBox = new System.Windows.Forms.CheckBox();
             this.minimizeToTrayCheckBox = new System.Windows.Forms.CheckBox();
-            this.autoLockGroupBox = new System.Windows.Forms.GroupBox();
-            this.autoLockMinutesLabel = new System.Windows.Forms.Label();
-            this.autoLockOnMinimizeCheckBox = new System.Windows.Forms.CheckBox();
-            this.lockTimeoutTextBox = new System.Windows.Forms.PlaceholderTextBox();
-            this.lockTimeoutLabel = new System.Windows.Forms.Label();
             this.interfaceTabPage = new System.Windows.Forms.TabPage();
             this.statusPanelGroupBox = new System.Windows.Forms.GroupBox();
             this.statusPanelLabelsGroupBox = new System.Windows.Forms.GroupBox();
@@ -64,17 +65,6 @@
             this.statusPanelFontColorLabel = new System.Windows.Forms.Label();
             this.statusPanelBackColor = new System.Windows.Forms.Panel();
             this.statusPanelFontColor = new System.Windows.Forms.Panel();
-            this.mainMenuGroupBox = new System.Windows.Forms.GroupBox();
-            this.shortcutKeysCheckBox = new System.Windows.Forms.CheckBox();
-            this.mainMenuCheckBox = new System.Windows.Forms.CheckBox();
-            this.menuIconsCheckBox = new System.Windows.Forms.CheckBox();
-            this.toolbarGroupBox = new System.Windows.Forms.GroupBox();
-            this.toolbarCloseButtonCheckBox = new System.Windows.Forms.CheckBox();
-            this.toolbarBorderCheckBox = new System.Windows.Forms.CheckBox();
-            this.toolbarOldIconsCheckBox = new System.Windows.Forms.CheckBox();
-            this.toolbarBackColorLabel = new System.Windows.Forms.Label();
-            this.toolbarBackColor = new System.Windows.Forms.Panel();
-            this.toolbarVisibleCheckBox = new System.Windows.Forms.CheckBox();
             this.searchPanelGroupBox = new System.Windows.Forms.GroupBox();
             this.searchBorderComboBox = new System.Windows.Forms.ComboBox();
             this.searchBackColorLabel = new System.Windows.Forms.Label();
@@ -82,6 +72,17 @@
             this.searchFontColorLabel = new System.Windows.Forms.Label();
             this.searchFontColor = new System.Windows.Forms.Panel();
             this.searchBackColor = new System.Windows.Forms.Panel();
+            this.toolbarGroupBox = new System.Windows.Forms.GroupBox();
+            this.toolbarCloseButtonCheckBox = new System.Windows.Forms.CheckBox();
+            this.toolbarBorderCheckBox = new System.Windows.Forms.CheckBox();
+            this.toolbarOldIconsCheckBox = new System.Windows.Forms.CheckBox();
+            this.toolbarBackColorLabel = new System.Windows.Forms.Label();
+            this.toolbarBackColor = new System.Windows.Forms.Panel();
+            this.toolbarVisibleCheckBox = new System.Windows.Forms.CheckBox();
+            this.mainMenuGroupBox = new System.Windows.Forms.GroupBox();
+            this.shortcutKeysCheckBox = new System.Windows.Forms.CheckBox();
+            this.mainMenuCheckBox = new System.Windows.Forms.CheckBox();
+            this.menuIconsCheckBox = new System.Windows.Forms.CheckBox();
             this.editorTabPage = new System.Windows.Forms.TabPage();
             this.clearClipboardTextBox = new System.Windows.Forms.TextBox();
             this.clearClipboardLabel = new System.Windows.Forms.Label();
@@ -109,18 +110,18 @@
             this.settingsNavigation = new System.Windows.Forms.ListBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.settingsToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.openTxtUnencryptedCheckBox = new System.Windows.Forms.CheckBox();
+            this.lockTimeoutTextBox = new System.Windows.Forms.PlaceholderTextBox();
             this.settingsTabControl.SuspendLayout();
             this.generalTabPage.SuspendLayout();
+            this.autoLockGroupBox.SuspendLayout();
             this.integrationGroupBox.SuspendLayout();
             this.applicationGroupBox.SuspendLayout();
-            this.autoLockGroupBox.SuspendLayout();
             this.interfaceTabPage.SuspendLayout();
             this.statusPanelGroupBox.SuspendLayout();
             this.statusPanelLabelsGroupBox.SuspendLayout();
-            this.mainMenuGroupBox.SuspendLayout();
-            this.toolbarGroupBox.SuspendLayout();
             this.searchPanelGroupBox.SuspendLayout();
+            this.toolbarGroupBox.SuspendLayout();
+            this.mainMenuGroupBox.SuspendLayout();
             this.editorTabPage.SuspendLayout();
             this.encryptionTabPage.SuspendLayout();
             this.SuspendLayout();
@@ -167,6 +168,49 @@
             this.generalTabPage.Size = new System.Drawing.Size(326, 291);
             this.generalTabPage.TabIndex = 2;
             this.generalTabPage.Text = "gen";
+            // 
+            // autoLockGroupBox
+            // 
+            this.autoLockGroupBox.Controls.Add(this.autoLockMinutesLabel);
+            this.autoLockGroupBox.Controls.Add(this.autoLockOnMinimizeCheckBox);
+            this.autoLockGroupBox.Controls.Add(this.lockTimeoutTextBox);
+            this.autoLockGroupBox.Controls.Add(this.lockTimeoutLabel);
+            this.autoLockGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.autoLockGroupBox.Location = new System.Drawing.Point(6, 230);
+            this.autoLockGroupBox.Name = "autoLockGroupBox";
+            this.autoLockGroupBox.Size = new System.Drawing.Size(312, 75);
+            this.autoLockGroupBox.TabIndex = 3;
+            this.autoLockGroupBox.TabStop = false;
+            this.autoLockGroupBox.Text = "Auto lock";
+            // 
+            // autoLockMinutesLabel
+            // 
+            this.autoLockMinutesLabel.AutoSize = true;
+            this.autoLockMinutesLabel.Location = new System.Drawing.Point(184, 48);
+            this.autoLockMinutesLabel.Name = "autoLockMinutesLabel";
+            this.autoLockMinutesLabel.Size = new System.Drawing.Size(50, 15);
+            this.autoLockMinutesLabel.TabIndex = 0;
+            this.autoLockMinutesLabel.Text = "minutes";
+            // 
+            // autoLockOnMinimizeCheckBox
+            // 
+            this.autoLockOnMinimizeCheckBox.AutoSize = true;
+            this.autoLockOnMinimizeCheckBox.Location = new System.Drawing.Point(6, 22);
+            this.autoLockOnMinimizeCheckBox.Name = "autoLockOnMinimizeCheckBox";
+            this.autoLockOnMinimizeCheckBox.Size = new System.Drawing.Size(146, 19);
+            this.autoLockOnMinimizeCheckBox.TabIndex = 7;
+            this.autoLockOnMinimizeCheckBox.Text = "Auto lock on minimize";
+            this.autoLockOnMinimizeCheckBox.UseVisualStyleBackColor = true;
+            this.autoLockOnMinimizeCheckBox.Click += new System.EventHandler(this.AutoLockOnMinimizeCheckBox_Click);
+            // 
+            // lockTimeoutLabel
+            // 
+            this.lockTimeoutLabel.AutoSize = true;
+            this.lockTimeoutLabel.Location = new System.Drawing.Point(3, 48);
+            this.lockTimeoutLabel.Name = "lockTimeoutLabel";
+            this.lockTimeoutLabel.Size = new System.Drawing.Size(125, 15);
+            this.lockTimeoutLabel.TabIndex = 7;
+            this.lockTimeoutLabel.Text = "If the app is inactive in";
             // 
             // integrationGroupBox
             // 
@@ -216,6 +260,7 @@
             // 
             // applicationGroupBox
             // 
+            this.applicationGroupBox.Controls.Add(this.trayMenuCheckBox);
             this.applicationGroupBox.Controls.Add(this.openTxtUnencryptedCheckBox);
             this.applicationGroupBox.Controls.Add(this.clearClipboardCheckBox);
             this.applicationGroupBox.Controls.Add(this.autoCheckUpdatesCheckBox);
@@ -230,10 +275,32 @@
             this.applicationGroupBox.TabStop = false;
             this.applicationGroupBox.Text = "Application";
             // 
+            // trayMenuCheckBox
+            // 
+            this.trayMenuCheckBox.AutoSize = true;
+            this.trayMenuCheckBox.Location = new System.Drawing.Point(6, 72);
+            this.trayMenuCheckBox.Name = "trayMenuCheckBox";
+            this.trayMenuCheckBox.Size = new System.Drawing.Size(81, 19);
+            this.trayMenuCheckBox.TabIndex = 10;
+            this.trayMenuCheckBox.Text = "Tray menu";
+            this.trayMenuCheckBox.UseVisualStyleBackColor = true;
+            this.trayMenuCheckBox.Click += new System.EventHandler(this.TrayMenuCheckBox_Click);
+            // 
+            // openTxtUnencryptedCheckBox
+            // 
+            this.openTxtUnencryptedCheckBox.AutoSize = true;
+            this.openTxtUnencryptedCheckBox.Location = new System.Drawing.Point(6, 97);
+            this.openTxtUnencryptedCheckBox.Name = "openTxtUnencryptedCheckBox";
+            this.openTxtUnencryptedCheckBox.Size = new System.Drawing.Size(254, 19);
+            this.openTxtUnencryptedCheckBox.TabIndex = 9;
+            this.openTxtUnencryptedCheckBox.Text = "Open all files except *.cnp like unencrypted";
+            this.openTxtUnencryptedCheckBox.UseVisualStyleBackColor = true;
+            this.openTxtUnencryptedCheckBox.Click += new System.EventHandler(this.OpenTxtUnencryptedCheckBox_Click);
+            // 
             // clearClipboardCheckBox
             // 
             this.clearClipboardCheckBox.AutoSize = true;
-            this.clearClipboardCheckBox.Location = new System.Drawing.Point(6, 97);
+            this.clearClipboardCheckBox.Location = new System.Drawing.Point(124, 72);
             this.clearClipboardCheckBox.Name = "clearClipboardCheckBox";
             this.clearClipboardCheckBox.Size = new System.Drawing.Size(168, 19);
             this.clearClipboardCheckBox.TabIndex = 4;
@@ -285,62 +352,6 @@
             this.minimizeToTrayCheckBox.UseVisualStyleBackColor = true;
             this.minimizeToTrayCheckBox.Click += new System.EventHandler(this.MinimizeToTrayCheckBox_Click);
             // 
-            // autoLockGroupBox
-            // 
-            this.autoLockGroupBox.Controls.Add(this.autoLockMinutesLabel);
-            this.autoLockGroupBox.Controls.Add(this.autoLockOnMinimizeCheckBox);
-            this.autoLockGroupBox.Controls.Add(this.lockTimeoutTextBox);
-            this.autoLockGroupBox.Controls.Add(this.lockTimeoutLabel);
-            this.autoLockGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.autoLockGroupBox.Location = new System.Drawing.Point(6, 230);
-            this.autoLockGroupBox.Name = "autoLockGroupBox";
-            this.autoLockGroupBox.Size = new System.Drawing.Size(312, 75);
-            this.autoLockGroupBox.TabIndex = 3;
-            this.autoLockGroupBox.TabStop = false;
-            this.autoLockGroupBox.Text = "Auto lock";
-            // 
-            // autoLockMinutesLabel
-            // 
-            this.autoLockMinutesLabel.AutoSize = true;
-            this.autoLockMinutesLabel.Location = new System.Drawing.Point(184, 48);
-            this.autoLockMinutesLabel.Name = "autoLockMinutesLabel";
-            this.autoLockMinutesLabel.Size = new System.Drawing.Size(50, 15);
-            this.autoLockMinutesLabel.TabIndex = 0;
-            this.autoLockMinutesLabel.Text = "minutes";
-            // 
-            // autoLockOnMinimizeCheckBox
-            // 
-            this.autoLockOnMinimizeCheckBox.AutoSize = true;
-            this.autoLockOnMinimizeCheckBox.Location = new System.Drawing.Point(6, 22);
-            this.autoLockOnMinimizeCheckBox.Name = "autoLockOnMinimizeCheckBox";
-            this.autoLockOnMinimizeCheckBox.Size = new System.Drawing.Size(146, 19);
-            this.autoLockOnMinimizeCheckBox.TabIndex = 7;
-            this.autoLockOnMinimizeCheckBox.Text = "Auto lock on minimize";
-            this.autoLockOnMinimizeCheckBox.UseVisualStyleBackColor = true;
-            this.autoLockOnMinimizeCheckBox.Click += new System.EventHandler(this.AutoLockOnMinimizeCheckBox_Click);
-            // 
-            // lockTimeoutTextBox
-            // 
-            this.lockTimeoutTextBox.Location = new System.Drawing.Point(134, 45);
-            this.lockTimeoutTextBox.Name = "lockTimeoutTextBox";
-            this.lockTimeoutTextBox.Placeholder = "";
-            this.lockTimeoutTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
-            this.lockTimeoutTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.lockTimeoutTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.lockTimeoutTextBox.Size = new System.Drawing.Size(44, 23);
-            this.lockTimeoutTextBox.TabIndex = 8;
-            this.lockTimeoutTextBox.TextChanged += new System.EventHandler(this.LockTimeoutTextBox_TextChanged);
-            this.lockTimeoutTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LockTimeoutTextBox_KeyPress);
-            // 
-            // lockTimeoutLabel
-            // 
-            this.lockTimeoutLabel.AutoSize = true;
-            this.lockTimeoutLabel.Location = new System.Drawing.Point(3, 48);
-            this.lockTimeoutLabel.Name = "lockTimeoutLabel";
-            this.lockTimeoutLabel.Size = new System.Drawing.Size(125, 15);
-            this.lockTimeoutLabel.TabIndex = 7;
-            this.lockTimeoutLabel.Text = "If the app is inactive in";
-            // 
             // interfaceTabPage
             // 
             this.interfaceTabPage.AutoScroll = true;
@@ -368,7 +379,7 @@
             this.statusPanelGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.statusPanelGroupBox.Location = new System.Drawing.Point(6, 263);
             this.statusPanelGroupBox.Name = "statusPanelGroupBox";
-            this.statusPanelGroupBox.Size = new System.Drawing.Size(298, 180);
+            this.statusPanelGroupBox.Size = new System.Drawing.Size(295, 180);
             this.statusPanelGroupBox.TabIndex = 4;
             this.statusPanelGroupBox.TabStop = false;
             this.statusPanelGroupBox.Text = "Status Panel";
@@ -517,51 +528,83 @@
             this.statusPanelFontColor.TabIndex = 3;
             this.statusPanelFontColor.Click += new System.EventHandler(this.StatusPanelFontColor_Click);
             // 
-            // mainMenuGroupBox
+            // searchPanelGroupBox
             // 
-            this.mainMenuGroupBox.Controls.Add(this.shortcutKeysCheckBox);
-            this.mainMenuGroupBox.Controls.Add(this.mainMenuCheckBox);
-            this.mainMenuGroupBox.Controls.Add(this.menuIconsCheckBox);
-            this.mainMenuGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.mainMenuGroupBox.Location = new System.Drawing.Point(6, 6);
-            this.mainMenuGroupBox.Name = "mainMenuGroupBox";
-            this.mainMenuGroupBox.Size = new System.Drawing.Size(298, 49);
-            this.mainMenuGroupBox.TabIndex = 1;
-            this.mainMenuGroupBox.TabStop = false;
-            this.mainMenuGroupBox.Text = "Main menu";
+            this.searchPanelGroupBox.Controls.Add(this.searchBorderComboBox);
+            this.searchPanelGroupBox.Controls.Add(this.searchBackColorLabel);
+            this.searchPanelGroupBox.Controls.Add(this.searchBorderLabel);
+            this.searchPanelGroupBox.Controls.Add(this.searchFontColorLabel);
+            this.searchPanelGroupBox.Controls.Add(this.searchFontColor);
+            this.searchPanelGroupBox.Controls.Add(this.searchBackColor);
+            this.searchPanelGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchPanelGroupBox.Location = new System.Drawing.Point(6, 153);
+            this.searchPanelGroupBox.Name = "searchPanelGroupBox";
+            this.searchPanelGroupBox.Size = new System.Drawing.Size(295, 110);
+            this.searchPanelGroupBox.TabIndex = 3;
+            this.searchPanelGroupBox.TabStop = false;
+            this.searchPanelGroupBox.Text = "Search Panel";
             // 
-            // shortcutKeysCheckBox
+            // searchBorderComboBox
             // 
-            this.shortcutKeysCheckBox.AutoSize = true;
-            this.shortcutKeysCheckBox.Location = new System.Drawing.Point(166, 22);
-            this.shortcutKeysCheckBox.Name = "shortcutKeysCheckBox";
-            this.shortcutKeysCheckBox.Size = new System.Drawing.Size(97, 19);
-            this.shortcutKeysCheckBox.TabIndex = 3;
-            this.shortcutKeysCheckBox.Text = "Shortcut keys";
-            this.shortcutKeysCheckBox.UseVisualStyleBackColor = true;
-            this.shortcutKeysCheckBox.Click += new System.EventHandler(this.ShortcutKeysCheckBox_Click);
+            this.searchBorderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.searchBorderComboBox.FormattingEnabled = true;
+            this.searchBorderComboBox.Items.AddRange(new object[] {
+            "None",
+            "Single"});
+            this.searchBorderComboBox.Location = new System.Drawing.Point(145, 74);
+            this.searchBorderComboBox.Name = "searchBorderComboBox";
+            this.searchBorderComboBox.Size = new System.Drawing.Size(141, 23);
+            this.searchBorderComboBox.TabIndex = 7;
+            this.searchBorderComboBox.DropDownClosed += new System.EventHandler(this.SearchBorderComboBox_DropDownClosed);
             // 
-            // mainMenuCheckBox
+            // searchBackColorLabel
             // 
-            this.mainMenuCheckBox.AutoSize = true;
-            this.mainMenuCheckBox.Location = new System.Drawing.Point(6, 22);
-            this.mainMenuCheckBox.Name = "mainMenuCheckBox";
-            this.mainMenuCheckBox.Size = new System.Drawing.Size(60, 19);
-            this.mainMenuCheckBox.TabIndex = 1;
-            this.mainMenuCheckBox.Text = "Visible";
-            this.mainMenuCheckBox.UseVisualStyleBackColor = true;
-            this.mainMenuCheckBox.Click += new System.EventHandler(this.MainMenuCheckBox_Click);
+            this.searchBackColorLabel.Location = new System.Drawing.Point(6, 16);
+            this.searchBackColorLabel.Name = "searchBackColorLabel";
+            this.searchBackColorLabel.Size = new System.Drawing.Size(120, 23);
+            this.searchBackColorLabel.TabIndex = 0;
+            this.searchBackColorLabel.Text = "Background color";
+            this.searchBackColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // menuIconsCheckBox
+            // searchBorderLabel
             // 
-            this.menuIconsCheckBox.AutoSize = true;
-            this.menuIconsCheckBox.Location = new System.Drawing.Point(72, 22);
-            this.menuIconsCheckBox.Name = "menuIconsCheckBox";
-            this.menuIconsCheckBox.Size = new System.Drawing.Size(88, 19);
-            this.menuIconsCheckBox.TabIndex = 2;
-            this.menuIconsCheckBox.Text = "Menu icons";
-            this.menuIconsCheckBox.UseVisualStyleBackColor = true;
-            this.menuIconsCheckBox.Click += new System.EventHandler(this.MenuIconsCheckBox_Click);
+            this.searchBorderLabel.AutoSize = true;
+            this.searchBorderLabel.Location = new System.Drawing.Point(6, 77);
+            this.searchBorderLabel.Name = "searchBorderLabel";
+            this.searchBorderLabel.Size = new System.Drawing.Size(42, 15);
+            this.searchBorderLabel.TabIndex = 4;
+            this.searchBorderLabel.Text = "Border";
+            // 
+            // searchFontColorLabel
+            // 
+            this.searchFontColorLabel.Location = new System.Drawing.Point(6, 45);
+            this.searchFontColorLabel.Name = "searchFontColorLabel";
+            this.searchFontColorLabel.Size = new System.Drawing.Size(87, 23);
+            this.searchFontColorLabel.TabIndex = 1;
+            this.searchFontColorLabel.Text = "Font color";
+            this.searchFontColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // searchFontColor
+            // 
+            this.searchFontColor.BackColor = System.Drawing.Color.Black;
+            this.searchFontColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchFontColor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.searchFontColor.Location = new System.Drawing.Point(145, 45);
+            this.searchFontColor.Name = "searchFontColor";
+            this.searchFontColor.Size = new System.Drawing.Size(141, 23);
+            this.searchFontColor.TabIndex = 3;
+            this.searchFontColor.Click += new System.EventHandler(this.SearchFontColor_Click);
+            // 
+            // searchBackColor
+            // 
+            this.searchBackColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.searchBackColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchBackColor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.searchBackColor.Location = new System.Drawing.Point(145, 16);
+            this.searchBackColor.Name = "searchBackColor";
+            this.searchBackColor.Size = new System.Drawing.Size(141, 23);
+            this.searchBackColor.TabIndex = 2;
+            this.searchBackColor.Click += new System.EventHandler(this.SearchBackColor_Click);
             // 
             // toolbarGroupBox
             // 
@@ -574,7 +617,7 @@
             this.toolbarGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.toolbarGroupBox.Location = new System.Drawing.Point(6, 55);
             this.toolbarGroupBox.Name = "toolbarGroupBox";
-            this.toolbarGroupBox.Size = new System.Drawing.Size(298, 98);
+            this.toolbarGroupBox.Size = new System.Drawing.Size(295, 98);
             this.toolbarGroupBox.TabIndex = 2;
             this.toolbarGroupBox.TabStop = false;
             this.toolbarGroupBox.Text = "Toolbar";
@@ -643,83 +686,51 @@
             this.toolbarVisibleCheckBox.UseVisualStyleBackColor = true;
             this.toolbarVisibleCheckBox.Click += new System.EventHandler(this.ToolbarVisibleCheckBox_Click);
             // 
-            // searchPanelGroupBox
+            // mainMenuGroupBox
             // 
-            this.searchPanelGroupBox.Controls.Add(this.searchBorderComboBox);
-            this.searchPanelGroupBox.Controls.Add(this.searchBackColorLabel);
-            this.searchPanelGroupBox.Controls.Add(this.searchBorderLabel);
-            this.searchPanelGroupBox.Controls.Add(this.searchFontColorLabel);
-            this.searchPanelGroupBox.Controls.Add(this.searchFontColor);
-            this.searchPanelGroupBox.Controls.Add(this.searchBackColor);
-            this.searchPanelGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchPanelGroupBox.Location = new System.Drawing.Point(6, 153);
-            this.searchPanelGroupBox.Name = "searchPanelGroupBox";
-            this.searchPanelGroupBox.Size = new System.Drawing.Size(298, 110);
-            this.searchPanelGroupBox.TabIndex = 3;
-            this.searchPanelGroupBox.TabStop = false;
-            this.searchPanelGroupBox.Text = "Search Panel";
+            this.mainMenuGroupBox.Controls.Add(this.shortcutKeysCheckBox);
+            this.mainMenuGroupBox.Controls.Add(this.mainMenuCheckBox);
+            this.mainMenuGroupBox.Controls.Add(this.menuIconsCheckBox);
+            this.mainMenuGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.mainMenuGroupBox.Location = new System.Drawing.Point(6, 6);
+            this.mainMenuGroupBox.Name = "mainMenuGroupBox";
+            this.mainMenuGroupBox.Size = new System.Drawing.Size(295, 49);
+            this.mainMenuGroupBox.TabIndex = 1;
+            this.mainMenuGroupBox.TabStop = false;
+            this.mainMenuGroupBox.Text = "Main menu";
             // 
-            // searchBorderComboBox
+            // shortcutKeysCheckBox
             // 
-            this.searchBorderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.searchBorderComboBox.FormattingEnabled = true;
-            this.searchBorderComboBox.Items.AddRange(new object[] {
-            "None",
-            "Single"});
-            this.searchBorderComboBox.Location = new System.Drawing.Point(145, 74);
-            this.searchBorderComboBox.Name = "searchBorderComboBox";
-            this.searchBorderComboBox.Size = new System.Drawing.Size(141, 23);
-            this.searchBorderComboBox.TabIndex = 7;
-            this.searchBorderComboBox.DropDownClosed += new System.EventHandler(this.SearchBorderComboBox_DropDownClosed);
+            this.shortcutKeysCheckBox.AutoSize = true;
+            this.shortcutKeysCheckBox.Location = new System.Drawing.Point(166, 22);
+            this.shortcutKeysCheckBox.Name = "shortcutKeysCheckBox";
+            this.shortcutKeysCheckBox.Size = new System.Drawing.Size(97, 19);
+            this.shortcutKeysCheckBox.TabIndex = 3;
+            this.shortcutKeysCheckBox.Text = "Shortcut keys";
+            this.shortcutKeysCheckBox.UseVisualStyleBackColor = true;
+            this.shortcutKeysCheckBox.Click += new System.EventHandler(this.ShortcutKeysCheckBox_Click);
             // 
-            // searchBackColorLabel
+            // mainMenuCheckBox
             // 
-            this.searchBackColorLabel.Location = new System.Drawing.Point(6, 16);
-            this.searchBackColorLabel.Name = "searchBackColorLabel";
-            this.searchBackColorLabel.Size = new System.Drawing.Size(120, 23);
-            this.searchBackColorLabel.TabIndex = 0;
-            this.searchBackColorLabel.Text = "Background color";
-            this.searchBackColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.mainMenuCheckBox.AutoSize = true;
+            this.mainMenuCheckBox.Location = new System.Drawing.Point(6, 22);
+            this.mainMenuCheckBox.Name = "mainMenuCheckBox";
+            this.mainMenuCheckBox.Size = new System.Drawing.Size(60, 19);
+            this.mainMenuCheckBox.TabIndex = 1;
+            this.mainMenuCheckBox.Text = "Visible";
+            this.mainMenuCheckBox.UseVisualStyleBackColor = true;
+            this.mainMenuCheckBox.Click += new System.EventHandler(this.MainMenuCheckBox_Click);
             // 
-            // searchBorderLabel
+            // menuIconsCheckBox
             // 
-            this.searchBorderLabel.AutoSize = true;
-            this.searchBorderLabel.Location = new System.Drawing.Point(6, 77);
-            this.searchBorderLabel.Name = "searchBorderLabel";
-            this.searchBorderLabel.Size = new System.Drawing.Size(42, 15);
-            this.searchBorderLabel.TabIndex = 4;
-            this.searchBorderLabel.Text = "Border";
-            // 
-            // searchFontColorLabel
-            // 
-            this.searchFontColorLabel.Location = new System.Drawing.Point(6, 45);
-            this.searchFontColorLabel.Name = "searchFontColorLabel";
-            this.searchFontColorLabel.Size = new System.Drawing.Size(87, 23);
-            this.searchFontColorLabel.TabIndex = 1;
-            this.searchFontColorLabel.Text = "Font color";
-            this.searchFontColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // searchFontColor
-            // 
-            this.searchFontColor.BackColor = System.Drawing.Color.Black;
-            this.searchFontColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchFontColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchFontColor.Location = new System.Drawing.Point(145, 45);
-            this.searchFontColor.Name = "searchFontColor";
-            this.searchFontColor.Size = new System.Drawing.Size(141, 23);
-            this.searchFontColor.TabIndex = 3;
-            this.searchFontColor.Click += new System.EventHandler(this.SearchFontColor_Click);
-            // 
-            // searchBackColor
-            // 
-            this.searchBackColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.searchBackColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchBackColor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchBackColor.Location = new System.Drawing.Point(145, 16);
-            this.searchBackColor.Name = "searchBackColor";
-            this.searchBackColor.Size = new System.Drawing.Size(141, 23);
-            this.searchBackColor.TabIndex = 2;
-            this.searchBackColor.Click += new System.EventHandler(this.SearchBackColor_Click);
+            this.menuIconsCheckBox.AutoSize = true;
+            this.menuIconsCheckBox.Location = new System.Drawing.Point(72, 22);
+            this.menuIconsCheckBox.Name = "menuIconsCheckBox";
+            this.menuIconsCheckBox.Size = new System.Drawing.Size(88, 19);
+            this.menuIconsCheckBox.TabIndex = 2;
+            this.menuIconsCheckBox.Text = "Menu icons";
+            this.menuIconsCheckBox.UseVisualStyleBackColor = true;
+            this.menuIconsCheckBox.Click += new System.EventHandler(this.MenuIconsCheckBox_Click);
             // 
             // editorTabPage
             // 
@@ -1037,16 +1048,18 @@
             this.fontDialog.ShowEffects = false;
             this.fontDialog.Apply += new System.EventHandler(this.FontDialog_Apply);
             // 
-            // openTxtUnencryptedCheckBox
+            // lockTimeoutTextBox
             // 
-            this.openTxtUnencryptedCheckBox.AutoSize = true;
-            this.openTxtUnencryptedCheckBox.Location = new System.Drawing.Point(6, 72);
-            this.openTxtUnencryptedCheckBox.Name = "openTxtUnencryptedCheckBox";
-            this.openTxtUnencryptedCheckBox.Size = new System.Drawing.Size(254, 19);
-            this.openTxtUnencryptedCheckBox.TabIndex = 9;
-            this.openTxtUnencryptedCheckBox.Text = "Open all files except *.cnp like unencrypted";
-            this.openTxtUnencryptedCheckBox.UseVisualStyleBackColor = true;
-            this.openTxtUnencryptedCheckBox.Click += new System.EventHandler(this.OpenTxtUnencryptedCheckBox_Click);
+            this.lockTimeoutTextBox.Location = new System.Drawing.Point(134, 45);
+            this.lockTimeoutTextBox.Name = "lockTimeoutTextBox";
+            this.lockTimeoutTextBox.Placeholder = "";
+            this.lockTimeoutTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
+            this.lockTimeoutTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.lockTimeoutTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.lockTimeoutTextBox.Size = new System.Drawing.Size(44, 23);
+            this.lockTimeoutTextBox.TabIndex = 8;
+            this.lockTimeoutTextBox.TextChanged += new System.EventHandler(this.LockTimeoutTextBox_TextChanged);
+            this.lockTimeoutTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LockTimeoutTextBox_KeyPress);
             // 
             // SettingsForm
             // 
@@ -1067,23 +1080,23 @@
             this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.settingsTabControl.ResumeLayout(false);
             this.generalTabPage.ResumeLayout(false);
+            this.autoLockGroupBox.ResumeLayout(false);
+            this.autoLockGroupBox.PerformLayout();
             this.integrationGroupBox.ResumeLayout(false);
             this.integrationGroupBox.PerformLayout();
             this.applicationGroupBox.ResumeLayout(false);
             this.applicationGroupBox.PerformLayout();
-            this.autoLockGroupBox.ResumeLayout(false);
-            this.autoLockGroupBox.PerformLayout();
             this.interfaceTabPage.ResumeLayout(false);
             this.statusPanelGroupBox.ResumeLayout(false);
             this.statusPanelGroupBox.PerformLayout();
             this.statusPanelLabelsGroupBox.ResumeLayout(false);
             this.statusPanelLabelsGroupBox.PerformLayout();
-            this.mainMenuGroupBox.ResumeLayout(false);
-            this.mainMenuGroupBox.PerformLayout();
-            this.toolbarGroupBox.ResumeLayout(false);
-            this.toolbarGroupBox.PerformLayout();
             this.searchPanelGroupBox.ResumeLayout(false);
             this.searchPanelGroupBox.PerformLayout();
+            this.toolbarGroupBox.ResumeLayout(false);
+            this.toolbarGroupBox.PerformLayout();
+            this.mainMenuGroupBox.ResumeLayout(false);
+            this.mainMenuGroupBox.PerformLayout();
             this.editorTabPage.ResumeLayout(false);
             this.editorTabPage.PerformLayout();
             this.encryptionTabPage.ResumeLayout(false);
@@ -1174,5 +1187,6 @@
         private System.Windows.Forms.CheckBox clearClipboardCheckBox;
         private System.Windows.Forms.CheckBox shortcutKeysCheckBox;
         private System.Windows.Forms.CheckBox openTxtUnencryptedCheckBox;
+        private System.Windows.Forms.CheckBox trayMenuCheckBox;
     }
 }

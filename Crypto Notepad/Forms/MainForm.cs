@@ -1,4 +1,5 @@
 ﻿using Crypto_Notepad.Properties;
+using Microsoft.Win32;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -23,6 +24,7 @@ namespace Crypto_Notepad
         bool cancelPressed = false;
         int findPos = 0;
         int caretPos;
+        FormWindowState currentWindowState;
         public MainForm()
         {
             InitializeComponent();
@@ -45,6 +47,17 @@ namespace Crypto_Notepad
                 if (m.Msg == WM_SYSCOMMAND & m.WParam.ToInt32() == SC_RESTORE | m.WParam.ToInt32() == SC_MAXIMIZE & !fileLockedPanel.Visible)
                 {
                     richTextBox.Visible = true;
+                }
+
+                switch (m.Msg)
+                {
+                    case WM_SYSCOMMAND:
+                        int command = m.WParam.ToInt32() & 0xfff0;
+                        if (command == SC_MINIMIZE)
+                        {
+                            currentWindowState = WindowState;
+                        }
+                        break;
                 }
             }
             catch (OverflowException)
@@ -217,7 +230,7 @@ namespace Crypto_Notepad
 
         private async void ContextMenuEncryptReplace()
         {
-            DialogResult res = MessageBox.Show(this, "This action will delete the source file and replace it with encrypted version. File must be in UTF-8 Encoding.", PublicVar.appName, 
+            DialogResult res = MessageBox.Show(this, "This action will delete the source file and replace it with encrypted version. File must be in UTF-8 Encoding.", PublicVar.appName,
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (res == DialogResult.Cancel)
             {
@@ -233,7 +246,7 @@ namespace Crypto_Notepad
             enterPasswordForm.ShowDialog();
             File.Delete(args[1]);
             string unencryptedText = richTextBox.Text;
-            string encryptedText = await AES.Encrypt(richTextBox.Text, TypedPassword.Value, null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations), 
+            string encryptedText = await AES.Encrypt(richTextBox.Text, TypedPassword.Value, null, settings.HashAlgorithm, Convert.ToInt32(settings.PasswordIterations),
                 Convert.ToInt32(settings.KeySize));
             using (StreamWriter writer = new StreamWriter(newFileName))
             {
@@ -564,8 +577,12 @@ namespace Crypto_Notepad
             {
                 Location = settings.windowLocation;
             }
+            if (!Methods.IsOnScreen(this))
+            {
+                Location = new Point(1, 1);
+            }
+
             Size = settings.windowSize;
-            WindowState = settings.windowState;
             if (settings.toolbarBorder)
             {
                 toolbarPanel.BorderStyle = BorderStyle.FixedSingle;
@@ -576,7 +593,7 @@ namespace Crypto_Notepad
             }
             TopMost = settings.alwaysOnTop;
             alwaysOnTopMainMenu.Checked = settings.alwaysOnTop;
-            if (settings.closeToTray | settings.minimizeToTray)
+            if (settings.closeToTray | settings.minimizeToTray | settings.trayMenu)
             {
                 trayIcon.Visible = true;
             }
@@ -597,7 +614,7 @@ namespace Crypto_Notepad
             statusPanelReadonlyLabel.Visible = settings.statusPanelReadonly;
             statusPanelWordwrapLabel.Visible = settings.statusPanelWordWrap;
             richTextBox.WordWrap = settings.editorWrap;
-            richTextBox.ForeColor = settings.editroForeColor;
+            richTextBox.ForeColor = settings.editorForeColor;
             richTextBox.BackColor = settings.editorBackColor;
             richTextBox.Font = settings.editorFont;
             BackColor = settings.editorBackColor;
@@ -610,6 +627,24 @@ namespace Crypto_Notepad
             searchFindNextButton.ForeColor = settings.searchPanelForeColor;
             searchCloseButton.ForeColor = settings.searchPanelForeColor;
             searchPanel.CellBorderStyle = (TableLayoutPanelCellBorderStyle)Enum.Parse(typeof(TableLayoutPanelCellBorderStyle), settings.searchPanelBorder);
+
+            RegistryKey explorerAssociate = Registry.CurrentUser.OpenSubKey(@"Software\Classes\.cnp\", true);
+            if (settings.explorerAssociate && explorerAssociate == null)
+            {
+                Methods.AssociateExtension(Assembly.GetEntryAssembly().Location, "cnp");
+            }
+
+            RegistryKey explorerIntegrate = Registry.CurrentUser.OpenSubKey(@"Software\Classes\*\shell\Crypto Notepad\", true);
+            if (settings.explorerIntegrate && explorerIntegrate == null)
+            {
+                Methods.MenuIntegrate("enable");
+            }
+
+            string shortcutPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Microsoft\Windows\SendTo\Crypto Notepad.lnk";
+            if (settings.explorerSendTo && !File.Exists(shortcutPath))
+            {
+                Methods.SendToShortcut();
+            }
         }
 
         public void MenuIcons(bool menuIcons)
@@ -656,7 +691,7 @@ namespace Crypto_Notepad
                             dropDownItem.Image = null;
                         }
                 }
-            } 
+            }
         }
 
         protected internal void ShortcutKeys(bool shortcutKeys)
@@ -800,12 +835,9 @@ namespace Crypto_Notepad
 
         private void MainForm_Resize(object sender, EventArgs e)
         {
-            if (settings.minimizeToTray)
+            if (WindowState == FormWindowState.Minimized & settings.minimizeToTray)
             {
-                if (WindowState == FormWindowState.Minimized)
-                {
-                    Hide();
-                }
+                Hide();
             }
             if (WindowState == FormWindowState.Minimized & settings.autoLock & !string.IsNullOrEmpty(PublicVar.password.Get()))
             {
@@ -922,7 +954,7 @@ namespace Crypto_Notepad
                             using (StreamWriter writer = new StreamWriter(filePath))
                             {
                                 string encryptedText = richTextBox.Text;
-                                Task.Run(async () => { encryptedText =  await AES.Encrypt(encryptedText, PublicVar.password.Get(), null, settings.HashAlgorithm, 
+                                Task.Run(async () => { encryptedText = await AES.Encrypt(encryptedText, PublicVar.password.Get(), null, settings.HashAlgorithm,
                                     Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)); }).Wait();
                                 writer.Write(encryptedText);
                                 writer.Close();
@@ -970,6 +1002,7 @@ namespace Crypto_Notepad
                     }
                 }
             }
+            WindowState = settings.windowState;
         }
 
         private async void MainWindow_Load(object sender, EventArgs e)
@@ -1127,7 +1160,7 @@ namespace Crypto_Notepad
                 string exePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\";
                 using (new CenterWinDialog(this))
                 {
-                    DialogResult res = MessageBox.Show(this, "New version is available. Install it now?", PublicVar.appName, 
+                    DialogResult res = MessageBox.Show(this, "New version is available. Install it now?", PublicVar.appName,
                         MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (res == DialogResult.Yes)
                     {
@@ -1239,7 +1272,7 @@ namespace Crypto_Notepad
             UseWaitCursor = true;
             using (StreamWriter writer = new StreamWriter(filePath))
             {
-                writer.Write(await AES.Encrypt(richTextBox.Text, PublicVar.password.Get(), null, settings.HashAlgorithm, 
+                writer.Write(await AES.Encrypt(richTextBox.Text, PublicVar.password.Get(), null, settings.HashAlgorithm,
                     Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)));
                 writer.Close();
             }
@@ -1356,7 +1389,7 @@ namespace Crypto_Notepad
                 PublicVar.messageBoxCenterParent = true;
                 using (new CenterWinDialog(this))
                 {
-                    if (MessageBox.Show(this, "Delete file: " + "\"" + filePath + "\"" + " ?", PublicVar.appName, 
+                    if (MessageBox.Show(this, "Delete file: " + "\"" + filePath + "\"" + " ?", PublicVar.appName,
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         File.Delete(filePath);
@@ -2099,22 +2132,67 @@ namespace Crypto_Notepad
 
 
         #region Tray
+        private void ResetWindowLocationTrayMenu_Click(object sender, EventArgs e)
+        {
+            Location = new Point(1, 1);
+        }
+        private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm
+            {
+                Owner = this,
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            settingsForm.ShowDialog();
+        }
         private void TrayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                Show();
-                WindowState = FormWindowState.Normal;
+                if (!Visible)
+                {
+                    Show();
+                    WindowState = currentWindowState;
+                }
             }
         }
-        private void ShowTrayMenu_Click(object sender, EventArgs e)
+        private void HideWindowTrayMenu_Click(object sender, EventArgs e)
         {
-            Show();
-            WindowState = FormWindowState.Normal;
+            currentWindowState = WindowState;
+            WindowState = FormWindowState.Minimized;
+            Hide();
+        }
+        private void ShowWindowTrayMenu_Click(object sender, EventArgs e)
+        {
+            if (!Visible)
+            {
+                Show();
+                WindowState = currentWindowState;
+            }
         }
         private void ExitTrayMenu_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        private void TrayMenu_Opening(object sender, CancelEventArgs e)
+        {
+            if (Visible)
+            {
+                showWindowTrayMenu.Enabled = false;
+            }
+            else
+            {
+                showWindowTrayMenu.Enabled = true;
+            }
+
+            if (!Visible)
+            {
+                hideWindowTrayMenu.Enabled = false;
+            }
+            else
+            {
+                hideWindowTrayMenu.Enabled = true;
+            }
         }
         #endregion
 
@@ -2137,7 +2215,10 @@ namespace Crypto_Notepad
             Debug.WriteLine("metadataCorrupt: " + PublicVar.metadataCorrupt);
 #endif
         }
+
+
         #endregion
+
 
 
     }

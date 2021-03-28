@@ -121,20 +121,24 @@
             this.statusPanelClipboardProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.trayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showTrayMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetWindowLocationTrayMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.showWindowTrayMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.hideWindowTrayMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitTrayMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.fileLockedPanel = new System.Windows.Forms.Panel();
             this.fileLockedCloseButton = new System.Windows.Forms.Button();
             this.fileLockedOkButton = new System.Windows.Forms.Button();
+            this.fileLockedKeyTextBox = new System.Windows.Forms.PlaceholderTextBox();
             this.fileLockedShowKey = new System.Windows.Forms.PictureBox();
             this.fileLockedLabel = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.richTextBoxPanel = new System.Windows.Forms.Panel();
+            this.richTextBox = new Crypto_Notepad.ExRichTextBox();
             this.statusPanelTimer = new System.Windows.Forms.Timer(this.components);
             this.lockTimer = new System.Windows.Forms.Timer(this.components);
             this.clipboardTimer = new System.Windows.Forms.Timer(this.components);
-            this.fileLockedKeyTextBox = new System.Windows.Forms.PlaceholderTextBox();
-            this.richTextBox = new Crypto_Notepad.ExRichTextBox();
             this.mainMenu.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.searchPanel.SuspendLayout();
@@ -1146,24 +1150,58 @@
             // trayMenu
             // 
             this.trayMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showTrayMenu,
+            this.settingsToolStripMenuItem,
+            this.resetWindowLocationTrayMenu,
+            this.showWindowTrayMenu,
+            this.hideWindowTrayMenu,
+            this.toolStripSeparator1,
             this.exitTrayMenu});
             this.trayMenu.Name = "mnuTray";
-            this.trayMenu.Size = new System.Drawing.Size(104, 48);
+            this.trayMenu.Size = new System.Drawing.Size(199, 120);
+            this.trayMenu.Opening += new System.ComponentModel.CancelEventHandler(this.TrayMenu_Opening);
             // 
-            // showTrayMenu
+            // settingsToolStripMenuItem
             // 
-            this.showTrayMenu.Image = global::Crypto_Notepad.Properties.Resources.application_blue;
-            this.showTrayMenu.Name = "showTrayMenu";
-            this.showTrayMenu.Size = new System.Drawing.Size(103, 22);
-            this.showTrayMenu.Text = "Show";
-            this.showTrayMenu.Click += new System.EventHandler(this.ShowTrayMenu_Click);
+            this.settingsToolStripMenuItem.Image = global::Crypto_Notepad.Properties.Resources.gear;
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
+            // 
+            // resetWindowLocationTrayMenu
+            // 
+            this.resetWindowLocationTrayMenu.Image = global::Crypto_Notepad.Properties.Resources.application_dock_180;
+            this.resetWindowLocationTrayMenu.Name = "resetWindowLocationTrayMenu";
+            this.resetWindowLocationTrayMenu.Size = new System.Drawing.Size(198, 22);
+            this.resetWindowLocationTrayMenu.Text = "Reset Window Location";
+            this.resetWindowLocationTrayMenu.Click += new System.EventHandler(this.ResetWindowLocationTrayMenu_Click);
+            // 
+            // showWindowTrayMenu
+            // 
+            this.showWindowTrayMenu.Image = global::Crypto_Notepad.Properties.Resources.application_blue;
+            this.showWindowTrayMenu.Name = "showWindowTrayMenu";
+            this.showWindowTrayMenu.Size = new System.Drawing.Size(198, 22);
+            this.showWindowTrayMenu.Text = "Show Window";
+            this.showWindowTrayMenu.Click += new System.EventHandler(this.ShowWindowTrayMenu_Click);
+            // 
+            // hideWindowTrayMenu
+            // 
+            this.hideWindowTrayMenu.Image = global::Crypto_Notepad.Properties.Resources.application;
+            this.hideWindowTrayMenu.Name = "hideWindowTrayMenu";
+            this.hideWindowTrayMenu.Size = new System.Drawing.Size(198, 22);
+            this.hideWindowTrayMenu.Text = "Hide Window";
+            this.hideWindowTrayMenu.Click += new System.EventHandler(this.HideWindowTrayMenu_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(195, 6);
             // 
             // exitTrayMenu
             // 
             this.exitTrayMenu.Image = global::Crypto_Notepad.Properties.Resources.cross_button;
             this.exitTrayMenu.Name = "exitTrayMenu";
-            this.exitTrayMenu.Size = new System.Drawing.Size(103, 22);
+            this.exitTrayMenu.Size = new System.Drawing.Size(198, 22);
             this.exitTrayMenu.Text = "Exit";
             this.exitTrayMenu.Click += new System.EventHandler(this.ExitTrayMenu_Click);
             // 
@@ -1218,6 +1256,20 @@
             this.fileLockedOkButton.UseVisualStyleBackColor = true;
             this.fileLockedOkButton.Click += new System.EventHandler(this.FileLockedOkButton_Click);
             // 
+            // fileLockedKeyTextBox
+            // 
+            this.fileLockedKeyTextBox.Location = new System.Drawing.Point(6, 34);
+            this.fileLockedKeyTextBox.Name = "fileLockedKeyTextBox";
+            this.fileLockedKeyTextBox.Placeholder = "Password";
+            this.fileLockedKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
+            this.fileLockedKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.fileLockedKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.fileLockedKeyTextBox.Size = new System.Drawing.Size(231, 22);
+            this.fileLockedKeyTextBox.TabIndex = 8;
+            this.fileLockedKeyTextBox.UseSystemPasswordChar = true;
+            this.fileLockedKeyTextBox.TextChanged += new System.EventHandler(this.FileLockedKeyTextBox_TextChanged);
+            this.fileLockedKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FileLockedKeyTextBox_KeyDown);
+            // 
             // fileLockedShowKey
             // 
             this.fileLockedShowKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1261,34 +1313,6 @@
             this.richTextBoxPanel.Size = new System.Drawing.Size(544, 226);
             this.richTextBoxPanel.TabIndex = 21;
             // 
-            // statusPanelTimer
-            // 
-            this.statusPanelTimer.Interval = 1;
-            this.statusPanelTimer.Tick += new System.EventHandler(this.StatusPanelTimer_Tick);
-            // 
-            // lockTimer
-            // 
-            this.lockTimer.Tick += new System.EventHandler(this.LockTimer_Tick);
-            // 
-            // clipboardTimer
-            // 
-            this.clipboardTimer.Interval = 50;
-            this.clipboardTimer.Tick += new System.EventHandler(this.ClipboardTimer_Tick);
-            // 
-            // fileLockedKeyTextBox
-            // 
-            this.fileLockedKeyTextBox.Location = new System.Drawing.Point(6, 34);
-            this.fileLockedKeyTextBox.Name = "fileLockedKeyTextBox";
-            this.fileLockedKeyTextBox.Placeholder = "Password";
-            this.fileLockedKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
-            this.fileLockedKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.fileLockedKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.fileLockedKeyTextBox.Size = new System.Drawing.Size(231, 22);
-            this.fileLockedKeyTextBox.TabIndex = 8;
-            this.fileLockedKeyTextBox.UseSystemPasswordChar = true;
-            this.fileLockedKeyTextBox.TextChanged += new System.EventHandler(this.FileLockedKeyTextBox_TextChanged);
-            this.fileLockedKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FileLockedKeyTextBox_KeyDown);
-            // 
             // richTextBox
             // 
             this.richTextBox.AcceptsTab = true;
@@ -1308,6 +1332,20 @@
             this.richTextBox.ModifiedChanged += new System.EventHandler(this.RichTextBox_ModifiedChanged);
             this.richTextBox.TextChanged += new System.EventHandler(this.RichTextBox_TextChanged);
             this.richTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBox_KeyDown);
+            // 
+            // statusPanelTimer
+            // 
+            this.statusPanelTimer.Interval = 1;
+            this.statusPanelTimer.Tick += new System.EventHandler(this.StatusPanelTimer_Tick);
+            // 
+            // lockTimer
+            // 
+            this.lockTimer.Tick += new System.EventHandler(this.LockTimer_Tick);
+            // 
+            // clipboardTimer
+            // 
+            this.clipboardTimer.Interval = 50;
+            this.clipboardTimer.Tick += new System.EventHandler(this.ClipboardTimer_Tick);
             // 
             // MainForm
             // 
@@ -1447,7 +1485,7 @@
         protected internal System.Windows.Forms.PictureBox alwaysOnTopToolbarButton;
         protected internal System.Windows.Forms.ToolTip toolTip;
         protected internal System.Windows.Forms.ContextMenuStrip trayMenu;
-        protected internal System.Windows.Forms.ToolStripMenuItem showTrayMenu;
+        protected internal System.Windows.Forms.ToolStripMenuItem showWindowTrayMenu;
         protected internal System.Windows.Forms.ToolStripMenuItem exitTrayMenu;
         protected internal System.Windows.Forms.PlaceholderTextBox fileLockedKeyTextBox;
         protected internal System.Windows.Forms.Panel richTextBoxPanel;
@@ -1473,5 +1511,9 @@
         private System.Windows.Forms.ToolStripMenuItem clearClipboardMainMenu;
         private System.Windows.Forms.ToolStripMenuItem tryToDecryptMainMenu;
         private System.Windows.Forms.PictureBox tryToDecryptToolbarButton;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem resetWindowLocationTrayMenu;
+        private System.Windows.Forms.ToolStripMenuItem hideWindowTrayMenu;
     }
 }

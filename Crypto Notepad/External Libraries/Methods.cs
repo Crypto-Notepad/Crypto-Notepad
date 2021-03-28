@@ -1,6 +1,8 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -15,6 +17,12 @@ namespace Crypto_Notepad
                 source.Text = value;
             else
                 source.AppendText("\r\n" + value);
+        }
+
+        public static bool IsOnScreen(Form form)
+        {
+            Rectangle formRectangle = new Rectangle(form.Left, form.Top, form.Width, form.Height);
+            return Screen.AllScreens.Any(s => s.WorkingArea.IntersectsWith(formRectangle));
         }
 
         public static void Times(this int count, Action action)

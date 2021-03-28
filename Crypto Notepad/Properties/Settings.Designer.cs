@@ -12,7 +12,7 @@ namespace Crypto_Notepad.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.6.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -27,12 +27,12 @@ namespace Crypto_Notepad.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Black")]
-        public global::System.Drawing.Color editroForeColor {
+        public global::System.Drawing.Color editorForeColor {
             get {
-                return ((global::System.Drawing.Color)(this["editroForeColor"]));
+                return ((global::System.Drawing.Color)(this["editorForeColor"]));
             }
             set {
-                this["editroForeColor"] = value;
+                this["editorForeColor"] = value;
             }
         }
         
@@ -814,6 +814,19 @@ namespace Crypto_Notepad.Properties {
             }
             set {
                 this["openTxtUnencrypted"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool trayMenu {
+            get {
+                return ((bool)(this["trayMenu"]));
+            }
+            set {
+                this["trayMenu"] = value;
             }
         }
     }

@@ -18,7 +18,7 @@ namespace Crypto_Notepad
         #region Methods
         private void LoadSettings()
         {
-            editorFontColor.BackColor = settings.editroForeColor;
+            editorFontColor.BackColor = settings.editorForeColor;
             editorBackColor.BackColor = settings.editorBackColor;
             editorInsertKeyComboBox.Text = settings.insertKey;
             if (settings.clipboardClearTime != "")
@@ -40,6 +40,7 @@ namespace Crypto_Notepad
             closeToTrayCheckBox.Checked = settings.closeToTray;
             singleInstanceCheckBox.Checked = settings.singleInstance;
             clearClipboardCheckBox.Checked = settings.clearClipboardAtClose;
+            trayMenuCheckBox.Checked = settings.trayMenu;
             integrateCheckBox.Checked = settings.explorerIntegrate;
             associateCheckBox.Checked = settings.explorerAssociate;
             sendToCheckBox.Checked = settings.explorerSendTo;
@@ -151,7 +152,7 @@ namespace Crypto_Notepad
                     MainForm main = Owner as MainForm;
                     main.richTextBox.ForeColor = colorDialog.Color;
                     main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
-                    settings.editroForeColor = colorDialog.Color;
+                    settings.editorForeColor = colorDialog.Color;
                     editorFontColor.BackColor = colorDialog.Color;
                 }
             }
@@ -493,7 +494,7 @@ namespace Crypto_Notepad
         private void MinimizeToTrayCheckBox_Click(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (closeToTrayCheckBox.Checked == false & minimizeToTrayCheckBox.Checked == false)
+            if (closeToTrayCheckBox.Checked == false & minimizeToTrayCheckBox.Checked == false & trayMenuCheckBox.Checked == false)
             {
                 main.trayIcon.Visible = false;
             }
@@ -507,7 +508,7 @@ namespace Crypto_Notepad
         private void CloseToTrayCheckBox_Click(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
-            if (closeToTrayCheckBox.Checked == false & minimizeToTrayCheckBox.Checked ==false )
+            if (closeToTrayCheckBox.Checked == false & minimizeToTrayCheckBox.Checked == false & trayMenuCheckBox.Checked == false)
             {
                 main.trayIcon.Visible = false;
             }
@@ -615,6 +616,20 @@ namespace Crypto_Notepad
             settings.clearClipboardAtClose = clearClipboardCheckBox.Checked;
         }
 
+        private void TrayMenuCheckBox_Click(object sender, EventArgs e)
+        {
+            MainForm main = Owner as MainForm;
+            if (closeToTrayCheckBox.Checked == false & minimizeToTrayCheckBox.Checked == false & trayMenuCheckBox.Checked == false)
+            {
+                main.trayIcon.Visible = false;
+            }
+            if (trayMenuCheckBox.Checked == true)
+            {
+                main.trayIcon.Visible = true;
+            }
+            settings.trayMenu = trayMenuCheckBox.Checked;
+        }
+
         private void ShortcutKeysCheckBox_Click(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
@@ -625,7 +640,8 @@ namespace Crypto_Notepad
         private void OpenTxtUnencryptedCheckBox_Click(object sender, EventArgs e)
         {
             settings.openTxtUnencrypted = openTxtUnencryptedCheckBox.Checked;
-
         }
+
+
     }
 }
