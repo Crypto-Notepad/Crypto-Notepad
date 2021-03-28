@@ -199,9 +199,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Updater.exe" />
     <None Include="Resources\application.png" />
     <None Include="Resources\application-dock-180.png" />
-    <None Include="Resources\Updater.exe" />
     <Content Include="Notepad_Lock.ico" />
   </ItemGroup>
   <ItemGroup>
