@@ -81,6 +81,7 @@ namespace Crypto_Notepad
                 openFileDialog.FileName = filePath;
                 mainMenu.Enabled = true;
                 toolbarPanel.Enabled = true;
+                settingsToolStripMenuItem.Enabled = true;
                 richTextBox.ReadOnly = false;
                 UseWaitCursor = false;
                 richTextBox.ResumeDrawing();
@@ -96,6 +97,7 @@ namespace Crypto_Notepad
                 {
                     mainMenu.Enabled = false;
                     toolbarPanel.Enabled = false;
+                    settingsToolStripMenuItem.Enabled = false;
                     richTextBox.ReadOnly = true;
                     string openedFileText = await reader.ReadToEndAsync();
                     if (string.IsNullOrEmpty(settings.TheSalt))
@@ -113,6 +115,7 @@ namespace Crypto_Notepad
                             PublicVar.openFileName = Path.GetFileName(filePath);
                             PublicVar.metadataCorrupt = false;
                             mainMenu.Enabled = true;
+                            settingsToolStripMenuItem.Enabled = true;
                             toolbarPanel.Enabled = true;
                             richTextBox.ReadOnly = false;
                             UseWaitCursor = false;
@@ -130,6 +133,7 @@ namespace Crypto_Notepad
                 TypedPassword.Value = null;
                 StatusPanelFileInfo();
                 mainMenu.Enabled = true;
+                settingsToolStripMenuItem.Enabled = true;
                 toolbarPanel.Enabled = true;
                 richTextBox.ReadOnly = false;
                 UseWaitCursor = false;
@@ -156,6 +160,7 @@ namespace Crypto_Notepad
                         {
                             PublicVar.openFileName = Path.GetFileName(filePath);
                             mainMenu.Enabled = true;
+                            settingsToolStripMenuItem.Enabled = true;
                             toolbarPanel.Enabled = true;
                             richTextBox.ReadOnly = false;
                             UseWaitCursor = false;
@@ -501,6 +506,7 @@ namespace Crypto_Notepad
                 fileLockedPanel.Enabled = false;
                 TypedPassword.Value = fileLockedKeyTextBox.Text;
                 mainMenu.Enabled = false;
+                settingsToolStripMenuItem.Enabled = false;
                 toolbarPanel.Enabled = false;
                 using (StreamReader reader = File.OpenText(openFileDialog.FileName))
                 {
@@ -519,6 +525,7 @@ namespace Crypto_Notepad
                 UseWaitCursor = false;
                 fileLockedPanel.Enabled = true;
                 mainMenu.Enabled = true;
+                settingsToolStripMenuItem.Enabled = false;
                 toolbarPanel.Enabled = true;
             }
             catch (Exception ex)
@@ -1266,6 +1273,7 @@ namespace Crypto_Notepad
                 return;
             }
             mainMenu.Enabled = false;
+            settingsToolStripMenuItem.Enabled = false;
             toolbarPanel.Enabled = false;
             richTextBox.ReadOnly = true;
             richTextBox.SuspendDrawing();
@@ -1283,6 +1291,7 @@ namespace Crypto_Notepad
             richTextBox.ResumeDrawing();
             UseWaitCursor = false;
             mainMenu.Enabled = true;
+            settingsToolStripMenuItem.Enabled = true;
             toolbarPanel.Enabled = true;
             richTextBox.ReadOnly = false;
         }
@@ -1324,6 +1333,7 @@ namespace Crypto_Notepad
             PublicVar.password.Set(TypedPassword.Value);
             filePath = saveFileDialog.FileName;
             mainMenu.Enabled = false;
+            settingsToolStripMenuItem.Enabled = false;
             toolbarPanel.Enabled = false;
             richTextBox.ReadOnly = true;
             richTextBox.SuspendDrawing();
@@ -1337,6 +1347,7 @@ namespace Crypto_Notepad
             richTextBox.ResumeDrawing();
             UseWaitCursor = false;
             mainMenu.Enabled = true;
+            settingsToolStripMenuItem.Enabled = true;
             toolbarPanel.Enabled = true;
             richTextBox.ReadOnly = false;
             richTextBox.Modified = false;
@@ -1350,6 +1361,7 @@ namespace Crypto_Notepad
         private async void SaveCloseFileMainMenu_Click(object sender, EventArgs e)
         {
             mainMenu.Enabled = false;
+            settingsToolStripMenuItem.Enabled = false;
             toolbarPanel.Enabled = false;
             richTextBox.SuspendDrawing();
             UseWaitCursor = true;
@@ -1362,6 +1374,7 @@ namespace Crypto_Notepad
             richTextBox.ResumeDrawing();
             UseWaitCursor = false;
             mainMenu.Enabled = true;
+            settingsToolStripMenuItem.Enabled = true;
             toolbarPanel.Enabled = true;
             richTextBox.ReadOnly = false;
             PublicVar.password.Set(null);
@@ -1645,6 +1658,7 @@ namespace Crypto_Notepad
             }
 
             mainMenu.Enabled = false;
+            settingsToolStripMenuItem.Enabled = false;
             toolbarPanel.Enabled = false;
             richTextBox.SuspendDrawing();
             UseWaitCursor = true;
@@ -2052,6 +2066,7 @@ namespace Crypto_Notepad
                 PublicVar.password.Set(null);
                 caretPos = richTextBox.SelectionStart;
                 richTextBox.Visible = false;
+                settingsToolStripMenuItem.Enabled = false;
                 toolbarPanel.Enabled = false;
                 mainMenu.Enabled = false;
                 richTextBox.Clear();
@@ -2073,6 +2088,7 @@ namespace Crypto_Notepad
                 }
 
                 richTextBox.Visible = true;
+                settingsToolStripMenuItem.Enabled = true;
                 toolbarPanel.Enabled = true;
                 searchPanel.Enabled = true;
                 mainMenu.Enabled = true;
@@ -2153,7 +2169,10 @@ namespace Crypto_Notepad
                 {
                     Show();
                     WindowState = currentWindowState;
-                    richTextBox.Visible = true;
+                    if (!fileLockedPanel.Visible)
+                    {
+                        richTextBox.Visible = true;
+                    }
                 }
             }
         }
@@ -2169,7 +2188,10 @@ namespace Crypto_Notepad
             {
                 Show();
                 WindowState = currentWindowState;
-                richTextBox.Visible = true;
+                if (!fileLockedPanel.Visible)
+                {
+                    richTextBox.Visible = true;
+                }
             }
         }
         private void ExitTrayMenu_Click(object sender, EventArgs e)
