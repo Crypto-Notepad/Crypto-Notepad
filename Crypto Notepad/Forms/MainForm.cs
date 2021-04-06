@@ -2153,6 +2153,7 @@ namespace Crypto_Notepad
                 {
                     Show();
                     WindowState = currentWindowState;
+                    richTextBox.Visible = true;
                 }
             }
         }
@@ -2168,6 +2169,7 @@ namespace Crypto_Notepad
             {
                 Show();
                 WindowState = currentWindowState;
+                richTextBox.Visible = true;
             }
         }
         private void ExitTrayMenu_Click(object sender, EventArgs e)
