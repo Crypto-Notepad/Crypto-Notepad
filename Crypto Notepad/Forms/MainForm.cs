@@ -525,7 +525,7 @@ namespace Crypto_Notepad
                 UseWaitCursor = false;
                 fileLockedPanel.Enabled = true;
                 mainMenu.Enabled = true;
-                settingsToolStripMenuItem.Enabled = false;
+                settingsToolStripMenuItem.Enabled = true;
                 toolbarPanel.Enabled = true;
             }
             catch (Exception ex)

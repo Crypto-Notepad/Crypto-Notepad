@@ -716,7 +716,7 @@
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.searchPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.searchPanel.ForeColor = System.Drawing.Color.Black;
-            this.searchPanel.Location = new System.Drawing.Point(0, 274);
+            this.searchPanel.Location = new System.Drawing.Point(0, 318);
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.RowCount = 1;
             this.searchPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1059,7 +1059,7 @@
             this.statusPanelPasteboardLabel,
             this.statusPanelClipboardProgressBar});
             this.statusPanel.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.statusPanel.Location = new System.Drawing.Point(0, 299);
+            this.statusPanel.Location = new System.Drawing.Point(0, 343);
             this.statusPanel.Name = "statusPanel";
             this.statusPanel.ShowItemToolTips = true;
             this.statusPanel.Size = new System.Drawing.Size(593, 22);
@@ -1243,7 +1243,7 @@
             this.fileLockedPanel.Controls.Add(this.fileLockedLabel);
             this.fileLockedPanel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fileLockedPanel.ForeColor = System.Drawing.Color.Azure;
-            this.fileLockedPanel.Location = new System.Drawing.Point(160, 49);
+            this.fileLockedPanel.Location = new System.Drawing.Point(160, 71);
             this.fileLockedPanel.Name = "fileLockedPanel";
             this.fileLockedPanel.Size = new System.Drawing.Size(261, 91);
             this.fileLockedPanel.TabIndex = 20;
@@ -1322,7 +1322,7 @@
             this.richTextBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBoxPanel.Location = new System.Drawing.Point(0, 48);
             this.richTextBoxPanel.Name = "richTextBoxPanel";
-            this.richTextBoxPanel.Size = new System.Drawing.Size(593, 226);
+            this.richTextBoxPanel.Size = new System.Drawing.Size(593, 270);
             this.richTextBoxPanel.TabIndex = 21;
             // 
             // statusPanelTimer
@@ -1368,7 +1368,7 @@
             this.richTextBox.ForeColor = System.Drawing.Color.Black;
             this.richTextBox.Location = new System.Drawing.Point(0, 0);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(591, 224);
+            this.richTextBox.Size = new System.Drawing.Size(591, 268);
             this.richTextBox.TabIndex = 16;
             this.richTextBox.Text = "";
             this.richTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichTextBox_LinkClicked);
@@ -1382,7 +1382,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(593, 321);
+            this.ClientSize = new System.Drawing.Size(593, 365);
             this.Controls.Add(this.richTextBoxPanel);
             this.Controls.Add(this.searchPanel);
             this.Controls.Add(this.toolbarPanel);
