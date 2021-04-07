@@ -853,6 +853,7 @@ namespace Crypto_Notepad
             }
             if (WindowState == FormWindowState.Minimized & settings.autoLock & !string.IsNullOrEmpty(PublicVar.password.Get()))
             {
+                settingsToolStripMenuItem.Enabled = false;
                 fileLockedPanel.Visible = true;
             }
             if (WindowState == FormWindowState.Normal)
@@ -902,6 +903,7 @@ namespace Crypto_Notepad
                 {
                     if (settings.autoLock & !string.IsNullOrEmpty(PublicVar.password.Get()))
                     {
+                        settingsToolStripMenuItem.Enabled = false;
                         fileLockedPanel.Visible = true;
                     }
                     Hide();
@@ -2135,7 +2137,6 @@ namespace Crypto_Notepad
                 }
 
                 richTextBox.Visible = true;
-                settingsToolStripMenuItem.Enabled = true;
                 toolbarPanel.Enabled = true;
                 searchPanel.Enabled = true;
                 mainMenu.Enabled = true;
@@ -2150,6 +2151,7 @@ namespace Crypto_Notepad
 
         private void FileLockedCloseButton_MouseClick(object sender, MouseEventArgs e)
         {
+            settingsToolStripMenuItem.Enabled = true;
             fileLockedPanel.Visible = false;
             Text = PublicVar.appName;
             filePath = "";
