@@ -46,7 +46,10 @@ namespace Crypto_Notepad
                 }
                 if (m.Msg == WM_SYSCOMMAND & m.WParam.ToInt32() == SC_RESTORE | m.WParam.ToInt32() == SC_MAXIMIZE & !fileLockedPanel.Visible)
                 {
-                    richTextBox.Visible = true;
+                    if (!fileLockedPanel.Visible)
+                    {
+                        richTextBox.Visible = true;
+                    }
                 }
 
                 switch (m.Msg)
