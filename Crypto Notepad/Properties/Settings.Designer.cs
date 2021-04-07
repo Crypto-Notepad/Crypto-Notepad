@@ -829,5 +829,18 @@ namespace Crypto_Notepad.Properties {
                 this["trayMenu"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool statusPanelPasteboard {
+            get {
+                return ((bool)(this["statusPanelPasteboard"]));
+            }
+            set {
+                this["statusPanelPasteboard"] = value;
+            }
+        }
     }
 }

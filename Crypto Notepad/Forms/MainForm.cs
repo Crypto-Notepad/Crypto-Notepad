@@ -620,6 +620,7 @@ namespace Crypto_Notepad
             statusPanelSizeLabel.Visible = settings.statusPanelSize;
             statusPanelReadonlyLabel.Visible = settings.statusPanelReadonly;
             statusPanelWordwrapLabel.Visible = settings.statusPanelWordWrap;
+            statusPanelPasteboardLabel.Visible = settings.statusPanelPasteboard;
             richTextBox.WordWrap = settings.editorWrap;
             richTextBox.ForeColor = settings.editorForeColor;
             richTextBox.BackColor = settings.editorBackColor;
@@ -681,6 +682,7 @@ namespace Crypto_Notepad
                 changePasswordMainMenu.Image = Resources.key;
                 lockMainMenu.Image = Resources.lock_warning;
                 settingsMainMenu.Image = Resources.gear;
+                pasteBoardMainMenu.Image = Resources.clipboard_text;
                 documentationMainMenu.Image = Resources.document_text;
                 checkForUpdatesMainMenu.Image = Resources.upload_cloud;
                 aboutMainMenu.Image = Resources.information;
@@ -961,8 +963,11 @@ namespace Crypto_Notepad
                             using (StreamWriter writer = new StreamWriter(filePath))
                             {
                                 string encryptedText = richTextBox.Text;
-                                Task.Run(async () => { encryptedText = await AES.Encrypt(encryptedText, PublicVar.password.Get(), null, settings.HashAlgorithm,
-                                    Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize)); }).Wait();
+                                Task.Run(async () =>
+                                {
+                                    encryptedText = await AES.Encrypt(encryptedText, PublicVar.password.Get(), null, settings.HashAlgorithm,
+                                    Convert.ToInt32(settings.PasswordIterations), Convert.ToInt32(settings.KeySize));
+                                }).Wait();
                                 writer.Write(encryptedText);
                                 writer.Close();
                             }
@@ -1022,6 +1027,7 @@ namespace Crypto_Notepad
             ShortcutKeys(settings.shortcutKeys);
             statusPanelReadonlyLabel.Text = "Readonly: " + readOnlyMainMenu.Checked.ToString();
             statusPanelWordwrapLabel.Text = "Word Wrap: " + wordWrapMainMenu.Checked.ToString();
+            statusPanelPasteboardLabel.Text = "Paste Board: " + pasteBoardMainMenu.Checked.ToString();
             if (args.Length == 2) /*drag & drop to executable*/
             {
                 OpenAsotiations();
@@ -1503,6 +1509,7 @@ namespace Crypto_Notepad
             {
                 changePasswordMainMenu.Enabled = true;
                 lockMainMenu.Enabled = true;
+
             }
         }
 
@@ -1682,6 +1689,43 @@ namespace Crypto_Notepad
             settingsForm.ShowDialog();
         }
         /*Tools*/
+
+        /*Paste Board*/
+        string clipboardLastText = "";
+        private void PasteBoardTimer_Tick(object sender, EventArgs e)
+        {
+            string clipboardText = Clipboard.GetText();
+            if (!string.IsNullOrEmpty(clipboardText) && clipboardLastText != clipboardText)
+            {
+                clipboardLastText = clipboardText;
+                if (richTextBox.Text.Length > 0)
+                {
+                    richTextBox.AppendText("\n\n" + clipboardText);
+                    richTextBox.SelectionStart = richTextBox.Text.Length;
+                    richTextBox.ScrollToCaret();
+                }
+                else
+                {
+                    richTextBox.AppendText(clipboardText);
+                }
+            }
+        }
+
+        private void PasteBoardMainMenu_Click(object sender, EventArgs e)
+        {
+            if (pasteBoardMainMenu.Checked)
+            {
+                Clipboard.Clear();
+                pasteBoardTimer.Start();
+                statusPanelPasteboardLabel.Text = "Paste Board: " + pasteBoardMainMenu.Checked.ToString();
+            }
+            else
+            {
+                pasteBoardTimer.Stop();
+                statusPanelPasteboardLabel.Text = "Paste Board: " + pasteBoardMainMenu.Checked.ToString();
+            }
+        }
+        /*Paste Board*/
 
         /*Help*/
         private void DocumentationMainMenu_Click(object sender, EventArgs e)
@@ -2228,7 +2272,7 @@ namespace Crypto_Notepad
             string formattedTime = DateTime.Now.ToString("yyyy.MM.dd hh:mm:ss");
             Debug.WriteLine("\nTime: " + formattedTime);
             Debug.WriteLine("PublicVar.openFileName: " + PublicVar.openFileName);
-            Debug.WriteLine("openFileDialog.FileName " + openFileDialog.FileName);        
+            Debug.WriteLine("openFileDialog.FileName " + openFileDialog.FileName);
             Debug.WriteLine("filePath: " + filePath);
             Debug.WriteLine("encryptionKey: " + PublicVar.password.Get());
             Debug.WriteLine("TypedPassword: " + TypedPassword.Value);
@@ -2241,7 +2285,10 @@ namespace Crypto_Notepad
         }
 
 
+
+
         #endregion
+
 
 
 

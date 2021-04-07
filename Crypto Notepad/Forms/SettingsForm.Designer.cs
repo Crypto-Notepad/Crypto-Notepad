@@ -37,6 +37,7 @@
             this.autoLockGroupBox = new System.Windows.Forms.GroupBox();
             this.autoLockMinutesLabel = new System.Windows.Forms.Label();
             this.autoLockOnMinimizeCheckBox = new System.Windows.Forms.CheckBox();
+            this.lockTimeoutTextBox = new System.Windows.Forms.PlaceholderTextBox();
             this.lockTimeoutLabel = new System.Windows.Forms.Label();
             this.integrationGroupBox = new System.Windows.Forms.GroupBox();
             this.integrateCheckBox = new System.Windows.Forms.CheckBox();
@@ -53,6 +54,7 @@
             this.interfaceTabPage = new System.Windows.Forms.TabPage();
             this.statusPanelGroupBox = new System.Windows.Forms.GroupBox();
             this.statusPanelLabelsGroupBox = new System.Windows.Forms.GroupBox();
+            this.statusPanelPasteboardCheckBox = new System.Windows.Forms.CheckBox();
             this.statusPanelClipboardCheckBox = new System.Windows.Forms.CheckBox();
             this.statusPanelWordwrapCheckBox = new System.Windows.Forms.CheckBox();
             this.statusPanelReadonlyCheckBox = new System.Windows.Forms.CheckBox();
@@ -110,7 +112,6 @@
             this.settingsNavigation = new System.Windows.Forms.ListBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.settingsToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.lockTimeoutTextBox = new System.Windows.Forms.PlaceholderTextBox();
             this.settingsTabControl.SuspendLayout();
             this.generalTabPage.SuspendLayout();
             this.autoLockGroupBox.SuspendLayout();
@@ -202,6 +203,19 @@
             this.autoLockOnMinimizeCheckBox.Text = "Auto lock on minimize";
             this.autoLockOnMinimizeCheckBox.UseVisualStyleBackColor = true;
             this.autoLockOnMinimizeCheckBox.Click += new System.EventHandler(this.AutoLockOnMinimizeCheckBox_Click);
+            // 
+            // lockTimeoutTextBox
+            // 
+            this.lockTimeoutTextBox.Location = new System.Drawing.Point(134, 45);
+            this.lockTimeoutTextBox.Name = "lockTimeoutTextBox";
+            this.lockTimeoutTextBox.Placeholder = "";
+            this.lockTimeoutTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
+            this.lockTimeoutTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.lockTimeoutTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.lockTimeoutTextBox.Size = new System.Drawing.Size(44, 23);
+            this.lockTimeoutTextBox.TabIndex = 8;
+            this.lockTimeoutTextBox.TextChanged += new System.EventHandler(this.LockTimeoutTextBox_TextChanged);
+            this.lockTimeoutTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LockTimeoutTextBox_KeyPress);
             // 
             // lockTimeoutLabel
             // 
@@ -379,13 +393,14 @@
             this.statusPanelGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.statusPanelGroupBox.Location = new System.Drawing.Point(6, 263);
             this.statusPanelGroupBox.Name = "statusPanelGroupBox";
-            this.statusPanelGroupBox.Size = new System.Drawing.Size(295, 180);
+            this.statusPanelGroupBox.Size = new System.Drawing.Size(295, 205);
             this.statusPanelGroupBox.TabIndex = 4;
             this.statusPanelGroupBox.TabStop = false;
             this.statusPanelGroupBox.Text = "Status Panel";
             // 
             // statusPanelLabelsGroupBox
             // 
+            this.statusPanelLabelsGroupBox.Controls.Add(this.statusPanelPasteboardCheckBox);
             this.statusPanelLabelsGroupBox.Controls.Add(this.statusPanelClipboardCheckBox);
             this.statusPanelLabelsGroupBox.Controls.Add(this.statusPanelWordwrapCheckBox);
             this.statusPanelLabelsGroupBox.Controls.Add(this.statusPanelReadonlyCheckBox);
@@ -395,10 +410,21 @@
             this.statusPanelLabelsGroupBox.Controls.Add(this.statusPanelLengthCheckBox);
             this.statusPanelLabelsGroupBox.Location = new System.Drawing.Point(9, 101);
             this.statusPanelLabelsGroupBox.Name = "statusPanelLabelsGroupBox";
-            this.statusPanelLabelsGroupBox.Size = new System.Drawing.Size(277, 71);
+            this.statusPanelLabelsGroupBox.Size = new System.Drawing.Size(277, 97);
             this.statusPanelLabelsGroupBox.TabIndex = 9;
             this.statusPanelLabelsGroupBox.TabStop = false;
             this.statusPanelLabelsGroupBox.Text = "Labels";
+            // 
+            // statusPanelPasteboardCheckBox
+            // 
+            this.statusPanelPasteboardCheckBox.AutoSize = true;
+            this.statusPanelPasteboardCheckBox.Location = new System.Drawing.Point(6, 72);
+            this.statusPanelPasteboardCheckBox.Name = "statusPanelPasteboardCheckBox";
+            this.statusPanelPasteboardCheckBox.Size = new System.Drawing.Size(88, 19);
+            this.statusPanelPasteboardCheckBox.TabIndex = 10;
+            this.statusPanelPasteboardCheckBox.Text = "Paste Board";
+            this.statusPanelPasteboardCheckBox.UseVisualStyleBackColor = true;
+            this.statusPanelPasteboardCheckBox.Click += new System.EventHandler(this.StatusPanelPasteboardCheckBox_Click);
             // 
             // statusPanelClipboardCheckBox
             // 
@@ -1048,19 +1074,6 @@
             this.fontDialog.ShowEffects = false;
             this.fontDialog.Apply += new System.EventHandler(this.FontDialog_Apply);
             // 
-            // lockTimeoutTextBox
-            // 
-            this.lockTimeoutTextBox.Location = new System.Drawing.Point(134, 45);
-            this.lockTimeoutTextBox.Name = "lockTimeoutTextBox";
-            this.lockTimeoutTextBox.Placeholder = "";
-            this.lockTimeoutTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
-            this.lockTimeoutTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.lockTimeoutTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.lockTimeoutTextBox.Size = new System.Drawing.Size(44, 23);
-            this.lockTimeoutTextBox.TabIndex = 8;
-            this.lockTimeoutTextBox.TextChanged += new System.EventHandler(this.LockTimeoutTextBox_TextChanged);
-            this.lockTimeoutTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LockTimeoutTextBox_KeyPress);
-            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1188,5 +1201,6 @@
         private System.Windows.Forms.CheckBox shortcutKeysCheckBox;
         private System.Windows.Forms.CheckBox openTxtUnencryptedCheckBox;
         private System.Windows.Forms.CheckBox trayMenuCheckBox;
+        private System.Windows.Forms.CheckBox statusPanelPasteboardCheckBox;
     }
 }

@@ -65,9 +65,10 @@ namespace Crypto_Notepad
             statusPanelSizeCheckBox.Checked = settings.statusPanelSize;
             statusPanelReadonlyCheckBox.Checked = settings.statusPanelReadonly;
             statusPanelWordwrapCheckBox.Checked = settings.statusPanelWordWrap;
+            statusPanelPasteboardCheckBox.Checked = settings.statusPanelPasteboard;
             statusPanelClipboardCheckBox.Checked = settings.statusPanelClipboard;
             encryptionHintLabel.Visible = settings.encryptionHint;
-        }     
+        }
         #endregion
 
 
@@ -188,8 +189,8 @@ namespace Crypto_Notepad
                     break;
                 case 3:
                     settingsTabControl.SelectedTab = encryptionTabPage;
-                    break;             
-            }            
+                    break;
+            }
         }
 
         private void SettingsTabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -202,7 +203,7 @@ namespace Crypto_Notepad
             MainForm main = Owner as MainForm;
             main.toolbarPanel.Visible = toolbarVisibleCheckBox.Checked;
             main.richTextBox.SetInnerMargins(Convert.ToInt32(settings.editorPaddingLeft), 0, 0, 0);
-            settings.toolbarVisible= toolbarVisibleCheckBox.Checked;
+            settings.toolbarVisible = toolbarVisibleCheckBox.Checked;
         }
 
         private void AssociateCheckBox_Click(object sender, EventArgs e)
@@ -242,7 +243,7 @@ namespace Crypto_Notepad
                     main.richTextBox.Refresh();
                     settings.editorPaddingLeft = editorPaddingLeftTextBox.Text;
                 }
-            }               
+            }
         }
 
         private void LockTimeoutTextBox_TextChanged(object sender, EventArgs e)
@@ -391,8 +392,8 @@ namespace Crypto_Notepad
                     toolbarBackColor.BackColor = colorDialog.Color;
                 }
             }
-        }    
-        
+        }
+
         private void ToolbarBorderCheckBox_Click(object sender, EventArgs e)
         {
             MainForm main = Owner as MainForm;
@@ -488,8 +489,8 @@ namespace Crypto_Notepad
             {
                 settings.PasswordIterations = passwordIterationsTextBox.Text;
             }
-        }    
-        
+        }
+
 
         private void MinimizeToTrayCheckBox_Click(object sender, EventArgs e)
         {
@@ -594,6 +595,15 @@ namespace Crypto_Notepad
             settings.statusPanelWordWrap = statusPanelWordwrapCheckBox.Checked;
             main.StatusPanelFileInfo();
         }
+
+        private void StatusPanelPasteboardCheckBox_Click(object sender, EventArgs e)
+        {
+            MainForm main = Owner as MainForm;
+            main.statusPanelPasteboardLabel.Visible = statusPanelPasteboardCheckBox.Checked;
+            settings.statusPanelPasteboard = statusPanelPasteboardCheckBox.Checked;
+            main.StatusPanelFileInfo();
+        }
+
         private void StatusPanelClipboardCheckBox_Click(object sender, EventArgs e)
         {
             settings.statusPanelClipboard = statusPanelClipboardCheckBox.Checked;

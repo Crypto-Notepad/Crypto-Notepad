@@ -199,6 +199,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\clipboard-text.png" />
     <None Include="Resources\Updater.exe" />
     <None Include="Resources\application.png" />
     <None Include="Resources\application-dock-180.png" />
