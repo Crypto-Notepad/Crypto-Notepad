@@ -46,6 +46,7 @@
             // okButton
             // 
             this.okButton.Enabled = false;
+            this.okButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.okButton.Location = new System.Drawing.Point(211, 80);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(53, 25);
@@ -74,7 +75,7 @@
             this.lockPictureBox.Image = global::Crypto_Notepad.Properties.Resources.key_solid;
             this.lockPictureBox.Location = new System.Drawing.Point(8, 14);
             this.lockPictureBox.Name = "lockPictureBox";
-            this.lockPictureBox.Size = new System.Drawing.Size(47, 47);
+            this.lockPictureBox.Size = new System.Drawing.Size(48, 48);
             this.lockPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.lockPictureBox.TabIndex = 6;
             this.lockPictureBox.TabStop = false;
@@ -82,6 +83,7 @@
             // fileNameLabel
             // 
             this.fileNameLabel.AutoEllipsis = true;
+            this.fileNameLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fileNameLabel.Location = new System.Drawing.Point(61, 14);
             this.fileNameLabel.Name = "fileNameLabel";
             this.fileNameLabel.Size = new System.Drawing.Size(221, 13);
@@ -91,13 +93,14 @@
             // 
             // keyTextBox
             // 
+            this.keyTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.keyTextBox.Location = new System.Drawing.Point(64, 39);
             this.keyTextBox.Name = "keyTextBox";
             this.keyTextBox.Placeholder = "Password";
             this.keyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
-            this.keyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.keyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.keyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.keyTextBox.Size = new System.Drawing.Size(206, 22);
+            this.keyTextBox.Size = new System.Drawing.Size(206, 23);
             this.keyTextBox.TabIndex = 0;
             this.keyTextBox.UseSystemPasswordChar = true;
             this.keyTextBox.TextChanged += new System.EventHandler(this.KeyTextBox_TextChanged);
@@ -111,7 +114,7 @@
             this.showKeyPictureBox.InitialImage = global::Crypto_Notepad.Properties.Resources.eye_half;
             this.showKeyPictureBox.Location = new System.Drawing.Point(269, 39);
             this.showKeyPictureBox.Name = "showKeyPictureBox";
-            this.showKeyPictureBox.Size = new System.Drawing.Size(18, 22);
+            this.showKeyPictureBox.Size = new System.Drawing.Size(19, 23);
             this.showKeyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.showKeyPictureBox.TabIndex = 3;
             this.showKeyPictureBox.TabStop = false;
