@@ -199,6 +199,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\clock--plus.png" />
+    <None Include="Resources\clock_add.png" />
     <None Include="Resources\clipboard-text.png" />
     <None Include="Resources\Updater.exe" />
     <None Include="Resources\application.png" />

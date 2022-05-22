@@ -59,6 +59,7 @@
             this.clearClipboardMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.wordWrapMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.readOnlyMainMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertDateTimeMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.clearMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMainMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -314,6 +315,7 @@
             this.clearClipboardMainMenu,
             this.wordWrapMainMenu,
             this.readOnlyMainMenu,
+            this.insertDateTimeMainMenu,
             this.mainMenuSeparator7,
             this.clearMainMenu});
             this.editMainMenu.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -433,6 +435,14 @@
             this.readOnlyMainMenu.Size = new System.Drawing.Size(198, 22);
             this.readOnlyMainMenu.Text = "Readonly";
             this.readOnlyMainMenu.Click += new System.EventHandler(this.ReadOnlyMainMenu_Click);
+            // 
+            // insertDateTimeMainMenu
+            // 
+            this.insertDateTimeMainMenu.Name = "insertDateTimeMainMenu";
+            this.insertDateTimeMainMenu.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.insertDateTimeMainMenu.Size = new System.Drawing.Size(198, 22);
+            this.insertDateTimeMainMenu.Text = "Insert Date Time";
+            this.insertDateTimeMainMenu.Click += new System.EventHandler(this.InsertDateTimeMainMenu_Click);
             // 
             // mainMenuSeparator7
             // 
@@ -1548,5 +1558,6 @@
         private System.Windows.Forms.ToolStripMenuItem pasteBoardMainMenu;
         private System.Windows.Forms.Timer pasteBoardTimer;
         protected internal System.Windows.Forms.ToolStripStatusLabel statusPanelPasteboardLabel;
+        private System.Windows.Forms.ToolStripMenuItem insertDateTimeMainMenu;
     }
 }

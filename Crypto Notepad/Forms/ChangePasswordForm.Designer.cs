@@ -35,11 +35,11 @@
             this.lockPictureBox = new System.Windows.Forms.PictureBox();
             this.showNewKeyPictureBox = new System.Windows.Forms.PictureBox();
             this.showOldKeyPictureBox = new System.Windows.Forms.PictureBox();
-            this.oldKeyTextBox = new System.Windows.Forms.PlaceholderTextBox();
-            this.newKeyTextBox = new System.Windows.Forms.PlaceholderTextBox();
             this.statusLabel = new System.Windows.Forms.Label();
             this.changeKeyFormToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.passwordGeneratorButton = new System.Windows.Forms.Button();
+            this.oldKeyTextBox = new System.Windows.Forms.PlaceholderTextBox();
+            this.newKeyTextBox = new System.Windows.Forms.PlaceholderTextBox();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lockPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.showNewKeyPictureBox)).BeginInit();
@@ -49,6 +49,7 @@
             // acceptButton
             // 
             this.acceptButton.Enabled = false;
+            this.acceptButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.acceptButton.Location = new System.Drawing.Point(211, 80);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(53, 25);
@@ -78,7 +79,7 @@
             this.lockPictureBox.Image = global::Crypto_Notepad.Properties.Resources.gnupg_keys;
             this.lockPictureBox.Location = new System.Drawing.Point(8, 14);
             this.lockPictureBox.Name = "lockPictureBox";
-            this.lockPictureBox.Size = new System.Drawing.Size(47, 47);
+            this.lockPictureBox.Size = new System.Drawing.Size(48, 48);
             this.lockPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.lockPictureBox.TabIndex = 7;
             this.lockPictureBox.TabStop = false;
@@ -90,7 +91,7 @@
             this.showNewKeyPictureBox.Image = global::Crypto_Notepad.Properties.Resources.eye_half;
             this.showNewKeyPictureBox.Location = new System.Drawing.Point(269, 39);
             this.showNewKeyPictureBox.Name = "showNewKeyPictureBox";
-            this.showNewKeyPictureBox.Size = new System.Drawing.Size(18, 22);
+            this.showNewKeyPictureBox.Size = new System.Drawing.Size(19, 23);
             this.showNewKeyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.showNewKeyPictureBox.TabIndex = 5;
             this.showNewKeyPictureBox.TabStop = false;
@@ -103,39 +104,11 @@
             this.showOldKeyPictureBox.Image = global::Crypto_Notepad.Properties.Resources.eye_half;
             this.showOldKeyPictureBox.Location = new System.Drawing.Point(269, 14);
             this.showOldKeyPictureBox.Name = "showOldKeyPictureBox";
-            this.showOldKeyPictureBox.Size = new System.Drawing.Size(18, 22);
+            this.showOldKeyPictureBox.Size = new System.Drawing.Size(19, 23);
             this.showOldKeyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.showOldKeyPictureBox.TabIndex = 5;
             this.showOldKeyPictureBox.TabStop = false;
             this.showOldKeyPictureBox.Click += new System.EventHandler(this.ShowOldKeyPictureBox_Click);
-            // 
-            // oldKeyTextBox
-            // 
-            this.oldKeyTextBox.Location = new System.Drawing.Point(64, 14);
-            this.oldKeyTextBox.Name = "oldKeyTextBox";
-            this.oldKeyTextBox.Placeholder = "Old password";
-            this.oldKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
-            this.oldKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.oldKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.oldKeyTextBox.Size = new System.Drawing.Size(206, 22);
-            this.oldKeyTextBox.TabIndex = 0;
-            this.oldKeyTextBox.UseSystemPasswordChar = true;
-            this.oldKeyTextBox.TextChanged += new System.EventHandler(this.OldKeyTextBox_TextChanged);
-            this.oldKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OldKeyTextBox_KeyDown);
-            // 
-            // newKeyTextBox
-            // 
-            this.newKeyTextBox.Location = new System.Drawing.Point(64, 39);
-            this.newKeyTextBox.Name = "newKeyTextBox";
-            this.newKeyTextBox.Placeholder = "New password";
-            this.newKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
-            this.newKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.newKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.newKeyTextBox.Size = new System.Drawing.Size(206, 22);
-            this.newKeyTextBox.TabIndex = 1;
-            this.newKeyTextBox.UseSystemPasswordChar = true;
-            this.newKeyTextBox.TextChanged += new System.EventHandler(this.NewKeyTextBox_TextChanged);
-            this.newKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NewKeyTextBox_KeyDown);
             // 
             // statusLabel
             // 
@@ -158,6 +131,36 @@
             this.changeKeyFormToolTip.SetToolTip(this.passwordGeneratorButton, "Password Generator");
             this.passwordGeneratorButton.UseVisualStyleBackColor = true;
             this.passwordGeneratorButton.Click += new System.EventHandler(this.PasswordGeneratorButton_Click);
+            // 
+            // oldKeyTextBox
+            // 
+            this.oldKeyTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.oldKeyTextBox.Location = new System.Drawing.Point(64, 14);
+            this.oldKeyTextBox.Name = "oldKeyTextBox";
+            this.oldKeyTextBox.Placeholder = "Old password";
+            this.oldKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
+            this.oldKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.oldKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.oldKeyTextBox.Size = new System.Drawing.Size(206, 23);
+            this.oldKeyTextBox.TabIndex = 0;
+            this.oldKeyTextBox.UseSystemPasswordChar = true;
+            this.oldKeyTextBox.TextChanged += new System.EventHandler(this.OldKeyTextBox_TextChanged);
+            this.oldKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OldKeyTextBox_KeyDown);
+            // 
+            // newKeyTextBox
+            // 
+            this.newKeyTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.newKeyTextBox.Location = new System.Drawing.Point(64, 39);
+            this.newKeyTextBox.Name = "newKeyTextBox";
+            this.newKeyTextBox.Placeholder = "New password";
+            this.newKeyTextBox.PlaceholderActiveForeColor = System.Drawing.Color.DarkGray;
+            this.newKeyTextBox.PlaceholderFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.newKeyTextBox.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.newKeyTextBox.Size = new System.Drawing.Size(206, 23);
+            this.newKeyTextBox.TabIndex = 1;
+            this.newKeyTextBox.UseSystemPasswordChar = true;
+            this.newKeyTextBox.TextChanged += new System.EventHandler(this.NewKeyTextBox_TextChanged);
+            this.newKeyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NewKeyTextBox_KeyDown);
             // 
             // ChangePasswordForm
             // 

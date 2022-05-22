@@ -681,6 +681,7 @@ namespace Crypto_Notepad
                 clearClipboardMainMenu.Image = Resources.clipboard_minus;
                 wordWrapMainMenu.Image = Resources.wrap_option;
                 readOnlyMainMenu.Image = Resources.document_pencil;
+                insertDateTimeMainMenu.Image = Resources.clock_plus;
                 clearMainMenu.Image = Resources.document;
                 changePasswordMainMenu.Image = Resources.key;
                 lockMainMenu.Image = Resources.lock_warning;
@@ -788,6 +789,7 @@ namespace Crypto_Notepad
                 pasteToolbarButton.Image = Resources.old_paste_plain;
                 changePasswordToolbarButton.Image = Resources.old_page_white_key;
                 lockToolbarButton.Image = Resources.old_lock;
+                insertDateTimeMainMenu.Image = Resources.old_clock_add;
                 tryToDecryptToolbarButton.Image = Resources.old_lock_edit;
                 settingsToolbarButton.Image = Resources.old_setting_tools;
                 alwaysOnTopToolbarButton.Image = Resources.old_application_double;
@@ -804,6 +806,7 @@ namespace Crypto_Notepad
                 pasteToolbarButton.Image = Resources.clipboard;
                 changePasswordToolbarButton.Image = Resources.key;
                 lockToolbarButton.Image = Resources.lock_warning;
+                insertDateTimeMainMenu.Image = Resources.clock_plus;
                 tryToDecryptToolbarButton.Image = Resources.lock_pencil;
                 settingsToolbarButton.Image = Resources.gear;
                 alwaysOnTopToolbarButton.Image = Resources.applications_blue;
@@ -836,6 +839,18 @@ namespace Crypto_Notepad
                     Text = Text.Replace("*", string.Empty);
                 }
             }
+            //if (richTextBox.Modified == true)
+            //{
+            //    if (!Text.Contains("*"))
+            //    {
+            //        Text = Text.Insert(0, "*");
+            //        if (string.IsNullOrEmpty(PublicVar.openFileName) & richTextBox.TextLength > 0)
+            //        {
+            //            Text = "Unnamed.cnp" + " – " + PublicVar.appName;
+            //            Text = Text.Insert(0, "*");
+            //        }
+            //    }
+            //}
         }
         private void StatusPanel_VisibleChanged(object sender, EventArgs e)
         {
@@ -1144,7 +1159,7 @@ namespace Crypto_Notepad
 
         private void RichTextBox_TextChanged(object sender, EventArgs e)
         {
-            statusPanelTimer.Start();
+           statusPanelTimer.Start();
             if (richTextBox.Modified)
             {
                 if (!Text.Contains("*"))
@@ -1608,6 +1623,24 @@ namespace Crypto_Notepad
         {
             richTextBox.ReadOnly = readOnlyMainMenu.Checked;
             statusPanelReadonlyLabel.Text = "Readonly: " + readOnlyMainMenu.Checked.ToString();
+        }
+
+        private void InsertDateTimeMainMenu_Click(object sender, EventArgs e)
+        {
+            DateTime now = DateTime.Now;
+            richTextBox.Text += now.ToString();
+            richTextBox.SelectionStart = richTextBox.Text.Length;
+            richTextBox.ScrollToCaret();
+            richTextBox.Modified = true;
+            if (!Text.Contains("*"))
+            {
+                Text = Text.Insert(0, "*");
+                if (string.IsNullOrEmpty(PublicVar.openFileName) & richTextBox.TextLength > 0)
+                {
+                    Text = "Unnamed.cnp" + " – " + PublicVar.appName;
+                    Text = Text.Insert(0, "*");
+                }
+            }
         }
 
         private void WordWrapMainMenu_Click(object sender, EventArgs e)
@@ -2292,10 +2325,10 @@ namespace Crypto_Notepad
 
 
 
+
+
+
         #endregion
-
-
-
 
     }
 }
