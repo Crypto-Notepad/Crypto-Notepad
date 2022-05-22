@@ -19,7 +19,7 @@ namespace Crypto_Notepad.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -156,6 +156,16 @@ namespace Crypto_Notepad.Properties {
         internal static System.Drawing.Bitmap clipboard_text {
             get {
                 object obj = ResourceManager.GetObject("clipboard_text", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clock_plus {
+            get {
+                object obj = ResourceManager.GetObject("clock_plus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -416,6 +426,16 @@ namespace Crypto_Notepad.Properties {
         internal static System.Drawing.Bitmap old_application_double {
             get {
                 object obj = ResourceManager.GetObject("old_application_double", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap old_clock_add {
+            get {
+                object obj = ResourceManager.GetObject("old_clock_add", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

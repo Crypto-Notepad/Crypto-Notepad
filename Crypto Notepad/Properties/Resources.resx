@@ -827,7 +827,7 @@
         XTesb3QPLh88M+QwdP6m681Lt7xuXbu94vbgcOjwnZHokdE77DtTd1PuvriXeW/h/sYH6AdFD6UeVjxS
         fNTws+7PbaOWo6fHXMf6Hwc/vj/OGn/2S8Yv7ycKnpCfVEyqTDZPmU2dmnafvvF05dOJZ+nPFmYKf5X+
         tfa5zvMffnP8rX82YnbiBf/Fp99LXsq/PPRq2aueuYC5R69TXy/MF72Rf3P4LeNt37vwd5MLWe+x7ys/
-        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAALEwAACxMBAJqcGAAALoFJREFUeF7t3X3o7Vd1
+        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAALEgAACxIB0t1+/AAALoFJREFUeF7t3X3o7Vd1
         53FBEAIFoSAUAoLgXwUf8nSdTOzMoNQRUiyVDmFSBgYEO/EpNU18aDSJSWgkbaY6qTJ2Ok2JWELFpo5W
         +zBRR8fU0IzWmNZMklGTjq0mmsbEufGa3/l9Z6277k3vPfdz9v2e81tnf8/e3/eCF5XV3LPO75y9v9/P
         73E/axgGAAAwM7IJAAD6JpsAAKBvsgkAAPommwAAoG+yCQAA+iabAACgb7IJAAD6JpsAAKBvsgkAAPom
@@ -1125,5 +1125,11 @@
   </data>
   <data name="clipboard_text" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clipboard-text.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clock_plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clock--plus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="old_clock_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clock_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
