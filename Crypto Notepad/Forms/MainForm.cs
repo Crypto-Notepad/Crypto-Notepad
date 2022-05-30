@@ -1628,9 +1628,7 @@ namespace Crypto_Notepad
         private void InsertDateTimeMainMenu_Click(object sender, EventArgs e)
         {
             DateTime now = DateTime.Now;
-            richTextBox.Text += now.ToString();
-            richTextBox.SelectionStart = richTextBox.Text.Length;
-            richTextBox.ScrollToCaret();
+            richTextBox.SelectedText = now.ToString();
             richTextBox.Modified = true;
             if (!Text.Contains("*"))
             {
