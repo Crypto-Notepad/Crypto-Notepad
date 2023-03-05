@@ -27,12 +27,22 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 * Rich settings
 * Portable
 
+## Installation
+Via chocolatey:
+```
+choco install crypto-notepad
+```
+Manual instalition:
+- [Download](https://github.com/Crypto-Notepad/Crypto-Notepad/releases/latest) latest release.
+- Unzip **Crypto.Notepad.zip** archive to any directory
+- Run **Crypto Notepad.exe**
+
 ## System requirements
 * Windows 7 SP1 and higher
 * .NET Framework 4.6.1 and higher
 
-## Contributing
-Want to help make the project better? Check out [CONTRIBUTING.md](https://github.com/Crypto-Notepad/Crypto-Notepad/blob/master/CONTRIBUTING.md) to get involved. Welcome! :octocat:
-
 ## Build
 App was created in Visual Studio Community, you can run the *.sln file and simply build a project
+
+## Contributing
+Want to help make the project better? Check out [CONTRIBUTING.md](https://github.com/Crypto-Notepad/Crypto-Notepad/blob/master/CONTRIBUTING.md) to get involved. Welcome! :octocat:
