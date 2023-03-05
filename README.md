@@ -28,11 +28,11 @@ Notepad-like simple text editor for Windows, where files are saved and loaded en
 * Portable
 
 ## Installation
-Via chocolatey:
+### Via chocolatey:
 ```
 choco install crypto-notepad
 ```
-Manual instalition:
+### Manual instalition:
 - [Download](https://github.com/Crypto-Notepad/Crypto-Notepad/releases/latest) latest release.
 - Unzip **Crypto.Notepad.zip** archive to any directory
 - Run **Crypto Notepad.exe**
