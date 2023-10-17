@@ -41,7 +41,7 @@
             this.appVersionLabel.AutoSize = true;
             this.appVersionLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.appVersionLabel.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.appVersionLabel.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.appVersionLabel.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.appVersionLabel.Location = new System.Drawing.Point(4, 10);
             this.appVersionLabel.Name = "appVersionLabel";
             this.appVersionLabel.Size = new System.Drawing.Size(210, 22);
@@ -68,11 +68,11 @@
             // 
             // appInfoRichTextBox
             // 
-            this.appInfoRichTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.appInfoRichTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.appInfoRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.appInfoRichTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.appInfoRichTextBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.appInfoRichTextBox.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.appInfoRichTextBox.ForeColor = System.Drawing.Color.Gainsboro;
             this.appInfoRichTextBox.Location = new System.Drawing.Point(0, 44);
             this.appInfoRichTextBox.Name = "appInfoRichTextBox";
             this.appInfoRichTextBox.ReadOnly = true;
@@ -90,7 +90,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(435, 323);
             this.Controls.Add(this.appInfoRichTextBox);
             this.Controls.Add(this.appVersionLabel);
