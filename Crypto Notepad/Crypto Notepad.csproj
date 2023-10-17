@@ -93,7 +93,9 @@
     <Reference Include="PasswordGenerator, Version=2.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PasswordGenerator.2.0.5\lib\netstandard2.0\PasswordGenerator.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Diagnostics.Contracts" />
@@ -102,7 +104,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Drawing.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -167,6 +171,7 @@
     <Compile Include="External Libraries\Methods.cs" />
     <EmbeddedResource Include="Forms\AboutFrom.resx">
       <DependentUpon>AboutFrom.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
