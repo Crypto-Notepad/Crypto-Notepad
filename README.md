@@ -1,10 +1,11 @@
 [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua/)
 
-- **THE PROJECT HAS VERY LIMITED SUPPORT**
-- **NO NEW FEATURES ARE IN THE WORKS**
-- **FIXING ONLY CRITICAL BUGS**
-
 # Crypto Notepad [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Simple%20notepad%20for%20Windows%20with%20encryption%20features.%20Download%20for%20free:%20https://crypto-notepad.github.io/&hashtags=notepad,encryption,windows,opensource,csharp)
+
+> [!WARNING]  
+> - **THE PROJECT HAS VERY LIMITED SUPPORT**  
+> - **NO NEW FEATURES ARE PLANNED**  
+> - **ONLY CRITICAL BUG FIXES WILL BE ADDRESSED**
 
 [![downloads](https://img.shields.io/github/downloads/Crypto-Notepad/Crypto-Notepad/total.svg)](https://github.com/Crypto-Notepad/Crypto-Notepad/releases/latest)
 [![license](https://img.shields.io/github/license/Crypto-Notepad/Crypto-Notepad.svg?color=6DAAAE)](https://github.com/Crypto-Notepad/Crypto-Notepad/blob/master/LICENSE)
