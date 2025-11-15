@@ -4,7 +4,7 @@ Before starting, make sure that you visited the [projects](https://github.com/Cr
 ## How to contribute to Crypto Notepad
 
 ### Did you find any bug/have an idea how to improve the project?
-* Send me a message: [`telegram`](https://t.me/Sigmanor) [`facebook`](https://www.fb.com/SlGMANOR) [`email`](mailto:sigmanor@pm.me)
+* Send me a message: [`email`](mailto:dock-brunt-rarity@duck.com)
 * Create an [issue](https://github.com/Sigmanor/Crypto-Notepad/issues/new/choose).
 
 ###  You can help me fix some bug/implement a new feature?
